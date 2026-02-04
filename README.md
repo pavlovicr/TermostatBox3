@@ -42,4 +42,4 @@ The application initializes the display and sensor, then continuously reads and 
 
 ## License
 
-[Add license information here]
+[Add license information here]# TermostatBox3
