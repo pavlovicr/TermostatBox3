@@ -97,11 +97,12 @@ void app_main(void)
     ESP_ERROR_CHECK(display_manager_init());
     
     // 2. Inicializacija senzorja (AHT21 na GPIO40/41)
-    ESP_LOGI(TAG, "Initializing AHT21 sensor...");
+    ESP_LOGI(TAG, "Inicializiram AHT21 senzor...");
     esp_err_t ret = sensor_manager_init();
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize sensor manager: %s", esp_err_to_name(ret));
-        ESP_LOGE(TAG, "Check I2C connections: SCL=GPIO40, SDA=GPIO41");
+        ESP_LOGE(TAG, "Napaka pri inicializaciji sensor managerja: %s", esp_err_to_name(ret));
+        ESP_LOGE(TAG, "Cekiranje I2C connections: SCL=GPIO40, SDA=GPIO41");
+        
         // Nastavi display, ampak prikaži napako
         display_manager_set_brightness(100);
         create_thermostat_ui();
