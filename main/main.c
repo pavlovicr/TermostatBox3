@@ -1,138 +1,90 @@
-
-
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_log.h"
+
+#include "config.h"
 #include "display_manager.h"
 #include "sensor_manager.h"
-#include "bsp/esp-bsp.h"
+#include "ui_manager.h"
 
 static const char *TAG = "main";
 
-// UI elementi
-static lv_obj_t *temp_label = NULL;
-static lv_obj_t *hum_label = NULL;
+static float target_temperature = DEFAULT_TARGET_TEMP;
 
 /**
- * @brief Kreira UI za prikaz temperature in vlažnosti
+ * @brief Task za periodično branje senzorjev
  */
-static void create_thermostat_ui(void)
+static void sensor_update_task(void *arg)
 {
-    lv_obj_t *screen = display_manager_get_screen();
+    sensor_data_t data;  // ← sensor_manager struktura
     
-    bsp_display_lock(0);
-    
-    // Naslov
-    lv_obj_t *title = lv_label_create(screen);
-    lv_label_set_text(title, "Termostat Box 3");
-    lv_obj_set_style_text_font(title, &lv_font_montserrat_16, 0);
-    lv_obj_set_style_text_color(title, lv_color_white(), 0);
-    lv_obj_align(title, LV_ALIGN_TOP_MID, 0, 20);
-    
-    // Temperature display
-    temp_label = lv_label_create(screen);
-    lv_label_set_text(temp_label, "--.-°C");
-    lv_obj_set_style_text_font(temp_label, &lv_font_montserrat_48, 0);
-    lv_obj_set_style_text_color(temp_label, lv_color_hex(0x00FF00), 0);
-    lv_obj_align(temp_label, LV_ALIGN_CENTER, 0, -30);
-    
-    // Humidity display
-    hum_label = lv_label_create(screen);
-    lv_label_set_text(hum_label, "--.-%");
-    lv_obj_set_style_text_font(hum_label, &lv_font_montserrat_32, 0);
-    lv_obj_set_style_text_color(hum_label, lv_color_hex(0x00BFFF), 0);
-    lv_obj_align(hum_label, LV_ALIGN_CENTER, 0, 40);
-    
-    bsp_display_unlock();
-    
-    ESP_LOGI(TAG, "Thermostat UI created");
-}
-
-/**
- * @brief Posodobi prikaz temperature in vlažnosti
- */
-static void update_sensor_display(void)
-{
-    sensor_data_t data;
-    
-    // Preberi podatke iz senzorja
-    esp_err_t ret = sensor_manager_read(&data);
-    
-    if (ret == ESP_OK && data.valid) {
-        char temp_str[32];
-        char hum_str[32];
+    while (1) {
+        esp_err_t ret = sensor_manager_read(&data);
         
-        snprintf(temp_str, sizeof(temp_str), "%.1f°C", data.temperature);
-        snprintf(hum_str, sizeof(hum_str), "%.1f%%", data.humidity);
+        if (ret == ESP_OK && data.valid) {
+            // Posodobi UI - ločeni klici za temp in humidity
+            ui_manager_update_temperature(data.temperature, true);
+            ui_manager_update_humidity(data.humidity, true);
+            
+            // Thermostat logika
+            if (data.temperature < target_temperature - TEMP_HYSTERESIS) {
+                ui_manager_update_furnace_status("HEATING", COLOR_FURNACE_ON);
+                // TODO: gpio_set_level(FURNACE_RELAY_GPIO, 1);
+            } else if (data.temperature > target_temperature + TEMP_HYSTERESIS) {
+                ui_manager_update_furnace_status("OFF", COLOR_FURNACE_OFF);
+                // TODO: gpio_set_level(FURNACE_RELAY_GPIO, 0);
+            }
+            
+            ESP_LOGI(TAG, "T: %.1f°C, H: %.1f%%, Target: %.1f°C", 
+                     data.temperature, data.humidity, target_temperature);
+        } else {
+            // Napaka pri branju senzorja
+            ui_manager_show_sensor_error();
+            ui_manager_update_furnace_status("ERROR", COLOR_TEMP_ERROR);
+            ESP_LOGW(TAG, "Sensor read failed");
+        }
         
-        bsp_display_lock(0);
-        lv_label_set_text(temp_label, temp_str);
-        lv_label_set_text(hum_label, hum_str);
-        bsp_display_unlock();
-        
-        ESP_LOGI(TAG, "Temperature: %.1f°C, Humidity: %.1f%%", 
-                 data.temperature, data.humidity);
-    } else {
-        ESP_LOGW(TAG, "Failed to read sensor data");
-        
-        bsp_display_lock(0);
-        lv_label_set_text(temp_label, "ERROR");
-        lv_label_set_text(hum_label, "ERROR");
-        bsp_display_unlock();
+        vTaskDelay(pdMS_TO_TICKS(SENSOR_READ_INTERVAL_MS));
     }
 }
 
-/**
- * @brief app_main - entry point aplikacije
- */
 void app_main(void)
 {
     ESP_LOGI(TAG, "=================================");
-    ESP_LOGI(TAG, "ESP32-BOX-3 Thermostat Starting");
+    ESP_LOGI(TAG, "ESP32-BOX-3 Thermostat v2.0");
     ESP_LOGI(TAG, "=================================");
     
-    // 1. Inicializacija display sistema
-    ESP_LOGI(TAG, "Initializing display...");
-    ESP_ERROR_CHECK(display_manager_init());
+    // ═══════════════════════════════════════
+    // INICIALIZACIJE
+    // ═══════════════════════════════════════
     
-    // 2. Inicializacija senzorja (AHT21 na GPIO40/41)
-    ESP_LOGI(TAG, "Inicializiram AHT21 senzor...");
+    // 1. Display HW
+    ESP_LOGI(TAG, "[1/3] Initializing display...");
+    ESP_ERROR_CHECK(display_manager_init());
+    display_manager_set_brightness(DISPLAY_BRIGHTNESS_DEFAULT);
+    
+    // 2. UI rendering
+    ESP_LOGI(TAG, "[2/3] Creating UI...");
+    ESP_ERROR_CHECK(ui_manager_init());
+    ui_manager_set_target_temperature(target_temperature);
+    
+    // 3. Sensor HW
+    ESP_LOGI(TAG, "[3/3] Initializing sensor...");
     esp_err_t ret = sensor_manager_init();
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Napaka pri inicializaciji sensor managerja: %s", esp_err_to_name(ret));
-        ESP_LOGE(TAG, "Cekiranje I2C connections: SCL=GPIO40, SDA=GPIO41");
-        
-        // Nastavi display, ampak prikaži napako
-        display_manager_set_brightness(100);
-        create_thermostat_ui();
-        
-        bsp_display_lock(0);
-        lv_label_set_text(temp_label, "SENSOR");
-        lv_label_set_text(hum_label, "ERROR");
-        bsp_display_unlock();
-        
-        // Ne prekini programa - lahko še vedno testiraš display
-        while (1) {
-            vTaskDelay(pdMS_TO_TICKS(5000));
-        }
+        ESP_LOGE(TAG, "Sensor init failed: %s", esp_err_to_name(ret));
+        ui_manager_show_sensor_error();
+        // Nadaljuj brez senzorja (za debug display-a)
     }
-    
-    vTaskDelay(pdMS_TO_TICKS(100));
-    
-    // 3. Kreiranje UI
-    ESP_LOGI(TAG, "Creating UI...");
-    create_thermostat_ui();
-    
-    // 4. Nastavitev svetlosti
-    display_manager_set_brightness(100);
     
     ESP_LOGI(TAG, "Initialization complete!");
-    ESP_LOGI(TAG, "Reading sensor every 2 seconds...");
     
-    // 5. Main loop - periodično branje temperature in vlažnosti
-    while (1) {
-        update_sensor_display();
-        vTaskDelay(pdMS_TO_TICKS(2000)); // Vsake 2 sekundi
-    }
+    // ═══════════════════════════════════════
+    // ŠTART TASKOV
+    // ═══════════════════════════════════════
+    
+    xTaskCreate(sensor_update_task, "sensor_update", 4096, NULL, 5, NULL);
+    
+    ESP_LOGI(TAG, "System running...");
 }

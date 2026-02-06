@@ -1,12 +1,3 @@
-
-# Display Manager komponenta
-#
-# Ta CMakeLists.txt pove ESP-IDF build sistemu:
-# 1. Katere source datoteke kompajlirati
-# 2. Kje so header datoteke
-# 3. Na katere komponente je odvisna
-
-# idf_component_register je KLJUČNA CMake funkcija za ESP-IDF komponente
 idf_component_register(
     # SRCS: Seznam vseh .c datotek za kompajliranje
     SRCS "display_manager.c"

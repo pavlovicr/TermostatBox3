@@ -1,0 +1,54 @@
+menu "Thermostat Configuration"
+
+    menu "Temperature Settings"
+        
+        config THERMOSTAT_DEFAULT_TARGET_TEMP
+            int "Default target temperature (°C)"
+            range 15 30
+            default 21
+        
+        config THERMOSTAT_TEMP_HYSTERESIS
+            int "Temperature hysteresis (0.1°C units)"
+            range 1 20
+            default 5
+            help
+                Hysteresis to prevent relay flickering.
+                Example: 5 = 0.5°C
+    
+    endmenu
+
+    menu "Display Settings"
+        
+        config THERMOSTAT_BRIGHTNESS_DEFAULT
+            int "Default brightness (%)"
+            range 0 100
+            default 30
+        
+        config THERMOSTAT_BRIGHTNESS_NIGHT
+            int "Night mode brightness (%)"
+            range 0 100
+            default 10
+    
+    endmenu
+
+    menu "Sensor Settings"
+        
+        config THERMOSTAT_SENSOR_INTERVAL_MS
+            int "Sensor read interval (ms)"
+            range 500 10000
+            default 2000
+        
+        choice THERMOSTAT_SENSOR_TYPE
+            prompt "Temperature sensor type"
+            default THERMOSTAT_SENSOR_AHT21
+            
+            config THERMOSTAT_SENSOR_AHT21
+                bool "AHT21"
+            
+            config THERMOSTAT_SENSOR_DHT22
+                bool "DHT22"
+        endchoice
+    
+    endmenu
+
+endmenu

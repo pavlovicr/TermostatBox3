@@ -16,4 +16,5 @@ idf_component_register(
     REQUIRES 
     display_manager
     sensor_manager
+    ui_manager
 )
