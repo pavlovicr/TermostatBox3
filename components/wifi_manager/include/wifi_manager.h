@@ -9,10 +9,11 @@
 #include <stdbool.h>
 
 /**
- * @brief WiFi status callback
- * @param connected True če je povezan, false če je odpojen
+ * @brief WiFi event callback
+ * @param connected True če je WiFi povezan
+ * @param ip_address IP naslov (če je povezan)
  */
-typedef void (*wifi_status_callback_t)(bool connected);
+typedef void (*wifi_event_callback_t)(bool connected, const char *ip_address);
 
 /**
  * @brief Inicializira WiFi manager
@@ -21,12 +22,13 @@ typedef void (*wifi_status_callback_t)(bool connected);
 esp_err_t wifi_manager_init(void);
 
 /**
- * @brief Poveži se na WiFi
+ * @brief Poveži se na WiFi (blocking)
  * @param ssid WiFi SSID
  * @param password WiFi password
- * @return ESP_OK če uspešno
+ * @param timeout_ms Timeout v ms (0 = neskončno)
+ * @return ESP_OK če uspešno povezan
  */
-esp_err_t wifi_manager_connect(const char *ssid, const char *password);
+esp_err_t wifi_manager_connect(const char *ssid, const char *password, uint32_t timeout_ms);
 
 /**
  * @brief Preveri ali je WiFi povezan
@@ -35,15 +37,21 @@ esp_err_t wifi_manager_connect(const char *ssid, const char *password);
 bool wifi_manager_is_connected(void);
 
 /**
- * @brief Registriraj callback za spremembo statusa
- * @param callback Callback funkcija
+ * @brief Dobi IP naslov (string format)
+ * @param ip_str Buffer za IP (min 16 bytes)
  */
-void wifi_manager_register_status_callback(wifi_status_callback_t callback);
+void wifi_manager_get_ip(char *ip_str, size_t max_len);
 
 /**
- * @brief Dobi IP naslov
- * @param ip_str Buffer za IP string (min 16 bytes)
+ * @brief Registriraj callback za WiFi events
+ * @param callback Callback funkcija
  */
-void wifi_manager_get_ip(char *ip_str);
+void wifi_manager_register_callback(wifi_event_callback_t callback);
+
+/**
+ * @brief Dobi RSSI (signal strength)
+ * @return RSSI v dBm (-100 do 0)
+ */
+int8_t wifi_manager_get_rssi(void);
 
 #endif // WIFI_MANAGER_H
