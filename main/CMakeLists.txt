@@ -17,4 +17,6 @@ idf_component_register(
     display_manager
     sensor_manager
     ui_manager
+    wifi_manager
+    shelly_manager
 )

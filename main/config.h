@@ -32,3 +32,16 @@
 #define COLOR_TARGET_TEMP           0xFFAA00
 
 #endif // CONFIG_H
+
+// ════════════════════════════════════════════
+// NETWORK CONFIGURATION
+// ════════════════════════════════════════════
+#define WIFI_SSID                   "YOUR_WIFI_SSID"
+#define WIFI_PASSWORD               "YOUR_WIFI_PASSWORD"
+
+// ════════════════════════════════════════════
+// SHELLY 2PM CONFIGURATION
+// ════════════════════════════════════════════
+#define SHELLY_IP_ADDRESS           "192.168.1.100"
+#define SHELLY_FURNACE_CHANNEL      0    // Kateri relay (0 ali 1)
+#define SHELLY_STATUS_INTERVAL_MS   10000 // Vsakih 10s preveri status
