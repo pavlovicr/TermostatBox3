@@ -7,11 +7,10 @@
 #include "bsp/esp-bsp.h"
 #include "esp_log.h"
 #include <stdio.h>
-#include <string.h>
 
 static const char *TAG = "ui_mgr";
 
-// File-scope spremenljivke - UI elementi
+// UI elementi (privatno)
 static lv_obj_t *temp_label = NULL;
 static lv_obj_t *hum_label = NULL;
 static lv_obj_t *target_temp_label = NULL;

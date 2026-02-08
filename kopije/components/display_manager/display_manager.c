@@ -2,9 +2,7 @@
 /*
 Kaj imamo v display_manager.c ?
 
-- Inicijalizacija displeja (bsp_display_start)
-- Kreiranje main_screenaglavnega screena (lv_obj_create)"
-- Funkcije za pridobitev glavne
+globalne spremenljivke ""
 
 
 
