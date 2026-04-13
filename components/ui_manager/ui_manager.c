@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 
+
 static const char *TAG = "ui_mgr";
 
 // File-scope spremenljivke - UI elementi
@@ -19,6 +20,21 @@ static lv_obj_t *furnace_status_label = NULL;
 static lv_obj_t *wifi_status_label = NULL;
 static lv_obj_t *power_label = NULL;
 
+//==============NOVO=================
+
+static lv_obj_t *btn_minus = NULL;
+static lv_obj_t *btn_plus = NULL;
+
+//Dodaj button callback funkcije:
+
+
+
+
+
+
+
+
+//====================================================================
 /**
  * @brief WiFi ikona (text-based)
  */
@@ -37,7 +53,13 @@ static const char* get_wifi_icon(int8_t rssi, bool connected)
 static void create_main_screen(void)
 {
     lv_obj_t *screen = display_manager_get_screen();
-    
+
+    // ═══════════════════════════════════════════════
+    // BACKGROUND COLOR 
+    // ═══════════════════════════════════════════════
+    lv_obj_set_style_bg_color(screen, lv_color_hex(0x003a57), 0);
+    lv_obj_set_style_bg_opa(screen, LV_OPA_COVER, 0);
+
     // ═══════════════════════════════════════════════
     // HEADER - WiFi status
     // ═══════════════════════════════════════════════
@@ -100,7 +122,48 @@ static void create_main_screen(void)
     lv_obj_set_style_text_font(power_label, &lv_font_montserrat_14, 0);
     lv_obj_set_style_text_color(power_label, lv_color_hex(0xFFFF00), 0);
     lv_obj_align(power_label, LV_ALIGN_BOTTOM_MID, 0, -25);
+
+    // ═══════════════════════════════════════════════
+    // MINUS BUTTON
+    // ═══════════════════════════════════════════════
+    btn_minus = lv_btn_create(screen);
+    lv_obj_set_size(btn_minus, 80, 60);
+    lv_obj_align(btn_minus, LV_ALIGN_CENTER, -50, 80);  // Levo od centra
     
+    // Button style
+    lv_obj_set_style_bg_color(btn_minus, lv_color_hex(0x404040), 0);
+    lv_obj_set_style_bg_color(btn_minus, lv_color_hex(0x606060), LV_STATE_PRESSED);
+    
+    // Label "-" v gumbu
+    lv_obj_t *label_minus = lv_label_create(btn_minus);
+    lv_label_set_text(label_minus, "-");
+    lv_obj_set_style_text_font(label_minus, &lv_font_montserrat_32, 0);
+    lv_obj_center(label_minus);
+    
+    // Registriraj event
+    //lv_obj_add_event_cb(btn_minus, btn_minus_cb, LV_EVENT_CLICKED, NULL);
+    
+    // ═══════════════════════════════════════════════
+    // PLUS BUTTON
+    // ═══════════════════════════════════════════════
+    btn_plus = lv_btn_create(screen);
+    lv_obj_set_size(btn_plus, 80, 60);
+    lv_obj_align(btn_plus, LV_ALIGN_CENTER, 50, 80);  // Desno od centra
+    
+    // Button style
+    lv_obj_set_style_bg_color(btn_plus, lv_color_hex(0x404040), 0);
+    lv_obj_set_style_bg_color(btn_plus, lv_color_hex(0x606060), LV_STATE_PRESSED);
+    
+    // Label "+" v gumbu
+    lv_obj_t *label_plus = lv_label_create(btn_plus);
+    lv_label_set_text(label_plus, "+");
+    lv_obj_set_style_text_font(label_plus, &lv_font_montserrat_32, 0);
+    lv_obj_center(label_plus);
+    
+    // Registriraj event
+    //lv_obj_add_event_cb(btn_plus, btn_plus_cb, LV_EVENT_CLICKED, NULL);
+    
+   
     ESP_LOGI(TAG, "Main screen created");
 }
 

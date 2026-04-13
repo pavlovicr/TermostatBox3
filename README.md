@@ -1,5 +1,33 @@
 # Termostat Box 3
 
+<p align="center">
+  <img src="images/arlekino-joker.jpg" width="100">
+</p>
+
+<p align="center">
+  <img src="images/esp32s3-BOX-3.png" width="100">
+</p>
+<p align="center">
+  <img src="images/AHT30.png" width="100">
+</p>
+<p align="center">
+  <img src="images/ili9341.png" width="100">
+</p>
+<p align="center">
+  <img src="images/arlekino-joker.jpg" width="100">
+</p>
+<p align="center">
+  <img src="images/arlekino-joker.jpg" width="100">
+</p>
+<p align="center">
+  <img src="images/arlekino-joker.jpg" width="100">
+</p>
+<p align="center">
+  <img src="images/arlekino-joker.jpg" width="100">
+</p>
+
+
+
 A thermostat application for the ESP32-BOX-3 development board that displays temperature and humidity readings from an AHT21 sensor on an LCD screen.
 
 ## Features
