@@ -1,0 +1,51 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/lv\+\_\+init.h}
+\hypertarget{lv__init_8h}{}\label{lv__init_8h}\index{managed\_components/lvgl\_\_lvgl/src/lv\_init.h@{managed\_components/lvgl\_\_lvgl/src/lv\_init.h}}
+{\ttfamily \#include "{}lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}misc/lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+init.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+init.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lv__init_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__init_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__init_8h_a666fa58edac1e61856b2a00fe60308a0}{lv\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{lv__init_8h_a302a9934e9b77badac7f527b5116a156}{lv\+\_\+deinit}} (void)
+\item 
+bool \mbox{\hyperlink{lv__init_8h_a548cb2278027f044b648acd7f02b2f0c}{lv\+\_\+is\+\_\+initialized}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__init_8h_a302a9934e9b77badac7f527b5116a156}\label{lv__init_8h_a302a9934e9b77badac7f527b5116a156} 
+\index{lv\_init.h@{lv\_init.h}!lv\_deinit@{lv\_deinit}}
+\index{lv\_deinit@{lv\_deinit}!lv\_init.h@{lv\_init.h}}
+\doxysubsubsection{\texorpdfstring{lv\_deinit()}{lv\_deinit()}}
+{\footnotesize\ttfamily void lv\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Deinit the \textquotesingle{}lv\textquotesingle{} library \Hypertarget{lv__init_8h_a666fa58edac1e61856b2a00fe60308a0}\label{lv__init_8h_a666fa58edac1e61856b2a00fe60308a0} 
+\index{lv\_init.h@{lv\_init.h}!lv\_init@{lv\_init}}
+\index{lv\_init@{lv\_init}!lv\_init.h@{lv\_init.h}}
+\doxysubsubsection{\texorpdfstring{lv\_init()}{lv\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize LVGL library. Should be called before any other LVGL related function. \Hypertarget{lv__init_8h_a548cb2278027f044b648acd7f02b2f0c}\label{lv__init_8h_a548cb2278027f044b648acd7f02b2f0c} 
+\index{lv\_init.h@{lv\_init.h}!lv\_is\_initialized@{lv\_is\_initialized}}
+\index{lv\_is\_initialized@{lv\_is\_initialized}!lv\_init.h@{lv\_init.h}}
+\doxysubsubsection{\texorpdfstring{lv\_is\_initialized()}{lv\_is\_initialized()}}
+{\footnotesize\ttfamily bool lv\+\_\+is\+\_\+initialized (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns whether the \textquotesingle{}lv\textquotesingle{} library is currently initialized 

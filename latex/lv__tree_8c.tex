@@ -1,0 +1,122 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+tree.c}
+\hypertarget{lv__tree_8c}{}\label{lv__tree_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_tree.c@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_tree.c}}
+{\ttfamily \#include "{}lv\+\_\+tree.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+mem.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+assert.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+tree.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+tree.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{lv__tree_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__tree_8c_a3634abbefe508c1c67673241b92f96e3}\label{lv__tree_8c_a3634abbefe508c1c67673241b92f96e3} 
+\#define {\bfseries INIT\+\_\+\+CHILDREN\+\_\+\+CAP}~4
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tree_8c_af55dc3c2cb6f8f7187336d2f5a406676}{lv\+\_\+tree\+\_\+node\+\_\+create}} (const \mbox{\hyperlink{struct__lv__tree__class__t}{lv\+\_\+tree\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}class\+\_\+p, \mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\begin{DoxyCompactList}\small\item\em Create a tree node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lv__tree_8c_ae10c91a4ad9f8b1a8c2dd14d5a7d3c15}{lv\+\_\+tree\+\_\+node\+\_\+delete}} (\mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}node)
+\begin{DoxyCompactList}\small\item\em Delete a tree node and all its children recursively. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{lv__tree_8c_a7e6bdc51856cabde8ce2996ab4231a32}{lv\+\_\+tree\+\_\+walk}} (const \mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}node, lv\+\_\+tree\+\_\+walk\+\_\+mode\+\_\+t mode, lv\+\_\+tree\+\_\+traverse\+\_\+cb\+\_\+t cb, lv\+\_\+tree\+\_\+before\+\_\+cb\+\_\+t bcb, lv\+\_\+tree\+\_\+after\+\_\+cb\+\_\+t acb, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Walk the tree recursively and call a callback function on each node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__tree__class__t}{lv\+\_\+tree\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__tree_8c_a8e71178759d31a9b2ae184889e1dfc25}{lv\+\_\+tree\+\_\+node\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Tree. The nodes are dynamically allocated by the \textquotesingle{}lv\+\_\+mem\textquotesingle{} module, 
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__tree_8c_af55dc3c2cb6f8f7187336d2f5a406676}\label{lv__tree_8c_af55dc3c2cb6f8f7187336d2f5a406676} 
+\index{lv\_tree.c@{lv\_tree.c}!lv\_tree\_node\_create@{lv\_tree\_node\_create}}
+\index{lv\_tree\_node\_create@{lv\_tree\_node\_create}!lv\_tree.c@{lv\_tree.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tree\_node\_create()}{lv\_tree\_node\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tree\+\_\+node\+\_\+create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__tree__class__t}{lv\+\_\+tree\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{class\+\_\+p,  }\item[{\mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+
+
+Create a tree node. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em class\+\_\+p} & pointer to a class of the node \\
+\hline
+{\em parent} & pointer to the parent node (or NULL if it\textquotesingle{}s the root node) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the new node 
+\end{DoxyReturn}
+\Hypertarget{lv__tree_8c_ae10c91a4ad9f8b1a8c2dd14d5a7d3c15}\label{lv__tree_8c_ae10c91a4ad9f8b1a8c2dd14d5a7d3c15} 
+\index{lv\_tree.c@{lv\_tree.c}!lv\_tree\_node\_delete@{lv\_tree\_node\_delete}}
+\index{lv\_tree\_node\_delete@{lv\_tree\_node\_delete}!lv\_tree.c@{lv\_tree.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tree\_node\_delete()}{lv\_tree\_node\_delete()}}
+{\footnotesize\ttfamily void lv\+\_\+tree\+\_\+node\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{node }\end{DoxyParamCaption})}
+
+
+
+Delete a tree node and all its children recursively. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em node} & pointer to the node to delete \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__tree_8c_a7e6bdc51856cabde8ce2996ab4231a32}\label{lv__tree_8c_a7e6bdc51856cabde8ce2996ab4231a32} 
+\index{lv\_tree.c@{lv\_tree.c}!lv\_tree\_walk@{lv\_tree\_walk}}
+\index{lv\_tree\_walk@{lv\_tree\_walk}!lv\_tree.c@{lv\_tree.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tree\_walk()}{lv\_tree\_walk()}}
+{\footnotesize\ttfamily bool lv\+\_\+tree\+\_\+walk (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__tree__node__t}{lv\+\_\+tree\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{node,  }\item[{lv\+\_\+tree\+\_\+walk\+\_\+mode\+\_\+t}]{mode,  }\item[{lv\+\_\+tree\+\_\+traverse\+\_\+cb\+\_\+t}]{cb,  }\item[{lv\+\_\+tree\+\_\+before\+\_\+cb\+\_\+t}]{bcb,  }\item[{lv\+\_\+tree\+\_\+after\+\_\+cb\+\_\+t}]{acb,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Walk the tree recursively and call a callback function on each node. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em node} & pointer to the root node of the tree \\
+\hline
+{\em mode} & LV\+\_\+\+TREE\+\_\+\+WALK\+\_\+\+PRE\+\_\+\+ORDER or LV\+\_\+\+TREE\+\_\+\+WALK\+\_\+\+POST\+\_\+\+ORDER \\
+\hline
+{\em cb} & callback function to call on each node \\
+\hline
+{\em bcb} & callback function to call before visiting a node \\
+\hline
+{\em acb} & callback function to call after visiting a node \\
+\hline
+{\em user\+\_\+data} & user data to pass to the callback functions \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: traversal is finished; false\+: traversal broken 
+\end{DoxyReturn}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__tree_8c_a8e71178759d31a9b2ae184889e1dfc25}\label{lv__tree_8c_a8e71178759d31a9b2ae184889e1dfc25} 
+\index{lv\_tree.c@{lv\_tree.c}!lv\_tree\_node\_class@{lv\_tree\_node\_class}}
+\index{lv\_tree\_node\_class@{lv\_tree\_node\_class}!lv\_tree.c@{lv\_tree.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tree\_node\_class}{lv\_tree\_node\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__tree__class__t}{lv\+\_\+tree\+\_\+class\+\_\+t}} lv\+\_\+tree\+\_\+node\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ NULL,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__tree__node__t}{lv\_tree\_node\_t}}),}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ NULL,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ NULL,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

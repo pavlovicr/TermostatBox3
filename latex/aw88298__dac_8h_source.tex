@@ -1,0 +1,39 @@
+\doxysection{aw88298\+\_\+dac.\+h}
+\hypertarget{aw88298__dac_8h_source}{}\label{aw88298__dac_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/device/include/aw88298\_dac.h@{managed\_components/espressif\_\_esp\_codec\_dev/device/include/aw88298\_dac.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2024\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_AW88298\_DAC\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_AW88298\_DAC\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}audio\_codec\_if.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}audio\_codec\_ctrl\_if.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}audio\_codec\_gpio\_if.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}esp\_codec\_dev\_vol.h"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ AW88298\_CODEC\_DEFAULT\_ADDR\ (0x36\ <<\ 1)}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\_codec\_ctrl\_if\_t}}\ *\mbox{\hyperlink{structaw88298__codec__cfg__t_ae47a49d6c1ea90057c89e3e7ad4fbd23}{ctrl\_if}};\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}}\ *\mbox{\hyperlink{structaw88298__codec__cfg__t_a41881f1a0d5cd261c5a9a64b89bdf7b5}{gpio\_if}};\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ int16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structaw88298__codec__cfg__t_ab1a62558cafcc7effe1f93cb5aabad2a}{reset\_pin}};\ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structesp__codec__dev__hw__gain__t}{esp\_codec\_dev\_hw\_gain\_t}}\ \ \ \ \ \ \mbox{\hyperlink{structaw88298__codec__cfg__t_ad10cbf317e917b2699cbbcf7002124fa}{hw\_gain}};\ \ \ \ \ }
+\DoxyCodeLine{00028\ \}\ \mbox{\hyperlink{structaw88298__codec__cfg__t}{aw88298\_codec\_cfg\_t}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__if__t}{audio\_codec\_if\_t}}\ *aw88298\_codec\_new(\mbox{\hyperlink{structaw88298__codec__cfg__t}{aw88298\_codec\_cfg\_t}}\ *codec\_cfg);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00040\ \}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

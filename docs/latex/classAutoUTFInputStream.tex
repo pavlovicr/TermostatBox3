@@ -1,0 +1,89 @@
+\doxysection{ Razred Auto\+UTFInput\+Stream\texorpdfstring{$<$}{<} Char\+Type, Input\+Byte\+Stream \texorpdfstring{$>$}{>}}
+\hypertarget{classAutoUTFInputStream}{}\label{classAutoUTFInputStream}\index{AutoUTFInputStream$<$ CharType, InputByteStream $>$@{AutoUTFInputStream$<$ CharType, InputByteStream $>$}}
+
+
+Input stream wrapper with dynamically bound encoding and automatic encoding detection.  
+
+
+
+
+{\ttfamily \#include $<$encodedstream.\+h$>$}
+
+\doxysubsubsection*{Javni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classAutoUTFInputStream_a3bb3eb46f2c20404a7ac21963cfe348f}\label{classAutoUTFInputStream_a3bb3eb46f2c20404a7ac21963cfe348f} 
+typedef Char\+Type {\bfseries Ch}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAutoUTFInputStream_a83837fced0971ba26dd9a8ec1575abb0}{Auto\+UTFInput\+Stream}} (Input\+Byte\+Stream \&is, UTFType type=k\+UTF8)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classAutoUTFInputStream_ad8e8b71e852db11a841fbba40431c5d1}\label{classAutoUTFInputStream_ad8e8b71e852db11a841fbba40431c5d1} 
+UTFType {\bfseries Get\+Type} () const
+\item 
+\Hypertarget{classAutoUTFInputStream_a8831def623c28a3ec1d59b75abe5b20e}\label{classAutoUTFInputStream_a8831def623c28a3ec1d59b75abe5b20e} 
+bool {\bfseries Has\+BOM} () const
+\item 
+\Hypertarget{classAutoUTFInputStream_a616fbe24878a2026fbc7743acb50438c}\label{classAutoUTFInputStream_a616fbe24878a2026fbc7743acb50438c} 
+Ch {\bfseries Peek} () const
+\item 
+\Hypertarget{classAutoUTFInputStream_a652cd1ae8bd848a5ecce4efa1ebd0f38}\label{classAutoUTFInputStream_a652cd1ae8bd848a5ecce4efa1ebd0f38} 
+Ch {\bfseries Take} ()
+\item 
+\Hypertarget{classAutoUTFInputStream_a6b847c75309e4ed36957f232b9ce88d1}\label{classAutoUTFInputStream_a6b847c75309e4ed36957f232b9ce88d1} 
+size\+\_\+t {\bfseries Tell} () const
+\item 
+\Hypertarget{classAutoUTFInputStream_a5ea730d1ab715f58ce4f9e3dcd77810a}\label{classAutoUTFInputStream_a5ea730d1ab715f58ce4f9e3dcd77810a} 
+void {\bfseries Put} (Ch)
+\item 
+\Hypertarget{classAutoUTFInputStream_aecc08f52794d761fc1b729907a83dcf8}\label{classAutoUTFInputStream_aecc08f52794d761fc1b729907a83dcf8} 
+void {\bfseries Flush} ()
+\item 
+\Hypertarget{classAutoUTFInputStream_a5ed99e5f59547e83575b7f65cb4ea643}\label{classAutoUTFInputStream_a5ed99e5f59547e83575b7f65cb4ea643} 
+Ch \texorpdfstring{$\ast$}{*} {\bfseries Put\+Begin} ()
+\item 
+\Hypertarget{classAutoUTFInputStream_a41bd66602f82d344383792feac34f9f7}\label{classAutoUTFInputStream_a41bd66602f82d344383792feac34f9f7} 
+size\+\_\+t {\bfseries Put\+End} (Ch \texorpdfstring{$\ast$}{*})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$typename Char\+Type, typename Input\+Byte\+Stream$>$\newline
+class Auto\+UTFInput\+Stream$<$ Char\+Type, Input\+Byte\+Stream $>$}
+Input stream wrapper with dynamically bound encoding and automatic encoding detection. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Char\+Type} & Type of character for reading. \\
+\hline
+{\em Input\+Byte\+Stream} & type of input byte stream to be wrapped. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Opis konstruktorjev in destruktorjev }
+\Hypertarget{classAutoUTFInputStream_a83837fced0971ba26dd9a8ec1575abb0}\label{classAutoUTFInputStream_a83837fced0971ba26dd9a8ec1575abb0} 
+\index{AutoUTFInputStream$<$ CharType, InputByteStream $>$@{AutoUTFInputStream$<$ CharType, InputByteStream $>$}!AutoUTFInputStream@{AutoUTFInputStream}}
+\index{AutoUTFInputStream@{AutoUTFInputStream}!AutoUTFInputStream$<$ CharType, InputByteStream $>$@{AutoUTFInputStream$<$ CharType, InputByteStream $>$}}
+\doxysubsubsection{\texorpdfstring{AutoUTFInputStream()}{AutoUTFInputStream()}}
+{\footnotesize\ttfamily template$<$typename Char\+Type , typename Input\+Byte\+Stream $>$ \\
+\mbox{\hyperlink{classAutoUTFInputStream}{Auto\+UTFInput\+Stream}}$<$ Char\+Type, Input\+Byte\+Stream $>$\mbox{\hyperlink{classAutoUTFInputStream}{\+::\+Auto\+UTFInput\+Stream}} (\begin{DoxyParamCaption}\item[{Input\+Byte\+Stream \&}]{is,  }\item[{UTFType}]{type = {\ttfamily kUTF8} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em is} & input stream to be wrapped. \\
+\hline
+{\em type} & UTF encoding type if it is not detected from the stream. \\
+\hline
+\end{DoxyParams}
+
+
+Opis razreda je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/encodedstream.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka components/wifi_manager/wifi_manager.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_409f97388efe006bc3438b95e9edef48.html">components</a></li><li class="navelem"><a class="el" href="dir_fe90acb48b1d14dd9ed13ebfae9d32ea.html">wifi_manager</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka wifi_manager.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>WiFi manager implementation.  
+<a href="#details">...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="wifi__manager_8h_source.html">wifi_manager.h</a>&quot;</code><br />
+<code>#include &quot;esp_wifi.h&quot;</code><br />
+<code>#include &quot;esp_event.h&quot;</code><br />
+<code>#include &quot;esp_log.h&quot;</code><br />
+<code>#include &quot;nvs_flash.h&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/event_groups.h&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "wifi_manager.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko wifi_manager.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="wifi__manager_8c__incl.png" border="0" usemap="#acomponents_2wifi__manager_2wifi__manager_8c" alt=""/></div>
+<map name="acomponents_2wifi__manager_2wifi__manager_8c" id="acomponents_2wifi__manager_2wifi__manager_8c">
+<area shape="rect" title="WiFi manager implementation." alt="" coords="422,5,617,45"/>
+<area shape="rect" href="wifi__manager_8h.html" title="WiFi connection manager." alt="" coords="39,93,160,119"/>
+<area shape="poly" title=" " alt="" coords="422,47,174,93,173,88,421,42"/>
+<area shape="rect" title=" " alt="" coords="184,93,271,119"/>
+<area shape="poly" title=" " alt="" coords="450,48,284,92,283,87,449,43"/>
+<area shape="rect" title=" " alt="" coords="295,93,397,119"/>
+<area shape="poly" title=" " alt="" coords="479,48,385,90,383,85,477,43"/>
+<area shape="rect" title=" " alt="" coords="421,93,505,119"/>
+<area shape="poly" title=" " alt="" coords="508,47,482,84,477,80,504,44"/>
+<area shape="rect" title=" " alt="" coords="529,93,624,119"/>
+<area shape="poly" title=" " alt="" coords="535,44,562,80,558,84,531,47"/>
+<area shape="rect" title=" " alt="" coords="648,93,799,119"/>
+<area shape="poly" title=" " alt="" coords="569,43,681,86,679,91,567,48"/>
+<area shape="rect" title=" " alt="" coords="823,93,1000,119"/>
+<area shape="poly" title=" " alt="" coords="614,43,841,88,840,93,613,48"/>
+<area shape="rect" title=" " alt="" coords="1024,93,1095,119"/>
+<area shape="poly" title=" " alt="" coords="617,34,796,56,1011,90,1010,96,796,62,616,39"/>
+<area shape="rect" title=" " alt="" coords="5,167,87,192"/>
+<area shape="poly" title=" " alt="" coords="93,121,65,157,61,154,88,117"/>
+<area shape="rect" title=" " alt="" coords="111,167,194,192"/>
+<area shape="poly" title=" " alt="" coords="110,117,138,154,134,157,106,121"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:ad552e7688532cbbecd3967538ced06ac" id="r_ad552e7688532cbbecd3967538ced06ac"><td class="memItemLeft" align="right" valign="top"><a id="ad552e7688532cbbecd3967538ced06ac" name="ad552e7688532cbbecd3967538ced06ac"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>WIFI_CONNECTED_BIT</b>&#160;&#160;&#160;BIT0</td></tr>
+<tr class="separator:ad552e7688532cbbecd3967538ced06ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d013b55e50dfbda0904f5f933b63ec4" id="r_a7d013b55e50dfbda0904f5f933b63ec4"><td class="memItemLeft" align="right" valign="top"><a id="a7d013b55e50dfbda0904f5f933b63ec4" name="a7d013b55e50dfbda0904f5f933b63ec4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>WIFI_FAIL_BIT</b>&#160;&#160;&#160;BIT1</td></tr>
+<tr class="separator:a7d013b55e50dfbda0904f5f933b63ec4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c3892c16d6330e486637967ab0289b" id="r_a01c3892c16d6330e486637967ab0289b"><td class="memItemLeft" align="right" valign="top"><a id="a01c3892c16d6330e486637967ab0289b" name="a01c3892c16d6330e486637967ab0289b"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_RETRY</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:a01c3892c16d6330e486637967ab0289b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a8bb10642077dfc7f53bd09e690143c68" id="r_a8bb10642077dfc7f53bd09e690143c68"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi__manager_8c.html#a8bb10642077dfc7f53bd09e690143c68">wifi_manager_init</a> (void)</td></tr>
+<tr class="memdesc:a8bb10642077dfc7f53bd09e690143c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializira WiFi manager.  <br /></td></tr>
+<tr class="separator:a8bb10642077dfc7f53bd09e690143c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c50af66558552d756207c0eb2d1da4c" id="r_a8c50af66558552d756207c0eb2d1da4c"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi__manager_8c.html#a8c50af66558552d756207c0eb2d1da4c">wifi_manager_connect</a> (const char *ssid, const char *password, uint32_t timeout_ms)</td></tr>
+<tr class="memdesc:a8c50af66558552d756207c0eb2d1da4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Poveži se na WiFi (blocking)  <br /></td></tr>
+<tr class="separator:a8c50af66558552d756207c0eb2d1da4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a623cea6c0aa29b3664d4d0629d38e5" id="r_a4a623cea6c0aa29b3664d4d0629d38e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi__manager_8c.html#a4a623cea6c0aa29b3664d4d0629d38e5">wifi_manager_is_connected</a> (void)</td></tr>
+<tr class="memdesc:a4a623cea6c0aa29b3664d4d0629d38e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preveri ali je WiFi povezan.  <br /></td></tr>
+<tr class="separator:a4a623cea6c0aa29b3664d4d0629d38e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8329c884348ae3e3f4e37e5459a5ece9" id="r_a8329c884348ae3e3f4e37e5459a5ece9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi__manager_8c.html#a8329c884348ae3e3f4e37e5459a5ece9">wifi_manager_get_ip</a> (char *ip_str, size_t max_len)</td></tr>
+<tr class="memdesc:a8329c884348ae3e3f4e37e5459a5ece9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dobi IP naslov (string format)  <br /></td></tr>
+<tr class="separator:a8329c884348ae3e3f4e37e5459a5ece9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934698cce2816084343f0ffa8c530ed6" id="r_a934698cce2816084343f0ffa8c530ed6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi__manager_8c.html#a934698cce2816084343f0ffa8c530ed6">wifi_manager_register_callback</a> (<a class="el" href="wifi__manager_8h.html#ad107063733199fb4fe1adf309d786779">wifi_event_callback_t</a> callback)</td></tr>
+<tr class="memdesc:a934698cce2816084343f0ffa8c530ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registriraj callback za WiFi events.  <br /></td></tr>
+<tr class="separator:a934698cce2816084343f0ffa8c530ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6496a3f52271db8bc0a307fc6514ecfa" id="r_a6496a3f52271db8bc0a307fc6514ecfa"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="wifi__manager_8c.html#a6496a3f52271db8bc0a307fc6514ecfa">wifi_manager_get_rssi</a> (void)</td></tr>
+<tr class="memdesc:a6496a3f52271db8bc0a307fc6514ecfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dobi RSSI (signal strength)  <br /></td></tr>
+<tr class="separator:a6496a3f52271db8bc0a307fc6514ecfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Podroben opis</h2>
+<div class="textblock"><p>WiFi manager implementation. </p>
+</div><h2 class="groupheader">Opis funkcije</h2>
+<a id="a8c50af66558552d756207c0eb2d1da4c" name="a8c50af66558552d756207c0eb2d1da4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c50af66558552d756207c0eb2d1da4c">&#9670;&#160;</a></span>wifi_manager_connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t wifi_manager_connect </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ssid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>password</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>timeout_ms</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Poveži se na WiFi (blocking) </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ssid</td><td>WiFi SSID </td></tr>
+    <tr><td class="paramname">password</td><td>WiFi password </td></tr>
+    <tr><td class="paramname">timeout_ms</td><td>Timeout v ms (0 = neskončno) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK če uspešno povezan </dd></dl>
+
+</div>
+</div>
+<a id="a8329c884348ae3e3f4e37e5459a5ece9" name="a8329c884348ae3e3f4e37e5459a5ece9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8329c884348ae3e3f4e37e5459a5ece9">&#9670;&#160;</a></span>wifi_manager_get_ip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wifi_manager_get_ip </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>ip_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>max_len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dobi IP naslov (string format) </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ip_str</td><td>Buffer za IP (min 16 bytes) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6496a3f52271db8bc0a307fc6514ecfa" name="a6496a3f52271db8bc0a307fc6514ecfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6496a3f52271db8bc0a307fc6514ecfa">&#9670;&#160;</a></span>wifi_manager_get_rssi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t wifi_manager_get_rssi </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dobi RSSI (signal strength) </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>RSSI v dBm (-100 do 0) </dd></dl>
+
+</div>
+</div>
+<a id="a8bb10642077dfc7f53bd09e690143c68" name="a8bb10642077dfc7f53bd09e690143c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bb10642077dfc7f53bd09e690143c68">&#9670;&#160;</a></span>wifi_manager_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t wifi_manager_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializira WiFi manager. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK če uspešno </dd></dl>
+
+</div>
+</div>
+<a id="a4a623cea6c0aa29b3664d4d0629d38e5" name="a4a623cea6c0aa29b3664d4d0629d38e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a623cea6c0aa29b3664d4d0629d38e5">&#9670;&#160;</a></span>wifi_manager_is_connected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool wifi_manager_is_connected </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Preveri ali je WiFi povezan. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>True če je povezan </dd></dl>
+
+</div>
+</div>
+<a id="a934698cce2816084343f0ffa8c530ed6" name="a934698cce2816084343f0ffa8c530ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934698cce2816084343f0ffa8c530ed6">&#9670;&#160;</a></span>wifi_manager_register_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void wifi_manager_register_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="wifi__manager_8h.html#ad107063733199fb4fe1adf309d786779">wifi_event_callback_t</a>&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registriraj callback za WiFi events. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Callback funkcija </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

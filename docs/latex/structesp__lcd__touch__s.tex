@@ -1,0 +1,354 @@
+\doxysection{ Struktura esp\+\_\+lcd\+\_\+touch\+\_\+s}
+\hypertarget{structesp__lcd__touch__s}{}\label{structesp__lcd__touch__s}\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+
+
+Declare of Touch Type.  
+
+
+
+
+{\ttfamily \#include $<$esp\+\_\+lcd\+\_\+touch.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda esp\+\_\+lcd\+\_\+touch\+\_\+s\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{structesp__lcd__touch__s__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_ad4a82089c900de6b6e77e20627d51cf0}{enter\+\_\+sleep}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)
+\begin{DoxyCompactList}\small\item\em set touch controller into sleep mode \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_a66ddb9bc8db0f994ebbe41d1f2204346}{exit\+\_\+sleep}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)
+\begin{DoxyCompactList}\small\item\em set touch controller into normal mode \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_ae81d92ba944ce813f7a14473a18d267d}{read\+\_\+data}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)
+\begin{DoxyCompactList}\small\item\em Read data from touch controller (mandatory) \end{DoxyCompactList}\item 
+bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_a4a4965c40d9df7e6fd5630c51d9ef5eb}{get\+\_\+xy}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, uint16\+\_\+t \texorpdfstring{$\ast$}{*}x, uint16\+\_\+t \texorpdfstring{$\ast$}{*}y, uint16\+\_\+t \texorpdfstring{$\ast$}{*}strength, uint8\+\_\+t \texorpdfstring{$\ast$}{*}point\+\_\+num, uint8\+\_\+t max\+\_\+point\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Get coordinates from touch controller (mandatory) \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_a89ad6cb77a7c17002f571f04880051fc}{get\+\_\+track\+\_\+id}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, uint8\+\_\+t \texorpdfstring{$\ast$}{*}track\+\_\+id, uint8\+\_\+t point\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Get track ids of touch points. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_ab35743ec681ff0cb6ea78b981c8c6b0a}{set\+\_\+swap\+\_\+xy}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool swap)
+\begin{DoxyCompactList}\small\item\em Swap X and Y after read coordinates (optional) If set, then not used SW swapping. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_aabf78ab5b1cd62f3ced49bb3c645a14a}{get\+\_\+swap\+\_\+xy}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool \texorpdfstring{$\ast$}{*}swap)
+\begin{DoxyCompactList}\small\item\em Are X and Y coordinates swapped (optional) \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_ad518cbdc76a04c022688ec89dafc7eee}{set\+\_\+mirror\+\_\+x}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool mirror)
+\begin{DoxyCompactList}\small\item\em Mirror X after read coordinates If set, then not used SW mirroring. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_a2a026db426093992f62b861452bbe076}{get\+\_\+mirror\+\_\+x}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool \texorpdfstring{$\ast$}{*}mirror)
+\begin{DoxyCompactList}\small\item\em Is mirrored X (optional) \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_abaf59f06b368c4071ee7b4ea27600260}{set\+\_\+mirror\+\_\+y}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool mirror)
+\begin{DoxyCompactList}\small\item\em Mirror Y after read coordinates If set, then not used SW mirroring. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_aa8e3228020fc9aca3f293f63763c1f12}{get\+\_\+mirror\+\_\+y}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool \texorpdfstring{$\ast$}{*}mirror)
+\begin{DoxyCompactList}\small\item\em Is mirrored Y (optional) \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structesp__lcd__touch__s_a02d5fc190299ecf3564d584909e83814}{del}} )(\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)
+\begin{DoxyCompactList}\small\item\em Delete Touch. \end{DoxyCompactList}\item 
+\Hypertarget{structesp__lcd__touch__s_a410b1d692f9f4551741700d1ee83af5e}\label{structesp__lcd__touch__s_a410b1d692f9f4551741700d1ee83af5e} 
+\mbox{\hyperlink{structesp__lcd__touch__config__t}{esp\+\_\+lcd\+\_\+touch\+\_\+config\+\_\+t}} {\bfseries config}
+\begin{DoxyCompactList}\small\item\em Configuration structure. \end{DoxyCompactList}\item 
+\Hypertarget{structesp__lcd__touch__s_ab7352b2e45665c7ed416d380d82d3d24}\label{structesp__lcd__touch__s_ab7352b2e45665c7ed416d380d82d3d24} 
+esp\+\_\+lcd\+\_\+panel\+\_\+io\+\_\+handle\+\_\+t {\bfseries io}
+\begin{DoxyCompactList}\small\item\em Communication interface. \end{DoxyCompactList}\item 
+\Hypertarget{structesp__lcd__touch__s_a8babb50e3aa9b6c99c3442a8ec20b603}\label{structesp__lcd__touch__s_a8babb50e3aa9b6c99c3442a8ec20b603} 
+\mbox{\hyperlink{structesp__lcd__touch__data__t}{esp\+\_\+lcd\+\_\+touch\+\_\+data\+\_\+t}} {\bfseries data}
+\begin{DoxyCompactList}\small\item\em Data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Declare of Touch Type. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structesp__lcd__touch__s_a02d5fc190299ecf3564d584909e83814}\label{structesp__lcd__touch__s_a02d5fc190299ecf3564d584909e83814} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!del@{del}}
+\index{del@{del}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{del}{del}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::del) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)}
+
+
+
+Delete Touch. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_ad4a82089c900de6b6e77e20627d51cf0}\label{structesp__lcd__touch__s_ad4a82089c900de6b6e77e20627d51cf0} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!enter\_sleep@{enter\_sleep}}
+\index{enter\_sleep@{enter\_sleep}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{enter\_sleep}{enter\_sleep}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::enter\+\_\+sleep) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)}
+
+
+
+set touch controller into sleep mode 
+
+\begin{DoxyNote}{Opomba}
+This function is usually blocking.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_a66ddb9bc8db0f994ebbe41d1f2204346}\label{structesp__lcd__touch__s_a66ddb9bc8db0f994ebbe41d1f2204346} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!exit\_sleep@{exit\_sleep}}
+\index{exit\_sleep@{exit\_sleep}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{exit\_sleep}{exit\_sleep}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::exit\+\_\+sleep) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)}
+
+
+
+set touch controller into normal mode 
+
+\begin{DoxyNote}{Opomba}
+This function is usually blocking.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_a2a026db426093992f62b861452bbe076}\label{structesp__lcd__touch__s_a2a026db426093992f62b861452bbe076} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!get\_mirror\_x@{get\_mirror\_x}}
+\index{get\_mirror\_x@{get\_mirror\_x}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{get\_mirror\_x}{get\_mirror\_x}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::get\+\_\+mirror\+\_\+x) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool \texorpdfstring{$\ast$}{*}mirror)}
+
+
+
+Is mirrored X (optional) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em mirror} & Get X mirror value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_aa8e3228020fc9aca3f293f63763c1f12}\label{structesp__lcd__touch__s_aa8e3228020fc9aca3f293f63763c1f12} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!get\_mirror\_y@{get\_mirror\_y}}
+\index{get\_mirror\_y@{get\_mirror\_y}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{get\_mirror\_y}{get\_mirror\_y}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::get\+\_\+mirror\+\_\+y) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool \texorpdfstring{$\ast$}{*}mirror)}
+
+
+
+Is mirrored Y (optional) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em mirror} & Get Y mirror value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_aabf78ab5b1cd62f3ced49bb3c645a14a}\label{structesp__lcd__touch__s_aabf78ab5b1cd62f3ced49bb3c645a14a} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!get\_swap\_xy@{get\_swap\_xy}}
+\index{get\_swap\_xy@{get\_swap\_xy}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{get\_swap\_xy}{get\_swap\_xy}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::get\+\_\+swap\+\_\+xy) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool \texorpdfstring{$\ast$}{*}swap)}
+
+
+
+Are X and Y coordinates swapped (optional) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em swap} & Get swap value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_a89ad6cb77a7c17002f571f04880051fc}\label{structesp__lcd__touch__s_a89ad6cb77a7c17002f571f04880051fc} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!get\_track\_id@{get\_track\_id}}
+\index{get\_track\_id@{get\_track\_id}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{get\_track\_id}{get\_track\_id}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::get\+\_\+track\+\_\+id) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, uint8\+\_\+t \texorpdfstring{$\ast$}{*}track\+\_\+id, uint8\+\_\+t point\+\_\+num)}
+
+
+
+Get track ids of touch points. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em track\+\_\+id} & Array of track ids \\
+\hline
+{\em point\+\_\+num} & Count of track IDs to return\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_a4a4965c40d9df7e6fd5630c51d9ef5eb}\label{structesp__lcd__touch__s_a4a4965c40d9df7e6fd5630c51d9ef5eb} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!get\_xy@{get\_xy}}
+\index{get\_xy@{get\_xy}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{get\_xy}{get\_xy}}
+{\footnotesize\ttfamily bool(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::get\+\_\+xy) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, uint16\+\_\+t \texorpdfstring{$\ast$}{*}x, uint16\+\_\+t \texorpdfstring{$\ast$}{*}y, uint16\+\_\+t \texorpdfstring{$\ast$}{*}strength, uint8\+\_\+t \texorpdfstring{$\ast$}{*}point\+\_\+num, uint8\+\_\+t max\+\_\+point\+\_\+num)}
+
+
+
+Get coordinates from touch controller (mandatory) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em x} & Array of X coordinates \\
+\hline
+{\em y} & Array of Y coordinates \\
+\hline
+{\em strength} & Array of strengths \\
+\hline
+{\em point\+\_\+num} & Count of points touched (equals with count of items in x and y array) \\
+\hline
+{\em max\+\_\+point\+\_\+num} & Maximum count of touched points to return (equals with max size of x and y array)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item Returns true, when touched and coordinates readed. Otherwise returns false. 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_ae81d92ba944ce813f7a14473a18d267d}\label{structesp__lcd__touch__s_ae81d92ba944ce813f7a14473a18d267d} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!read\_data@{read\_data}}
+\index{read\_data@{read\_data}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{read\_data}{read\_data}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::read\+\_\+data) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp)}
+
+
+
+Read data from touch controller (mandatory) 
+
+\begin{DoxyNote}{Opomba}
+This function is usually blocking.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_ad518cbdc76a04c022688ec89dafc7eee}\label{structesp__lcd__touch__s_ad518cbdc76a04c022688ec89dafc7eee} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!set\_mirror\_x@{set\_mirror\_x}}
+\index{set\_mirror\_x@{set\_mirror\_x}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{set\_mirror\_x}{set\_mirror\_x}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::set\+\_\+mirror\+\_\+x) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool mirror)}
+
+
+
+Mirror X after read coordinates If set, then not used SW mirroring. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em mirror} & Set X mirror value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_abaf59f06b368c4071ee7b4ea27600260}\label{structesp__lcd__touch__s_abaf59f06b368c4071ee7b4ea27600260} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!set\_mirror\_y@{set\_mirror\_y}}
+\index{set\_mirror\_y@{set\_mirror\_y}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{set\_mirror\_y}{set\_mirror\_y}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::set\+\_\+mirror\+\_\+y) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool mirror)}
+
+
+
+Mirror Y after read coordinates If set, then not used SW mirroring. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em mirror} & Set Y mirror value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{structesp__lcd__touch__s_ab35743ec681ff0cb6ea78b981c8c6b0a}\label{structesp__lcd__touch__s_ab35743ec681ff0cb6ea78b981c8c6b0a} 
+\index{esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}!set\_swap\_xy@{set\_swap\_xy}}
+\index{set\_swap\_xy@{set\_swap\_xy}!esp\_lcd\_touch\_s@{esp\_lcd\_touch\_s}}
+\doxysubsubsection{\texorpdfstring{set\_swap\_xy}{set\_swap\_xy}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t(\texorpdfstring{$\ast$}{*} esp\+\_\+lcd\+\_\+touch\+\_\+s\+::set\+\_\+swap\+\_\+xy) (\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} tp, bool swap)}
+
+
+
+Swap X and Y after read coordinates (optional) If set, then not used SW swapping. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em tp} & Touch handler \\
+\hline
+{\em swap} & Set swap value\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success, otherwise returns ESP\+\_\+\+ERR\+\_\+xxx 
+\end{DoxyItemize}
+\end{DoxyReturn}
+
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+lcd\+\_\+touch/include/\mbox{\hyperlink{esp__lcd__touch_8h}{esp\+\_\+lcd\+\_\+touch.\+h}}\end{DoxyCompactItemize}

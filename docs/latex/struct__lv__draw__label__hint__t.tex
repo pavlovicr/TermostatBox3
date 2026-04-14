@@ -1,0 +1,44 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+draw\+\_\+label\+\_\+hint\+\_\+t}
+\hypertarget{struct__lv__draw__label__hint__t}{}\label{struct__lv__draw__label__hint__t}\index{\_lv\_draw\_label\_hint\_t@{\_lv\_draw\_label\_hint\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+draw\+\_\+label\+\_\+private.\+h$>$}
+
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct__lv__draw__label__hint__t_acd3a32f2e9639910a0a4155d2660c854}{line\+\_\+start}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct__lv__draw__label__hint__t_add6447c8339e284f4783948628a8207b}{y}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct__lv__draw__label__hint__t_ac16d6b08482dbf253b54c0e76ed84e66}{coord\+\_\+y}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Store some info to speed up drawing of very large texts It takes a lot of time to get the first visible character because all the previous characters needs to be checked to calculate the positions. This structure stores an earlier (e.\+g. at -\/1000 px) coordinate and the index of that line. Therefore the calculations can start from here. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__draw__label__hint__t_ac16d6b08482dbf253b54c0e76ed84e66}\label{struct__lv__draw__label__hint__t_ac16d6b08482dbf253b54c0e76ed84e66} 
+\index{\_lv\_draw\_label\_hint\_t@{\_lv\_draw\_label\_hint\_t}!coord\_y@{coord\_y}}
+\index{coord\_y@{coord\_y}!\_lv\_draw\_label\_hint\_t@{\_lv\_draw\_label\_hint\_t}}
+\doxysubsubsection{\texorpdfstring{coord\_y}{coord\_y}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+lv\+\_\+draw\+\_\+label\+\_\+hint\+\_\+t\+::coord\+\_\+y}
+
+The \textquotesingle{}y1\textquotesingle{} coordinate of the label when the hint was saved. Used to invalidate the hint if the label has moved too much. \Hypertarget{struct__lv__draw__label__hint__t_acd3a32f2e9639910a0a4155d2660c854}\label{struct__lv__draw__label__hint__t_acd3a32f2e9639910a0a4155d2660c854} 
+\index{\_lv\_draw\_label\_hint\_t@{\_lv\_draw\_label\_hint\_t}!line\_start@{line\_start}}
+\index{line\_start@{line\_start}!\_lv\_draw\_label\_hint\_t@{\_lv\_draw\_label\_hint\_t}}
+\doxysubsubsection{\texorpdfstring{line\_start}{line\_start}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+lv\+\_\+draw\+\_\+label\+\_\+hint\+\_\+t\+::line\+\_\+start}
+
+Index of the line at {\ttfamily y} coordinate \Hypertarget{struct__lv__draw__label__hint__t_add6447c8339e284f4783948628a8207b}\label{struct__lv__draw__label__hint__t_add6447c8339e284f4783948628a8207b} 
+\index{\_lv\_draw\_label\_hint\_t@{\_lv\_draw\_label\_hint\_t}!y@{y}}
+\index{y@{y}!\_lv\_draw\_label\_hint\_t@{\_lv\_draw\_label\_hint\_t}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+lv\+\_\+draw\+\_\+label\+\_\+hint\+\_\+t\+::y}
+
+Give the {\ttfamily y} coordinate of the first letter at {\ttfamily line start} index. Relative to the label\textquotesingle{}s coordinates 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/\mbox{\hyperlink{lv__draw__label__private_8h}{lv\+\_\+draw\+\_\+label\+\_\+private.\+h}}\end{DoxyCompactItemize}

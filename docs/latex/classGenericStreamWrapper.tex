@@ -1,0 +1,83 @@
+\doxysection{ Razred Generic\+Stream\+Wrapper\texorpdfstring{$<$}{<} Input\+Stream, Encoding \texorpdfstring{$>$}{>}}
+\hypertarget{classGenericStreamWrapper}{}\label{classGenericStreamWrapper}\index{GenericStreamWrapper$<$ InputStream, Encoding $>$@{GenericStreamWrapper$<$ InputStream, Encoding $>$}}
+
+
+A Stream Wrapper.  
+
+
+
+
+{\ttfamily \#include $<$stream.\+h$>$}
+
+
+
+Diagram razredov za Generic\+Stream\+Wrapper\texorpdfstring{$<$}{<} Input\+Stream, Encoding \texorpdfstring{$>$}{>}\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{classGenericStreamWrapper__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericStreamWrapper_aef9e89bc4997497315bde1b60e8bb848}\label{classGenericStreamWrapper_aef9e89bc4997497315bde1b60e8bb848} 
+typedef Encoding\+::\+Ch {\bfseries Ch}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericStreamWrapper_a7b12b1de6337d3f8e635b650e372c803}\label{classGenericStreamWrapper_a7b12b1de6337d3f8e635b650e372c803} 
+{\bfseries Generic\+Stream\+Wrapper} (Input\+Stream \&is)
+\item 
+\Hypertarget{classGenericStreamWrapper_a98d22642dfdd2626ee25ad1db9fe287e}\label{classGenericStreamWrapper_a98d22642dfdd2626ee25ad1db9fe287e} 
+Ch {\bfseries Peek} () const
+\item 
+\Hypertarget{classGenericStreamWrapper_a1c0bc67a233e08ed89b4ff37455e7754}\label{classGenericStreamWrapper_a1c0bc67a233e08ed89b4ff37455e7754} 
+Ch {\bfseries Take} ()
+\item 
+\Hypertarget{classGenericStreamWrapper_a5068a627e0a2deffa985db39f89c5378}\label{classGenericStreamWrapper_a5068a627e0a2deffa985db39f89c5378} 
+size\+\_\+t {\bfseries Tell} ()
+\item 
+\Hypertarget{classGenericStreamWrapper_a15044e9a6874ca4caa92ed27a191345c}\label{classGenericStreamWrapper_a15044e9a6874ca4caa92ed27a191345c} 
+Ch \texorpdfstring{$\ast$}{*} {\bfseries Put\+Begin} ()
+\item 
+\Hypertarget{classGenericStreamWrapper_a458b9f3e00ad41dadb069839ab53f0ba}\label{classGenericStreamWrapper_a458b9f3e00ad41dadb069839ab53f0ba} 
+void {\bfseries Put} (Ch ch)
+\item 
+\Hypertarget{classGenericStreamWrapper_a210c0864fbff3cc72f2f62ed461105fb}\label{classGenericStreamWrapper_a210c0864fbff3cc72f2f62ed461105fb} 
+void {\bfseries Flush} ()
+\item 
+\Hypertarget{classGenericStreamWrapper_a84f8d6e1f95d53c4e8e22892d5113fd3}\label{classGenericStreamWrapper_a84f8d6e1f95d53c4e8e22892d5113fd3} 
+size\+\_\+t {\bfseries Put\+End} (Ch \texorpdfstring{$\ast$}{*}ch)
+\item 
+\Hypertarget{classGenericStreamWrapper_afdfd046b769d1c2e38d9a91656e6b592}\label{classGenericStreamWrapper_afdfd046b769d1c2e38d9a91656e6b592} 
+const Ch \texorpdfstring{$\ast$}{*} {\bfseries Peek4} () const
+\item 
+\Hypertarget{classGenericStreamWrapper_a5978422ff38fbacee201d4123da37e4f}\label{classGenericStreamWrapper_a5978422ff38fbacee201d4123da37e4f} 
+UTFType {\bfseries Get\+Type} () const
+\item 
+\Hypertarget{classGenericStreamWrapper_a50f13a9be06f9b29032ca6c655b099ef}\label{classGenericStreamWrapper_a50f13a9be06f9b29032ca6c655b099ef} 
+bool {\bfseries Has\+BOM} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Zaščiteni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericStreamWrapper_a2b44ae2c9460c2e18aca6ba25c537cc5}\label{classGenericStreamWrapper_a2b44ae2c9460c2e18aca6ba25c537cc5} 
+Input\+Stream \& {\bfseries is\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$typename Input\+Stream, typename \mbox{\hyperlink{classrapidjson_1_1Encoding}{Encoding}} = UTF8$<$$>$$>$\newline
+class Generic\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$}
+A Stream Wrapper. 
+
+\textbackslash{}t\+This string stream is a wrapper for any stream by just forwarding any \textbackslash{}treceived message to the origin stream. \begin{DoxyNote}{Opomba}
+implements Stream concept 
+\end{DoxyNote}
+
+
+Opis razreda je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/stream.\+h\end{DoxyCompactItemize}

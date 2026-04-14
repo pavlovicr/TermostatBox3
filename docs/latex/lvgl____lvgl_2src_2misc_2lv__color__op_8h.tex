@@ -1,0 +1,146 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+color\+\_\+op.h}
+\hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h}{}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_color\_op.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_color\_op.h}}
+{\ttfamily \#include "{}lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+color\+\_\+op.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+color\+\_\+op.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lvgl____lvgl_2src_2misc_2lv__color__op_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lvgl____lvgl_2src_2misc_2lv__color__op_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__color__filter__dsc__t}{\+\_\+lv\+\_\+color\+\_\+filter\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a841724e0434bd4cb4d8f82e7339d07c8}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a841724e0434bd4cb4d8f82e7339d07c8} 
+typedef \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+color\+\_\+filter\+\_\+cb\+\_\+t}) (const struct \mbox{\hyperlink{struct__lv__color__filter__dsc__t}{\+\_\+lv\+\_\+color\+\_\+filter\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}, \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\+\_\+opa\+\_\+t}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a3e86cf430388003b3cb7e7533d96541a}{lv\+\_\+color\+\_\+mix}} (\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} c1, \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} c2, uint8\+\_\+t mix)
+\item 
+\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a227f26c6222c08fac97685f03776a353}{lv\+\_\+color\+\_\+mix32}} (\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} fg, \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} bg)
+\item 
+\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a728db9007678f249918d6e329ef62ba3}{lv\+\_\+color\+\_\+mix32\+\_\+premultiplied}} (\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} fg, \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} bg)
+\begin{DoxyCompactList}\small\item\em Blends two premultiplied ARGB8888 colors while maintaining correct alpha compositing. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a447b0e211e33d6d35c109058c255b108}{lv\+\_\+color\+\_\+brightness}} (\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} c)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h_ae12e0a9bf5bcc7918d9e8f62f67f1b90}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h_ae12e0a9bf5bcc7918d9e8f62f67f1b90} 
+void {\bfseries lv\+\_\+color\+\_\+filter\+\_\+dsc\+\_\+init} (\mbox{\hyperlink{struct__lv__color__filter__dsc__t}{lv\+\_\+color\+\_\+filter\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, lv\+\_\+color\+\_\+filter\+\_\+cb\+\_\+t cb)
+\item 
+\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a2b7fe4bfbccb16c0f2173e3d3b81a353}{lv\+\_\+color\+\_\+over32}} (\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} fg, \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} bg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a447b0e211e33d6d35c109058c255b108}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a447b0e211e33d6d35c109058c255b108} 
+\index{lv\_color\_op.h@{lv\_color\_op.h}!lv\_color\_brightness@{lv\_color\_brightness}}
+\index{lv\_color\_brightness@{lv\_color\_brightness}!lv\_color\_op.h@{lv\_color\_op.h}}
+\doxysubsubsection{\texorpdfstring{lv\_color\_brightness()}{lv\_color\_brightness()}}
+{\footnotesize\ttfamily uint8\+\_\+t lv\+\_\+color\+\_\+brightness (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}}]{c }\end{DoxyParamCaption})}
+
+Get the brightness of a color 
+\begin{DoxyParams}{Parametri}
+{\em c} & a color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+brightness in range \mbox{[}0..255\mbox{]} 
+\end{DoxyReturn}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a3e86cf430388003b3cb7e7533d96541a}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a3e86cf430388003b3cb7e7533d96541a} 
+\index{lv\_color\_op.h@{lv\_color\_op.h}!lv\_color\_mix@{lv\_color\_mix}}
+\index{lv\_color\_mix@{lv\_color\_mix}!lv\_color\_op.h@{lv\_color\_op.h}}
+\doxysubsubsection{\texorpdfstring{lv\_color\_mix()}{lv\_color\_mix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM lv\+\_\+color\+\_\+mix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}}]{c1,  }\item[{\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}}]{c2,  }\item[{uint8\+\_\+t}]{mix }\end{DoxyParamCaption})}
+
+Mix two colors with a given ratio. 
+\begin{DoxyParams}{Parametri}
+{\em c1} & the first color to mix (usually the foreground) \\
+\hline
+{\em c2} & the second color to mix (usually the background) \\
+\hline
+{\em mix} & The ratio of the colors. 0\+: full {\ttfamily c2}, 255\+: full {\ttfamily c1}, 127\+: half {\ttfamily c1} and half{\ttfamily c2} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the mixed color 
+\end{DoxyReturn}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a227f26c6222c08fac97685f03776a353}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a227f26c6222c08fac97685f03776a353} 
+\index{lv\_color\_op.h@{lv\_color\_op.h}!lv\_color\_mix32@{lv\_color\_mix32}}
+\index{lv\_color\_mix32@{lv\_color\_mix32}!lv\_color\_op.h@{lv\_color\_op.h}}
+\doxysubsubsection{\texorpdfstring{lv\_color\_mix32()}{lv\_color\_mix32()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} lv\+\_\+color\+\_\+mix32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{fg,  }\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{bg }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parametri}
+{\em fg} & \\
+\hline
+{\em bg} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\end{DoxyReturn}
+\begin{DoxyNote}{Opomba}
+Use bg.\+alpha in the return value 
+
+Use fg.\+alpha as mix ratio 
+\end{DoxyNote}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a728db9007678f249918d6e329ef62ba3}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a728db9007678f249918d6e329ef62ba3} 
+\index{lv\_color\_op.h@{lv\_color\_op.h}!lv\_color\_mix32\_premultiplied@{lv\_color\_mix32\_premultiplied}}
+\index{lv\_color\_mix32\_premultiplied@{lv\_color\_mix32\_premultiplied}!lv\_color\_op.h@{lv\_color\_op.h}}
+\doxysubsubsection{\texorpdfstring{lv\_color\_mix32\_premultiplied()}{lv\_color\_mix32\_premultiplied()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} lv\+\_\+color\+\_\+mix32\+\_\+premultiplied (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{fg,  }\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{bg }\end{DoxyParamCaption})}
+
+
+
+Blends two premultiplied ARGB8888 colors while maintaining correct alpha compositing. 
+
+This function correctly blends the foreground (fg) and background (bg) colors, ensuring that the output remains in a premultiplied alpha format.
+
+
+\begin{DoxyParams}{Parametri}
+{\em fg} & The foreground color in premultiplied ARGB8888 format. \\
+\hline
+{\em bg} & The background color in premultiplied ARGB8888 format. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+The resulting blended color in premultiplied ARGB8888 format.
+\end{DoxyReturn}
+\begin{DoxyNote}{Opomba}
+If the foreground is fully opaque, it is returned as is. 
+
+If the foreground is fully transparent, the background is returned. 
+\end{DoxyNote}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a2b7fe4bfbccb16c0f2173e3d3b81a353}\label{lvgl____lvgl_2src_2misc_2lv__color__op_8h_a2b7fe4bfbccb16c0f2173e3d3b81a353} 
+\index{lv\_color\_op.h@{lv\_color\_op.h}!lv\_color\_over32@{lv\_color\_over32}}
+\index{lv\_color\_over32@{lv\_color\_over32}!lv\_color\_op.h@{lv\_color\_op.h}}
+\doxysubsubsection{\texorpdfstring{lv\_color\_over32()}{lv\_color\_over32()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} lv\+\_\+color\+\_\+over32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{fg,  }\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{bg }\end{DoxyParamCaption})}
+
+Blend two colors that have not been pre-\/multiplied using their alpha values 
+\begin{DoxyParams}{Parametri}
+{\em fg} & the foreground color \\
+\hline
+{\em bg} & the background color \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+result color 
+\end{DoxyReturn}

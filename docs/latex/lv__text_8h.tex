@@ -1,0 +1,117 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+text.h}
+\hypertarget{lv__text_8h}{}\label{lv__text_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_text.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_text.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \#include "{}../font/lv\+\_\+font.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+sprintf.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+text.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+text.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__text_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__text_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t}} \{ \newline
+{\bfseries LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+NONE} = 0x00
+, {\bfseries LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+EXPAND} = 0x01
+, \mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba723ddad1f65d5013b204ae3484375133}{LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+FIT}} = 0x02
+, \mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba2445fe0119704e8125bf962060b2c6f2}{LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+BREAK\+\_\+\+ALL}} = 0x04
+, \newline
+\mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba0fadace61420644a94d9a952726f0ce4}{LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+RECOLOR}} = 0x08
+ \}
+\item 
+enum \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}} \{ \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311efad4aa5792e36e4a2d8c20dc1d0db50b9e}{LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+AUTO}}
+, \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311efa5edadbd8d013ede5656687584755c833}{LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+LEFT}}
+, \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311efa16eba1c936d720ced8af3a7ff51547ed}{LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+CENTER}}
+, \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311efab15a170b40c38228acef2cc78e1338f5}{LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+RIGHT}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__text_8h_a43c2cb5e007d67700ce5a0d1e1788602}{lv\+\_\+text\+\_\+get\+\_\+size}} (\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}size\+\_\+res, const char \texorpdfstring{$\ast$}{*}text, const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, int32\+\_\+t letter\+\_\+space, int32\+\_\+t line\+\_\+space, int32\+\_\+t max\+\_\+width, \mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t}} flag)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis naštevnega (enum) tipa}
+\Hypertarget{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}\label{lv__text_8h_add1fdfe7b1242667692b64ae435311ef} 
+\index{lv\_text.h@{lv\_text.h}!lv\_text\_align\_t@{lv\_text\_align\_t}}
+\index{lv\_text\_align\_t@{lv\_text\_align\_t}!lv\_text.h@{lv\_text.h}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_align\_t}{lv\_text\_align\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}}}
+
+Label align policy \begin{DoxyEnumFields}{Vrednosti naštevnih tipov}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_TEXT\_ALIGN\_AUTO@{LV\_TEXT\_ALIGN\_AUTO}!lv\_text.h@{lv\_text.h}}\index{lv\_text.h@{lv\_text.h}!LV\_TEXT\_ALIGN\_AUTO@{LV\_TEXT\_ALIGN\_AUTO}}}\Hypertarget{lv__text_8h_add1fdfe7b1242667692b64ae435311efad4aa5792e36e4a2d8c20dc1d0db50b9e}\label{lv__text_8h_add1fdfe7b1242667692b64ae435311efad4aa5792e36e4a2d8c20dc1d0db50b9e} 
+LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+AUTO&Align text auto \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_TEXT\_ALIGN\_LEFT@{LV\_TEXT\_ALIGN\_LEFT}!lv\_text.h@{lv\_text.h}}\index{lv\_text.h@{lv\_text.h}!LV\_TEXT\_ALIGN\_LEFT@{LV\_TEXT\_ALIGN\_LEFT}}}\Hypertarget{lv__text_8h_add1fdfe7b1242667692b64ae435311efa5edadbd8d013ede5656687584755c833}\label{lv__text_8h_add1fdfe7b1242667692b64ae435311efa5edadbd8d013ede5656687584755c833} 
+LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+LEFT&Align text to left \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_TEXT\_ALIGN\_CENTER@{LV\_TEXT\_ALIGN\_CENTER}!lv\_text.h@{lv\_text.h}}\index{lv\_text.h@{lv\_text.h}!LV\_TEXT\_ALIGN\_CENTER@{LV\_TEXT\_ALIGN\_CENTER}}}\Hypertarget{lv__text_8h_add1fdfe7b1242667692b64ae435311efa16eba1c936d720ced8af3a7ff51547ed}\label{lv__text_8h_add1fdfe7b1242667692b64ae435311efa16eba1c936d720ced8af3a7ff51547ed} 
+LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+CENTER&Align text to center \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_TEXT\_ALIGN\_RIGHT@{LV\_TEXT\_ALIGN\_RIGHT}!lv\_text.h@{lv\_text.h}}\index{lv\_text.h@{lv\_text.h}!LV\_TEXT\_ALIGN\_RIGHT@{LV\_TEXT\_ALIGN\_RIGHT}}}\Hypertarget{lv__text_8h_add1fdfe7b1242667692b64ae435311efab15a170b40c38228acef2cc78e1338f5}\label{lv__text_8h_add1fdfe7b1242667692b64ae435311efab15a170b40c38228acef2cc78e1338f5} 
+LV\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+RIGHT&Align text to right \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}\label{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb} 
+\index{lv\_text.h@{lv\_text.h}!lv\_text\_flag\_t@{lv\_text\_flag\_t}}
+\index{lv\_text\_flag\_t@{lv\_text\_flag\_t}!lv\_text.h@{lv\_text.h}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_flag\_t}{lv\_text\_flag\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t}}}
+
+Options for text rendering. \begin{DoxyEnumFields}{Vrednosti naštevnih tipov}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_TEXT\_FLAG\_FIT@{LV\_TEXT\_FLAG\_FIT}!lv\_text.h@{lv\_text.h}}\index{lv\_text.h@{lv\_text.h}!LV\_TEXT\_FLAG\_FIT@{LV\_TEXT\_FLAG\_FIT}}}\Hypertarget{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba723ddad1f65d5013b204ae3484375133}\label{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba723ddad1f65d5013b204ae3484375133} 
+LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+FIT&Max-\/width is already equal to the longest line. (Used to skip some calculation) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_TEXT\_FLAG\_BREAK\_ALL@{LV\_TEXT\_FLAG\_BREAK\_ALL}!lv\_text.h@{lv\_text.h}}\index{lv\_text.h@{lv\_text.h}!LV\_TEXT\_FLAG\_BREAK\_ALL@{LV\_TEXT\_FLAG\_BREAK\_ALL}}}\Hypertarget{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba2445fe0119704e8125bf962060b2c6f2}\label{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba2445fe0119704e8125bf962060b2c6f2} 
+LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+BREAK\+\_\+\+ALL&To prevent overflow, insert breaks between any two characters. Otherwise breaks are inserted at word boundaries, as configured via LV\+\_\+\+TXT\+\_\+\+BREAK\+\_\+\+CHARS or according to LV\+\_\+\+TXT\+\_\+\+LINE\+\_\+\+BREAK\+\_\+\+LONG\+\_\+\+LEN, LV\+\_\+\+TXT\+\_\+\+LINE\+\_\+\+BREAK\+\_\+\+LONG\+\_\+\+PRE\+\_\+\+MIN\+\_\+\+LEN, and LV\+\_\+\+TXT\+\_\+\+LINE\+\_\+\+BREAK\+\_\+\+LONG\+\_\+\+POST\+\_\+\+MIN\+\_\+\+LEN. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_TEXT\_FLAG\_RECOLOR@{LV\_TEXT\_FLAG\_RECOLOR}!lv\_text.h@{lv\_text.h}}\index{lv\_text.h@{lv\_text.h}!LV\_TEXT\_FLAG\_RECOLOR@{LV\_TEXT\_FLAG\_RECOLOR}}}\Hypertarget{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba0fadace61420644a94d9a952726f0ce4}\label{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecba0fadace61420644a94d9a952726f0ce4} 
+LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+RECOLOR&Enable parsing of recolor command \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__text_8h_a43c2cb5e007d67700ce5a0d1e1788602}\label{lv__text_8h_a43c2cb5e007d67700ce5a0d1e1788602} 
+\index{lv\_text.h@{lv\_text.h}!lv\_text\_get\_size@{lv\_text\_get\_size}}
+\index{lv\_text\_get\_size@{lv\_text\_get\_size}!lv\_text.h@{lv\_text.h}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_get\_size()}{lv\_text\_get\_size()}}
+{\footnotesize\ttfamily void lv\+\_\+text\+\_\+get\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{size\+\_\+res,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int32\+\_\+t}]{letter\+\_\+space,  }\item[{int32\+\_\+t}]{line\+\_\+space,  }\item[{int32\+\_\+t}]{max\+\_\+width,  }\item[{\mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t}}}]{flag }\end{DoxyParamCaption})}
+
+Get size of a text 
+\begin{DoxyParams}{Parametri}
+{\em size\+\_\+res} & pointer to a \textquotesingle{}point\+\_\+t\textquotesingle{} variable to store the result \\
+\hline
+{\em text} & pointer to a text \\
+\hline
+{\em font} & pointer to font of the text \\
+\hline
+{\em letter\+\_\+space} & letter space of the text \\
+\hline
+{\em line\+\_\+space} & line space of the text \\
+\hline
+{\em max\+\_\+width} & max width of the text (break the lines to fit this size). Set COORD\+\_\+\+MAX to avoid \\
+\hline
+{\em flag} & settings for the text from \doxylink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t} \\
+\hline
+\end{DoxyParams}

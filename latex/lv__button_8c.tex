@@ -1,0 +1,67 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/button/lv\+\_\+button.c}
+\hypertarget{lv__button_8c}{}\label{lv__button_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/button/lv\_button.c@{managed\_components/lvgl\_\_lvgl/src/widgets/button/lv\_button.c}}
+{\ttfamily \#include "{}lv\+\_\+button\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+button.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+button.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__button_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__button_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__button_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+button\+\_\+class)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__button_8c_affdb3d6c47442a738f42b8e5ff720868}{lv\+\_\+button\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__button_8c_ad6fc7677289d30acec3f991bb7fe4291}{lv\+\_\+button\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__button_8c_affdb3d6c47442a738f42b8e5ff720868}\label{lv__button_8c_affdb3d6c47442a738f42b8e5ff720868} 
+\index{lv\_button.c@{lv\_button.c}!lv\_button\_create@{lv\_button\_create}}
+\index{lv\_button\_create@{lv\_button\_create}!lv\_button.c@{lv\_button.c}}
+\doxysubsubsection{\texorpdfstring{lv\_button\_create()}{lv\_button\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+button\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a button object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created button 
+\end{DoxyReturn}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__button_8c_ad6fc7677289d30acec3f991bb7fe4291}\label{lv__button_8c_ad6fc7677289d30acec3f991bb7fe4291} 
+\index{lv\_button.c@{lv\_button.c}!lv\_button\_class@{lv\_button\_class}}
+\index{lv\_button\_class@{lv\_button\_class}!lv\_button.c@{lv\_button.c}}
+\doxysubsubsection{\texorpdfstring{lv\_button\_class}{lv\_button\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+button\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_button\_constructor,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .group\_def\ =\ LV\_OBJ\_CLASS\_GROUP\_DEF\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__button__t}{lv\_button\_t}}),}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_button"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

@@ -1,0 +1,179 @@
+\doxysection{lv\+\_\+draw\+\_\+ppa\+\_\+private.\+h}
+\hypertarget{lv__draw__ppa__private_8h_source}{}\label{lv__draw__ppa__private_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/draw/espressif/ppa/lv\_draw\_ppa\_private.h@{managed\_components/lvgl\_\_lvgl/src/draw/espressif/ppa/lv\_draw\_ppa\_private.h}}
+\mbox{\hyperlink{lv__draw__ppa__private_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_PPA\_PRIVATE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_PPA\_PRIVATE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{*\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{*********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_PPA}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_PPA\_NONBLOCKING\_OPS}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#error\ "{}PPA\ draw\ in\ nonblocking\ is\ experimental\ and\ not\ supported\ yet,\ please\ make\ it\ to\ 0!"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifndef\ LV\_PPA\_NONBLOCKING\_OPS}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LV\_PPA\_NONBLOCKING\_OPS\ 0}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ LV\_STDDEF\_INCLUDE}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ LV\_STDBOOL\_INCLUDE}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ LV\_STDINT\_INCLUDE}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}../../../misc/lv\_color.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}../../../misc/lv\_log.h"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}../../lv\_draw\_private.h"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}../../../display/lv\_display\_private.h"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}../../../misc/lv\_area\_private.h"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/*\ The\ ppa\ driver\ depends\ heavily\ on\ the\ esp-\/idf\ headers*/}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}sdkconfig.h"{}}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#if\ (CONFIG\_LV\_DRAW\_BUF\_ALIGN\ !=\ CONFIG\_CACHE\_L2\_CACHE\_LINE\_SIZE)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#error\ "{}CONFIG\_LV\_DRAW\_BUF\_ALIGN\ must\ be\ equal\ to\ CONFIG\_CACHE\_L2\_CACHE\_LINE\_SIZE!"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#ifndef\ CONFIG\_SOC\_PPA\_SUPPORTED}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#error\ "{}This\ SoC\ does\ not\ support\ PPA"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}driver/ppa.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}esp\_heap\_caps.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}esp\_err.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}hal/color\_hal.h"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}esp\_cache.h"{}}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}esp\_log.h"{}}}
+\DoxyCodeLine{00055\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00056\ \textcolor{comment}{*\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00057\ \textcolor{comment}{*********************/}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00060\ \textcolor{comment}{*\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00061\ \textcolor{comment}{**********************/}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }lv\_draw\_ppa\_unit\ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__unit__t}{lv\_draw\_unit\_t}}\ base\_unit;}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__task__t}{lv\_draw\_task\_t}}\ *\ task\_act;}
+\DoxyCodeLine{00065\ \ \ \ \ ppa\_client\_handle\_t\ srm\_client;}
+\DoxyCodeLine{00066\ \ \ \ \ ppa\_client\_handle\_t\ fill\_client;}
+\DoxyCodeLine{00067\ \ \ \ \ ppa\_client\_handle\_t\ blend\_client;}
+\DoxyCodeLine{00068\ \ \ \ \ uint8\_t\ *\ buf;}
+\DoxyCodeLine{00069\ \}\ lv\_draw\_ppa\_unit\_t;}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00072\ \textcolor{comment}{*\ \ STATIC\ PROTOTYPES}}
+\DoxyCodeLine{00073\ \textcolor{comment}{**********************/}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00076\ \textcolor{comment}{*\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00077\ \textcolor{comment}{**********************/}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00080\ \textcolor{comment}{*\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00081\ \textcolor{comment}{**********************/}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00084\ \textcolor{comment}{*\ \ \ STATIC\ FUNCTIONS}}
+\DoxyCodeLine{00085\ \textcolor{comment}{**********************/}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ ppa\_src\_cf\_supported(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ cf)}
+\DoxyCodeLine{00088\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_cf\_supported\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{switch}(cf)\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB565:}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_ARGB8888:}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_XRGB8888:}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ is\_cf\_supported\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00099\ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_cf\_supported;}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ ppa\_dest\_cf\_supported(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ cf)}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_cf\_supported\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{switch}(cf)\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB565:}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB888:}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_ARGB8888:}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ is\_cf\_supported\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{return}\ is\_cf\_supported;}
+\DoxyCodeLine{00119\ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ ppa\_fill\_color\_mode\_t\ lv\_color\_format\_to\_ppa\_fill(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ lv\_fmt)}
+\DoxyCodeLine{00122\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{switch}(lv\_fmt)\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB565:}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_FILL\_COLOR\_MODE\_RGB565;}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB888:}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_FILL\_COLOR\_MODE\_RGB888;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_ARGB8888:}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_FILL\_COLOR\_MODE\_ARGB8888;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_FILL\_COLOR\_MODE\_RGB565;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ ppa\_blend\_color\_mode\_t\ lv\_color\_format\_to\_ppa\_blend(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ lv\_fmt)}
+\DoxyCodeLine{00136\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{switch}(lv\_fmt)\ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB565:}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_BLEND\_COLOR\_MODE\_RGB565;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB888:}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_BLEND\_COLOR\_MODE\_RGB888;}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_ARGB8888:}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_BLEND\_COLOR\_MODE\_ARGB8888;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_BLEND\_COLOR\_MODE\_RGB565;}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ ppa\_srm\_color\_mode\_t\ lv\_color\_format\_to\_ppa\_srm(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ lv\_fmt)}
+\DoxyCodeLine{00150\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{switch}(lv\_fmt)\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB565:}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_SRM\_COLOR\_MODE\_RGB565;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_RGB888:}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_SRM\_COLOR\_MODE\_RGB888;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ LV\_COLOR\_FORMAT\_XRGB8888:}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_SRM\_COLOR\_MODE\_ARGB8888;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PPA\_SRM\_COLOR\_MODE\_RGB565;}
+\DoxyCodeLine{00160\ \ \ \ \ \}}
+\DoxyCodeLine{00161\ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#define\ PPA\_ALIGN\_UP(x,\ align)\ \ ((((x)\ +\ (align)\ -\/\ 1)\ /\ (align))\ *\ (align))}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ PPA\_PTR\_ALIGN\_UP(p,\ align)\ \(\backslash\)}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\ \ \ \ ((void*)(((uintptr\_t)(p)\ +\ (uintptr\_t)((align)\ -\/\ 1))\ \&\ \string~(uintptr\_t)((align)\ -\/\ 1)))}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{preprocessor}{\#define\ PPA\_ALIGN\_DOWN(x,\ align)\ \ ((((x)\ -\/\ (align)\ -\/\ 1)\ /\ (align))\ *\ (align))}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#define\ PPA\_PTR\_ALIGN\_DOWN(p,\ align)\ \(\backslash\)}}
+\DoxyCodeLine{00169\ \textcolor{preprocessor}{\ \ \ \ ((void*)(((uintptr\_t)(p)\ -\/\ (uintptr\_t)((align)\ -\/\ 1))\ \&\ \string~(uintptr\_t)((align)\ -\/\ 1)))}}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_PPA\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00174\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_DRAW\_PPA\_PRIVATE\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

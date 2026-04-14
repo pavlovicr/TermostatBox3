@@ -1,0 +1,1019 @@
+\doxysection{lv\+\_\+conf\+\_\+cmsis.\+h}
+\hypertarget{lv__conf__cmsis_8h_source}{}\label{lv__conf__cmsis_8h_source}\index{managed\_components/lvgl\_\_lvgl/env\_support/cmsis-\/pack/lv\_conf\_cmsis.h@{managed\_components/lvgl\_\_lvgl/env\_support/cmsis-\/pack/lv\_conf\_cmsis.h}}
+\mbox{\hyperlink{lv__conf__cmsis_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{/*\ clang-\/format\ off\ */}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#if\ 1\ }\textcolor{comment}{/*\ Set\ this\ to\ "{}1"{}\ to\ enable\ content\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifndef\ LV\_CONF\_CMSIS\_H}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ LV\_CONF\_CMSIS\_H}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#if\ defined(\_RTE\_)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}RTE\_Components.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ If\ you\ need\ to\ include\ anything\ here,\ do\ it\ inside\ the\ \`{}\_\_ASSEMBLY\_\_`\ guard\ */}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#if\ \ 0\ \&\&\ defined(\_\_ASSEMBLY\_\_)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}my\_include.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*====================}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ COLOR\ SETTINGS}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_DEPTH\ 16}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_16\_SWAP\ 0}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/*=========================}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ \ \ STDLIB\ WRAPPER\ SETTINGS}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *=========================*/}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ LV\_USE\_STDLIB\_MALLOC\ \ \ \ LV\_STDLIB\_BUILTIN}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ LV\_USE\_STDLIB\_STRING\ \ \ \ LV\_STDLIB\_BUILTIN}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ LV\_USE\_STDLIB\_SPRINTF\ \ \ LV\_STDLIB\_BUILTIN}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ LV\_STDINT\_INCLUDE\ \ \ \ \ \ \ <stdint.h>}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ LV\_STDDEF\_INCLUDE\ \ \ \ \ \ \ <stddef.h>}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ LV\_STDBOOL\_INCLUDE\ \ \ \ \ \ <stdbool.h>}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ LV\_INTTYPES\_INCLUDE\ \ \ \ \ <inttypes.h>}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ LV\_LIMITS\_INCLUDE\ \ \ \ \ \ \ <limits.h>}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ LV\_STDARG\_INCLUDE\ \ \ \ \ \ \ <stdarg.h>}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#if\ LV\_USE\_STDLIB\_MALLOC\ ==\ LV\_STDLIB\_BUILTIN}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_MEM\_SIZE\ (128\ *\ 1024U)\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_MEM\_POOL\_EXPAND\_SIZE\ 0}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_MEM\_ADR\ 0\ \ \ \ \ }}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{/*\ Instead\ of\ an\ address\ give\ a\ memory\ allocator\ that\ will\ be\ called\ to\ get\ a\ memory\ pool\ for\ LVGL.\ E.g.\ my\_malloc\ */}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_MEM\_ADR\ ==\ 0}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#undef\ LV\_MEM\_POOL\_INCLUDE}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#undef\ LV\_MEM\_POOL\_ALLOC}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*LV\_USE\_STDLIB\_MALLOC\ ==\ LV\_STDLIB\_BUILTIN*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{/*====================}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ HAL\ SETTINGS}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ LV\_DEF\_REFR\_PERIOD\ \ 33\ \ \ \ \ \ }}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ LV\_DPI\_DEF\ 130\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00096\ \textcolor{comment}{/*customize\ tick-\/get\ */}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#if\ defined(\_\_PERF\_COUNTER\_\_)\ \&\&\ \_\_PERF\_COUNTER\_\_}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_GLOBAL\_INIT(\_\_GLOBAL\_PTR)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ do\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_global\_init((lv\_global\_t\ *)(\_\_GLOBAL\_PTR));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ extern\ uint32\_t\ perfc\_tick\_get(void);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\_\_GLOBAL\_PTR)-\/>tick\_state.tick\_get\_cb\ =\ perfc\_tick\_get;\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \}\ while(0)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{comment}{/*=================}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ *\ OPERATING\ SYSTEM}}
+\DoxyCodeLine{00108\ \textcolor{comment}{\ *=================*/}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#if\ LV\_USE\_OS\ ==\ LV\_OS\_CUSTOM}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_OS\_CUSTOM\_INCLUDE\ <stdint.h>}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#if\ LV\_USE\_OS\ ==\ LV\_OS\_FREERTOS}}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \ *\ Unblocking\ an\ RTOS\ task\ with\ a\ direct\ notification\ is\ 45\%\ faster\ and\ uses\ less\ RAM}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ \ *\ than\ unblocking\ a\ task\ using\ an\ intermediary\ object\ such\ as\ a\ binary\ semaphore.}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ \ *\ RTOS\ task\ notifications\ can\ only\ be\ used\ when\ there\ is\ only\ one\ task\ that\ can\ be\ the\ recipient\ of\ the\ event.}}
+\DoxyCodeLine{00128\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_FREERTOS\_TASK\_NOTIFY\ 1}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{/*========================}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ *\ RENDERING\ CONFIGURATION}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ *========================*/}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_BUF\_STRIDE\_ALIGN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_BUF\_ALIGN\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 4}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_TRANSFORM\_USE\_MATRIX\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{comment}{/*\ If\ a\ widget\ has\ \`{}style\_opa\ <\ 255`\ (not\ \`{}bg\_opa`,\ \`{}text\_opa`\ etc)\ or\ not\ NORMAL\ blend\ mode}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ *\ it\ is\ buffered\ into\ a\ "{}simple"{}\ layer\ before\ rendering.\ The\ widget\ can\ be\ buffered\ in\ smaller\ chunks.}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ *\ "{}Transformed\ layers"{}\ (if\ \`{}transform\_angle/zoom`\ are\ set)\ use\ larger\ buffers}}
+\DoxyCodeLine{00151\ \textcolor{comment}{\ *\ and\ can't\ be\ drawn\ in\ chunks.\ */}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_LAYER\_SIMPLE\_BUF\_SIZE\ \ \ \ (24\ *\ 1024)\ \ \ \ }}
+\DoxyCodeLine{00156\ \textcolor{comment}{/*\ Limit\ the\ max\ allocated\ memory\ for\ simple\ and\ transformed\ layers.}}
+\DoxyCodeLine{00157\ \textcolor{comment}{\ *\ It\ should\ be\ at\ least\ \`{}LV\_DRAW\_LAYER\_SIMPLE\_BUF\_SIZE`\ sized\ but\ if\ transformed\ layers\ are\ also\ used}}
+\DoxyCodeLine{00158\ \textcolor{comment}{\ *\ it\ should\ be\ enough\ to\ store\ the\ largest\ widget\ too\ (width\ x\ height\ x\ 4\ area).}}
+\DoxyCodeLine{00159\ \textcolor{comment}{\ *\ Set\ it\ to\ 0\ to\ have\ no\ limit.\ */}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_LAYER\_MAX\_MEMORY\ 0\ \ }}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_THREAD\_STACK\_SIZE\ \ \ \ (8\ *\ 1024)\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_THREAD\_PRIO\ LV\_THREAD\_PRIO\_HIGH}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ LV\_USE\_DRAW\_SW\ 1}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_SW\ ==\ 1}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00179\ \textcolor{comment}{\ \ \ \ \ *\ Selectively\ disable\ color\ format\ support\ in\ order\ to\ reduce\ code\ size.}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ \ \ \ \ *\ NOTE:\ some\ features\ use\ certain\ color\ formats\ internally,\ e.g.}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ gradients\ use\ RGB888}}
+\DoxyCodeLine{00182\ \textcolor{comment}{\ \ \ \ \ *\ -\/\ bitmaps\ with\ transparency\ may\ use\ ARGB8888}}
+\DoxyCodeLine{00183\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_RGB565\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_RGB565\_SWAPPED\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_RGB565A8\ \ \ \ \ 1}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_RGB888\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_XRGB8888\ \ \ \ \ 1}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_ARGB8888\ \ \ \ \ 1}}
+\DoxyCodeLine{00190\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_ARGB8888\_PREMULTIPLIED\ 1}}
+\DoxyCodeLine{00191\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_L8\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_AL88\ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_A8\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_SUPPORT\_I1\ \ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{/*\ The\ threshold\ of\ the\ luminance\ to\ consider\ a\ pixel\ as}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ \ \ \ \ *\ active\ in\ indexed\ color\ format\ */}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_I1\_LUM\_THRESHOLD\ 127}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_DRAW\_UNIT\_CNT\ \ \ \ 1}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NATIVE\_HELIUM\_ASM\ \ \ \ 0}}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_SW\_COMPLEX\ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_DRAW\_SW\_COMPLEX\ ==\ 1}}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DRAW\_SW\_SHADOW\_CACHE\_SIZE\ 0}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DRAW\_SW\_CIRCLE\_CACHE\_SIZE\ 4}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\ \ \ \ \#if\ !defined(LV\_USE\_DRAW\_SW\_ASM)\ \&\&\ defined(RTE\_Acceleration\_Arm\_2D)}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*turn-\/on\ helium\ acceleration\ when\ Arm-\/2D\ and\ the\ Helium-\/powered\ device\ are\ detected\ */}}
+\DoxyCodeLine{00228\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#if\ defined(\_\_ARM\_FEATURE\_MVE)\ \&\&\ \_\_ARM\_FEATURE\_MVE}}
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ LV\_USE\_DRAW\_SW\_ASM\ \ LV\_DRAW\_SW\_ASM\_HELIUM}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \#define\ LV\_USE\_DRAW\_ARM2D\_SYNC\ \ \ 1}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ LV\_USE\_DRAW\_SW\_ASM}}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \ LV\_USE\_DRAW\_SW\_ASM\ \ \ \ \ LV\_DRAW\_SW\_ASM\_NONE}}
+\DoxyCodeLine{00236\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_DRAW\_SW\_ASM\ ==\ LV\_DRAW\_SW\_ASM\_CUSTOM}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ \ LV\_DRAW\_SW\_ASM\_CUSTOM\_INCLUDE\ "{}"{}}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_DRAW\_SW\_COMPLEX\_GRADIENTS\ \ \ \ 0}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{comment}{/*Use\ TSi's\ aka\ (Think\ Silicon)\ NemaGFX\ */}}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#if\ LV\_USE\_NEMA\_GFX}}
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NEMA\_LIB\ LV\_NEMA\_LIB\_NONE}}
+\DoxyCodeLine{00259\ }
+\DoxyCodeLine{00263\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NEMA\_HAL\ LV\_NEMA\_HAL\_CUSTOM}}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_NEMA\_HAL\ ==\ LV\_NEMA\_HAL\_STM32}}
+\DoxyCodeLine{00265\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_NEMA\_STM32\_HAL\_INCLUDE\ <stm32u5xx\_hal.h>}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_NEMA\_STM32\_HAL\_ATTRIBUTE\_POOL\_MEM}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{comment}{/*Enable\ Vector\ Graphics\ Operations.\ Available\ only\ if\ NemaVG\ library\ is\ present*/}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NEMA\_VG\ 0}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_NEMA\_VG}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Define\ application's\ resolution\ used\ for\ VG\ related\ buffer\ allocation\ */}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_NEMA\_GFX\_MAX\_RESX\ 800}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_NEMA\_GFX\_MAX\_RESY\ 600}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\#if\ LV\_USE\_PXP}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_DRAW\_PXP\ 1}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_ROTATE\_PXP\ 0}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_DRAW\_PXP\ \&\&\ LV\_USE\_OS}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_USE\_PXP\_DRAW\_THREAD\ 1}}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_PXP\_ASSERT\ 0}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#if\ LV\_USE\_G2D}}
+\DoxyCodeLine{00303\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_DRAW\_G2D\ 1}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_ROTATE\_G2D\ 0}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_G2D\_HASH\_TABLE\_SIZE\ 50}}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_DRAW\_G2D\ \&\&\ LV\_USE\_OS}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_USE\_G2D\_DRAW\_THREAD\ 1}}
+\DoxyCodeLine{00315\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_G2D\_ASSERT\ 0}}
+\DoxyCodeLine{00319\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00322\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_VG\_LITE}}
+\DoxyCodeLine{00324\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_USE\_GPU\_INIT\ 0}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00327\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_USE\_ASSERT\ 0}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_FLUSH\_MAX\_COUNT\ 8}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00335\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_USE\_BOX\_SHADOW\ 1}}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_GRAD\_CACHE\_CNT\ 32}}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00342\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_STROKE\_CACHE\_CNT\ 32}}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_BITMAP\_FONT\_CACHE\_CNT\ 256}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_DISABLE\_VLC\_OP\_CLOSE\ 0}}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00351\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_DISABLE\_BLIT\_RECT\_OFFSET\ 0}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_DISABLE\_LINEAR\_GRADIENT\_EXT\ 0}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00357\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_VG\_LITE\_PATH\_DUMP\_MAX\_LEN\ 1000}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00360\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_VG\_LITE\_DRIVER}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_HAL\_GPU\_SERIES\ gc255}}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_HAL\_GPU\_REVISION\ 0x40}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_HAL\_GPU\_BASE\_ADDRESS\ 0x40240000}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*LV\_USE\_VG\_LITE\_DRIVER*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_VG\_LITE\_THORVG\ \ \ 0}}
+\DoxyCodeLine{00375\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_VG\_LITE\_THORVG}}
+\DoxyCodeLine{00377\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_THORVG\_LVGL\_BLEND\_SUPPORT\ 0}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_THORVG\_YUV\_SUPPORT\ 0}}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00383\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_THORVG\_LINEAR\_GRADIENT\_EXT\_SUPPORT\ 0}}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00386\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_THORVG\_16PIXELS\_ALIGN\ 1}}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_THORVG\_BUF\_ADDR\_ALIGN\ 64}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_VG\_LITE\_THORVG\_THREAD\_RENDER\ 0}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*LV\_USE\_VG\_LITE\_THORVG*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_DMA2D}}
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_DMA2D\_HAL\_INCLUDE\ "{}stm32h7xx\_hal.h"{}}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{comment}{/*\ if\ enabled,\ the\ user\ is\ required\ to\ call\ \`{}lv\_draw\_dma2d\_transfer\_complete\_interrupt\_handler`}}
+\DoxyCodeLine{00401\ \textcolor{comment}{\ \ \ \ \ *\ upon\ receiving\ the\ DMA2D\ global\ interrupt}}
+\DoxyCodeLine{00402\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00403\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_DRAW\_DMA2D\_INTERRUPT\ 0}}
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00407\ \textcolor{preprocessor}{\#define\ LV\_USE\_DRAW\_OPENGLES\ 0}}
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_OPENGLES}}
+\DoxyCodeLine{00409\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_OPENGLES\_TEXTURE\_CACHE\_COUNT\ 64}}
+\DoxyCodeLine{00410\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00411\ }
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#if\ LV\_USE\_PPA}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_PPA\_IMG\ \ \ \ \ \ 0}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PPA\_BURST\_LENGTH\ \ \ \ 128}}
+\DoxyCodeLine{00416\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00418\ \textcolor{comment}{/*\ Use\ EVE\ FT81X\ GPU.\ */}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_EVE}}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{comment}{/*\ EVE\_GEN\ value:\ 2,\ 3,\ or\ 4\ */}}
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_EVE\_EVE\_GENERATION\ 4}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{comment}{/*\ The\ maximum\ number\ of\ bytes\ to\ buffer\ before\ a\ single\ SPI\ transmission.}}
+\DoxyCodeLine{00424\ \textcolor{comment}{\ \ \ \ \ *\ Set\ it\ to\ 0\ to\ disable\ write\ buffering.}}
+\DoxyCodeLine{00425\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_DRAW\_EVE\_WRITE\_BUFFER\_SIZE\ 2048}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_NANOVG}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_NANOVG\_BACKEND\ \ \ LV\_NANOVG\_BACKEND\_GLES2}}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00442\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_NANOVG\_IMAGE\_CACHE\_CNT\ 128}}
+\DoxyCodeLine{00443\ }
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_NANOVG\_LETTER\_CACHE\_CNT\ 512}}
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00448\ \textcolor{comment}{/*=======================}}
+\DoxyCodeLine{00449\ \textcolor{comment}{\ *\ FEATURE\ CONFIGURATION}}
+\DoxyCodeLine{00450\ \textcolor{comment}{\ *=======================*/}}
+\DoxyCodeLine{00451\ }
+\DoxyCodeLine{00452\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00453\ \textcolor{comment}{\ *\ Logging}}
+\DoxyCodeLine{00454\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#define\ LV\_USE\_LOG\ 0}}
+\DoxyCodeLine{00458\ \textcolor{preprocessor}{\#if\ LV\_USE\_LOG}}
+\DoxyCodeLine{00466\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_LEVEL\ LV\_LOG\_LEVEL\_USER}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00470\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_PRINTF\ 1}}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{comment}{//\#define\ LV\_LOG\_PRINT\_CB}}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00479\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_USE\_TIMESTAMP\ 1}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00483\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_USE\_FILE\_LINE\ 1}}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00485\ \ \ \ \ \textcolor{comment}{/*\ Enable/disable\ LV\_LOG\_TRACE\ in\ modules\ that\ produces\ a\ huge\ number\ of\ logs.\ */}}
+\DoxyCodeLine{00486\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_MEM\ \ \ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00487\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_TIMER\ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_INDEV\ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00489\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_DISP\_REFR\ \ 1\ \ \ }}
+\DoxyCodeLine{00490\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_EVENT\ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00491\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_OBJ\_CREATE\ 1\ \ \ }}
+\DoxyCodeLine{00492\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_LAYOUT\ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00493\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_ANIM\ \ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00494\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LOG\_TRACE\_CACHE\ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*LV\_USE\_LOG*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00498\ \textcolor{comment}{\ *\ Asserts}}
+\DoxyCodeLine{00499\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00500\ }
+\DoxyCodeLine{00501\ \textcolor{comment}{/*\ Enable\ assertion\ failures\ if\ an\ operation\ fails\ or\ invalid\ data\ is\ found.}}
+\DoxyCodeLine{00502\ \textcolor{comment}{\ *\ If\ LV\_USE\_LOG\ is\ enabled,\ an\ error\ message\ will\ be\ printed\ on\ failure.\ */}}
+\DoxyCodeLine{00503\ \textcolor{preprocessor}{\#define\ LV\_USE\_ASSERT\_NULL\ \ \ \ \ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00504\ \textcolor{preprocessor}{\#define\ LV\_USE\_ASSERT\_MALLOC\ \ \ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\#define\ LV\_USE\_ASSERT\_STYLE\ \ \ \ \ \ \ \ \ 0\ \ \ }}
+\DoxyCodeLine{00506\ \textcolor{preprocessor}{\#define\ LV\_USE\_ASSERT\_MEM\_INTEGRITY\ 0\ \ \ }}
+\DoxyCodeLine{00507\ \textcolor{preprocessor}{\#define\ LV\_USE\_ASSERT\_OBJ\ \ \ \ \ \ \ \ \ \ \ 0\ \ \ }}
+\DoxyCodeLine{00510\ \textcolor{preprocessor}{\#define\ LV\_ASSERT\_HANDLER\_INCLUDE\ <stdint.h>}}
+\DoxyCodeLine{00511\ \textcolor{preprocessor}{\#define\ LV\_ASSERT\_HANDLER\ while(1);\ \ \ \ \ }}
+\DoxyCodeLine{00513\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00514\ \textcolor{comment}{\ *\ Debug}}
+\DoxyCodeLine{00515\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\#define\ LV\_USE\_REFR\_DEBUG\ 0}}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00521\ \textcolor{preprocessor}{\#define\ LV\_USE\_LAYER\_DEBUG\ 0}}
+\DoxyCodeLine{00522\ }
+\DoxyCodeLine{00527\ \textcolor{preprocessor}{\#define\ LV\_USE\_PARALLEL\_DRAW\_DEBUG\ 0}}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00530\ \textcolor{comment}{\ *\ Others}}
+\DoxyCodeLine{00531\ \textcolor{comment}{\ *-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{00532\ }
+\DoxyCodeLine{00533\ \textcolor{preprocessor}{\#define\ LV\_ENABLE\_GLOBAL\_CUSTOM\ 0}}
+\DoxyCodeLine{00534\ \textcolor{preprocessor}{\#if\ LV\_ENABLE\_GLOBAL\_CUSTOM}}
+\DoxyCodeLine{00536\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_GLOBAL\_CUSTOM\_INCLUDE\ <stdint.h>}}
+\DoxyCodeLine{00537\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\#define\ LV\_CACHE\_DEF\_SIZE\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\#define\ LV\_IMAGE\_HEADER\_CACHE\_DEF\_CNT\ 0}}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#define\ LV\_GRADIENT\_MAX\_STOPS\ \ \ 2}}
+\DoxyCodeLine{00553\ }
+\DoxyCodeLine{00560\ \textcolor{preprocessor}{\#define\ LV\_COLOR\_MIX\_ROUND\_OFS\ \ 0}}
+\DoxyCodeLine{00561\ }
+\DoxyCodeLine{00563\ \textcolor{preprocessor}{\#define\ LV\_OBJ\_STYLE\_CACHE\ \ \ \ \ \ 0}}
+\DoxyCodeLine{00564\ }
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#define\ LV\_USE\_OBJ\_ID\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00567\ }
+\DoxyCodeLine{00569\ \textcolor{preprocessor}{\#define\ LV\_USE\_OBJ\_NAME\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00570\ }
+\DoxyCodeLine{00572\ \textcolor{preprocessor}{\#define\ LV\_OBJ\_ID\_AUTO\_ASSIGN\ \ \ LV\_USE\_OBJ\_ID}}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00580\ \textcolor{preprocessor}{\#define\ LV\_USE\_OBJ\_ID\_BUILTIN\ \ \ 1}}
+\DoxyCodeLine{00581\ }
+\DoxyCodeLine{00583\ \textcolor{preprocessor}{\#define\ LV\_USE\_OBJ\_PROPERTY\ 0}}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\#define\ LV\_USE\_OBJ\_PROPERTY\_NAME\ 1}}
+\DoxyCodeLine{00587\ }
+\DoxyCodeLine{00588\ \textcolor{comment}{/*\ Enable\ the\ multi-\/touch\ gesture\ recognition\ feature\ */}}
+\DoxyCodeLine{00589\ \textcolor{comment}{/*\ Gesture\ recognition\ requires\ the\ use\ of\ floats\ */}}
+\DoxyCodeLine{00590\ \textcolor{preprocessor}{\#define\ LV\_USE\_GESTURE\_RECOGNITION\ 0}}
+\DoxyCodeLine{00591\ }
+\DoxyCodeLine{00592\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00593\ \textcolor{comment}{\ *\ \ COMPILER\ SETTINGS}}
+\DoxyCodeLine{00594\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00597\ \textcolor{preprocessor}{\#define\ LV\_BIG\_ENDIAN\_SYSTEM\ 0}}
+\DoxyCodeLine{00598\ }
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_TICK\_INC}}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00603\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_TIMER\_HANDLER}}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00606\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_FLUSH\_READY}}
+\DoxyCodeLine{00607\ }
+\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_MEM\_ALIGN\_SIZE\ 1}}
+\DoxyCodeLine{00611\ }
+\DoxyCodeLine{00614\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_MEM\_ALIGN\ \ \_\_attribute\_\_((aligned(4)))}}
+\DoxyCodeLine{00615\ }
+\DoxyCodeLine{00617\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_LARGE\_CONST}}
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00620\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_LARGE\_RAM\_ARRAY}}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00623\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_FAST\_MEM}}
+\DoxyCodeLine{00624\ }
+\DoxyCodeLine{00627\ \textcolor{preprocessor}{\#define\ LV\_EXPORT\_CONST\_INT(int\_value)\ struct\ \_silence\_gcc\_warning\ \ }}
+\DoxyCodeLine{00630\ \textcolor{preprocessor}{\#define\ LV\_ATTRIBUTE\_EXTERN\_DATA}}
+\DoxyCodeLine{00631\ }
+\DoxyCodeLine{00633\ \textcolor{preprocessor}{\#define\ LV\_USE\_FLOAT\ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00637\ \textcolor{preprocessor}{\#define\ LV\_USE\_MATRIX\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{00638\ }
+\DoxyCodeLine{00640\ \textcolor{preprocessor}{\#ifndef\ LV\_USE\_PRIVATE\_API}}
+\DoxyCodeLine{00641\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_PRIVATE\_API\ \ 0}}
+\DoxyCodeLine{00642\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \textcolor{comment}{/*==================}}
+\DoxyCodeLine{00645\ \textcolor{comment}{\ *\ \ \ FONT\ USAGE}}
+\DoxyCodeLine{00646\ \textcolor{comment}{\ *===================*/}}
+\DoxyCodeLine{00647\ }
+\DoxyCodeLine{00648\ \textcolor{comment}{/*\ Montserrat\ fonts\ with\ ASCII\ range\ and\ some\ symbols\ using\ bpp\ =\ 4}}
+\DoxyCodeLine{00649\ \textcolor{comment}{\ *\ https://fonts.google.com/specimen/Montserrat\ */}}
+\DoxyCodeLine{00650\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_8\ \ 0}}
+\DoxyCodeLine{00651\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_10\ 0}}
+\DoxyCodeLine{00652\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_12\ 1}}
+\DoxyCodeLine{00653\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_14\ 1}}
+\DoxyCodeLine{00654\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_16\ 1}}
+\DoxyCodeLine{00655\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_18\ 0}}
+\DoxyCodeLine{00656\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_20\ 1}}
+\DoxyCodeLine{00657\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_22\ 0}}
+\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_24\ 1}}
+\DoxyCodeLine{00659\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_26\ 1}}
+\DoxyCodeLine{00660\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_28\ 0}}
+\DoxyCodeLine{00661\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_30\ 0}}
+\DoxyCodeLine{00662\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_32\ 0}}
+\DoxyCodeLine{00663\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_34\ 0}}
+\DoxyCodeLine{00664\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_36\ 0}}
+\DoxyCodeLine{00665\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_38\ 0}}
+\DoxyCodeLine{00666\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_40\ 0}}
+\DoxyCodeLine{00667\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_42\ 0}}
+\DoxyCodeLine{00668\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_44\ 0}}
+\DoxyCodeLine{00669\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_46\ 0}}
+\DoxyCodeLine{00670\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_48\ 0}}
+\DoxyCodeLine{00671\ }
+\DoxyCodeLine{00672\ \textcolor{comment}{/*\ Demonstrate\ special\ features\ */}}
+\DoxyCodeLine{00673\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MONTSERRAT\_28\_COMPRESSED\ \ \ \ 0\ \ }}
+\DoxyCodeLine{00674\ \textcolor{preprocessor}{\#define\ LV\_FONT\_DEJAVU\_16\_PERSIAN\_HEBREW\ \ \ \ 0\ \ }}
+\DoxyCodeLine{00675\ \textcolor{preprocessor}{\#define\ LV\_FONT\_SOURCE\_HAN\_SANS\_SC\_14\_CJK\ \ \ 0\ \ }}
+\DoxyCodeLine{00676\ \textcolor{preprocessor}{\#define\ LV\_FONT\_SOURCE\_HAN\_SANS\_SC\_16\_CJK\ \ \ 0\ \ }}
+\DoxyCodeLine{00679\ \textcolor{preprocessor}{\#define\ LV\_FONT\_UNSCII\_8\ \ 0}}
+\DoxyCodeLine{00680\ \textcolor{preprocessor}{\#define\ LV\_FONT\_UNSCII\_16\ 0}}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00691\ \textcolor{preprocessor}{\#define\ LV\_FONT\_CUSTOM\_DECLARE}}
+\DoxyCodeLine{00692\ }
+\DoxyCodeLine{00694\ \textcolor{preprocessor}{\#define\ LV\_FONT\_DEFAULT\ \&lv\_font\_montserrat\_14}}
+\DoxyCodeLine{00695\ }
+\DoxyCodeLine{00699\ \textcolor{preprocessor}{\#define\ LV\_FONT\_FMT\_TXT\_LARGE\ 0}}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00702\ \textcolor{preprocessor}{\#define\ LV\_USE\_FONT\_COMPRESSED\ 0}}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00705\ \textcolor{preprocessor}{\#define\ LV\_USE\_FONT\_PLACEHOLDER\ 1}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \textcolor{comment}{/*=================}}
+\DoxyCodeLine{00708\ \textcolor{comment}{\ *\ \ TEXT\ SETTINGS}}
+\DoxyCodeLine{00709\ \textcolor{comment}{\ *=================*/}}
+\DoxyCodeLine{00710\ }
+\DoxyCodeLine{00717\ \textcolor{preprocessor}{\#define\ LV\_TXT\_ENC\ LV\_TXT\_ENC\_UTF8}}
+\DoxyCodeLine{00718\ }
+\DoxyCodeLine{00720\ \textcolor{preprocessor}{\#define\ LV\_TXT\_BREAK\_CHARS\ "{}\ ,.;:-\/\_)]\}"{}}}
+\DoxyCodeLine{00721\ }
+\DoxyCodeLine{00724\ \textcolor{preprocessor}{\#define\ LV\_TXT\_LINE\_BREAK\_LONG\_LEN\ 0}}
+\DoxyCodeLine{00725\ }
+\DoxyCodeLine{00728\ \textcolor{preprocessor}{\#define\ LV\_TXT\_LINE\_BREAK\_LONG\_PRE\_MIN\_LEN\ 3}}
+\DoxyCodeLine{00729\ }
+\DoxyCodeLine{00732\ \textcolor{preprocessor}{\#define\ LV\_TXT\_LINE\_BREAK\_LONG\_POST\_MIN\_LEN\ 3}}
+\DoxyCodeLine{00733\ }
+\DoxyCodeLine{00737\ \textcolor{preprocessor}{\#define\ LV\_USE\_BIDI\ 0}}
+\DoxyCodeLine{00738\ \textcolor{preprocessor}{\#if\ LV\_USE\_BIDI}}
+\DoxyCodeLine{00739\ \ \ \ \ \textcolor{comment}{/*Set\ the\ default\ direction.\ Supported\ values:}}
+\DoxyCodeLine{00740\ \textcolor{comment}{\ \ \ \ *\`{}LV\_BASE\_DIR\_LTR`\ Left-\/to-\/Right}}
+\DoxyCodeLine{00741\ \textcolor{comment}{\ \ \ \ *\`{}LV\_BASE\_DIR\_RTL`\ Right-\/to-\/Left}}
+\DoxyCodeLine{00742\ \textcolor{comment}{\ \ \ \ *\`{}LV\_BASE\_DIR\_AUTO`\ detect\ text\ base\ direction*/}}
+\DoxyCodeLine{00743\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_BIDI\_BASE\_DIR\_DEF\ LV\_BASE\_DIR\_AUTO}}
+\DoxyCodeLine{00744\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00748\ \textcolor{preprocessor}{\#define\ LV\_USE\_ARABIC\_PERSIAN\_CHARS\ 0}}
+\DoxyCodeLine{00749\ }
+\DoxyCodeLine{00750\ \textcolor{comment}{/*The\ control\ character\ to\ use\ for\ signaling\ text\ recoloring*/}}
+\DoxyCodeLine{00751\ \textcolor{preprocessor}{\#define\ LV\_TXT\_COLOR\_CMD\ "{}\#"{}}}
+\DoxyCodeLine{00752\ }
+\DoxyCodeLine{00753\ \textcolor{comment}{/*==================}}
+\DoxyCodeLine{00754\ \textcolor{comment}{\ *\ WIDGETS}}
+\DoxyCodeLine{00755\ \textcolor{comment}{\ *================*/}}
+\DoxyCodeLine{00756\ \textcolor{comment}{/*\ Documentation\ for\ widgets\ can\ be\ found\ here:\ https://docs.lvgl.io/master/widgets/index.html\ .\ */}}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00766\ \textcolor{preprocessor}{\#define\ LV\_WIDGETS\_HAS\_DEFAULT\_VALUE\ \ 1}}
+\DoxyCodeLine{00767\ }
+\DoxyCodeLine{00768\ \textcolor{preprocessor}{\#define\ LV\_USE\_ANIMIMG\ \ \ \ 1}}
+\DoxyCodeLine{00769\ }
+\DoxyCodeLine{00770\ \textcolor{preprocessor}{\#define\ LV\_USE\_ARC\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00771\ }
+\DoxyCodeLine{00772\ \textcolor{preprocessor}{\#define\ LV\_USE\_ARCLABEL\ \ 1}}
+\DoxyCodeLine{00773\ }
+\DoxyCodeLine{00774\ \textcolor{preprocessor}{\#define\ LV\_USE\_BAR\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00775\ }
+\DoxyCodeLine{00776\ \textcolor{preprocessor}{\#define\ LV\_USE\_BUTTON\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00777\ }
+\DoxyCodeLine{00778\ \textcolor{preprocessor}{\#define\ LV\_USE\_BUTTONMATRIX\ \ 1}}
+\DoxyCodeLine{00779\ }
+\DoxyCodeLine{00780\ \textcolor{preprocessor}{\#define\ LV\_USE\_CALENDAR\ \ \ 1}}
+\DoxyCodeLine{00781\ \textcolor{preprocessor}{\#if\ LV\_USE\_CALENDAR}}
+\DoxyCodeLine{00782\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_CALENDAR\_WEEK\_STARTS\_MONDAY\ 0}}
+\DoxyCodeLine{00783\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_CALENDAR\_WEEK\_STARTS\_MONDAY}}
+\DoxyCodeLine{00784\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_CALENDAR\_DEFAULT\_DAY\_NAMES\ \{"{}Mo"{},\ "{}Tu"{},\ "{}We"{},\ "{}Th"{},\ "{}Fr"{},\ "{}Sa"{},\ "{}Su"{}\}}}
+\DoxyCodeLine{00785\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00786\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_CALENDAR\_DEFAULT\_DAY\_NAMES\ \{"{}Su"{},\ "{}Mo"{},\ "{}Tu"{},\ "{}We"{},\ "{}Th"{},\ "{}Fr"{},\ "{}Sa"{}\}}}
+\DoxyCodeLine{00787\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_CALENDAR\_DEFAULT\_MONTH\_NAMES\ \{"{}January"{},\ "{}February"{},\ "{}March"{},\ \ "{}April"{},\ "{}May"{},\ \ "{}June"{},\ "{}July"{},\ "{}August"{},\ "{}September"{},\ "{}October"{},\ "{}November"{},\ "{}December"{}\}}}
+\DoxyCodeLine{00790\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_CALENDAR\_HEADER\_ARROW\ 1}}
+\DoxyCodeLine{00791\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_CALENDAR\_HEADER\_DROPDOWN\ 1}}
+\DoxyCodeLine{00792\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_CALENDAR\_CHINESE\ 0}}
+\DoxyCodeLine{00793\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*LV\_USE\_CALENDAR*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \textcolor{preprocessor}{\#define\ LV\_USE\_CANVAS\ \ \ \ \ 1}}
+\DoxyCodeLine{00796\ }
+\DoxyCodeLine{00797\ \textcolor{preprocessor}{\#define\ LV\_USE\_CHART\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00799\ \textcolor{preprocessor}{\#define\ LV\_USE\_CHECKBOX\ \ \ 1}}
+\DoxyCodeLine{00800\ }
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\#define\ LV\_USE\_DROPDOWN\ \ \ 1\ \ \ }}
+\DoxyCodeLine{00803\ \textcolor{preprocessor}{\#define\ LV\_USE\_IMAGE\ \ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00805\ \textcolor{preprocessor}{\#define\ LV\_USE\_IMAGEBUTTON\ \ \ \ \ 1}}
+\DoxyCodeLine{00806\ }
+\DoxyCodeLine{00807\ \textcolor{preprocessor}{\#define\ LV\_USE\_KEYBOARD\ \ \ 1}}
+\DoxyCodeLine{00808\ }
+\DoxyCodeLine{00809\ \textcolor{preprocessor}{\#define\ LV\_USE\_LABEL\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00810\ \textcolor{preprocessor}{\#if\ LV\_USE\_LABEL}}
+\DoxyCodeLine{00811\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LABEL\_TEXT\_SELECTION\ 1\ \ \ }}
+\DoxyCodeLine{00812\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LABEL\_LONG\_TXT\_HINT\ 1\ \ \ \ }}
+\DoxyCodeLine{00813\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LABEL\_WAIT\_CHAR\_COUNT\ 3\ \ }}
+\DoxyCodeLine{00814\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00815\ }
+\DoxyCodeLine{00816\ \textcolor{preprocessor}{\#define\ LV\_USE\_LED\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00817\ }
+\DoxyCodeLine{00818\ \textcolor{preprocessor}{\#define\ LV\_USE\_LINE\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00819\ }
+\DoxyCodeLine{00820\ \textcolor{preprocessor}{\#define\ LV\_USE\_LIST\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00821\ }
+\DoxyCodeLine{00822\ \textcolor{preprocessor}{\#define\ LV\_USE\_LOTTIE\ \ \ \ \ 0\ \ }}
+\DoxyCodeLine{00824\ \textcolor{preprocessor}{\#define\ LV\_USE\_MENU\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00825\ }
+\DoxyCodeLine{00826\ \textcolor{preprocessor}{\#define\ LV\_USE\_MSGBOX\ \ \ \ \ 1}}
+\DoxyCodeLine{00827\ }
+\DoxyCodeLine{00828\ \textcolor{preprocessor}{\#define\ LV\_USE\_ROLLER\ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00830\ \textcolor{preprocessor}{\#define\ LV\_USE\_SCALE\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00831\ }
+\DoxyCodeLine{00832\ \textcolor{preprocessor}{\#define\ LV\_USE\_SLIDER\ \ \ \ \ 1\ \ \ }}
+\DoxyCodeLine{00834\ \textcolor{preprocessor}{\#define\ LV\_USE\_SPAN\ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00835\ \textcolor{preprocessor}{\#if\ LV\_USE\_SPAN}}
+\DoxyCodeLine{00837\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SPAN\_SNIPPET\_STACK\_SIZE\ 64}}
+\DoxyCodeLine{00838\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00839\ }
+\DoxyCodeLine{00840\ \textcolor{preprocessor}{\#define\ LV\_USE\_SPINBOX\ \ \ \ 1}}
+\DoxyCodeLine{00841\ }
+\DoxyCodeLine{00842\ \textcolor{preprocessor}{\#define\ LV\_USE\_SPINNER\ \ \ \ 1}}
+\DoxyCodeLine{00843\ }
+\DoxyCodeLine{00844\ \textcolor{preprocessor}{\#define\ LV\_USE\_SWITCH\ \ \ \ \ 1}}
+\DoxyCodeLine{00845\ }
+\DoxyCodeLine{00846\ \textcolor{preprocessor}{\#define\ LV\_USE\_TABLE\ \ \ \ \ \ 1}}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00848\ \textcolor{preprocessor}{\#define\ LV\_USE\_TABVIEW\ \ \ \ 1}}
+\DoxyCodeLine{00849\ }
+\DoxyCodeLine{00850\ \textcolor{preprocessor}{\#define\ LV\_USE\_TEXTAREA\ \ \ 1\ \ \ }}
+\DoxyCodeLine{00851\ \textcolor{preprocessor}{\#if\ LV\_USE\_TEXTAREA\ !=\ 0}}
+\DoxyCodeLine{00852\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_TEXTAREA\_DEF\_PWD\_SHOW\_TIME\ 1500\ \ \ \ }}
+\DoxyCodeLine{00853\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00854\ }
+\DoxyCodeLine{00855\ \textcolor{preprocessor}{\#define\ LV\_USE\_TILEVIEW\ \ \ 1}}
+\DoxyCodeLine{00856\ }
+\DoxyCodeLine{00857\ \textcolor{preprocessor}{\#define\ LV\_USE\_WIN\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{00858\ }
+\DoxyCodeLine{00859\ \textcolor{preprocessor}{\#define\ LV\_USE\_3DTEXTURE\ \ 0}}
+\DoxyCodeLine{00860\ }
+\DoxyCodeLine{00861\ \textcolor{comment}{/*==================}}
+\DoxyCodeLine{00862\ \textcolor{comment}{\ *\ THEMES}}
+\DoxyCodeLine{00863\ \textcolor{comment}{\ *==================*/}}
+\DoxyCodeLine{00864\ \textcolor{comment}{/*\ Documentation\ for\ themes\ can\ be\ found\ here:\ https://docs.lvgl.io/master/common-\/widget-\/features/styles/styles.html\#themes\ .\ */}}
+\DoxyCodeLine{00865\ }
+\DoxyCodeLine{00867\ \textcolor{preprocessor}{\#define\ LV\_USE\_THEME\_DEFAULT\ 1}}
+\DoxyCodeLine{00868\ \textcolor{preprocessor}{\#if\ LV\_USE\_THEME\_DEFAULT}}
+\DoxyCodeLine{00870\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_THEME\_DEFAULT\_DARK\ 0}}
+\DoxyCodeLine{00871\ }
+\DoxyCodeLine{00873\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_THEME\_DEFAULT\_GROW\ 1}}
+\DoxyCodeLine{00874\ }
+\DoxyCodeLine{00876\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_THEME\_DEFAULT\_TRANSITION\_TIME\ 80}}
+\DoxyCodeLine{00877\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_THEME\_DEFAULT*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00878\ }
+\DoxyCodeLine{00880\ \textcolor{preprocessor}{\#define\ LV\_USE\_THEME\_SIMPLE\ 1}}
+\DoxyCodeLine{00881\ }
+\DoxyCodeLine{00883\ \textcolor{preprocessor}{\#define\ LV\_USE\_THEME\_MONO\ 1}}
+\DoxyCodeLine{00884\ }
+\DoxyCodeLine{00885\ \textcolor{comment}{/*==================}}
+\DoxyCodeLine{00886\ \textcolor{comment}{\ *\ LAYOUTS}}
+\DoxyCodeLine{00887\ \textcolor{comment}{\ *==================*/}}
+\DoxyCodeLine{00888\ \textcolor{comment}{/*\ Documentation\ for\ layouts\ can\ be\ found\ here:\ https://docs.lvgl.io/master/common-\/widget-\/features/layouts/index.html\ .\ */}}
+\DoxyCodeLine{00889\ }
+\DoxyCodeLine{00891\ \textcolor{preprocessor}{\#define\ LV\_USE\_FLEX\ 1}}
+\DoxyCodeLine{00892\ }
+\DoxyCodeLine{00894\ \textcolor{preprocessor}{\#define\ LV\_USE\_GRID\ 1}}
+\DoxyCodeLine{00895\ }
+\DoxyCodeLine{00896\ \textcolor{comment}{/*====================}}
+\DoxyCodeLine{00897\ \textcolor{comment}{\ *\ 3RD\ PARTS\ LIBRARIES}}
+\DoxyCodeLine{00898\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00899\ \textcolor{comment}{/*\ Documentation\ for\ libraries\ can\ be\ found\ here:\ https://docs.lvgl.io/master/libs/index.html\ .\ */}}
+\DoxyCodeLine{00900\ }
+\DoxyCodeLine{00901\ \textcolor{comment}{/*\ File\ system\ interfaces\ for\ common\ APIs\ */}}
+\DoxyCodeLine{00902\ }
+\DoxyCodeLine{00906\ \textcolor{preprocessor}{\#define\ LV\_FS\_DEFAULT\_DRIVER\_LETTER\ '\(\backslash\)0'}}
+\DoxyCodeLine{00907\ }
+\DoxyCodeLine{00909\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_STDIO}}
+\DoxyCodeLine{00910\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_STDIO\_LETTER\ '\(\backslash\)0'\ \ \ \ \ }}
+\DoxyCodeLine{00911\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_STDIO\_PATH\ "{}"{}\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00912\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_STDIO\_CACHE\_SIZE\ 0\ \ \ \ }}
+\DoxyCodeLine{00913\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00914\ }
+\DoxyCodeLine{00916\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_POSIX}}
+\DoxyCodeLine{00917\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_POSIX\_LETTER\ '\(\backslash\)0'\ \ \ \ \ }}
+\DoxyCodeLine{00918\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_POSIX\_PATH\ "{}"{}\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00919\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_POSIX\_CACHE\_SIZE\ 0\ \ \ \ }}
+\DoxyCodeLine{00920\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00921\ }
+\DoxyCodeLine{00923\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_WIN32}}
+\DoxyCodeLine{00924\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_WIN32\_LETTER\ '\(\backslash\)0'\ \ \ \ \ }}
+\DoxyCodeLine{00925\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_WIN32\_PATH\ "{}"{}\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00926\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_WIN32\_CACHE\_SIZE\ 0\ \ \ \ }}
+\DoxyCodeLine{00927\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00930\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_FATFS}}
+\DoxyCodeLine{00931\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_FATFS\_LETTER\ '\(\backslash\)0'\ \ \ \ \ }}
+\DoxyCodeLine{00932\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_FATFS\_PATH\ "{}"{}\ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00933\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_FATFS\_CACHE\_SIZE\ 0\ \ \ \ }}
+\DoxyCodeLine{00934\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00935\ }
+\DoxyCodeLine{00937\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_MEMFS}}
+\DoxyCodeLine{00938\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_MEMFS\_LETTER\ '\(\backslash\)0'\ \ \ \ \ }}
+\DoxyCodeLine{00939\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00940\ }
+\DoxyCodeLine{00942\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_LITTLEFS}}
+\DoxyCodeLine{00943\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_LITTLEFS\_LETTER\ '\(\backslash\)0'\ \ }}
+\DoxyCodeLine{00944\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_LITTLEFS\_PATH\ "{}"{}\ \ \ \ \ \ }}
+\DoxyCodeLine{00945\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00946\ }
+\DoxyCodeLine{00948\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_ARDUINO\_ESP\_LITTLEFS}}
+\DoxyCodeLine{00949\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_ARDUINO\_ESP\_LITTLEFS\_LETTER\ '\(\backslash\)0'\ \ }}
+\DoxyCodeLine{00950\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_ARDUINO\_ESP\_LITTLEFS\_PATH\ "{}"{}\ \ \ \ \ \ }}
+\DoxyCodeLine{00951\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00952\ }
+\DoxyCodeLine{00954\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_ARDUINO\_SD}}
+\DoxyCodeLine{00955\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_ARDUINO\_SD\_LETTER\ '\(\backslash\)0'\ \ }}
+\DoxyCodeLine{00956\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_ARDUINO\_SD\_PATH\ "{}"{}\ \ \ \ \ \ }}
+\DoxyCodeLine{00957\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00958\ }
+\DoxyCodeLine{00960\ \textcolor{preprocessor}{\#define\ LV\_USE\_FS\_UEFI\ 0}}
+\DoxyCodeLine{00961\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_UEFI}}
+\DoxyCodeLine{00962\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_UEFI\_LETTER\ '\(\backslash\)0'\ \ \ \ \ \ }}
+\DoxyCodeLine{00963\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00964\ }
+\DoxyCodeLine{00965\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_FROGFS}}
+\DoxyCodeLine{00966\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FS\_FROGFS\_LETTER\ '\(\backslash\)0'}}
+\DoxyCodeLine{00967\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00968\ }
+\DoxyCodeLine{00970\ \textcolor{preprocessor}{\#if\ LV\_USE\_GIF}}
+\DoxyCodeLine{00972\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_GIF\_CACHE\_DECODE\_DATA\ 0}}
+\DoxyCodeLine{00973\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00974\ }
+\DoxyCodeLine{00976\ \textcolor{preprocessor}{\#define\ LV\_BIN\_DECODER\_RAM\_LOAD\ 0}}
+\DoxyCodeLine{00977\ }
+\DoxyCodeLine{00979\ \textcolor{preprocessor}{\#if\ LV\_USE\_FREETYPE}}
+\DoxyCodeLine{00981\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FREETYPE\_USE\_LVGL\_PORT\ 0}}
+\DoxyCodeLine{00982\ }
+\DoxyCodeLine{00985\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FREETYPE\_CACHE\_FT\_GLYPH\_CNT\ 256}}
+\DoxyCodeLine{00986\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00987\ }
+\DoxyCodeLine{00989\ \textcolor{preprocessor}{\#if\ LV\_USE\_TINY\_TTF}}
+\DoxyCodeLine{00990\ \ \ \ \ \textcolor{comment}{/*\ Enable\ loading\ TTF\ data\ from\ files\ */}}
+\DoxyCodeLine{00991\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_TINY\_TTF\_FILE\_SUPPORT\ 0}}
+\DoxyCodeLine{00992\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_TINY\_TTF\_CACHE\_GLYPH\_CNT\ 128}}
+\DoxyCodeLine{00993\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_TINY\_TTF\_CACHE\_KERNING\_CNT\ 256}}
+\DoxyCodeLine{00994\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00995\ }
+\DoxyCodeLine{01000\ \textcolor{preprocessor}{\#ifndef\ LV\_USE\_VECTOR\_GRAPHIC}}
+\DoxyCodeLine{01001\ \textcolor{preprocessor}{\#\ \ \ define\ LV\_USE\_VECTOR\_GRAPHIC\ \ 0}}
+\DoxyCodeLine{01002\ }
+\DoxyCodeLine{01003\ \textcolor{comment}{/*\ Enable\ ThorVG\ (vector\ graphics\ library)\ from\ the\ src/libs\ folder\ */}}
+\DoxyCodeLine{01004\ \textcolor{preprocessor}{\#\ \ \ define\ LV\_USE\_THORVG\_INTERNAL\ 0}}
+\DoxyCodeLine{01005\ }
+\DoxyCodeLine{01006\ \textcolor{comment}{/*\ Enable\ ThorVG\ by\ assuming\ that\ its\ installed\ and\ linked\ to\ the\ project\ */}}
+\DoxyCodeLine{01007\ \textcolor{preprocessor}{\#\ \ \ define\ LV\_USE\_THORVG\_EXTERNAL\ 0}}
+\DoxyCodeLine{01008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01009\ }
+\DoxyCodeLine{01010\ \textcolor{comment}{/*Enable\ LZ4\ compress/decompress\ lib*/}}
+\DoxyCodeLine{01011\ \textcolor{preprocessor}{\#ifndef\ LV\_USE\_LZ4}}
+\DoxyCodeLine{01012\ \textcolor{preprocessor}{\#\ \ \ define\ LV\_USE\_LZ4\ \ 0}}
+\DoxyCodeLine{01013\ }
+\DoxyCodeLine{01014\ \textcolor{comment}{/*Use\ lvgl\ built-\/in\ LZ4\ lib*/}}
+\DoxyCodeLine{01015\ \textcolor{preprocessor}{\#\ \ \ define\ LV\_USE\_LZ4\_INTERNAL\ \ 0}}
+\DoxyCodeLine{01016\ }
+\DoxyCodeLine{01017\ \textcolor{comment}{/*Use\ external\ LZ4\ library*/}}
+\DoxyCodeLine{01018\ \textcolor{preprocessor}{\#\ \ \ define\ LV\_USE\_LZ4\_EXTERNAL\ \ 0}}
+\DoxyCodeLine{01019\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01020\ }
+\DoxyCodeLine{01021\ \textcolor{comment}{/*SVG\ library}}
+\DoxyCodeLine{01022\ \textcolor{comment}{\ *\ \ -\/\ Requires\ \`{}LV\_USE\_VECTOR\_GRAPHIC\ =\ 1`\ */}}
+\DoxyCodeLine{01023\ \textcolor{preprocessor}{\#define\ LV\_USE\_SVG\_ANIMATION\ 0}}
+\DoxyCodeLine{01024\ \textcolor{preprocessor}{\#define\ LV\_USE\_SVG\_DEBUG\ 0}}
+\DoxyCodeLine{01025\ }
+\DoxyCodeLine{01028\ \textcolor{preprocessor}{\#if\ LV\_USE\_FFMPEG}}
+\DoxyCodeLine{01030\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FFMPEG\_DUMP\_FORMAT\ 0}}
+\DoxyCodeLine{01034\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FFMPEG\_PLAYER\_USE\_LV\_FS\ 0}}
+\DoxyCodeLine{01035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01036\ }
+\DoxyCodeLine{01037\ \textcolor{comment}{/*==================}}
+\DoxyCodeLine{01038\ \textcolor{comment}{\ *\ OTHERS}}
+\DoxyCodeLine{01039\ \textcolor{comment}{\ *==================*/}}
+\DoxyCodeLine{01040\ \textcolor{comment}{/*\ Documentation\ for\ several\ of\ the\ below\ items\ can\ be\ found\ here:\ https://docs.lvgl.io/master/auxiliary-\/modules/index.html\ .\ */}}
+\DoxyCodeLine{01041\ }
+\DoxyCodeLine{01043\ \textcolor{preprocessor}{\#define\ LV\_USE\_SYSMON\ \ \ 0}}
+\DoxyCodeLine{01044\ \textcolor{preprocessor}{\#if\ LV\_USE\_SYSMON}}
+\DoxyCodeLine{01046\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SYSMON\_GET\_IDLE\ lv\_os\_get\_idle\_percent}}
+\DoxyCodeLine{01048\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SYSMON\_PROC\_IDLE\_AVAILABLE\ 0}}
+\DoxyCodeLine{01049\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_SYSMON\_PROC\_IDLE\_AVAILABLE}}
+\DoxyCodeLine{01052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_SYSMON\_GET\_PROC\_IDLE\ lv\_os\_get\_proc\_idle\_percent}}
+\DoxyCodeLine{01053\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01054\ }
+\DoxyCodeLine{01057\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_PERF\_MONITOR\ 0}}
+\DoxyCodeLine{01058\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_PERF\_MONITOR}}
+\DoxyCodeLine{01059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_USE\_PERF\_MONITOR\_POS\ LV\_ALIGN\_BOTTOM\_RIGHT}}
+\DoxyCodeLine{01060\ }
+\DoxyCodeLine{01062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_USE\_PERF\_MONITOR\_LOG\_MODE\ 0}}
+\DoxyCodeLine{01063\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01064\ }
+\DoxyCodeLine{01068\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_MEM\_MONITOR\ 0}}
+\DoxyCodeLine{01069\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_MEM\_MONITOR}}
+\DoxyCodeLine{01070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_USE\_MEM\_MONITOR\_POS\ LV\_ALIGN\_BOTTOM\_LEFT}}
+\DoxyCodeLine{01071\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01072\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_SYSMON*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01073\ }
+\DoxyCodeLine{01075\ \textcolor{preprocessor}{\#define\ LV\_USE\_PROFILER\ 0}}
+\DoxyCodeLine{01076\ \textcolor{preprocessor}{\#if\ LV\_USE\_PROFILER}}
+\DoxyCodeLine{01078\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_PROFILER\_BUILTIN\ 1}}
+\DoxyCodeLine{01079\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_PROFILER\_BUILTIN}}
+\DoxyCodeLine{01081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_PROFILER\_BUILTIN\_BUF\_SIZE\ (16\ *\ 1024)\ \ \ \ \ }}
+\DoxyCodeLine{01082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_PROFILER\_BUILTIN\_DEFAULT\_ENABLE\ 1}}
+\DoxyCodeLine{01083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_USE\_PROFILER\_BUILTIN\_POSIX\ 0\ }}
+\DoxyCodeLine{01084\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01085\ }
+\DoxyCodeLine{01087\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_INCLUDE\ "{}src/misc/lv\_profiler\_builtin.h"{}}}
+\DoxyCodeLine{01088\ }
+\DoxyCodeLine{01090\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_BEGIN\ \ \ \ LV\_PROFILER\_BUILTIN\_BEGIN}}
+\DoxyCodeLine{01091\ }
+\DoxyCodeLine{01093\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_END\ \ \ \ \ \ LV\_PROFILER\_BUILTIN\_END}}
+\DoxyCodeLine{01094\ }
+\DoxyCodeLine{01096\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_BEGIN\_TAG\ LV\_PROFILER\_BUILTIN\_BEGIN\_TAG}}
+\DoxyCodeLine{01097\ }
+\DoxyCodeLine{01099\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_END\_TAG\ \ \ LV\_PROFILER\_BUILTIN\_END\_TAG}}
+\DoxyCodeLine{01100\ }
+\DoxyCodeLine{01101\ \ \ \ \ \textcolor{comment}{/*Enable\ layout\ profiler*/}}
+\DoxyCodeLine{01102\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_LAYOUT\ 1}}
+\DoxyCodeLine{01103\ }
+\DoxyCodeLine{01104\ \ \ \ \ \textcolor{comment}{/*Enable\ disp\ refr\ profiler*/}}
+\DoxyCodeLine{01105\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_REFR\ 1}}
+\DoxyCodeLine{01106\ }
+\DoxyCodeLine{01107\ \ \ \ \ \textcolor{comment}{/*Enable\ draw\ profiler*/}}
+\DoxyCodeLine{01108\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_DRAW\ 1}}
+\DoxyCodeLine{01109\ }
+\DoxyCodeLine{01110\ \ \ \ \ \textcolor{comment}{/*Enable\ indev\ profiler*/}}
+\DoxyCodeLine{01111\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_INDEV\ 1}}
+\DoxyCodeLine{01112\ }
+\DoxyCodeLine{01113\ \ \ \ \ \textcolor{comment}{/*Enable\ decoder\ profiler*/}}
+\DoxyCodeLine{01114\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_DECODER\ 1}}
+\DoxyCodeLine{01115\ }
+\DoxyCodeLine{01116\ \ \ \ \ \textcolor{comment}{/*Enable\ font\ profiler*/}}
+\DoxyCodeLine{01117\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_FONT\ 1}}
+\DoxyCodeLine{01118\ }
+\DoxyCodeLine{01119\ \ \ \ \ \textcolor{comment}{/*Enable\ fs\ profiler*/}}
+\DoxyCodeLine{01120\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_FS\ 1}}
+\DoxyCodeLine{01121\ }
+\DoxyCodeLine{01122\ \ \ \ \ \textcolor{comment}{/*Enable\ style\ profiler*/}}
+\DoxyCodeLine{01123\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_STYLE\ 0}}
+\DoxyCodeLine{01124\ }
+\DoxyCodeLine{01125\ \ \ \ \ \textcolor{comment}{/*Enable\ timer\ profiler*/}}
+\DoxyCodeLine{01126\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_TIMER\ 1}}
+\DoxyCodeLine{01127\ }
+\DoxyCodeLine{01128\ \ \ \ \ \textcolor{comment}{/*Enable\ cache\ profiler*/}}
+\DoxyCodeLine{01129\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_CACHE\ 1}}
+\DoxyCodeLine{01130\ }
+\DoxyCodeLine{01131\ \ \ \ \ \textcolor{comment}{/*Enable\ event\ profiler*/}}
+\DoxyCodeLine{01132\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_PROFILER\_EVENT\ 1}}
+\DoxyCodeLine{01133\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01134\ }
+\DoxyCodeLine{01136\ \textcolor{preprocessor}{\#define\ LV\_USE\_OBSERVER\ 1}}
+\DoxyCodeLine{01137\ }
+\DoxyCodeLine{01140\ \textcolor{preprocessor}{\#if\ LV\_USE\_IME\_PINYIN}}
+\DoxyCodeLine{01143\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_IME\_PINYIN\_USE\_DEFAULT\_DICT\ 1}}
+\DoxyCodeLine{01146\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_IME\_PINYIN\_CAND\_TEXT\_NUM\ 6}}
+\DoxyCodeLine{01147\ }
+\DoxyCodeLine{01149\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_IME\_PINYIN\_USE\_K9\_MODE\ \ \ \ \ \ 1}}
+\DoxyCodeLine{01150\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_IME\_PINYIN\_USE\_K9\_MODE\ ==\ 1}}
+\DoxyCodeLine{01151\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_IME\_PINYIN\_K9\_CAND\_TEXT\_NUM\ 3}}
+\DoxyCodeLine{01152\ \textcolor{preprocessor}{\ \ \ \ \#endif\ }\textcolor{comment}{/*LV\_IME\_PINYIN\_USE\_K9\_MODE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01153\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01154\ }
+\DoxyCodeLine{01157\ \textcolor{preprocessor}{\#if\ LV\_USE\_FILE\_EXPLORER}}
+\DoxyCodeLine{01159\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FILE\_EXPLORER\_PATH\_MAX\_LEN\ \ \ \ \ \ \ \ (128)}}
+\DoxyCodeLine{01162\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_FILE\_EXPLORER\_QUICK\_ACCESS\ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{01163\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01164\ }
+\DoxyCodeLine{01166\ \textcolor{preprocessor}{\#if\ LV\_USE\_FONT\_MANAGER}}
+\DoxyCodeLine{01167\ }
+\DoxyCodeLine{01169\ \textcolor{preprocessor}{\#define\ LV\_FONT\_MANAGER\_NAME\_MAX\_LEN\ \ \ \ \ \ \ \ \ \ \ \ 32}}
+\DoxyCodeLine{01170\ }
+\DoxyCodeLine{01171\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01172\ }
+\DoxyCodeLine{01174\ \textcolor{preprocessor}{\#define\ LV\_USE\_TEST\ 0}}
+\DoxyCodeLine{01175\ \textcolor{preprocessor}{\#if\ LV\_USE\_TEST}}
+\DoxyCodeLine{01176\ }
+\DoxyCodeLine{01179\ \textcolor{preprocessor}{\#define\ LV\_USE\_TEST\_SCREENSHOT\_COMPARE\ 0}}
+\DoxyCodeLine{01180\ }
+\DoxyCodeLine{01181\ \textcolor{preprocessor}{\#if\ LV\_USE\_TEST\_SCREENSHOT\_COMPARE}}
+\DoxyCodeLine{01183\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_TEST\_SCREENSHOT\_CREATE\_REFERENCE\_IMAGE\ 1}}
+\DoxyCodeLine{01184\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_TEST\_SCREENSHOT\_COMPARE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01185\ }
+\DoxyCodeLine{01186\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_TEST*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01187\ }
+\DoxyCodeLine{01188\ \textcolor{comment}{/*1:\ Enable\ color\ filter\ style*/}}
+\DoxyCodeLine{01189\ \textcolor{preprocessor}{\#define\ LV\_USE\_COLOR\_FILTER\ \ \ \ \ 0}}
+\DoxyCodeLine{01190\ }
+\DoxyCodeLine{01191\ \textcolor{comment}{/*==================}}
+\DoxyCodeLine{01192\ \textcolor{comment}{\ *\ DEVICES}}
+\DoxyCodeLine{01193\ \textcolor{comment}{\ *==================*/}}
+\DoxyCodeLine{01194\ }
+\DoxyCodeLine{01196\ \textcolor{preprocessor}{\#define\ LV\_USE\_SDL\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{01197\ \textcolor{preprocessor}{\#if\ LV\_USE\_SDL}}
+\DoxyCodeLine{01198\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SDL\_INCLUDE\_PATH\ \ \ \ \ <SDL2/SDL.h>}}
+\DoxyCodeLine{01199\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SDL\_RENDER\_MODE\ \ \ \ \ \ LV\_DISPLAY\_RENDER\_MODE\_DIRECT\ \ \ }}
+\DoxyCodeLine{01200\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SDL\_BUF\_COUNT\ \ \ \ \ \ \ \ 1\ \ \ \ }}
+\DoxyCodeLine{01201\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SDL\_ACCELERATED\ \ \ \ \ \ 1\ \ \ \ }}
+\DoxyCodeLine{01202\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SDL\_FULLSCREEN\ \ \ \ \ \ \ 0\ \ \ \ }}
+\DoxyCodeLine{01203\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SDL\_DIRECT\_EXIT\ \ \ \ \ \ 1\ \ \ \ }}
+\DoxyCodeLine{01204\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_SDL\_MOUSEWHEEL\_MODE\ \ LV\_SDL\_MOUSEWHEEL\_MODE\_ENCODER\ \ }\textcolor{comment}{/*LV\_SDL\_MOUSEWHEEL\_MODE\_ENCODER/CROWN*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01205\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01206\ }
+\DoxyCodeLine{01208\ \textcolor{preprocessor}{\#define\ LV\_USE\_X11\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{01209\ \textcolor{preprocessor}{\#if\ LV\_USE\_X11}}
+\DoxyCodeLine{01210\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_X11\_DIRECT\_EXIT\ \ \ \ \ \ \ \ \ 1\ \ }}
+\DoxyCodeLine{01211\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_X11\_DOUBLE\_BUFFER\ \ \ \ \ \ \ 1\ \ }}
+\DoxyCodeLine{01212\ \ \ \ \ \textcolor{comment}{/*\ Select\ only\ 1\ of\ the\ following\ render\ modes\ (LV\_X11\_RENDER\_MODE\_PARTIAL\ preferred!).\ */}}
+\DoxyCodeLine{01213\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_X11\_RENDER\_MODE\_PARTIAL\ 1\ \ }}
+\DoxyCodeLine{01214\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_X11\_RENDER\_MODE\_DIRECT\ \ 0\ \ }}
+\DoxyCodeLine{01215\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_X11\_RENDER\_MODE\_FULL\ \ \ \ 0\ \ }}
+\DoxyCodeLine{01216\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01217\ }
+\DoxyCodeLine{01219\ \textcolor{preprocessor}{\#define\ LV\_USE\_WAYLAND\ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{01220\ \textcolor{preprocessor}{\#if\ LV\_USE\_WAYLAND}}
+\DoxyCodeLine{01221\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_WAYLAND\_DIRECT\_EXIT\ \ \ \ \ \ \ \ \ \ 1\ \ \ \ \ }}
+\DoxyCodeLine{01222\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01223\ }
+\DoxyCodeLine{01225\ \textcolor{preprocessor}{\#if\ LV\_USE\_LINUX\_FBDEV}}
+\DoxyCodeLine{01226\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LINUX\_FBDEV\_BSD\ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{01227\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LINUX\_FBDEV\_RENDER\_MODE\ \ \ LV\_DISPLAY\_RENDER\_MODE\_PARTIAL}}
+\DoxyCodeLine{01228\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LINUX\_FBDEV\_BUFFER\_COUNT\ \ 0}}
+\DoxyCodeLine{01229\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LINUX\_FBDEV\_BUFFER\_SIZE\ \ \ 60}}
+\DoxyCodeLine{01230\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LINUX\_FBDEV\_MMAP\ \ \ \ \ \ \ \ \ \ 1}}
+\DoxyCodeLine{01231\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01232\ }
+\DoxyCodeLine{01234\ \textcolor{preprocessor}{\#define\ LV\_USE\_NUTTX\ \ \ \ 0}}
+\DoxyCodeLine{01235\ }
+\DoxyCodeLine{01236\ \textcolor{preprocessor}{\#if\ LV\_USE\_NUTTX}}
+\DoxyCodeLine{01237\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_INDEPENDENT\_IMAGE\_HEAP\ 0}}
+\DoxyCodeLine{01238\ }
+\DoxyCodeLine{01240\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_NUTTX\_DEFAULT\_DRAW\_BUF\_USE\_INDEPENDENT\_IMAGE\_HEAP\ \ \ \ 0}}
+\DoxyCodeLine{01241\ }
+\DoxyCodeLine{01242\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_LIBUV\ \ \ \ 0}}
+\DoxyCodeLine{01243\ }
+\DoxyCodeLine{01245\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_CUSTOM\_INIT\ \ \ \ 0}}
+\DoxyCodeLine{01246\ }
+\DoxyCodeLine{01248\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_LCD\ \ \ \ \ \ 0}}
+\DoxyCodeLine{01249\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_NUTTX\_LCD}}
+\DoxyCodeLine{01250\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_NUTTX\_LCD\_BUFFER\_COUNT\ \ \ \ 0}}
+\DoxyCodeLine{01251\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_NUTTX\_LCD\_BUFFER\_SIZE\ \ \ \ \ 60}}
+\DoxyCodeLine{01252\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01253\ }
+\DoxyCodeLine{01255\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_TOUCHSCREEN\ \ \ \ 0}}
+\DoxyCodeLine{01256\ }
+\DoxyCodeLine{01258\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_NUTTX\_TOUCHSCREEN\_CURSOR\_SIZE\ \ \ \ 0}}
+\DoxyCodeLine{01259\ }
+\DoxyCodeLine{01261\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_MOUSE\ \ \ \ 0}}
+\DoxyCodeLine{01262\ }
+\DoxyCodeLine{01264\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_MOUSE\_MOVE\_STEP\ \ \ \ 1}}
+\DoxyCodeLine{01265\ }
+\DoxyCodeLine{01266\ \ \ \ \ \textcolor{comment}{/*NuttX\ trace\ file\ and\ its\ path*/}}
+\DoxyCodeLine{01267\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_NUTTX\_TRACE\_FILE\ 0}}
+\DoxyCodeLine{01268\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_NUTTX\_TRACE\_FILE}}
+\DoxyCodeLine{01269\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_NUTTX\_TRACE\_FILE\_PATH\ "{}/data/lvgl-\/trace.log"{}}}
+\DoxyCodeLine{01270\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01271\ }
+\DoxyCodeLine{01272\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01273\ }
+\DoxyCodeLine{01275\ \textcolor{preprocessor}{\#if\ LV\_USE\_LINUX\_DRM}}
+\DoxyCodeLine{01276\ }
+\DoxyCodeLine{01277\ \ \ \ \ \textcolor{comment}{/*\ Use\ the\ MESA\ GBM\ library\ to\ allocate\ DMA\ buffers\ that\ can\ be}}
+\DoxyCodeLine{01278\ \textcolor{comment}{\ \ \ \ \ *\ shared\ across\ sub-\/systems\ and\ libraries\ using\ the\ Linux\ DMA-\/BUF\ API.}}
+\DoxyCodeLine{01279\ \textcolor{comment}{\ \ \ \ \ *\ The\ GBM\ library\ aims\ to\ provide\ a\ platform\ independent\ memory\ management\ system}}
+\DoxyCodeLine{01280\ \textcolor{comment}{\ \ \ \ \ *\ it\ supports\ the\ major\ GPU\ vendors\ -\/\ This\ option\ requires\ linking\ with\ libgbm\ */}}
+\DoxyCodeLine{01281\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_LINUX\_DRM\_GBM\_BUFFERS\ 0}}
+\DoxyCodeLine{01282\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01283\ }
+\DoxyCodeLine{01285\ \textcolor{preprocessor}{\#if\ LV\_USE\_LOVYAN\_GFX}}
+\DoxyCodeLine{01286\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LGFX\_USER\_INCLUDE\ "{}lv\_lgfx\_user.hpp"{}}}
+\DoxyCodeLine{01287\ }
+\DoxyCodeLine{01288\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_LOVYAN\_GFX*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01289\ }
+\DoxyCodeLine{01291\ \textcolor{preprocessor}{\#define\ LV\_USE\_EVDEV\ \ \ \ 0}}
+\DoxyCodeLine{01292\ }
+\DoxyCodeLine{01294\ \textcolor{preprocessor}{\#define\ LV\_USE\_LIBINPUT\ \ \ \ 0}}
+\DoxyCodeLine{01295\ }
+\DoxyCodeLine{01296\ \textcolor{preprocessor}{\#if\ LV\_USE\_LIBINPUT}}
+\DoxyCodeLine{01297\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LIBINPUT\_BSD\ \ \ \ 0}}
+\DoxyCodeLine{01298\ }
+\DoxyCodeLine{01300\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_LIBINPUT\_XKB\ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{01301\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_LIBINPUT\_XKB}}
+\DoxyCodeLine{01303\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_LIBINPUT\_XKB\_KEY\_MAP\ \{\ .rules\ =\ NULL,\ .model\ =\ "{}pc101"{},\ .layout\ =\ "{}us"{},\ .variant\ =\ NULL,\ .options\ =\ NULL\ \}}}
+\DoxyCodeLine{01304\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01305\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01306\ }
+\DoxyCodeLine{01307\ \textcolor{comment}{/*\ Drivers\ for\ LCD\ devices\ connected\ via\ SPI/parallel\ port\ */}}
+\DoxyCodeLine{01308\ \textcolor{preprocessor}{\#if\ (LV\_USE\_ST7735\ |\ LV\_USE\_ST7789\ |\ LV\_USE\_ST7796\ |\ LV\_USE\_ILI9341\ |\ LV\_USE\_NV3007)}}
+\DoxyCodeLine{01309\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_GENERIC\_MIPI\ 1}}
+\DoxyCodeLine{01310\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01311\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_GENERIC\_MIPI\ 0}}
+\DoxyCodeLine{01312\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01313\ }
+\DoxyCodeLine{01315\ \textcolor{preprocessor}{\#if\ LV\_USE\_ST\_LTDC}}
+\DoxyCodeLine{01316\ \ \ \ \ \textcolor{comment}{/*\ Only\ used\ for\ partial.\ */}}
+\DoxyCodeLine{01317\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_ST\_LTDC\_USE\_DMA2D\_FLUSH\ 0}}
+\DoxyCodeLine{01318\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01319\ }
+\DoxyCodeLine{01321\ \textcolor{preprocessor}{\#define\ LV\_USE\_UEFI\ 0}}
+\DoxyCodeLine{01322\ \textcolor{preprocessor}{\#if\ LV\_USE\_UEFI}}
+\DoxyCodeLine{01323\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_UEFI\_INCLUDE\ "{}myefi.h"{}\ \ \ }}
+\DoxyCodeLine{01324\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_UEFI\_USE\_MEMORY\_SERVICES\ 0\ \ \ }}
+\DoxyCodeLine{01325\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01326\ }
+\DoxyCodeLine{01330\ \textcolor{preprocessor}{\#define\ LV\_USE\_OPENGLES\ \ \ 0}}
+\DoxyCodeLine{01331\ \textcolor{preprocessor}{\#if\ LV\_USE\_OPENGLES}}
+\DoxyCodeLine{01332\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_USE\_OPENGLES\_DEBUG\ \ \ \ \ \ \ \ 1\ \ \ \ }}
+\DoxyCodeLine{01333\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01334\ }
+\DoxyCodeLine{01336\ \textcolor{preprocessor}{\#define\ LV\_USE\_GLFW\ \ \ 0}}
+\DoxyCodeLine{01337\ }
+\DoxyCodeLine{01338\ }
+\DoxyCodeLine{01340\ \textcolor{preprocessor}{\#define\ LV\_USE\_QNX\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{01341\ \textcolor{preprocessor}{\#if\ LV\_USE\_QNX}}
+\DoxyCodeLine{01342\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_QNX\_BUF\_COUNT\ \ \ \ \ \ \ \ 1\ \ \ \ }}
+\DoxyCodeLine{01343\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01344\ }
+\DoxyCodeLine{01346\ \textcolor{preprocessor}{\#define\ LV\_USE\_EXT\_DATA\ \ \ 0}}
+\DoxyCodeLine{01347\ }
+\DoxyCodeLine{01348\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{01349\ \textcolor{comment}{*\ BUILD\ OPTIONS}}
+\DoxyCodeLine{01350\ \textcolor{comment}{*======================*/}}
+\DoxyCodeLine{01351\ }
+\DoxyCodeLine{01353\ \textcolor{preprocessor}{\#define\ LV\_BUILD\_EXAMPLES\ 1}}
+\DoxyCodeLine{01354\ }
+\DoxyCodeLine{01356\ \textcolor{preprocessor}{\#define\ LV\_BUILD\_DEMOS\ 1}}
+\DoxyCodeLine{01357\ }
+\DoxyCodeLine{01358\ \textcolor{comment}{/*===================}}
+\DoxyCodeLine{01359\ \textcolor{comment}{\ *\ DEMO\ USAGE}}
+\DoxyCodeLine{01360\ \textcolor{comment}{\ ====================*/}}
+\DoxyCodeLine{01361\ }
+\DoxyCodeLine{01362\ \textcolor{preprocessor}{\#if\ LV\_BUILD\_DEMOS}}
+\DoxyCodeLine{01363\ }
+\DoxyCodeLine{01364\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_DEMO\_BENCHMARK}}
+\DoxyCodeLine{01366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DEMO\_BENCHMARK\_ALIGNED\_FONTS\ 0}}
+\DoxyCodeLine{01367\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01368\ }
+\DoxyCodeLine{01370\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_DEMO\_MUSIC}}
+\DoxyCodeLine{01371\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DEMO\_MUSIC\_SQUARE\ \ \ \ 0}}
+\DoxyCodeLine{01372\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DEMO\_MUSIC\_LANDSCAPE\ 0}}
+\DoxyCodeLine{01373\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DEMO\_MUSIC\_ROUND\ \ \ \ \ 0}}
+\DoxyCodeLine{01374\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DEMO\_MUSIC\_LARGE\ \ \ \ \ 0}}
+\DoxyCodeLine{01375\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DEMO\_MUSIC\_AUTO\_PLAY\ 0}}
+\DoxyCodeLine{01376\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01377\ }
+\DoxyCodeLine{01378\ \ \ \ \ \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{01379\ \textcolor{comment}{\ \ \ \ \ *\ Demos\ from\ lvgl/lv\_demos}}
+\DoxyCodeLine{01380\ \textcolor{comment}{\ \ \ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{01381\ }
+\DoxyCodeLine{01382\ \ \ \ \ \textcolor{comment}{/*E-\/bike\ demo\ with\ Lottie\ animations\ (if\ LV\_USE\_LOTTIE\ is\ enabled)*/}}
+\DoxyCodeLine{01383\ \textcolor{preprocessor}{\ \ \ \ \#if\ LV\_USE\_DEMO\_EBIKE}}
+\DoxyCodeLine{01384\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LV\_DEMO\_EBIKE\_PORTRAIT\ \ 0\ \ \ \ }\textcolor{comment}{/*0:\ for\ 480x270..480x320,\ 1:\ for\ 480x800..720x1280*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01385\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{01386\ }
+\DoxyCodeLine{01387\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_BUILD\_DEMOS\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01388\ }
+\DoxyCodeLine{01389\ \textcolor{comment}{/*-\/-\/END\ OF\ LV\_CONF\_CMSIS\_H-\/-\/*/}}
+\DoxyCodeLine{01390\ }
+\DoxyCodeLine{01391\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_CONF\_CMSIS\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01392\ }
+\DoxyCodeLine{01393\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*End\ of\ "{}Content\ enable"{}*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

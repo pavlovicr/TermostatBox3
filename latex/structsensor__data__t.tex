@@ -1,0 +1,236 @@
+\doxysection{ Struktura sensor\+\_\+data\+\_\+t}
+\hypertarget{structsensor__data__t}{}\label{structsensor__data__t}\index{sensor\_data\_t@{sensor\_data\_t}}
+
+
+AHT21 sensor data structure.  
+
+
+
+
+{\ttfamily \#include $<$sensor\+\_\+manager.\+h$>$}
+
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{structsensor__data__t_a9fa89708aac6cb1d35c6afea98252c77}{temperature}}
+\item 
+float \mbox{\hyperlink{structsensor__data__t_adcbdfd89ac53ad7ad389062e120d7fff}{humidity}}
+\item 
+\Hypertarget{structsensor__data__t_ab6dd2bff720deedff44d436800b75ad9}\label{structsensor__data__t_ab6dd2bff720deedff44d436800b75ad9} 
+bool {\bfseries valid}
+\item 
+int64\+\_\+t \mbox{\hyperlink{structsensor__data__t_ae492014b595577abd06f774b463374bd}{timestamp}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structsensor__data__t_a25507b4fad43144e8979ac5e7ebd43fb}{sensor\+\_\+name}}
+\item 
+sensor\+\_\+type\+\_\+t \mbox{\hyperlink{structsensor__data__t_acae6c43187fda2418fec341c8f71d42d}{sensor\+\_\+type}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structsensor__data__t_af13031c7f2c630ff9e81f82e20cee2dd}{sensor\+\_\+addr}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{structsensor__data__t_a43cda84d09384696247f3ec624ed1242}{event\+\_\+id}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structsensor__data__t_a94bcbb782162668f27a49bab2b26cd68}{min\+\_\+delay}}
+\item 
+\Hypertarget{structsensor__data__t_a5142f4d28783bff3bb8df7decebb26b7}\label{structsensor__data__t_a5142f4d28783bff3bb8df7decebb26b7} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>axis3\_t \mbox{\hyperlink{structsensor__data__t_a1662e1f0165631236a3782400874027d}{acce}}\\
+\>axis3\_t \mbox{\hyperlink{structsensor__data__t_a746c90a793fbd6dd64f533fc447b0cb2}{gyro}}\\
+\>axis3\_t \mbox{\hyperlink{structsensor__data__t_a4433f6abf5523e08cc5a40f32ca7092d}{mag}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a9fa89708aac6cb1d35c6afea98252c77}{temperature}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_adcbdfd89ac53ad7ad389062e120d7fff}{humidity}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a398722443380df66c45f074b10313a5b}{baro}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a67559d4a59264e7538fc0bce88c82206}{light}}\\
+\>rgbw\_t \mbox{\hyperlink{structsensor__data__t_a3783fb4791adcd1e77fd9ec3df5787da}{rgbw}}\\
+\>uv\_t \mbox{\hyperlink{structsensor__data__t_aff461c1ec7808c53337eb9d1dd7033ff}{uv}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a7202401394902e3b698011dfd4b293e9}{proximity}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a299246363ce39c89aa8cacd5ac5fa94d}{hr}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a293e4b93569495f9d6af99232b0f06fe}{tvoc}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a1f4e2f9c4ca2d18e3828c734e8d3850e}{noise}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a302e4d35647c996171f17f1403c8ed06}{step}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a015faf1b28a33c56ec046678b13dfd00}{force}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a983037f06b7ed6a410f3ebbdfd979b7e}{current}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_aac6efdb0976be507901dc5a9fb117a15}{voltage}}\\
+\>float \mbox{\hyperlink{structsensor__data__t_a95e8e9d9553ca796a97282e8e0295b9b}{data}} \mbox{[}4\mbox{]}\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+AHT21 sensor data structure. 
+
+sensor data type 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structsensor__data__t_a1662e1f0165631236a3782400874027d}\label{structsensor__data__t_a1662e1f0165631236a3782400874027d} 
+\index{sensor\_data\_t@{sensor\_data\_t}!acce@{acce}}
+\index{acce@{acce}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{acce}{acce}}
+{\footnotesize\ttfamily axis3\+\_\+t sensor\+\_\+data\+\_\+t\+::acce}
+
+Accelerometer. unit\+: G ~\newline
+ \Hypertarget{structsensor__data__t_a398722443380df66c45f074b10313a5b}\label{structsensor__data__t_a398722443380df66c45f074b10313a5b} 
+\index{sensor\_data\_t@{sensor\_data\_t}!baro@{baro}}
+\index{baro@{baro}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{baro}{baro}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::baro}
+
+Pressure. unit\+: pascal (Pa) ~\newline
+ \Hypertarget{structsensor__data__t_a983037f06b7ed6a410f3ebbdfd979b7e}\label{structsensor__data__t_a983037f06b7ed6a410f3ebbdfd979b7e} 
+\index{sensor\_data\_t@{sensor\_data\_t}!current@{current}}
+\index{current@{current}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{current}{current}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::current}
+
+Current sensor unit\+: mA ~\newline
+ \Hypertarget{structsensor__data__t_a95e8e9d9553ca796a97282e8e0295b9b}\label{structsensor__data__t_a95e8e9d9553ca796a97282e8e0295b9b} 
+\index{sensor\_data\_t@{sensor\_data\_t}!data@{data}}
+\index{data@{data}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::data\mbox{[}4\mbox{]}}
+
+for general use \Hypertarget{structsensor__data__t_a43cda84d09384696247f3ec624ed1242}\label{structsensor__data__t_a43cda84d09384696247f3ec624ed1242} 
+\index{sensor\_data\_t@{sensor\_data\_t}!event\_id@{event\_id}}
+\index{event\_id@{event\_id}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{event\_id}{event\_id}}
+{\footnotesize\ttfamily int32\+\_\+t sensor\+\_\+data\+\_\+t\+::event\+\_\+id}
+
+reserved for future use \Hypertarget{structsensor__data__t_a015faf1b28a33c56ec046678b13dfd00}\label{structsensor__data__t_a015faf1b28a33c56ec046678b13dfd00} 
+\index{sensor\_data\_t@{sensor\_data\_t}!force@{force}}
+\index{force@{force}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{force}{force}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::force}
+
+Force sensor. unit\+: mN ~\newline
+ \Hypertarget{structsensor__data__t_a746c90a793fbd6dd64f533fc447b0cb2}\label{structsensor__data__t_a746c90a793fbd6dd64f533fc447b0cb2} 
+\index{sensor\_data\_t@{sensor\_data\_t}!gyro@{gyro}}
+\index{gyro@{gyro}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{gyro}{gyro}}
+{\footnotesize\ttfamily axis3\+\_\+t sensor\+\_\+data\+\_\+t\+::gyro}
+
+Gyroscope. unit\+: dps ~\newline
+ \Hypertarget{structsensor__data__t_a299246363ce39c89aa8cacd5ac5fa94d}\label{structsensor__data__t_a299246363ce39c89aa8cacd5ac5fa94d} 
+\index{sensor\_data\_t@{sensor\_data\_t}!hr@{hr}}
+\index{hr@{hr}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{hr}{hr}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::hr}
+
+Heat rate. unit\+: HZ ~\newline
+ \Hypertarget{structsensor__data__t_adcbdfd89ac53ad7ad389062e120d7fff}\label{structsensor__data__t_adcbdfd89ac53ad7ad389062e120d7fff} 
+\index{sensor\_data\_t@{sensor\_data\_t}!humidity@{humidity}}
+\index{humidity@{humidity}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{humidity}{humidity}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::humidity}
+
+Relative humidity. unit\+: percentage ~\newline
+ \Hypertarget{structsensor__data__t_a67559d4a59264e7538fc0bce88c82206}\label{structsensor__data__t_a67559d4a59264e7538fc0bce88c82206} 
+\index{sensor\_data\_t@{sensor\_data\_t}!light@{light}}
+\index{light@{light}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{light}{light}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::light}
+
+Light. unit\+: lux ~\newline
+ \Hypertarget{structsensor__data__t_a4433f6abf5523e08cc5a40f32ca7092d}\label{structsensor__data__t_a4433f6abf5523e08cc5a40f32ca7092d} 
+\index{sensor\_data\_t@{sensor\_data\_t}!mag@{mag}}
+\index{mag@{mag}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{mag}{mag}}
+{\footnotesize\ttfamily axis3\+\_\+t sensor\+\_\+data\+\_\+t\+::mag}
+
+Magnetometer. unit\+: Gauss ~\newline
+ \Hypertarget{structsensor__data__t_a94bcbb782162668f27a49bab2b26cd68}\label{structsensor__data__t_a94bcbb782162668f27a49bab2b26cd68} 
+\index{sensor\_data\_t@{sensor\_data\_t}!min\_delay@{min\_delay}}
+\index{min\_delay@{min\_delay}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{min\_delay}{min\_delay}}
+{\footnotesize\ttfamily uint32\+\_\+t sensor\+\_\+data\+\_\+t\+::min\+\_\+delay}
+
+minimum delay between two events, unit\+: ms \Hypertarget{structsensor__data__t_a1f4e2f9c4ca2d18e3828c734e8d3850e}\label{structsensor__data__t_a1f4e2f9c4ca2d18e3828c734e8d3850e} 
+\index{sensor\_data\_t@{sensor\_data\_t}!noise@{noise}}
+\index{noise@{noise}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{noise}{noise}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::noise}
+
+Noise Loudness. unit\+: HZ ~\newline
+ \Hypertarget{structsensor__data__t_a7202401394902e3b698011dfd4b293e9}\label{structsensor__data__t_a7202401394902e3b698011dfd4b293e9} 
+\index{sensor\_data\_t@{sensor\_data\_t}!proximity@{proximity}}
+\index{proximity@{proximity}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{proximity}{proximity}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::proximity}
+
+Distance. unit\+: centimeters ~\newline
+ \Hypertarget{structsensor__data__t_a3783fb4791adcd1e77fd9ec3df5787da}\label{structsensor__data__t_a3783fb4791adcd1e77fd9ec3df5787da} 
+\index{sensor\_data\_t@{sensor\_data\_t}!rgbw@{rgbw}}
+\index{rgbw@{rgbw}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{rgbw}{rgbw}}
+{\footnotesize\ttfamily rgbw\+\_\+t sensor\+\_\+data\+\_\+t\+::rgbw}
+
+Color. unit\+: lux ~\newline
+ \Hypertarget{structsensor__data__t_af13031c7f2c630ff9e81f82e20cee2dd}\label{structsensor__data__t_af13031c7f2c630ff9e81f82e20cee2dd} 
+\index{sensor\_data\_t@{sensor\_data\_t}!sensor\_addr@{sensor\_addr}}
+\index{sensor\_addr@{sensor\_addr}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{sensor\_addr}{sensor\_addr}}
+{\footnotesize\ttfamily uint8\+\_\+t sensor\+\_\+data\+\_\+t\+::sensor\+\_\+addr}
+
+sensor addr ~\newline
+ \Hypertarget{structsensor__data__t_a25507b4fad43144e8979ac5e7ebd43fb}\label{structsensor__data__t_a25507b4fad43144e8979ac5e7ebd43fb} 
+\index{sensor\_data\_t@{sensor\_data\_t}!sensor\_name@{sensor\_name}}
+\index{sensor\_name@{sensor\_name}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{sensor\_name}{sensor\_name}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} sensor\+\_\+data\+\_\+t\+::sensor\+\_\+name}
+
+sensor name ~\newline
+ \Hypertarget{structsensor__data__t_acae6c43187fda2418fec341c8f71d42d}\label{structsensor__data__t_acae6c43187fda2418fec341c8f71d42d} 
+\index{sensor\_data\_t@{sensor\_data\_t}!sensor\_type@{sensor\_type}}
+\index{sensor\_type@{sensor\_type}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{sensor\_type}{sensor\_type}}
+{\footnotesize\ttfamily sensor\+\_\+type\+\_\+t sensor\+\_\+data\+\_\+t\+::sensor\+\_\+type}
+
+sensor type \Hypertarget{structsensor__data__t_a302e4d35647c996171f17f1403c8ed06}\label{structsensor__data__t_a302e4d35647c996171f17f1403c8ed06} 
+\index{sensor\_data\_t@{sensor\_data\_t}!step@{step}}
+\index{step@{step}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{step}{step}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::step}
+
+Step sensor. unit\+: 1 ~\newline
+ \Hypertarget{structsensor__data__t_a9fa89708aac6cb1d35c6afea98252c77}\label{structsensor__data__t_a9fa89708aac6cb1d35c6afea98252c77} 
+\index{sensor\_data\_t@{sensor\_data\_t}!temperature@{temperature}}
+\index{temperature@{temperature}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::temperature}
+
+Temperature. unit\+: d\+Celsius ~\newline
+ \Hypertarget{structsensor__data__t_ae492014b595577abd06f774b463374bd}\label{structsensor__data__t_ae492014b595577abd06f774b463374bd} 
+\index{sensor\_data\_t@{sensor\_data\_t}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{timestamp}{timestamp}}
+{\footnotesize\ttfamily int64\+\_\+t sensor\+\_\+data\+\_\+t\+::timestamp}
+
+timestamp ~\newline
+ \Hypertarget{structsensor__data__t_a293e4b93569495f9d6af99232b0f06fe}\label{structsensor__data__t_a293e4b93569495f9d6af99232b0f06fe} 
+\index{sensor\_data\_t@{sensor\_data\_t}!tvoc@{tvoc}}
+\index{tvoc@{tvoc}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{tvoc}{tvoc}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::tvoc}
+
+TVOC. unit\+: permillage ~\newline
+ \Hypertarget{structsensor__data__t_aff461c1ec7808c53337eb9d1dd7033ff}\label{structsensor__data__t_aff461c1ec7808c53337eb9d1dd7033ff} 
+\index{sensor\_data\_t@{sensor\_data\_t}!uv@{uv}}
+\index{uv@{uv}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{uv}{uv}}
+{\footnotesize\ttfamily uv\+\_\+t sensor\+\_\+data\+\_\+t\+::uv}
+
+ultraviole unit\+: lux ~\newline
+ \Hypertarget{structsensor__data__t_aac6efdb0976be507901dc5a9fb117a15}\label{structsensor__data__t_aac6efdb0976be507901dc5a9fb117a15} 
+\index{sensor\_data\_t@{sensor\_data\_t}!voltage@{voltage}}
+\index{voltage@{voltage}!sensor\_data\_t@{sensor\_data\_t}}
+\doxysubsubsection{\texorpdfstring{voltage}{voltage}}
+{\footnotesize\ttfamily float sensor\+\_\+data\+\_\+t\+::voltage}
+
+Voltage sensor unit\+: mV ~\newline
+ 
+
+Opis strukture je zgrajen na podlagi naslednjih datotek \+:\begin{DoxyCompactItemize}
+\item 
+components/sensor\+\_\+manager/include/sensor\+\_\+manager.\+h\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+sensor\+\_\+hub/include/sensor\+\_\+type.\+h\end{DoxyCompactItemize}

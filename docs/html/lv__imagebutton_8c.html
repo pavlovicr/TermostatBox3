@@ -1,0 +1,700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/widgets/imagebutton/lv_imagebutton.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_e9f8e557d5343d9e0f422cb5bf98db87.html">widgets</a></li><li class="navelem"><a class="el" href="dir_5c61780af36e2c7b434e91e3159a8089.html">imagebutton</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#func-members">Funkcije</a> &#124;
+<a href="#var-members">Spremenljivke</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_imagebutton.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__imagebutton__private_8h_source.html">lv_imagebutton_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__area__private_8h_source.html">../../misc/lv_area_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__private_8h_source.html">../../draw/lv_draw_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__private_8h_source.html">../../core/lv_obj_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__event__private_8h_source.html">../../core/lv_obj_event_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__class__private_8h_source.html">../../core/lv_obj_class_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h_source.html">../../stdlib/lv_string.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_imagebutton.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_imagebutton.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__imagebutton_8c__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2widgets_2imagebutton_2lv__imagebutton_8c" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2widgets_2imagebutton_2lv__imagebutton_8c" id="amanaged__components_2lvgl____lvgl_2src_2widgets_2imagebutton_2lv__imagebutton_8c">
+<area shape="rect" title=" " alt="" coords="1652,5,1879,60"/>
+<area shape="rect" href="lv__imagebutton__private_8h.html" title=" " alt="" coords="1172,108,1361,133"/>
+<area shape="poly" title=" " alt="" coords="1652,56,1347,108,1346,103,1651,51"/>
+<area shape="rect" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h.html" title=" " alt="" coords="2261,973,2352,999"/>
+<area shape="poly" title=" " alt="" coords="1879,38,2132,57,2431,90,2568,112,2681,137,2724,151,2757,165,2779,182,2787,199,2787,533,2783,577,2773,618,2756,658,2735,696,2709,731,2680,764,2613,824,2541,874,2469,916,2404,948,2351,971,2349,966,2402,943,2467,911,2538,870,2610,820,2676,760,2705,728,2731,693,2752,656,2768,617,2778,576,2781,533,2781,201,2775,185,2755,170,2722,156,2679,142,2567,117,2431,95,2132,63,1879,43"/>
+<area shape="rect" href="lv__obj__private_8h.html" title=" " alt="" coords="991,189,1174,214"/>
+<area shape="poly" title=" " alt="" coords="1652,41,1523,48,1380,62,1251,82,1199,95,1161,110,1141,124,1124,142,1098,178,1093,175,1120,138,1138,120,1159,106,1198,90,1250,77,1380,56,1522,43,1651,35"/>
+<area shape="rect" href="lv__area__private_8h.html" title=" " alt="" coords="325,739,454,779"/>
+<area shape="poly" title=" " alt="" coords="1652,36,1241,39,979,45,711,58,461,79,350,92,252,108,171,127,110,149,72,174,62,186,59,200,59,371,61,403,67,433,90,492,124,546,166,594,213,638,260,675,343,729,340,734,257,679,209,642,163,598,120,549,85,494,62,435,56,404,53,371,53,200,57,184,68,170,108,144,170,122,251,103,349,87,460,73,711,53,979,40,1241,33,1652,30"/>
+<area shape="rect" href="lv__draw__private_8h.html" title=" " alt="" coords="2821,431,2955,471"/>
+<area shape="poly" title=" " alt="" coords="1879,34,2119,41,2407,54,2661,75,2752,89,2804,106,2831,124,2850,144,2861,168,2864,200,2864,291,2870,358,2882,417,2877,418,2865,359,2859,291,2859,200,2855,169,2845,147,2828,128,2802,110,2750,94,2661,81,2406,60,2119,46,1879,39"/>
+<area shape="rect" href="lv__obj__event__private_8h.html" title=" " alt="" coords="1943,181,2105,221"/>
+<area shape="poly" title=" " alt="" coords="1808,58,1985,172,1982,176,1805,63"/>
+<area shape="rect" href="lv__obj__class__private_8h.html" title=" " alt="" coords="1687,269,1844,309"/>
+<area shape="poly" title=" " alt="" coords="1768,60,1768,255,1763,255,1763,60"/>
+<area shape="rect" href="lv__imagebutton_8h.html" title=" " alt="" coords="1199,189,1335,214"/>
+<area shape="poly" title=" " alt="" coords="1269,134,1269,175,1264,175,1264,134"/>
+<area shape="poly" title=" " alt="" coords="1241,136,1123,186,1121,181,1239,131"/>
+<area shape="rect" href="lv__obj_8h.html" title=" " alt="" coords="1018,277,1147,302"/>
+<area shape="poly" title=" " alt="" coords="1243,217,1121,273,1119,268,1241,212"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="1117,1193,1267,1219"/>
+<area shape="poly" title=" " alt="" coords="1018,296,831,304,594,317,379,336,302,347,258,360,174,406,140,429,112,454,89,482,72,515,62,555,59,603,59,1060,62,1086,72,1103,88,1115,108,1123,160,1132,218,1143,295,1158,396,1171,644,1188,900,1198,1103,1201,1102,1207,900,1203,644,1194,396,1176,294,1164,217,1148,159,1137,107,1128,85,1120,68,1107,57,1088,53,1061,53,603,57,554,67,514,84,479,108,450,137,425,172,401,256,355,301,342,378,331,594,312,831,298,1017,290"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="1504,1120,1640,1145"/>
+<area shape="poly" title=" " alt="" coords="1148,294,1277,311,1425,341,1493,362,1548,386,1569,400,1586,415,1596,431,1600,449,1600,987,1594,1053,1582,1108,1576,1106,1588,1052,1595,987,1595,450,1591,433,1582,418,1566,404,1545,391,1491,367,1424,346,1276,317,1147,300"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__style_8h.html" title=" " alt="" coords="1014,592,1146,617"/>
+<area shape="poly" title=" " alt="" coords="1082,303,1065,374,1059,422,1059,470,1067,528,1077,578,1072,579,1061,529,1053,471,1053,421,1059,373,1076,302"/>
+<area shape="rect" href="lv__area_8h.html" title=" " alt="" coords="925,973,1054,999"/>
+<area shape="poly" title=" " alt="" coords="1073,304,1026,356,960,441,925,492,892,548,863,606,841,666,835,710,839,754,853,798,873,839,897,877,923,911,969,962,965,965,919,914,893,880,869,842,848,800,834,755,829,710,836,665,858,604,887,545,920,489,955,438,1022,353,1069,300"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color_8h.html" title=" " alt="" coords="740,973,871,999"/>
+<area shape="poly" title=" " alt="" coords="1018,292,894,294,746,302,674,310,609,322,556,339,519,359,502,379,495,398,495,449,495,679,499,757,506,788,516,817,531,843,550,869,606,923,633,942,664,957,727,975,726,980,662,962,630,947,602,927,546,872,526,846,512,819,501,790,494,758,489,679,489,449,490,397,498,376,516,355,554,334,607,317,673,305,745,297,894,288,1018,287"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="595,1047,688,1072"/>
+<area shape="poly" title=" " alt="" coords="1018,293,853,293,642,301,536,310,439,322,357,338,297,360,275,374,261,389,237,432,157,596,126,673,107,747,103,782,103,816,107,849,117,881,133,912,154,941,182,969,217,996,247,1010,287,1020,386,1032,491,1038,581,1044,581,1050,491,1043,385,1037,286,1026,245,1015,215,1001,179,973,150,945,128,914,112,883,102,850,97,816,97,782,102,746,121,671,152,594,232,429,256,386,272,370,295,355,355,333,438,317,535,304,641,296,853,288,1017,287"/>
+<area shape="rect" href="lv__obj__tree_8h.html" title=" " alt="" coords="195,900,301,925"/>
+<area shape="poly" title=" " alt="" coords="1018,292,860,293,661,301,561,310,469,322,393,338,337,360,306,381,280,408,258,438,242,472,229,508,221,546,213,626,214,705,223,778,244,886,239,887,217,779,209,705,207,625,215,545,224,506,237,470,254,435,276,404,302,377,335,355,391,333,469,317,560,305,660,296,860,288,1018,287"/>
+<area shape="rect" href="lv__obj__pos_8h.html" title=" " alt="" coords="530,357,633,383"/>
+<area shape="poly" title=" " alt="" coords="1018,303,652,360,647,361,646,356,652,355,1017,298"/>
+<area shape="rect" href="lv__obj__scroll_8h.html" title=" " alt="" coords="325,900,440,925"/>
+<area shape="poly" title=" " alt="" coords="1018,293,824,296,703,303,581,316,469,336,419,349,375,364,339,382,312,402,295,424,289,450,289,760,296,799,314,834,338,865,361,889,357,893,334,868,310,837,291,800,284,760,284,449,290,422,308,398,336,377,373,359,417,344,467,331,581,311,703,298,823,291,1018,287"/>
+<area shape="rect" href="lv__obj__style_8h.html" title=" " alt="" coords="1432,519,1544,544"/>
+<area shape="poly" title=" " alt="" coords="1104,300,1458,509,1456,514,1101,305"/>
+<area shape="rect" href="lv__obj__draw_8h.html" title=" " alt="" coords="1805,438,1915,463"/>
+<area shape="poly" title=" " alt="" coords="1148,290,1321,296,1537,308,1730,327,1798,340,1836,355,1849,370,1857,388,1863,423,1858,424,1852,389,1844,373,1833,359,1797,345,1729,332,1536,313,1321,301,1148,295"/>
+<area shape="rect" href="lv__obj__class_8h.html" title=" " alt="" coords="1709,357,1822,383"/>
+<area shape="poly" title=" " alt="" coords="1148,294,1386,319,1690,355,1696,355,1695,361,1689,360,1386,324,1147,300"/>
+<area shape="rect" href="lv__obj__property_8h.html" title=" " alt="" coords="1068,438,1201,463"/>
+<area shape="poly" title=" " alt="" coords="1089,301,1129,424,1124,425,1084,303"/>
+<area shape="rect" href="lv__obj__event_8h.html" title=" " alt="" coords="2077,438,2195,463"/>
+<area shape="poly" title=" " alt="" coords="1148,288,1279,292,1457,302,1659,322,1762,336,1862,355,1928,371,1992,391,2097,430,2096,435,1991,396,1926,376,1861,360,1761,342,1658,327,1457,307,1279,297,1147,294"/>
+<area shape="rect" href="lv__group_8h.html" title=" " alt="" coords="1737,973,1871,999"/>
+<area shape="poly" title=" " alt="" coords="1148,288,1264,291,1403,300,1470,309,1531,320,1582,336,1618,355,1682,415,1726,473,1755,532,1772,594,1783,660,1789,731,1797,811,1809,900,1812,931,1810,960,1805,959,1806,931,1804,900,1792,811,1784,732,1777,660,1767,595,1750,534,1721,476,1678,418,1614,359,1580,341,1530,326,1469,314,1402,306,1264,296,1147,293"/>
+<area shape="rect" href="lv__conf__kconfig_8h.html" title=" " alt="" coords="1053,1267,1187,1292"/>
+<area shape="poly" title=" " alt="" coords="1182,1221,1143,1259,1140,1255,1178,1217"/>
+<area shape="rect" title=" " alt="" coords="1212,1267,1316,1292"/>
+<area shape="poly" title=" " alt="" coords="1206,1217,1244,1255,1241,1259,1202,1221"/>
+<area shape="poly" title=" " alt="" coords="1511,1148,1267,1193,1266,1188,1510,1143"/>
+<area shape="poly" title=" " alt="" coords="1128,615,1207,641,1252,661,1295,685,1335,715,1367,750,1389,791,1395,814,1397,838,1397,987,1401,1010,1410,1031,1423,1050,1441,1066,1482,1093,1524,1113,1521,1118,1479,1098,1437,1070,1419,1053,1405,1034,1395,1012,1392,988,1392,838,1390,815,1384,793,1363,753,1332,719,1293,690,1249,666,1205,646,1127,620"/>
+<area shape="rect" href="lv__font_8h.html" title=" " alt="" coords="1082,827,1203,852"/>
+<area shape="poly" title=" " alt="" coords="1086,617,1101,665,1139,813,1134,814,1096,666,1081,619"/>
+<area shape="poly" title=" " alt="" coords="1080,619,1071,652,1057,692,1034,731,1011,759,990,787,973,827,967,854,966,875,973,925,982,960,977,961,968,926,961,876,962,853,968,826,986,784,1007,756,1030,728,1052,690,1066,650,1075,617"/>
+<area shape="poly" title=" " alt="" coords="1015,617,962,635,937,649,915,667,900,688,892,708,891,757,891,841,884,878,869,912,849,942,829,965,825,962,845,939,864,909,879,876,885,840,885,757,887,707,895,686,911,664,934,645,959,630,1013,612"/>
+<area shape="poly" title=" " alt="" coords="1015,615,928,633,883,648,840,668,757,716,696,761,671,787,649,817,627,855,607,901,600,936,605,972,616,1006,629,1034,625,1036,611,1008,599,973,594,936,601,899,623,853,644,815,667,783,693,757,754,711,837,663,881,643,927,628,1013,610"/>
+<area shape="rect" href="lv__anim_8h.html" title=" " alt="" coords="229,973,315,999"/>
+<area shape="poly" title=" " alt="" coords="1014,614,852,630,646,656,544,674,449,693,370,716,313,741,264,774,231,806,207,846,185,901,182,913,185,924,205,948,231,965,228,970,201,952,180,927,177,913,180,899,202,844,227,803,261,769,311,736,369,711,448,688,543,668,646,651,851,625,1013,609"/>
+<area shape="rect" href="lv__text_8h.html" title=" " alt="" coords="1219,746,1298,771"/>
+<area shape="poly" title=" " alt="" coords="1095,615,1236,735,1233,739,1092,619"/>
+<area shape="rect" href="lv__bidi_8h.html" title=" " alt="" coords="1381,665,1459,691"/>
+<area shape="poly" title=" " alt="" coords="1135,615,1368,663,1367,668,1134,620"/>
+<area shape="rect" href="lv__grad_8h.html" title=" " alt="" coords="616,900,699,925"/>
+<area shape="poly" title=" " alt="" coords="1014,615,941,632,904,647,871,667,847,689,831,711,811,756,793,803,778,828,757,854,727,878,697,896,694,891,724,873,753,850,774,825,788,801,806,754,826,708,843,686,868,663,902,642,940,627,1013,609"/>
+<area shape="rect" href="lv__layout_8h.html" title=" " alt="" coords="411,1047,570,1072"/>
+<area shape="poly" title=" " alt="" coords="1014,611,935,621,843,643,797,660,752,681,710,708,673,741,641,777,612,817,562,901,525,978,502,1035,497,1033,520,975,557,898,607,814,637,774,669,737,706,704,749,677,795,655,842,638,934,616,1013,606"/>
+<area shape="rect" href="lv__style__gen_8h_source.html" title=" " alt="" coords="926,665,1042,691"/>
+<area shape="poly" title=" " alt="" coords="1066,620,1012,659,1009,655,1063,615"/>
+<area shape="poly" title=" " alt="" coords="1145,852,1144,985,1144,1061,1148,1094,1157,1126,1181,1180,1176,1182,1152,1128,1142,1095,1139,1061,1139,985,1140,852"/>
+<area shape="poly" title=" " alt="" coords="1150,851,1173,893,1211,952,1263,1016,1294,1045,1327,1070,1366,1090,1408,1105,1491,1123,1490,1128,1407,1111,1364,1095,1324,1074,1290,1049,1259,1020,1207,956,1168,895,1146,853"/>
+<area shape="rect" href="lv__draw__buf_8h.html" title=" " alt="" coords="1635,900,1795,925"/>
+<area shape="poly" title=" " alt="" coords="1204,846,1622,897,1621,902,1203,851"/>
+<area shape="poly" title=" " alt="" coords="1133,854,1060,927,1016,967,1012,963,1057,923,1130,851"/>
+<area shape="poly" title=" " alt="" coords="1710,927,1618,1073,1591,1111,1587,1107,1614,1071,1706,924"/>
+<area shape="poly" title=" " alt="" coords="1635,924,1068,980,1067,974,1634,919"/>
+<area shape="poly" title=" " alt="" coords="1634,922,1318,943,912,976,885,979,884,973,912,971,1318,938,1634,916"/>
+<area shape="poly" title=" " alt="" coords="1795,921,2248,975,2247,980,1795,926"/>
+<area shape="poly" title=" " alt="" coords="1000,997,1051,1061,1125,1143,1168,1183,1165,1187,1121,1147,1047,1065,996,1001"/>
+<area shape="poly" title=" " alt="" coords="1017,996,1108,1032,1225,1069,1365,1100,1491,1119,1490,1124,1364,1105,1223,1075,1106,1037,1015,1001"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html" title=" " alt="" coords="865,1047,951,1072"/>
+<area shape="poly" title=" " alt="" coords="978,1001,933,1040,930,1036,975,997"/>
+<area shape="poly" title=" " alt="" coords="922,1070,965,1105,1023,1143,1080,1168,1136,1187,1134,1192,1078,1173,1020,1148,962,1110,919,1074"/>
+<area shape="poly" title=" " alt="" coords="952,1066,971,1069,1257,1102,1490,1123,1490,1128,1256,1108,970,1075,951,1072"/>
+<area shape="poly" title=" " alt="" coords="812,998,828,1033,854,1070,881,1094,910,1115,975,1149,1042,1173,1104,1188,1102,1194,1040,1178,973,1154,908,1120,877,1098,850,1074,823,1035,807,1000"/>
+<area shape="poly" title=" " alt="" coords="845,996,976,1032,1141,1069,1328,1100,1491,1120,1490,1126,1328,1105,1139,1075,975,1037,844,1001"/>
+<area shape="poly" title=" " alt="" coords="823,996,881,1036,878,1041,820,1001"/>
+<area shape="poly" title=" " alt="" coords="780,1001,682,1044,679,1039,778,996"/>
+<area shape="poly" title=" " alt="" coords="655,1070,698,1107,727,1127,758,1143,847,1171,939,1189,1027,1199,1103,1202,1103,1208,1027,1204,938,1194,846,1176,756,1148,724,1132,695,1112,651,1074"/>
+<area shape="poly" title=" " alt="" coords="2279,1001,2093,1074,2000,1116,1958,1132,1903,1148,1819,1165,1733,1179,1561,1197,1405,1205,1281,1208,1281,1203,1405,1200,1561,1191,1732,1173,1818,1160,1902,1143,1957,1127,1998,1111,2091,1070,2277,996"/>
+<area shape="poly" title=" " alt="" coords="2289,1001,2219,1038,2174,1058,2126,1075,1999,1103,1870,1120,1751,1130,1654,1134,1654,1128,1750,1124,1869,1115,1998,1097,2125,1069,2172,1053,2217,1033,2287,996"/>
+<area shape="poly" title=" " alt="" coords="273,999,270,1029,272,1068,282,1110,292,1128,306,1143,321,1152,347,1160,424,1174,527,1184,646,1192,896,1200,1103,1202,1103,1207,896,1205,645,1197,526,1189,423,1179,346,1165,319,1157,302,1147,288,1131,277,1112,267,1069,265,1029,268,998"/>
+<area shape="poly" title=" " alt="" coords="286,997,333,1035,365,1054,399,1069,465,1081,578,1092,890,1109,1490,1127,1490,1132,889,1114,577,1097,465,1087,398,1075,363,1059,330,1039,282,1001"/>
+<area shape="poly" title=" " alt="" coords="316,990,851,1049,851,1054,315,995"/>
+<area shape="rect" href="lv__ext__data_8h.html" title=" " alt="" coords="123,1047,234,1072"/>
+<area shape="poly" title=" " alt="" coords="259,1001,206,1040,203,1036,255,997"/>
+<area shape="poly" title=" " alt="" coords="187,1071,213,1108,232,1128,254,1143,303,1156,387,1166,624,1183,888,1194,1103,1200,1103,1206,888,1200,624,1189,387,1172,302,1161,252,1148,229,1132,209,1112,183,1074"/>
+<area shape="poly" title=" " alt="" coords="1260,772,1198,1180,1193,1180,1254,771"/>
+<area shape="poly" title=" " alt="" coords="1262,771,1269,825,1287,906,1302,950,1321,994,1347,1034,1378,1070,1403,1089,1431,1103,1491,1121,1489,1126,1429,1108,1400,1093,1374,1074,1342,1038,1317,996,1297,952,1282,907,1264,826,1257,772"/>
+<area shape="poly" title=" " alt="" coords="1243,774,1173,821,1170,817,1240,769"/>
+<area shape="poly" title=" " alt="" coords="1225,774,1131,806,1072,829,1055,852,1035,887,1002,962,997,959,1031,885,1050,849,1069,825,1129,801,1223,769"/>
+<area shape="poly" title=" " alt="" coords="1418,692,1344,872,1224,1146,1207,1182,1202,1180,1219,1144,1339,870,1413,690"/>
+<area shape="poly" title=" " alt="" coords="1426,690,1439,753,1445,795,1448,838,1448,987,1449,1013,1454,1032,1464,1050,1479,1070,1505,1094,1533,1111,1530,1116,1501,1098,1475,1074,1459,1053,1449,1034,1444,1014,1443,987,1443,838,1440,795,1434,754,1421,691"/>
+<area shape="poly" title=" " alt="" coords="1398,693,1295,743,1293,738,1395,688"/>
+<area shape="poly" title=" " alt="" coords="616,924,537,943,493,957,452,974,419,994,396,1017,391,1029,389,1042,392,1056,401,1070,420,1090,446,1108,479,1123,517,1137,608,1160,710,1177,818,1189,924,1196,1103,1202,1103,1207,924,1201,818,1194,710,1182,607,1165,516,1142,477,1128,443,1112,416,1094,397,1074,388,1057,384,1042,386,1027,392,1014,415,990,450,969,491,952,535,938,615,919"/>
+<area shape="poly" title=" " alt="" coords="699,920,923,968,922,973,698,925"/>
+<area shape="poly" title=" " alt="" coords="682,923,770,965,768,970,680,928"/>
+<area shape="poly" title=" " alt="" coords="515,1070,599,1106,653,1126,709,1143,813,1165,920,1181,1103,1198,1103,1203,919,1186,813,1170,707,1148,652,1131,597,1111,513,1075"/>
+<area shape="poly" title=" " alt="" coords="571,1068,583,1069,842,1090,1099,1106,1490,1125,1490,1131,1098,1112,842,1095,582,1075,570,1073"/>
+<area shape="poly" title=" " alt="" coords="285,923,525,996,613,1018,701,1044,728,1058,754,1069,818,1082,902,1093,1106,1110,1319,1121,1490,1127,1490,1132,1319,1126,1106,1115,901,1098,817,1087,753,1075,725,1063,699,1049,612,1023,523,1001,283,928"/>
+<area shape="poly" title=" " alt="" coords="254,925,266,959,261,961,249,927"/>
+<area shape="poly" title=" " alt="" coords="584,383,587,530,587,606,589,632,596,658,621,711,656,763,697,811,777,888,820,923,870,949,922,967,920,972,868,954,817,928,773,892,693,815,652,766,616,714,591,660,584,633,581,606,581,530,579,383"/>
+<area shape="poly" title=" " alt="" coords="410,923,593,994,720,1036,853,1069,1029,1098,1206,1116,1366,1125,1490,1128,1490,1134,1366,1130,1206,1121,1029,1103,851,1075,719,1041,591,999,408,928"/>
+<area shape="poly" title=" " alt="" coords="441,918,911,973,911,978,440,923"/>
+<area shape="poly" title=" " alt="" coords="366,928,303,968,300,963,363,923"/>
+<area shape="poly" title=" " alt="" coords="1496,543,1528,631,1543,693,1549,757,1549,987,1556,1052,1568,1106,1562,1108,1550,1053,1544,987,1544,757,1538,693,1523,632,1491,545"/>
+<area shape="poly" title=" " alt="" coords="1432,545,1159,592,1158,587,1431,540"/>
+<area shape="poly" title=" " alt="" coords="1485,546,1434,654,1429,652,1480,543"/>
+<area shape="poly" title=" " alt="" coords="1866,463,1878,523,1885,603,1885,841,1881,871,1870,893,1853,909,1831,922,1780,943,1754,957,1727,975,1702,1000,1685,1023,1669,1046,1645,1074,1600,1113,1596,1109,1641,1070,1664,1043,1681,1020,1698,997,1724,971,1751,952,1778,938,1829,917,1850,905,1866,890,1876,869,1880,840,1880,603,1872,524,1860,464"/>
+<area shape="poly" title=" " alt="" coords="1806,466,1556,518,1555,513,1805,461"/>
+<area shape="poly" title=" " alt="" coords="1823,378,1878,396,1906,410,1930,429,1952,460,1984,517,2058,675,2091,758,2117,833,2130,892,2131,913,2126,927,2108,946,2088,958,2069,963,2048,965,2004,965,1979,968,1953,976,1895,1001,1852,1024,1809,1048,1752,1074,1625,1119,1623,1113,1750,1070,1807,1043,1850,1019,1893,996,1951,971,1978,963,2003,960,2048,960,2068,958,2086,953,2104,942,2122,924,2126,912,2125,893,2112,835,2086,760,2053,677,1979,520,1948,463,1926,433,1903,415,1876,401,1821,383"/>
+<area shape="poly" title=" " alt="" coords="1730,385,1591,437,1505,476,1421,521,1305,593,1217,654,1138,725,1049,828,1028,861,1013,897,996,960,991,959,1008,895,1023,858,1045,825,1134,722,1213,650,1302,588,1419,516,1503,471,1589,432,1728,380"/>
+<area shape="poly" title=" " alt="" coords="1709,380,1271,433,1215,441,1215,435,1270,428,1708,375"/>
+<area shape="poly" title=" " alt="" coords="1173,461,1262,496,1316,523,1370,557,1419,596,1460,643,1476,669,1488,697,1496,726,1499,757,1499,987,1504,1022,1518,1055,1536,1085,1554,1108,1550,1111,1531,1088,1513,1058,1499,1024,1493,988,1493,757,1491,727,1483,698,1472,671,1456,646,1416,600,1367,561,1313,528,1260,501,1171,466"/>
+<area shape="poly" title=" " alt="" coords="1133,464,1091,580,1086,578,1128,462"/>
+<area shape="poly" title=" " alt="" coords="1187,461,1424,513,1423,518,1185,466"/>
+<area shape="poly" title=" " alt="" coords="2139,463,2139,603,2139,760,2159,843,2170,895,2173,915,2170,927,2151,946,2132,957,2111,961,2091,962,2046,962,2022,966,1997,976,1961,1000,1936,1025,1911,1051,1873,1074,1818,1096,1761,1111,1654,1128,1653,1123,1760,1106,1816,1090,1871,1070,1908,1047,1933,1022,1957,996,1995,971,2021,961,2046,957,2090,957,2111,956,2130,952,2148,942,2166,924,2167,915,2165,896,2154,845,2133,760,2133,603,2133,463"/>
+<area shape="poly" title=" " alt="" coords="2077,462,1558,524,1557,519,2076,456"/>
+<area shape="rect" href="lv__event_8h.html" title=" " alt="" coords="2049,973,2186,999"/>
+<area shape="poly" title=" " alt="" coords="2192,461,2248,479,2304,507,2328,526,2348,548,2361,574,2365,603,2365,841,2361,869,2349,893,2332,914,2309,931,2256,957,2200,974,2199,969,2254,952,2306,927,2328,910,2345,890,2356,867,2360,840,2360,604,2356,575,2343,551,2324,530,2301,511,2246,484,2191,466"/>
+<area shape="rect" href="lv__indev_8h.html" title=" " alt="" coords="1971,900,2111,925"/>
+<area shape="poly" title=" " alt="" coords="2111,466,2073,486,2032,517,2014,535,2000,556,1990,579,1987,604,1987,679,1992,738,2004,796,2034,886,2029,888,1999,798,1986,739,1981,679,1981,603,1985,577,1995,553,2010,532,2029,513,2070,482,2109,461"/>
+<area shape="poly" title=" " alt="" coords="2116,1000,2097,1037,2082,1057,2063,1074,2035,1090,2000,1104,1914,1129,1811,1150,1697,1167,1468,1191,1281,1203,1281,1198,1468,1185,1697,1162,1810,1145,1913,1124,1999,1099,2033,1085,2060,1070,2078,1054,2092,1034,2111,998"/>
+<area shape="poly" title=" " alt="" coords="2110,1001,2076,1038,2052,1058,2025,1074,1995,1085,1955,1095,1857,1110,1654,1129,1654,1124,1857,1105,1954,1089,1994,1080,2023,1070,2049,1054,2073,1034,2107,997"/>
+<area shape="poly" title=" " alt="" coords="1971,921,1068,982,1068,977,1971,916"/>
+<area shape="poly" title=" " alt="" coords="2055,923,2097,962,2093,966,2052,927"/>
+<area shape="poly" title=" " alt="" coords="2004,928,1856,972,1855,967,2002,923"/>
+<area shape="poly" title=" " alt="" coords="1801,1001,1781,1035,1753,1074,1708,1118,1685,1133,1653,1148,1583,1166,1485,1181,1281,1201,1281,1196,1485,1176,1582,1161,1651,1143,1682,1129,1705,1114,1749,1070,1777,1032,1796,998"/>
+<area shape="poly" title=" " alt="" coords="1796,1001,1764,1036,1719,1074,1672,1100,1625,1118,1623,1113,1669,1095,1716,1070,1761,1032,1793,997"/>
+<area shape="poly" title=" " alt="" coords="1085,214,1085,262,1080,262,1080,214"/>
+<area shape="poly" title=" " alt="" coords="991,210,728,227,565,241,401,259,249,280,123,306,75,321,38,336,16,352,8,369,8,914,11,937,20,957,33,976,50,993,91,1020,132,1039,130,1044,88,1024,47,997,29,979,15,960,6,938,3,914,3,368,11,349,36,331,73,316,122,301,248,275,400,253,565,236,727,222,991,205"/>
+<area shape="poly" title=" " alt="" coords="434,776,712,898,769,923,850,948,925,968,924,973,848,953,767,928,710,902,431,781"/>
+<area shape="rect" href="lv__draw_8h.html" title=" " alt="" coords="2411,519,2495,544"/>
+<area shape="poly" title=" " alt="" coords="2822,467,2509,523,2508,517,2821,461"/>
+<area shape="rect" href="lv__os__private_8h.html" title=" " alt="" coords="3034,973,3198,999"/>
+<area shape="poly" title=" " alt="" coords="2921,469,2952,492,2983,523,3007,560,3015,581,3017,603,3017,840,3025,878,3043,911,3067,940,3091,963,3088,966,3063,944,3039,914,3020,879,3012,841,3012,603,3010,582,3003,562,2979,526,2948,496,2918,473"/>
+<area shape="rect" href="lv__cache_8h.html" title=" " alt="" coords="2603,973,2783,999"/>
+<area shape="poly" title=" " alt="" coords="2885,472,2872,530,2864,603,2864,841,2861,864,2852,886,2838,905,2821,923,2781,951,2741,970,2738,966,2778,946,2817,918,2834,902,2847,883,2856,863,2859,840,2859,603,2866,529,2880,470"/>
+<area shape="poly" title=" " alt="" coords="2462,543,2481,591,2518,699,2545,784,2562,872,2568,985,2568,1061,2565,1074,2556,1086,2524,1106,2474,1125,2408,1140,2240,1166,2038,1184,1822,1195,1611,1203,1281,1207,1281,1202,1610,1197,1821,1190,2037,1178,2239,1160,2407,1135,2472,1119,2521,1102,2552,1082,2560,1071,2563,1060,2563,985,2557,872,2540,786,2513,701,2476,593,2457,545"/>
+<area shape="poly" title=" " alt="" coords="2457,544,2463,601,2467,677,2467,841,2463,870,2453,891,2436,909,2412,928,2371,950,2334,958,2296,963,2250,976,2157,1026,2105,1056,2062,1075,1953,1102,1843,1119,1740,1129,1654,1133,1653,1128,1739,1123,1842,1114,1952,1096,2060,1069,2102,1051,2155,1022,2248,971,2295,958,2333,953,2369,945,2409,923,2432,905,2448,888,2458,868,2461,841,2461,677,2458,601,2452,544"/>
+<area shape="poly" title=" " alt="" coords="2411,538,1160,602,1160,597,2411,532"/>
+<area shape="poly" title=" " alt="" coords="2432,547,1750,896,1748,891,2430,542"/>
+<area shape="poly" title=" " alt="" coords="2411,537,2202,550,1897,575,1738,592,1589,614,1463,639,1412,653,1370,668,1344,682,1319,700,1279,738,1276,734,1315,696,1341,678,1368,663,1410,648,1462,634,1589,608,1737,587,1897,569,2201,544,2411,532"/>
+<area shape="poly" title=" " alt="" coords="2450,545,2429,601,2420,638,2416,677,2416,841,2415,867,2411,889,2401,908,2383,928,2358,938,2311,950,2197,973,2196,968,2310,945,2356,933,2380,923,2397,905,2406,887,2410,867,2411,841,2411,677,2415,637,2424,600,2445,543"/>
+<area shape="rect" href="lv__profiler_8h.html" title=" " alt="" coords="3297,1120,3442,1145"/>
+<area shape="poly" title=" " alt="" coords="2473,542,2593,615,2767,715,2904,790,3041,866,3212,971,3268,1004,3291,1020,3318,1045,3342,1076,3360,1106,3355,1109,3338,1079,3314,1048,3288,1024,3265,1008,3209,976,3038,871,2902,795,2765,720,2591,620,2470,546"/>
+<area shape="rect" href="lv__matrix_8h.html" title=" " alt="" coords="2603,592,2746,617"/>
+<area shape="poly" title=" " alt="" coords="2490,541,2627,585,2625,590,2488,547"/>
+<area shape="rect" href="lv__image__decoder_8h.html" title=" " alt="" coords="2173,827,2325,852"/>
+<area shape="poly" title=" " alt="" coords="2442,546,2397,594,2354,654,2317,716,2263,816,2258,813,2312,713,2350,651,2393,590,2438,542"/>
+<area shape="poly" title=" " alt="" coords="3297,1146,3278,1148,2982,1167,2681,1182,2098,1200,1606,1207,1281,1208,1281,1202,1606,1202,2098,1195,2680,1177,2982,1162,3277,1143,3296,1141"/>
+<area shape="poly" title=" " alt="" coords="2746,609,2944,629,3187,661,3300,681,3394,703,3458,728,3476,742,3483,757,3483,1061,3482,1109,3474,1129,3456,1148,3428,1154,3366,1160,3155,1171,2507,1188,1281,1206,1281,1201,2507,1183,3155,1165,3365,1155,3427,1149,3453,1143,3470,1126,3476,1108,3477,1061,3477,758,3472,745,3455,733,3392,708,3299,686,3187,666,2944,634,2746,615"/>
+<area shape="poly" title=" " alt="" coords="2270,850,2309,876,2349,912,2364,933,2374,955,2375,978,2366,1000,2336,1032,2293,1061,2241,1086,2179,1108,2109,1127,2034,1143,1871,1169,1702,1187,1539,1198,1281,1207,1281,1202,1539,1193,1701,1182,1870,1164,2033,1138,2108,1122,2177,1103,2239,1081,2291,1056,2332,1028,2362,997,2370,977,2369,957,2360,936,2345,916,2305,880,2267,854"/>
+<area shape="poly" title=" " alt="" coords="2251,853,2243,889,2234,910,2221,927,2198,944,2175,954,2133,959,2088,960,2065,965,2039,976,2005,1000,1983,1025,1960,1051,1924,1074,1856,1100,1784,1117,1715,1127,1654,1132,1654,1127,1715,1122,1783,1112,1854,1095,1921,1070,1956,1047,1979,1022,2001,996,2036,971,2063,960,2088,955,2132,953,2174,949,2195,940,2217,923,2230,907,2238,888,2246,852"/>
+<area shape="poly" title=" " alt="" coords="2174,853,1809,902,1808,896,2173,848"/>
+<area shape="poly" title=" " alt="" coords="2195,855,1991,895,1807,928,1598,951,1391,968,1068,985,1068,979,1391,962,1598,946,1806,923,1990,890,2194,849"/>
+<area shape="poly" title=" " alt="" coords="3197,996,3244,1007,3283,1023,3296,1033,3304,1045,3304,1059,3295,1074,3265,1088,3204,1102,3005,1126,2730,1147,2409,1165,1751,1191,1281,1205,1281,1200,1751,1186,2408,1159,2730,1141,3005,1120,3203,1096,3263,1083,3292,1070,3299,1058,3299,1047,3292,1037,3280,1028,3242,1012,3196,1001"/>
+<area shape="poly" title=" " alt="" coords="3109,1001,3074,1039,3049,1059,3021,1074,2988,1084,2937,1092,2794,1105,2608,1115,2397,1123,1971,1131,1654,1134,1654,1128,1971,1126,2397,1118,2608,1110,2793,1100,2936,1086,2986,1078,3019,1070,3046,1054,3071,1035,3106,997"/>
+<area shape="rect" href="lv__os_8h.html" title=" " alt="" coords="3082,1047,3150,1072"/>
+<area shape="poly" title=" " alt="" coords="3119,999,3119,1033,3113,1033,3113,999"/>
+<area shape="rect" href="lv__os__none_8h.html" title=" " alt="" coords="3175,1047,3281,1072"/>
+<area shape="poly" title=" " alt="" coords="3135,996,3199,1037,3196,1041,3133,1001"/>
+<area shape="poly" title=" " alt="" coords="3082,1071,3063,1075,2934,1087,2764,1098,2356,1115,1654,1133,1654,1127,2356,1109,2764,1092,2934,1082,3062,1069,3081,1066"/>
+<area shape="poly" title=" " alt="" coords="2673,1001,2594,1039,2543,1059,2490,1075,2417,1087,2320,1098,2085,1115,1844,1126,1654,1132,1654,1127,1844,1121,2085,1110,2319,1093,2416,1082,2489,1069,2541,1054,2592,1034,2671,997"/>
+<area shape="rect" href="lv__cache__entry_8h.html" title=" " alt="" coords="2347,1047,2477,1072"/>
+<area shape="poly" title=" " alt="" coords="2649,1001,2471,1046,2470,1041,2647,996"/>
+<area shape="rect" href="lv__cache__class_8h_source.html" title=" " alt="" coords="2603,1047,2771,1072"/>
+<area shape="poly" title=" " alt="" coords="2695,999,2692,1033,2686,1033,2690,999"/>
+<area shape="rect" href="lv__cache__instance_8h.html" title=" " alt="" coords="2795,1047,3007,1072"/>
+<area shape="poly" title=" " alt="" coords="2728,996,2855,1040,2854,1045,2726,1001"/>
+<area shape="poly" title=" " alt="" coords="2347,1069,1654,1127,1653,1122,2346,1064"/>
+<area shape="poly" title=" " alt="" coords="2035,221,2128,424,2123,427,2030,223"/>
+<area shape="poly" title=" " alt="" coords="1768,310,1768,343,1763,343,1763,310"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:a9be806f23ad96997f1d62c1a6dfabe05" id="r_a9be806f23ad96997f1d62c1a6dfabe05"><td class="memItemLeft" align="right" valign="top"><a id="a9be806f23ad96997f1d62c1a6dfabe05" name="a9be806f23ad96997f1d62c1a6dfabe05"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MY_CLASS</b>&#160;&#160;&#160;(&amp;lv_imagebutton_class)</td></tr>
+<tr class="separator:a9be806f23ad96997f1d62c1a6dfabe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:abe47cb0860ea373d45947152710e0e3e" id="r_abe47cb0860ea373d45947152710e0e3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#abe47cb0860ea373d45947152710e0e3e">lv_imagebutton_create</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *parent)</td></tr>
+<tr class="separator:abe47cb0860ea373d45947152710e0e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3c1202f4b6cca8e9b7c27013cce0850" id="r_ab3c1202f4b6cca8e9b7c27013cce0850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#ab3c1202f4b6cca8e9b7c27013cce0850">lv_imagebutton_set_src</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state, const void *src_left, const void *src_mid, const void *src_right)</td></tr>
+<tr class="separator:ab3c1202f4b6cca8e9b7c27013cce0850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade02c649a37265e92a2bcb941b7c8337" id="r_ade02c649a37265e92a2bcb941b7c8337"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#ade02c649a37265e92a2bcb941b7c8337">lv_imagebutton_set_src_left</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state, const void *src_left)</td></tr>
+<tr class="separator:ade02c649a37265e92a2bcb941b7c8337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cea8134adcf0a9b058bef54cd3470b9" id="r_a8cea8134adcf0a9b058bef54cd3470b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#a8cea8134adcf0a9b058bef54cd3470b9">lv_imagebutton_set_src_right</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state, const void *src_right)</td></tr>
+<tr class="separator:a8cea8134adcf0a9b058bef54cd3470b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfb577b53dc003f031a48128021c3f85" id="r_acfb577b53dc003f031a48128021c3f85"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#acfb577b53dc003f031a48128021c3f85">lv_imagebutton_set_src_mid</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state, const void *src_mid)</td></tr>
+<tr class="separator:acfb577b53dc003f031a48128021c3f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3088a24d7c4f04978f084cc5bbe50254" id="r_a3088a24d7c4f04978f084cc5bbe50254"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#a3088a24d7c4f04978f084cc5bbe50254">lv_imagebutton_set_state</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state)</td></tr>
+<tr class="separator:a3088a24d7c4f04978f084cc5bbe50254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9adff13ae4d1315a35324e98c2d1ff1d" id="r_a9adff13ae4d1315a35324e98c2d1ff1d"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#a9adff13ae4d1315a35324e98c2d1ff1d">lv_imagebutton_get_src_left</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state)</td></tr>
+<tr class="separator:a9adff13ae4d1315a35324e98c2d1ff1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9be313e5ab07ba270b5da27669882e2" id="r_ac9be313e5ab07ba270b5da27669882e2"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#ac9be313e5ab07ba270b5da27669882e2">lv_imagebutton_get_src_middle</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state)</td></tr>
+<tr class="separator:ac9be313e5ab07ba270b5da27669882e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94d688eef204a8199416b6712a4d7c0e" id="r_a94d688eef204a8199416b6712a4d7c0e"><td class="memItemLeft" align="right" valign="top">const void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#a94d688eef204a8199416b6712a4d7c0e">lv_imagebutton_get_src_right</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_imagebutton_state_t state)</td></tr>
+<tr class="separator:a94d688eef204a8199416b6712a4d7c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Spremenljivke</h2></td></tr>
+<tr class="memitem:ae3464ce72f083bceb2fd28356d7f6eb2" id="r_ae3464ce72f083bceb2fd28356d7f6eb2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct__lv__obj__class__t.html">lv_obj_class_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__imagebutton_8c.html#ae3464ce72f083bceb2fd28356d7f6eb2">lv_imagebutton_class</a></td></tr>
+<tr class="separator:ae3464ce72f083bceb2fd28356d7f6eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="abe47cb0860ea373d45947152710e0e3e" name="abe47cb0860ea373d45947152710e0e3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe47cb0860ea373d45947152710e0e3e">&#9670;&#160;</a></span>lv_imagebutton_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_imagebutton_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create an image button object </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>pointer to an object, it will be the parent of the new image button </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the created image button </dd></dl>
+
+</div>
+</div>
+<a id="a9adff13ae4d1315a35324e98c2d1ff1d" name="a9adff13ae4d1315a35324e98c2d1ff1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9adff13ae4d1315a35324e98c2d1ff1d">&#9670;&#160;</a></span>lv_imagebutton_get_src_left()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void * lv_imagebutton_get_src_left </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the left image in a given state </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>the state where to get the image (from <code>lv_button_state_t</code>) ` </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the left image source (a C array or path to a file) </dd></dl>
+
+</div>
+</div>
+<a id="ac9be313e5ab07ba270b5da27669882e2" name="ac9be313e5ab07ba270b5da27669882e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9be313e5ab07ba270b5da27669882e2">&#9670;&#160;</a></span>lv_imagebutton_get_src_middle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void * lv_imagebutton_get_src_middle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the middle image in a given state </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>the state where to get the image (from <code>lv_button_state_t</code>) ` </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the middle image source (a C array or path to a file) </dd></dl>
+
+</div>
+</div>
+<a id="a94d688eef204a8199416b6712a4d7c0e" name="a94d688eef204a8199416b6712a4d7c0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94d688eef204a8199416b6712a4d7c0e">&#9670;&#160;</a></span>lv_imagebutton_get_src_right()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const void * lv_imagebutton_get_src_right </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the right image in a given state </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>the state where to get the image (from <code>lv_button_state_t</code>) ` </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the left image source (a C array or path to a file) </dd></dl>
+
+</div>
+</div>
+<a id="ab3c1202f4b6cca8e9b7c27013cce0850" name="ab3c1202f4b6cca8e9b7c27013cce0850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3c1202f4b6cca8e9b7c27013cce0850">&#9670;&#160;</a></span>lv_imagebutton_set_src()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_imagebutton_set_src </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src_left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src_mid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src_right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set images for a state of the image button </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>for which state set the new image </td></tr>
+    <tr><td class="paramname">src_left</td><td>pointer to an image source for the left side of the button (a C array or path to a file) </td></tr>
+    <tr><td class="paramname">src_mid</td><td>pointer to an image source for the middle of the button (ideally 1px wide) (a C array or path to a file) </td></tr>
+    <tr><td class="paramname">src_right</td><td>pointer to an image source for the right side of the button (a C array or path to a file) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ade02c649a37265e92a2bcb941b7c8337" name="ade02c649a37265e92a2bcb941b7c8337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade02c649a37265e92a2bcb941b7c8337">&#9670;&#160;</a></span>lv_imagebutton_set_src_left()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_imagebutton_set_src_left </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src_left</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the left image for a state of the image button </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>for which state set the new image </td></tr>
+    <tr><td class="paramname">src_left</td><td>pointer to an image source for the left side of the button (a C array or path to a file) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acfb577b53dc003f031a48128021c3f85" name="acfb577b53dc003f031a48128021c3f85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfb577b53dc003f031a48128021c3f85">&#9670;&#160;</a></span>lv_imagebutton_set_src_mid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_imagebutton_set_src_mid </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src_mid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the middle image for a state of the image button </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>for which state set the new image </td></tr>
+    <tr><td class="paramname">src_mid</td><td>pointer to an image source for the middle of the button (a C array or path to a file) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8cea8134adcf0a9b058bef54cd3470b9" name="a8cea8134adcf0a9b058bef54cd3470b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cea8134adcf0a9b058bef54cd3470b9">&#9670;&#160;</a></span>lv_imagebutton_set_src_right()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_imagebutton_set_src_right </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src_right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the right image for a state of the image button </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>for which state set the new image </td></tr>
+    <tr><td class="paramname">src_right</td><td>pointer to an image source for the right side of the button (a C array or path to a file) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3088a24d7c4f04978f084cc5bbe50254" name="a3088a24d7c4f04978f084cc5bbe50254"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3088a24d7c4f04978f084cc5bbe50254">&#9670;&#160;</a></span>lv_imagebutton_set_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_imagebutton_set_state </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_imagebutton_state_t&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use this function instead of <code>lv_obj_add/remove_state</code> to set a state manually </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to an image button object </td></tr>
+    <tr><td class="paramname">state</td><td>the new state </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Opis spremenljivke</h2>
+<a id="ae3464ce72f083bceb2fd28356d7f6eb2" name="ae3464ce72f083bceb2fd28356d7f6eb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3464ce72f083bceb2fd28356d7f6eb2">&#9670;&#160;</a></span>lv_imagebutton_class</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct__lv__obj__class__t.html">lv_obj_class_t</a> lv_imagebutton_class</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Začetna vrednost / definicija :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .base_class = &amp;<a class="code hl_variable" href="lv__obj_8c.html#a424ca3b432ad82f98c4b05950b597d44">lv_obj_class</a>,</div>
+<div class="line">    .width_def = LV_SIZE_CONTENT,</div>
+<div class="line">    .height_def = LV_SIZE_CONTENT,</div>
+<div class="line">    .instance_size = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__lv__imagebutton__t.html">lv_imagebutton_t</a>),</div>
+<div class="line">    .constructor_cb = lv_imagebutton_constructor,</div>
+<div class="line">    .event_cb = lv_imagebutton_event,</div>
+<div class="line">    .name = <span class="stringliteral">&quot;lv_imagebutton&quot;</span>,</div>
+<div class="line">}</div>
+<div class="ttc" id="alv__obj_8c_html_a424ca3b432ad82f98c4b05950b597d44"><div class="ttname"><a href="lv__obj_8c.html#a424ca3b432ad82f98c4b05950b597d44">lv_obj_class</a></div><div class="ttdeci">const lv_obj_class_t lv_obj_class</div><div class="ttdef"><b>Definition</b> lv_obj.c:213</div></div>
+<div class="ttc" id="astruct__lv__imagebutton__t_html"><div class="ttname"><a href="struct__lv__imagebutton__t.html">_lv_imagebutton_t</a></div><div class="ttdef"><b>Definition</b> lv_imagebutton_private.h:36</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

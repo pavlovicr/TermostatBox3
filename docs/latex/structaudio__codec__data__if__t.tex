@@ -1,0 +1,81 @@
+\doxysection{ Struktura audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}
+\hypertarget{structaudio__codec__data__if__t}{}\label{structaudio__codec__data__if__t}\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+
+
+Audio codec data interface structure.  
+
+
+
+
+{\ttfamily \#include $<$audio\+\_\+codec\+\_\+data\+\_\+if.\+h$>$}
+
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__data__if__t_a618f5661aa224cce9141c74c655a6ae1}{open}} )(const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, void \texorpdfstring{$\ast$}{*}data\+\_\+cfg, int cfg\+\_\+size)
+\item 
+bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__data__if__t_abc77045c21e94c0bd5e048c42f00187c}{is\+\_\+open}} )(const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__data__if__t_ad4c4928ab3a8804aa4fa6c4eeebd894f}{enable}} )(const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, esp\+\_\+codec\+\_\+dev\+\_\+type\+\_\+t dev\+\_\+type, bool enable)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__data__if__t_a9d7cbb1b95d8163d0f202c769d9de55c}{set\+\_\+fmt}} )(const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, esp\+\_\+codec\+\_\+dev\+\_\+type\+\_\+t dev\+\_\+type, \mbox{\hyperlink{structesp__codec__dev__sample__info__t}{esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t}} \texorpdfstring{$\ast$}{*}fs)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__data__if__t_a9755e1620a91f6d3d3984fd7671bcc67}{read}} )(const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int size)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__data__if__t_a42a332f95d0c6d0b9e239ccf7808fc4f}{write}} )(const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int size)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__data__if__t_ad5a824f7bbaa3afeccd7fc7c028ef726}{close}} )(const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Audio codec data interface structure. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structaudio__codec__data__if__t_ad5a824f7bbaa3afeccd7fc7c028ef726}\label{structaudio__codec__data__if__t_ad5a824f7bbaa3afeccd7fc7c028ef726} 
+\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}!close@{close}}
+\index{close@{close}!audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+\doxysubsubsection{\texorpdfstring{close}{close}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t\+::close) (const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h)}
+
+Close data interface \Hypertarget{structaudio__codec__data__if__t_ad4c4928ab3a8804aa4fa6c4eeebd894f}\label{structaudio__codec__data__if__t_ad4c4928ab3a8804aa4fa6c4eeebd894f} 
+\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}!enable@{enable}}
+\index{enable@{enable}!audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+\doxysubsubsection{\texorpdfstring{enable}{enable}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t\+::enable) (const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, esp\+\_\+codec\+\_\+dev\+\_\+type\+\_\+t dev\+\_\+type, bool enable)}
+
+Enable input or output channel \Hypertarget{structaudio__codec__data__if__t_abc77045c21e94c0bd5e048c42f00187c}\label{structaudio__codec__data__if__t_abc77045c21e94c0bd5e048c42f00187c} 
+\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}!is\_open@{is\_open}}
+\index{is\_open@{is\_open}!audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+\doxysubsubsection{\texorpdfstring{is\_open}{is\_open}}
+{\footnotesize\ttfamily bool(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t\+::is\+\_\+open) (const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h)}
+
+Check whether data interface is opened \Hypertarget{structaudio__codec__data__if__t_a618f5661aa224cce9141c74c655a6ae1}\label{structaudio__codec__data__if__t_a618f5661aa224cce9141c74c655a6ae1} 
+\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}!open@{open}}
+\index{open@{open}!audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+\doxysubsubsection{\texorpdfstring{open}{open}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t\+::open) (const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, void \texorpdfstring{$\ast$}{*}data\+\_\+cfg, int cfg\+\_\+size)}
+
+Open data interface \Hypertarget{structaudio__codec__data__if__t_a9755e1620a91f6d3d3984fd7671bcc67}\label{structaudio__codec__data__if__t_a9755e1620a91f6d3d3984fd7671bcc67} 
+\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}!read@{read}}
+\index{read@{read}!audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+\doxysubsubsection{\texorpdfstring{read}{read}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t\+::read) (const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int size)}
+
+Read data from data interface \Hypertarget{structaudio__codec__data__if__t_a9d7cbb1b95d8163d0f202c769d9de55c}\label{structaudio__codec__data__if__t_a9d7cbb1b95d8163d0f202c769d9de55c} 
+\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}!set\_fmt@{set\_fmt}}
+\index{set\_fmt@{set\_fmt}!audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+\doxysubsubsection{\texorpdfstring{set\_fmt}{set\_fmt}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t\+::set\+\_\+fmt) (const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, esp\+\_\+codec\+\_\+dev\+\_\+type\+\_\+t dev\+\_\+type, \mbox{\hyperlink{structesp__codec__dev__sample__info__t}{esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t}} \texorpdfstring{$\ast$}{*}fs)}
+
+Set audio format to data interface \Hypertarget{structaudio__codec__data__if__t_a42a332f95d0c6d0b9e239ccf7808fc4f}\label{structaudio__codec__data__if__t_a42a332f95d0c6d0b9e239ccf7808fc4f} 
+\index{audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}!write@{write}}
+\index{write@{write}!audio\_codec\_data\_if\_t@{audio\_codec\_data\_if\_t}}
+\doxysubsubsection{\texorpdfstring{write}{write}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t\+::write) (const \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, int size)}
+
+Write data to data interface 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/interface/audio\+\_\+codec\+\_\+data\+\_\+if.\+h\end{DoxyCompactItemize}

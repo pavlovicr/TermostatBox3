@@ -1,0 +1,164 @@
+\doxysection{ Razred Generic\+Object\texorpdfstring{$<$}{<} Const, ValueT \texorpdfstring{$>$}{>}}
+\hypertarget{classGenericObject}{}\label{classGenericObject}\index{GenericObject$<$ Const, ValueT $>$@{GenericObject$<$ Const, ValueT $>$}}
+
+
+Helper class for accessing Value of object type.  
+
+
+
+
+{\ttfamily \#include $<$document.\+h$>$}
+
+\doxysubsubsection*{Javni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericObject_aeee588f9a85e88cac89b7c4dfb6b0bd3}\label{classGenericObject_aeee588f9a85e88cac89b7c4dfb6b0bd3} 
+typedef \mbox{\hyperlink{classGenericObject}{Generic\+Object}}$<$ true, ValueT $>$ {\bfseries Const\+Object}
+\item 
+\Hypertarget{classGenericObject_ae8f5673d0cf8e7ebfd2d4f6ab27b632d}\label{classGenericObject_ae8f5673d0cf8e7ebfd2d4f6ab27b632d} 
+typedef \mbox{\hyperlink{classGenericObject}{Generic\+Object}}$<$ false, ValueT $>$ {\bfseries Object}
+\item 
+\Hypertarget{classGenericObject_a4c25f4a5f696745c418b91ad9f577f12}\label{classGenericObject_a4c25f4a5f696745c418b91ad9f577f12} 
+typedef ValueT {\bfseries Plain\+Type}
+\item 
+\Hypertarget{classGenericObject_a930aa30f89caee7ba7bff60bf9dc21b1}\label{classGenericObject_a930aa30f89caee7ba7bff60bf9dc21b1} 
+typedef internal\+::\+Maybe\+Add\+Const$<$ Const, Plain\+Type $>$\mbox{\hyperlink{rapidjson_8h_a1d1cfd8ffb84e947f82999c682b666a7}{\+::\+Type}} {\bfseries Value\+Type}
+\item 
+\Hypertarget{classGenericObject_a1f531d70f8d57ed30199ac445b5935e6}\label{classGenericObject_a1f531d70f8d57ed30199ac445b5935e6} 
+typedef \mbox{\hyperlink{classGenericMemberIterator}{Generic\+Member\+Iterator}}$<$ Const, typename Value\+T\+::\+Encoding\+Type, typename Value\+T\+::\+Allocator\+Type $>$ {\bfseries Member\+Iterator}
+\item 
+\Hypertarget{classGenericObject_af16706c0ad32b957c56e7d0541628cd5}\label{classGenericObject_af16706c0ad32b957c56e7d0541628cd5} 
+typedef \mbox{\hyperlink{classGenericMemberIterator}{Generic\+Member\+Iterator}}$<$ true, typename Value\+T\+::\+Encoding\+Type, typename Value\+T\+::\+Allocator\+Type $>$ {\bfseries Const\+Member\+Iterator}
+\item 
+\Hypertarget{classGenericObject_a00c8cee952d5ebadc5e1c309aa489ad9}\label{classGenericObject_a00c8cee952d5ebadc5e1c309aa489ad9} 
+typedef Value\+Type\+::\+Allocator\+Type {\bfseries Allocator\+Type}
+\item 
+\Hypertarget{classGenericObject_a9b8381fc96f5f89b2163b052ed66cc59}\label{classGenericObject_a9b8381fc96f5f89b2163b052ed66cc59} 
+typedef Value\+Type\+::\+String\+Ref\+Type {\bfseries String\+Ref\+Type}
+\item 
+\Hypertarget{classGenericObject_a96ebfdde095e2ce42535d15ae5dc58ef}\label{classGenericObject_a96ebfdde095e2ce42535d15ae5dc58ef} 
+typedef Value\+Type\+::\+Encoding\+Type {\bfseries Encoding\+Type}
+\item 
+\Hypertarget{classGenericObject_ac6747e5baa13e15bcea1658b5624647a}\label{classGenericObject_ac6747e5baa13e15bcea1658b5624647a} 
+typedef Value\+Type\+::\+Ch {\bfseries Ch}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericObject_a10173c42d0e8a71ca0e3ae75d800887a}\label{classGenericObject_a10173c42d0e8a71ca0e3ae75d800887a} 
+{\bfseries Generic\+Object} (const \mbox{\hyperlink{classGenericObject}{Generic\+Object}} \&rhs)
+\item 
+\Hypertarget{classGenericObject_a995b0e01b59efd7e268f837b8127e0bc}\label{classGenericObject_a995b0e01b59efd7e268f837b8127e0bc} 
+\mbox{\hyperlink{classGenericObject}{Generic\+Object}} \& {\bfseries operator=} (const \mbox{\hyperlink{classGenericObject}{Generic\+Object}} \&rhs)
+\item 
+\Hypertarget{classGenericObject_a2948af90e01df17989cd844d6197eb18}\label{classGenericObject_a2948af90e01df17989cd844d6197eb18} 
+{\bfseries operator Value\+Type \&} () const
+\item 
+\Hypertarget{classGenericObject_a15326564c82f2b545811f753534563e4}\label{classGenericObject_a15326564c82f2b545811f753534563e4} 
+\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} {\bfseries Member\+Count} () const
+\item 
+\Hypertarget{classGenericObject_a0389754cbdb435d732bad6edf4f8cdb2}\label{classGenericObject_a0389754cbdb435d732bad6edf4f8cdb2} 
+\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} {\bfseries Member\+Capacity} () const
+\item 
+\Hypertarget{classGenericObject_a9cc10bfeeb6a5eb95ba1ae587b6e6ad8}\label{classGenericObject_a9cc10bfeeb6a5eb95ba1ae587b6e6ad8} 
+bool {\bfseries Object\+Empty} () const
+\item 
+\Hypertarget{classGenericObject_a2bd0d4a75b18ae78c8a1e1051e8ec9ac}\label{classGenericObject_a2bd0d4a75b18ae78c8a1e1051e8ec9ac} 
+{\footnotesize template$<$typename T $>$ }\\Value\+Type \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (T \texorpdfstring{$\ast$}{*}name) const
+\item 
+\Hypertarget{classGenericObject_a21c677e997d4dfe4e0692cdb75067428}\label{classGenericObject_a21c677e997d4dfe4e0692cdb75067428} 
+{\footnotesize template$<$typename Source\+Allocator $>$ }\\Value\+Type \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (const \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ Encoding\+Type, Source\+Allocator $>$ \&name) const
+\item 
+\Hypertarget{classGenericObject_af1e80a8a521f05530f9b6a448242ff2d}\label{classGenericObject_af1e80a8a521f05530f9b6a448242ff2d} 
+\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} {\bfseries Member\+Begin} () const
+\item 
+\Hypertarget{classGenericObject_a75873786614f67796bfb190008e004dc}\label{classGenericObject_a75873786614f67796bfb190008e004dc} 
+\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} {\bfseries Member\+End} () const
+\item 
+\Hypertarget{classGenericObject_af750abd40d05136da98705899b4575c2}\label{classGenericObject_af750abd40d05136da98705899b4575c2} 
+\mbox{\hyperlink{classGenericObject}{Generic\+Object}} {\bfseries Member\+Reserve} (\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} new\+Capacity, Allocator\+Type \&allocator) const
+\item 
+\Hypertarget{classGenericObject_a996d775e52cc7c5cf2aa308cf5a2b2cf}\label{classGenericObject_a996d775e52cc7c5cf2aa308cf5a2b2cf} 
+bool {\bfseries Has\+Member} (const Ch \texorpdfstring{$\ast$}{*}name) const
+\item 
+\Hypertarget{classGenericObject_a0b63666ca05c86f9d719350f2302a3f7}\label{classGenericObject_a0b63666ca05c86f9d719350f2302a3f7} 
+{\footnotesize template$<$typename Source\+Allocator $>$ }\\bool {\bfseries Has\+Member} (const \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ Encoding\+Type, Source\+Allocator $>$ \&name) const
+\item 
+\Hypertarget{classGenericObject_a979890ccb3b116af19f9e3e77d3d286f}\label{classGenericObject_a979890ccb3b116af19f9e3e77d3d286f} 
+\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} {\bfseries Find\+Member} (const Ch \texorpdfstring{$\ast$}{*}name) const
+\item 
+\Hypertarget{classGenericObject_a12a4fbbf2219d6bb43c3d61923830ab4}\label{classGenericObject_a12a4fbbf2219d6bb43c3d61923830ab4} 
+{\footnotesize template$<$typename Source\+Allocator $>$ }\\\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} {\bfseries Find\+Member} (const \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ Encoding\+Type, Source\+Allocator $>$ \&name) const
+\item 
+\Hypertarget{classGenericObject_a3668524c8566c46cbae97d938064f5fa}\label{classGenericObject_a3668524c8566c46cbae97d938064f5fa} 
+\mbox{\hyperlink{classGenericObject}{Generic\+Object}} {\bfseries Add\+Member} (Value\+Type \&name, Value\+Type \&value, Allocator\+Type \&allocator) const
+\item 
+\Hypertarget{classGenericObject_ae871adc8c906a72878b7cf5df279ed1f}\label{classGenericObject_ae871adc8c906a72878b7cf5df279ed1f} 
+\mbox{\hyperlink{classGenericObject}{Generic\+Object}} {\bfseries Add\+Member} (Value\+Type \&name, String\+Ref\+Type value, Allocator\+Type \&allocator) const
+\item 
+\Hypertarget{classGenericObject_a98ebcec632c41442d89cd8634b7ecc47}\label{classGenericObject_a98ebcec632c41442d89cd8634b7ecc47} 
+{\footnotesize template$<$typename T $>$ }\\{\bfseries RAPIDJSON\+\_\+\+DISABLEIF\+\_\+\+RETURN} ((internal\+::\+Or\+Expr$<$ internal\+::\+Is\+Pointer$<$ T $>$, internal\+::\+Is\+Generic\+Value$<$ T $>$ $>$),(Value\+Type \&)) Add\+Member(Value\+Type \&name
+\item 
+\Hypertarget{classGenericObject_a011a0dd06baf841e3f6e21a3c95db3c1}\label{classGenericObject_a011a0dd06baf841e3f6e21a3c95db3c1} 
+\mbox{\hyperlink{classGenericObject}{Generic\+Object}} {\bfseries Add\+Member} (String\+Ref\+Type name, Value\+Type \&value, Allocator\+Type \&allocator) const
+\item 
+\Hypertarget{classGenericObject_a3af43681aea03c4313d689bcbf5e3363}\label{classGenericObject_a3af43681aea03c4313d689bcbf5e3363} 
+\mbox{\hyperlink{classGenericObject}{Generic\+Object}} {\bfseries Add\+Member} (String\+Ref\+Type name, String\+Ref\+Type value, Allocator\+Type \&allocator) const
+\item 
+\Hypertarget{classGenericObject_af361a4b677882964789201fc605541d0}\label{classGenericObject_af361a4b677882964789201fc605541d0} 
+{\footnotesize template$<$typename T $>$ }\\{\bfseries RAPIDJSON\+\_\+\+DISABLEIF\+\_\+\+RETURN} ((internal\+::\+Or\+Expr$<$ internal\+::\+Is\+Pointer$<$ T $>$, internal\+::\+Is\+Generic\+Value$<$ T $>$ $>$),(\mbox{\hyperlink{classGenericObject}{Generic\+Object}})) Add\+Member(String\+Ref\+Type name
+\item 
+\Hypertarget{classGenericObject_a129ce3843a6658e620a7f740d9f44ee1}\label{classGenericObject_a129ce3843a6658e620a7f740d9f44ee1} 
+void {\bfseries Remove\+All\+Members} ()
+\item 
+\Hypertarget{classGenericObject_aebeda9c2cac6afd56dda55caaf2c4a0c}\label{classGenericObject_aebeda9c2cac6afd56dda55caaf2c4a0c} 
+bool {\bfseries Remove\+Member} (const Ch \texorpdfstring{$\ast$}{*}name) const
+\item 
+\Hypertarget{classGenericObject_a8e29dc07b992e71e35dd93a57f95842c}\label{classGenericObject_a8e29dc07b992e71e35dd93a57f95842c} 
+{\footnotesize template$<$typename Source\+Allocator $>$ }\\bool {\bfseries Remove\+Member} (const \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ Encoding\+Type, Source\+Allocator $>$ \&name) const
+\item 
+\Hypertarget{classGenericObject_a006f76a33dada85c9d13e069cc43623d}\label{classGenericObject_a006f76a33dada85c9d13e069cc43623d} 
+\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} {\bfseries Remove\+Member} (\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} m) const
+\item 
+\Hypertarget{classGenericObject_a29ad0490a4a088d57df7a9884f979a82}\label{classGenericObject_a29ad0490a4a088d57df7a9884f979a82} 
+\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} {\bfseries Erase\+Member} (\mbox{\hyperlink{classGenericMemberIterator}{Const\+Member\+Iterator}} pos) const
+\item 
+\Hypertarget{classGenericObject_a67f85d2da462287dead8e35f2ac974b5}\label{classGenericObject_a67f85d2da462287dead8e35f2ac974b5} 
+\mbox{\hyperlink{classGenericMemberIterator}{Member\+Iterator}} {\bfseries Erase\+Member} (\mbox{\hyperlink{classGenericMemberIterator}{Const\+Member\+Iterator}} first, \mbox{\hyperlink{classGenericMemberIterator}{Const\+Member\+Iterator}} last) const
+\item 
+\Hypertarget{classGenericObject_af0d31a8547051624449494a339b20107}\label{classGenericObject_af0d31a8547051624449494a339b20107} 
+bool {\bfseries Erase\+Member} (const Ch \texorpdfstring{$\ast$}{*}name) const
+\item 
+\Hypertarget{classGenericObject_a4cd6f90444f20cc9d5577747d3968da4}\label{classGenericObject_a4cd6f90444f20cc9d5577747d3968da4} 
+{\footnotesize template$<$typename Source\+Allocator $>$ }\\bool {\bfseries Erase\+Member} (const \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ Encoding\+Type, Source\+Allocator $>$ \&name) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericObject_a131538fbbacbc0a3a5ad15dbea66394f}\label{classGenericObject_a131538fbbacbc0a3a5ad15dbea66394f} 
+T {\bfseries value}
+\item 
+\Hypertarget{classGenericObject_af70c9646b5e422306c33e98b3d8783a7}\label{classGenericObject_af70c9646b5e422306c33e98b3d8783a7} 
+T Allocator\+Type \&allocator {\bfseries const} \{ value\+\_\+.\+Add\+Member(name, value, allocator)
+\item 
+\Hypertarget{classGenericObject_a719a0e5501da825e6f86ce12b46446cb}\label{classGenericObject_a719a0e5501da825e6f86ce12b46446cb} 
+return \texorpdfstring{$\ast$}{*} {\bfseries this}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Prijatelji (Friends) }
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericObject_a899449e1a645b5e377af059fb61113d8}\label{classGenericObject_a899449e1a645b5e377af059fb61113d8} 
+{\footnotesize template$<$typename , typename $>$ }\\class {\bfseries Generic\+Value}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$bool Const, typename ValueT$>$\newline
+class Generic\+Object$<$ Const, Value\+T $>$}
+Helper class for accessing Value of object type. 
+
+Instance of this helper class is obtained by {\ttfamily Generic\+Value\+::\+Get\+Object()}. In addition to all APIs for array type, it provides range-\/based for loop if {\ttfamily RAPIDJSON\+\_\+\+HAS\+\_\+\+CXX11\+\_\+\+RANGE\+\_\+\+FOR=1}. 
+
+Opis razreda je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/\mbox{\hyperlink{document_8h}{document.\+h}}\end{DoxyCompactItemize}

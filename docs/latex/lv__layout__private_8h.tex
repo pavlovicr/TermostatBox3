@@ -1,0 +1,50 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/layouts/lv\+\_\+layout\+\_\+private.h}
+\hypertarget{lv__layout__private_8h}{}\label{lv__layout__private_8h}\index{managed\_components/lvgl\_\_lvgl/src/layouts/lv\_layout\_private.h@{managed\_components/lvgl\_\_lvgl/src/layouts/lv\_layout\_private.h}}
+{\ttfamily \#include "{}lv\+\_\+layout.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+layout\+\_\+private.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+layout\+\_\+private.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__layout__private_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__layout__private_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlv__layout__dsc__t}{lv\+\_\+layout\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__layout__private_8h_a2b46636b6c0d6a7efee72a9d062d691b}\label{lv__layout__private_8h_a2b46636b6c0d6a7efee72a9d062d691b} 
+void {\bfseries lv\+\_\+layout\+\_\+init} (void)
+\item 
+\Hypertarget{lv__layout__private_8h_acdc5ce2b2b174bfcbfd4c999502d3a71}\label{lv__layout__private_8h_acdc5ce2b2b174bfcbfd4c999502d3a71} 
+void {\bfseries lv\+\_\+layout\+\_\+deinit} (void)
+\item 
+\Hypertarget{lv__layout__private_8h_a6f95501991c0afad99e3843d0f335c34}\label{lv__layout__private_8h_a6f95501991c0afad99e3843d0f335c34} 
+bool {\bfseries lv\+\_\+layout\+\_\+get\+\_\+min\+\_\+size} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t \texorpdfstring{$\ast$}{*}size, bool width)
+\item 
+void \mbox{\hyperlink{lv__layout__private_8h_aba73d3a8a925664b95eb2e79c53353d7}{lv\+\_\+layout\+\_\+apply}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__layout__private_8h_aba73d3a8a925664b95eb2e79c53353d7}\label{lv__layout__private_8h_aba73d3a8a925664b95eb2e79c53353d7} 
+\index{lv\_layout\_private.h@{lv\_layout\_private.h}!lv\_layout\_apply@{lv\_layout\_apply}}
+\index{lv\_layout\_apply@{lv\_layout\_apply}!lv\_layout\_private.h@{lv\_layout\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_layout\_apply()}{lv\_layout\_apply()}}
+{\footnotesize\ttfamily void lv\+\_\+layout\+\_\+apply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Update the layout of a widget 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a widget \\
+\hline
+\end{DoxyParams}

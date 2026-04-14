@@ -1,0 +1,203 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/imagebutton/lv\+\_\+imagebutton.h}
+\hypertarget{lv__imagebutton_8h}{}\label{lv__imagebutton_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/imagebutton/lv\_imagebutton.h@{managed\_components/lvgl\_\_lvgl/src/widgets/imagebutton/lv\_imagebutton.h}}
+{\ttfamily \#include "{}../../core/lv\+\_\+obj.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+imagebutton.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+imagebutton.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__imagebutton_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__imagebutton_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__imagebutton_8h_a97a255862ca673145948b55cb33d2cde}\label{lv__imagebutton_8h_a97a255862ca673145948b55cb33d2cde} 
+enum {\bfseries lv\+\_\+imagebutton\+\_\+state\+\_\+t} \{ \newline
+{\bfseries LV\+\_\+\+IMAGEBUTTON\+\_\+\+STATE\+\_\+\+RELEASED}
+, {\bfseries LV\+\_\+\+IMAGEBUTTON\+\_\+\+STATE\+\_\+\+PRESSED}
+, {\bfseries LV\+\_\+\+IMAGEBUTTON\+\_\+\+STATE\+\_\+\+DISABLED}
+, {\bfseries LV\+\_\+\+IMAGEBUTTON\+\_\+\+STATE\+\_\+\+CHECKED\+\_\+\+RELEASED}
+, \newline
+{\bfseries LV\+\_\+\+IMAGEBUTTON\+\_\+\+STATE\+\_\+\+CHECKED\+\_\+\+PRESSED}
+, {\bfseries LV\+\_\+\+IMAGEBUTTON\+\_\+\+STATE\+\_\+\+CHECKED\+\_\+\+DISABLED}
+, {\bfseries LV\+\_\+\+IMAGEBUTTON\+\_\+\+STATE\+\_\+\+NUM}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__imagebutton_8h_abe47cb0860ea373d45947152710e0e3e}{lv\+\_\+imagebutton\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__imagebutton_8h_ab3c1202f4b6cca8e9b7c27013cce0850}{lv\+\_\+imagebutton\+\_\+set\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state, const void \texorpdfstring{$\ast$}{*}src\+\_\+left, const void \texorpdfstring{$\ast$}{*}src\+\_\+mid, const void \texorpdfstring{$\ast$}{*}src\+\_\+right)
+\item 
+void \mbox{\hyperlink{lv__imagebutton_8h_ade02c649a37265e92a2bcb941b7c8337}{lv\+\_\+imagebutton\+\_\+set\+\_\+src\+\_\+left}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state, const void \texorpdfstring{$\ast$}{*}src\+\_\+left)
+\item 
+void \mbox{\hyperlink{lv__imagebutton_8h_a8cea8134adcf0a9b058bef54cd3470b9}{lv\+\_\+imagebutton\+\_\+set\+\_\+src\+\_\+right}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state, const void \texorpdfstring{$\ast$}{*}src\+\_\+right)
+\item 
+void \mbox{\hyperlink{lv__imagebutton_8h_acfb577b53dc003f031a48128021c3f85}{lv\+\_\+imagebutton\+\_\+set\+\_\+src\+\_\+mid}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state, const void \texorpdfstring{$\ast$}{*}src\+\_\+mid)
+\item 
+void \mbox{\hyperlink{lv__imagebutton_8h_a3088a24d7c4f04978f084cc5bbe50254}{lv\+\_\+imagebutton\+\_\+set\+\_\+state}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__imagebutton_8h_a9adff13ae4d1315a35324e98c2d1ff1d}{lv\+\_\+imagebutton\+\_\+get\+\_\+src\+\_\+left}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__imagebutton_8h_ac9be313e5ab07ba270b5da27669882e2}{lv\+\_\+imagebutton\+\_\+get\+\_\+src\+\_\+middle}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__imagebutton_8h_a94d688eef204a8199416b6712a4d7c0e}{lv\+\_\+imagebutton\+\_\+get\+\_\+src\+\_\+right}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+imagebutton\+\_\+state\+\_\+t state)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__imagebutton_8h_af8794cf645fb5c50dd4b4357dd913cfe}\label{lv__imagebutton_8h_af8794cf645fb5c50dd4b4357dd913cfe} 
+\mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\+\_\+\+ATTRIBUTE\+\_\+\+EXTERN\+\_\+\+DATA}} const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+imagebutton\+\_\+class}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__imagebutton_8h_abe47cb0860ea373d45947152710e0e3e}\label{lv__imagebutton_8h_abe47cb0860ea373d45947152710e0e3e} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_create@{lv\_imagebutton\_create}}
+\index{lv\_imagebutton\_create@{lv\_imagebutton\_create}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_create()}{lv\_imagebutton\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+imagebutton\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create an image button object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new image button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created image button 
+\end{DoxyReturn}
+\Hypertarget{lv__imagebutton_8h_a9adff13ae4d1315a35324e98c2d1ff1d}\label{lv__imagebutton_8h_a9adff13ae4d1315a35324e98c2d1ff1d} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_get\_src\_left@{lv\_imagebutton\_get\_src\_left}}
+\index{lv\_imagebutton\_get\_src\_left@{lv\_imagebutton\_get\_src\_left}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_get\_src\_left()}{lv\_imagebutton\_get\_src\_left()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} lv\+\_\+imagebutton\+\_\+get\+\_\+src\+\_\+left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+Get the left image in a given state 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & the state where to get the image (from {\ttfamily lv\+\_\+button\+\_\+state\+\_\+t}) \`{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the left image source (a C array or path to a file) 
+\end{DoxyReturn}
+\Hypertarget{lv__imagebutton_8h_ac9be313e5ab07ba270b5da27669882e2}\label{lv__imagebutton_8h_ac9be313e5ab07ba270b5da27669882e2} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_get\_src\_middle@{lv\_imagebutton\_get\_src\_middle}}
+\index{lv\_imagebutton\_get\_src\_middle@{lv\_imagebutton\_get\_src\_middle}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_get\_src\_middle()}{lv\_imagebutton\_get\_src\_middle()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} lv\+\_\+imagebutton\+\_\+get\+\_\+src\+\_\+middle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+Get the middle image in a given state 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & the state where to get the image (from {\ttfamily lv\+\_\+button\+\_\+state\+\_\+t}) \`{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the middle image source (a C array or path to a file) 
+\end{DoxyReturn}
+\Hypertarget{lv__imagebutton_8h_a94d688eef204a8199416b6712a4d7c0e}\label{lv__imagebutton_8h_a94d688eef204a8199416b6712a4d7c0e} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_get\_src\_right@{lv\_imagebutton\_get\_src\_right}}
+\index{lv\_imagebutton\_get\_src\_right@{lv\_imagebutton\_get\_src\_right}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_get\_src\_right()}{lv\_imagebutton\_get\_src\_right()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} lv\+\_\+imagebutton\+\_\+get\+\_\+src\+\_\+right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+Get the right image in a given state 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & the state where to get the image (from {\ttfamily lv\+\_\+button\+\_\+state\+\_\+t}) \`{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the left image source (a C array or path to a file) 
+\end{DoxyReturn}
+\Hypertarget{lv__imagebutton_8h_ab3c1202f4b6cca8e9b7c27013cce0850}\label{lv__imagebutton_8h_ab3c1202f4b6cca8e9b7c27013cce0850} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_set\_src@{lv\_imagebutton\_set\_src}}
+\index{lv\_imagebutton\_set\_src@{lv\_imagebutton\_set\_src}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_set\_src()}{lv\_imagebutton\_set\_src()}}
+{\footnotesize\ttfamily void lv\+\_\+imagebutton\+\_\+set\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{src\+\_\+left,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{src\+\_\+mid,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{src\+\_\+right }\end{DoxyParamCaption})}
+
+Set images for a state of the image button 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & for which state set the new image \\
+\hline
+{\em src\+\_\+left} & pointer to an image source for the left side of the button (a C array or path to a file) \\
+\hline
+{\em src\+\_\+mid} & pointer to an image source for the middle of the button (ideally 1px wide) (a C array or path to a file) \\
+\hline
+{\em src\+\_\+right} & pointer to an image source for the right side of the button (a C array or path to a file) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__imagebutton_8h_ade02c649a37265e92a2bcb941b7c8337}\label{lv__imagebutton_8h_ade02c649a37265e92a2bcb941b7c8337} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_set\_src\_left@{lv\_imagebutton\_set\_src\_left}}
+\index{lv\_imagebutton\_set\_src\_left@{lv\_imagebutton\_set\_src\_left}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_set\_src\_left()}{lv\_imagebutton\_set\_src\_left()}}
+{\footnotesize\ttfamily void lv\+\_\+imagebutton\+\_\+set\+\_\+src\+\_\+left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{src\+\_\+left }\end{DoxyParamCaption})}
+
+Set the left image for a state of the image button 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & for which state set the new image \\
+\hline
+{\em src\+\_\+left} & pointer to an image source for the left side of the button (a C array or path to a file) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__imagebutton_8h_acfb577b53dc003f031a48128021c3f85}\label{lv__imagebutton_8h_acfb577b53dc003f031a48128021c3f85} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_set\_src\_mid@{lv\_imagebutton\_set\_src\_mid}}
+\index{lv\_imagebutton\_set\_src\_mid@{lv\_imagebutton\_set\_src\_mid}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_set\_src\_mid()}{lv\_imagebutton\_set\_src\_mid()}}
+{\footnotesize\ttfamily void lv\+\_\+imagebutton\+\_\+set\+\_\+src\+\_\+mid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{src\+\_\+mid }\end{DoxyParamCaption})}
+
+Set the middle image for a state of the image button 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & for which state set the new image \\
+\hline
+{\em src\+\_\+mid} & pointer to an image source for the middle of the button (a C array or path to a file) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__imagebutton_8h_a8cea8134adcf0a9b058bef54cd3470b9}\label{lv__imagebutton_8h_a8cea8134adcf0a9b058bef54cd3470b9} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_set\_src\_right@{lv\_imagebutton\_set\_src\_right}}
+\index{lv\_imagebutton\_set\_src\_right@{lv\_imagebutton\_set\_src\_right}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_set\_src\_right()}{lv\_imagebutton\_set\_src\_right()}}
+{\footnotesize\ttfamily void lv\+\_\+imagebutton\+\_\+set\+\_\+src\+\_\+right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{src\+\_\+right }\end{DoxyParamCaption})}
+
+Set the right image for a state of the image button 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & for which state set the new image \\
+\hline
+{\em src\+\_\+right} & pointer to an image source for the right side of the button (a C array or path to a file) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__imagebutton_8h_a3088a24d7c4f04978f084cc5bbe50254}\label{lv__imagebutton_8h_a3088a24d7c4f04978f084cc5bbe50254} 
+\index{lv\_imagebutton.h@{lv\_imagebutton.h}!lv\_imagebutton\_set\_state@{lv\_imagebutton\_set\_state}}
+\index{lv\_imagebutton\_set\_state@{lv\_imagebutton\_set\_state}!lv\_imagebutton.h@{lv\_imagebutton.h}}
+\doxysubsubsection{\texorpdfstring{lv\_imagebutton\_set\_state()}{lv\_imagebutton\_set\_state()}}
+{\footnotesize\ttfamily void lv\+\_\+imagebutton\+\_\+set\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+imagebutton\+\_\+state\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+Use this function instead of {\ttfamily lv\+\_\+obj\+\_\+add/remove\+\_\+state} to set a state manually 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image button object \\
+\hline
+{\em state} & the new state \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,379 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/core/lv\+\_\+obj\+\_\+event.c}
+\hypertarget{lv__obj__event_8c}{}\label{lv__obj__event_8c}\index{managed\_components/lvgl\_\_lvgl/src/core/lv\_obj\_event.c@{managed\_components/lvgl\_\_lvgl/src/core/lv\_obj\_event.c}}
+{\ttfamily \#include "{}../misc/lv\+\_\+event\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+obj\+\_\+event\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+obj\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../indev/lv\+\_\+indev.\+h"{}}\newline
+{\ttfamily \#include "{}../indev/lv\+\_\+indev\+\_\+private.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+obj\+\_\+event.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+obj\+\_\+event.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__obj__event_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__obj__event_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__obj__event_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\+\_\+obj\+\_\+class}})
+\item 
+\Hypertarget{lv__obj__event_8c_a21f92e04afe331ce30c30832e503b9b9}\label{lv__obj__event_8c_a21f92e04afe331ce30c30832e503b9b9} 
+\#define {\bfseries LV\+\_\+\+TRACE\+\_\+\+EVENT}(...)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__obj__event_8c_a13bd931332f561598a06b676f6552966}{lv\+\_\+obj\+\_\+send\+\_\+event}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\+\_\+event\+\_\+code\+\_\+t}} event\+\_\+code, void \texorpdfstring{$\ast$}{*}param)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__obj__event_8c_af60f5e31c608d60cfb1543219cb384a0}{lv\+\_\+obj\+\_\+event\+\_\+base}} (const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}class\+\_\+p, \mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+\mbox{\hyperlink{struct__lv__event__dsc__t}{lv\+\_\+event\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a13335793b24322d550c8faa8e3dda247}{lv\+\_\+obj\+\_\+add\+\_\+event\+\_\+cb}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+event\+\_\+cb\+\_\+t event\+\_\+cb, \mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\+\_\+event\+\_\+code\+\_\+t}} filter, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+\Hypertarget{lv__obj__event_8c_ae7513937354c28291645a0e1d674dafa}\label{lv__obj__event_8c_ae7513937354c28291645a0e1d674dafa} 
+uint32\+\_\+t {\bfseries lv\+\_\+obj\+\_\+get\+\_\+event\+\_\+count} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\Hypertarget{lv__obj__event_8c_a23ab8b5f84d8326eb30dd14639b352e6}\label{lv__obj__event_8c_a23ab8b5f84d8326eb30dd14639b352e6} 
+\mbox{\hyperlink{struct__lv__event__dsc__t}{lv\+\_\+event\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+obj\+\_\+get\+\_\+event\+\_\+dsc} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t index)
+\item 
+\Hypertarget{lv__obj__event_8c_a22908f98a2d51b1b86d60295a6d3f304}\label{lv__obj__event_8c_a22908f98a2d51b1b86d60295a6d3f304} 
+bool {\bfseries lv\+\_\+obj\+\_\+remove\+\_\+event} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t index)
+\item 
+\Hypertarget{lv__obj__event_8c_ac345b287f0b8ee1df4e35dc2f80c964c}\label{lv__obj__event_8c_ac345b287f0b8ee1df4e35dc2f80c964c} 
+bool {\bfseries lv\+\_\+obj\+\_\+remove\+\_\+event\+\_\+dsc} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__event__dsc__t}{lv\+\_\+event\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__obj__event_8c_a1ed67bd1529b8770c680d5cfcafcc08a}{lv\+\_\+obj\+\_\+remove\+\_\+event\+\_\+cb}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+event\+\_\+cb\+\_\+t event\+\_\+cb)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__obj__event_8c_a7598dc8e86403cad1ded936e1a5b45ff}{lv\+\_\+obj\+\_\+remove\+\_\+event\+\_\+cb\+\_\+with\+\_\+user\+\_\+data}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+event\+\_\+cb\+\_\+t event\+\_\+cb, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a3221a063986ac95a00736fba6fd161d6}{lv\+\_\+event\+\_\+get\+\_\+current\+\_\+target\+\_\+obj}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a9836e4681e7edd9b9b48407b01cc76ad}{lv\+\_\+event\+\_\+get\+\_\+target\+\_\+obj}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+\mbox{\hyperlink{struct__lv__indev__t}{lv\+\_\+indev\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a6d16f115cc8d248f35051330e795356d}{lv\+\_\+event\+\_\+get\+\_\+indev}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+\mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a0bc76acfc9b531293fc6a5480fbb697b}{lv\+\_\+event\+\_\+get\+\_\+layer}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a2565a7c2315d339714a6289ac6b650e9}{lv\+\_\+event\+\_\+get\+\_\+old\+\_\+size}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__obj__event_8c_aba1cc652c9b3b1d78a25932e89c81dce}{lv\+\_\+event\+\_\+get\+\_\+key}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__obj__event_8c_a6d9e6435bcd0c82612e8eac2b9d7b43f}{lv\+\_\+event\+\_\+get\+\_\+rotary\+\_\+diff}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+\mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a20a21d5fbd41d3e76f7114816f71e474}{lv\+\_\+event\+\_\+get\+\_\+scroll\+\_\+anim}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+void \mbox{\hyperlink{lv__obj__event_8c_a531a44ed40fed91e0048a745c8d549c1}{lv\+\_\+event\+\_\+set\+\_\+ext\+\_\+draw\+\_\+size}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e, int32\+\_\+t size)
+\item 
+\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a3b000e98c0ba320d1f8e72d5612029c5}{lv\+\_\+event\+\_\+get\+\_\+self\+\_\+size\+\_\+info}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+\mbox{\hyperlink{struct__lv__hit__test__info__t}{lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_abf3d45600f31aeecbdc5ef4728da245a}{lv\+\_\+event\+\_\+get\+\_\+hit\+\_\+test\+\_\+info}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a7dd7fadb05f3f6a95aa9fca64cfeadf6}{lv\+\_\+event\+\_\+get\+\_\+cover\+\_\+area}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+void \mbox{\hyperlink{lv__obj__event_8c_a164f8baaeac9e3e2a77410de2175147c}{lv\+\_\+event\+\_\+set\+\_\+cover\+\_\+res}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e, \mbox{\hyperlink{lv__obj__event_8h_ab574311d5f23b50737c863f8c6259a41}{lv\+\_\+cover\+\_\+res\+\_\+t}} res)
+\item 
+\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8c_a05d64da0f1a9fbcafa70fde9d7100a87}{lv\+\_\+event\+\_\+get\+\_\+draw\+\_\+task}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+\mbox{\hyperlink{lv__obj__style_8h_a1a992070c236042354cd579c43c4f5e5}{lv\+\_\+state\+\_\+t}} \mbox{\hyperlink{lv__obj__event_8c_aa153ebf35d5fd8442e303d4d37bfbd8a}{lv\+\_\+event\+\_\+get\+\_\+prev\+\_\+state}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__obj__event_8c_a7dd7fadb05f3f6a95aa9fca64cfeadf6}\label{lv__obj__event_8c_a7dd7fadb05f3f6a95aa9fca64cfeadf6} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_cover\_area@{lv\_event\_get\_cover\_area}}
+\index{lv\_event\_get\_cover\_area@{lv\_event\_get\_cover\_area}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_cover\_area()}{lv\_event\_get\_cover\_area()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+cover\+\_\+area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get a pointer to an area which should be examined whether the object fully covers it or not. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+HIT\+\_\+\+TEST} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+an area with absolute coordinates to check 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a3221a063986ac95a00736fba6fd161d6}\label{lv__obj__event_8c_a3221a063986ac95a00736fba6fd161d6} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_current\_target\_obj@{lv\_event\_get\_current\_target\_obj}}
+\index{lv\_event\_get\_current\_target\_obj@{lv\_event\_get\_current\_target\_obj}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_current\_target\_obj()}{lv\_event\_get\_current\_target\_obj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+current\+\_\+target\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the current target of the event. It\textquotesingle{}s the object which event handler being called. If the event is not bubbled it\textquotesingle{}s the same as "{}original"{} target. 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to the event descriptor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the target of the event\+\_\+code 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a05d64da0f1a9fbcafa70fde9d7100a87}\label{lv__obj__event_8c_a05d64da0f1a9fbcafa70fde9d7100a87} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_draw\_task@{lv\_event\_get\_draw\_task}}
+\index{lv\_event\_get\_draw\_task@{lv\_event\_get\_draw\_task}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_draw\_task()}{lv\_event\_get\_draw\_task()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+draw\+\_\+task (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the draw task which was just added. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+DRAW\+\_\+\+TASK\+\_\+\+ADDED event} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the added draw task 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_abf3d45600f31aeecbdc5ef4728da245a}\label{lv__obj__event_8c_abf3d45600f31aeecbdc5ef4728da245a} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_hit\_test\_info@{lv\_event\_get\_hit\_test\_info}}
+\index{lv\_event\_get\_hit\_test\_info@{lv\_event\_get\_hit\_test\_info}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_hit\_test\_info()}{lv\_event\_get\_hit\_test\_info()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__hit__test__info__t}{lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+hit\+\_\+test\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get a pointer to an {\ttfamily lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t} variable in which the hit test result should be saved. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+HIT\+\_\+\+TEST} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to {\ttfamily lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t} or NULL if called on an unrelated event 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a6d16f115cc8d248f35051330e795356d}\label{lv__obj__event_8c_a6d16f115cc8d248f35051330e795356d} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_indev@{lv\_event\_get\_indev}}
+\index{lv\_event\_get\_indev@{lv\_event\_get\_indev}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_indev()}{lv\_event\_get\_indev()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__indev__t}{lv\+\_\+indev\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+indev (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the input device passed as parameter to indev related events. 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the indev that triggered the event or NULL if called on a not indev related event 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_aba1cc652c9b3b1d78a25932e89c81dce}\label{lv__obj__event_8c_aba1cc652c9b3b1d78a25932e89c81dce} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_key@{lv\_event\_get\_key}}
+\index{lv\_event\_get\_key@{lv\_event\_get\_key}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_key()}{lv\_event\_get\_key()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+event\+\_\+get\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the key passed as parameter to an event. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+KEY} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the triggering key or NULL if called on an unrelated event 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a0bc76acfc9b531293fc6a5480fbb697b}\label{lv__obj__event_8c_a0bc76acfc9b531293fc6a5480fbb697b} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_layer@{lv\_event\_get\_layer}}
+\index{lv\_event\_get\_layer@{lv\_event\_get\_layer}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_layer()}{lv\_event\_get\_layer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+layer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the draw context which should be the first parameter of the draw functions. Namely\+: {\ttfamily LV\+\_\+\+EVENT\+\_\+\+DRAW\+\_\+\+MAIN/\+POST}, {\ttfamily LV\+\_\+\+EVENT\+\_\+\+DRAW\+\_\+\+MAIN/\+POST\+\_\+\+BEGIN}, {\ttfamily LV\+\_\+\+EVENT\+\_\+\+DRAW\+\_\+\+MAIN/\+POST\+\_\+\+END} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to a draw context or NULL if called on an unrelated event 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a2565a7c2315d339714a6289ac6b650e9}\label{lv__obj__event_8c_a2565a7c2315d339714a6289ac6b650e9} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_old\_size@{lv\_event\_get\_old\_size}}
+\index{lv\_event\_get\_old\_size@{lv\_event\_get\_old\_size}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_old\_size()}{lv\_event\_get\_old\_size()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+old\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the old area of the object before its size was changed. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+SIZE\+\_\+\+CHANGED} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the old absolute area of the object or NULL if called on an unrelated event 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_aa153ebf35d5fd8442e303d4d37bfbd8a}\label{lv__obj__event_8c_aa153ebf35d5fd8442e303d4d37bfbd8a} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_prev\_state@{lv\_event\_get\_prev\_state}}
+\index{lv\_event\_get\_prev\_state@{lv\_event\_get\_prev\_state}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_prev\_state()}{lv\_event\_get\_prev\_state()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__obj__style_8h_a1a992070c236042354cd579c43c4f5e5}{lv\+\_\+state\+\_\+t}} lv\+\_\+event\+\_\+get\+\_\+prev\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the previous state before the state change. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+STATE\+\_\+\+CHANGED} event 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the previous state 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a6d9e6435bcd0c82612e8eac2b9d7b43f}\label{lv__obj__event_8c_a6d9e6435bcd0c82612e8eac2b9d7b43f} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_rotary\_diff@{lv\_event\_get\_rotary\_diff}}
+\index{lv\_event\_get\_rotary\_diff@{lv\_event\_get\_rotary\_diff}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_rotary\_diff()}{lv\_event\_get\_rotary\_diff()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+event\+\_\+get\+\_\+rotary\+\_\+diff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the signed rotary encoder diff. passed as parameter to an event. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+ROTARY} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the triggering key or NULL if called on an unrelated event 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a20a21d5fbd41d3e76f7114816f71e474}\label{lv__obj__event_8c_a20a21d5fbd41d3e76f7114816f71e474} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_scroll\_anim@{lv\_event\_get\_scroll\_anim}}
+\index{lv\_event\_get\_scroll\_anim@{lv\_event\_get\_scroll\_anim}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_scroll\_anim()}{lv\_event\_get\_scroll\_anim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+scroll\+\_\+anim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the animation descriptor of a scrolling. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+SCROLL\+\_\+\+BEGIN} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the animation that will scroll the object. (can be modified as required) 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a3b000e98c0ba320d1f8e72d5612029c5}\label{lv__obj__event_8c_a3b000e98c0ba320d1f8e72d5612029c5} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_self\_size\_info@{lv\_event\_get\_self\_size\_info}}
+\index{lv\_event\_get\_self\_size\_info@{lv\_event\_get\_self\_size\_info}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_self\_size\_info()}{lv\_event\_get\_self\_size\_info()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+self\+\_\+size\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get a pointer to an {\ttfamily \doxylink{structlv__point__t}{lv\+\_\+point\+\_\+t}} variable in which the self size should be saved (width in {\ttfamily point-\/\texorpdfstring{$>$}{>}x} and height {\ttfamily point-\/\texorpdfstring{$>$}{>}y}). Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+GET\+\_\+\+SELF\+\_\+\+SIZE} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to {\ttfamily \doxylink{structlv__point__t}{lv\+\_\+point\+\_\+t}} or NULL if called on an unrelated event 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a9836e4681e7edd9b9b48407b01cc76ad}\label{lv__obj__event_8c_a9836e4681e7edd9b9b48407b01cc76ad} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_get\_target\_obj@{lv\_event\_get\_target\_obj}}
+\index{lv\_event\_get\_target\_obj@{lv\_event\_get\_target\_obj}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_get\_target\_obj()}{lv\_event\_get\_target\_obj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+event\+\_\+get\+\_\+target\+\_\+obj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Get the object originally targeted by the event. It\textquotesingle{}s the same even if the event is bubbled. 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to the event descriptor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the original target of the event\+\_\+code 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a164f8baaeac9e3e2a77410de2175147c}\label{lv__obj__event_8c_a164f8baaeac9e3e2a77410de2175147c} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_set\_cover\_res@{lv\_event\_set\_cover\_res}}
+\index{lv\_event\_set\_cover\_res@{lv\_event\_set\_cover\_res}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_set\_cover\_res()}{lv\_event\_set\_cover\_res()}}
+{\footnotesize\ttfamily void lv\+\_\+event\+\_\+set\+\_\+cover\+\_\+res (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e,  }\item[{\mbox{\hyperlink{lv__obj__event_8h_ab574311d5f23b50737c863f8c6259a41}{lv\+\_\+cover\+\_\+res\+\_\+t}}}]{res }\end{DoxyParamCaption})}
+
+Set the result of cover checking. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+COVER\+\_\+\+CHECK} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+{\em res} & an element of lv\+\_\+cover\+\_\+check\+\_\+info\+\_\+t \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__obj__event_8c_a531a44ed40fed91e0048a745c8d549c1}\label{lv__obj__event_8c_a531a44ed40fed91e0048a745c8d549c1} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_event\_set\_ext\_draw\_size@{lv\_event\_set\_ext\_draw\_size}}
+\index{lv\_event\_set\_ext\_draw\_size@{lv\_event\_set\_ext\_draw\_size}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_event\_set\_ext\_draw\_size()}{lv\_event\_set\_ext\_draw\_size()}}
+{\footnotesize\ttfamily void lv\+\_\+event\+\_\+set\+\_\+ext\+\_\+draw\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e,  }\item[{int32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Set the new extra draw size. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+REFR\+\_\+\+EXT\+\_\+\+DRAW\+\_\+\+SIZE} 
+\begin{DoxyParams}{Parametri}
+{\em e} & pointer to an event \\
+\hline
+{\em size} & The new extra draw size \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__obj__event_8c_a13335793b24322d550c8faa8e3dda247}\label{lv__obj__event_8c_a13335793b24322d550c8faa8e3dda247} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_obj\_add\_event\_cb@{lv\_obj\_add\_event\_cb}}
+\index{lv\_obj\_add\_event\_cb@{lv\_obj\_add\_event\_cb}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_add\_event\_cb()}{lv\_obj\_add\_event\_cb()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__event__dsc__t}{lv\+\_\+event\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+obj\+\_\+add\+\_\+event\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+event\+\_\+cb\+\_\+t}]{event\+\_\+cb,  }\item[{\mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\+\_\+event\+\_\+code\+\_\+t}}}]{filter,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Add an event handler function for an object. Used by the user to react on event which happens with the object. An object can have multiple event handler. They will be called in the same order as they were added. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an object \\
+\hline
+{\em filter} & an event code (e.\+g. {\ttfamily LV\+\_\+\+EVENT\+\_\+\+CLICKED}) on which the event should be called. {\ttfamily LV\+\_\+\+EVENT\+\_\+\+ALL} can be used to receive all the events. \\
+\hline
+{\em event\+\_\+cb} & the new event function \\
+\hline
+{\em user\+\_\+data} & custom data will be available in {\ttfamily event\+\_\+cb} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+handler to the event. It can be used in {\ttfamily lv\+\_\+obj\+\_\+remove\+\_\+event\+\_\+dsc}. 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_af60f5e31c608d60cfb1543219cb384a0}\label{lv__obj__event_8c_af60f5e31c608d60cfb1543219cb384a0} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_obj\_event\_base@{lv\_obj\_event\_base}}
+\index{lv\_obj\_event\_base@{lv\_obj\_event\_base}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_event\_base()}{lv\_obj\_event\_base()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+obj\+\_\+event\+\_\+base (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{class\+\_\+p,  }\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Used by the widgets internally to call the ancestor widget types\textquotesingle{}s event handler 
+\begin{DoxyParams}{Parametri}
+{\em class\+\_\+p} & pointer to the class of the widget (NOT the ancestor class) \\
+\hline
+{\em e} & pointer to the event descriptor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the target object was not deleted in the event; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: it was deleted in the event\+\_\+code 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a1ed67bd1529b8770c680d5cfcafcc08a}\label{lv__obj__event_8c_a1ed67bd1529b8770c680d5cfcafcc08a} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_obj\_remove\_event\_cb@{lv\_obj\_remove\_event\_cb}}
+\index{lv\_obj\_remove\_event\_cb@{lv\_obj\_remove\_event\_cb}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_remove\_event\_cb()}{lv\_obj\_remove\_event\_cb()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+obj\+\_\+remove\+\_\+event\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+event\+\_\+cb\+\_\+t}]{event\+\_\+cb }\end{DoxyParamCaption})}
+
+Remove an event\+\_\+cb from an object 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a obj \\
+\hline
+{\em event\+\_\+cb} & the event\+\_\+cb of the event to remove \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the count of the event removed 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a7598dc8e86403cad1ded936e1a5b45ff}\label{lv__obj__event_8c_a7598dc8e86403cad1ded936e1a5b45ff} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_obj\_remove\_event\_cb\_with\_user\_data@{lv\_obj\_remove\_event\_cb\_with\_user\_data}}
+\index{lv\_obj\_remove\_event\_cb\_with\_user\_data@{lv\_obj\_remove\_event\_cb\_with\_user\_data}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_remove\_event\_cb\_with\_user\_data()}{lv\_obj\_remove\_event\_cb\_with\_user\_data()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+obj\+\_\+remove\+\_\+event\+\_\+cb\+\_\+with\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+event\+\_\+cb\+\_\+t}]{event\+\_\+cb,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Remove an event\+\_\+cb with user\+\_\+data 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a obj \\
+\hline
+{\em event\+\_\+cb} & the event\+\_\+cb of the event to remove \\
+\hline
+{\em user\+\_\+data} & user\+\_\+data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the count of the event removed 
+\end{DoxyReturn}
+\Hypertarget{lv__obj__event_8c_a13bd931332f561598a06b676f6552966}\label{lv__obj__event_8c_a13bd931332f561598a06b676f6552966} 
+\index{lv\_obj\_event.c@{lv\_obj\_event.c}!lv\_obj\_send\_event@{lv\_obj\_send\_event}}
+\index{lv\_obj\_send\_event@{lv\_obj\_send\_event}!lv\_obj\_event.c@{lv\_obj\_event.c}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_send\_event()}{lv\_obj\_send\_event()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+obj\+\_\+send\+\_\+event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\+\_\+event\+\_\+code\+\_\+t}}}]{event\+\_\+code,  }\item[{void \texorpdfstring{$\ast$}{*}}]{param }\end{DoxyParamCaption})}
+
+Send an event to the object 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an object \\
+\hline
+{\em event\+\_\+code} & the type of the event from {\ttfamily lv\+\_\+event\+\_\+t} \\
+\hline
+{\em param} & arbitrary data depending on the widget type and the event. (Usually {\ttfamily NULL}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: {\ttfamily obj} was not deleted in the event; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: {\ttfamily obj} was deleted in the event\+\_\+code 
+\end{DoxyReturn}

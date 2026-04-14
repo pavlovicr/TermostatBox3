@@ -1,0 +1,2781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/display/lv_display.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_b870705190b2facd0e39d8f733e08df8.html">display</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#typedef-members">Uporabniško definirani tipi</a> &#124;
+<a href="#enum-members">Naštevni tipi</a> &#124;
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_display.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h_source.html">../misc/lv_types.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__timer_8h_source.html">../misc/lv_timer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__event_8h_source.html">../misc/lv_event.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__color_8h_source.html">../misc/lv_color.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__area_8h_source.html">../misc/lv_area.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_display.h" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_display.h. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__display_8h__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2display_2lv__display_8h" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2display_2lv__display_8h" id="amanaged__components_2lvgl____lvgl_2src_2display_2lv__display_8h">
+<area shape="rect" title=" " alt="" coords="413,5,583,60"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="555,475,691,500"/>
+<area shape="poly" title=" " alt="" coords="503,60,511,127,526,206,543,269,560,317,603,426,617,461,612,463,598,428,555,319,538,271,521,207,506,127,498,60"/>
+<area shape="rect" href="lv__timer_8h.html" title=" " alt="" coords="129,328,264,353"/>
+<area shape="poly" title=" " alt="" coords="474,62,220,320,216,316,470,58"/>
+<area shape="rect" href="lv__event_8h.html" title=" " alt="" coords="316,328,453,353"/>
+<area shape="poly" title=" " alt="" coords="491,61,396,316,391,314,486,59"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color_8h.html" title=" " alt="" coords="698,108,829,133"/>
+<area shape="poly" title=" " alt="" coords="580,58,716,101,715,106,578,63"/>
+<area shape="rect" href="lv__area_8h.html" title=" " alt="" coords="1140,328,1269,353"/>
+<area shape="poly" title=" " alt="" coords="584,41,708,64,776,82,842,106,945,156,1042,216,1124,273,1181,317,1178,321,1121,277,1039,220,943,161,840,110,774,87,707,69,583,47"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="697,548,848,573"/>
+<area shape="poly" title=" " alt="" coords="648,498,737,540,735,544,646,502"/>
+<area shape="rect" href="lv__conf__kconfig_8h.html" title=" " alt="" coords="633,621,768,647"/>
+<area shape="poly" title=" " alt="" coords="763,576,724,614,720,610,759,572"/>
+<area shape="rect" title=" " alt="" coords="793,621,897,647"/>
+<area shape="poly" title=" " alt="" coords="786,572,825,610,821,614,783,576"/>
+<area shape="poly" title=" " alt="" coords="218,351,287,386,376,424,464,450,547,469,546,475,463,455,374,429,285,391,216,356"/>
+<area shape="poly" title=" " alt="" coords="129,351,80,360,36,375,20,385,11,397,9,410,15,425,32,444,56,462,87,477,123,491,209,514,306,530,409,542,511,550,683,556,683,562,511,555,409,548,306,536,208,519,121,496,85,482,53,466,28,448,10,428,3,410,6,394,17,381,34,371,78,355,128,346"/>
+<area shape="rect" href="lv__tick_8h.html" title=" " alt="" coords="25,401,142,427"/>
+<area shape="poly" title=" " alt="" coords="180,356,115,396,112,392,177,351"/>
+<area shape="rect" href="lv__ll_8h.html" title=" " alt="" coords="166,401,227,427"/>
+<area shape="poly" title=" " alt="" coords="199,354,199,388,194,388,194,354"/>
+<area shape="poly" title=" " alt="" coords="143,422,154,424,542,474,542,479,154,429,142,428"/>
+<area shape="poly" title=" " alt="" coords="103,425,167,462,210,481,253,497,368,524,484,542,592,552,683,556,683,561,592,557,483,547,367,530,252,503,207,486,165,466,100,429"/>
+<area shape="poly" title=" " alt="" coords="228,420,247,424,404,451,542,472,542,478,403,457,246,429,227,425"/>
+<area shape="poly" title=" " alt="" coords="208,425,245,462,270,482,298,498,369,517,471,533,684,552,683,557,471,538,368,522,296,502,267,486,241,466,204,429"/>
+<area shape="poly" title=" " alt="" coords="384,354,381,389,384,408,393,425,416,440,452,453,542,473,541,478,451,459,414,445,389,428,379,410,376,389,379,353"/>
+<area shape="poly" title=" " alt="" coords="382,354,371,389,371,408,378,425,405,459,439,487,478,509,519,526,605,547,684,556,683,562,604,553,517,531,475,514,436,491,402,463,373,428,366,409,366,388,377,353"/>
+<area shape="rect" href="lv__array_8h.html" title=" " alt="" coords="403,401,489,427"/>
+<area shape="poly" title=" " alt="" coords="397,352,429,389,425,393,393,355"/>
+<area shape="poly" title=" " alt="" coords="475,424,583,467,581,472,474,429"/>
+<area shape="poly" title=" " alt="" coords="747,136,723,156,700,183,682,219,666,257,645,336,632,408,627,461,622,461,627,407,639,335,661,256,677,217,696,180,719,152,744,131"/>
+<area shape="poly" title=" " alt="" coords="829,123,965,135,1044,146,1123,160,1195,179,1254,202,1277,215,1295,230,1306,247,1310,266,1310,416,1306,433,1296,449,1281,463,1260,476,1207,499,1142,517,1070,531,996,542,862,556,861,551,995,537,1069,526,1141,512,1205,494,1258,471,1278,459,1292,445,1302,431,1305,415,1305,266,1301,249,1291,234,1274,220,1252,206,1193,184,1122,165,1043,151,964,140,829,128"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="791,255,885,280"/>
+<area shape="poly" title=" " alt="" coords="784,131,810,152,832,180,841,211,843,241,838,241,836,212,828,183,806,155,781,136"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html" title=" " alt="" coords="1081,401,1168,427"/>
+<area shape="poly" title=" " alt="" coords="786,131,909,206,988,262,1063,326,1090,357,1112,388,1108,391,1086,360,1059,330,984,266,906,210,783,136"/>
+<area shape="rect" href="lv__palette_8h.html" title=" " alt="" coords="535,181,634,207"/>
+<area shape="poly" title=" " alt="" coords="729,136,620,178,619,173,727,131"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color__op_8h.html" title=" " alt="" coords="709,181,817,207"/>
+<area shape="poly" title=" " alt="" coords="759,134,757,168,752,168,754,134"/>
+<area shape="poly" title=" " alt="" coords="838,281,809,402,780,535,775,534,803,401,832,280"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__log_8h.html" title=" " alt="" coords="817,401,891,427"/>
+<area shape="poly" title=" " alt="" coords="842,280,854,387,849,388,837,281"/>
+<area shape="rect" href="lv__mem_8h.html" title=" " alt="" coords="875,328,1014,353"/>
+<area shape="poly" title=" " alt="" coords="857,278,917,318,915,323,854,282"/>
+<area shape="poly" title=" " alt="" coords="818,429,674,473,673,468,816,424"/>
+<area shape="poly" title=" " alt="" coords="850,428,788,537,784,535,845,426"/>
+<area shape="poly" title=" " alt="" coords="919,356,807,404,661,471,659,466,805,399,916,351"/>
+<area shape="poly" title=" " alt="" coords="969,351,991,365,1012,383,1024,404,1025,416,1020,428,1004,451,984,472,937,506,886,530,839,547,837,542,884,525,934,501,980,468,1000,448,1016,425,1019,415,1019,406,1008,387,988,369,966,356"/>
+<area shape="rect" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h.html" title=" " alt="" coords="915,401,1006,427"/>
+<area shape="poly" title=" " alt="" coords="950,353,958,388,953,389,945,354"/>
+<area shape="poly" title=" " alt="" coords="916,427,691,474,690,469,915,422"/>
+<area shape="poly" title=" " alt="" coords="947,429,800,542,797,538,944,425"/>
+<area shape="poly" title=" " alt="" coords="1081,424,705,477,705,472,1081,419"/>
+<area shape="poly" title=" " alt="" coords="1122,428,1100,465,1084,485,1063,502,1015,527,963,544,911,554,862,560,861,555,910,549,961,539,1013,522,1061,498,1080,482,1096,462,1117,425"/>
+<area shape="poly" title=" " alt="" coords="588,207,595,298,611,426,619,461,614,462,606,427,590,299,583,207"/>
+<area shape="poly" title=" " alt="" coords="620,179,728,136,730,141,622,184"/>
+<area shape="poly" title=" " alt="" coords="760,208,637,463,632,461,755,206"/>
+<area shape="poly" title=" " alt="" coords="768,181,769,147,775,147,773,181"/>
+<area shape="poly" title=" " alt="" coords="777,205,818,243,814,247,774,209"/>
+<area shape="poly" title=" " alt="" coords="794,204,900,252,965,286,1028,326,1069,358,1104,389,1101,393,1066,362,1024,330,962,291,897,257,791,209"/>
+<area shape="poly" title=" " alt="" coords="1208,354,1204,391,1196,411,1182,429,1157,440,1112,450,985,466,705,485,705,480,984,460,1111,444,1155,435,1179,425,1191,409,1199,390,1203,353"/>
+<area shape="poly" title=" " alt="" coords="1211,353,1217,388,1216,408,1210,428,1187,459,1162,477,1095,503,1036,522,975,537,862,555,861,550,974,532,1035,517,1093,497,1160,472,1184,455,1205,425,1211,407,1212,388,1206,354"/>
+<area shape="poly" title=" " alt="" coords="1194,355,1150,394,1146,390,1190,351"/>
+</map>
+</div>
+</div>
+<p><a href="lv__display_8h_source.html">izvorna koda</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:a376696c753a2750dc80acaf6fb48770e" id="r_a376696c753a2750dc80acaf6fb48770e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a376696c753a2750dc80acaf6fb48770e">LV_HOR_RES</a>&#160;&#160;&#160;<a class="el" href="lv__display_8c.html#aac4ed55282ff7559543fc44a7f0116b9">lv_display_get_horizontal_resolution</a>(<a class="el" href="lv__display_8c.html#a2afebbc012fa142caacfaf6f86172798">lv_display_get_default</a>())</td></tr>
+<tr class="separator:a376696c753a2750dc80acaf6fb48770e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46cd7da6d812121b09c735c59925e645" id="r_a46cd7da6d812121b09c735c59925e645"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a46cd7da6d812121b09c735c59925e645">LV_VER_RES</a>&#160;&#160;&#160;<a class="el" href="lv__display_8c.html#ad9f22fa184e1d5db70c48e5f7bf03ee6">lv_display_get_vertical_resolution</a>(<a class="el" href="lv__display_8c.html#a2afebbc012fa142caacfaf6f86172798">lv_display_get_default</a>())</td></tr>
+<tr class="separator:a46cd7da6d812121b09c735c59925e645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac061d4e3b0c3e14ce430b6127d53715f" id="r_ac061d4e3b0c3e14ce430b6127d53715f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ac061d4e3b0c3e14ce430b6127d53715f">LV_DPX_CALC</a>(dpi,  n)&#160;&#160;&#160;((n) == 0 ? 0 :LV_MAX((( (dpi) * (n) + 80) / 160), 1)) /*+80 for rounding*/</td></tr>
+<tr class="separator:ac061d4e3b0c3e14ce430b6127d53715f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af899ca4d4ba17880b64111f602ba36e1" id="r_af899ca4d4ba17880b64111f602ba36e1"><td class="memItemLeft" align="right" valign="top"><a id="af899ca4d4ba17880b64111f602ba36e1" name="af899ca4d4ba17880b64111f602ba36e1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LV_DPX</b>(n)&#160;&#160;&#160;<a class="el" href="lv__display_8h.html#ac061d4e3b0c3e14ce430b6127d53715f">LV_DPX_CALC</a>(<a class="el" href="lv__display_8c.html#aabd4dc33cff66f9aabf08d00efcb41c2">lv_display_get_dpi</a>(NULL), n)</td></tr>
+<tr class="separator:af899ca4d4ba17880b64111f602ba36e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Uporabniško definirani tipi</h2></td></tr>
+<tr class="memitem:a7d26478540e63ca9f3a150def5860ec3" id="r_a7d26478540e63ca9f3a150def5860ec3"><td class="memItemLeft" align="right" valign="top"><a id="a7d26478540e63ca9f3a150def5860ec3" name="a7d26478540e63ca9f3a150def5860ec3"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_flush_cb_t</b>) (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, const <a class="el" href="structlv__area__t.html">lv_area_t</a> *area, uint8_t *px_map)</td></tr>
+<tr class="separator:a7d26478540e63ca9f3a150def5860ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0b4a83cd4561f2611cc08cd5cf4a7bd" id="r_ab0b4a83cd4561f2611cc08cd5cf4a7bd"><td class="memItemLeft" align="right" valign="top"><a id="ab0b4a83cd4561f2611cc08cd5cf4a7bd" name="ab0b4a83cd4561f2611cc08cd5cf4a7bd"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_flush_wait_cb_t</b>) (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ab0b4a83cd4561f2611cc08cd5cf4a7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Naštevni tipi</h2></td></tr>
+<tr class="memitem:a3b2ee783d72d01151dac020bbb1e1d04" id="r_a3b2ee783d72d01151dac020bbb1e1d04"><td class="memItemLeft" align="right" valign="top"><a id="a3b2ee783d72d01151dac020bbb1e1d04" name="a3b2ee783d72d01151dac020bbb1e1d04"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_rotation_t</b> { <b>LV_DISPLAY_ROTATION_0</b> = 0
+, <b>LV_DISPLAY_ROTATION_90</b>
+, <b>LV_DISPLAY_ROTATION_180</b>
+, <b>LV_DISPLAY_ROTATION_270</b>
+ }</td></tr>
+<tr class="separator:a3b2ee783d72d01151dac020bbb1e1d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5132aad8662c8544749cbb74dd7e1753" id="r_a5132aad8662c8544749cbb74dd7e1753"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a> { <a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753a39326a80c1edf7fd9ceddba1b465446c">LV_DISPLAY_RENDER_MODE_PARTIAL</a>
+, <a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753a52d575579a92bef572f1645e03b0ba09">LV_DISPLAY_RENDER_MODE_DIRECT</a>
+, <a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753a51d04eb3bdd46fc7ea622c151ae67bb7">LV_DISPLAY_RENDER_MODE_FULL</a>
+ }</td></tr>
+<tr class="separator:a5132aad8662c8544749cbb74dd7e1753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7222183909f247555bc12568fc1d1c42" id="r_a7222183909f247555bc12568fc1d1c42"><td class="memItemLeft" align="right" valign="top"><a id="a7222183909f247555bc12568fc1d1c42" name="a7222183909f247555bc12568fc1d1c42"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>lv_screen_load_anim_t</b> { <br />
+&#160;&#160;<b>LV_SCREEN_LOAD_ANIM_NONE</b>
+, <b>LV_SCREEN_LOAD_ANIM_OVER_LEFT</b>
+, <b>LV_SCREEN_LOAD_ANIM_OVER_RIGHT</b>
+, <b>LV_SCREEN_LOAD_ANIM_OVER_TOP</b>
+, <br />
+&#160;&#160;<b>LV_SCREEN_LOAD_ANIM_OVER_BOTTOM</b>
+, <b>LV_SCREEN_LOAD_ANIM_MOVE_LEFT</b>
+, <b>LV_SCREEN_LOAD_ANIM_MOVE_RIGHT</b>
+, <b>LV_SCREEN_LOAD_ANIM_MOVE_TOP</b>
+, <br />
+&#160;&#160;<b>LV_SCREEN_LOAD_ANIM_MOVE_BOTTOM</b>
+, <b>LV_SCREEN_LOAD_ANIM_FADE_IN</b>
+, <b>LV_SCREEN_LOAD_ANIM_FADE_ON</b> = LV_SCREEN_LOAD_ANIM_FADE_IN
+, <b>LV_SCREEN_LOAD_ANIM_FADE_OUT</b>
+, <br />
+&#160;&#160;<b>LV_SCREEN_LOAD_ANIM_OUT_LEFT</b>
+, <b>LV_SCREEN_LOAD_ANIM_OUT_RIGHT</b>
+, <b>LV_SCREEN_LOAD_ANIM_OUT_TOP</b>
+, <b>LV_SCREEN_LOAD_ANIM_OUT_BOTTOM</b>
+<br />
+ }</td></tr>
+<tr class="separator:a7222183909f247555bc12568fc1d1c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a1a3de5e03d1a60b60cd41a89e28f03a2" id="r_a1a3de5e03d1a60b60cd41a89e28f03a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a1a3de5e03d1a60b60cd41a89e28f03a2">lv_display_create</a> (int32_t hor_res, int32_t ver_res)</td></tr>
+<tr class="separator:a1a3de5e03d1a60b60cd41a89e28f03a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4602e2045483781e5950aa8deaf37f4d" id="r_a4602e2045483781e5950aa8deaf37f4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a4602e2045483781e5950aa8deaf37f4d">lv_display_delete</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a4602e2045483781e5950aa8deaf37f4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a12be09b7011c8e3a296b0dc24cad42" id="r_a5a12be09b7011c8e3a296b0dc24cad42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a5a12be09b7011c8e3a296b0dc24cad42">lv_display_set_default</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a5a12be09b7011c8e3a296b0dc24cad42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2afebbc012fa142caacfaf6f86172798" id="r_a2afebbc012fa142caacfaf6f86172798"><td class="memItemLeft" align="right" valign="top"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a2afebbc012fa142caacfaf6f86172798">lv_display_get_default</a> (void)</td></tr>
+<tr class="separator:a2afebbc012fa142caacfaf6f86172798"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f3c3f81681aeb93380ba1224284e33" id="r_a80f3c3f81681aeb93380ba1224284e33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a80f3c3f81681aeb93380ba1224284e33">lv_display_get_next</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a80f3c3f81681aeb93380ba1224284e33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fec6a88e9a6347c9cbbd62dcef1c522" id="r_a6fec6a88e9a6347c9cbbd62dcef1c522"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a6fec6a88e9a6347c9cbbd62dcef1c522">lv_display_set_resolution</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, int32_t hor_res, int32_t ver_res)</td></tr>
+<tr class="separator:a6fec6a88e9a6347c9cbbd62dcef1c522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9cf056d065676d491041597f276f3fd" id="r_ab9cf056d065676d491041597f276f3fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ab9cf056d065676d491041597f276f3fd">lv_display_set_physical_resolution</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, int32_t hor_res, int32_t ver_res)</td></tr>
+<tr class="separator:ab9cf056d065676d491041597f276f3fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3b9a386c001b5308ff1296006a9a9ef" id="r_ac3b9a386c001b5308ff1296006a9a9ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ac3b9a386c001b5308ff1296006a9a9ef">lv_display_set_offset</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, int32_t x, int32_t y)</td></tr>
+<tr class="separator:ac3b9a386c001b5308ff1296006a9a9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac30d495dbabdb158d67748da272cd4ee" id="r_ac30d495dbabdb158d67748da272cd4ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ac30d495dbabdb158d67748da272cd4ee">lv_display_set_rotation</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_display_rotation_t rotation)</td></tr>
+<tr class="separator:ac30d495dbabdb158d67748da272cd4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d216151889c44945c871890d6a8eea2" id="r_a8d216151889c44945c871890d6a8eea2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a8d216151889c44945c871890d6a8eea2">lv_display_set_matrix_rotation</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, bool enable)</td></tr>
+<tr class="separator:a8d216151889c44945c871890d6a8eea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6dcc10be52bcfb5bc52ef22ad395a8d" id="r_ab6dcc10be52bcfb5bc52ef22ad395a8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ab6dcc10be52bcfb5bc52ef22ad395a8d">lv_display_set_dpi</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, int32_t dpi)</td></tr>
+<tr class="separator:ab6dcc10be52bcfb5bc52ef22ad395a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac4ed55282ff7559543fc44a7f0116b9" id="r_aac4ed55282ff7559543fc44a7f0116b9"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aac4ed55282ff7559543fc44a7f0116b9">lv_display_get_horizontal_resolution</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:aac4ed55282ff7559543fc44a7f0116b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f22fa184e1d5db70c48e5f7bf03ee6" id="r_ad9f22fa184e1d5db70c48e5f7bf03ee6"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ad9f22fa184e1d5db70c48e5f7bf03ee6">lv_display_get_vertical_resolution</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ad9f22fa184e1d5db70c48e5f7bf03ee6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4584561ff98ceb6878db3fce9d103da" id="r_ae4584561ff98ceb6878db3fce9d103da"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ae4584561ff98ceb6878db3fce9d103da">lv_display_get_original_horizontal_resolution</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ae4584561ff98ceb6878db3fce9d103da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a0baaedc6e7d9c380d348fbb95d437" id="r_a16a0baaedc6e7d9c380d348fbb95d437"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a16a0baaedc6e7d9c380d348fbb95d437">lv_display_get_original_vertical_resolution</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a16a0baaedc6e7d9c380d348fbb95d437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43f3ab67db74b9ecb1909d1169a41ac2" id="r_a43f3ab67db74b9ecb1909d1169a41ac2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a43f3ab67db74b9ecb1909d1169a41ac2">lv_display_get_physical_horizontal_resolution</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a43f3ab67db74b9ecb1909d1169a41ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5623b08e1c91aef5ea4e7b8ca7babe4b" id="r_a5623b08e1c91aef5ea4e7b8ca7babe4b"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a5623b08e1c91aef5ea4e7b8ca7babe4b">lv_display_get_physical_vertical_resolution</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a5623b08e1c91aef5ea4e7b8ca7babe4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac33f892b818278a0cf51c7353b486e9a" id="r_ac33f892b818278a0cf51c7353b486e9a"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ac33f892b818278a0cf51c7353b486e9a">lv_display_get_offset_x</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ac33f892b818278a0cf51c7353b486e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9755412c1042019b9cf128c5f03a9031" id="r_a9755412c1042019b9cf128c5f03a9031"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a9755412c1042019b9cf128c5f03a9031">lv_display_get_offset_y</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a9755412c1042019b9cf128c5f03a9031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5cd01d9fdbadef6464a01aafed510fe" id="r_aa5cd01d9fdbadef6464a01aafed510fe"><td class="memItemLeft" align="right" valign="top">lv_display_rotation_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aa5cd01d9fdbadef6464a01aafed510fe">lv_display_get_rotation</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:aa5cd01d9fdbadef6464a01aafed510fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a725a538c21ec3db2a9f0336dc257aa62" id="r_a725a538c21ec3db2a9f0336dc257aa62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a725a538c21ec3db2a9f0336dc257aa62">lv_display_get_matrix_rotation</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a725a538c21ec3db2a9f0336dc257aa62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd4dc33cff66f9aabf08d00efcb41c2" id="r_aabd4dc33cff66f9aabf08d00efcb41c2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aabd4dc33cff66f9aabf08d00efcb41c2">lv_display_get_dpi</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:aabd4dc33cff66f9aabf08d00efcb41c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd362b0ea0b9d9795df2be1624e5b9b3" id="r_acd362b0ea0b9d9795df2be1624e5b9b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#acd362b0ea0b9d9795df2be1624e5b9b3">lv_display_set_buffers</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, void *buf1, void *buf2, uint32_t buf_size, <a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a> render_mode)</td></tr>
+<tr class="separator:acd362b0ea0b9d9795df2be1624e5b9b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390c337e5546dca61bcfa4364ce8f71d" id="r_a390c337e5546dca61bcfa4364ce8f71d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a390c337e5546dca61bcfa4364ce8f71d">lv_display_set_buffers_with_stride</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, void *buf1, void *buf2, uint32_t buf_size, uint32_t stride, <a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a> render_mode)</td></tr>
+<tr class="separator:a390c337e5546dca61bcfa4364ce8f71d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad21304957d241292c7fcc899994bd802" id="r_ad21304957d241292c7fcc899994bd802"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ad21304957d241292c7fcc899994bd802">lv_display_set_draw_buffers</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> *buf1, <a class="el" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> *buf2)</td></tr>
+<tr class="separator:ad21304957d241292c7fcc899994bd802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e460d2ed95685c20e6f87d451dee86c" id="r_a2e460d2ed95685c20e6f87d451dee86c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a2e460d2ed95685c20e6f87d451dee86c">lv_display_set_3rd_draw_buffer</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> *buf3)</td></tr>
+<tr class="separator:a2e460d2ed95685c20e6f87d451dee86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0d0f6b7d120a07e59526dd358826a91" id="r_aa0d0f6b7d120a07e59526dd358826a91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aa0d0f6b7d120a07e59526dd358826a91">lv_display_set_render_mode</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a> render_mode)</td></tr>
+<tr class="separator:aa0d0f6b7d120a07e59526dd358826a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a159074a30fa769f4f243ebd85a519294" id="r_a159074a30fa769f4f243ebd85a519294"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a159074a30fa769f4f243ebd85a519294">lv_display_set_flush_cb</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_display_flush_cb_t flush_cb)</td></tr>
+<tr class="separator:a159074a30fa769f4f243ebd85a519294"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c9b25e3ae7880fd14a40f7187dbbe68" id="r_a0c9b25e3ae7880fd14a40f7187dbbe68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a0c9b25e3ae7880fd14a40f7187dbbe68">lv_display_set_flush_wait_cb</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_display_flush_wait_cb_t wait_cb)</td></tr>
+<tr class="separator:a0c9b25e3ae7880fd14a40f7187dbbe68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a7551aee8d08ba8489e943ed00a3d62" id="r_a9a7551aee8d08ba8489e943ed00a3d62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a9a7551aee8d08ba8489e943ed00a3d62">lv_display_set_color_format</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h.html#a373bd610cd5bd39aa97244166a356932">lv_color_format_t</a> color_format)</td></tr>
+<tr class="separator:a9a7551aee8d08ba8489e943ed00a3d62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d4cd11beb6c46fe0883647bd4ab3a05" id="r_a7d4cd11beb6c46fe0883647bd4ab3a05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h.html#a373bd610cd5bd39aa97244166a356932">lv_color_format_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a7d4cd11beb6c46fe0883647bd4ab3a05">lv_display_get_color_format</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a7d4cd11beb6c46fe0883647bd4ab3a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a686e924faaadc749aa65f15100fd06ea" id="r_a686e924faaadc749aa65f15100fd06ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a686e924faaadc749aa65f15100fd06ea">lv_display_set_tile_cnt</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, uint32_t tile_cnt)</td></tr>
+<tr class="separator:a686e924faaadc749aa65f15100fd06ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4446259aa3ba831a344fd4fad8e50a75" id="r_a4446259aa3ba831a344fd4fad8e50a75"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a4446259aa3ba831a344fd4fad8e50a75">lv_display_get_tile_cnt</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a4446259aa3ba831a344fd4fad8e50a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a587be19243ba10f69e5b3a1ab7d58" id="r_ae7a587be19243ba10f69e5b3a1ab7d58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ae7a587be19243ba10f69e5b3a1ab7d58">lv_display_set_antialiasing</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, bool en)</td></tr>
+<tr class="separator:ae7a587be19243ba10f69e5b3a1ab7d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a475d48113f309cd75f8f1b5d1264f094" id="r_a475d48113f309cd75f8f1b5d1264f094"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a475d48113f309cd75f8f1b5d1264f094">lv_display_get_antialiasing</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a475d48113f309cd75f8f1b5d1264f094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a577b2ea3ddcc8da5f2acb83d2b74536d" id="r_a577b2ea3ddcc8da5f2acb83d2b74536d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lv__conf__cmsis_8h.html#a8516a98c991b133415b00656518d956d">LV_ATTRIBUTE_FLUSH_READY</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a577b2ea3ddcc8da5f2acb83d2b74536d">lv_display_flush_ready</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a577b2ea3ddcc8da5f2acb83d2b74536d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97f89bbaa5e47b66f5e8b6ebe0f9654d" id="r_a97f89bbaa5e47b66f5e8b6ebe0f9654d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lv__conf__cmsis_8h.html#a8516a98c991b133415b00656518d956d">LV_ATTRIBUTE_FLUSH_READY</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a97f89bbaa5e47b66f5e8b6ebe0f9654d">lv_display_flush_is_last</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a97f89bbaa5e47b66f5e8b6ebe0f9654d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee55abe5018474d097ea1a912c6c8486" id="r_aee55abe5018474d097ea1a912c6c8486"><td class="memItemLeft" align="right" valign="top"><a id="aee55abe5018474d097ea1a912c6c8486" name="aee55abe5018474d097ea1a912c6c8486"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_is_double_buffered</b> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:aee55abe5018474d097ea1a912c6c8486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a9cd685a464c3e7356fb2148ec73a3e" id="r_a5a9cd685a464c3e7356fb2148ec73a3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a5a9cd685a464c3e7356fb2148ec73a3e">lv_display_get_render_mode</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a5a9cd685a464c3e7356fb2148ec73a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf117a44ed85bc3758e82bf6e6bdda06" id="r_aaf117a44ed85bc3758e82bf6e6bdda06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aaf117a44ed85bc3758e82bf6e6bdda06">lv_display_get_screen_active</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:aaf117a44ed85bc3758e82bf6e6bdda06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab65f83be14de04ad8671779c07603694" id="r_ab65f83be14de04ad8671779c07603694"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ab65f83be14de04ad8671779c07603694">lv_display_get_screen_prev</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ab65f83be14de04ad8671779c07603694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a769328970e0a8637cfda5d9b2b4fb3c4" id="r_a769328970e0a8637cfda5d9b2b4fb3c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a769328970e0a8637cfda5d9b2b4fb3c4">lv_display_get_screen_loading</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a769328970e0a8637cfda5d9b2b4fb3c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac346c13b04ed4260b8224acf8844f503" id="r_ac346c13b04ed4260b8224acf8844f503"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ac346c13b04ed4260b8224acf8844f503">lv_display_get_layer_top</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ac346c13b04ed4260b8224acf8844f503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf47dfce1e0ebf072ab9f0bbc67da8b0" id="r_acf47dfce1e0ebf072ab9f0bbc67da8b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#acf47dfce1e0ebf072ab9f0bbc67da8b0">lv_display_get_layer_sys</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:acf47dfce1e0ebf072ab9f0bbc67da8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06025655ba5e3bcbf29b654e90f706c8" id="r_a06025655ba5e3bcbf29b654e90f706c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a06025655ba5e3bcbf29b654e90f706c8">lv_display_get_layer_bottom</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a06025655ba5e3bcbf29b654e90f706c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada0228eb33c364a2462fa4ca4962c9ff" id="r_ada0228eb33c364a2462fa4ca4962c9ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ada0228eb33c364a2462fa4ca4962c9ff">lv_screen_load</a> (struct <a class="el" href="struct__lv__obj__t.html">_lv_obj_t</a> *scr)</td></tr>
+<tr class="separator:ada0228eb33c364a2462fa4ca4962c9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3658c2cfa840241d48fd23b2dfa7fd" id="r_aab3658c2cfa840241d48fd23b2dfa7fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aab3658c2cfa840241d48fd23b2dfa7fd">lv_screen_load_anim</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *scr, lv_screen_load_anim_t anim_type, uint32_t time, uint32_t delay, bool auto_del)</td></tr>
+<tr class="separator:aab3658c2cfa840241d48fd23b2dfa7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5c93629ebabaee2d7cd4461f4ccd128" id="r_ae5c93629ebabaee2d7cd4461f4ccd128"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ae5c93629ebabaee2d7cd4461f4ccd128">lv_screen_active</a> (void)</td></tr>
+<tr class="separator:ae5c93629ebabaee2d7cd4461f4ccd128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39ef6bfefe6f9e381b16d579d1316ae8" id="r_a39ef6bfefe6f9e381b16d579d1316ae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a39ef6bfefe6f9e381b16d579d1316ae8">lv_layer_top</a> (void)</td></tr>
+<tr class="separator:a39ef6bfefe6f9e381b16d579d1316ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2186d718507982f1767269c1b3b7453f" id="r_a2186d718507982f1767269c1b3b7453f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a2186d718507982f1767269c1b3b7453f">lv_layer_sys</a> (void)</td></tr>
+<tr class="separator:a2186d718507982f1767269c1b3b7453f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e38f3c8911e5040880474a7b0977bf9" id="r_a8e38f3c8911e5040880474a7b0977bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a8e38f3c8911e5040880474a7b0977bf9">lv_layer_bottom</a> (void)</td></tr>
+<tr class="separator:a8e38f3c8911e5040880474a7b0977bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6da36b71555d3c41f554818ec7a0f67" id="r_af6da36b71555d3c41f554818ec7a0f67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#af6da36b71555d3c41f554818ec7a0f67">lv_display_add_event_cb</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_event_cb_t event_cb, <a class="el" href="lv__event_8h.html#a34581e6a5056b169f0a229f3e51c7771">lv_event_code_t</a> filter, void *user_data)</td></tr>
+<tr class="separator:af6da36b71555d3c41f554818ec7a0f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93565cfb7df0cc431d0e30cf8553ec8d" id="r_a93565cfb7df0cc431d0e30cf8553ec8d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a93565cfb7df0cc431d0e30cf8553ec8d">lv_display_get_event_count</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a93565cfb7df0cc431d0e30cf8553ec8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab16a6f0e03df1d3f278ec68e3d0563c3" id="r_ab16a6f0e03df1d3f278ec68e3d0563c3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__event__dsc__t.html">lv_event_dsc_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ab16a6f0e03df1d3f278ec68e3d0563c3">lv_display_get_event_dsc</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, uint32_t index)</td></tr>
+<tr class="separator:ab16a6f0e03df1d3f278ec68e3d0563c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17d75a22f757ce0bf99e555183d42b91" id="r_a17d75a22f757ce0bf99e555183d42b91"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a17d75a22f757ce0bf99e555183d42b91">lv_display_delete_event</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, uint32_t index)</td></tr>
+<tr class="separator:a17d75a22f757ce0bf99e555183d42b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a88cc62bd717c42b249fb66f1ea9355" id="r_a1a88cc62bd717c42b249fb66f1ea9355"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a1a88cc62bd717c42b249fb66f1ea9355">lv_display_remove_event_cb_with_user_data</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_event_cb_t event_cb, void *user_data)</td></tr>
+<tr class="separator:a1a88cc62bd717c42b249fb66f1ea9355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaea53b765cfb56b016f4476ba9d35e79" id="r_aaea53b765cfb56b016f4476ba9d35e79"><td class="memItemLeft" align="right" valign="top"><a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h.html#a5b0d1e3e8ccbb62b04ba2a6688ead275">lv_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aaea53b765cfb56b016f4476ba9d35e79">lv_display_send_event</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="lv__event_8h.html#a34581e6a5056b169f0a229f3e51c7771">lv_event_code_t</a> code, void *param)</td></tr>
+<tr class="separator:aaea53b765cfb56b016f4476ba9d35e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c5a78fe20c3bae64020140c32a2897e" id="r_a9c5a78fe20c3bae64020140c32a2897e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlv__area__t.html">lv_area_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a9c5a78fe20c3bae64020140c32a2897e">lv_event_get_invalidated_area</a> (<a class="el" href="struct__lv__event__t.html">lv_event_t</a> *e)</td></tr>
+<tr class="separator:a9c5a78fe20c3bae64020140c32a2897e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3d9caa6c514cffcdd34340858939a02" id="r_ae3d9caa6c514cffcdd34340858939a02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ae3d9caa6c514cffcdd34340858939a02">lv_display_set_theme</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="struct__lv__theme__t.html">lv_theme_t</a> *th)</td></tr>
+<tr class="separator:ae3d9caa6c514cffcdd34340858939a02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f70cdec74b6709e6bd247f703e984d6" id="r_a3f70cdec74b6709e6bd247f703e984d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__theme__t.html">lv_theme_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a3f70cdec74b6709e6bd247f703e984d6">lv_display_get_theme</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a3f70cdec74b6709e6bd247f703e984d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ae86f1664bd3e37d45371647504ce6c" id="r_a6ae86f1664bd3e37d45371647504ce6c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a6ae86f1664bd3e37d45371647504ce6c">lv_display_get_inactive_time</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a6ae86f1664bd3e37d45371647504ce6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e21c71d24fab16f9c5d9d29578744f" id="r_ab7e21c71d24fab16f9c5d9d29578744f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ab7e21c71d24fab16f9c5d9d29578744f">lv_display_trigger_activity</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ab7e21c71d24fab16f9c5d9d29578744f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3a307b7c6910a02b07db9c6e7dd76a4" id="r_ab3a307b7c6910a02b07db9c6e7dd76a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ab3a307b7c6910a02b07db9c6e7dd76a4">lv_display_enable_invalidation</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, bool en)</td></tr>
+<tr class="separator:ab3a307b7c6910a02b07db9c6e7dd76a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8051e84fc46242ed7933680aefc2705d" id="r_a8051e84fc46242ed7933680aefc2705d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a8051e84fc46242ed7933680aefc2705d">lv_display_is_invalidation_enabled</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a8051e84fc46242ed7933680aefc2705d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7259fdd75bca711257fa5e4fd055438e" id="r_a7259fdd75bca711257fa5e4fd055438e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__timer__t.html">lv_timer_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a7259fdd75bca711257fa5e4fd055438e">lv_display_get_refr_timer</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a7259fdd75bca711257fa5e4fd055438e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affae5b521a38079edf916cfb65946770" id="r_affae5b521a38079edf916cfb65946770"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#affae5b521a38079edf916cfb65946770">lv_display_delete_refr_timer</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:affae5b521a38079edf916cfb65946770"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a172da97d3c984cf365713db90a574ea6" id="r_a172da97d3c984cf365713db90a574ea6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a172da97d3c984cf365713db90a574ea6">lv_display_register_vsync_event</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_event_cb_t event_cb, void *user_data)</td></tr>
+<tr class="separator:a172da97d3c984cf365713db90a574ea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa77c1b73c04920896558fcce09c97fbf" id="r_aa77c1b73c04920896558fcce09c97fbf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aa77c1b73c04920896558fcce09c97fbf">lv_display_unregister_vsync_event</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_event_cb_t event_cb, void *user_data)</td></tr>
+<tr class="separator:aa77c1b73c04920896558fcce09c97fbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cbd063fb3ded72315d1edb957df5141" id="r_a2cbd063fb3ded72315d1edb957df5141"><td class="memItemLeft" align="right" valign="top"><a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h.html#a5b0d1e3e8ccbb62b04ba2a6688ead275">lv_result_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a2cbd063fb3ded72315d1edb957df5141">lv_display_send_vsync_event</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, void *param)</td></tr>
+<tr class="separator:a2cbd063fb3ded72315d1edb957df5141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a506e86e00820db5e153e2444c8880829" id="r_a506e86e00820db5e153e2444c8880829"><td class="memItemLeft" align="right" valign="top"><a id="a506e86e00820db5e153e2444c8880829" name="a506e86e00820db5e153e2444c8880829"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_set_user_data</b> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, void *user_data)</td></tr>
+<tr class="separator:a506e86e00820db5e153e2444c8880829"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd553dc4636bb100113656a2756705bb" id="r_afd553dc4636bb100113656a2756705bb"><td class="memItemLeft" align="right" valign="top"><a id="afd553dc4636bb100113656a2756705bb" name="afd553dc4636bb100113656a2756705bb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_set_driver_data</b> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, void *driver_data)</td></tr>
+<tr class="separator:afd553dc4636bb100113656a2756705bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a347a368fb31965539957292ba645e3d2" id="r_a347a368fb31965539957292ba645e3d2"><td class="memItemLeft" align="right" valign="top"><a id="a347a368fb31965539957292ba645e3d2" name="a347a368fb31965539957292ba645e3d2"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_get_user_data</b> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:a347a368fb31965539957292ba645e3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae78c8f3ffc855edb4446a1b55edf1d76" id="r_ae78c8f3ffc855edb4446a1b55edf1d76"><td class="memItemLeft" align="right" valign="top"><a id="ae78c8f3ffc855edb4446a1b55edf1d76" name="ae78c8f3ffc855edb4446a1b55edf1d76"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_get_driver_data</b> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ae78c8f3ffc855edb4446a1b55edf1d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae492a0185f0b49be320c228f9584ae72" id="r_ae492a0185f0b49be320c228f9584ae72"><td class="memItemLeft" align="right" valign="top"><a id="ae492a0185f0b49be320c228f9584ae72" name="ae492a0185f0b49be320c228f9584ae72"></a>
+<a class="el" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>lv_display_get_buf_active</b> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ae492a0185f0b49be320c228f9584ae72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab93743230d49c04103a6b9c2a61a97fa" id="r_ab93743230d49c04103a6b9c2a61a97fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ab93743230d49c04103a6b9c2a61a97fa">lv_display_rotate_area</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="structlv__area__t.html">lv_area_t</a> *area)</td></tr>
+<tr class="separator:ab93743230d49c04103a6b9c2a61a97fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd20b82a2bb14c8c78a46234d717bcc0" id="r_acd20b82a2bb14c8c78a46234d717bcc0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#acd20b82a2bb14c8c78a46234d717bcc0">lv_display_rotate_point</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, <a class="el" href="structlv__point__t.html">lv_point_t</a> *point)</td></tr>
+<tr class="separator:acd20b82a2bb14c8c78a46234d717bcc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e7e09c80344ab1b970c48154d3242f" id="r_ae0e7e09c80344ab1b970c48154d3242f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#ae0e7e09c80344ab1b970c48154d3242f">lv_display_get_draw_buf_size</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp)</td></tr>
+<tr class="separator:ae0e7e09c80344ab1b970c48154d3242f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29943c9edc1a2ed67a586f4ac362d7b3" id="r_a29943c9edc1a2ed67a586f4ac362d7b3"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a29943c9edc1a2ed67a586f4ac362d7b3">lv_display_get_invalidated_draw_buf_size</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, uint32_t width, uint32_t height)</td></tr>
+<tr class="separator:a29943c9edc1a2ed67a586f4ac362d7b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabae964aef2ee1aa97a16cbecc9ef11c" id="r_aabae964aef2ee1aa97a16cbecc9ef11c"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#aabae964aef2ee1aa97a16cbecc9ef11c">lv_dpx</a> (int32_t n)</td></tr>
+<tr class="separator:aabae964aef2ee1aa97a16cbecc9ef11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3209a12eb140430893cb25101a11c04a" id="r_a3209a12eb140430893cb25101a11c04a"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__display_8h.html#a3209a12eb140430893cb25101a11c04a">lv_display_dpx</a> (const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, int32_t n)</td></tr>
+<tr class="separator:a3209a12eb140430893cb25101a11c04a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis makro definicije</h2>
+<a id="ac061d4e3b0c3e14ce430b6127d53715f" name="ac061d4e3b0c3e14ce430b6127d53715f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac061d4e3b0c3e14ce430b6127d53715f">&#9670;&#160;</a></span>LV_DPX_CALC</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LV_DPX_CALC</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">dpi, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">n&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;((n) == 0 ? 0 :LV_MAX((( (dpi) * (n) + 80) / 160), 1)) /*+80 for rounding*/</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>See <code><a class="el" href="lv__display_8h.html#aabae964aef2ee1aa97a16cbecc9ef11c">lv_dpx()</a></code> and <code><a class="el" href="lv__display_8h.html#a3209a12eb140430893cb25101a11c04a">lv_display_dpx()</a></code>. Same as Android's DIP. (Different name is chosen to avoid mistype between LV_DPI and LV_DIP)</p>
+<ul>
+<li>40 dip is 40 px on a 160 DPI screen (distance = 1/4 inch).</li>
+<li>40 dip is 80 px on a 320 DPI screen (distance still = 1/4 inch).</li>
+</ul>
+<dl class="section see"><dt>Glej</dt><dd><a href="https://stackoverflow.com/questions/2025282/what-is-the-difference-between-px-dip-dp-and-sp">https://stackoverflow.com/questions/2025282/what-is-the-difference-between-px-dip-dp-and-sp</a> </dd></dl>
+
+</div>
+</div>
+<a id="a376696c753a2750dc80acaf6fb48770e" name="a376696c753a2750dc80acaf6fb48770e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a376696c753a2750dc80acaf6fb48770e">&#9670;&#160;</a></span>LV_HOR_RES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LV_HOR_RES&#160;&#160;&#160;<a class="el" href="lv__display_8c.html#aac4ed55282ff7559543fc44a7f0116b9">lv_display_get_horizontal_resolution</a>(<a class="el" href="lv__display_8c.html#a2afebbc012fa142caacfaf6f86172798">lv_display_get_default</a>())</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The horizontal resolution of the currently active display. </p>
+
+</div>
+</div>
+<a id="a46cd7da6d812121b09c735c59925e645" name="a46cd7da6d812121b09c735c59925e645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46cd7da6d812121b09c735c59925e645">&#9670;&#160;</a></span>LV_VER_RES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LV_VER_RES&#160;&#160;&#160;<a class="el" href="lv__display_8c.html#ad9f22fa184e1d5db70c48e5f7bf03ee6">lv_display_get_vertical_resolution</a>(<a class="el" href="lv__display_8c.html#a2afebbc012fa142caacfaf6f86172798">lv_display_get_default</a>())</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The vertical resolution of the currently active display. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Opis naštevnega (enum) tipa</h2>
+<a id="a5132aad8662c8544749cbb74dd7e1753" name="a5132aad8662c8544749cbb74dd7e1753"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5132aad8662c8544749cbb74dd7e1753">&#9670;&#160;</a></span>lv_display_render_mode_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Vrednosti naštevnih tipov</th></tr><tr><td class="fieldname"><a id="a5132aad8662c8544749cbb74dd7e1753a39326a80c1edf7fd9ceddba1b465446c" name="a5132aad8662c8544749cbb74dd7e1753a39326a80c1edf7fd9ceddba1b465446c"></a>LV_DISPLAY_RENDER_MODE_PARTIAL&#160;</td><td class="fielddoc"><p>Use the buffer(s) to render the screen is smaller parts. This way the buffers can be smaller then the display to save RAM. At least 1/10 screen size buffer(s) are recommended. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5132aad8662c8544749cbb74dd7e1753a52d575579a92bef572f1645e03b0ba09" name="a5132aad8662c8544749cbb74dd7e1753a52d575579a92bef572f1645e03b0ba09"></a>LV_DISPLAY_RENDER_MODE_DIRECT&#160;</td><td class="fielddoc"><p>The buffer(s) has to be screen sized and LVGL will render into the correct location of the buffer. This way the buffer always contain the whole image. Only the changed ares will be updated. With 2 buffers the buffers' content are kept in sync automatically and in flush_cb only address change is required. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a5132aad8662c8544749cbb74dd7e1753a51d04eb3bdd46fc7ea622c151ae67bb7" name="a5132aad8662c8544749cbb74dd7e1753a51d04eb3bdd46fc7ea622c151ae67bb7"></a>LV_DISPLAY_RENDER_MODE_FULL&#160;</td><td class="fielddoc"><p>Always redraw the whole screen even if only one pixel has been changed. With 2 buffers in flush_cb only an address change is required. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="af6da36b71555d3c41f554818ec7a0f67" name="af6da36b71555d3c41f554818ec7a0f67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6da36b71555d3c41f554818ec7a0f67">&#9670;&#160;</a></span>lv_display_add_event_cb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_add_event_cb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_event_cb_t&#160;</td>
+          <td class="paramname"><em>event_cb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__event_8h.html#a34581e6a5056b169f0a229f3e51c7771">lv_event_code_t</a>&#160;</td>
+          <td class="paramname"><em>filter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add an event handler to the display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">event_cb</td><td>an event callback </td></tr>
+    <tr><td class="paramname">filter</td><td>event code to react or <code>LV_EVENT_ALL</code> </td></tr>
+    <tr><td class="paramname">user_data</td><td>optional user_data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1a3de5e03d1a60b60cd41a89e28f03a2" name="a1a3de5e03d1a60b60cd41a89e28f03a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a3de5e03d1a60b60cd41a89e28f03a2">&#9670;&#160;</a></span>lv_display_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> * lv_display_create </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>hor_res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>ver_res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a new display with the given resolution </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">hor_res</td><td>horizontal resolution in pixels </td></tr>
+    <tr><td class="paramname">ver_res</td><td>vertical resolution in pixels </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to a display object or <code>NULL</code> on error </dd></dl>
+
+</div>
+</div>
+<a id="a4602e2045483781e5950aa8deaf37f4d" name="a4602e2045483781e5950aa8deaf37f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4602e2045483781e5950aa8deaf37f4d">&#9670;&#160;</a></span>lv_display_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a17d75a22f757ce0bf99e555183d42b91" name="a17d75a22f757ce0bf99e555183d42b91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17d75a22f757ce0bf99e555183d42b91">&#9670;&#160;</a></span>lv_display_delete_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lv_display_delete_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove an event </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">index</td><td>the index of the event to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>true: and event was removed; false: no event was removed </dd></dl>
+
+</div>
+</div>
+<a id="affae5b521a38079edf916cfb65946770" name="affae5b521a38079edf916cfb65946770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affae5b521a38079edf916cfb65946770">&#9670;&#160;</a></span>lv_display_delete_refr_timer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_delete_refr_timer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Delete screen refresher timer </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3209a12eb140430893cb25101a11c04a" name="a3209a12eb140430893cb25101a11c04a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3209a12eb140430893cb25101a11c04a">&#9670;&#160;</a></span>lv_display_dpx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_dpx </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>For specified display, computes the number of pixels (a distance or size) as if the display had 160 DPI. This allows you to specify 1/160-th fractions of an inch to get real distance on the display that will be consistent regardless of its current DPI. It ensures <code>lv_dpx(100)</code>, for example, will have the same physical size regardless to the DPI of the display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display whose dpi should be considered </td></tr>
+    <tr><td class="paramname">n</td><td>number of 1/160-th-inch units to compute with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>number of pixels to use to make that distance </dd></dl>
+
+</div>
+</div>
+<a id="ab3a307b7c6910a02b07db9c6e7dd76a4" name="ab3a307b7c6910a02b07db9c6e7dd76a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3a307b7c6910a02b07db9c6e7dd76a4">&#9670;&#160;</a></span>lv_display_enable_invalidation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_enable_invalidation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>en</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Temporarily enable and disable the invalidation of the display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+    <tr><td class="paramname">en</td><td>true: enable invalidation; false: invalidation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a97f89bbaa5e47b66f5e8b6ebe0f9654d" name="a97f89bbaa5e47b66f5e8b6ebe0f9654d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f89bbaa5e47b66f5e8b6ebe0f9654d">&#9670;&#160;</a></span>lv_display_flush_is_last()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lv__conf__cmsis_8h.html#a8516a98c991b133415b00656518d956d">LV_ATTRIBUTE_FLUSH_READY</a> bool lv_display_flush_is_last </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Tell if it's the last area of the refreshing process. Can be called from <code>flush_cb</code> to execute some special display refreshing if needed when all areas area flushed. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>true: it's the last area to flush; false: there are other areas too which will be refreshed soon </dd></dl>
+
+</div>
+</div>
+<a id="a577b2ea3ddcc8da5f2acb83d2b74536d" name="a577b2ea3ddcc8da5f2acb83d2b74536d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577b2ea3ddcc8da5f2acb83d2b74536d">&#9670;&#160;</a></span>lv_display_flush_ready()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lv__conf__cmsis_8h.html#a8516a98c991b133415b00656518d956d">LV_ATTRIBUTE_FLUSH_READY</a> void lv_display_flush_ready </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Call from the display driver when the flushing is finished </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display whose <code>flush_cb</code> was called </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a475d48113f309cd75f8f1b5d1264f094" name="a475d48113f309cd75f8f1b5d1264f094"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a475d48113f309cd75f8f1b5d1264f094">&#9670;&#160;</a></span>lv_display_get_antialiasing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lv_display_get_antialiasing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get if anti-aliasing is enabled for a display or not </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>true/false </dd></dl>
+
+</div>
+</div>
+<a id="a7d4cd11beb6c46fe0883647bd4ab3a05" name="a7d4cd11beb6c46fe0883647bd4ab3a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d4cd11beb6c46fe0883647bd4ab3a05">&#9670;&#160;</a></span>lv_display_get_color_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h.html#a373bd610cd5bd39aa97244166a356932">lv_color_format_t</a> lv_display_get_color_format </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the color format of the display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the color format </dd></dl>
+
+</div>
+</div>
+<a id="a2afebbc012fa142caacfaf6f86172798" name="a2afebbc012fa142caacfaf6f86172798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2afebbc012fa142caacfaf6f86172798">&#9670;&#160;</a></span>lv_display_get_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> * lv_display_get_default </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the default display </p><dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the default display </dd></dl>
+
+</div>
+</div>
+<a id="aabd4dc33cff66f9aabf08d00efcb41c2" name="aabd4dc33cff66f9aabf08d00efcb41c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabd4dc33cff66f9aabf08d00efcb41c2">&#9670;&#160;</a></span>lv_display_get_dpi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_dpi </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the DPI of the display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>dpi of the display </dd></dl>
+
+</div>
+</div>
+<a id="ae0e7e09c80344ab1b970c48154d3242f" name="ae0e7e09c80344ab1b970c48154d3242f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0e7e09c80344ab1b970c48154d3242f">&#9670;&#160;</a></span>lv_display_get_draw_buf_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_display_get_draw_buf_size </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the size of the draw buffers </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the size of the draw buffer in bytes for valid display, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a93565cfb7df0cc431d0e30cf8553ec8d" name="a93565cfb7df0cc431d0e30cf8553ec8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93565cfb7df0cc431d0e30cf8553ec8d">&#9670;&#160;</a></span>lv_display_get_event_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_display_get_event_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the number of event attached to a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>number of events </dd></dl>
+
+</div>
+</div>
+<a id="ab16a6f0e03df1d3f278ec68e3d0563c3" name="ab16a6f0e03df1d3f278ec68e3d0563c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab16a6f0e03df1d3f278ec68e3d0563c3">&#9670;&#160;</a></span>lv_display_get_event_dsc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__event__dsc__t.html">lv_event_dsc_t</a> * lv_display_get_event_dsc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get an event descriptor for an event </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">index</td><td>the index of the event </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the event descriptor </dd></dl>
+
+</div>
+</div>
+<a id="aac4ed55282ff7559543fc44a7f0116b9" name="aac4ed55282ff7559543fc44a7f0116b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac4ed55282ff7559543fc44a7f0116b9">&#9670;&#160;</a></span>lv_display_get_horizontal_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_horizontal_resolution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the horizontal resolution of a display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the horizontal resolution of the display. </dd></dl>
+
+</div>
+</div>
+<a id="a6ae86f1664bd3e37d45371647504ce6c" name="a6ae86f1664bd3e37d45371647504ce6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ae86f1664bd3e37d45371647504ce6c">&#9670;&#160;</a></span>lv_display_get_inactive_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_display_get_inactive_time </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get elapsed time since last user activity on a display (e.g. click) </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to get the overall smallest inactivity) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>elapsed ticks (milliseconds) since the last activity </dd></dl>
+
+</div>
+</div>
+<a id="a29943c9edc1a2ed67a586f4ac362d7b3" name="a29943c9edc1a2ed67a586f4ac362d7b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29943c9edc1a2ed67a586f4ac362d7b3">&#9670;&#160;</a></span>lv_display_get_invalidated_draw_buf_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_display_get_invalidated_draw_buf_size </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the size of the invalidated draw buffer. Can be used in the flush callback to get the number of bytes used in the current render buffer. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">width</td><td>the width of the invalidated area </td></tr>
+    <tr><td class="paramname">height</td><td>the height of the invalidated area </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the size of the invalidated draw buffer in bytes, not accounting for any preceding palette information for a valid display, 0 otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a06025655ba5e3bcbf29b654e90f706c8" name="a06025655ba5e3bcbf29b654e90f706c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06025655ba5e3bcbf29b654e90f706c8">&#9670;&#160;</a></span>lv_display_get_layer_bottom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_display_get_layer_bottom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the bottom layer. The bottom layer is the same on all screen and it is under the normal screen layer. It's visible only if the screen is transparent. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display (NULL to use the default screen) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the bottom layer object </dd></dl>
+
+</div>
+</div>
+<a id="acf47dfce1e0ebf072ab9f0bbc67da8b0" name="acf47dfce1e0ebf072ab9f0bbc67da8b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf47dfce1e0ebf072ab9f0bbc67da8b0">&#9670;&#160;</a></span>lv_display_get_layer_sys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_display_get_layer_sys </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the sys. layer. The system layer is the same on all screen and it is above the normal screen and the top layer. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display which sys. layer should be retrieved. (NULL to use the default screen) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the sys layer object </dd></dl>
+
+</div>
+</div>
+<a id="ac346c13b04ed4260b8224acf8844f503" name="ac346c13b04ed4260b8224acf8844f503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac346c13b04ed4260b8224acf8844f503">&#9670;&#160;</a></span>lv_display_get_layer_top()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_display_get_layer_top </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the top layer. The top layer is the same on all screens and it is above the normal screen layer. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display which top layer should be get. (NULL to use the default screen) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the top layer object </dd></dl>
+
+</div>
+</div>
+<a id="a725a538c21ec3db2a9f0336dc257aa62" name="a725a538c21ec3db2a9f0336dc257aa62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a725a538c21ec3db2a9f0336dc257aa62">&#9670;&#160;</a></span>lv_display_get_matrix_rotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lv_display_get_matrix_rotation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get if matrix rotation is enabled for a display or not </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>true: matrix rotation is enabled; false: disabled </dd></dl>
+
+</div>
+</div>
+<a id="a80f3c3f81681aeb93380ba1224284e33" name="a80f3c3f81681aeb93380ba1224284e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80f3c3f81681aeb93380ba1224284e33">&#9670;&#160;</a></span>lv_display_get_next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> * lv_display_get_next </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the next display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to the current display. NULL to initialize. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the next display or NULL if no more. Gives the first display when the parameter is NULL. </dd></dl>
+
+</div>
+</div>
+<a id="ac33f892b818278a0cf51c7353b486e9a" name="ac33f892b818278a0cf51c7353b486e9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac33f892b818278a0cf51c7353b486e9a">&#9670;&#160;</a></span>lv_display_get_offset_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_offset_x </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the horizontal offset from the full / physical display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the horizontal offset from the physical display </dd></dl>
+
+</div>
+</div>
+<a id="a9755412c1042019b9cf128c5f03a9031" name="a9755412c1042019b9cf128c5f03a9031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9755412c1042019b9cf128c5f03a9031">&#9670;&#160;</a></span>lv_display_get_offset_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_offset_y </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the vertical offset from the full / physical display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the horizontal offset from the physical display </dd></dl>
+
+</div>
+</div>
+<a id="ae4584561ff98ceb6878db3fce9d103da" name="ae4584561ff98ceb6878db3fce9d103da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4584561ff98ceb6878db3fce9d103da">&#9670;&#160;</a></span>lv_display_get_original_horizontal_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_original_horizontal_resolution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the original horizontal resolution of a display without considering rotation </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the horizontal resolution of the display. </dd></dl>
+
+</div>
+</div>
+<a id="a16a0baaedc6e7d9c380d348fbb95d437" name="a16a0baaedc6e7d9c380d348fbb95d437"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a0baaedc6e7d9c380d348fbb95d437">&#9670;&#160;</a></span>lv_display_get_original_vertical_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_original_vertical_resolution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the original vertical resolution of a display without considering rotation </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the vertical resolution of the display </dd></dl>
+
+</div>
+</div>
+<a id="a43f3ab67db74b9ecb1909d1169a41ac2" name="a43f3ab67db74b9ecb1909d1169a41ac2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43f3ab67db74b9ecb1909d1169a41ac2">&#9670;&#160;</a></span>lv_display_get_physical_horizontal_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_physical_horizontal_resolution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the physical horizontal resolution of a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the physical horizontal resolution of the display </dd></dl>
+
+</div>
+</div>
+<a id="a5623b08e1c91aef5ea4e7b8ca7babe4b" name="a5623b08e1c91aef5ea4e7b8ca7babe4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5623b08e1c91aef5ea4e7b8ca7babe4b">&#9670;&#160;</a></span>lv_display_get_physical_vertical_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_physical_vertical_resolution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the physical vertical resolution of a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the physical vertical resolution of the display </dd></dl>
+
+</div>
+</div>
+<a id="a7259fdd75bca711257fa5e4fd055438e" name="a7259fdd75bca711257fa5e4fd055438e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7259fdd75bca711257fa5e4fd055438e">&#9670;&#160;</a></span>lv_display_get_refr_timer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__timer__t.html">lv_timer_t</a> * lv_display_get_refr_timer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a pointer to the screen refresher timer to modify its parameters with <code>lv_timer_...</code> functions. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the display refresher timer. (NULL on error) </dd></dl>
+
+</div>
+</div>
+<a id="a5a9cd685a464c3e7356fb2148ec73a3e" name="a5a9cd685a464c3e7356fb2148ec73a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a9cd685a464c3e7356fb2148ec73a3e">&#9670;&#160;</a></span>lv_display_get_render_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a> lv_display_get_render_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get display render mode </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>display's render mode (LV_DISPLAY_RENDER_MODE_PARTIAL/DIRECT/FULL) </dd></dl>
+
+</div>
+</div>
+<a id="aa5cd01d9fdbadef6464a01aafed510fe" name="aa5cd01d9fdbadef6464a01aafed510fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5cd01d9fdbadef6464a01aafed510fe">&#9670;&#160;</a></span>lv_display_get_rotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_display_rotation_t lv_display_get_rotation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current rotation of this display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the current rotation </dd></dl>
+
+</div>
+</div>
+<a id="aaf117a44ed85bc3758e82bf6e6bdda06" name="aaf117a44ed85bc3758e82bf6e6bdda06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf117a44ed85bc3758e82bf6e6bdda06">&#9670;&#160;</a></span>lv_display_get_screen_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_display_get_screen_active </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return a pointer to the active screen on a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display which active screen should be get. (NULL to use the default screen) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the active screen object (loaded by '<a class="el" href="lv__display_8h.html#ada0228eb33c364a2462fa4ca4962c9ff">lv_screen_load()</a>') </dd></dl>
+
+</div>
+</div>
+<a id="a769328970e0a8637cfda5d9b2b4fb3c4" name="a769328970e0a8637cfda5d9b2b4fb3c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a769328970e0a8637cfda5d9b2b4fb3c4">&#9670;&#160;</a></span>lv_display_get_screen_loading()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_display_get_screen_loading </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the screen that is currently being loaded by the display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display object (NULL to use the default screen) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the screen being loaded or NULL if no screen is currently being loaded </dd></dl>
+
+</div>
+</div>
+<a id="ab65f83be14de04ad8671779c07603694" name="ab65f83be14de04ad8671779c07603694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab65f83be14de04ad8671779c07603694">&#9670;&#160;</a></span>lv_display_get_screen_prev()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_display_get_screen_prev </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return with a pointer to the previous screen. Only used during screen transitions. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to display which previous screen should be get. (NULL to use the default screen) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the previous screen object or NULL if not used now </dd></dl>
+
+</div>
+</div>
+<a id="a3f70cdec74b6709e6bd247f703e984d6" name="a3f70cdec74b6709e6bd247f703e984d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f70cdec74b6709e6bd247f703e984d6">&#9670;&#160;</a></span>lv_display_get_theme()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__theme__t.html">lv_theme_t</a> * lv_display_get_theme </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the theme of a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the display's theme (can be NULL) </dd></dl>
+
+</div>
+</div>
+<a id="a4446259aa3ba831a344fd4fad8e50a75" name="a4446259aa3ba831a344fd4fad8e50a75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4446259aa3ba831a344fd4fad8e50a75">&#9670;&#160;</a></span>lv_display_get_tile_cnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_display_get_tile_cnt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the number of tiles used for parallel rendering </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>number of tiles </dd></dl>
+
+</div>
+</div>
+<a id="ad9f22fa184e1d5db70c48e5f7bf03ee6" name="ad9f22fa184e1d5db70c48e5f7bf03ee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f22fa184e1d5db70c48e5f7bf03ee6">&#9670;&#160;</a></span>lv_display_get_vertical_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_display_get_vertical_resolution </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the vertical resolution of a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the vertical resolution of the display </dd></dl>
+
+</div>
+</div>
+<a id="a8051e84fc46242ed7933680aefc2705d" name="a8051e84fc46242ed7933680aefc2705d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8051e84fc46242ed7933680aefc2705d">&#9670;&#160;</a></span>lv_display_is_invalidation_enabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lv_display_is_invalidation_enabled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get display invalidation is enabled. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>return true if invalidation is enabled </dd></dl>
+
+</div>
+</div>
+<a id="a172da97d3c984cf365713db90a574ea6" name="a172da97d3c984cf365713db90a574ea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a172da97d3c984cf365713db90a574ea6">&#9670;&#160;</a></span>lv_display_register_vsync_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lv_display_register_vsync_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_event_cb_t&#160;</td>
+          <td class="paramname"><em>event_cb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Register vsync event of a display. <code>LV_EVENT_VSYNC</code> event will be sent periodically. Please don't use it in display event listeners, as it may cause memory leaks and illegal access issues.</p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">event_cb</td><td>an event callback </td></tr>
+    <tr><td class="paramname">user_data</td><td>optional user_data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1a88cc62bd717c42b249fb66f1ea9355" name="a1a88cc62bd717c42b249fb66f1ea9355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a88cc62bd717c42b249fb66f1ea9355">&#9670;&#160;</a></span>lv_display_remove_event_cb_with_user_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_display_remove_event_cb_with_user_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_event_cb_t&#160;</td>
+          <td class="paramname"><em>event_cb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove an event_cb with user_data </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">event_cb</td><td>the event_cb of the event to remove </td></tr>
+    <tr><td class="paramname">user_data</td><td>user_data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the count of the event removed </dd></dl>
+
+</div>
+</div>
+<a id="ab93743230d49c04103a6b9c2a61a97fa" name="ab93743230d49c04103a6b9c2a61a97fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab93743230d49c04103a6b9c2a61a97fa">&#9670;&#160;</a></span>lv_display_rotate_area()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_rotate_area </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__area__t.html">lv_area_t</a> *&#160;</td>
+          <td class="paramname"><em>area</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rotate an area in-place according to the display's rotation </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">area</td><td>pointer to an area to rotate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd20b82a2bb14c8c78a46234d717bcc0" name="acd20b82a2bb14c8c78a46234d717bcc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd20b82a2bb14c8c78a46234d717bcc0">&#9670;&#160;</a></span>lv_display_rotate_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_rotate_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__point__t.html">lv_point_t</a> *&#160;</td>
+          <td class="paramname"><em>point</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rotate a point in-place according to the display's rotation </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">point</td><td>pointer to a point to rotate </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaea53b765cfb56b016f4476ba9d35e79" name="aaea53b765cfb56b016f4476ba9d35e79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaea53b765cfb56b016f4476ba9d35e79">&#9670;&#160;</a></span>lv_display_send_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h.html#a5b0d1e3e8ccbb62b04ba2a6688ead275">lv_result_t</a> lv_display_send_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__event_8h.html#a34581e6a5056b169f0a229f3e51c7771">lv_event_code_t</a>&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send an event to a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">code</td><td>an event code. LV_EVENT_... </td></tr>
+    <tr><td class="paramname">param</td><td>optional param </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>LV_RESULT_OK: disp wasn't deleted in the event. </dd></dl>
+
+</div>
+</div>
+<a id="a2cbd063fb3ded72315d1edb957df5141" name="a2cbd063fb3ded72315d1edb957df5141"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cbd063fb3ded72315d1edb957df5141">&#9670;&#160;</a></span>lv_display_send_vsync_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h.html#a5b0d1e3e8ccbb62b04ba2a6688ead275">lv_result_t</a> lv_display_send_vsync_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Send an vsync event to a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">param</td><td>optional param </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>LV_RESULT_OK: disp wasn't deleted in the event. </dd></dl>
+
+</div>
+</div>
+<a id="a2e460d2ed95685c20e6f87d451dee86c" name="a2e460d2ed95685c20e6f87d451dee86c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e460d2ed95685c20e6f87d451dee86c">&#9670;&#160;</a></span>lv_display_set_3rd_draw_buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_3rd_draw_buffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> *&#160;</td>
+          <td class="paramname"><em>buf3</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the third draw buffer for a display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">buf3</td><td>third buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae7a587be19243ba10f69e5b3a1ab7d58" name="ae7a587be19243ba10f69e5b3a1ab7d58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7a587be19243ba10f69e5b3a1ab7d58">&#9670;&#160;</a></span>lv_display_set_antialiasing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_antialiasing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>en</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Disabling anti-aliasing is not supported since v9. This function will be removed. Enable anti-aliasing for the render engine </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">en</td><td>true/false </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd362b0ea0b9d9795df2be1624e5b9b3" name="acd362b0ea0b9d9795df2be1624e5b9b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd362b0ea0b9d9795df2be1624e5b9b3">&#9670;&#160;</a></span>lv_display_set_buffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_buffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buf1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buf2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>buf_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a>&#160;</td>
+          <td class="paramname"><em>render_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the buffers for a display, similarly to <code>lv_display_set_draw_buffers</code>, but accept the raw buffer pointers. For DIRECT/FULL rending modes, the buffer size must be at least <code>hor_res * ver_res * lv_color_format_get_size(lv_display_get_color_format(disp))</code> </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">buf1</td><td>first buffer </td></tr>
+    <tr><td class="paramname">buf2</td><td>second buffer (can be <code>NULL</code>) </td></tr>
+    <tr><td class="paramname">buf_size</td><td>buffer size in byte </td></tr>
+    <tr><td class="paramname">render_mode</td><td>LV_DISPLAY_RENDER_MODE_PARTIAL/DIRECT/FULL </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a390c337e5546dca61bcfa4364ce8f71d" name="a390c337e5546dca61bcfa4364ce8f71d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390c337e5546dca61bcfa4364ce8f71d">&#9670;&#160;</a></span>lv_display_set_buffers_with_stride()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_buffers_with_stride </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buf1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>buf2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>buf_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>stride</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a>&#160;</td>
+          <td class="paramname"><em>render_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the frame buffers for a display, similarly to <code>lv_display_set_buffers</code>, but allow for a custom stride as required by a display controller. This allows the frame buffers to have a stride alignment different from the rest of the buffers<code> @param disp pointer to a display @param buf1 first buffer @param buf2 second buffer (can be</code>NULL`) </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buf_size</td><td>buffer size in byte </td></tr>
+    <tr><td class="paramname">stride</td><td>buffer stride in bytes </td></tr>
+    <tr><td class="paramname">render_mode</td><td>LV_DISPLAY_RENDER_MODE_PARTIAL/DIRECT/FULL </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a7551aee8d08ba8489e943ed00a3d62" name="a9a7551aee8d08ba8489e943ed00a3d62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a7551aee8d08ba8489e943ed00a3d62">&#9670;&#160;</a></span>lv_display_set_color_format()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_color_format </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h.html#a373bd610cd5bd39aa97244166a356932">lv_color_format_t</a>&#160;</td>
+          <td class="paramname"><em>color_format</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the color format of the display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">color_format</td><td>Possible values are<ul>
+<li>LV_COLOR_FORMAT_RGB565</li>
+<li>LV_COLOR_FORMAT_RGB888</li>
+<li>LV_COLOR_FORMAT_XRGB888</li>
+<li>LV_COLOR_FORMAT_ARGB888 </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Opomba</dt><dd>To change the endianness of the rendered image in case of RGB565 format (i.e. swap the 2 bytes) call <code>lv_draw_sw_rgb565_swap</code> in the flush_cb </dd></dl>
+
+</div>
+</div>
+<a id="a5a12be09b7011c8e3a296b0dc24cad42" name="a5a12be09b7011c8e3a296b0dc24cad42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a12be09b7011c8e3a296b0dc24cad42">&#9670;&#160;</a></span>lv_display_set_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_default </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set a default display. The new screens will be created on it by default. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab6dcc10be52bcfb5bc52ef22ad395a8d" name="ab6dcc10be52bcfb5bc52ef22ad395a8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6dcc10be52bcfb5bc52ef22ad395a8d">&#9670;&#160;</a></span>lv_display_set_dpi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_dpi </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>dpi</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the DPI (dot per inch) of the display. dpi = sqrt(hor_res^2 + ver_res^2) / diagonal" </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">dpi</td><td>the new DPI </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad21304957d241292c7fcc899994bd802" name="ad21304957d241292c7fcc899994bd802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad21304957d241292c7fcc899994bd802">&#9670;&#160;</a></span>lv_display_set_draw_buffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_draw_buffers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> *&#160;</td>
+          <td class="paramname"><em>buf1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> *&#160;</td>
+          <td class="paramname"><em>buf2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the buffers for a display, accept a draw buffer pointer. Normally use <code>lv_display_set_buffers</code> is enough for most cases. Use this function when an existing lv_draw_buf_t is available. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">buf1</td><td>first buffer </td></tr>
+    <tr><td class="paramname">buf2</td><td>second buffer (can be <code>NULL</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a159074a30fa769f4f243ebd85a519294" name="a159074a30fa769f4f243ebd85a519294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a159074a30fa769f4f243ebd85a519294">&#9670;&#160;</a></span>lv_display_set_flush_cb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_flush_cb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_display_flush_cb_t&#160;</td>
+          <td class="paramname"><em>flush_cb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the flush callback which will be called to copy the rendered image to the display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">flush_cb</td><td>the flush callback (<code>px_map</code> contains the rendered image as raw pixel map and it should be copied to <code>area</code> on the display) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0c9b25e3ae7880fd14a40f7187dbbe68" name="a0c9b25e3ae7880fd14a40f7187dbbe68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c9b25e3ae7880fd14a40f7187dbbe68">&#9670;&#160;</a></span>lv_display_set_flush_wait_cb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_flush_wait_cb </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_display_flush_wait_cb_t&#160;</td>
+          <td class="paramname"><em>wait_cb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set a callback to be used while LVGL is waiting flushing to be finished. It can do any complex logic to wait, including semaphores, mutexes, polling flags, etc. If not set the <code>disp-&gt;flushing</code> flag is used which can be cleared with <code><a class="el" href="lv__display_8h.html#a577b2ea3ddcc8da5f2acb83d2b74536d">lv_display_flush_ready()</a></code> </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">wait_cb</td><td>a callback to call while LVGL is waiting for flush ready. If NULL <code><a class="el" href="lv__display_8h.html#a577b2ea3ddcc8da5f2acb83d2b74536d">lv_display_flush_ready()</a></code> can be used to signal that flushing is ready. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8d216151889c44945c871890d6a8eea2" name="a8d216151889c44945c871890d6a8eea2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d216151889c44945c871890d6a8eea2">&#9670;&#160;</a></span>lv_display_set_matrix_rotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_matrix_rotation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Use matrix rotation for the display. This function is depended on <code>LV_DRAW_TRANSFORM_USE_MATRIX</code> </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+    <tr><td class="paramname">enable</td><td>true: enable matrix rotation, false: disable </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac3b9a386c001b5308ff1296006a9a9ef" name="ac3b9a386c001b5308ff1296006a9a9ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3b9a386c001b5308ff1296006a9a9ef">&#9670;&#160;</a></span>lv_display_set_offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_offset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If physical resolution is not the same as the normal resolution the offset of the active display area can be set here. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">x</td><td>X offset </td></tr>
+    <tr><td class="paramname">y</td><td>Y offset </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab9cf056d065676d491041597f276f3fd" name="ab9cf056d065676d491041597f276f3fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9cf056d065676d491041597f276f3fd">&#9670;&#160;</a></span>lv_display_set_physical_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_physical_resolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>hor_res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>ver_res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>It's not mandatory to use the whole display for LVGL, however in some cases physical resolution is important. For example the touchpad still sees whole resolution and the values needs to be converted to the active LVGL display area. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">hor_res</td><td>the new physical horizontal resolution, or -1 to assume it's the same as the normal hor. res. </td></tr>
+    <tr><td class="paramname">ver_res</td><td>the new physical vertical resolution, or -1 to assume it's the same as the normal hor. res. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa0d0f6b7d120a07e59526dd358826a91" name="aa0d0f6b7d120a07e59526dd358826a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d0f6b7d120a07e59526dd358826a91">&#9670;&#160;</a></span>lv_display_set_render_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_render_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__display_8h.html#a5132aad8662c8544749cbb74dd7e1753">lv_display_render_mode_t</a>&#160;</td>
+          <td class="paramname"><em>render_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set display render mode </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">render_mode</td><td>LV_DISPLAY_RENDER_MODE_PARTIAL/DIRECT/FULL </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6fec6a88e9a6347c9cbbd62dcef1c522" name="a6fec6a88e9a6347c9cbbd62dcef1c522"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fec6a88e9a6347c9cbbd62dcef1c522">&#9670;&#160;</a></span>lv_display_set_resolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_resolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>hor_res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>ver_res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the resolution of a display. <code>LV_EVENT_RESOLUTION_CHANGED</code> event will be sent. Here the native resolution of the device should be set. If the display will be rotated later with <code>lv_display_set_rotation</code> LVGL will swap the hor. and ver. resolution automatically. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">hor_res</td><td>the new horizontal resolution </td></tr>
+    <tr><td class="paramname">ver_res</td><td>the new vertical resolution </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac30d495dbabdb158d67748da272cd4ee" name="ac30d495dbabdb158d67748da272cd4ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30d495dbabdb158d67748da272cd4ee">&#9670;&#160;</a></span>lv_display_set_rotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_rotation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_display_rotation_t&#160;</td>
+          <td class="paramname"><em>rotation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the rotation of this display. LVGL will swap the horizontal and vertical resolutions internally. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+    <tr><td class="paramname">rotation</td><td><code>LV_DISPLAY_ROTATION_0/90/180/270</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae3d9caa6c514cffcdd34340858939a02" name="ae3d9caa6c514cffcdd34340858939a02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d9caa6c514cffcdd34340858939a02">&#9670;&#160;</a></span>lv_display_set_theme()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_theme </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__theme__t.html">lv_theme_t</a> *&#160;</td>
+          <td class="paramname"><em>th</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the theme of a display. If there are no user created widgets yet the screens' theme will be updated </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">th</td><td>pointer to a theme </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a686e924faaadc749aa65f15100fd06ea" name="a686e924faaadc749aa65f15100fd06ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a686e924faaadc749aa65f15100fd06ea">&#9670;&#160;</a></span>lv_display_set_tile_cnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_set_tile_cnt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>tile_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the number of tiles for parallel rendering. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">tile_cnt</td><td>number of tiles (1 =&lt; tile_cnt &lt; 256) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab7e21c71d24fab16f9c5d9d29578744f" name="ab7e21c71d24fab16f9c5d9d29578744f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e21c71d24fab16f9c5d9d29578744f">&#9670;&#160;</a></span>lv_display_trigger_activity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_display_trigger_activity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Manually trigger an activity on a display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display (NULL to use the default display) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa77c1b73c04920896558fcce09c97fbf" name="aa77c1b73c04920896558fcce09c97fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa77c1b73c04920896558fcce09c97fbf">&#9670;&#160;</a></span>lv_display_unregister_vsync_event()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lv_display_unregister_vsync_event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td>
+          <td class="paramname"><em>disp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_event_cb_t&#160;</td>
+          <td class="paramname"><em>event_cb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Unregister vsync event of a display. <code>LV_EVENT_VSYNC</code> event won't be sent periodically. Please don't use it in display event listeners, as it may cause memory leaks and illegal access issues. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">disp</td><td>pointer to a display </td></tr>
+    <tr><td class="paramname">event_cb</td><td>an event callback </td></tr>
+    <tr><td class="paramname">user_data</td><td>optional user_data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aabae964aef2ee1aa97a16cbecc9ef11c" name="aabae964aef2ee1aa97a16cbecc9ef11c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabae964aef2ee1aa97a16cbecc9ef11c">&#9670;&#160;</a></span>lv_dpx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_dpx </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>For default display, computes the number of pixels (a distance or size) as if the display had 160 DPI. This allows you to specify 1/160-th fractions of an inch to get real distance on the display that will be consistent regardless of its current DPI. It ensures <code>lv_dpx(100)</code>, for example, will have the same physical size regardless to the DPI of the display. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>number of 1/160-th-inch units to compute with </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>number of pixels to use to make that distance </dd></dl>
+
+</div>
+</div>
+<a id="a9c5a78fe20c3bae64020140c32a2897e" name="a9c5a78fe20c3bae64020140c32a2897e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c5a78fe20c3bae64020140c32a2897e">&#9670;&#160;</a></span>lv_event_get_invalidated_area()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlv__area__t.html">lv_area_t</a> * lv_event_get_invalidated_area </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__event__t.html">lv_event_t</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the area to be invalidated. Can be used in <code>LV_EVENT_INVALIDATE_AREA</code> </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>pointer to an event </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the area to invalidated (can be modified as required) </dd></dl>
+
+</div>
+</div>
+<a id="a8e38f3c8911e5040880474a7b0977bf9" name="a8e38f3c8911e5040880474a7b0977bf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e38f3c8911e5040880474a7b0977bf9">&#9670;&#160;</a></span>lv_layer_bottom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_layer_bottom </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the bottom layer of the default display </p><dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the bottom layer </dd></dl>
+
+</div>
+</div>
+<a id="a2186d718507982f1767269c1b3b7453f" name="a2186d718507982f1767269c1b3b7453f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2186d718507982f1767269c1b3b7453f">&#9670;&#160;</a></span>lv_layer_sys()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_layer_sys </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the system layer of the default display </p><dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the sys layer </dd></dl>
+
+</div>
+</div>
+<a id="a39ef6bfefe6f9e381b16d579d1316ae8" name="a39ef6bfefe6f9e381b16d579d1316ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39ef6bfefe6f9e381b16d579d1316ae8">&#9670;&#160;</a></span>lv_layer_top()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_layer_top </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the top layer of the default display </p><dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the top layer </dd></dl>
+
+</div>
+</div>
+<a id="ae5c93629ebabaee2d7cd4461f4ccd128" name="ae5c93629ebabaee2d7cd4461f4ccd128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c93629ebabaee2d7cd4461f4ccd128">&#9670;&#160;</a></span>lv_screen_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_screen_active </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the active screen of the default display </p><dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the active screen </dd></dl>
+
+</div>
+</div>
+<a id="ada0228eb33c364a2462fa4ca4962c9ff" name="ada0228eb33c364a2462fa4ca4962c9ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada0228eb33c364a2462fa4ca4962c9ff">&#9670;&#160;</a></span>lv_screen_load()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_screen_load </td>
+          <td>(</td>
+          <td class="paramtype">struct <a class="el" href="struct__lv__obj__t.html">_lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>scr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Load a screen on the default display </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scr</td><td>pointer to a screen </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aab3658c2cfa840241d48fd23b2dfa7fd" name="aab3658c2cfa840241d48fd23b2dfa7fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3658c2cfa840241d48fd23b2dfa7fd">&#9670;&#160;</a></span>lv_screen_load_anim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_screen_load_anim </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>scr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_screen_load_anim_t&#160;</td>
+          <td class="paramname"><em>anim_type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>delay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>auto_del</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Switch screen with animation </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scr</td><td>pointer to the new screen to load </td></tr>
+    <tr><td class="paramname">anim_type</td><td>type of the animation from <code>lv_screen_load_anim_t</code>, e.g. <code>LV_SCREEN_LOAD_ANIM_MOVE_LEFT</code> </td></tr>
+    <tr><td class="paramname">time</td><td>time of the animation </td></tr>
+    <tr><td class="paramname">delay</td><td>delay before the transition </td></tr>
+    <tr><td class="paramname">auto_del</td><td>true: automatically delete the old screen </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

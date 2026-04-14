@@ -1,0 +1,573 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/span/lv\+\_\+span.c}
+\hypertarget{lv__span_8c}{}\label{lv__span_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/span/lv\_span.c@{managed\_components/lvgl\_\_lvgl/src/widgets/span/lv\_span.c}}
+{\ttfamily \#include "{}lv\+\_\+span\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+area\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+bidi\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+ap.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+global.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+span.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+span.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__span_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlv__snippet__t}{lv\+\_\+snippet\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__snippet__stack}{\+\_\+snippet\+\_\+stack}}
+\item 
+struct \mbox{\hyperlink{structbind__element__string__t}{bind\+\_\+element\+\_\+string\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__span_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__span_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+spangroup\+\_\+class)
+\item 
+\Hypertarget{lv__span_8c_a163f031aa3183a501353c4e26d68e7bb}\label{lv__span_8c_a163f031aa3183a501353c4e26d68e7bb} 
+\#define {\bfseries snippet\+\_\+stack}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$span\+\_\+snippet\+\_\+stack
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__span_8c_a723bfdcc30aa03118dbf45ccc975019d}\label{lv__span_8c_a723bfdcc30aa03118dbf45ccc975019d} 
+void {\bfseries lv\+\_\+span\+\_\+stack\+\_\+init} (void)
+\item 
+\Hypertarget{lv__span_8c_a5defab620419eb914d9773915941b79c}\label{lv__span_8c_a5defab620419eb914d9773915941b79c} 
+void {\bfseries lv\+\_\+span\+\_\+stack\+\_\+deinit} (void)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__span_8c_a3c2ca11d16e4e42be52e22f2b76cfa4c}{lv\+\_\+spangroup\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}par)
+\item 
+\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__span_8c_afd3dd7f23b9e6ed8fbe3b60bb853ff82}{lv\+\_\+spangroup\+\_\+add\+\_\+span}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__span_8c_a2cd4a0caa78938a26e69fd76da2242d2}{lv\+\_\+spangroup\+\_\+delete\+\_\+span}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span)
+\item 
+void \mbox{\hyperlink{lv__span_8c_a5d3d44689f25a9f52e276d1e82fa6da0}{lv\+\_\+span\+\_\+set\+\_\+text}} (\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, const char \texorpdfstring{$\ast$}{*}text)
+\item 
+\Hypertarget{lv__span_8c_aa9186e29fabf076ab9ac3590eb1245d4}\label{lv__span_8c_aa9186e29fabf076ab9ac3590eb1245d4} 
+void {\bfseries lv\+\_\+span\+\_\+set\+\_\+text\+\_\+fmt} (\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, const char \texorpdfstring{$\ast$}{*}fmt,...)
+\item 
+void \mbox{\hyperlink{lv__span_8c_a66df30d2525f9299ac29a15483737995}{lv\+\_\+spangroup\+\_\+set\+\_\+span\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, const char \texorpdfstring{$\ast$}{*}text)
+\item 
+void \mbox{\hyperlink{lv__span_8c_a1be912a96b2c3455e516e6b40daf59d1}{lv\+\_\+span\+\_\+set\+\_\+text\+\_\+static}} (\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, const char \texorpdfstring{$\ast$}{*}text)
+\item 
+void \mbox{\hyperlink{lv__span_8c_a84c265ba72f4824d46a40382be4f8a3d}{lv\+\_\+spangroup\+\_\+set\+\_\+span\+\_\+text\+\_\+static}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, const char \texorpdfstring{$\ast$}{*}text)
+\item 
+\Hypertarget{lv__span_8c_ae5f8381345a411a3bb8ada692f9a8770}\label{lv__span_8c_ae5f8381345a411a3bb8ada692f9a8770} 
+void {\bfseries lv\+\_\+spangroup\+\_\+set\+\_\+span\+\_\+text\+\_\+fmt} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, const char \texorpdfstring{$\ast$}{*}fmt,...)
+\item 
+void \mbox{\hyperlink{lv__span_8c_ac42d66487d4238a325d59d335b1732f8}{lv\+\_\+spangroup\+\_\+set\+\_\+span\+\_\+style}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style)
+\item 
+void \mbox{\hyperlink{lv__span_8c_ab1dc0b911b05775f1488e8093841941b}{lv\+\_\+spangroup\+\_\+set\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}} align)
+\item 
+void \mbox{\hyperlink{lv__span_8c_aa213ee931162a1c5fe02d348fb804e40}{lv\+\_\+spangroup\+\_\+set\+\_\+overflow}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__span_8h_ab9a0375b76fa38f4483819d6fccaffcd}{lv\+\_\+span\+\_\+overflow\+\_\+t}} overflow)
+\item 
+void \mbox{\hyperlink{lv__span_8c_a78fbb9884c0452edd85af0c6b9e57e36}{lv\+\_\+spangroup\+\_\+set\+\_\+indent}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t indent)
+\item 
+void \mbox{\hyperlink{lv__span_8c_ad276f0e3571e534a42dca16c07b9fcda}{lv\+\_\+spangroup\+\_\+set\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__span_8h_a2301402baad729155d7b9f9b326fc532}{lv\+\_\+span\+\_\+mode\+\_\+t}} mode)
+\item 
+void \mbox{\hyperlink{lv__span_8c_ad2095ed2dc96676f1650fb476865c48b}{lv\+\_\+spangroup\+\_\+set\+\_\+max\+\_\+lines}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t lines)
+\item 
+\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__span_8c_a863b49bf17d0dd1c4597889ae1050caa}{lv\+\_\+span\+\_\+get\+\_\+style}} (\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__span_8c_abc5863563b09844afa70686f38c1ed18}{lv\+\_\+span\+\_\+get\+\_\+text}} (\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span)
+\item 
+\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__span_8c_a43e08371373160de460b979a9dcdfcd2}{lv\+\_\+spangroup\+\_\+get\+\_\+child}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t id)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__span_8c_a6b4f7f4355270cd1476fcd6a40bc0051}{lv\+\_\+spangroup\+\_\+get\+\_\+span\+\_\+count}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}} \mbox{\hyperlink{lv__span_8c_a4facaacf22f3b00f743d13cdd2318af4}{lv\+\_\+spangroup\+\_\+get\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__span_8h_ab9a0375b76fa38f4483819d6fccaffcd}{lv\+\_\+span\+\_\+overflow\+\_\+t}} \mbox{\hyperlink{lv__span_8c_aff77317c8770c671d563ea5f1a657f84}{lv\+\_\+spangroup\+\_\+get\+\_\+overflow}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__span_8c_a2d3ae65f658271bf32703beb155301c2}{lv\+\_\+spangroup\+\_\+get\+\_\+indent}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__span_8h_a2301402baad729155d7b9f9b326fc532}{lv\+\_\+span\+\_\+mode\+\_\+t}} \mbox{\hyperlink{lv__span_8c_af8fdeaab3987ee14dcbae6d631b81598}{lv\+\_\+spangroup\+\_\+get\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__span_8c_a776d12c69b1d31414477ce074806591f}{lv\+\_\+spangroup\+\_\+get\+\_\+max\+\_\+lines}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__span_8c_a8cb1e8501dc070de176cd1e63b72878d}{lv\+\_\+spangroup\+\_\+get\+\_\+max\+\_\+line\+\_\+height}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__span_8c_af337e2f824f7828a409ff554b7846483}{lv\+\_\+spangroup\+\_\+get\+\_\+expand\+\_\+width}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t max\+\_\+width)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__span_8c_a13424ef819c6e859d97f5d300bb407b6}{lv\+\_\+spangroup\+\_\+get\+\_\+expand\+\_\+height}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t width)
+\item 
+\mbox{\hyperlink{lv__span_8h_a4e3d6d5c1bd5310507b5481c98461b98}{lv\+\_\+span\+\_\+coords\+\_\+t}} \mbox{\hyperlink{lv__span_8c_af2db5dcccfa9e597e2b29e0fccc402fc}{lv\+\_\+spangroup\+\_\+get\+\_\+span\+\_\+coords}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span)
+\item 
+\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__span_8c_aaec67078b3e960f313de1ddf58e4fd9f}{lv\+\_\+spangroup\+\_\+get\+\_\+span\+\_\+by\+\_\+point}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}p)
+\item 
+void \mbox{\hyperlink{lv__span_8c_afb4fb309cb3c0d77fdd7f93284fb0e99}{lv\+\_\+spangroup\+\_\+refresh}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__span_8c_a84f99008e3a1bbe7941861f7d5990673}{lv\+\_\+spangroup\+\_\+bind\+\_\+span\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}span, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject, const char \texorpdfstring{$\ast$}{*}fmt)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__span_8c_a1cf5ccd92f2d196cba42fa927faef5a9}{lv\+\_\+spangroup\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__span_8c_a863b49bf17d0dd1c4597889ae1050caa}\label{lv__span_8c_a863b49bf17d0dd1c4597889ae1050caa} 
+\index{lv\_span.c@{lv\_span.c}!lv\_span\_get\_style@{lv\_span\_get\_style}}
+\index{lv\_span\_get\_style@{lv\_span\_get\_style}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_span\_get\_style()}{lv\_span\_get\_style()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+span\+\_\+get\+\_\+style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span }\end{DoxyParamCaption})}
+
+Get a pointer to the style of a span\textquotesingle{}s built-\/in style. Any lv\+\_\+style\+\_\+set\+\_\+... functions can be applied on the returned style. 
+\begin{DoxyParams}{Parametri}
+{\em span} & pointer to the span \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the style. (valid as long as the span is valid) 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_abc5863563b09844afa70686f38c1ed18}\label{lv__span_8c_abc5863563b09844afa70686f38c1ed18} 
+\index{lv\_span.c@{lv\_span.c}!lv\_span\_get\_text@{lv\_span\_get\_text}}
+\index{lv\_span\_get\_text@{lv\_span\_get\_text}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_span\_get\_text()}{lv\_span\_get\_text()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+span\+\_\+get\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span }\end{DoxyParamCaption})}
+
+Get a pointer to the text of a span 
+\begin{DoxyParams}{Parametri}
+{\em span} & pointer to the span \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the text 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a5d3d44689f25a9f52e276d1e82fa6da0}\label{lv__span_8c_a5d3d44689f25a9f52e276d1e82fa6da0} 
+\index{lv\_span.c@{lv\_span.c}!lv\_span\_set\_text@{lv\_span\_set\_text}}
+\index{lv\_span\_set\_text@{lv\_span\_set\_text}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_span\_set\_text()}{lv\_span\_set\_text()}}
+{\footnotesize\ttfamily void lv\+\_\+span\+\_\+set\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+Set a new text for a span. Memory will be allocated to store the text by the span. As the spangroup is not passed a redraw (invalidation) can\textquotesingle{}t be triggered automatically. Therefore {\ttfamily lv\+\_\+spangroup\+\_\+refresh(spangroup)} needs to be called manually, 
+\begin{DoxyParams}{Parametri}
+{\em span} & pointer to a span. \\
+\hline
+{\em text} & pointer to a text. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_a1be912a96b2c3455e516e6b40daf59d1}\label{lv__span_8c_a1be912a96b2c3455e516e6b40daf59d1} 
+\index{lv\_span.c@{lv\_span.c}!lv\_span\_set\_text\_static@{lv\_span\_set\_text\_static}}
+\index{lv\_span\_set\_text\_static@{lv\_span\_set\_text\_static}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_span\_set\_text\_static()}{lv\_span\_set\_text\_static()}}
+{\footnotesize\ttfamily void void lv\+\_\+span\+\_\+set\+\_\+text\+\_\+static (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+Set a static text. It will not be saved by the span so the \textquotesingle{}text\textquotesingle{} variable has to be \textquotesingle{}alive\textquotesingle{} while the span exist. 
+\begin{DoxyParams}{Parametri}
+{\em span} & pointer to a span. \\
+\hline
+{\em text} & pointer to a text. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_afd3dd7f23b9e6ed8fbe3b60bb853ff82}\label{lv__span_8c_afd3dd7f23b9e6ed8fbe3b60bb853ff82} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_add\_span@{lv\_spangroup\_add\_span}}
+\index{lv\_spangroup\_add\_span@{lv\_spangroup\_add\_span}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_add\_span()}{lv\_spangroup\_add\_span()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+spangroup\+\_\+add\+\_\+span (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Create a span string descriptor and add to spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created span. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a84f99008e3a1bbe7941861f7d5990673}\label{lv__span_8c_a84f99008e3a1bbe7941861f7d5990673} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_bind\_span\_text@{lv\_spangroup\_bind\_span\_text}}
+\index{lv\_spangroup\_bind\_span\_text@{lv\_spangroup\_bind\_span\_text}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_bind\_span\_text()}{lv\_spangroup\_bind\_span\_text()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+spangroup\+\_\+bind\+\_\+span\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt }\end{DoxyParamCaption})}
+
+Bind an integer, string, or pointer Subject to a Spangroup\textquotesingle{}s Span. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Spangroup \\
+\hline
+{\em span} & pointer to Span \\
+\hline
+{\em subject} & pointer to Subject \\
+\hline
+{\em fmt} & optional printf-\/like format string with 1 format specifier (e.\+g. "{}\%d °\+C"{}) or NULL to bind to the value directly. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to newly-\/created Observer 
+\end{DoxyReturn}
+\begin{DoxyNote}{Opomba}
+If {\ttfamily fmt == NULL} strings and pointers ({\ttfamily \textbackslash{}0} terminated string) will be shown as text as they are, integers as d, floats as \%0.\+1f 
+\end{DoxyNote}
+\Hypertarget{lv__span_8c_a3c2ca11d16e4e42be52e22f2b76cfa4c}\label{lv__span_8c_a3c2ca11d16e4e42be52e22f2b76cfa4c} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_create@{lv\_spangroup\_create}}
+\index{lv\_spangroup\_create@{lv\_spangroup\_create}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_create()}{lv\_spangroup\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+spangroup\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a spangroup object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new spangroup \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created spangroup 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a2cd4a0caa78938a26e69fd76da2242d2}\label{lv__span_8c_a2cd4a0caa78938a26e69fd76da2242d2} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_delete\_span@{lv\_spangroup\_delete\_span}}
+\index{lv\_spangroup\_delete\_span@{lv\_spangroup\_delete\_span}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_delete\_span()}{lv\_spangroup\_delete\_span()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+delete\+\_\+span (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span }\end{DoxyParamCaption})}
+
+Remove the span from the spangroup and free memory. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em span} & pointer to a span. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+Note that before calling {\ttfamily lv\+\_\+spangroup\+\_\+delete\+\_\+span} {\ttfamily lv\+\_\+observer\+\_\+remove} needs to be called manually as LVGL can\textquotesingle{}t remove the binding automatically. 
+\end{DoxyNote}
+\Hypertarget{lv__span_8c_a4facaacf22f3b00f743d13cdd2318af4}\label{lv__span_8c_a4facaacf22f3b00f743d13cdd2318af4} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_align@{lv\_spangroup\_get\_align}}
+\index{lv\_spangroup\_get\_align@{lv\_spangroup\_get\_align}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_align()}{lv\_spangroup\_get\_align()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}} lv\+\_\+spangroup\+\_\+get\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the align of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the align value. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a43e08371373160de460b979a9dcdfcd2}\label{lv__span_8c_a43e08371373160de460b979a9dcdfcd2} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_child@{lv\_spangroup\_get\_child}}
+\index{lv\_spangroup\_get\_child@{lv\_spangroup\_get\_child}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_child()}{lv\_spangroup\_get\_child()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+spangroup\+\_\+get\+\_\+child (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+Get a spangroup child by its index.
+
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & The spangroup object \\
+\hline
+{\em id} & the index of the child. 0\+: the oldest (firstly created) child 1\+: the second oldest child count-\/1\+: the youngest -\/1\+: the youngest -\/2\+: the second youngest \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+The child span at index {\ttfamily id}, or NULL if the ID does not exist 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a13424ef819c6e859d97f5d300bb407b6}\label{lv__span_8c_a13424ef819c6e859d97f5d300bb407b6} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_expand\_height@{lv\_spangroup\_get\_expand\_height}}
+\index{lv\_spangroup\_get\_expand\_height@{lv\_spangroup\_get\_expand\_height}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_expand\_height()}{lv\_spangroup\_get\_expand\_height()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spangroup\+\_\+get\+\_\+expand\+\_\+height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{width }\end{DoxyParamCaption})}
+
+Get the text content height with width fixed. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em width} & the width of the span group. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_af337e2f824f7828a409ff554b7846483}\label{lv__span_8c_af337e2f824f7828a409ff554b7846483} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_expand\_width@{lv\_spangroup\_get\_expand\_width}}
+\index{lv\_spangroup\_get\_expand\_width@{lv\_spangroup\_get\_expand\_width}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_expand\_width()}{lv\_spangroup\_get\_expand\_width()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+spangroup\+\_\+get\+\_\+expand\+\_\+width (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{max\+\_\+width }\end{DoxyParamCaption})}
+
+Get the text content width when all span of spangroup on a line. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em max\+\_\+width} & if text content width \texorpdfstring{$>$}{>}= max\+\_\+width, return max\+\_\+width to reduce computation, if max\+\_\+width == 0, returns the text content width. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+text content width or max\+\_\+width. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a2d3ae65f658271bf32703beb155301c2}\label{lv__span_8c_a2d3ae65f658271bf32703beb155301c2} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_indent@{lv\_spangroup\_get\_indent}}
+\index{lv\_spangroup\_get\_indent@{lv\_spangroup\_get\_indent}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_indent()}{lv\_spangroup\_get\_indent()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spangroup\+\_\+get\+\_\+indent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the indent of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the indent value. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a8cb1e8501dc070de176cd1e63b72878d}\label{lv__span_8c_a8cb1e8501dc070de176cd1e63b72878d} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_max\_line\_height@{lv\_spangroup\_get\_max\_line\_height}}
+\index{lv\_spangroup\_get\_max\_line\_height@{lv\_spangroup\_get\_max\_line\_height}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_max\_line\_height()}{lv\_spangroup\_get\_max\_line\_height()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spangroup\+\_\+get\+\_\+max\+\_\+line\+\_\+height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get max line height of all span in the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_a776d12c69b1d31414477ce074806591f}\label{lv__span_8c_a776d12c69b1d31414477ce074806591f} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_max\_lines@{lv\_spangroup\_get\_max\_lines}}
+\index{lv\_spangroup\_get\_max\_lines@{lv\_spangroup\_get\_max\_lines}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_max\_lines()}{lv\_spangroup\_get\_max\_lines()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spangroup\+\_\+get\+\_\+max\+\_\+lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get maximum lines of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the max lines value. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_af8fdeaab3987ee14dcbae6d631b81598}\label{lv__span_8c_af8fdeaab3987ee14dcbae6d631b81598} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_mode@{lv\_spangroup\_get\_mode}}
+\index{lv\_spangroup\_get\_mode@{lv\_spangroup\_get\_mode}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_mode()}{lv\_spangroup\_get\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__span_8h_a2301402baad729155d7b9f9b326fc532}{lv\+\_\+span\+\_\+mode\+\_\+t}} lv\+\_\+spangroup\+\_\+get\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the mode of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_aff77317c8770c671d563ea5f1a657f84}\label{lv__span_8c_aff77317c8770c671d563ea5f1a657f84} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_overflow@{lv\_spangroup\_get\_overflow}}
+\index{lv\_spangroup\_get\_overflow@{lv\_spangroup\_get\_overflow}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_overflow()}{lv\_spangroup\_get\_overflow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__span_8h_ab9a0375b76fa38f4483819d6fccaffcd}{lv\+\_\+span\+\_\+overflow\+\_\+t}} lv\+\_\+spangroup\+\_\+get\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the overflow of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the overflow value. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_aaec67078b3e960f313de1ddf58e4fd9f}\label{lv__span_8c_aaec67078b3e960f313de1ddf58e4fd9f} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_span\_by\_point@{lv\_spangroup\_get\_span\_by\_point}}
+\index{lv\_spangroup\_get\_span\_by\_point@{lv\_spangroup\_get\_span\_by\_point}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_span\_by\_point()}{lv\_spangroup\_get\_span\_by\_point()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+spangroup\+\_\+get\+\_\+span\+\_\+by\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{point }\end{DoxyParamCaption})}
+
+Get the span object by point. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em point} & pointer to point containing absolute coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the span under the point or {\ttfamily NULL} if not found. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_af2db5dcccfa9e597e2b29e0fccc402fc}\label{lv__span_8c_af2db5dcccfa9e597e2b29e0fccc402fc} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_span\_coords@{lv\_spangroup\_get\_span\_coords}}
+\index{lv\_spangroup\_get\_span\_coords@{lv\_spangroup\_get\_span\_coords}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_span\_coords()}{lv\_spangroup\_get\_span\_coords()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__span_8h_a4e3d6d5c1bd5310507b5481c98461b98}{lv\+\_\+span\+\_\+coords\+\_\+t}} lv\+\_\+spangroup\+\_\+get\+\_\+span\+\_\+coords (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span }\end{DoxyParamCaption})}
+
+Get the span\textquotesingle{}s coords in the spangroup. \begin{DoxyNote}{Opomba}
+Before calling this function, please make sure that the layout of span group has been updated. Like calling \doxylink{lv__obj__pos_8c_aff54da7280d2ddf3a84db3d08c3bce83}{lv\+\_\+obj\+\_\+update\+\_\+layout()} like function. \begin{DoxyVerb}+--------+
+|Heading +--->------------------+
+|  Pos   |   |     Heading      |
++--------+---+------------------+
+|                               |
+|                               |
+|                               |
+|            Middle   +--------+|
+|                     |Trailing||
+|                   +-|  Pos   ||
+|                   | +--------+|
++-------------------v-----------+
+|     Trailing      |
++-------------------+
+\end{DoxyVerb}
+ 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em span} & pointer to a span. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the span\textquotesingle{}s coords in the spangroup. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_a6b4f7f4355270cd1476fcd6a40bc0051}\label{lv__span_8c_a6b4f7f4355270cd1476fcd6a40bc0051} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_get\_span\_count@{lv\_spangroup\_get\_span\_count}}
+\index{lv\_spangroup\_get\_span\_count@{lv\_spangroup\_get\_span\_count}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_get\_span\_count()}{lv\_spangroup\_get\_span\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+spangroup\+\_\+get\+\_\+span\+\_\+count (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get number of spans 
+\begin{DoxyParams}{Parametri}
+{\em obj} & the spangroup object to get the child count of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the span count of the spangroup. 
+\end{DoxyReturn}
+\Hypertarget{lv__span_8c_afb4fb309cb3c0d77fdd7f93284fb0e99}\label{lv__span_8c_afb4fb309cb3c0d77fdd7f93284fb0e99} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_refresh@{lv\_spangroup\_refresh}}
+\index{lv\_spangroup\_refresh@{lv\_spangroup\_refresh}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_refresh()}{lv\_spangroup\_refresh()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+refresh (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Update the mode of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_ab1dc0b911b05775f1488e8093841941b}\label{lv__span_8c_ab1dc0b911b05775f1488e8093841941b} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_align@{lv\_spangroup\_set\_align}}
+\index{lv\_spangroup\_set\_align@{lv\_spangroup\_set\_align}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_align()}{lv\_spangroup\_set\_align()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}}}]{align }\end{DoxyParamCaption})}
+
+DEPRECATED. Use the text\+\_\+align style property instead Set the align of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em align} & see lv\+\_\+text\+\_\+align\+\_\+t for details. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_a78fbb9884c0452edd85af0c6b9e57e36}\label{lv__span_8c_a78fbb9884c0452edd85af0c6b9e57e36} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_indent@{lv\_spangroup\_set\_indent}}
+\index{lv\_spangroup\_set\_indent@{lv\_spangroup\_set\_indent}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_indent()}{lv\_spangroup\_set\_indent()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+indent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{indent }\end{DoxyParamCaption})}
+
+Set the indent of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em indent} & the first line indentation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_ad2095ed2dc96676f1650fb476865c48b}\label{lv__span_8c_ad2095ed2dc96676f1650fb476865c48b} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_max\_lines@{lv\_spangroup\_set\_max\_lines}}
+\index{lv\_spangroup\_set\_max\_lines@{lv\_spangroup\_set\_max\_lines}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_max\_lines()}{lv\_spangroup\_set\_max\_lines()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+max\+\_\+lines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{lines }\end{DoxyParamCaption})}
+
+Set maximum lines of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em lines} & max lines that can be displayed in LV\+\_\+\+SPAN\+\_\+\+MODE\+\_\+\+BREAK mode. \texorpdfstring{$<$}{<} 0 means no limit. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_ad276f0e3571e534a42dca16c07b9fcda}\label{lv__span_8c_ad276f0e3571e534a42dca16c07b9fcda} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_mode@{lv\_spangroup\_set\_mode}}
+\index{lv\_spangroup\_set\_mode@{lv\_spangroup\_set\_mode}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_mode()}{lv\_spangroup\_set\_mode()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__span_8h_a2301402baad729155d7b9f9b326fc532}{lv\+\_\+span\+\_\+mode\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+DEPRECATED, set the width to LV\+\_\+\+SIZE\+\_\+\+CONTENT or fixed value to control expanding/wrapping"{} Set the mode of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em mode} & see lv\+\_\+span\+\_\+mode\+\_\+t for details. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_aa213ee931162a1c5fe02d348fb804e40}\label{lv__span_8c_aa213ee931162a1c5fe02d348fb804e40} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_overflow@{lv\_spangroup\_set\_overflow}}
+\index{lv\_spangroup\_set\_overflow@{lv\_spangroup\_set\_overflow}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_overflow()}{lv\_spangroup\_set\_overflow()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__span_8h_ab9a0375b76fa38f4483819d6fccaffcd}{lv\+\_\+span\+\_\+overflow\+\_\+t}}}]{overflow }\end{DoxyParamCaption})}
+
+Set the overflow of the spangroup. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup object. \\
+\hline
+{\em overflow} & see lv\+\_\+span\+\_\+overflow\+\_\+t for details. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_ac42d66487d4238a325d59d335b1732f8}\label{lv__span_8c_ac42d66487d4238a325d59d335b1732f8} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_span\_style@{lv\_spangroup\_set\_span\_style}}
+\index{lv\_spangroup\_set\_span\_style@{lv\_spangroup\_set\_span\_style}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_span\_style()}{lv\_spangroup\_set\_span\_style()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+span\+\_\+style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span,  }\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style }\end{DoxyParamCaption})}
+
+Copy all style properties of style to the bbuilt-\/in static style of the span. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer\+\_\+to a spangroup \\
+\hline
+{\em span} & pointer to a span. \\
+\hline
+{\em style} & pointer to a style to copy into the span\textquotesingle{}s built-\/in style \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_a66df30d2525f9299ac29a15483737995}\label{lv__span_8c_a66df30d2525f9299ac29a15483737995} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_span\_text@{lv\_spangroup\_set\_span\_text}}
+\index{lv\_spangroup\_set\_span\_text@{lv\_spangroup\_set\_span\_text}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_span\_text()}{lv\_spangroup\_set\_span\_text()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+span\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+Set a new text for a span. Memory will be allocated to store the text by the span. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup widget. \\
+\hline
+{\em span} & pointer to a span. \\
+\hline
+{\em text} & pointer to a text. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__span_8c_a84c265ba72f4824d46a40382be4f8a3d}\label{lv__span_8c_a84c265ba72f4824d46a40382be4f8a3d} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_set\_span\_text\_static@{lv\_spangroup\_set\_span\_text\_static}}
+\index{lv\_spangroup\_set\_span\_text\_static@{lv\_spangroup\_set\_span\_text\_static}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_set\_span\_text\_static()}{lv\_spangroup\_set\_span\_text\_static()}}
+{\footnotesize\ttfamily void lv\+\_\+spangroup\+\_\+set\+\_\+span\+\_\+text\+\_\+static (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__span__t}{lv\+\_\+span\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{span,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+Set a new text for a span. Memory will be allocated to store the text by the span. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a spangroup widget. \\
+\hline
+{\em span} & pointer to a span. \\
+\hline
+{\em text} & pointer to a text. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__span_8c_a1cf5ccd92f2d196cba42fa927faef5a9}\label{lv__span_8c_a1cf5ccd92f2d196cba42fa927faef5a9} 
+\index{lv\_span.c@{lv\_span.c}!lv\_spangroup\_class@{lv\_spangroup\_class}}
+\index{lv\_spangroup\_class@{lv\_spangroup\_class}!lv\_span.c@{lv\_span.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spangroup\_class}{lv\_spangroup\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+spangroup\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{struct__lv__obj__class__t_a79e1c18f63ad06b43b0d6a5dc081015e}{constructor\_cb}}\ =\ lv\_spangroup\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_spangroup\_destructor,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_spangroup\_event,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__spangroup__t}{lv\_spangroup\_t}}),}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_span"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

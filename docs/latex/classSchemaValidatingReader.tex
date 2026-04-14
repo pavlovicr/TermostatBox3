@@ -1,0 +1,100 @@
+\doxysection{ Razred Schema\+Validating\+Reader\texorpdfstring{$<$}{<} parse\+Flags, Input\+Stream, Source\+Encoding, Schema\+Document\+Type, Stack\+Allocator \texorpdfstring{$>$}{>}}
+\hypertarget{classSchemaValidatingReader}{}\label{classSchemaValidatingReader}\index{SchemaValidatingReader$<$ parseFlags, InputStream, SourceEncoding, SchemaDocumentType, StackAllocator $>$@{SchemaValidatingReader$<$ parseFlags, InputStream, SourceEncoding, SchemaDocumentType, StackAllocator $>$}}
+
+
+A helper class for parsing with validation.  
+
+
+
+
+{\ttfamily \#include $<$schema.\+h$>$}
+
+\doxysubsubsection*{Javni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classSchemaValidatingReader_a30ecf1b20ca5a1b79e0d5f4ceb3bf198}\label{classSchemaValidatingReader_a30ecf1b20ca5a1b79e0d5f4ceb3bf198} 
+typedef Schema\+Document\+Type\+::\+Pointer\+Type {\bfseries Pointer\+Type}
+\item 
+\Hypertarget{classSchemaValidatingReader_a6eb6f887a49dbb400800ab4fc01f02c7}\label{classSchemaValidatingReader_a6eb6f887a49dbb400800ab4fc01f02c7} 
+typedef Input\+Stream\+::\+Ch {\bfseries Ch}
+\item 
+\Hypertarget{classSchemaValidatingReader_af08b51fcef602c68d95769c35ae606be}\label{classSchemaValidatingReader_af08b51fcef602c68d95769c35ae606be} 
+typedef \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ Source\+Encoding, Stack\+Allocator $>$ {\bfseries Value\+Type}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSchemaValidatingReader_ae7945b71687ad3dd13b9c3d096892eac}{Schema\+Validating\+Reader}} (Input\+Stream \&is, const Schema\+Document\+Type \&sd)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classSchemaValidatingReader_a7135d8d53aacd850fbce2901cca4a4c3}\label{classSchemaValidatingReader_a7135d8d53aacd850fbce2901cca4a4c3} 
+{\footnotesize template$<$typename \mbox{\hyperlink{classrapidjson_1_1Handler}{Handler}} $>$ }\\bool {\bfseries operator()} (\mbox{\hyperlink{classrapidjson_1_1Handler}{Handler}} \&handler)
+\item 
+\Hypertarget{classSchemaValidatingReader_acc40a173eed09563cb0abad84833e9b3}\label{classSchemaValidatingReader_acc40a173eed09563cb0abad84833e9b3} 
+const \mbox{\hyperlink{structParseResult}{Parse\+Result}} \& {\bfseries Get\+Parse\+Result} () const
+\item 
+\Hypertarget{classSchemaValidatingReader_a3c04fa90a430a67a993a2b8876e89ff4}\label{classSchemaValidatingReader_a3c04fa90a430a67a993a2b8876e89ff4} 
+bool {\bfseries Is\+Valid} () const
+\item 
+\Hypertarget{classSchemaValidatingReader_a5bdb2a12bfff9952f7b89069cae6905c}\label{classSchemaValidatingReader_a5bdb2a12bfff9952f7b89069cae6905c} 
+const Pointer\+Type \& {\bfseries Get\+Invalid\+Schema\+Pointer} () const
+\item 
+\Hypertarget{classSchemaValidatingReader_aa1dbb9886be16ee82c91a7293f9614e5}\label{classSchemaValidatingReader_aa1dbb9886be16ee82c91a7293f9614e5} 
+const Ch \texorpdfstring{$\ast$}{*} {\bfseries Get\+Invalid\+Schema\+Keyword} () const
+\item 
+\Hypertarget{classSchemaValidatingReader_a219ab1f4aa1623e0a8d67ff5d6cb54b9}\label{classSchemaValidatingReader_a219ab1f4aa1623e0a8d67ff5d6cb54b9} 
+const Pointer\+Type \& {\bfseries Get\+Invalid\+Document\+Pointer} () const
+\item 
+\Hypertarget{classSchemaValidatingReader_ae9f1dde3317af2cf65ae165f060498b4}\label{classSchemaValidatingReader_ae9f1dde3317af2cf65ae165f060498b4} 
+const \mbox{\hyperlink{classGenericValue}{Value\+Type}} \& {\bfseries Get\+Error} () const
+\item 
+\Hypertarget{classSchemaValidatingReader_a625f4a209960ad79485d3c8e9bc23fbb}\label{classSchemaValidatingReader_a625f4a209960ad79485d3c8e9bc23fbb} 
+\mbox{\hyperlink{group__RAPIDJSON__ERRORS_ga2e1f88f94a5d9a6817a5de0ed2f0105a}{Validate\+Error\+Code}} {\bfseries Get\+Invalid\+Schema\+Code} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$unsigned parse\+Flags, typename Input\+Stream, typename Source\+Encoding, typename Schema\+Document\+Type = Schema\+Document, typename Stack\+Allocator = Crt\+Allocator$>$\newline
+class Schema\+Validating\+Reader$<$ parse\+Flags, Input\+Stream, Source\+Encoding, Schema\+Document\+Type, Stack\+Allocator $>$}
+A helper class for parsing with validation. 
+
+This helper class is a functor, designed as a parameter of \doxylink{classGenericDocument_ac30b4e8887974060b695be20c3ceb02c}{Generic\+Document\+::\+Populate()}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em parse\+Flags} & Combination of \doxylink{reader_8h_ab7be7dabe6ffcba60fad441505583450}{Parse\+Flag}. \\
+\hline
+{\em Input\+Stream} & Type of input stream, implementing Stream concept. \\
+\hline
+{\em Source\+Encoding} & Encoding of the input stream. \\
+\hline
+{\em Schema\+Document\+Type} & Type of schema document. \\
+\hline
+{\em Stack\+Allocator} & Allocator type for stack. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Opis konstruktorjev in destruktorjev }
+\Hypertarget{classSchemaValidatingReader_ae7945b71687ad3dd13b9c3d096892eac}\label{classSchemaValidatingReader_ae7945b71687ad3dd13b9c3d096892eac} 
+\index{SchemaValidatingReader$<$ parseFlags, InputStream, SourceEncoding, SchemaDocumentType, StackAllocator $>$@{SchemaValidatingReader$<$ parseFlags, InputStream, SourceEncoding, SchemaDocumentType, StackAllocator $>$}!SchemaValidatingReader@{SchemaValidatingReader}}
+\index{SchemaValidatingReader@{SchemaValidatingReader}!SchemaValidatingReader$<$ parseFlags, InputStream, SourceEncoding, SchemaDocumentType, StackAllocator $>$@{SchemaValidatingReader$<$ parseFlags, InputStream, SourceEncoding, SchemaDocumentType, StackAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{SchemaValidatingReader()}{SchemaValidatingReader()}}
+{\footnotesize\ttfamily template$<$unsigned parse\+Flags, typename Input\+Stream , typename Source\+Encoding , typename Schema\+Document\+Type  = Schema\+Document, typename Stack\+Allocator  = Crt\+Allocator$>$ \\
+\mbox{\hyperlink{classSchemaValidatingReader}{Schema\+Validating\+Reader}}$<$ parse\+Flags, Input\+Stream, Source\+Encoding, Schema\+Document\+Type, Stack\+Allocator $>$\mbox{\hyperlink{classSchemaValidatingReader}{\+::\+Schema\+Validating\+Reader}} (\begin{DoxyParamCaption}\item[{Input\+Stream \&}]{is,  }\item[{const Schema\+Document\+Type \&}]{sd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em is} & Input stream. \\
+\hline
+{\em sd} & Schema document. \\
+\hline
+\end{DoxyParams}
+
+
+Opis razreda je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/schema.\+h\end{DoxyCompactItemize}

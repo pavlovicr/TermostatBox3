@@ -1,0 +1,549 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/menu/lv\+\_\+menu.c}
+\hypertarget{lv__menu_8c}{}\label{lv__menu_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/menu/lv\_menu.c@{managed\_components/lvgl\_\_lvgl/src/widgets/menu/lv\_menu.c}}
+{\ttfamily \#include "{}lv\+\_\+menu\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../layouts/lv\+\_\+layout.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}../label/lv\+\_\+label.\+h"{}}\newline
+{\ttfamily \#include "{}../button/lv\+\_\+button.\+h"{}}\newline
+{\ttfamily \#include "{}../image/lv\+\_\+image.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+menu.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+menu.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__menu_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__menu_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__menu_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+menu\+\_\+class)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__menu_8c_a4bd2972cdb8e2b2e91c99cd260f7fae0}{lv\+\_\+menu\+\_\+clear\+\_\+history}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_a89896b67e2a73748453ed313a565f9b3}{lv\+\_\+menu\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_aef04f072958ea46c1cc132f67a533b53}{lv\+\_\+menu\+\_\+page\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}menu, char const \texorpdfstring{$\ast$}{*}const title)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_a87a5bc6797a4cb75520948655ae997b6}{lv\+\_\+menu\+\_\+cont\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_ac2a98082651d40257c2a6b9d59848fdd}{lv\+\_\+menu\+\_\+section\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_a752419b14c904c0217703fa83cea1f03}{lv\+\_\+menu\+\_\+separator\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__menu_8c_ae90f8351b5d0f6c59626e6d4279f2189}{lv\+\_\+menu\+\_\+set\+\_\+page}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}page)
+\item 
+void \mbox{\hyperlink{lv__menu_8c_a85ef980564e9f6b6f80c9e607f77c6f7}{lv\+\_\+menu\+\_\+set\+\_\+sidebar\+\_\+page}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}page)
+\item 
+void \mbox{\hyperlink{lv__menu_8c_aafc437ff8137bb41bf347fb3c0d00f08}{lv\+\_\+menu\+\_\+set\+\_\+mode\+\_\+header}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__menu_8h_ac21b9446943f38616dbcb5ccd0d58ae7}{lv\+\_\+menu\+\_\+mode\+\_\+header\+\_\+t}} mode)
+\item 
+void \mbox{\hyperlink{lv__menu_8c_ad5b8b8d49806d3fd84c12d47dc3f8754}{lv\+\_\+menu\+\_\+set\+\_\+mode\+\_\+root\+\_\+back\+\_\+button}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+menu\+\_\+mode\+\_\+root\+\_\+back\+\_\+button\+\_\+t mode)
+\item 
+void \mbox{\hyperlink{lv__menu_8c_a4c3d3768e8673a35e06cf686e87ee0ca}{lv\+\_\+menu\+\_\+set\+\_\+load\+\_\+page\+\_\+event}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}menu, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}page)
+\item 
+void \mbox{\hyperlink{lv__menu_8c_ae333e1c846a26b431536a8634a728ef6}{lv\+\_\+menu\+\_\+set\+\_\+page\+\_\+title}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}page\+\_\+obj, char const \texorpdfstring{$\ast$}{*}const title)
+\item 
+void \mbox{\hyperlink{lv__menu_8c_aeaaedb05eb2336f36f50ac764fda5720}{lv\+\_\+menu\+\_\+set\+\_\+page\+\_\+title\+\_\+static}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}page\+\_\+obj, char const \texorpdfstring{$\ast$}{*}const title)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_a3d90989e97d3d73d32711e1ca6a72274}{lv\+\_\+menu\+\_\+get\+\_\+cur\+\_\+main\+\_\+page}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_a13efba5f87f3e6c3f7787edb32cf1327}{lv\+\_\+menu\+\_\+get\+\_\+cur\+\_\+sidebar\+\_\+page}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_a58123cc46f090aaa6cbb5f513e74de0d}{lv\+\_\+menu\+\_\+get\+\_\+main\+\_\+header}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_ab340fd6373397ef85dafcbfa98d02749}{lv\+\_\+menu\+\_\+get\+\_\+main\+\_\+header\+\_\+back\+\_\+button}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_a9329822c72843c01f6e3fef54f42372a}{lv\+\_\+menu\+\_\+get\+\_\+sidebar\+\_\+header}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__menu_8c_afcbd34dd1c4095d801db4b917bf8a38f}{lv\+\_\+menu\+\_\+get\+\_\+sidebar\+\_\+header\+\_\+back\+\_\+button}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__menu_8c_a4ec0f36184ac9a5fa29a424f0977aadb}{lv\+\_\+menu\+\_\+back\+\_\+button\+\_\+is\+\_\+root}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}menu, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__menu_8h_ac21b9446943f38616dbcb5ccd0d58ae7}{lv\+\_\+menu\+\_\+mode\+\_\+header\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_a59be8f4630b0385b61f3106f3f3ba622}{lv\+\_\+menu\+\_\+get\+\_\+mode\+\_\+header}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+menu\+\_\+mode\+\_\+root\+\_\+back\+\_\+button\+\_\+t \mbox{\hyperlink{lv__menu_8c_a70c4a2eca49ffbcbcabab43a8df8676e}{lv\+\_\+menu\+\_\+get\+\_\+mode\+\_\+root\+\_\+back\+\_\+button}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_a3b8f9a3a831403ac9658b6f83f2b519e}{lv\+\_\+menu\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_aa8df158b1b7e979fb84fbe3ac9c2e7c2}{lv\+\_\+menu\+\_\+page\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_af89403ab9179b3d61686c25ca2c85289}{lv\+\_\+menu\+\_\+cont\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_aba2223d3da70ae0ee163d0ccc3adc354}{lv\+\_\+menu\+\_\+section\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_a1ad88eb7ea1bb0ac38933dd1d251f253}{lv\+\_\+menu\+\_\+separator\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_a6057aa340cdc7d1509af8657d164feb3}{lv\+\_\+menu\+\_\+sidebar\+\_\+cont\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_a94d1be8b9e957083aeb334aa9e041fa2}{lv\+\_\+menu\+\_\+main\+\_\+cont\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_ac4fa24fb09db635594f8a56993afcdcc}{lv\+\_\+menu\+\_\+main\+\_\+header\+\_\+cont\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__menu_8c_a822bfcca7c0c69f2af8e7d332455c2b4}{lv\+\_\+menu\+\_\+sidebar\+\_\+header\+\_\+cont\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__menu_8c_a4ec0f36184ac9a5fa29a424f0977aadb}\label{lv__menu_8c_a4ec0f36184ac9a5fa29a424f0977aadb} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_back\_button\_is\_root@{lv\_menu\_back\_button\_is\_root}}
+\index{lv\_menu\_back\_button\_is\_root@{lv\_menu\_back\_button\_is\_root}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_back\_button\_is\_root()}{lv\_menu\_back\_button\_is\_root()}}
+{\footnotesize\ttfamily bool lv\+\_\+menu\+\_\+back\+\_\+button\+\_\+is\+\_\+root (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{menu,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Check if an obj is a root back btn 
+\begin{DoxyParams}{Parametri}
+{\em menu} & pointer to the menu \\
+\hline
+{\em obj} & pointer to the back button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true if it is a root back btn 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a4bd2972cdb8e2b2e91c99cd260f7fae0}\label{lv__menu_8c_a4bd2972cdb8e2b2e91c99cd260f7fae0} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_clear\_history@{lv\_menu\_clear\_history}}
+\index{lv\_menu\_clear\_history@{lv\_menu\_clear\_history}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_clear\_history()}{lv\_menu\_clear\_history()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+clear\+\_\+history (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Clear menu history 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__menu_8c_a87a5bc6797a4cb75520948655ae997b6}\label{lv__menu_8c_a87a5bc6797a4cb75520948655ae997b6} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_cont\_create@{lv\_menu\_cont\_create}}
+\index{lv\_menu\_cont\_create@{lv\_menu\_cont\_create}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_cont\_create()}{lv\_menu\_cont\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+cont\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a menu cont object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to a menu page or menu section object, it will be the parent of the new menu cont object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created menu cont 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a89896b67e2a73748453ed313a565f9b3}\label{lv__menu_8c_a89896b67e2a73748453ed313a565f9b3} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_create@{lv\_menu\_create}}
+\index{lv\_menu\_create@{lv\_menu\_create}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_create()}{lv\_menu\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a menu object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created menu 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a3d90989e97d3d73d32711e1ca6a72274}\label{lv__menu_8c_a3d90989e97d3d73d32711e1ca6a72274} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_cur\_main\_page@{lv\_menu\_get\_cur\_main\_page}}
+\index{lv\_menu\_get\_cur\_main\_page@{lv\_menu\_get\_cur\_main\_page}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_cur\_main\_page()}{lv\_menu\_get\_cur\_main\_page()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+get\+\_\+cur\+\_\+main\+\_\+page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a pointer to menu page that is currently displayed in main 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to current page 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a13efba5f87f3e6c3f7787edb32cf1327}\label{lv__menu_8c_a13efba5f87f3e6c3f7787edb32cf1327} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_cur\_sidebar\_page@{lv\_menu\_get\_cur\_sidebar\_page}}
+\index{lv\_menu\_get\_cur\_sidebar\_page@{lv\_menu\_get\_cur\_sidebar\_page}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_cur\_sidebar\_page()}{lv\_menu\_get\_cur\_sidebar\_page()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+get\+\_\+cur\+\_\+sidebar\+\_\+page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a pointer to menu page that is currently displayed in sidebar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to current page 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a58123cc46f090aaa6cbb5f513e74de0d}\label{lv__menu_8c_a58123cc46f090aaa6cbb5f513e74de0d} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_main\_header@{lv\_menu\_get\_main\_header}}
+\index{lv\_menu\_get\_main\_header@{lv\_menu\_get\_main\_header}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_main\_header()}{lv\_menu\_get\_main\_header()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+get\+\_\+main\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a pointer to main header obj 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to main header obj 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_ab340fd6373397ef85dafcbfa98d02749}\label{lv__menu_8c_ab340fd6373397ef85dafcbfa98d02749} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_main\_header\_back\_button@{lv\_menu\_get\_main\_header\_back\_button}}
+\index{lv\_menu\_get\_main\_header\_back\_button@{lv\_menu\_get\_main\_header\_back\_button}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_main\_header\_back\_button()}{lv\_menu\_get\_main\_header\_back\_button()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+get\+\_\+main\+\_\+header\+\_\+back\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a pointer to main header back btn obj 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to main header back btn obj 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a59be8f4630b0385b61f3106f3f3ba622}\label{lv__menu_8c_a59be8f4630b0385b61f3106f3f3ba622} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_mode\_header@{lv\_menu\_get\_mode\_header}}
+\index{lv\_menu\_get\_mode\_header@{lv\_menu\_get\_mode\_header}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_mode\_header()}{lv\_menu\_get\_mode\_header()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__menu_8h_ac21b9446943f38616dbcb5ccd0d58ae7}{lv\+\_\+menu\+\_\+mode\+\_\+header\+\_\+t}} lv\+\_\+menu\+\_\+get\+\_\+mode\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the header mode of the menu 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+MENU\+\_\+\+HEADER\+\_\+\+TOP\+\_\+\+FIXED/\+TOP\+\_\+\+UNFIXED/\+BOTTOM\+\_\+\+FIXED 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a70c4a2eca49ffbcbcabab43a8df8676e}\label{lv__menu_8c_a70c4a2eca49ffbcbcabab43a8df8676e} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_mode\_root\_back\_button@{lv\_menu\_get\_mode\_root\_back\_button}}
+\index{lv\_menu\_get\_mode\_root\_back\_button@{lv\_menu\_get\_mode\_root\_back\_button}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_mode\_root\_back\_button()}{lv\_menu\_get\_mode\_root\_back\_button()}}
+{\footnotesize\ttfamily lv\+\_\+menu\+\_\+mode\+\_\+root\+\_\+back\+\_\+button\+\_\+t lv\+\_\+menu\+\_\+get\+\_\+mode\+\_\+root\+\_\+back\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the root back button mode of the menu 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+MENU\+\_\+\+ROOT\+\_\+\+BACK\+\_\+\+BUTTON\+\_\+\+DISABLED/\+ENABLED 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a9329822c72843c01f6e3fef54f42372a}\label{lv__menu_8c_a9329822c72843c01f6e3fef54f42372a} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_sidebar\_header@{lv\_menu\_get\_sidebar\_header}}
+\index{lv\_menu\_get\_sidebar\_header@{lv\_menu\_get\_sidebar\_header}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_sidebar\_header()}{lv\_menu\_get\_sidebar\_header()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+get\+\_\+sidebar\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a pointer to sidebar header obj 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to sidebar header obj 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_afcbd34dd1c4095d801db4b917bf8a38f}\label{lv__menu_8c_afcbd34dd1c4095d801db4b917bf8a38f} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_get\_sidebar\_header\_back\_button@{lv\_menu\_get\_sidebar\_header\_back\_button}}
+\index{lv\_menu\_get\_sidebar\_header\_back\_button@{lv\_menu\_get\_sidebar\_header\_back\_button}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_get\_sidebar\_header\_back\_button()}{lv\_menu\_get\_sidebar\_header\_back\_button()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+get\+\_\+sidebar\+\_\+header\+\_\+back\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a pointer to sidebar header obj 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to sidebar header back btn obj 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_aef04f072958ea46c1cc132f67a533b53}\label{lv__menu_8c_aef04f072958ea46c1cc132f67a533b53} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_page\_create@{lv\_menu\_page\_create}}
+\index{lv\_menu\_page\_create@{lv\_menu\_page\_create}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_page\_create()}{lv\_menu\_page\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+page\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{menu,  }\item[{char const \texorpdfstring{$\ast$}{*}const}]{title }\end{DoxyParamCaption})}
+
+Create a menu page object.
+
+This call inserts the new page under menu-\/\texorpdfstring{$>$}{>}storage as its parent, which is itself a child of the menu, so the resulting object hierarchy is\+: menu =\texorpdfstring{$>$}{>} storage =\texorpdfstring{$>$}{>} new\+\_\+page where {\ttfamily storage} is a Base Widget. 
+\begin{DoxyParams}{Parametri}
+{\em menu} & pointer to menu object. \\
+\hline
+{\em title} & pointer to text for title in header (NULL to not display title) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created menu page 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_ac2a98082651d40257c2a6b9d59848fdd}\label{lv__menu_8c_ac2a98082651d40257c2a6b9d59848fdd} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_section\_create@{lv\_menu\_section\_create}}
+\index{lv\_menu\_section\_create@{lv\_menu\_section\_create}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_section\_create()}{lv\_menu\_section\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+section\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a menu section object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to a menu page object, it will be the parent of the new menu section object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created menu section 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a752419b14c904c0217703fa83cea1f03}\label{lv__menu_8c_a752419b14c904c0217703fa83cea1f03} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_separator\_create@{lv\_menu\_separator\_create}}
+\index{lv\_menu\_separator\_create@{lv\_menu\_separator\_create}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_separator\_create()}{lv\_menu\_separator\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+menu\+\_\+separator\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a menu separator object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to a menu page object, it will be the parent of the new menu separator object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created menu separator 
+\end{DoxyReturn}
+\Hypertarget{lv__menu_8c_a4c3d3768e8673a35e06cf686e87ee0ca}\label{lv__menu_8c_a4c3d3768e8673a35e06cf686e87ee0ca} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_set\_load\_page\_event@{lv\_menu\_set\_load\_page\_event}}
+\index{lv\_menu\_set\_load\_page\_event@{lv\_menu\_set\_load\_page\_event}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_set\_load\_page\_event()}{lv\_menu\_set\_load\_page\_event()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+set\+\_\+load\+\_\+page\+\_\+event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{menu,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page }\end{DoxyParamCaption})}
+
+Add menu to the menu item 
+\begin{DoxyParams}{Parametri}
+{\em menu} & pointer to the menu \\
+\hline
+{\em obj} & pointer to the obj \\
+\hline
+{\em page} & pointer to the page to load when obj is clicked \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__menu_8c_aafc437ff8137bb41bf347fb3c0d00f08}\label{lv__menu_8c_aafc437ff8137bb41bf347fb3c0d00f08} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_set\_mode\_header@{lv\_menu\_set\_mode\_header}}
+\index{lv\_menu\_set\_mode\_header@{lv\_menu\_set\_mode\_header}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_set\_mode\_header()}{lv\_menu\_set\_mode\_header()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+set\+\_\+mode\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__menu_8h_ac21b9446943f38616dbcb5ccd0d58ae7}{lv\+\_\+menu\+\_\+mode\+\_\+header\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+Set the how the header should behave and its position 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a menu \\
+\hline
+{\em mode} & LV\+\_\+\+MENU\+\_\+\+HEADER\+\_\+\+TOP\+\_\+\+FIXED/\+TOP\+\_\+\+UNFIXED/\+BOTTOM\+\_\+\+FIXED \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__menu_8c_ad5b8b8d49806d3fd84c12d47dc3f8754}\label{lv__menu_8c_ad5b8b8d49806d3fd84c12d47dc3f8754} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_set\_mode\_root\_back\_button@{lv\_menu\_set\_mode\_root\_back\_button}}
+\index{lv\_menu\_set\_mode\_root\_back\_button@{lv\_menu\_set\_mode\_root\_back\_button}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_set\_mode\_root\_back\_button()}{lv\_menu\_set\_mode\_root\_back\_button()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+set\+\_\+mode\+\_\+root\+\_\+back\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+menu\+\_\+mode\+\_\+root\+\_\+back\+\_\+button\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+Set whether back button should appear at root 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a menu \\
+\hline
+{\em mode} & LV\+\_\+\+MENU\+\_\+\+ROOT\+\_\+\+BACK\+\_\+\+BUTTON\+\_\+\+DISABLED/\+ENABLED \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__menu_8c_ae90f8351b5d0f6c59626e6d4279f2189}\label{lv__menu_8c_ae90f8351b5d0f6c59626e6d4279f2189} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_set\_page@{lv\_menu\_set\_page}}
+\index{lv\_menu\_set\_page@{lv\_menu\_set\_page}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_set\_page()}{lv\_menu\_set\_page()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+set\+\_\+page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page }\end{DoxyParamCaption})}
+
+Set menu page to display in main 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+{\em page} & pointer to the menu page to set (NULL to clear main and clear menu history) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__menu_8c_ae333e1c846a26b431536a8634a728ef6}\label{lv__menu_8c_ae333e1c846a26b431536a8634a728ef6} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_set\_page\_title@{lv\_menu\_set\_page\_title}}
+\index{lv\_menu\_set\_page\_title@{lv\_menu\_set\_page\_title}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_set\_page\_title()}{lv\_menu\_set\_page\_title()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+set\+\_\+page\+\_\+title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page,  }\item[{char const \texorpdfstring{$\ast$}{*}const}]{title }\end{DoxyParamCaption})}
+
+Set menu page title 
+\begin{DoxyParams}{Parametri}
+{\em page} & pointer to the menu page \\
+\hline
+{\em title} & pointer to text for title in header (NULL to not display title) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__menu_8c_aeaaedb05eb2336f36f50ac764fda5720}\label{lv__menu_8c_aeaaedb05eb2336f36f50ac764fda5720} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_set\_page\_title\_static@{lv\_menu\_set\_page\_title\_static}}
+\index{lv\_menu\_set\_page\_title\_static@{lv\_menu\_set\_page\_title\_static}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_set\_page\_title\_static()}{lv\_menu\_set\_page\_title\_static()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+set\+\_\+page\+\_\+title\+\_\+static (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page,  }\item[{char const \texorpdfstring{$\ast$}{*}const}]{title }\end{DoxyParamCaption})}
+
+Set menu page title with a static text. It will not be saved by the label so the \textquotesingle{}text\textquotesingle{} variable has to be \textquotesingle{}alive\textquotesingle{} while the page exists. 
+\begin{DoxyParams}{Parametri}
+{\em page} & pointer to the menu page \\
+\hline
+{\em title} & pointer to text for title in header (NULL to not display title) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__menu_8c_a85ef980564e9f6b6f80c9e607f77c6f7}\label{lv__menu_8c_a85ef980564e9f6b6f80c9e607f77c6f7} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_set\_sidebar\_page@{lv\_menu\_set\_sidebar\_page}}
+\index{lv\_menu\_set\_sidebar\_page@{lv\_menu\_set\_sidebar\_page}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_set\_sidebar\_page()}{lv\_menu\_set\_sidebar\_page()}}
+{\footnotesize\ttfamily void lv\+\_\+menu\+\_\+set\+\_\+sidebar\+\_\+page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{page }\end{DoxyParamCaption})}
+
+Set menu page to display in sidebar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the menu \\
+\hline
+{\em page} & pointer to the menu page to set (NULL to clear sidebar) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__menu_8c_a3b8f9a3a831403ac9658b6f83f2b519e}\label{lv__menu_8c_a3b8f9a3a831403ac9658b6f83f2b519e} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_class@{lv\_menu\_class}}
+\index{lv\_menu\_class@{lv\_menu\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_class}{lv\_menu\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_menu\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_menu\_destructor,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ (\mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ *\ 3)\ /\ 2,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ *\ 2,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__menu__t}{lv\_menu\_t}}),}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_af89403ab9179b3d61686c25ca2c85289}\label{lv__menu_8c_af89403ab9179b3d61686c25ca2c85289} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_cont\_class@{lv\_menu\_cont\_class}}
+\index{lv\_menu\_cont\_class@{lv\_menu\_cont\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_cont\_class}{lv\_menu\_cont\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+cont\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_menu\_cont\_constructor,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_PCT(100),}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_cont"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_a94d1be8b9e957083aeb334aa9e041fa2}\label{lv__menu_8c_a94d1be8b9e957083aeb334aa9e041fa2} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_main\_cont\_class@{lv\_menu\_main\_cont\_class}}
+\index{lv\_menu\_main\_cont\_class@{lv\_menu\_main\_cont\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_main\_cont\_class}{lv\_menu\_main\_cont\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+main\+\_\+cont\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_main\_container"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_ac4fa24fb09db635594f8a56993afcdcc}\label{lv__menu_8c_ac4fa24fb09db635594f8a56993afcdcc} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_main\_header\_cont\_class@{lv\_menu\_main\_header\_cont\_class}}
+\index{lv\_menu\_main\_header\_cont\_class@{lv\_menu\_main\_header\_cont\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_main\_header\_cont\_class}{lv\_menu\_main\_header\_cont\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+main\+\_\+header\+\_\+cont\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_main\_header"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_aa8df158b1b7e979fb84fbe3ac9c2e7c2}\label{lv__menu_8c_aa8df158b1b7e979fb84fbe3ac9c2e7c2} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_page\_class@{lv\_menu\_page\_class}}
+\index{lv\_menu\_page\_class@{lv\_menu\_page\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_page\_class}{lv\_menu\_page\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+page\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_menu\_page\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_menu\_page\_destructor,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_PCT(100),}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__menu__page__t}{lv\_menu\_page\_t}}),}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_page"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_aba2223d3da70ae0ee163d0ccc3adc354}\label{lv__menu_8c_aba2223d3da70ae0ee163d0ccc3adc354} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_section\_class@{lv\_menu\_section\_class}}
+\index{lv\_menu\_section\_class@{lv\_menu\_section\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_section\_class}{lv\_menu\_section\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+section\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_menu\_section\_constructor,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_PCT(100),}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_section"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_a1ad88eb7ea1bb0ac38933dd1d251f253}\label{lv__menu_8c_a1ad88eb7ea1bb0ac38933dd1d251f253} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_separator\_class@{lv\_menu\_separator\_class}}
+\index{lv\_menu\_separator\_class@{lv\_menu\_separator\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_separator\_class}{lv\_menu\_separator\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+separator\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_separator"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_a6057aa340cdc7d1509af8657d164feb3}\label{lv__menu_8c_a6057aa340cdc7d1509af8657d164feb3} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_sidebar\_cont\_class@{lv\_menu\_sidebar\_cont\_class}}
+\index{lv\_menu\_sidebar\_cont\_class@{lv\_menu\_sidebar\_cont\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_sidebar\_cont\_class}{lv\_menu\_sidebar\_cont\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+sidebar\+\_\+cont\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_sidebar"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__menu_8c_a822bfcca7c0c69f2af8e7d332455c2b4}\label{lv__menu_8c_a822bfcca7c0c69f2af8e7d332455c2b4} 
+\index{lv\_menu.c@{lv\_menu.c}!lv\_menu\_sidebar\_header\_cont\_class@{lv\_menu\_sidebar\_header\_cont\_class}}
+\index{lv\_menu\_sidebar\_header\_cont\_class@{lv\_menu\_sidebar\_header\_cont\_class}!lv\_menu.c@{lv\_menu.c}}
+\doxysubsubsection{\texorpdfstring{lv\_menu\_sidebar\_header\_cont\_class}{lv\_menu\_sidebar\_header\_cont\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+menu\+\_\+sidebar\+\_\+header\+\_\+cont\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_menu\_sidebar\_header"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

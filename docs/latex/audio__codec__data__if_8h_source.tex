@@ -1,0 +1,43 @@
+\doxysection{audio\+\_\+codec\+\_\+data\+\_\+if.\+h}
+\hypertarget{audio__codec__data__if_8h_source}{}\label{audio__codec__data__if_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/interface/audio\_codec\_data\_if.h@{managed\_components/espressif\_\_esp\_codec\_dev/interface/audio\_codec\_data\_if.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2023\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_AUDIO\_CODEC\_DATA\_IF\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_AUDIO\_CODEC\_DATA\_IF\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}esp\_codec\_dev\_types.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}};}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ int\ (*\mbox{\hyperlink{structaudio__codec__data__if__t_a618f5661aa224cce9141c74c655a6ae1}{open}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *h,\ \textcolor{keywordtype}{void}\ *data\_cfg,\ \textcolor{keywordtype}{int}\ cfg\_size);\ }
+\DoxyCodeLine{00022\ \ \ \ \ bool\ (*\mbox{\hyperlink{structaudio__codec__data__if__t_abc77045c21e94c0bd5e048c42f00187c}{is\_open}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *h);\ }
+\DoxyCodeLine{00023\ \ \ \ \ int\ (*\mbox{\hyperlink{structaudio__codec__data__if__t_ad4c4928ab3a8804aa4fa6c4eeebd894f}{enable}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *h,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esp\_codec\_dev\_type\_t\ dev\_type,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structaudio__codec__data__if__t_ad4c4928ab3a8804aa4fa6c4eeebd894f}{enable}});\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ int\ (*\mbox{\hyperlink{structaudio__codec__data__if__t_a9d7cbb1b95d8163d0f202c769d9de55c}{set\_fmt}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *h,}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ esp\_codec\_dev\_type\_t\ dev\_type,}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structesp__codec__dev__sample__info__t}{esp\_codec\_dev\_sample\_info\_t}}\ *fs);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ int\ (*\mbox{\hyperlink{structaudio__codec__data__if__t_a9755e1620a91f6d3d3984fd7671bcc67}{read}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *h,\ uint8\_t\ *data,\ \textcolor{keywordtype}{int}\ size);\ \ }
+\DoxyCodeLine{00030\ \ \ \ \ int\ (*\mbox{\hyperlink{structaudio__codec__data__if__t_a42a332f95d0c6d0b9e239ccf7808fc4f}{write}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *h,\ uint8\_t\ *data,\ \textcolor{keywordtype}{int}\ size);\ }
+\DoxyCodeLine{00031\ \ \ \ \ int\ (*\mbox{\hyperlink{structaudio__codec__data__if__t_ad5a824f7bbaa3afeccd7fc7c028ef726}{close}})(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *h);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{int}\ audio\_codec\_delete\_data\_if(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *data\_if);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

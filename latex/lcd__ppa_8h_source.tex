@@ -1,0 +1,65 @@
+\doxysection{lcd\+\_\+ppa.\+h}
+\hypertarget{lcd__ppa_8h_source}{}\label{lcd__ppa_8h_source}\index{managed\_components/espressif\_\_esp\_lvgl\_port/src/common/ppa/lcd\_ppa.h@{managed\_components/espressif\_\_esp\_lvgl\_port/src/common/ppa/lcd\_ppa.h}}
+\mbox{\hyperlink{lcd__ppa_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2024-\/2025\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}driver/ppa.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }lvgl\_port\_ppa\_t\ lvgl\_port\_ppa\_t;}
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ lvgl\_port\_ppa\_t\ *lvgl\_port\_ppa\_handle\_t;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlvgl__port__ppa__cfg__t_a34456c7bb508616e6b61bcc75bc9d118}{buffer\_size}};\ \ }
+\DoxyCodeLine{00027\ \ \ \ \ ppa\_srm\_color\_mode\_t\ \ \ \ \mbox{\hyperlink{structlvgl__port__ppa__cfg__t_ae640a5d93c7d9ab3aa6321d33c036a0f}{color\_mode}};\ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__ppa__cfg__t_a7d9d85cdcfae06e04566b73219bedd5c}{buff\_dma}}:\ 1;\ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__ppa__cfg__t_a5e92f6388cf066db7f5ad198e65aac27}{buff\_spiram}}:\ 1;\ }
+\DoxyCodeLine{00031\ \ \ \ \ \}\ flags;}
+\DoxyCodeLine{00032\ \}\ \ \mbox{\hyperlink{structlvgl__port__ppa__cfg__t}{lvgl\_port\_ppa\_cfg\_t}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ uint16\_t\ x1;}
+\DoxyCodeLine{00039\ \ \ \ \ uint16\_t\ x2;}
+\DoxyCodeLine{00040\ \ \ \ \ uint16\_t\ y1;}
+\DoxyCodeLine{00041\ \ \ \ \ uint16\_t\ y2;}
+\DoxyCodeLine{00042\ \}\ \mbox{\hyperlink{structlvgl__port__ppa__disp__area__t}{lvgl\_port\_ppa\_disp\_area\_t}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00048\ \ \ \ \ uint32\_t\ hres;}
+\DoxyCodeLine{00049\ \ \ \ \ uint32\_t\ vres;}
+\DoxyCodeLine{00050\ \}\ \mbox{\hyperlink{structlvgl__port__ppa__disp__size__t}{lvgl\_port\_ppa\_disp\_size\_t}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t_ac4d379e62e15205735752a81d0f7d13a}{in\_buff}};\ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{structlvgl__port__ppa__disp__area__t}{lvgl\_port\_ppa\_disp\_area\_t}}\ \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t_aeacedffcbafe87d63ea7c777a5dfa350}{area}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{structlvgl__port__ppa__disp__size__t}{lvgl\_port\_ppa\_disp\_size\_t}}\ \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t_a973099e183364a3a096819f8a48ce777}{disp\_size}};\ \ \ \ }
+\DoxyCodeLine{00059\ \ \ \ \ ppa\_srm\_rotation\_angle\_t\ \ \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t_a1b585d25565e10ff1904aa7c77d54116}{rotation}};\ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ ppa\_trans\_mode\_t\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t_afd0ea8591da768ad120cc09aedf84013}{ppa\_mode}};\ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t_a9a08d4a559a41e6d77d6bbc7c024bcfb}{swap\_bytes}};\ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *user\_data;}
+\DoxyCodeLine{00063\ \}\ \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t}{lvgl\_port\_ppa\_disp\_rotate\_t}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00076\ lvgl\_port\_ppa\_handle\_t\ \mbox{\hyperlink{lcd__ppa_8h_a7028178efe979e15b129bdf2aebe3308}{lvgl\_port\_ppa\_create}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlvgl__port__ppa__cfg__t}{lvgl\_port\_ppa\_cfg\_t}}\ *cfg);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lcd__ppa_8h_a0e7a04ba0f86bda9723584efa401b8df}{lvgl\_port\_ppa\_delete}}(lvgl\_port\_ppa\_handle\_t\ handle);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00094\ uint8\_t\ *\mbox{\hyperlink{lcd__ppa_8h_a2c41c10478959927c1c3db1178324da6}{lvgl\_port\_ppa\_get\_output\_buffer}}(lvgl\_port\_ppa\_handle\_t\ handle);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00106\ esp\_err\_t\ \mbox{\hyperlink{lcd__ppa_8h_acc336969093f76e392dd0285a506fd97}{lvgl\_port\_ppa\_rotate}}(lvgl\_port\_ppa\_handle\_t\ handle,\ \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t}{lvgl\_port\_ppa\_disp\_rotate\_t}}\ *rotate\_cfg);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00109\ \}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

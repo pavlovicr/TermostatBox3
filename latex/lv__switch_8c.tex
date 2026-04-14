@@ -1,0 +1,137 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/switch/lv\+\_\+switch.c}
+\hypertarget{lv__switch_8c}{}\label{lv__switch_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/switch/lv\_switch.c@{managed\_components/lvgl\_\_lvgl/src/widgets/switch/lv\_switch.c}}
+{\ttfamily \#include "{}lv\+\_\+switch\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+anim\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../indev/lv\+\_\+indev.\+h"{}}\newline
+{\ttfamily \#include "{}../../display/lv\+\_\+display.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+switch.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+switch.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__switch_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__switch_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__switch_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+switch\+\_\+class)
+\item 
+\Hypertarget{lv__switch_8c_a865bf4ecadfc2ccd4201b96bbc41936e}\label{lv__switch_8c_a865bf4ecadfc2ccd4201b96bbc41936e} 
+\#define {\bfseries LV\+\_\+\+SWITCH\+\_\+\+IS\+\_\+\+ANIMATING}(sw)~(((sw)-\/$>$anim\+\_\+state) != \mbox{\hyperlink{lv__switch_8c_a0e834b4f946832a36d6970bc9532ddb5}{LV\+\_\+\+SWITCH\+\_\+\+ANIM\+\_\+\+STATE\+\_\+\+INV}})
+\item 
+\#define \mbox{\hyperlink{lv__switch_8c_a26efa46cd8ba677c14909c94823cece8}{LV\+\_\+\+SWITCH\+\_\+\+ANIM\+\_\+\+STATE\+\_\+\+START}}~0
+\item 
+\#define \mbox{\hyperlink{lv__switch_8c_a3ca16e829d354d4f77fd0d995524a976}{LV\+\_\+\+SWITCH\+\_\+\+ANIM\+\_\+\+STATE\+\_\+\+END}}~256
+\item 
+\#define \mbox{\hyperlink{lv__switch_8c_a0e834b4f946832a36d6970bc9532ddb5}{LV\+\_\+\+SWITCH\+\_\+\+ANIM\+\_\+\+STATE\+\_\+\+INV}}~-\/1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__switch_8c_a1fb910fe0bffa92d8d9db41e04ce7b52}{lv\+\_\+switch\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__switch_8c_aeb07d882ab7b1a6a5d2b168a93c4aa19}{lv\+\_\+switch\+\_\+set\+\_\+orientation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+switch\+\_\+orientation\+\_\+t orientation)
+\item 
+lv\+\_\+switch\+\_\+orientation\+\_\+t \mbox{\hyperlink{lv__switch_8c_abfcb429281d89846fad9ac7796eb2524}{lv\+\_\+switch\+\_\+get\+\_\+orientation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__switch_8c_a842326b50134c965af077f7f13e95c9f}{lv\+\_\+switch\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{lv__switch_8c_a3ca16e829d354d4f77fd0d995524a976}\label{lv__switch_8c_a3ca16e829d354d4f77fd0d995524a976} 
+\index{lv\_switch.c@{lv\_switch.c}!LV\_SWITCH\_ANIM\_STATE\_END@{LV\_SWITCH\_ANIM\_STATE\_END}}
+\index{LV\_SWITCH\_ANIM\_STATE\_END@{LV\_SWITCH\_ANIM\_STATE\_END}!lv\_switch.c@{lv\_switch.c}}
+\doxysubsubsection{\texorpdfstring{LV\_SWITCH\_ANIM\_STATE\_END}{LV\_SWITCH\_ANIM\_STATE\_END}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+SWITCH\+\_\+\+ANIM\+\_\+\+STATE\+\_\+\+END~256}
+
+Switch animation end value. (Not the real value of the switch just indicates process animation) \Hypertarget{lv__switch_8c_a0e834b4f946832a36d6970bc9532ddb5}\label{lv__switch_8c_a0e834b4f946832a36d6970bc9532ddb5} 
+\index{lv\_switch.c@{lv\_switch.c}!LV\_SWITCH\_ANIM\_STATE\_INV@{LV\_SWITCH\_ANIM\_STATE\_INV}}
+\index{LV\_SWITCH\_ANIM\_STATE\_INV@{LV\_SWITCH\_ANIM\_STATE\_INV}!lv\_switch.c@{lv\_switch.c}}
+\doxysubsubsection{\texorpdfstring{LV\_SWITCH\_ANIM\_STATE\_INV}{LV\_SWITCH\_ANIM\_STATE\_INV}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+SWITCH\+\_\+\+ANIM\+\_\+\+STATE\+\_\+\+INV~-\/1}
+
+Mark no animation is in progress \Hypertarget{lv__switch_8c_a26efa46cd8ba677c14909c94823cece8}\label{lv__switch_8c_a26efa46cd8ba677c14909c94823cece8} 
+\index{lv\_switch.c@{lv\_switch.c}!LV\_SWITCH\_ANIM\_STATE\_START@{LV\_SWITCH\_ANIM\_STATE\_START}}
+\index{LV\_SWITCH\_ANIM\_STATE\_START@{LV\_SWITCH\_ANIM\_STATE\_START}!lv\_switch.c@{lv\_switch.c}}
+\doxysubsubsection{\texorpdfstring{LV\_SWITCH\_ANIM\_STATE\_START}{LV\_SWITCH\_ANIM\_STATE\_START}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+SWITCH\+\_\+\+ANIM\+\_\+\+STATE\+\_\+\+START~0}
+
+Switch animation start value. (Not the real value of the switch just indicates process animation) 
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__switch_8c_a1fb910fe0bffa92d8d9db41e04ce7b52}\label{lv__switch_8c_a1fb910fe0bffa92d8d9db41e04ce7b52} 
+\index{lv\_switch.c@{lv\_switch.c}!lv\_switch\_create@{lv\_switch\_create}}
+\index{lv\_switch\_create@{lv\_switch\_create}!lv\_switch.c@{lv\_switch.c}}
+\doxysubsubsection{\texorpdfstring{lv\_switch\_create()}{lv\_switch\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+switch\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a switch object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new switch \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created switch 
+\end{DoxyReturn}
+\Hypertarget{lv__switch_8c_abfcb429281d89846fad9ac7796eb2524}\label{lv__switch_8c_abfcb429281d89846fad9ac7796eb2524} 
+\index{lv\_switch.c@{lv\_switch.c}!lv\_switch\_get\_orientation@{lv\_switch\_get\_orientation}}
+\index{lv\_switch\_get\_orientation@{lv\_switch\_get\_orientation}!lv\_switch.c@{lv\_switch.c}}
+\doxysubsubsection{\texorpdfstring{lv\_switch\_get\_orientation()}{lv\_switch\_get\_orientation()}}
+{\footnotesize\ttfamily lv\+\_\+switch\+\_\+orientation\+\_\+t lv\+\_\+switch\+\_\+get\+\_\+orientation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the orientation of switch. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to switch object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+switch orientation from lv\+\_\+switch\+\_\+orientation\+\_\+t 
+\end{DoxyReturn}
+\Hypertarget{lv__switch_8c_aeb07d882ab7b1a6a5d2b168a93c4aa19}\label{lv__switch_8c_aeb07d882ab7b1a6a5d2b168a93c4aa19} 
+\index{lv\_switch.c@{lv\_switch.c}!lv\_switch\_set\_orientation@{lv\_switch\_set\_orientation}}
+\index{lv\_switch\_set\_orientation@{lv\_switch\_set\_orientation}!lv\_switch.c@{lv\_switch.c}}
+\doxysubsubsection{\texorpdfstring{lv\_switch\_set\_orientation()}{lv\_switch\_set\_orientation()}}
+{\footnotesize\ttfamily void lv\+\_\+switch\+\_\+set\+\_\+orientation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+switch\+\_\+orientation\+\_\+t}]{orientation }\end{DoxyParamCaption})}
+
+Set the orientation of switch. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to switch object \\
+\hline
+{\em orientation} & switch orientation from {\ttfamily lv\+\_\+switch\+\_\+orientation\+\_\+t} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__switch_8c_a842326b50134c965af077f7f13e95c9f}\label{lv__switch_8c_a842326b50134c965af077f7f13e95c9f} 
+\index{lv\_switch.c@{lv\_switch.c}!lv\_switch\_class@{lv\_switch\_class}}
+\index{lv\_switch\_class@{lv\_switch\_class}!lv\_switch.c@{lv\_switch.c}}
+\doxysubsubsection{\texorpdfstring{lv\_switch\_class}{lv\_switch\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+switch\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_switch\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_switch\_destructor,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_switch\_event,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ (4\ *\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}})\ /\ 10,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ (4\ *\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}})\ /\ 17,}
+\DoxyCodeLine{\ \ \ \ .group\_def\ =\ LV\_OBJ\_CLASS\_GROUP\_DEF\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__switch__t}{lv\_switch\_t}}),}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_switch"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

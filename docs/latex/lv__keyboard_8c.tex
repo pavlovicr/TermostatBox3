@@ -1,0 +1,260 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/keyboard/lv\+\_\+keyboard.c}
+\hypertarget{lv__keyboard_8c}{}\label{lv__keyboard_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/keyboard/lv\_keyboard.c@{managed\_components/lvgl\_\_lvgl/src/widgets/keyboard/lv\_keyboard.c}}
+{\ttfamily \#include "{}lv\+\_\+keyboard\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../textarea/lv\+\_\+textarea.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+keyboard.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+keyboard.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__keyboard_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__keyboard_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__keyboard_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+keyboard\+\_\+class)
+\item 
+\Hypertarget{lv__keyboard_8c_a87e31dc40dfd0c870dfbdc01e1f30292}\label{lv__keyboard_8c_a87e31dc40dfd0c870dfbdc01e1f30292} 
+\#define {\bfseries LV\+\_\+\+KB\+\_\+\+BTN}(width)~\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632a316f6c8e087ee81b838f97950f344a2d}{LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+POPOVER}} \texorpdfstring{$\vert$}{|} width
+\item 
+\Hypertarget{lv__keyboard_8c_a2b30d52216363cd4cdb4af9dcf3c30b3}\label{lv__keyboard_8c_a2b30d52216363cd4cdb4af9dcf3c30b3} 
+\#define {\bfseries LV\+\_\+\+KEYBOARD\+\_\+\+CTRL\+\_\+\+BUTTON\+\_\+\+MODE\+\_\+\+TEXT\+\_\+\+LOWER}~"{}abc"{}
+\item 
+\Hypertarget{lv__keyboard_8c_aeb7648aaa1b552e321066dce767eed26}\label{lv__keyboard_8c_aeb7648aaa1b552e321066dce767eed26} 
+\#define {\bfseries LV\+\_\+\+KEYBOARD\+\_\+\+CTRL\+\_\+\+BUTTON\+\_\+\+MODE\+\_\+\+TEXT\+\_\+\+UPPER}~"{}ABC"{}
+\item 
+\Hypertarget{lv__keyboard_8c_a0630ead04e3a2836e545b3e5dcf0b620}\label{lv__keyboard_8c_a0630ead04e3a2836e545b3e5dcf0b620} 
+\#define {\bfseries LV\+\_\+\+KEYBOARD\+\_\+\+CTRL\+\_\+\+BUTTON\+\_\+\+MODE\+\_\+\+SPECIAL}~"{}1\#"{}
+\item 
+\Hypertarget{lv__keyboard_8c_ac06070326addae14aeb23274a99fce0d}\label{lv__keyboard_8c_ac06070326addae14aeb23274a99fce0d} 
+\#define {\bfseries LV\+\_\+\+KEYBOARD\+\_\+\+CTRL\+\_\+\+BUTTON\+\_\+\+MODE\+\_\+\+TEXT\+\_\+\+ARABIC}~"{}أب"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__keyboard_8c_a118ccfd7d450c64d50d7c83a41b1a5c8}{lv\+\_\+keyboard\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__keyboard_8c_a15d70b0a14fe0e12e3365d96dd588064}{lv\+\_\+keyboard\+\_\+set\+\_\+textarea}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}ta)
+\item 
+void \mbox{\hyperlink{lv__keyboard_8c_a622305e137346d7b2ea4863e8bdf5810}{lv\+\_\+keyboard\+\_\+set\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__keyboard_8h_ac0022d545eb034470974d03e677afeee}{lv\+\_\+keyboard\+\_\+mode\+\_\+t}} mode)
+\item 
+void \mbox{\hyperlink{lv__keyboard_8c_aaee46497ed9cfe0fe5d3722c2d8710a7}{lv\+\_\+keyboard\+\_\+set\+\_\+popovers}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+void \mbox{\hyperlink{lv__keyboard_8c_a85ec55ff9fd00e121f05f329632c8981}{lv\+\_\+keyboard\+\_\+set\+\_\+map}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__keyboard_8h_ac0022d545eb034470974d03e677afeee}{lv\+\_\+keyboard\+\_\+mode\+\_\+t}} mode, const char \texorpdfstring{$\ast$}{*}const map\mbox{[}$\,$\mbox{]}, const \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}} ctrl\+\_\+map\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__keyboard_8c_a5b494771b405082d60ea2da81b8a0ca8}{lv\+\_\+keyboard\+\_\+get\+\_\+textarea}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__keyboard_8h_ac0022d545eb034470974d03e677afeee}{lv\+\_\+keyboard\+\_\+mode\+\_\+t}} \mbox{\hyperlink{lv__keyboard_8c_a368db5446c04b06bb78884df918eca7b}{lv\+\_\+keyboard\+\_\+get\+\_\+mode}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__keyboard_8c_abfa36db1100e5a243770dccc9c9c65b4}{lv\+\_\+keyboard\+\_\+get\+\_\+popovers}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__keyboard_8c_a920d6347e0f0a2355e00f23351475015}{lv\+\_\+keyboard\+\_\+def\+\_\+event\+\_\+cb}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
+\item 
+const char \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__keyboard_8c_aefc7d3d700241f188a2e0cfd535c41a7}{lv\+\_\+keyboard\+\_\+get\+\_\+map\+\_\+array}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}kb)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__keyboard_8c_ae9be8db4a8064eb33620d26b922f7115}{lv\+\_\+keyboard\+\_\+get\+\_\+selected\+\_\+button}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__keyboard_8c_a50fbaeaeeffe84534e65228660676038}{lv\+\_\+keyboard\+\_\+get\+\_\+button\+\_\+text}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t btn\+\_\+id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__keyboard_8c_a68df1836e21b0f166ddcbd97feddb982}{lv\+\_\+keyboard\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__keyboard_8c_a118ccfd7d450c64d50d7c83a41b1a5c8}\label{lv__keyboard_8c_a118ccfd7d450c64d50d7c83a41b1a5c8} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_create@{lv\_keyboard\_create}}
+\index{lv\_keyboard\_create@{lv\_keyboard\_create}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_create()}{lv\_keyboard\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+keyboard\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a Keyboard object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new keyboard \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created keyboard object 
+\end{DoxyReturn}
+\Hypertarget{lv__keyboard_8c_a920d6347e0f0a2355e00f23351475015}\label{lv__keyboard_8c_a920d6347e0f0a2355e00f23351475015} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_def\_event\_cb@{lv\_keyboard\_def\_event\_cb}}
+\index{lv\_keyboard\_def\_event\_cb@{lv\_keyboard\_def\_event\_cb}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_def\_event\_cb()}{lv\_keyboard\_def\_event\_cb()}}
+{\footnotesize\ttfamily void lv\+\_\+keyboard\+\_\+def\+\_\+event\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
+
+Default keyboard event callback to handle button presses. Adds characters to the text area and switches map if needed. If a custom {\ttfamily event\+\_\+cb} is used, this function can be called within it. 
+\begin{DoxyParams}{Parametri}
+{\em e} & the triggering event \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__keyboard_8c_a50fbaeaeeffe84534e65228660676038}\label{lv__keyboard_8c_a50fbaeaeeffe84534e65228660676038} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_get\_button\_text@{lv\_keyboard\_get\_button\_text}}
+\index{lv\_keyboard\_get\_button\_text@{lv\_keyboard\_get\_button\_text}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_get\_button\_text()}{lv\_keyboard\_get\_button\_text()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+keyboard\+\_\+get\+\_\+button\+\_\+text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{btn\+\_\+id }\end{DoxyParamCaption})}
+
+Get the text of a button by index. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a keyboard object \\
+\hline
+{\em btn\+\_\+id} & index of the button (excluding newline characters) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the text of the button 
+\end{DoxyReturn}
+\Hypertarget{lv__keyboard_8c_aefc7d3d700241f188a2e0cfd535c41a7}\label{lv__keyboard_8c_aefc7d3d700241f188a2e0cfd535c41a7} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_get\_map\_array@{lv\_keyboard\_get\_map\_array}}
+\index{lv\_keyboard\_get\_map\_array@{lv\_keyboard\_get\_map\_array}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_get\_map\_array()}{lv\_keyboard\_get\_map\_array()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*}const  \texorpdfstring{$\ast$}{*} lv\+\_\+keyboard\+\_\+get\+\_\+map\+\_\+array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{kb }\end{DoxyParamCaption})}
+
+Get the current button map of the keyboard. 
+\begin{DoxyParams}{Parametri}
+{\em kb} & pointer to a keyboard object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the map array 
+\end{DoxyReturn}
+\Hypertarget{lv__keyboard_8c_a368db5446c04b06bb78884df918eca7b}\label{lv__keyboard_8c_a368db5446c04b06bb78884df918eca7b} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_get\_mode@{lv\_keyboard\_get\_mode}}
+\index{lv\_keyboard\_get\_mode@{lv\_keyboard\_get\_mode}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_get\_mode()}{lv\_keyboard\_get\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__keyboard_8h_ac0022d545eb034470974d03e677afeee}{lv\+\_\+keyboard\+\_\+mode\+\_\+t}} lv\+\_\+keyboard\+\_\+get\+\_\+mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{kb }\end{DoxyParamCaption})}
+
+Get the current mode of the keyboard. 
+\begin{DoxyParams}{Parametri}
+{\em kb} & pointer to a keyboard object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the current mode (see \textquotesingle{}lv\+\_\+keyboard\+\_\+mode\+\_\+t\textquotesingle{}) 
+\end{DoxyReturn}
+\Hypertarget{lv__keyboard_8c_abfa36db1100e5a243770dccc9c9c65b4}\label{lv__keyboard_8c_abfa36db1100e5a243770dccc9c9c65b4} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_get\_popovers@{lv\_keyboard\_get\_popovers}}
+\index{lv\_keyboard\_get\_popovers@{lv\_keyboard\_get\_popovers}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_get\_popovers()}{lv\_keyboard\_get\_popovers()}}
+{\footnotesize\ttfamily bool lv\+\_\+keyboard\+\_\+get\+\_\+popovers (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Check whether popovers are enabled on the keyboard. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a keyboard object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true if popovers are enabled; false otherwise 
+\end{DoxyReturn}
+\Hypertarget{lv__keyboard_8c_ae9be8db4a8064eb33620d26b922f7115}\label{lv__keyboard_8c_ae9be8db4a8064eb33620d26b922f7115} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_get\_selected\_button@{lv\_keyboard\_get\_selected\_button}}
+\index{lv\_keyboard\_get\_selected\_button@{lv\_keyboard\_get\_selected\_button}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_get\_selected\_button()}{lv\_keyboard\_get\_selected\_button()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+keyboard\+\_\+get\+\_\+selected\+\_\+button (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the index of the last selected button (pressed, released, focused, etc.). Useful in the {\ttfamily event\+\_\+cb} to retrieve button text or properties. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a keyboard object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+index of the last interacted button returns LV\+\_\+\+BUTTONMATRIX\+\_\+\+BUTTON\+\_\+\+NONE if not set 
+\end{DoxyReturn}
+\Hypertarget{lv__keyboard_8c_a5b494771b405082d60ea2da81b8a0ca8}\label{lv__keyboard_8c_a5b494771b405082d60ea2da81b8a0ca8} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_get\_textarea@{lv\_keyboard\_get\_textarea}}
+\index{lv\_keyboard\_get\_textarea@{lv\_keyboard\_get\_textarea}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_get\_textarea()}{lv\_keyboard\_get\_textarea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+keyboard\+\_\+get\+\_\+textarea (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{kb }\end{DoxyParamCaption})}
+
+Get the text area currently assigned to the keyboard. 
+\begin{DoxyParams}{Parametri}
+{\em kb} & pointer to a keyboard object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the assigned text area object 
+\end{DoxyReturn}
+\Hypertarget{lv__keyboard_8c_a85ec55ff9fd00e121f05f329632c8981}\label{lv__keyboard_8c_a85ec55ff9fd00e121f05f329632c8981} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_set\_map@{lv\_keyboard\_set\_map}}
+\index{lv\_keyboard\_set\_map@{lv\_keyboard\_set\_map}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_set\_map()}{lv\_keyboard\_set\_map()}}
+{\footnotesize\ttfamily void lv\+\_\+keyboard\+\_\+set\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{kb,  }\item[{\mbox{\hyperlink{lv__keyboard_8h_ac0022d545eb034470974d03e677afeee}{lv\+\_\+keyboard\+\_\+mode\+\_\+t}}}]{mode,  }\item[{const char \texorpdfstring{$\ast$}{*}const}]{map\mbox{[}$\,$\mbox{]},  }\item[{const \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}}}]{ctrl\+\_\+map\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Set a custom button map for the keyboard. 
+\begin{DoxyParams}{Parametri}
+{\em kb} & pointer to a keyboard object \\
+\hline
+{\em mode} & the mode to assign the new map to (see \textquotesingle{}lv\+\_\+keyboard\+\_\+mode\+\_\+t\textquotesingle{}) \\
+\hline
+{\em map} & pointer to a string array describing the button map see \textquotesingle{}\doxylink{lv__buttonmatrix_8c_afab00c1ec4088bb2f5d101c98dec4559}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+map()}\textquotesingle{} for more details \\
+\hline
+{\em ctrl\+\_\+map} & pointer to the control map. See \textquotesingle{}\doxylink{lv__buttonmatrix_8c_adcaf51aab980c348e5f9b178728fe9b0}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+ctrl\+\_\+map()}\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__keyboard_8c_a622305e137346d7b2ea4863e8bdf5810}\label{lv__keyboard_8c_a622305e137346d7b2ea4863e8bdf5810} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_set\_mode@{lv\_keyboard\_set\_mode}}
+\index{lv\_keyboard\_set\_mode@{lv\_keyboard\_set\_mode}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_set\_mode()}{lv\_keyboard\_set\_mode()}}
+{\footnotesize\ttfamily void lv\+\_\+keyboard\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{kb,  }\item[{\mbox{\hyperlink{lv__keyboard_8h_ac0022d545eb034470974d03e677afeee}{lv\+\_\+keyboard\+\_\+mode\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+Set a new mode (e.\+g., text, number, special characters). 
+\begin{DoxyParams}{Parametri}
+{\em kb} & pointer to a keyboard object \\
+\hline
+{\em mode} & the desired mode (see \textquotesingle{}lv\+\_\+keyboard\+\_\+mode\+\_\+t\textquotesingle{}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__keyboard_8c_aaee46497ed9cfe0fe5d3722c2d8710a7}\label{lv__keyboard_8c_aaee46497ed9cfe0fe5d3722c2d8710a7} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_set\_popovers@{lv\_keyboard\_set\_popovers}}
+\index{lv\_keyboard\_set\_popovers@{lv\_keyboard\_set\_popovers}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_set\_popovers()}{lv\_keyboard\_set\_popovers()}}
+{\footnotesize\ttfamily void lv\+\_\+keyboard\+\_\+set\+\_\+popovers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{kb,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Enable or disable popovers showing button titles on press. 
+\begin{DoxyParams}{Parametri}
+{\em kb} & pointer to a keyboard object \\
+\hline
+{\em en} & true to enable popovers; false to disable \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__keyboard_8c_a15d70b0a14fe0e12e3365d96dd588064}\label{lv__keyboard_8c_a15d70b0a14fe0e12e3365d96dd588064} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_set\_textarea@{lv\_keyboard\_set\_textarea}}
+\index{lv\_keyboard\_set\_textarea@{lv\_keyboard\_set\_textarea}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_set\_textarea()}{lv\_keyboard\_set\_textarea()}}
+{\footnotesize\ttfamily void lv\+\_\+keyboard\+\_\+set\+\_\+textarea (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{kb,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ta }\end{DoxyParamCaption})}
+
+Assign a text area to the keyboard. Pressed characters will be inserted there. 
+\begin{DoxyParams}{Parametri}
+{\em kb} & pointer to a keyboard object \\
+\hline
+{\em ta} & pointer to a text area object to write into \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__keyboard_8c_a68df1836e21b0f166ddcbd97feddb982}\label{lv__keyboard_8c_a68df1836e21b0f166ddcbd97feddb982} 
+\index{lv\_keyboard.c@{lv\_keyboard.c}!lv\_keyboard\_class@{lv\_keyboard\_class}}
+\index{lv\_keyboard\_class@{lv\_keyboard\_class}!lv\_keyboard.c@{lv\_keyboard.c}}
+\doxysubsubsection{\texorpdfstring{lv\_keyboard\_class}{lv\_keyboard\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+keyboard\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_keyboard\_constructor,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_PCT(100),}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_PCT(50),}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__keyboard__t}{lv\_keyboard\_t}}),}
+\DoxyCodeLine{\ \ \ \ .editable\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&lv\_buttonmatrix\_class,}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_keyboard"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

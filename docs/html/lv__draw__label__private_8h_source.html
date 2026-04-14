@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/src/draw/lv_draw_label_private.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_a1761009eb054311bcb948306d012834.html">draw</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">lv_draw_label_private.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="lv__draw__label__private_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef LV_DRAW_LABEL_PRIVATE_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define LV_DRAW_LABEL_PRIVATE_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *      INCLUDES</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *********************/</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="lv__draw__label_8h.html">lv_draw_label.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *      DEFINES</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> *********************/</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *      TYPEDEFS</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct__lv__draw__label__hint__t.html">   32</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct__lv__draw__label__hint__t.html">_lv_draw_label_hint_t</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct__lv__draw__label__hint__t.html#acd3a32f2e9639910a0a4155d2660c854">   34</a></span>    int32_t <a class="code hl_variable" href="struct__lv__draw__label__hint__t.html#acd3a32f2e9639910a0a4155d2660c854">line_start</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct__lv__draw__label__hint__t.html#add6447c8339e284f4783948628a8207b">   37</a></span>    int32_t <a class="code hl_variable" href="struct__lv__draw__label__hint__t.html#add6447c8339e284f4783948628a8207b">y</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="struct__lv__draw__label__hint__t.html#ac16d6b08482dbf253b54c0e76ed84e66">   41</a></span>    int32_t <a class="code hl_variable" href="struct__lv__draw__label__hint__t.html#ac16d6b08482dbf253b54c0e76ed84e66">coord_y</a>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>};</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct__lv__draw__glyph__dsc__t.html">   44</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct__lv__draw__glyph__dsc__t.html">_lv_draw_glyph_dsc_t</a> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct__lv__draw__glyph__dsc__t.html#acc1c70edf2eed4d9dc2ef4d430131f81">   46</a></span>    <span class="keyword">const</span> <span class="keywordtype">void</span> * <a class="code hl_variable" href="struct__lv__draw__glyph__dsc__t.html#acc1c70edf2eed4d9dc2ef4d430131f81">glyph_data</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_enumeration" href="lv__font_8h.html#aa94ff2cf9b39485dc799248e7fbec8fe">lv_font_glyph_format_t</a> format;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structlv__area__t.html">lv_area_t</a> * letter_coords;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structlv__area__t.html">lv_area_t</a> * bg_coords;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_struct" href="structlv__font__glyph__dsc__t.html">lv_font_glyph_dsc_t</a> * g;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_struct" href="structlv__color__t.html">lv_color_t</a> color;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_enumeration" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h.html#ab5986a13b2c8fc841068a051eaf53066">lv_opa_t</a> opa;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_struct" href="structlv__color__t.html">lv_color_t</a> outline_stroke_color;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_enumeration" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h.html#ab5986a13b2c8fc841068a051eaf53066">lv_opa_t</a> outline_stroke_opa;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    int32_t outline_stroke_width;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    int32_t rotation;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="struct__lv__draw__glyph__dsc__t.html#aa5e51fd6bbcf8c36888311cec5f3aa2f">   57</a></span>    <a class="code hl_struct" href="structlv__point__t.html">lv_point_t</a> <a class="code hl_variable" href="struct__lv__draw__glyph__dsc__t.html#aa5e51fd6bbcf8c36888311cec5f3aa2f">pivot</a>;          </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="struct__lv__draw__glyph__dsc__t.html#ae463a79ec360d08338cd5106f3b25ba7">   58</a></span>    <a class="code hl_struct" href="struct__lv__draw__buf__t.html">lv_draw_buf_t</a> * <a class="code hl_variable" href="struct__lv__draw__glyph__dsc__t.html#ae463a79ec360d08338cd5106f3b25ba7">_draw_buf</a>; </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif </span><span class="comment">/*LV_DRAW_LABEL_PRIVATE_H*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aespressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_html_ab5986a13b2c8fc841068a051eaf53066"><div class="ttname"><a href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h.html#ab5986a13b2c8fc841068a051eaf53066">lv_opa_t</a></div><div class="ttdeci">lv_opa_t</div><div class="ttdef"><b>Definition</b> lv_color.h:46</div></div>
+<div class="ttc" id="alv__draw__label_8h_html"><div class="ttname"><a href="lv__draw__label_8h.html">lv_draw_label.h</a></div></div>
+<div class="ttc" id="alv__font_8h_html_aa94ff2cf9b39485dc799248e7fbec8fe"><div class="ttname"><a href="lv__font_8h.html#aa94ff2cf9b39485dc799248e7fbec8fe">lv_font_glyph_format_t</a></div><div class="ttdeci">lv_font_glyph_format_t</div><div class="ttdef"><b>Definition</b> lv_font.h:36</div></div>
+<div class="ttc" id="astruct__lv__draw__buf__t_html"><div class="ttname"><a href="struct__lv__draw__buf__t.html">_lv_draw_buf_t</a></div><div class="ttdef"><b>Definition</b> lv_draw_buf.h:91</div></div>
+<div class="ttc" id="astruct__lv__draw__glyph__dsc__t_html"><div class="ttname"><a href="struct__lv__draw__glyph__dsc__t.html">_lv_draw_glyph_dsc_t</a></div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:44</div></div>
+<div class="ttc" id="astruct__lv__draw__glyph__dsc__t_html_aa5e51fd6bbcf8c36888311cec5f3aa2f"><div class="ttname"><a href="struct__lv__draw__glyph__dsc__t.html#aa5e51fd6bbcf8c36888311cec5f3aa2f">_lv_draw_glyph_dsc_t::pivot</a></div><div class="ttdeci">lv_point_t pivot</div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:57</div></div>
+<div class="ttc" id="astruct__lv__draw__glyph__dsc__t_html_acc1c70edf2eed4d9dc2ef4d430131f81"><div class="ttname"><a href="struct__lv__draw__glyph__dsc__t.html#acc1c70edf2eed4d9dc2ef4d430131f81">_lv_draw_glyph_dsc_t::glyph_data</a></div><div class="ttdeci">const void * glyph_data</div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:46</div></div>
+<div class="ttc" id="astruct__lv__draw__glyph__dsc__t_html_ae463a79ec360d08338cd5106f3b25ba7"><div class="ttname"><a href="struct__lv__draw__glyph__dsc__t.html#ae463a79ec360d08338cd5106f3b25ba7">_lv_draw_glyph_dsc_t::_draw_buf</a></div><div class="ttdeci">lv_draw_buf_t * _draw_buf</div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:58</div></div>
+<div class="ttc" id="astruct__lv__draw__label__hint__t_html"><div class="ttname"><a href="struct__lv__draw__label__hint__t.html">_lv_draw_label_hint_t</a></div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:32</div></div>
+<div class="ttc" id="astruct__lv__draw__label__hint__t_html_ac16d6b08482dbf253b54c0e76ed84e66"><div class="ttname"><a href="struct__lv__draw__label__hint__t.html#ac16d6b08482dbf253b54c0e76ed84e66">_lv_draw_label_hint_t::coord_y</a></div><div class="ttdeci">int32_t coord_y</div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:41</div></div>
+<div class="ttc" id="astruct__lv__draw__label__hint__t_html_acd3a32f2e9639910a0a4155d2660c854"><div class="ttname"><a href="struct__lv__draw__label__hint__t.html#acd3a32f2e9639910a0a4155d2660c854">_lv_draw_label_hint_t::line_start</a></div><div class="ttdeci">int32_t line_start</div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:34</div></div>
+<div class="ttc" id="astruct__lv__draw__label__hint__t_html_add6447c8339e284f4783948628a8207b"><div class="ttname"><a href="struct__lv__draw__label__hint__t.html#add6447c8339e284f4783948628a8207b">_lv_draw_label_hint_t::y</a></div><div class="ttdeci">int32_t y</div><div class="ttdef"><b>Definition</b> lv_draw_label_private.h:37</div></div>
+<div class="ttc" id="astructlv__area__t_html"><div class="ttname"><a href="structlv__area__t.html">lv_area_t</a></div><div class="ttdef"><b>Definition</b> lv_area.h:42</div></div>
+<div class="ttc" id="astructlv__color__t_html"><div class="ttname"><a href="structlv__color__t.html">lv_color_t</a></div><div class="ttdef"><b>Definition</b> lv_color.h:89</div></div>
+<div class="ttc" id="astructlv__font__glyph__dsc__t_html"><div class="ttname"><a href="structlv__font__glyph__dsc__t.html">lv_font_glyph_dsc_t</a></div><div class="ttdef"><b>Definition</b> lv_font.h:55</div></div>
+<div class="ttc" id="astructlv__point__t_html"><div class="ttname"><a href="structlv__point__t.html">lv_point_t</a></div><div class="ttdef"><b>Definition</b> lv_area.h:31</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

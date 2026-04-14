@@ -1,0 +1,83 @@
+\doxysection{ Struktura es8374\+\_\+codec\+\_\+cfg\+\_\+t}
+\hypertarget{structes8374__codec__cfg__t}{}\label{structes8374__codec__cfg__t}\index{es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}}
+
+
+ES8374 codec configuration.  
+
+
+
+
+{\ttfamily \#include $<$es8374\+\_\+codec.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda es8374\+\_\+codec\+\_\+cfg\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{structes8374__codec__cfg__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structes8374__codec__cfg__t_afcf78a2a4feeb2444f0a3aaf797b578a}{ctrl\+\_\+if}}
+\item 
+const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structes8374__codec__cfg__t_abc956e36e298450b9db797f7bbb3d99a}{gpio\+\_\+if}}
+\item 
+esp\+\_\+codec\+\_\+dec\+\_\+work\+\_\+mode\+\_\+t \mbox{\hyperlink{structes8374__codec__cfg__t_a7a210c8299cd3ac7a49ffb26c9e8d4aa}{codec\+\_\+mode}}
+\item 
+bool \mbox{\hyperlink{structes8374__codec__cfg__t_a8e388f6d43420849eb754b0eddde60a1}{master\+\_\+mode}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structes8374__codec__cfg__t_abd95b4e253888aa0a9edcd9b045008f5}{pa\+\_\+pin}}
+\item 
+bool \mbox{\hyperlink{structes8374__codec__cfg__t_afa08dc8af64dc51e0c139a3c0bdae4af}{pa\+\_\+reverted}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+ES8374 codec configuration. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structes8374__codec__cfg__t_a7a210c8299cd3ac7a49ffb26c9e8d4aa}\label{structes8374__codec__cfg__t_a7a210c8299cd3ac7a49ffb26c9e8d4aa} 
+\index{es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}!codec\_mode@{codec\_mode}}
+\index{codec\_mode@{codec\_mode}!es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{codec\_mode}{codec\_mode}}
+{\footnotesize\ttfamily esp\+\_\+codec\+\_\+dec\+\_\+work\+\_\+mode\+\_\+t es8374\+\_\+codec\+\_\+cfg\+\_\+t\+::codec\+\_\+mode}
+
+Codec work mode\+: ADC or DAC \Hypertarget{structes8374__codec__cfg__t_afcf78a2a4feeb2444f0a3aaf797b578a}\label{structes8374__codec__cfg__t_afcf78a2a4feeb2444f0a3aaf797b578a} 
+\index{es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}!ctrl\_if@{ctrl\_if}}
+\index{ctrl\_if@{ctrl\_if}!es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{ctrl\_if}{ctrl\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} es8374\+\_\+codec\+\_\+cfg\+\_\+t\+::ctrl\+\_\+if}
+
+Codec Control interface \Hypertarget{structes8374__codec__cfg__t_abc956e36e298450b9db797f7bbb3d99a}\label{structes8374__codec__cfg__t_abc956e36e298450b9db797f7bbb3d99a} 
+\index{es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}!gpio\_if@{gpio\_if}}
+\index{gpio\_if@{gpio\_if}!es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{gpio\_if}{gpio\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} es8374\+\_\+codec\+\_\+cfg\+\_\+t\+::gpio\+\_\+if}
+
+Codec GPIO interface \Hypertarget{structes8374__codec__cfg__t_a8e388f6d43420849eb754b0eddde60a1}\label{structes8374__codec__cfg__t_a8e388f6d43420849eb754b0eddde60a1} 
+\index{es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}!master\_mode@{master\_mode}}
+\index{master\_mode@{master\_mode}!es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{master\_mode}{master\_mode}}
+{\footnotesize\ttfamily bool es8374\+\_\+codec\+\_\+cfg\+\_\+t\+::master\+\_\+mode}
+
+Whether codec works as I2S master or not \Hypertarget{structes8374__codec__cfg__t_abd95b4e253888aa0a9edcd9b045008f5}\label{structes8374__codec__cfg__t_abd95b4e253888aa0a9edcd9b045008f5} 
+\index{es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}!pa\_pin@{pa\_pin}}
+\index{pa\_pin@{pa\_pin}!es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_pin}{pa\_pin}}
+{\footnotesize\ttfamily int16\+\_\+t es8374\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+pin}
+
+PA chip power pin \Hypertarget{structes8374__codec__cfg__t_afa08dc8af64dc51e0c139a3c0bdae4af}\label{structes8374__codec__cfg__t_afa08dc8af64dc51e0c139a3c0bdae4af} 
+\index{es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}!pa\_reverted@{pa\_reverted}}
+\index{pa\_reverted@{pa\_reverted}!es8374\_codec\_cfg\_t@{es8374\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_reverted}{pa\_reverted}}
+{\footnotesize\ttfamily bool es8374\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+reverted}
+
+false\+: enable PA when pin set to 1, true\+: enable PA when pin set to 0 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/device/include/es8374\+\_\+codec.\+h\end{DoxyCompactItemize}

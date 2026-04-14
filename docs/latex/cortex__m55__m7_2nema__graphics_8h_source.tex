@@ -1,0 +1,407 @@
+\doxysection{nema\+\_\+graphics.\+h}
+\hypertarget{cortex__m55__m7_2nema__graphics_8h_source}{}\label{cortex__m55__m7_2nema__graphics_8h_source}\index{managed\_components/lvgl\_\_lvgl/libs/nema\_gfx/include/cortex\_m55\_m7/nema\_graphics.h@{managed\_components/lvgl\_\_lvgl/libs/nema\_gfx/include/cortex\_m55\_m7/nema\_graphics.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ TSI\ 2023.xmo\ */}}
+\DoxyCodeLine{00002\ \textcolor{comment}{/*******************************************************************************}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ Copyright\ (c)\ 2023\ Think\ Silicon\ Single\ Member\ PC}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ of\ this\ header\ file\ and/or\ associated\ documentation\ files\ to\ use,\ copy,}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ modify,\ merge,\ publish,\ distribute,\ sublicense,\ and/or\ sell\ copies\ of\ the}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Materials,\ and\ to\ permit\ persons\ to\ whom\ the\ Materials\ are\ furnished\ to\ do}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ all\ copies\ or\ substantial\ portions\ of\ the\ Materials.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ MODIFICATIONS\ TO\ THIS\ FILE\ MAY\ MEAN\ IT\ NO\ LONGER\ ACCURATELY\ REFLECTS}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ NEMAGFX\ API.\ THE\ UNMODIFIED,\ NORMATIVE\ VERSIONS\ OF\ THINK-\/SILICON\ NEMAGFX}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ SPECIFICATIONS\ AND\ HEADER\ INFORMATION\ ARE\ LOCATED\ AT:}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ https://think-\/silicon.com/products/software/nemagfx-\/api}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ \ The\ software\ is\ provided\ 'as\ is',\ without\ warranty\ of\ any\ kind,\ express\ or}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ implied,\ including\ but\ not\ limited\ to\ the\ warranties\ of\ merchantability,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ fitness\ for\ a\ particular\ purpose\ and\ noninfringement.\ In\ no\ event\ shall}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ Think\ Silicon\ Single\ Member\ PC\ be\ liable\ for\ any\ claim,\ damages\ or\ other}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ liability,\ whether\ in\ an\ action\ of\ contract,\ tort\ or\ otherwise,\ arising}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ from,\ out\ of\ or\ in\ connection\ with\ the\ software\ or\ the\ use\ or\ other\ dealings}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ in\ the\ software.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ ******************************************************************************/}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ NEMA\_GRAPHICS\_H\_\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ NEMA\_GRAPHICS\_H\_\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cortex__m55__m7_2nema__sys__defs_8h}{nema\_sys\_defs.h}}"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}nema\_hal.h"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}nema\_matrix3x3.h"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__img__obj__}{\_img\_obj\_}}\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{structnema__buffer__t__}{nema\_buffer\_t}}\ bo;}
+\DoxyCodeLine{00042\ \ \ \ \ uint16\_t\ w;}
+\DoxyCodeLine{00043\ \ \ \ \ uint16\_t\ h;}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ stride;}
+\DoxyCodeLine{00045\ \ \ \ \ uint32\_t\ color;}
+\DoxyCodeLine{00046\ \ \ \ \ uint8\_t\ \ format;}
+\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ \ sampling\_mode;\ \textcolor{comment}{//\ NEMA\_FILTER*}}
+\DoxyCodeLine{00048\ \}\ \mbox{\hyperlink{struct__img__obj__}{img\_obj\_t}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__img__obj__}{img\_obj\_t}}\ \mbox{\hyperlink{struct__img__obj__}{nema\_img\_obj\_t}};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ NEMA\_NOTEX\ \ =\ -\/1,\ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ NEMA\_TEX0\ \ \ =\ \ 0,\ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ NEMA\_TEX1\ \ \ =\ \ 1,\ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ NEMA\_TEX2\ \ \ =\ \ 2,\ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ NEMA\_TEX3\ \ \ =\ \ 3,\ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ NEMA\_TEXMAX\ =\ \ 4\ \ \ \ \ }
+\DoxyCodeLine{00059\ \}\ nema\_tex\_t;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ NEMA\_RGBX8888\ \ \ 0x00U\ \ }}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA8888\ \ \ 0x01U\ \ }}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ NEMA\_XRGB8888\ \ \ 0x02U\ \ }}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ NEMA\_ARGB8888\ \ \ 0x03U\ \ }}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ NEMA\_RGB565\ \ \ \ \ 0x04U\ \ }}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA5650\ \ \ 0x04U\ \ }}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA5551\ \ \ 0x05U\ \ }}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA4444\ \ \ 0x06U\ \ }}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA0800\ \ \ 0x07U\ \ }}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ NEMA\_A8\ \ \ \ \ \ \ \ \ 0x08U\ \ }}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA0008\ \ \ 0x08U\ \ }}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ NEMA\_L8\ \ \ \ \ \ \ \ \ 0x09U\ \ }}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ NEMA\_L1\ \ \ \ \ \ \ \ \ 0x0BU\ \ }}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ NEMA\_BW1\ \ \ \ \ \ \ \ 0x0CU\ \ }}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ NEMA\_A1\ \ \ \ \ \ \ \ \ 0x0CU\ \ }}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ NEMA\_UYVY\ \ \ \ \ \ \ 0x0DU\ \ }}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ NEMA\_ABGR8888\ \ \ 0x0EU\ \ }}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ NEMA\_XBGR8888\ \ \ 0x0FU\ \ }}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ NEMA\_BGRA8888\ \ \ 0x10U\ \ }}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ NEMA\_BGRX8888\ \ \ 0x11U\ \ }}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ NEMA\_TSC4\ \ \ \ \ \ \ 0x12U\ \ }}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ NEMA\_BGRA5650\ \ \ 0x13U\ \ }}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ NEMA\_BGR565\ \ \ \ \ 0x13U\ \ }}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ NEMA\_TSC6\ \ \ \ \ \ \ 0x16U\ \ }}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ NEMA\_TSC6A\ \ \ \ \ \ 0x17U\ \ }}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ NEMA\_RV\ \ \ \ \ \ \ \ \ 0x18U\ \ }}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ NEMA\_GU\ \ \ \ \ \ \ \ \ 0x19U\ \ }}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ NEMA\_BY\ \ \ \ \ \ \ \ \ 0x1AU\ \ }}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ NEMA\_YUV\ \ \ \ \ \ \ \ 0x1BU\ \ }}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ NEMA\_Z24\_8\ \ \ \ \ \ 0x1cU\ \ }}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ NEMA\_Z16\ \ \ \ \ \ \ \ 0x1dU\ \ }}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ NEMA\_UV\ \ \ \ \ \ \ \ \ 0x1eU\ \ }}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ NEMA\_A1LE\ \ \ \ \ \ \ 0x27U\ \ }}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ NEMA\_A2LE\ \ \ \ \ \ \ 0x28U\ \ }}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ NEMA\_A4LE\ \ \ \ \ \ \ 0x29U\ \ }}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ NEMA\_L1LE\ \ \ \ \ \ \ 0x2AU\ \ }}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ NEMA\_L2LE\ \ \ \ \ \ \ 0x2BU\ \ }}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ NEMA\_L4LE\ \ \ \ \ \ \ 0x2CU\ \ }}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ NEMA\_A2\ \ \ \ \ \ \ \ \ 0x30U\ \ }}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ NEMA\_L2\ \ \ \ \ \ \ \ \ 0x31U\ \ }}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ NEMA\_A4\ \ \ \ \ \ \ \ \ 0x34U\ \ }}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ NEMA\_L4\ \ \ \ \ \ \ \ \ 0x35U\ \ }}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA3320\ \ \ 0x38U\ \ }}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ NEMA\_RGB332\ \ \ \ \ 0x38U\ \ }}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ NEMA\_BGR24\ \ \ \ \ \ 0x39U\ \ }}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ NEMA\_RGB24\ \ \ \ \ \ 0x3CU\ \ }}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ NEMA\_RV10\ \ \ \ \ \ \ 0x3DU\ \ }}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ NEMA\_GU10\ \ \ \ \ \ \ 0x3EU\ \ }}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ NEMA\_BY10\ \ \ \ \ \ \ 0x3FU\ \ }}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ NEMA\_RGBA2222\ \ \ 0x40U\ \ }}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ NEMA\_ABGR2222\ \ \ 0x41U\ \ }}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ NEMA\_BGRA2222\ \ \ 0x42U\ \ }}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ NEMA\_ARGB2222\ \ \ 0x43U\ \ }}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ NEMA\_AL88\ \ \ \ \ \ \ 0x44U\ \ }}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ NEMA\_AL44\ \ \ \ \ \ \ 0x45U\ \ }}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ NEMA\_ARGB1555\ \ \ 0x46U\ \ }}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ NEMA\_ARGB4444\ \ \ 0x47U\ \ }}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ NEMA\_BGRA5551\ \ \ 0x48U\ \ }}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ NEMA\_ABGR1555\ \ \ 0x49U\ \ }}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ NEMA\_BGRA4444\ \ \ 0x4aU\ \ }}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ NEMA\_ABGR4444\ \ \ 0x4bU\ \ }}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ NEMA\_TSC12\ \ \ \ \ \ 0x4cU\ \ }}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ NEMA\_TSC12A\ \ \ \ \ 0x4dU\ \ }}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ NEMA\_TSC6AP\ \ \ \ \ 0x4eU\ \ }}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ NEMA\_DITHER\ \ \ \ \ 0x80U\ \ }}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ NEMA\_FORMAT\_MASK\ 0x7FU\ }}
+\DoxyCodeLine{00129\ \textcolor{keyword}{typedef}\ uint32\_t\ nema\_tex\_format\_t;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{comment}{//\ Texture\ Unit\ Parameters}}
+\DoxyCodeLine{00134\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ Filtering\ -\/\ 0:0}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ NEMA\_FILTER\_PS\ \ 0x00U\ }}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ NEMA\_FILTER\_BL\ \ 0x01U\ }}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{//\ Wrapping\ Mode\ 3:2}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ NEMA\_TEX\_CLAMP\ \ (0x00U)\ \ \ \ }}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ NEMA\_TEX\_REPEAT\ (0x01U<<2)\ }}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ NEMA\_TEX\_BORDER\ (0x02U<<2)\ }}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ NEMA\_TEX\_MIRROR\ (0x03U<<2)\ }}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ Texture\ Coordinates\ Ordering\ 4:4}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#define\ NEMA\_TEX\_MORTON\_ORDER\ (0x10U)}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{comment}{//\ Texture\ Coordinates\ Format\ 6:5}}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#define\ NEMA\_TEX\_RANGE\_0\_1\ \ \ (0x1U<<5)\ \ }}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#define\ NEMA\_TEX\_LEFT\_HANDED\ (0x1U<<6)\ \ }}
+\DoxyCodeLine{00156\ \textcolor{keyword}{typedef}\ uint8\_t\ nema\_tex\_mode\_t;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{comment}{//\ Triangle\ Culling}}
+\DoxyCodeLine{00159\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00160\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ NEMA\_CULL\_NONE\ =\ 0\ \ \ \ \ \ ,\ }
+\DoxyCodeLine{00162\ \ \ \ \ NEMA\_CULL\_CW\ \ \ =\ (1U<<28),\ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ NEMA\_CULL\_CCW\ \ =\ (1U<<29),\ \ }
+\DoxyCodeLine{00164\ \ \ \ \ NEMA\_CULL\_ALL\ \ =\ NEMA\_CULL\_CW\ |\ NEMA\_CULL\_CCW\ \ \ }
+\DoxyCodeLine{00165\ \}\ nema\_tri\_cull\_t;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ Rotation\ Modes}}
+\DoxyCodeLine{00168\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_000\_CCW\ \ (0x0U)\ }}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_090\_CCW\ \ (0x1U)\ }}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_180\_CCW\ \ (0x2U)\ }}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_270\_CCW\ \ (0x3U)\ }}
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_000\_CW\ \ \ (0x0U)\ }}
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_270\_CW\ \ \ (0x1U)\ }}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_180\_CW\ \ \ (0x2U)\ }}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#define\ NEMA\_ROT\_090\_CW\ \ \ (0x3U)\ }}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ NEMA\_MIR\_VERT\ \ \ \ \ (0x4U)\ }}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#define\ NEMA\_MIR\_HOR\ \ \ \ \ \ (0x8U)\ \ }}
+\DoxyCodeLine{00187\ \textcolor{keywordtype}{int}\ nema\_checkGPUPresence(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ TEXTURES\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00202\ \textcolor{keywordtype}{void}\ nema\_bind\_tex(nema\_tex\_t\ texid,\ uintptr\_t\ addr\_gpu,}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ width,\ uint32\_t\ height,}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nema\_tex\_format\_t\ format,\ int32\_t\ stride,\ nema\_tex\_mode\_t\ wrap\_mode);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00212\ \textcolor{keywordtype}{void}\ nema\_set\_tex\_color(uint32\_t\ color);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ CONSTREGS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{void}\ nema\_set\_const\_reg(\textcolor{keywordtype}{int}\ reg,\ uint32\_t\ value);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ CLIP\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00234\ \textcolor{keywordtype}{void}\ nema\_set\_clip(int32\_t\ x,\ int32\_t\ y,\ uint32\_t\ w,\ uint32\_t\ h);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{keywordtype}{void}\ nema\_enable\_gradient(\textcolor{keywordtype}{int}\ enable);}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{keywordtype}{void}\ nema\_enable\_depth(\textcolor{keywordtype}{int}\ enable);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00249\ uint32\_t\ nema\_enable\_aa(uint8\_t\ e0,\ uint8\_t\ e1,\ uint8\_t\ e2,\ uint8\_t\ e3);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00257\ uint32\_t\ nema\_enable\_aa\_flags(uint32\_t\ aa);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ DIRTY\ REGIONS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00270\ \textcolor{keywordtype}{void}\ nema\_get\_dirty\_region(\textcolor{keywordtype}{int}\ *minx,\ \textcolor{keywordtype}{int}\ *miny,\ \textcolor{keywordtype}{int}\ *maxx,\ \textcolor{keywordtype}{int}\ *maxy);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00279\ \textcolor{keywordtype}{void}\ nema\_clear\_dirty\_region(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00288\ \textcolor{keywordtype}{void}\ nema\_clear\_dirty\_region\_imm(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ UTILS\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00297\ \textcolor{keywordtype}{void}\ nema\_tri\_cull(nema\_tri\_cull\_t\ cull);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00305\ \textcolor{keywordtype}{int}\ nema\_format\_size\ (nema\_tex\_format\_t\ format);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00315\ \textcolor{keywordtype}{int}\ nema\_stride\_size(nema\_tex\_format\_t\ format,\ nema\_tex\_mode\_t\ wrap\_mode,\ \textcolor{keywordtype}{int}\ width);}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00327\ \textcolor{keywordtype}{int}\ nema\_texture\_size(nema\_tex\_format\_t\ format,\ nema\_tex\_mode\_t\ wrap\_mode,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00338\ uint32\_t\ nema\_rgba(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ R,}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ G,}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ B,}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ A);}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00349\ uint32\_t\ nema\_premultiply\_rgba(uint32\_t\ rgba);}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00356\ \textcolor{keywordtype}{int}\ nema\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00366\ \textcolor{keywordtype}{int}\ nema\_reinit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ CONTEXT\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00380\ \textcolor{keywordtype}{void}\ nema\_bind\_src\_tex(uintptr\_t\ baseaddr\_phys,}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ width,\ uint32\_t\ height,}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nema\_tex\_format\_t\ format,\ int32\_t\ stride,\ nema\_tex\_mode\_t\ mode);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00394\ \textcolor{keywordtype}{void}\ nema\_bind\_src2\_tex(uintptr\_t\ baseaddr\_phys,}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ width,\ uint32\_t\ height,}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nema\_tex\_format\_t\ format,\ int32\_t\ stride,\ nema\_tex\_mode\_t\ mode);}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00407\ \textcolor{keywordtype}{void}\ nema\_bind\_dst\_tex(uintptr\_t\ baseaddr\_phys,}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ width,\ uint32\_t\ height,}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nema\_tex\_format\_t\ format,\ int32\_t\ stride);}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00425\ \textcolor{keywordtype}{void}\ nema\_bind\_lut\_tex(\ uintptr\_t\ baseaddr\_phys,}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ width,\ uint32\_t\ height,}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nema\_tex\_format\_t\ format,\ int32\_t\ stride,\ nema\_tex\_mode\_t\ mode,}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uintptr\_t\ palette\_baseaddr\_phys,}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nema\_tex\_format\_t\ palette\_format);}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00438\ \textcolor{keywordtype}{void}\ nema\_bind\_depth\_buffer(uintptr\_t\ baseaddr\_phys,}
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ width,\ uint32\_t\ height);}
+\DoxyCodeLine{00440\ }
+\DoxyCodeLine{00442\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ DEPTH\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00443\ \textcolor{keywordtype}{void}\ nema\_set\_depth(\textcolor{keywordtype}{float}\ start,\ \textcolor{keywordtype}{float}\ dx,\ \textcolor{keywordtype}{float}\ dy);}
+\DoxyCodeLine{00444\ }
+\DoxyCodeLine{00445\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ GRADIENT\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00447\ \textcolor{keywordtype}{void}\ nema\_set\_gradient(\textcolor{keywordtype}{float}\ r\_init,\ \textcolor{keywordtype}{float}\ g\_init,\ \textcolor{keywordtype}{float}\ b\_init,\ \textcolor{keywordtype}{float}\ a\_init,}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r\_dx,\ \textcolor{keywordtype}{float}\ r\_dy,}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ g\_dx,\ \textcolor{keywordtype}{float}\ g\_dy,}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ b\_dx,\ \textcolor{keywordtype}{float}\ b\_dy,}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ a\_dx,\ \textcolor{keywordtype}{float}\ a\_dy);}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ DRAWING\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00460\ \textcolor{keywordtype}{void}\ nema\_clear(uint32\_t\ rgba8888);}
+\DoxyCodeLine{00461\ }
+\DoxyCodeLine{00467\ \textcolor{keywordtype}{void}\ nema\_clear\_depth(uint32\_t\ val);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00480\ \textcolor{keywordtype}{void}\ nema\_draw\_line(\textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ y0,\ \textcolor{keywordtype}{int}\ x1,\ \textcolor{keywordtype}{int}\ y1,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00496\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{00497\ nema\_draw\_line\_aa(\textcolor{keywordtype}{float}\ x0,\ \textcolor{keywordtype}{float}\ y0,\ \textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ w,}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00510\ \textcolor{keywordtype}{void}\ nema\_draw\_circle(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ r,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00523\ \textcolor{keywordtype}{void}\ nema\_draw\_circle\_aa(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r,\ \textcolor{keywordtype}{float}\ w,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00537\ \textcolor{keywordtype}{void}\ nema\_draw\_rounded\_rect(\textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ y0,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ r,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00538\ }
+\DoxyCodeLine{00550\ \textcolor{keywordtype}{void}\ nema\_draw\_rect(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00551\ }
+\DoxyCodeLine{00562\ \textcolor{keywordtype}{void}\ nema\_fill\_circle(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ r,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00563\ }
+\DoxyCodeLine{00574\ \textcolor{keywordtype}{void}\ nema\_fill\_circle\_aa(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ r,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00588\ \textcolor{keywordtype}{void}\ nema\_fill\_triangle(\textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ y0,\ \textcolor{keywordtype}{int}\ x1,\ \textcolor{keywordtype}{int}\ y1,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00602\ \textcolor{keywordtype}{void}\ nema\_fill\_rounded\_rect(\textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ y0,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ r,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00603\ }
+\DoxyCodeLine{00615\ \textcolor{keywordtype}{void}\ nema\_fill\_rect(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00616\ }
+\DoxyCodeLine{00632\ \textcolor{keywordtype}{void}\ nema\_fill\_quad(\textcolor{keywordtype}{int}\ x0,\ \textcolor{keywordtype}{int}\ y0,\ \textcolor{keywordtype}{int}\ x1,\ \textcolor{keywordtype}{int}\ y1,\ \textcolor{keywordtype}{int}\ x2,\ \textcolor{keywordtype}{int}\ y2,\ \textcolor{keywordtype}{int}\ x3,\ \textcolor{keywordtype}{int}\ y3,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00634\ }
+\DoxyCodeLine{00646\ \textcolor{keywordtype}{void}\ nema\_fill\_rect\_f(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00647\ }
+\DoxyCodeLine{00648\ }
+\DoxyCodeLine{00664\ \textcolor{keywordtype}{void}\ nema\_fill\_quad\_f(\textcolor{keywordtype}{float}\ x0,\ \textcolor{keywordtype}{float}\ y0,\ \textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2,\ \textcolor{keywordtype}{float}\ x3,\ \textcolor{keywordtype}{float}\ y3,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00665\ }
+\DoxyCodeLine{00666\ }
+\DoxyCodeLine{00679\ \textcolor{keywordtype}{void}\ nema\_fill\_triangle\_f(\textcolor{keywordtype}{float}\ x0,\ \textcolor{keywordtype}{float}\ y0,\ \textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2,\ uint32\_t\ rgba8888);}
+\DoxyCodeLine{00680\ }
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ BLITTING\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00683\ }
+\DoxyCodeLine{00691\ \textcolor{keywordtype}{void}\ nema\_blit\ (\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00692\ }
+\DoxyCodeLine{00693\ }
+\DoxyCodeLine{00702\ \textcolor{keywordtype}{void}\ nema\_blit\_rounded\ (\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ r);}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00713\ \textcolor{keywordtype}{void}\ nema\_blit\_rect\ (\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h);}
+\DoxyCodeLine{00714\ }
+\DoxyCodeLine{00727\ \textcolor{keywordtype}{void}\ nema\_blit\_subrect(\textcolor{keywordtype}{int}\ dst\_x,\ \textcolor{keywordtype}{int}\ dst\_y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ src\_x,\ \textcolor{keywordtype}{int}\ src\_y);}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00738\ \textcolor{keywordtype}{void}\ nema\_blit\_rect\_fit(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h);}
+\DoxyCodeLine{00739\ }
+\DoxyCodeLine{00740\ }
+\DoxyCodeLine{00755\ \textcolor{keywordtype}{void}\ nema\_blit\_subrect\_fit(\ \textcolor{keywordtype}{int}\ dst\_x,\ \textcolor{keywordtype}{int}\ dst\_y,\ \textcolor{keywordtype}{int}\ dst\_w,\ \textcolor{keywordtype}{int}\ dst\_h,}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ src\_x,\ \textcolor{keywordtype}{int}\ src\_y,\ \textcolor{keywordtype}{int}\ src\_w,\ \textcolor{keywordtype}{int}\ src\_h);}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00768\ \textcolor{keywordtype}{void}\ nema\_blit\_rotate\_pivot(\ \textcolor{keywordtype}{float}\ cx,\ \textcolor{keywordtype}{float}\ cy,}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ px,\ \textcolor{keywordtype}{float}\ py,\ \textcolor{keywordtype}{float}\ degrees\_cw\ );}
+\DoxyCodeLine{00770\ }
+\DoxyCodeLine{00779\ \textcolor{keywordtype}{void}\ nema\_blit\_rotate(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ uint32\_t\ rotation);}
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00793\ \textcolor{keywordtype}{void}\ nema\_blit\_rotate\_partial(\textcolor{keywordtype}{int}\ sx,\ \textcolor{keywordtype}{int}\ sy,}
+\DoxyCodeLine{00794\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sw,\ \textcolor{keywordtype}{int}\ sh,}
+\DoxyCodeLine{00795\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ \ \textcolor{keywordtype}{int}\ y,}
+\DoxyCodeLine{00796\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ rotation);}
+\DoxyCodeLine{00797\ }
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00816\ \textcolor{keywordtype}{void}\ nema\_blit\_tri\_fit\ (\textcolor{keywordtype}{float}\ dx0,\ \textcolor{keywordtype}{float}\ dy0,\ \textcolor{keywordtype}{int}\ v0,}
+\DoxyCodeLine{00817\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx1,\ \textcolor{keywordtype}{float}\ dy1,\ \textcolor{keywordtype}{int}\ v1,}
+\DoxyCodeLine{00818\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx2,\ \textcolor{keywordtype}{float}\ dy2,\ \textcolor{keywordtype}{int}\ v2);}
+\DoxyCodeLine{00819\ }
+\DoxyCodeLine{00840\ \textcolor{keywordtype}{void}\ nema\_blit\_tri\_uv\ \ (\textcolor{keywordtype}{float}\ dx0,\ \textcolor{keywordtype}{float}\ dy0,\ \textcolor{keywordtype}{float}\ dw0,}
+\DoxyCodeLine{00841\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx1,\ \textcolor{keywordtype}{float}\ dy1,\ \textcolor{keywordtype}{float}\ dw1,}
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx2,\ \textcolor{keywordtype}{float}\ dy2,\ \textcolor{keywordtype}{float}\ dw2,}
+\DoxyCodeLine{00843\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sx0,\ \textcolor{keywordtype}{float}\ sy0,}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sx1,\ \textcolor{keywordtype}{float}\ sy1,}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sx2,\ \textcolor{keywordtype}{float}\ sy2}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00847\ }
+\DoxyCodeLine{00862\ \textcolor{keywordtype}{void}\ nema\_blit\_quad\_fit\ (\textcolor{keywordtype}{float}\ dx0,\ \textcolor{keywordtype}{float}\ dy0,}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx1,\ \textcolor{keywordtype}{float}\ dy1,}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx2,\ \textcolor{keywordtype}{float}\ dy2,}
+\DoxyCodeLine{00865\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx3,\ \textcolor{keywordtype}{float}\ dy3);}
+\DoxyCodeLine{00866\ }
+\DoxyCodeLine{00885\ \textcolor{keywordtype}{void}\ nema\_blit\_subrect\_quad\_fit(\textcolor{keywordtype}{float}\ dx0,\ \textcolor{keywordtype}{float}\ dy0,}
+\DoxyCodeLine{00886\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx1,\ \textcolor{keywordtype}{float}\ dy1,}
+\DoxyCodeLine{00887\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx2,\ \textcolor{keywordtype}{float}\ dy2,}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx3,\ \textcolor{keywordtype}{float}\ dy3,}
+\DoxyCodeLine{00889\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sx,\ \textcolor{keywordtype}{int}\ sy,}
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sw,\ \textcolor{keywordtype}{int}\ sh);}
+\DoxyCodeLine{00891\ }
+\DoxyCodeLine{00906\ \textcolor{keywordtype}{void}\ nema\_blit\_quad\_m(\textcolor{keywordtype}{float}\ dx0,\ \textcolor{keywordtype}{float}\ dy0,}
+\DoxyCodeLine{00907\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx1,\ \textcolor{keywordtype}{float}\ dy1,}
+\DoxyCodeLine{00908\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx2,\ \textcolor{keywordtype}{float}\ dy2,}
+\DoxyCodeLine{00909\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dx3,\ \textcolor{keywordtype}{float}\ dy3,\ nema\_matrix3x3\_t\ m);}
+\DoxyCodeLine{00910\ }
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00912\ }
+\DoxyCodeLine{00913\ }
+\DoxyCodeLine{00919\ \textcolor{keywordtype}{void}\ nema\_brk\_enable(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00920\ }
+\DoxyCodeLine{00926\ \textcolor{keywordtype}{void}\ nema\_brk\_disable(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00927\ }
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00934\ \textcolor{keywordtype}{int}\ \ nema\_brk\_add(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00935\ }
+\DoxyCodeLine{00942\ \textcolor{keywordtype}{int}\ \ nema\_brk\_wait(\textcolor{keywordtype}{int}\ brk\_id);}
+\DoxyCodeLine{00943\ }
+\DoxyCodeLine{00948\ \textcolor{keywordtype}{void}\ nema\_brk\_continue(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00949\ }
+\DoxyCodeLine{00956\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_enable(uint32\_t\ hold\_id);}
+\DoxyCodeLine{00957\ }
+\DoxyCodeLine{00964\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_disable(uint32\_t\ hold\_id);}
+\DoxyCodeLine{00965\ }
+\DoxyCodeLine{00972\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_irq\_enable(uint32\_t\ hold\_id);}
+\DoxyCodeLine{00973\ }
+\DoxyCodeLine{00980\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_irq\_disable(uint32\_t\ hold\_id);}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00982\ }
+\DoxyCodeLine{00990\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_assert(uint32\_t\ hold\_id,\ \textcolor{keywordtype}{int}\ stop);}
+\DoxyCodeLine{00991\ }
+\DoxyCodeLine{00998\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_deassert(uint32\_t\ hold\_id);}
+\DoxyCodeLine{00999\ }
+\DoxyCodeLine{01006\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_assert\_imm(uint32\_t\ hold\_id);}
+\DoxyCodeLine{01007\ }
+\DoxyCodeLine{01014\ \textcolor{keywordtype}{void}\ nema\_ext\_hold\_deassert\_imm(uint32\_t\ hold\_id);}
+\DoxyCodeLine{01015\ }
+\DoxyCodeLine{01021\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nema\_get\_sw\_device\_name(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{01022\ }
+\DoxyCodeLine{01023\ }
+\DoxyCodeLine{01024\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{01025\ \}}
+\DoxyCodeLine{01026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01027\ }
+\DoxyCodeLine{01028\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

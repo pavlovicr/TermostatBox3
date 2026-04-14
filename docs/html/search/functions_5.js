@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['esp_5flcd_5fnew_5fpanel_5fili9341_0',['esp_lcd_new_panel_ili9341',['../esp__lcd__ili9341_8h.html#abcad57bda992950b1bb3d7422d49a45d',1,'esp_lcd_ili9341.c']]],
+  ['esp_5flcd_5ftouch_5fdel_1',['esp_lcd_touch_del',['../esp__lcd__touch_8h.html#a8a8240978947c19d71e7cf545bfd5acc',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fenter_5fsleep_2',['esp_lcd_touch_enter_sleep',['../esp__lcd__touch_8h.html#a618f01d5e3a25b0d852c0447d6a5db5f',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fexit_5fsleep_3',['esp_lcd_touch_exit_sleep',['../esp__lcd__touch_8h.html#a7cc134a229739580887b5d74c441487a',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fget_5fcoordinates_4',['esp_lcd_touch_get_coordinates',['../esp__lcd__touch_8h.html#a2e924cbb14601c86fc2fe5b7c8a27aef',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fget_5fdata_5',['esp_lcd_touch_get_data',['../esp__lcd__touch_8h.html#a894e5c22d47d5a8e89b8b472a06a5a06',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fget_5fmirror_5fx_6',['esp_lcd_touch_get_mirror_x',['../esp__lcd__touch_8h.html#aa3763afc1107b6d8a3a36619c298e08a',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fget_5fmirror_5fy_7',['esp_lcd_touch_get_mirror_y',['../esp__lcd__touch_8h.html#aa6b38657032dbfc228c007160faeffec',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fget_5fswap_5fxy_8',['esp_lcd_touch_get_swap_xy',['../esp__lcd__touch_8h.html#a3fbd9e53e4dca1022ff417f3d1d4277f',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fnew_5fi2c_5fgt911_9',['esp_lcd_touch_new_i2c_gt911',['../esp__lcd__touch__gt911_8h.html#ace4b4a5a760145d5e65600c79363d6c7',1,'esp_lcd_touch_gt911.c']]],
+  ['esp_5flcd_5ftouch_5fnew_5fi2c_5ftt21100_10',['esp_lcd_touch_new_i2c_tt21100',['../esp__lcd__touch__tt21100_8h.html#af36fda374a632885f3c4d9d733ef3b52',1,'esp_lcd_touch_tt21100.c']]],
+  ['esp_5flcd_5ftouch_5fread_5fdata_11',['esp_lcd_touch_read_data',['../esp__lcd__touch_8h.html#acdce04195b09e422ce45dfc9d59cbdb4',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fregister_5finterrupt_5fcallback_12',['esp_lcd_touch_register_interrupt_callback',['../esp__lcd__touch_8h.html#aa19377f5479504bb0dce19a5a5c8a648',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fregister_5finterrupt_5fcallback_5fwith_5fdata_13',['esp_lcd_touch_register_interrupt_callback_with_data',['../esp__lcd__touch_8h.html#ad8d87098c087ee1ec78e4d427f2d9978',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fset_5fmirror_5fx_14',['esp_lcd_touch_set_mirror_x',['../esp__lcd__touch_8h.html#a8ce613d11d9731ad0cb9747753ab505b',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fset_5fmirror_5fy_15',['esp_lcd_touch_set_mirror_y',['../esp__lcd__touch_8h.html#a178eaadaa0171d41ffe88175cf2c7736',1,'esp_lcd_touch.c']]],
+  ['esp_5flcd_5ftouch_5fset_5fswap_5fxy_16',['esp_lcd_touch_set_swap_xy',['../esp__lcd__touch_8h.html#ab501eb38c94e082ae9530114110978a1',1,'esp_lcd_touch.c']]]
+];

@@ -1,0 +1,64 @@
+\doxysection{lv\+\_\+cache\+\_\+entry\+\_\+private.\+h}
+\hypertarget{lv__cache__entry__private_8h_source}{}\label{lv__cache__entry__private_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/misc/cache/lv\_cache\_entry\_private.h@{managed\_components/lvgl\_\_lvgl/src/misc/cache/lv\_cache\_entry\_private.h}}
+\mbox{\hyperlink{lv__cache__entry__private_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_CACHE\_ENTRY\_PRIVATE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_CACHE\_ENTRY\_PRIVATE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../lv\_types.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__cache__entry__t}{\_lv\_cache\_entry\_t}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__cache__t}{lv\_cache\_t}}\ *\ cache;}
+\DoxyCodeLine{00029\ \ \ \ \ int32\_t\ ref\_cnt;}
+\DoxyCodeLine{00030\ \ \ \ \ uint32\_t\ node\_size;}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LV\_CACHE\_ENTRY\_FLAG\_INVALID\ (1\ <<\ 0)\ }}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LV\_CACHE\_ENTRY\_FLAG\_DISABLE\_DELETE\ (1\ <<\ 1)\ }}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ LV\_CACHE\_ENTRY\_FLAG\_CLASS\_CUSTOM\ (1\ <<\ 7)\ }}
+\DoxyCodeLine{00034\ \ \ \ \ uint8\_t\ flags;}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_reset\_ref(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_inc\_ref(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry);}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_dec\_ref(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_set\_node\_size(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry,\ uint32\_t\ node\_size);}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_set\_cache(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__cache__t}{lv\_cache\_t}}\ *\ cache);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ *\ lv\_cache\_entry\_acquire\_data(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry);}
+\DoxyCodeLine{00046\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_release\_data(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry,\ \textcolor{keywordtype}{void}\ *\ user\_data);}
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_set\_flag(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry,\ uint8\_t\ flags);}
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \ \ lv\_cache\_entry\_remove\_flag(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry,\ uint8\_t\ flags);}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{bool}\ \ \ lv\_cache\_entry\_has\_flag(\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}}\ *\ entry,\ uint8\_t\ flags);}
+\DoxyCodeLine{00050\ \textcolor{comment}{/*************************}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ \ \ \ GLOBAL\ VARIABLES}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *************************/}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00059\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_CACHE\_ENTRY\_PRIVATE\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

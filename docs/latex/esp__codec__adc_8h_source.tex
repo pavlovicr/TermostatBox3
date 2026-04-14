@@ -1,0 +1,64 @@
+\doxysection{esp\+\_\+codec\+\_\+adc.\+h}
+\hypertarget{esp__codec__adc_8h_source}{}\label{esp__codec__adc_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/include/esp\_codec\_adc.h@{managed\_components/espressif\_\_esp\_codec\_dev/include/esp\_codec\_adc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2026\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_ESP\_CODEC\_ADC\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_ESP\_CODEC\_ADC\_H\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ CONFIG\_CODEC\_DATA\_ADC\_SUPPORT}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}esp\_idf\_version.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}soc/soc\_caps.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#if\ ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 0,\ 0)\ \&\&\ SOC\_ADC\_SUPPORTED}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}hal/adc\_types.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ AUDIO\_CODEC\_ADC\_CFG\_MODE\_SINGLE\_UNIT\ =\ 0,\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ AUDIO\_CODEC\_ADC\_CFG\_MODE\_PATTERN\ \ \ \ \ =\ 1,\ \ }
+\DoxyCodeLine{00027\ \}\ audio\_codec\_adc\_cfg\_mode\_t;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_store\_buf\_size;\ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ conv\_frame\_size;\ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sample\_freq\_hz;\ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ adc\_digi\_convert\_mode\_t\ \ \ \ \ conv\_mode;\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ adc\_digi\_output\_format\_t\ \ \ \ format;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pattern\_num;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ audio\_codec\_adc\_cfg\_mode\_t\ \ cfg\_mode;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ adc\_unit\_t\ \ \ \ \ \ unit\_id;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ adc\_atten\_t\ \ \ \ \ atten;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ adc\_bitwidth\_t\ \ bit\_width;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ channel\_id[SOC\_ADC\_PATT\_LEN\_MAX];\ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}\ single\_unit;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ adc\_digi\_pattern\_config\_t\ \ patterns[SOC\_ADC\_PATT\_LEN\_MAX];\ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \}\ cfg;}
+\DoxyCodeLine{00049\ \}\ audio\_codec\_adc\_continuous\_cfg\_t;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *handle;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ audio\_codec\_adc\_continuous\_cfg\_t\ \ continuous\_cfg;\ \ }
+\DoxyCodeLine{00057\ \}\ audio\_codec\_adc\_cfg\_t;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *audio\_codec\_new\_adc\_data(audio\_codec\_adc\_cfg\_t\ *adc\_cfg);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 0,\ 0)\ \&\&\ SOC\_ADC\_SUPPORTED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ CONFIG\_CODEC\_DATA\_ADC\_SUPPORT\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ \_ESP\_CODEC\_ADC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

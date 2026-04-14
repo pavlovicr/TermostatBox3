@@ -1,0 +1,195 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/cache/lv\+\_\+cache\+\_\+private.h}
+\hypertarget{lv__cache__private_8h}{}\label{lv__cache__private_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/cache/lv\_cache\_private.h@{managed\_components/lvgl\_\_lvgl/src/misc/cache/lv\_cache\_private.h}}
+{\ttfamily \#include "{}../lv\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}../../osal/lv\+\_\+os\+\_\+private.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+cache\+\_\+private.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+cache\+\_\+private.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__cache__private_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__cache__private_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__cache__ops__t}{\+\_\+lv\+\_\+cache\+\_\+ops\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__lv__cache__t}{\+\_\+lv\+\_\+cache\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__lv__cache__class__t}{\+\_\+lv\+\_\+cache\+\_\+class\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__lv__cache__slot__size__t}{\+\_\+lv\+\_\+cache\+\_\+slot\+\_\+size\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__cache__private_8h_a16540f0e3156a0914ed09aa5a42a1ed6}\label{lv__cache__private_8h_a16540f0e3156a0914ed09aa5a42a1ed6} 
+typedef struct \mbox{\hyperlink{struct__lv__cache__ops__t}{\+\_\+lv\+\_\+cache\+\_\+ops\+\_\+t}} {\bfseries lv\+\_\+cache\+\_\+ops\+\_\+t}
+\item 
+\Hypertarget{lv__cache__private_8h_aff38a3b78f6866e335053d3d6365e9fb}\label{lv__cache__private_8h_aff38a3b78f6866e335053d3d6365e9fb} 
+typedef struct \mbox{\hyperlink{struct__lv__cache__class__t}{\+\_\+lv\+\_\+cache\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+cache\+\_\+class\+\_\+t}
+\item 
+\Hypertarget{lv__cache__private_8h_ae05bf8aeda1f8048a4eb666f28ba8fa0}\label{lv__cache__private_8h_ae05bf8aeda1f8048a4eb666f28ba8fa0} 
+typedef int32\+\_\+t {\bfseries lv\+\_\+cache\+\_\+compare\+\_\+res\+\_\+t}
+\item 
+\Hypertarget{lv__cache__private_8h_a07f9a9551eda1692c9b61c979e992244}\label{lv__cache__private_8h_a07f9a9551eda1692c9b61c979e992244} 
+typedef bool(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+cache\+\_\+create\+\_\+cb\+\_\+t}) (void \texorpdfstring{$\ast$}{*}node, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+\Hypertarget{lv__cache__private_8h_a0d4dc554d7ed32a73dcce30b5bb7ad8d}\label{lv__cache__private_8h_a0d4dc554d7ed32a73dcce30b5bb7ad8d} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+cache\+\_\+free\+\_\+cb\+\_\+t}) (void \texorpdfstring{$\ast$}{*}node, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+\Hypertarget{lv__cache__private_8h_a13269596d14620d4cd5b5cf3e527337e}\label{lv__cache__private_8h_a13269596d14620d4cd5b5cf3e527337e} 
+typedef lv\+\_\+cache\+\_\+compare\+\_\+res\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+cache\+\_\+compare\+\_\+cb\+\_\+t}) (const void \texorpdfstring{$\ast$}{*}a, const void \texorpdfstring{$\ast$}{*}b)
+\item 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_a0e1b4cc7f8bd6df651aaf059b6f929a3}{lv\+\_\+cache\+\_\+alloc\+\_\+cb\+\_\+t}}) (void)
+\item 
+typedef bool(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_af67f46f68b5b4c1c818517f8e6727d2e}{lv\+\_\+cache\+\_\+init\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_aab43e73a609af413bad6bcb378bf563a}{lv\+\_\+cache\+\_\+destroy\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_a1a4414479279c18d15568874f90fd7f0}{lv\+\_\+cache\+\_\+get\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_a5be85c22f93d54f673208ce72b19137f}{lv\+\_\+cache\+\_\+add\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_aae3c1a6f5ead18a028b7ab98b73d1d67}{lv\+\_\+cache\+\_\+remove\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}entry, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_a8affee25becaa2e62a77ba07afcb603c}{lv\+\_\+cache\+\_\+drop\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_a647e9dd6c00854f5d7d8f3a9d6f16b82}{lv\+\_\+cache\+\_\+drop\+\_\+all\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_ab40093e77d1b34251a9df3601b53312e}{lv\+\_\+cache\+\_\+get\+\_\+victim\+\_\+cb}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0}{lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+res\+\_\+t}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_a3be8aee0b01c2dd948960b3852dbb686}{lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+cb}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, size\+\_\+t size, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+typedef \mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__cache__private_8h_ac198654521e43cf409365aadac4f8dc8}{lv\+\_\+cache\+\_\+iter\+\_\+create\+\_\+cb}}) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache)
+\item 
+\Hypertarget{lv__cache__private_8h_a43b058aa50429dafa22d993e90ef50cf}\label{lv__cache__private_8h_a43b058aa50429dafa22d993e90ef50cf} 
+typedef struct \mbox{\hyperlink{struct__lv__cache__slot__size__t}{\+\_\+lv\+\_\+cache\+\_\+slot\+\_\+size\+\_\+t}} {\bfseries lv\+\_\+cache\+\_\+slot\+\_\+size\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0}{lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+res\+\_\+t}} \{ \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a3744c27341859a6b85d2c54879594030}{LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+OK}}
+, \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a999d7226395918b33cccbbe2eab1276b}{LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+TOO\+\_\+\+LARGE}}
+, \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a30a5b8b05cdebd0f2008a5078adfe84d}{LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+NEED\+\_\+\+VICTIM}}
+, \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0afc1699adc208e1a652aba804e501dc6d}{LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+ERROR}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis uporabniško definiranega tipa}
+\Hypertarget{lv__cache__private_8h_a5be85c22f93d54f673208ce72b19137f}\label{lv__cache__private_8h_a5be85c22f93d54f673208ce72b19137f} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_add\_cb\_t@{lv\_cache\_add\_cb\_t}}
+\index{lv\_cache\_add\_cb\_t@{lv\_cache\_add\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_add\_cb\_t}{lv\_cache\_add\_cb\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+add\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache add function, used by the cache class to add a cache entry with a given key. This function only cares about how to add the entry, it doesn\textquotesingle{}t check if the entry already exists and doesn\textquotesingle{}t care about is it a victim or not. \begin{DoxyReturn}{Rezultat(i)}
+the added cache entry, or NULL if the entry is not added. 
+\end{DoxyReturn}
+\Hypertarget{lv__cache__private_8h_a0e1b4cc7f8bd6df651aaf059b6f929a3}\label{lv__cache__private_8h_a0e1b4cc7f8bd6df651aaf059b6f929a3} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_alloc\_cb\_t@{lv\_cache\_alloc\_cb\_t}}
+\index{lv\_cache\_alloc\_cb\_t@{lv\_cache\_alloc\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_alloc\_cb\_t}{lv\_cache\_alloc\_cb\_t}}
+{\footnotesize\ttfamily typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+alloc\+\_\+cb\+\_\+t) (void)}
+
+The cache instance allocation function, used by the cache class to allocate memory for cache instances. \begin{DoxyReturn}{Rezultat(i)}
+It should return a pointer to the allocated instance. 
+\end{DoxyReturn}
+\Hypertarget{lv__cache__private_8h_aab43e73a609af413bad6bcb378bf563a}\label{lv__cache__private_8h_aab43e73a609af413bad6bcb378bf563a} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_destroy\_cb\_t@{lv\_cache\_destroy\_cb\_t}}
+\index{lv\_cache\_destroy\_cb\_t@{lv\_cache\_destroy\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_destroy\_cb\_t}{lv\_cache\_destroy\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+destroy\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache instance destruction function, used by the cache class to destroy the cache instance. \Hypertarget{lv__cache__private_8h_a647e9dd6c00854f5d7d8f3a9d6f16b82}\label{lv__cache__private_8h_a647e9dd6c00854f5d7d8f3a9d6f16b82} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_drop\_all\_cb\_t@{lv\_cache\_drop\_all\_cb\_t}}
+\index{lv\_cache\_drop\_all\_cb\_t@{lv\_cache\_drop\_all\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_drop\_all\_cb\_t}{lv\_cache\_drop\_all\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+drop\+\_\+all\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache drop all function, used by the cache class to remove all cache entries from the cache and free the memory. \Hypertarget{lv__cache__private_8h_a8affee25becaa2e62a77ba07afcb603c}\label{lv__cache__private_8h_a8affee25becaa2e62a77ba07afcb603c} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_drop\_cb\_t@{lv\_cache\_drop\_cb\_t}}
+\index{lv\_cache\_drop\_cb\_t@{lv\_cache\_drop\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_drop\_cb\_t}{lv\_cache\_drop\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+drop\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache drop function, used by the cache class to remove a cache entry from the cache and free the memory. \Hypertarget{lv__cache__private_8h_a1a4414479279c18d15568874f90fd7f0}\label{lv__cache__private_8h_a1a4414479279c18d15568874f90fd7f0} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_get\_cb\_t@{lv\_cache\_get\_cb\_t}}
+\index{lv\_cache\_get\_cb\_t@{lv\_cache\_get\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_get\_cb\_t}{lv\_cache\_get\_cb\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+get\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache get function, used by the cache class to get a cache entry by its key. \begin{DoxyReturn}{Rezultat(i)}
+{\ttfamily NULL} if the key is not found. 
+\end{DoxyReturn}
+\Hypertarget{lv__cache__private_8h_ab40093e77d1b34251a9df3601b53312e}\label{lv__cache__private_8h_ab40093e77d1b34251a9df3601b53312e} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_get\_victim\_cb@{lv\_cache\_get\_victim\_cb}}
+\index{lv\_cache\_get\_victim\_cb@{lv\_cache\_get\_victim\_cb}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_get\_victim\_cb}{lv\_cache\_get\_victim\_cb}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+get\+\_\+victim\+\_\+cb) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache get victim function, used by the cache class to get a victim entry to be evicted. \Hypertarget{lv__cache__private_8h_af67f46f68b5b4c1c818517f8e6727d2e}\label{lv__cache__private_8h_af67f46f68b5b4c1c818517f8e6727d2e} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_init\_cb\_t@{lv\_cache\_init\_cb\_t}}
+\index{lv\_cache\_init\_cb\_t@{lv\_cache\_init\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_init\_cb\_t}{lv\_cache\_init\_cb\_t}}
+{\footnotesize\ttfamily typedef bool(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+init\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache)}
+
+The cache instance initialization function, used by the cache class to initialize the cache instance. \begin{DoxyReturn}{Rezultat(i)}
+It should return true if the initialization is successful, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{lv__cache__private_8h_ac198654521e43cf409365aadac4f8dc8}\label{lv__cache__private_8h_ac198654521e43cf409365aadac4f8dc8} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_iter\_create\_cb@{lv\_cache\_iter\_create\_cb}}
+\index{lv\_cache\_iter\_create\_cb@{lv\_cache\_iter\_create\_cb}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_iter\_create\_cb}{lv\_cache\_iter\_create\_cb}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+iter\+\_\+create\+\_\+cb) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache)}
+
+The cache iterator creation function, used by the cache class to create an iterator for the cache. \begin{DoxyReturn}{Rezultat(i)}
+A pointer to the created iterator, or NULL if the iterator cannot be created. 
+\end{DoxyReturn}
+\Hypertarget{lv__cache__private_8h_aae3c1a6f5ead18a028b7ab98b73d1d67}\label{lv__cache__private_8h_aae3c1a6f5ead18a028b7ab98b73d1d67} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_remove\_cb\_t@{lv\_cache\_remove\_cb\_t}}
+\index{lv\_cache\_remove\_cb\_t@{lv\_cache\_remove\_cb\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_remove\_cb\_t}{lv\_cache\_remove\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+remove\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*}entry, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache remove function, used by the cache class to remove a cache entry from the cache but doesn\textquotesingle{}t free the memory.. This function only cares about how to remove the entry, it doesn\textquotesingle{}t care about is it a victim or not. \Hypertarget{lv__cache__private_8h_a3be8aee0b01c2dd948960b3852dbb686}\label{lv__cache__private_8h_a3be8aee0b01c2dd948960b3852dbb686} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_reserve\_cond\_cb@{lv\_cache\_reserve\_cond\_cb}}
+\index{lv\_cache\_reserve\_cond\_cb@{lv\_cache\_reserve\_cond\_cb}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_reserve\_cond\_cb}{lv\_cache\_reserve\_cond\_cb}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0}{lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+res\+\_\+t}}(\texorpdfstring{$\ast$}{*} lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+cb) (\mbox{\hyperlink{struct__lv__cache__t}{lv\+\_\+cache\+\_\+t}} \texorpdfstring{$\ast$}{*}cache, const void \texorpdfstring{$\ast$}{*}key, size\+\_\+t size, void \texorpdfstring{$\ast$}{*}user\+\_\+data)}
+
+The cache reserve condition function, used by the cache class to check if a new entry can be added to the cache without exceeding its maximum size. See lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+res\+\_\+t for the possible results. 
+
+\doxysubsection{Opis naštevnega (enum) tipa}
+\Hypertarget{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0}\label{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0} 
+\index{lv\_cache\_private.h@{lv\_cache\_private.h}!lv\_cache\_reserve\_cond\_res\_t@{lv\_cache\_reserve\_cond\_res\_t}}
+\index{lv\_cache\_reserve\_cond\_res\_t@{lv\_cache\_reserve\_cond\_res\_t}!lv\_cache\_private.h@{lv\_cache\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_reserve\_cond\_res\_t}{lv\_cache\_reserve\_cond\_res\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0}{lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+res\+\_\+t}}}
+
+The result of the cache reserve condition callback \begin{DoxyEnumFields}{Vrednosti naštevnih tipov}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_CACHE\_RESERVE\_COND\_OK@{LV\_CACHE\_RESERVE\_COND\_OK}!lv\_cache\_private.h@{lv\_cache\_private.h}}\index{lv\_cache\_private.h@{lv\_cache\_private.h}!LV\_CACHE\_RESERVE\_COND\_OK@{LV\_CACHE\_RESERVE\_COND\_OK}}}\Hypertarget{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a3744c27341859a6b85d2c54879594030}\label{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a3744c27341859a6b85d2c54879594030} 
+LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+OK&The condition is met and no entries need to be evicted \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_CACHE\_RESERVE\_COND\_TOO\_LARGE@{LV\_CACHE\_RESERVE\_COND\_TOO\_LARGE}!lv\_cache\_private.h@{lv\_cache\_private.h}}\index{lv\_cache\_private.h@{lv\_cache\_private.h}!LV\_CACHE\_RESERVE\_COND\_TOO\_LARGE@{LV\_CACHE\_RESERVE\_COND\_TOO\_LARGE}}}\Hypertarget{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a999d7226395918b33cccbbe2eab1276b}\label{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a999d7226395918b33cccbbe2eab1276b} 
+LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+TOO\+\_\+\+LARGE&The condition is not met and the reserve size is too large \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_CACHE\_RESERVE\_COND\_NEED\_VICTIM@{LV\_CACHE\_RESERVE\_COND\_NEED\_VICTIM}!lv\_cache\_private.h@{lv\_cache\_private.h}}\index{lv\_cache\_private.h@{lv\_cache\_private.h}!LV\_CACHE\_RESERVE\_COND\_NEED\_VICTIM@{LV\_CACHE\_RESERVE\_COND\_NEED\_VICTIM}}}\Hypertarget{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a30a5b8b05cdebd0f2008a5078adfe84d}\label{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0a30a5b8b05cdebd0f2008a5078adfe84d} 
+LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+NEED\+\_\+\+VICTIM&The condition is not met and a victim is needed to be evicted \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_CACHE\_RESERVE\_COND\_ERROR@{LV\_CACHE\_RESERVE\_COND\_ERROR}!lv\_cache\_private.h@{lv\_cache\_private.h}}\index{lv\_cache\_private.h@{lv\_cache\_private.h}!LV\_CACHE\_RESERVE\_COND\_ERROR@{LV\_CACHE\_RESERVE\_COND\_ERROR}}}\Hypertarget{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0afc1699adc208e1a652aba804e501dc6d}\label{lv__cache__private_8h_a39f2365c282fdf2146297ccb70eec7f0afc1699adc208e1a652aba804e501dc6d} 
+LV\+\_\+\+CACHE\+\_\+\+RESERVE\+\_\+\+COND\+\_\+\+ERROR&An error occurred while checking the condition \\
+\hline
+
+\end{DoxyEnumFields}

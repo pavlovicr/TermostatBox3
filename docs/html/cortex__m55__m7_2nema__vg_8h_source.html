@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/libs/nema_gfx/include/cortex_m55_m7/nema_vg.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_5563018187e2f5a07f2f363af71d283b.html">libs</a></li><li class="navelem"><a class="el" href="dir_ec3c85f27a5d16f0b801523dbc7d33d1.html">nema_gfx</a></li><li class="navelem"><a class="el" href="dir_71c2364a41826ce833bacada08fbb8d4.html">include</a></li><li class="navelem"><a class="el" href="dir_f068a87c48b7682d756249d4985120e6.html">cortex_m55_m7</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">nema_vg.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="cortex__m55__m7_2nema__vg_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* TSI 2023.xmo */</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*******************************************************************************</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Copyright (c) 2023 Think Silicon Single Member PC</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Permission is hereby granted, free of charge, to any person obtaining a copy</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * of this header file and/or associated documentation files to use, copy,</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * modify, merge, publish, distribute, sublicense, and/or sell copies of the</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * Materials, and to permit persons to whom the Materials are furnished to do</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * so, subject to the following conditions:</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * The above copyright notice and this permission notice shall be included in</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * all copies or substantial portions of the Materials.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * MODIFICATIONS TO THIS FILE MAY MEAN IT NO LONGER ACCURATELY REFLECTS</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * NEMAGFX API. THE UNMODIFIED, NORMATIVE VERSIONS OF THINK-SILICON NEMAGFX</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * SPECIFICATIONS AND HEADER INFORMATION ARE LOCATED AT:</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *   https://think-silicon.com/products/software/nemagfx-api</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *  The software is provided &#39;as is&#39;, without warranty of any kind, express or</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *  implied, including but not limited to the warranties of merchantability,</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> *  fitness for a particular purpose and noninfringement. In no event shall</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> *  Think Silicon Single Member PC be liable for any claim, damages or other</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *  liability, whether in an action of contract, tort or otherwise, arising</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *  from, out of or in connection with the software or the use or other dealings</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *  in the software.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> ******************************************************************************/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#ifndef __NEMA_VG_H__</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#define __NEMA_VG_H__</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;nema_core.h&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="cortex__m55__m7_2nema__sys__defs_8h.html">nema_sys_defs.h</a>&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="cortex__m55__m7_2nema__vg__path_8h.html">nema_vg_path.h</a>&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;<a class="code" href="cortex__m55__m7_2nema__vg__paint_8h.html">nema_vg_paint.h</a>&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="cortex__m55__m7_2nema__vg__context_8h.html">nema_vg_context.h</a>&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">// -------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//                           SETUP</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">// -------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a2bad1ab4f7550c4983fce543cb06d2e6">   57</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a2bad1ab4f7550c4983fce543cb06d2e6">nema_vg_init</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#ada33bbaaf058b6eb83c4484a5c31f6e2">   66</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#ada33bbaaf058b6eb83c4484a5c31f6e2">nema_vg_init_stencil_pool</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> pool);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a1f35bdb1a63be530941d4907d070f50d">   75</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a1f35bdb1a63be530941d4907d070f50d">nema_vg_init_stencil_prealloc</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> stencil_bo);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#ad637fd8ec4d08f76f6737e984467e23d">   81</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#ad637fd8ec4d08f76f6737e984467e23d">nema_vg_reinit</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a3db02f8880646051a04e8177d3e23add">   88</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a3db02f8880646051a04e8177d3e23add">nema_vg_deinit</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a94d007416145c4214778a369d9f083e9">   95</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a94d007416145c4214778a369d9f083e9">nema_vg_thread_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#afcb1453e1009fbe2eb4f04087abe925d">  103</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m55__m7_2nema__vg_8h.html#afcb1453e1009fbe2eb4f04087abe925d">nema_vg_bind_stencil</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#aa17edbd4d798e9bddb7db20d6238c5c4">  112</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m55__m7_2nema__vg_8h.html#aa17edbd4d798e9bddb7db20d6238c5c4">nema_vg_bind_stencil_pool</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <span class="keywordtype">int</span> pool);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#aa190cd61539a02fa4c21f5fb9ac7fef9">  121</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m55__m7_2nema__vg_8h.html#aa190cd61539a02fa4c21f5fb9ac7fef9">nema_vg_bind_stencil_prealloc</a>(<span class="keywordtype">int</span> width, <span class="keywordtype">int</span> height, <a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> stencil_bo);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">// -------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">//                           PATH DRAW</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">// -------------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a91a5e8a806cc7f9f310519fc7351e8b9">  135</a></span>uint32_t <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a91a5e8a806cc7f9f310519fc7351e8b9">nema_vg_draw_path</a>(<a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#ab32bedbff2451be3b83632ddfc604e9c">NEMA_VG_PATH_HANDLE</a> path, <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#abaf700471d9a45acad2b4f31dc716224">  149</a></span>uint32_t <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#abaf700471d9a45acad2b4f31dc716224">nema_vg_draw_line</a>(<span class="keywordtype">float</span> x1, <span class="keywordtype">float</span> y1, <span class="keywordtype">float</span> x2, <span class="keywordtype">float</span> y2,</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                            nema_matrix3x3_t m,</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                            <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a0b94d407ec39ee26a362ee5f137a2076">  165</a></span>uint32_t <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a0b94d407ec39ee26a362ee5f137a2076">nema_vg_draw_rect</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height,</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                            nema_matrix3x3_t m,</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                            <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#ab065724f4677ffaab02cc2fe81284d9c">  183</a></span>uint32_t <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#ab065724f4677ffaab02cc2fe81284d9c">nema_vg_draw_rounded_rect</a>(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> width, <span class="keywordtype">float</span> height,</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                                <span class="keywordtype">float</span> rx, <span class="keywordtype">float</span> ry,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                                nema_matrix3x3_t m,</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                                <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#aa7c911e5bbae9846fd92cca6fa2013e7">  200</a></span>uint32_t <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#aa7c911e5bbae9846fd92cca6fa2013e7">nema_vg_draw_ellipse</a>(<span class="keywordtype">float</span> cx, <span class="keywordtype">float</span> cy, <span class="keywordtype">float</span> rx, <span class="keywordtype">float</span> ry,</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                            nema_matrix3x3_t m,</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                            <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#aeca3fc283125d7a0e59d079fa0647ea3">  215</a></span>uint32_t <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#aeca3fc283125d7a0e59d079fa0647ea3">nema_vg_draw_circle</a>(<span class="keywordtype">float</span> cx, <span class="keywordtype">float</span> cy, <span class="keywordtype">float</span> r,</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                            nema_matrix3x3_t m,</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                            <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>uint32_t nema_vg_draw_ring_generic(<span class="keywordtype">float</span> cx, <span class="keywordtype">float</span> cy, <span class="keywordtype">float</span> ring_radius, <span class="keywordtype">float</span> angle_start, <span class="keywordtype">float</span> angle_end,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                                            <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint, uint8_t has_caps)  __attribute__ ((deprecated(<span class="stringliteral">&quot;This function is deprecated use nema_vg_draw_circular_ring instead.&quot;</span>)));</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#afaf54c0ab1f149ef1cdd14dbad4ed8e4">  237</a></span>uint32_t <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#afaf54c0ab1f149ef1cdd14dbad4ed8e4">nema_vg_draw_ring</a>(<span class="keywordtype">float</span> cx, <span class="keywordtype">float</span> cy, <span class="keywordtype">float</span> ring_radius, <span class="keywordtype">float</span> angle_start, <span class="keywordtype">float</span> angle_end, <a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a> paint);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a334c13603e626883436acb4aa5ba149b">  251</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a334c13603e626883436acb4aa5ba149b">nema_vg_get_coord_limits</a>(<span class="keywordtype">float</span> *min_coord, <span class="keywordtype">float</span> *max_coord);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a5d75848b5258d0bc1acace043a0da707">  260</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="cortex__m33_2nema__vg_8h.html#a5d75848b5258d0bc1acace043a0da707">nema_vg_tsvg_disable_feature</a>(uint32_t feature);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno"><a class="line" href="cortex__m55__m7_2nema__vg_8h.html#a6a8767f97154f6f23ab4bbc3afc6dcda">  274</a></span>uint32_t <a class="code hl_function" href="cortex__m55__m7_2nema__vg_8h.html#a6a8767f97154f6f23ab4bbc3afc6dcda">nema_vg_verify_path</a>(<a class="code hl_define" href="cortex__m33_2nema__vg__context_8h.html#ab32bedbff2451be3b83632ddfc604e9c">NEMA_VG_PATH_HANDLE</a> path);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>}</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="preprocessor">#endif </span><span class="comment">//__NEMA_VG_H__</span></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a0b94d407ec39ee26a362ee5f137a2076"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a0b94d407ec39ee26a362ee5f137a2076">nema_vg_draw_rect</a></div><div class="ttdeci">uint32_t nema_vg_draw_rect(float x, float y, float width, float height, nema_matrix3x3_t m, NEMA_VG_PAINT_HANDLE paint)</div><div class="ttdoc">Draw a rectangle shape.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a1f35bdb1a63be530941d4907d070f50d"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a1f35bdb1a63be530941d4907d070f50d">nema_vg_init_stencil_prealloc</a></div><div class="ttdeci">void nema_vg_init_stencil_prealloc(int width, int height, nema_buffer_t stencil_bo)</div><div class="ttdoc">Initializes NemaVG library without allocating the stencil buffer which is provided by the user....</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a2bad1ab4f7550c4983fce543cb06d2e6"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a2bad1ab4f7550c4983fce543cb06d2e6">nema_vg_init</a></div><div class="ttdeci">void nema_vg_init(int width, int height)</div><div class="ttdoc">Initializes NemaVG library and allocates the stencil buffer to the default memory pool (NEMA_MEM_POOL...</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a334c13603e626883436acb4aa5ba149b"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a334c13603e626883436acb4aa5ba149b">nema_vg_get_coord_limits</a></div><div class="ttdeci">void nema_vg_get_coord_limits(float *min_coord, float *max_coord)</div><div class="ttdoc">Returns the minimum and maximum values for the coordinates that can be handled by the underlying hard...</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a3db02f8880646051a04e8177d3e23add"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a3db02f8880646051a04e8177d3e23add">nema_vg_deinit</a></div><div class="ttdeci">void nema_vg_deinit(void)</div><div class="ttdoc">Deinitialize NemaVG library. Free memory from implicitly allocated objects (stencil buffer if created...</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a5d75848b5258d0bc1acace043a0da707"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a5d75848b5258d0bc1acace043a0da707">nema_vg_tsvg_disable_feature</a></div><div class="ttdeci">void nema_vg_tsvg_disable_feature(uint32_t feature)</div><div class="ttdoc">Disables tsvg features from rendering. Should be set before nema_vg_draw_tsvg()</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a91a5e8a806cc7f9f310519fc7351e8b9"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a91a5e8a806cc7f9f310519fc7351e8b9">nema_vg_draw_path</a></div><div class="ttdeci">uint32_t nema_vg_draw_path(NEMA_VG_PATH_HANDLE path, NEMA_VG_PAINT_HANDLE paint)</div><div class="ttdoc">Draw a path using a specified paint object.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_a94d007416145c4214778a369d9f083e9"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#a94d007416145c4214778a369d9f083e9">nema_vg_thread_init</a></div><div class="ttdeci">void nema_vg_thread_init(void)</div><div class="ttdoc">Initialize NemaVG library for a new thread. Must be called for every new thread that is used.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_aa7c911e5bbae9846fd92cca6fa2013e7"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#aa7c911e5bbae9846fd92cca6fa2013e7">nema_vg_draw_ellipse</a></div><div class="ttdeci">uint32_t nema_vg_draw_ellipse(float cx, float cy, float rx, float ry, nema_matrix3x3_t m, NEMA_VG_PAINT_HANDLE paint)</div><div class="ttdoc">Draw a ellipse shape.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_ab065724f4677ffaab02cc2fe81284d9c"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#ab065724f4677ffaab02cc2fe81284d9c">nema_vg_draw_rounded_rect</a></div><div class="ttdeci">uint32_t nema_vg_draw_rounded_rect(float x, float y, float width, float height, float rx, float ry, nema_matrix3x3_t m, NEMA_VG_PAINT_HANDLE paint)</div><div class="ttdoc">Draw a rounded rectangle shape.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_abaf700471d9a45acad2b4f31dc716224"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#abaf700471d9a45acad2b4f31dc716224">nema_vg_draw_line</a></div><div class="ttdeci">uint32_t nema_vg_draw_line(float x1, float y1, float x2, float y2, nema_matrix3x3_t m, NEMA_VG_PAINT_HANDLE paint)</div><div class="ttdoc">Draw a line shape.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_ad637fd8ec4d08f76f6737e984467e23d"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#ad637fd8ec4d08f76f6737e984467e23d">nema_vg_reinit</a></div><div class="ttdeci">void nema_vg_reinit(void)</div><div class="ttdoc">Reinitialize NemaVG library after a gpu powerofff.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_ada33bbaaf058b6eb83c4484a5c31f6e2"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#ada33bbaaf058b6eb83c4484a5c31f6e2">nema_vg_init_stencil_pool</a></div><div class="ttdeci">void nema_vg_init_stencil_pool(int width, int height, int pool)</div><div class="ttdoc">Initializes NemaVG library and allocate the stencil buffer in a specific memory pool....</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_aeca3fc283125d7a0e59d079fa0647ea3"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#aeca3fc283125d7a0e59d079fa0647ea3">nema_vg_draw_circle</a></div><div class="ttdeci">uint32_t nema_vg_draw_circle(float cx, float cy, float r, nema_matrix3x3_t m, NEMA_VG_PAINT_HANDLE paint)</div><div class="ttdoc">Draw a circle shape.</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg_8h_html_afaf54c0ab1f149ef1cdd14dbad4ed8e4"><div class="ttname"><a href="cortex__m33_2nema__vg_8h.html#afaf54c0ab1f149ef1cdd14dbad4ed8e4">nema_vg_draw_ring</a></div><div class="ttdeci">uint32_t nema_vg_draw_ring(float cx, float cy, float ring_radius, float angle_start, float angle_end, NEMA_VG_PAINT_HANDLE paint)</div><div class="ttdoc">Draw a filled ring with rounded caps shape. In case of a conical gradient paint type,...</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg__context_8h_html_a8a9930a16f0ba90785b804cc7df9d0bd"><div class="ttname"><a href="cortex__m33_2nema__vg__context_8h.html#a8a9930a16f0ba90785b804cc7df9d0bd">NEMA_VG_PAINT_HANDLE</a></div><div class="ttdeci">#define NEMA_VG_PAINT_HANDLE</div><div class="ttdef"><b>Definition</b> nema_vg_context.h:52</div></div>
+<div class="ttc" id="acortex__m33_2nema__vg__context_8h_html_ab32bedbff2451be3b83632ddfc604e9c"><div class="ttname"><a href="cortex__m33_2nema__vg__context_8h.html#ab32bedbff2451be3b83632ddfc604e9c">NEMA_VG_PATH_HANDLE</a></div><div class="ttdeci">#define NEMA_VG_PATH_HANDLE</div><div class="ttdef"><b>Definition</b> nema_vg_context.h:51</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__sys__defs_8h_html"><div class="ttname"><a href="cortex__m55__m7_2nema__sys__defs_8h.html">nema_sys_defs.h</a></div><div class="ttdoc">Header file of NemaGFX System Definitions for STM32 Platforms. This file provides definition of types...</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__vg_8h_html_a6a8767f97154f6f23ab4bbc3afc6dcda"><div class="ttname"><a href="cortex__m55__m7_2nema__vg_8h.html#a6a8767f97154f6f23ab4bbc3afc6dcda">nema_vg_verify_path</a></div><div class="ttdeci">uint32_t nema_vg_verify_path(NEMA_VG_PATH_HANDLE path)</div><div class="ttdoc">Verify if path's coordinates contain NaN coordinates. It uses the property of NaN numbers that f !...</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__vg_8h_html_aa17edbd4d798e9bddb7db20d6238c5c4"><div class="ttname"><a href="cortex__m55__m7_2nema__vg_8h.html#aa17edbd4d798e9bddb7db20d6238c5c4">nema_vg_bind_stencil_pool</a></div><div class="ttdeci">void nema_vg_bind_stencil_pool(int width, int height, int pool)</div><div class="ttdoc">Binds and allocate the stencil buffer in a specific memory pool. Use this if the framebuffer size cha...</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__vg_8h_html_aa190cd61539a02fa4c21f5fb9ac7fef9"><div class="ttname"><a href="cortex__m55__m7_2nema__vg_8h.html#aa190cd61539a02fa4c21f5fb9ac7fef9">nema_vg_bind_stencil_prealloc</a></div><div class="ttdeci">void nema_vg_bind_stencil_prealloc(int width, int height, nema_buffer_t stencil_bo)</div><div class="ttdoc">Binds the stencil buffer which is provided by the user. Use this if the framebuffer size changes duri...</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__vg_8h_html_afcb1453e1009fbe2eb4f04087abe925d"><div class="ttname"><a href="cortex__m55__m7_2nema__vg_8h.html#afcb1453e1009fbe2eb4f04087abe925d">nema_vg_bind_stencil</a></div><div class="ttdeci">void nema_vg_bind_stencil(int width, int height)</div><div class="ttdoc">Binds and allocate the stencil buffer in the default memory pool (NEMA_MEM_POOL_FB)....</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__vg__context_8h_html"><div class="ttname"><a href="cortex__m55__m7_2nema__vg__context_8h.html">nema_vg_context.h</a></div><div class="ttdoc">NemaVG Context interface.</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__vg__paint_8h_html"><div class="ttname"><a href="cortex__m55__m7_2nema__vg__paint_8h.html">nema_vg_paint.h</a></div><div class="ttdoc">Paint operation related fuctions. Paint is an internal (opaque) struct of NemaVG. The functions defin...</div></div>
+<div class="ttc" id="acortex__m55__m7_2nema__vg__path_8h_html"><div class="ttname"><a href="cortex__m55__m7_2nema__vg__path_8h.html">nema_vg_path.h</a></div><div class="ttdoc">Path operation related fuctions.</div></div>
+<div class="ttc" id="astructnema__buffer__t___html"><div class="ttname"><a href="structnema__buffer__t__.html">nema_buffer_t_</a></div><div class="ttdef"><b>Definition</b> nema_hal.h:38</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

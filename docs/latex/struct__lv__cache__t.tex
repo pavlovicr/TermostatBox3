@@ -1,0 +1,89 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+cache\+\_\+t}
+\hypertarget{struct__lv__cache__t}{}\label{struct__lv__cache__t}\index{\_lv\_cache\_t@{\_lv\_cache\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+cache\+\_\+private.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda \+\_\+lv\+\_\+cache\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct__lv__cache__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__cache__class__t}{lv\+\_\+cache\+\_\+class\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__cache__t_a76b3ae95edf9e560b288b2ae7e958b57}{clz}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__cache__t_a0167bf624c89aeed15e506fc8baf9fbe}{node\+\_\+size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__cache__t_ac9392ca48116f32a5f503820ede4f958}{max\+\_\+size}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__cache__t_a7e76123167a8c0a084cd2f0bbf4d3f44}{size}}
+\item 
+\mbox{\hyperlink{struct__lv__cache__ops__t}{lv\+\_\+cache\+\_\+ops\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__t_ac38b589ceaffb6475a708f8de4a593fe}{ops}}
+\item 
+\mbox{\hyperlink{structlv__mutex__t}{lv\+\_\+mutex\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__t_a67da2442d5629663b04e7f2748e45487}{lock}}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__cache__t_a9508052ac9d49a0cb767bd405636b478}{name}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+The cache entry struct 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__cache__t_a76b3ae95edf9e560b288b2ae7e958b57}\label{struct__lv__cache__t_a76b3ae95edf9e560b288b2ae7e958b57} 
+\index{\_lv\_cache\_t@{\_lv\_cache\_t}!clz@{clz}}
+\index{clz@{clz}!\_lv\_cache\_t@{\_lv\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{clz}{clz}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__cache__class__t}{lv\+\_\+cache\+\_\+class\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+cache\+\_\+t\+::clz}
+
+Cache class. There are two built-\/in classes\+:
+\begin{DoxyItemize}
+\item lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+rb\+\_\+count for LRU-\/based cache with count-\/based eviction policy.
+\item lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+rb\+\_\+size for LRU-\/based cache with size-\/based eviction policy. 
+\end{DoxyItemize}\Hypertarget{struct__lv__cache__t_a67da2442d5629663b04e7f2748e45487}\label{struct__lv__cache__t_a67da2442d5629663b04e7f2748e45487} 
+\index{\_lv\_cache\_t@{\_lv\_cache\_t}!lock@{lock}}
+\index{lock@{lock}!\_lv\_cache\_t@{\_lv\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{lock}{lock}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__mutex__t}{lv\+\_\+mutex\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+t\+::lock}
+
+Cache lock used to protect the cache in multithreading environments \Hypertarget{struct__lv__cache__t_ac9392ca48116f32a5f503820ede4f958}\label{struct__lv__cache__t_ac9392ca48116f32a5f503820ede4f958} 
+\index{\_lv\_cache\_t@{\_lv\_cache\_t}!max\_size@{max\_size}}
+\index{max\_size@{max\_size}!\_lv\_cache\_t@{\_lv\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{max\_size}{max\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+cache\+\_\+t\+::max\+\_\+size}
+
+Maximum size of the cache \Hypertarget{struct__lv__cache__t_a9508052ac9d49a0cb767bd405636b478}\label{struct__lv__cache__t_a9508052ac9d49a0cb767bd405636b478} 
+\index{\_lv\_cache\_t@{\_lv\_cache\_t}!name@{name}}
+\index{name@{name}!\_lv\_cache\_t@{\_lv\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+cache\+\_\+t\+::name}
+
+Name of the cache \Hypertarget{struct__lv__cache__t_a0167bf624c89aeed15e506fc8baf9fbe}\label{struct__lv__cache__t_a0167bf624c89aeed15e506fc8baf9fbe} 
+\index{\_lv\_cache\_t@{\_lv\_cache\_t}!node\_size@{node\_size}}
+\index{node\_size@{node\_size}!\_lv\_cache\_t@{\_lv\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{node\_size}{node\_size}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+cache\+\_\+t\+::node\+\_\+size}
+
+Size of a node \Hypertarget{struct__lv__cache__t_ac38b589ceaffb6475a708f8de4a593fe}\label{struct__lv__cache__t_ac38b589ceaffb6475a708f8de4a593fe} 
+\index{\_lv\_cache\_t@{\_lv\_cache\_t}!ops@{ops}}
+\index{ops@{ops}!\_lv\_cache\_t@{\_lv\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{ops}{ops}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__cache__ops__t}{lv\+\_\+cache\+\_\+ops\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+t\+::ops}
+
+Cache operations struct \doxylink{struct__lv__cache__ops__t}{\+\_\+lv\+\_\+cache\+\_\+ops\+\_\+t} \Hypertarget{struct__lv__cache__t_a7e76123167a8c0a084cd2f0bbf4d3f44}\label{struct__lv__cache__t_a7e76123167a8c0a084cd2f0bbf4d3f44} 
+\index{\_lv\_cache\_t@{\_lv\_cache\_t}!size@{size}}
+\index{size@{size}!\_lv\_cache\_t@{\_lv\_cache\_t}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+cache\+\_\+t\+::size}
+
+Current size of the cache 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/cache/\mbox{\hyperlink{lv__cache__private_8h}{lv\+\_\+cache\+\_\+private.\+h}}\end{DoxyCompactItemize}

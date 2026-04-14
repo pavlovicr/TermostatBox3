@@ -1,0 +1,48 @@
+\chapter{README}
+\hypertarget{md_managed__components_2espressif____button_2README}{}\label{md_managed__components_2espressif____button_2README}\index{README@{README}}
+\href{https://components.espressif.com/components/espressif/button}{\texttt{ }}\hypertarget{md_managed__components_2espressif____button_2README_autotoc_md67}{}\doxysection{\texorpdfstring{Component\+: Button}{Component: Button}}\label{md_managed__components_2espressif____button_2README_autotoc_md67}
+\href{https://docs.espressif.com/projects/esp-iot-solution/en/latest/input_device/button.html}{\texttt{ Online documentation}}
+
+After creating a new button object by calling function {\ttfamily button\+\_\+create()}, the button object can create press events, every press event can have its own callback.
+
+List of supported events\+:
+\begin{DoxyItemize}
+\item Button pressed
+\item Button released
+\item Button pressed repeat
+\item Button press repeat done
+\item Button single click
+\item Button double click
+\item Button multiple click
+\item Button long press start
+\item Button long press hold
+\item Button long press up
+\item Button Press end
+\end{DoxyItemize}
+
+
+
+There are three ways this driver can handle buttons\+:
+\begin{DoxyEnumerate}
+\item Buttons connected to standard digital GPIO
+\item Multiple buttons connected to single ADC channel
+\item Matrix keyboard employs multiple GPIOs for operation.
+\item Custom button connect to any driver
+\end{DoxyEnumerate}
+
+The component supports the following functionalities\+:
+\begin{DoxyEnumerate}
+\item Creation of an unlimited number of buttons, accommodating various types simultaneously.
+\item Multiple callback functions for a single event.
+\item Allowing customization of the consecutive key press count to any desired number.
+\item Facilitating the setup of callbacks for any specified long-\/press duration.
+\item Support power save mode (Only for gpio button)
+\end{DoxyEnumerate}\hypertarget{md_managed__components_2espressif____button_2README_autotoc_md68}{}\doxysubsection{\texorpdfstring{Add component to your project}{Add component to your project}}\label{md_managed__components_2espressif____button_2README_autotoc_md68}
+Please use the component manager command {\ttfamily add-\/dependency} to add the {\ttfamily button} to your project\textquotesingle{}s dependency, during the {\ttfamily CMake} step the component will be downloaded automatically
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{idf.py\ add-\/dependency\ "{}espressif/button=*"{}}
+
+\end{DoxyCode}
+ 

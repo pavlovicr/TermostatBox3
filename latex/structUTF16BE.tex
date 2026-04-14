@@ -1,0 +1,82 @@
+\doxysection{ Struktura UTF16\+BE\texorpdfstring{$<$}{<} Char\+Type \texorpdfstring{$>$}{>}}
+\hypertarget{structUTF16BE}{}\label{structUTF16BE}\index{UTF16BE$<$ CharType $>$@{UTF16BE$<$ CharType $>$}}
+
+
+UTF-\/16 big endian encoding.  
+
+
+
+
+{\ttfamily \#include $<$encodings.\+h$>$}
+
+
+
+Diagram razredov za UTF16\+BE\texorpdfstring{$<$}{<} Char\+Type \texorpdfstring{$>$}{>}
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{structUTF16BE__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Kolaboracijski diagram razreda UTF16\+BE\texorpdfstring{$<$}{<} Char\+Type \texorpdfstring{$>$}{>}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{structUTF16BE__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Statične javne metode in atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structUTF16BE_a5d5184a373149c69b4b8baf8507f9591}\label{structUTF16BE_a5d5184a373149c69b4b8baf8507f9591} 
+{\footnotesize template$<$typename Input\+Byte\+Stream $>$ }\\static Char\+Type {\bfseries Take\+BOM} (Input\+Byte\+Stream \&is)
+\item 
+\Hypertarget{structUTF16BE_a671ca76d54f45aa5f62eb86c4e69738a}\label{structUTF16BE_a671ca76d54f45aa5f62eb86c4e69738a} 
+{\footnotesize template$<$typename Input\+Byte\+Stream $>$ }\\static Char\+Type {\bfseries Take} (Input\+Byte\+Stream \&is)
+\item 
+\Hypertarget{structUTF16BE_ae109dda1ad7955049589885ea5a13652}\label{structUTF16BE_ae109dda1ad7955049589885ea5a13652} 
+{\footnotesize template$<$typename Output\+Byte\+Stream $>$ }\\static void {\bfseries Put\+BOM} (Output\+Byte\+Stream \&os)
+\item 
+\Hypertarget{structUTF16BE_ab0f964c3ec9ac6cc47f2875ae112dbfe}\label{structUTF16BE_ab0f964c3ec9ac6cc47f2875ae112dbfe} 
+{\footnotesize template$<$typename Output\+Byte\+Stream $>$ }\\static void {\bfseries Put} (Output\+Byte\+Stream \&os, Char\+Type c)
+\end{DoxyCompactItemize}
+\doxysubsection*{Statične javne metode in atributi inherited from \mbox{\hyperlink{structUTF16}{UTF16$<$ Char\+Type $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Output\+Stream $>$ }\\static void {\bfseries Encode} (Output\+Stream \&os, unsigned codepoint)
+\item 
+{\footnotesize template$<$typename Output\+Stream $>$ }\\static void {\bfseries Encode\+Unsafe} (Output\+Stream \&os, unsigned codepoint)
+\item 
+{\footnotesize template$<$typename Input\+Stream $>$ }\\static bool {\bfseries Decode} (Input\+Stream \&is, unsigned \texorpdfstring{$\ast$}{*}codepoint)
+\item 
+{\footnotesize template$<$typename Input\+Stream , typename Output\+Stream $>$ }\\static bool {\bfseries Validate} (Input\+Stream \&is, Output\+Stream \&os)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Javni tipi inherited from \mbox{\hyperlink{structUTF16}{UTF16$<$ Char\+Type $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structUTF16_a635f239ad8d65f5449a0c2703f6ffd77}\label{structUTF16_a635f239ad8d65f5449a0c2703f6ffd77} 
+enum \{ {\bfseries support\+Unicode} = 1
+ \}
+\item 
+typedef Char\+Type {\bfseries Ch}
+\end{DoxyCompactItemize}
+\doxysubsection*{Javne metode inherited from \mbox{\hyperlink{structUTF16}{UTF16$<$ Char\+Type $>$}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries RAPIDJSON\+\_\+\+STATIC\+\_\+\+ASSERT} (sizeof(Ch) $>$=2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$typename Char\+Type = wchar\+\_\+t$>$\newline
+struct UTF16\+BE$<$ Char\+Type $>$}
+UTF-\/16 big endian encoding. 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/encodings.\+h\end{DoxyCompactItemize}

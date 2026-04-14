@@ -1,0 +1,227 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/tabview/lv\+\_\+tabview.h}
+\hypertarget{lv__tabview_8h}{}\label{lv__tabview_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/tabview/lv\_tabview.h@{managed\_components/lvgl\_\_lvgl/src/widgets/tabview/lv\_tabview.h}}
+{\ttfamily \#include "{}../../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+property.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+tabview.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+tabview.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__tabview_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__tabview_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tabview_8h_a5000b5c5aa9193ce16d9a8411eebf1d9}{lv\+\_\+tabview\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tabview_8h_a7561c0b343421571ef89c2eebd286b05}{lv\+\_\+tabview\+\_\+add\+\_\+tab}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}name)
+\item 
+void \mbox{\hyperlink{lv__tabview_8h_a30c2ec8274c8e793b2680582831b0823}{lv\+\_\+tabview\+\_\+set\+\_\+tab\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t idx, const char \texorpdfstring{$\ast$}{*}new\+\_\+name)
+\item 
+void \mbox{\hyperlink{lv__tabview_8h_a6046c6847a9a5493cd4f93efb2cdcd16}{lv\+\_\+tabview\+\_\+set\+\_\+active}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t idx, lv\+\_\+anim\+\_\+enable\+\_\+t anim\+\_\+en)
+\item 
+void \mbox{\hyperlink{lv__tabview_8h_a5ce312a382406915e8cc98c2a5b231c7}{lv\+\_\+tabview\+\_\+set\+\_\+tab\+\_\+bar\+\_\+position}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+dir\+\_\+t dir)
+\item 
+void \mbox{\hyperlink{lv__tabview_8h_a5fa4876f6cffb3eac10c2e7583267e06}{lv\+\_\+tabview\+\_\+set\+\_\+tab\+\_\+bar\+\_\+size}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t size)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__tabview_8h_a729d9e13a9e31a9db7bd4c78c697e545}{lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__tabview_8h_a5c968b1693a4e9ad96e179f2183ab421}{lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+active}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tabview_8h_af4b3fb34016debe3cdcbe4c79e89fd46}{lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+button}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t idx)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tabview_8h_a18dd299f4c087233be32edf14d67f88f}{lv\+\_\+tabview\+\_\+get\+\_\+content}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tabview_8h_ad9d9b5eb77352526dfbe47b2174e149a}{lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+bar}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+dir\+\_\+t \mbox{\hyperlink{lv__tabview_8h_ad4c4e36be50effb73ea28df2b79a90ed}{lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+bar\+\_\+position}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__tabview_8h_ac7907a89dfba7c78211a10a65e25f36a}\label{lv__tabview_8h_ac7907a89dfba7c78211a10a65e25f36a} 
+\mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\+\_\+\+ATTRIBUTE\+\_\+\+EXTERN\+\_\+\+DATA}} const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+tabview\+\_\+class}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__tabview_8h_a7561c0b343421571ef89c2eebd286b05}\label{lv__tabview_8h_a7561c0b343421571ef89c2eebd286b05} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_add\_tab@{lv\_tabview\_add\_tab}}
+\index{lv\_tabview\_add\_tab@{lv\_tabview\_add\_tab}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_add\_tab()}{lv\_tabview\_add\_tab()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tabview\+\_\+add\+\_\+tab (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{name }\end{DoxyParamCaption})}
+
+Add a tab to the tabview 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+{\em name} & the name of the tab, it will be displayed on the tab bar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the widget where the content of the tab can be created 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_a5000b5c5aa9193ce16d9a8411eebf1d9}\label{lv__tabview_8h_a5000b5c5aa9193ce16d9a8411eebf1d9} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_create@{lv\_tabview\_create}}
+\index{lv\_tabview\_create@{lv\_tabview\_create}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_create()}{lv\_tabview\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tabview\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a tabview widget 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to a parent widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the created tabview 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_a18dd299f4c087233be32edf14d67f88f}\label{lv__tabview_8h_a18dd299f4c087233be32edf14d67f88f} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_get\_content@{lv\_tabview\_get\_content}}
+\index{lv\_tabview\_get\_content@{lv\_tabview\_get\_content}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_get\_content()}{lv\_tabview\_get\_content()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tabview\+\_\+get\+\_\+content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the widget where the container of each tab is created 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the main container widget 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_a5c968b1693a4e9ad96e179f2183ab421}\label{lv__tabview_8h_a5c968b1693a4e9ad96e179f2183ab421} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_get\_tab\_active@{lv\_tabview\_get\_tab\_active}}
+\index{lv\_tabview\_get\_tab\_active@{lv\_tabview\_get\_tab\_active}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_get\_tab\_active()}{lv\_tabview\_get\_tab\_active()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+active (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the current tab\textquotesingle{}s index 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the zero based index of the current tab 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_ad9d9b5eb77352526dfbe47b2174e149a}\label{lv__tabview_8h_ad9d9b5eb77352526dfbe47b2174e149a} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_get\_tab\_bar@{lv\_tabview\_get\_tab\_bar}}
+\index{lv\_tabview\_get\_tab\_bar@{lv\_tabview\_get\_tab\_bar}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_get\_tab\_bar()}{lv\_tabview\_get\_tab\_bar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+bar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the tab bar where the buttons are created 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the tab bar 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_ad4c4e36be50effb73ea28df2b79a90ed}\label{lv__tabview_8h_ad4c4e36be50effb73ea28df2b79a90ed} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_get\_tab\_bar\_position@{lv\_tabview\_get\_tab\_bar\_position}}
+\index{lv\_tabview\_get\_tab\_bar\_position@{lv\_tabview\_get\_tab\_bar\_position}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_get\_tab\_bar\_position()}{lv\_tabview\_get\_tab\_bar\_position()}}
+{\footnotesize\ttfamily lv\+\_\+dir\+\_\+t lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+bar\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the position of the tab bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+DIR\+\_\+\+TOP/\+BOTTOM/\+LEFT/\+RIGHT 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_af4b3fb34016debe3cdcbe4c79e89fd46}\label{lv__tabview_8h_af4b3fb34016debe3cdcbe4c79e89fd46} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_get\_tab\_button@{lv\_tabview\_get\_tab\_button}}
+\index{lv\_tabview\_get\_tab\_button@{lv\_tabview\_get\_tab\_button}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_get\_tab\_button()}{lv\_tabview\_get\_tab\_button()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{idx }\end{DoxyParamCaption})}
+
+Get a given tab button by index 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+{\em idx} & zero based index of the tab button to get. \texorpdfstring{$<$}{<} 0 means start counting tab button from the back (-\/1 is the last tab button) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the tab button, or NULL if the index was out of range 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_a729d9e13a9e31a9db7bd4c78c697e545}\label{lv__tabview_8h_a729d9e13a9e31a9db7bd4c78c697e545} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_get\_tab\_count@{lv\_tabview\_get\_tab\_count}}
+\index{lv\_tabview\_get\_tab\_count@{lv\_tabview\_get\_tab\_count}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_get\_tab\_count()}{lv\_tabview\_get\_tab\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+tabview\+\_\+get\+\_\+tab\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the number of tabs 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the number of tabs 
+\end{DoxyReturn}
+\Hypertarget{lv__tabview_8h_a6046c6847a9a5493cd4f93efb2cdcd16}\label{lv__tabview_8h_a6046c6847a9a5493cd4f93efb2cdcd16} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_set\_active@{lv\_tabview\_set\_active}}
+\index{lv\_tabview\_set\_active@{lv\_tabview\_set\_active}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_set\_active()}{lv\_tabview\_set\_active()}}
+{\footnotesize\ttfamily void lv\+\_\+tabview\+\_\+set\+\_\+active (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{idx,  }\item[{lv\+\_\+anim\+\_\+enable\+\_\+t}]{anim\+\_\+en }\end{DoxyParamCaption})}
+
+Show a tab 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+{\em idx} & the index of the tab to show \\
+\hline
+{\em anim\+\_\+en} & LV\+\_\+\+ANIM\+\_\+\+ON/\+OFF \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__tabview_8h_a5ce312a382406915e8cc98c2a5b231c7}\label{lv__tabview_8h_a5ce312a382406915e8cc98c2a5b231c7} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_set\_tab\_bar\_position@{lv\_tabview\_set\_tab\_bar\_position}}
+\index{lv\_tabview\_set\_tab\_bar\_position@{lv\_tabview\_set\_tab\_bar\_position}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_set\_tab\_bar\_position()}{lv\_tabview\_set\_tab\_bar\_position()}}
+{\footnotesize\ttfamily void lv\+\_\+tabview\+\_\+set\+\_\+tab\+\_\+bar\+\_\+position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+dir\+\_\+t}]{dir }\end{DoxyParamCaption})}
+
+Set the position of the tab bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+{\em dir} & LV\+\_\+\+DIR\+\_\+\+TOP/\+BOTTOM/\+LEFT/\+RIGHT \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__tabview_8h_a5fa4876f6cffb3eac10c2e7583267e06}\label{lv__tabview_8h_a5fa4876f6cffb3eac10c2e7583267e06} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_set\_tab\_bar\_size@{lv\_tabview\_set\_tab\_bar\_size}}
+\index{lv\_tabview\_set\_tab\_bar\_size@{lv\_tabview\_set\_tab\_bar\_size}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_set\_tab\_bar\_size()}{lv\_tabview\_set\_tab\_bar\_size()}}
+{\footnotesize\ttfamily void lv\+\_\+tabview\+\_\+set\+\_\+tab\+\_\+bar\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Set the width or height of the tab bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to tabview widget \\
+\hline
+{\em size} & size of the tab bar in pixels or percentage. will be used as width or height based on the position of the tab bar) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__tabview_8h_a30c2ec8274c8e793b2680582831b0823}\label{lv__tabview_8h_a30c2ec8274c8e793b2680582831b0823} 
+\index{lv\_tabview.h@{lv\_tabview.h}!lv\_tabview\_set\_tab\_text@{lv\_tabview\_set\_tab\_text}}
+\index{lv\_tabview\_set\_tab\_text@{lv\_tabview\_set\_tab\_text}!lv\_tabview.h@{lv\_tabview.h}}
+\doxysubsubsection{\texorpdfstring{lv\_tabview\_set\_tab\_text()}{lv\_tabview\_set\_tab\_text()}}
+{\footnotesize\ttfamily void lv\+\_\+tabview\+\_\+set\+\_\+tab\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{idx,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{new\+\_\+name }\end{DoxyParamCaption})}
+
+Change the name of the tab 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a tabview widget \\
+\hline
+{\em idx} & the index of the tab to rename \\
+\hline
+{\em new\+\_\+name} & the new name as a string \\
+\hline
+\end{DoxyParams}

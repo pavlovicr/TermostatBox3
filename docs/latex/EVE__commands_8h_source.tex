@@ -1,0 +1,345 @@
+\doxysection{EVE\+\_\+commands.\+h}
+\hypertarget{EVE__commands_8h_source}{}\label{EVE__commands_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/FT800-\/FT813/EVE\_commands.h@{managed\_components/lvgl\_\_lvgl/src/libs/FT800-\/FT813/EVE\_commands.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{@file\ \ \ \ EVE\_commands.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{@brief\ \ \ contains\ FT8xx\ /\ BT8xx\ function\ prototypes}}
+\DoxyCodeLine{00004\ \textcolor{comment}{@version\ 5.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{@date\ \ \ \ 2023-\/12-\/29}}
+\DoxyCodeLine{00006\ \textcolor{comment}{@author\ \ Rudolph\ Riedel}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{@section\ LICENSE}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{MIT\ License}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{Copyright\ (c)\ 2016-\/2023\ Rudolph\ Riedel}}
+\DoxyCodeLine{00013\ \textcolor{comment}{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{Permission\ is\ hereby\ granted,\ free\ of\ charge,\ to\ any\ person\ obtaining\ a\ copy\ of}}
+\DoxyCodeLine{00015\ \textcolor{comment}{this\ software\ and\ associated\ documentation\ files\ (the\ "{}Software"{}),\ to\ deal\ in}}
+\DoxyCodeLine{00016\ \textcolor{comment}{the\ Software\ without\ restriction,\ including\ without\ limitation\ the\ rights}}
+\DoxyCodeLine{00017\ \textcolor{comment}{to\ use,\ copy,\ modify,\ merge,\ publish,\ distribute,\ sublicense,}}
+\DoxyCodeLine{00018\ \textcolor{comment}{and/or\ sell\ copies\ of\ the\ Software,\ and\ to\ permit\ persons\ to\ whom\ the\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{is\ furnished\ to\ do\ so,\ subject\ to\ the\ following\ conditions:}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{The\ above\ copyright\ notice\ and\ this\ permission\ notice\ shall\ be\ included\ in\ all}}
+\DoxyCodeLine{00022\ \textcolor{comment}{copies\ or\ substantial\ portions\ of\ the\ Software.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{}}
+\DoxyCodeLine{00024\ \textcolor{comment}{THE\ SOFTWARE\ IS\ PROVIDED\ "{}AS\ IS"{},\ WITHOUT\ WARRANTY\ OF\ ANY\ KIND,\ EXPRESS\ OR}}
+\DoxyCodeLine{00025\ \textcolor{comment}{IMPLIED,\ INCLUDING\ BUT\ NOT\ LIMITED\ TO\ THE\ WARRANTIES\ OF\ MERCHANTABILITY,\ FITNESS}}
+\DoxyCodeLine{00026\ \textcolor{comment}{FOR\ A\ PARTICULAR\ PURPOSE\ AND\ NONINFRINGEMENT.\ IN\ NO\ EVENT\ SHALL\ THE\ AUTHORS\ OR}}
+\DoxyCodeLine{00027\ \textcolor{comment}{COPYRIGHT\ HOLDERS\ BE\ LIABLE\ FOR\ ANY\ CLAIM,\ DAMAGES\ OR\ OTHER\ LIABILITY,\ WHETHER}}
+\DoxyCodeLine{00028\ \textcolor{comment}{IN\ AN\ ACTION\ OF\ CONTRACT,\ TORT\ OR\ OTHERWISE,\ ARISING\ FROM,\ OUT\ OF\ OR\ IN}}
+\DoxyCodeLine{00029\ \textcolor{comment}{CONNECTION\ WITH\ THE\ SOFTWARE\ OR\ THE\ USE\ OR\ OTHER\ DEALINGS\ IN\ THE\ SOFTWARE.}}
+\DoxyCodeLine{00030\ \textcolor{comment}{}}
+\DoxyCodeLine{00031\ \textcolor{comment}{@section\ History}}
+\DoxyCodeLine{00032\ \textcolor{comment}{}}
+\DoxyCodeLine{00033\ \textcolor{comment}{5.0}}
+\DoxyCodeLine{00034\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_plkfreq()}}
+\DoxyCodeLine{00035\ \textcolor{comment}{-\/\ replaced\ BT81X\_ENABLE\ with\ "{}EVE\_GEN\ >\ 2"{}}}
+\DoxyCodeLine{00036\ \textcolor{comment}{-\/\ removed\ FT81X\_ENABLE\ as\ FT81x\ already\ is\ the\ lowest\ supported\ chip\ revision\ now}}
+\DoxyCodeLine{00037\ \textcolor{comment}{-\/\ removed\ the\ formerly\ as\ deprected\ marked\ EVE\_get\_touch\_tag()}}
+\DoxyCodeLine{00038\ \textcolor{comment}{-\/\ changed\ EVE\_color\_rgb()\ to\ use\ a\ 32\ bit\ value\ like\ the\ rest\ of\ the\ color\ commands}}
+\DoxyCodeLine{00039\ \textcolor{comment}{-\/\ removed\ the\ meta-\/commands\ EVE\_cmd\_point(),\ EVE\_cmd\_line()\ and\ EVE\_cmd\_rect()}}
+\DoxyCodeLine{00040\ \textcolor{comment}{-\/\ removed\ obsolete\ functions\ EVE\_get\_cmdoffset(void)\ and\ EVE\_report\_cmdoffset(void)\ -\/\ cmdoffset\ is\ gone}}
+\DoxyCodeLine{00041\ \textcolor{comment}{-\/\ renamed\ EVE\_LIB\_GetProps()\ back\ to\ EVE\_cmd\_getprops()\ since\ it\ does\ not\ do\ anything\ special\ to\ justify\ a\ special\ name}}
+\DoxyCodeLine{00042\ \textcolor{comment}{-\/\ added\ prototype\ for\ helper\ function\ EVE\_memWrite\_sram\_buffer()}}
+\DoxyCodeLine{00043\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_bitmap\_transform()\ and\ EVE\_cmd\_bitmap\_transform\_burst()}}
+\DoxyCodeLine{00044\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_playvideo()}}
+\DoxyCodeLine{00045\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_setfont\_burst()\ and\ EVE\_cmd\_setfont2\_burst()}}
+\DoxyCodeLine{00046\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_videoframe()}}
+\DoxyCodeLine{00047\ \textcolor{comment}{-\/\ restructured:\ functions\ are\ sorted\ by\ chip-\/generation\ and\ within\ their\ group\ in\ alphabetical\ order}}
+\DoxyCodeLine{00048\ \textcolor{comment}{-\/\ reimplementedEVE\_cmd\_getmatrix()\ again,\ it\ needs\ to\ read\ values,\ not\ write\ them}}
+\DoxyCodeLine{00049\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_fontcache()\ and\ EVE\_cmd\_fontcachequery()}}
+\DoxyCodeLine{00050\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_flashprogram()}}
+\DoxyCodeLine{00051\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_calibratesub()}}
+\DoxyCodeLine{00052\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_animframeram(),\ EVE\_cmd\_animframeram\_burst(),\ EVE\_cmd\_animstartram(),}}
+\DoxyCodeLine{00053\ \textcolor{comment}{EVE\_cmd\_animstartram\_burst()}}
+\DoxyCodeLine{00054\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_apilevel(),\ EVE\_cmd\_apilevel\_burst()}}
+\DoxyCodeLine{00055\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_calllist(),\ EVE\_cmd\_calllist\_burst()}}
+\DoxyCodeLine{00056\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_getimage()}}
+\DoxyCodeLine{00057\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_hsf(),\ EVE\_cmd\_hsf\_burst()}}
+\DoxyCodeLine{00058\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_linetime()}}
+\DoxyCodeLine{00059\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_newlist(),\ EVE\_cmd\_newlist\_burst()}}
+\DoxyCodeLine{00060\ \textcolor{comment}{-\/\ added\ prototypes\ for\ EVE\_cmd\_runanim(),\ EVE\_cmd\_runanim\_burst()}}
+\DoxyCodeLine{00061\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_cmd\_wait()}}
+\DoxyCodeLine{00062\ \textcolor{comment}{-\/\ removed\ the\ history\ from\ before\ 4.0}}
+\DoxyCodeLine{00063\ \textcolor{comment}{-\/\ added\ an\ enum\ with\ return\ codes\ to\ have\ the\ functions\ return\ something\ more\ meaningfull}}
+\DoxyCodeLine{00064\ \textcolor{comment}{-\/\ finally\ removed\ EVE\_cmd\_start()\ after\ setting\ it\ to\ deprecatd\ with\ the\ first\ 5.0\ release}}
+\DoxyCodeLine{00065\ \textcolor{comment}{-\/\ renamed\ EVE\_cmd\_execute()\ to\ EVE\_execute\_cmd()\ to\ be\ more\ consistent,\ this\ is\ is\ not\ an\ EVE\ command}}
+\DoxyCodeLine{00066\ \textcolor{comment}{-\/\ added\ the\ return-\/value\ of\ EVE\_FIFO\_HALF\_EMPTY\ to\ EVE\_busy()\ to\ indicate\ there\ is\ more\ than\ 2048\ bytes\ available}}
+\DoxyCodeLine{00067\ \textcolor{comment}{-\/\ removed\ the\ 4.0\ history}}
+\DoxyCodeLine{00068\ \textcolor{comment}{-\/\ added\ parameter\ width\ to\ EVE\_calibrate\_manual()}}
+\DoxyCodeLine{00069\ \textcolor{comment}{-\/\ changed\ the\ varargs\ versions\ of\ cmd\_button,\ cmd\_text\ and\ cmd\_toggle\ to\ use\ an\ array\ of\ uint32\_t\ values\ to\ comply\ with\ MISRA-\/C}}
+\DoxyCodeLine{00070\ \textcolor{comment}{-\/\ fixed\ some\ MISRA-\/C\ issues}}
+\DoxyCodeLine{00071\ \textcolor{comment}{-\/\ basic\ maintenance:\ checked\ for\ violations\ of\ white\ space\ and\ indent\ rules}}
+\DoxyCodeLine{00072\ \textcolor{comment}{-\/\ more\ linter\ fixes\ for\ minor\ issues\ like\ variables\ shorter\ than\ 3\ characters}}
+\DoxyCodeLine{00073\ \textcolor{comment}{-\/\ added\ EVE\_color\_a()\ /\ EVE\_color\_a\_burst()}}
+\DoxyCodeLine{00074\ \textcolor{comment}{-\/\ removed\ EVE\_cmd\_newlist\_burst()\ prototype\ as\ the\ function\ got\ removed\ earlier}}
+\DoxyCodeLine{00075\ \textcolor{comment}{-\/\ added\ prototype\ for\ EVE\_write\_display\_parameters()}}
+\DoxyCodeLine{00076\ \textcolor{comment}{-\/\ added\ EVE\_memRead\_sram\_buffer()}}
+\DoxyCodeLine{00077\ \textcolor{comment}{-\/\ added\ EVE\_FAULT\_RECOVERED\ to\ the\ list\ of\ return\ codes}}
+\DoxyCodeLine{00078\ \textcolor{comment}{-\/\ added\ defines\ for\ the\ state\ of\ the\ external\ flash}}
+\DoxyCodeLine{00079\ \textcolor{comment}{-\/\ added\ protype\ for\ EVE\_get\_and\_reset\_fault\_state()}}
+\DoxyCodeLine{00080\ \textcolor{comment}{-\/\ put\ E\_OK\ and\ E\_NOT\_OK\ in\ \#ifndef/\#endif\ guards\ as\ these\ are\ usually\ defined}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ \ already\ in\ AUTOSAR\ projects}}
+\DoxyCodeLine{00082\ \textcolor{comment}{-\/\ renamed\ EVE\_FAIL\_CHIPID\_TIMEOUT\ to\ EVE\_FAIL\_REGID\_TIMEOUT\ as\ suggested\ by\ \#93\ on\ github}}
+\DoxyCodeLine{00083\ \textcolor{comment}{-\/\ changed\ a\ number\ of\ function\ parameters\ from\ signed\ to\ unsigned\ following\ the}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ updated\ BT81x\ series\ programming\ guide\ V2.4}}
+\DoxyCodeLine{00085\ \textcolor{comment}{-\/\ commented\ out\ EVE\_cmd\_regread()\ prototype}}
+\DoxyCodeLine{00086\ \textcolor{comment}{-\/\ removed\ prototype\ for\ EVE\_cmd\_hsf\_burst()}}
+\DoxyCodeLine{00087\ \textcolor{comment}{}}
+\DoxyCodeLine{00088\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#ifndef\ EVE\_COMMANDS\_H}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ EVE\_COMMANDS\_H}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#include\ "{}EVE.h"{}}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#if\ !defined\ E\_OK}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ E\_OK\ 0U}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#if\ !defined\ E\_NOT\_OK}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ E\_NOT\_OK\ 1U}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_REGID\_TIMEOUT\ 2U}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_RESET\_TIMEOUT\ 3U}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_PCLK\_FREQ\ 4U}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_FLASH\_STATUS\_INIT\ 5U}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_FLASH\_STATUS\_DETACHED\ 6U}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_FLASHFAST\_NOT\_SUPPORTED\ 7U}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_FLASHFAST\_NO\_HEADER\_DETECTED\ 8U}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_FLASHFAST\_SECTOR0\_FAILED\ 9U}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_FLASHFAST\_BLOB\_MISMATCH\ 10U}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ EVE\_FAIL\_FLASHFAST\_SPEED\_TEST\ 11U}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ EVE\_IS\_BUSY\ 12U}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ EVE\_FIFO\_HALF\_EMPTY\ 13U}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ EVE\_FAULT\_RECOVERED\ 14U}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ EVE\_FLASH\_STATUS\_INIT\ 0U}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ EVE\_FLASH\_STATUS\_DETACHED\ 1U}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ EVE\_FLASH\_STATUS\_BASIC\ 2U}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ EVE\_FLASH\_STATUS\_FULL\ 3U}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{comment}{/*\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ \ \ \ helper\ functions}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ */}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ EVE\_cmdWrite(uint8\_t\ \textcolor{keyword}{const}\ command,\ uint8\_t\ \textcolor{keyword}{const}\ parameter);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ uint8\_t\ EVE\_memRead8(uint32\_t\ \textcolor{keyword}{const}\ ft\_address);}
+\DoxyCodeLine{00129\ uint16\_t\ EVE\_memRead16(uint32\_t\ \textcolor{keyword}{const}\ ft\_address);}
+\DoxyCodeLine{00130\ uint32\_t\ EVE\_memRead32(uint32\_t\ \textcolor{keyword}{const}\ ft\_address);}
+\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ EVE\_memWrite8(uint32\_t\ \textcolor{keyword}{const}\ ft\_address,\ uint8\_t\ \textcolor{keyword}{const}\ ft\_data);}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ EVE\_memWrite16(uint32\_t\ \textcolor{keyword}{const}\ ft\_address,\ uint16\_t\ \textcolor{keyword}{const}\ ft\_data);}
+\DoxyCodeLine{00133\ \textcolor{keywordtype}{void}\ EVE\_memWrite32(uint32\_t\ \textcolor{keyword}{const}\ ft\_address,\ uint32\_t\ \textcolor{keyword}{const}\ ft\_data);}
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ EVE\_memWrite\_flash\_buffer(uint32\_t\ \textcolor{keyword}{const}\ ft\_address,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data,\ uint32\_t\ \textcolor{keyword}{const}\ len);}
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ EVE\_memWrite\_sram\_buffer(uint32\_t\ \textcolor{keyword}{const}\ ft\_address,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data,\ uint32\_t\ \textcolor{keyword}{const}\ len);}
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ EVE\_memRead\_sram\_buffer(uint32\_t\ \textcolor{keyword}{const}\ ft\_address,\ uint8\_t\ *p\_data,\ uint32\_t\ \textcolor{keyword}{const}\ len);}
+\DoxyCodeLine{00137\ uint8\_t\ EVE\_busy(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00138\ uint8\_t\ EVE\_get\_and\_reset\_fault\_state(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ EVE\_execute\_cmd(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{comment}{/*\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00142\ \textcolor{comment}{\ \ \ \ commands\ and\ functions\ to\ be\ used\ outside\ of\ display-\/lists}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ */}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{comment}{/*\ EVE4:\ BT817\ /\ BT818\ */}}
+\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#if\ EVE\_GEN\ >\ 3}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashprogram(uint32\_t\ dest,\ uint32\_t\ src,\ uint32\_t\ num);}
+\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ EVE\_cmd\_fontcache(uint32\_t\ font,\ uint32\_t\ ptr,\ uint32\_t\ num);}
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ EVE\_cmd\_fontcachequery(uint32\_t\ *p\_total,\ uint32\_t\ *p\_used);}
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ EVE\_cmd\_getimage(uint32\_t\ *p\_source,\ uint32\_t\ *p\_fmt,\ uint32\_t\ *p\_width,\ uint32\_t\ *p\_height,\ uint32\_t\ *p\_palette);}
+\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ EVE\_cmd\_linetime(uint32\_t\ dest);}
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{void}\ EVE\_cmd\_newlist(uint32\_t\ adr);}
+\DoxyCodeLine{00154\ uint32\_t\ EVE\_cmd\_pclkfreq(uint32\_t\ ftarget,\ int32\_t\ rounding);}
+\DoxyCodeLine{00155\ \textcolor{keywordtype}{void}\ EVE\_cmd\_wait(uint32\_t\ usec);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EVE\_GEN\ >\ 3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{comment}{/*\ EVE3:\ BT815\ /\ BT816\ */}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#if\ EVE\_GEN\ >\ 2}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ EVE\_cmd\_clearcache(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashattach(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashdetach(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00165\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flasherase(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00166\ uint32\_t\ EVE\_cmd\_flashfast(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashspidesel(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00168\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashread(uint32\_t\ dest,\ uint32\_t\ src,\ uint32\_t\ num);}
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashsource(uint32\_t\ ptr);}
+\DoxyCodeLine{00170\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashspirx(uint32\_t\ dest,\ uint32\_t\ num);}
+\DoxyCodeLine{00171\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashspitx(uint32\_t\ num,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data);}
+\DoxyCodeLine{00172\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashupdate(uint32\_t\ dest,\ uint32\_t\ src,\ uint32\_t\ num);}
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ EVE\_cmd\_flashwrite(uint32\_t\ ptr,\ uint32\_t\ num,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data);}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ EVE\_cmd\_inflate2(uint32\_t\ ptr,\ uint32\_t\ options,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data,\ uint32\_t\ len);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EVE\_GEN\ >\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \textcolor{keywordtype}{void}\ EVE\_cmd\_getprops(uint32\_t\ *p\_pointer,\ uint32\_t\ *p\_width,\ uint32\_t\ *p\_height);}
+\DoxyCodeLine{00179\ uint32\_t\ EVE\_cmd\_getptr(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00180\ \textcolor{keywordtype}{void}\ EVE\_cmd\_inflate(uint32\_t\ ptr,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data,\ uint32\_t\ len);}
+\DoxyCodeLine{00181\ \textcolor{keywordtype}{void}\ EVE\_cmd\_interrupt(uint32\_t\ msec);}
+\DoxyCodeLine{00182\ \textcolor{keywordtype}{void}\ EVE\_cmd\_loadimage(uint32\_t\ ptr,\ uint32\_t\ options,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data,\ uint32\_t\ len);}
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{void}\ EVE\_cmd\_mediafifo(uint32\_t\ ptr,\ uint32\_t\ size);}
+\DoxyCodeLine{00184\ \textcolor{keywordtype}{void}\ EVE\_cmd\_memcpy(uint32\_t\ dest,\ uint32\_t\ src,\ uint32\_t\ num);}
+\DoxyCodeLine{00185\ uint32\_t\ EVE\_cmd\_memcrc(uint32\_t\ ptr,\ uint32\_t\ num);}
+\DoxyCodeLine{00186\ \textcolor{keywordtype}{void}\ EVE\_cmd\_memset(uint32\_t\ ptr,\ uint8\_t\ value,\ uint32\_t\ num);}
+\DoxyCodeLine{00187\ \textcolor{keywordtype}{void}\ EVE\_cmd\_memzero(uint32\_t\ ptr,\ uint32\_t\ num);}
+\DoxyCodeLine{00188\ \textcolor{keywordtype}{void}\ EVE\_cmd\_playvideo(uint32\_t\ options,\ \textcolor{keyword}{const}\ uint8\_t\ *p\_data,\ uint32\_t\ len);}
+\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setrotate(uint32\_t\ rotation);}
+\DoxyCodeLine{00190\ \textcolor{keywordtype}{void}\ EVE\_cmd\_snapshot(uint32\_t\ ptr);}
+\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ EVE\_cmd\_snapshot2(uint32\_t\ fmt,\ uint32\_t\ ptr,\ int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt);}
+\DoxyCodeLine{00192\ \textcolor{keywordtype}{void}\ EVE\_cmd\_track(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ tag);}
+\DoxyCodeLine{00193\ \textcolor{keywordtype}{void}\ EVE\_cmd\_videoframe(uint32\_t\ dest,\ uint32\_t\ result\_ptr);}
+\DoxyCodeLine{00194\ \textcolor{comment}{/*void\ EVE\_cmd\_memwrite(uint32\_t\ dest,\ uint32\_t\ num,\ const\ uint8\_t\ *p\_data);*/}}
+\DoxyCodeLine{00195\ \textcolor{comment}{/*uint32\_t\ EVE\_cmd\_regread(uint32\_t\ ptr);*/}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{/*\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00198\ \textcolor{comment}{\ \ \ \ patching\ and\ initialization}}
+\DoxyCodeLine{00199\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ */}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#if\ EVE\_GEN\ >\ 2}}
+\DoxyCodeLine{00202\ uint8\_t\ EVE\_init\_flash(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EVE\_GEN\ >\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keywordtype}{void}\ EVE\_write\_display\_parameters(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00206\ uint8\_t\ EVE\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \textcolor{comment}{/*\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00209\ \textcolor{comment}{\ \ \ \ functions\ for\ display\ lists}}
+\DoxyCodeLine{00210\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ */}}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{keywordtype}{void}\ EVE\_start\_cmd\_burst(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00213\ \textcolor{keywordtype}{void}\ EVE\_end\_cmd\_burst(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{comment}{/*\ EVE4:\ BT817\ /\ BT818\ */}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#if\ EVE\_GEN\ >\ 3}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animframeram(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ aoptr,\ uint32\_t\ frame);}
+\DoxyCodeLine{00219\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animframeram\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ aoptr,\ uint32\_t\ frame);}
+\DoxyCodeLine{00220\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animstartram(int32\_t\ chnl,\ uint32\_t\ aoptr,\ uint32\_t\ loop);}
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animstartram\_burst(int32\_t\ chnl,\ uint32\_t\ aoptr,\ uint32\_t\ loop);}
+\DoxyCodeLine{00222\ \textcolor{keywordtype}{void}\ EVE\_cmd\_apilevel(uint32\_t\ level);}
+\DoxyCodeLine{00223\ \textcolor{keywordtype}{void}\ EVE\_cmd\_apilevel\_burst(uint32\_t\ level);}
+\DoxyCodeLine{00224\ \textcolor{keywordtype}{void}\ EVE\_cmd\_calibratesub(uint16\_t\ xc0,\ uint16\_t\ yc0,\ uint16\_t\ width,\ uint16\_t\ height);}
+\DoxyCodeLine{00225\ \textcolor{keywordtype}{void}\ EVE\_cmd\_calllist(uint32\_t\ adr);}
+\DoxyCodeLine{00226\ \textcolor{keywordtype}{void}\ EVE\_cmd\_calllist\_burst(uint32\_t\ adr);}
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ EVE\_cmd\_hsf(uint32\_t\ hsf);}
+\DoxyCodeLine{00228\ \textcolor{keywordtype}{void}\ EVE\_cmd\_runanim(uint32\_t\ waitmask,\ uint32\_t\ play);}
+\DoxyCodeLine{00229\ \textcolor{keywordtype}{void}\ EVE\_cmd\_runanim\_burst(uint32\_t\ waitmask,\ uint32\_t\ play);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EVE\_GEN\ >\ 3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{comment}{/*\ EVE3:\ BT815\ /\ BT816\ */}}
+\DoxyCodeLine{00234\ \textcolor{preprocessor}{\#if\ EVE\_GEN\ >\ 2}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animdraw(int32\_t\ chnl);}
+\DoxyCodeLine{00237\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animdraw\_burst(int32\_t\ chnl);}
+\DoxyCodeLine{00238\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animframe(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ aoptr,\ uint32\_t\ frame);}
+\DoxyCodeLine{00239\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animframe\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ aoptr,\ uint32\_t\ frame);}
+\DoxyCodeLine{00240\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animstart(int32\_t\ chnl,\ uint32\_t\ aoptr,\ uint32\_t\ loop);}
+\DoxyCodeLine{00241\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animstart\_burst(int32\_t\ chnl,\ uint32\_t\ aoptr,\ uint32\_t\ loop);}
+\DoxyCodeLine{00242\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animstop(int32\_t\ chnl);}
+\DoxyCodeLine{00243\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animstop\_burst(int32\_t\ chnl);}
+\DoxyCodeLine{00244\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animxy(int32\_t\ chnl,\ int16\_t\ xc0,\ int16\_t\ yc0);}
+\DoxyCodeLine{00245\ \textcolor{keywordtype}{void}\ EVE\_cmd\_animxy\_burst(int32\_t\ chnl,\ int16\_t\ xc0,\ int16\_t\ yc0);}
+\DoxyCodeLine{00246\ \textcolor{keywordtype}{void}\ EVE\_cmd\_appendf(uint32\_t\ ptr,\ uint32\_t\ num);}
+\DoxyCodeLine{00247\ \textcolor{keywordtype}{void}\ EVE\_cmd\_appendf\_burst(uint32\_t\ ptr,\ uint32\_t\ num);}
+\DoxyCodeLine{00248\ uint16\_t\ EVE\_cmd\_bitmap\_transform(int32\_t\ xc0,\ int32\_t\ yc0,\ int32\_t\ xc1,\ int32\_t\ yc1,\ int32\_t\ xc2,\ int32\_t\ yc2,\ int32\_t\ tx0,}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ ty0,\ int32\_t\ tx1,\ int32\_t\ ty1,\ int32\_t\ tx2,\ int32\_t\ ty2);}
+\DoxyCodeLine{00250\ \textcolor{keywordtype}{void}\ EVE\_cmd\_bitmap\_transform\_burst(int32\_t\ xc0,\ int32\_t\ yc0,\ int32\_t\ xc1,\ int32\_t\ yc1,\ int32\_t\ xc2,\ int32\_t\ yc2,\ int32\_t\ tx0,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ int32\_t\ ty0,\ int32\_t\ tx1,\ int32\_t\ ty1,\ int32\_t\ tx2,\ int32\_t\ ty2);}
+\DoxyCodeLine{00252\ \textcolor{keywordtype}{void}\ EVE\_cmd\_fillwidth(uint32\_t\ pixel);}
+\DoxyCodeLine{00253\ \textcolor{keywordtype}{void}\ EVE\_cmd\_fillwidth\_burst(uint32\_t\ pixel);}
+\DoxyCodeLine{00254\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gradienta(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ argb0,\ int16\_t\ xc1,\ int16\_t\ yc1,\ uint32\_t\ argb1);}
+\DoxyCodeLine{00255\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gradienta\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ argb0,\ int16\_t\ xc1,\ int16\_t\ yc1,\ uint32\_t\ argb1);}
+\DoxyCodeLine{00256\ \textcolor{keywordtype}{void}\ EVE\_cmd\_rotatearound(int32\_t\ xc0,\ int32\_t\ yc0,\ uint32\_t\ angle,\ int32\_t\ scale);}
+\DoxyCodeLine{00257\ \textcolor{keywordtype}{void}\ EVE\_cmd\_rotatearound\_burst(int32\_t\ xc0,\ int32\_t\ yc0,\ uint32\_t\ angle,\ int32\_t\ scale);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{keywordtype}{void}\ EVE\_cmd\_button\_var(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text,\ uint8\_t\ num\_args,\ \textcolor{keyword}{const}\ uint32\_t\ p\_arguments[]);}
+\DoxyCodeLine{00260\ \textcolor{keywordtype}{void}\ EVE\_cmd\_button\_var\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text,\ uint8\_t\ num\_args,\ \textcolor{keyword}{const}\ uint32\_t\ p\_arguments[]);}
+\DoxyCodeLine{00261\ \textcolor{keywordtype}{void}\ EVE\_cmd\_text\_var(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text,\ uint8\_t\ num\_args,\ \textcolor{keyword}{const}\ uint32\_t\ p\_arguments[]);}
+\DoxyCodeLine{00262\ \textcolor{keywordtype}{void}\ EVE\_cmd\_text\_var\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text,\ uint8\_t\ num\_args,\ \textcolor{keyword}{const}\ uint32\_t\ p\_arguments[]);}
+\DoxyCodeLine{00263\ \textcolor{keywordtype}{void}\ EVE\_cmd\_toggle\_var(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ font,\ uint16\_t\ options,\ uint16\_t\ state,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text,\ uint8\_t\ num\_args,\ \textcolor{keyword}{const}\ uint32\_t\ p\_arguments[]);}
+\DoxyCodeLine{00264\ \textcolor{keywordtype}{void}\ EVE\_cmd\_toggle\_var\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ font,\ uint16\_t\ options,\ uint16\_t\ state,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text,\ uint8\_t\ num\_args,\ \textcolor{keyword}{const}\ uint32\_t\ p\_arguments[]);}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EVE\_GEN\ >\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \textcolor{keywordtype}{void}\ EVE\_cmd\_dl(uint32\_t\ command);}
+\DoxyCodeLine{00269\ \textcolor{keywordtype}{void}\ EVE\_cmd\_dl\_burst(uint32\_t\ command);}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{keywordtype}{void}\ EVE\_cmd\_append(uint32\_t\ ptr,\ uint32\_t\ num);}
+\DoxyCodeLine{00272\ \textcolor{keywordtype}{void}\ EVE\_cmd\_append\_burst(uint32\_t\ ptr,\ uint32\_t\ num);}
+\DoxyCodeLine{00273\ \textcolor{keywordtype}{void}\ EVE\_cmd\_bgcolor(uint32\_t\ color);}
+\DoxyCodeLine{00274\ \textcolor{keywordtype}{void}\ EVE\_cmd\_bgcolor\_burst(uint32\_t\ color);}
+\DoxyCodeLine{00275\ \textcolor{keywordtype}{void}\ EVE\_cmd\_button(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00276\ \textcolor{keywordtype}{void}\ EVE\_cmd\_button\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00277\ \textcolor{keywordtype}{void}\ EVE\_cmd\_calibrate(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00278\ \textcolor{keywordtype}{void}\ EVE\_cmd\_clock(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ rad,\ uint16\_t\ options,\ uint16\_t\ hours,\ uint16\_t\ mins,\ uint16\_t\ secs,\ uint16\_t\ msecs);}
+\DoxyCodeLine{00279\ \textcolor{keywordtype}{void}\ EVE\_cmd\_clock\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ rad,\ uint16\_t\ options,\ uint16\_t\ hours,\ uint16\_t\ mins,\ uint16\_t\ secs,\ uint16\_t\ msecs);}
+\DoxyCodeLine{00280\ \textcolor{keywordtype}{void}\ EVE\_cmd\_dial(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ rad,\ uint16\_t\ options,\ uint16\_t\ val);}
+\DoxyCodeLine{00281\ \textcolor{keywordtype}{void}\ EVE\_cmd\_dial\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ rad,\ uint16\_t\ options,\ uint16\_t\ val);}
+\DoxyCodeLine{00282\ \textcolor{keywordtype}{void}\ EVE\_cmd\_fgcolor(uint32\_t\ color);}
+\DoxyCodeLine{00283\ \textcolor{keywordtype}{void}\ EVE\_cmd\_fgcolor\_burst(uint32\_t\ color);}
+\DoxyCodeLine{00284\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gauge(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ rad,\ uint16\_t\ options,\ uint16\_t\ major,\ uint16\_t\ minor,\ uint16\_t\ val,\ uint16\_t\ range);}
+\DoxyCodeLine{00285\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gauge\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ rad,\ uint16\_t\ options,\ uint16\_t\ major,\ uint16\_t\ minor,\ uint16\_t\ val,\ uint16\_t\ range);}
+\DoxyCodeLine{00286\ \textcolor{keywordtype}{void}\ EVE\_cmd\_getmatrix(int32\_t\ *p\_a,\ int32\_t\ *p\_b,\ int32\_t\ *p\_c,\ int32\_t\ *p\_d,\ int32\_t\ *p\_e,\ int32\_t\ *p\_f);}
+\DoxyCodeLine{00287\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gradcolor(uint32\_t\ color);}
+\DoxyCodeLine{00288\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gradcolor\_burst(uint32\_t\ color);}
+\DoxyCodeLine{00289\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gradient(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ rgb0,\ int16\_t\ xc1,\ int16\_t\ yc1,\ uint32\_t\ rgb1);}
+\DoxyCodeLine{00290\ \textcolor{keywordtype}{void}\ EVE\_cmd\_gradient\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint32\_t\ rgb0,\ int16\_t\ xc1,\ int16\_t\ yc1,\ uint32\_t\ rgb1);}
+\DoxyCodeLine{00291\ \textcolor{keywordtype}{void}\ EVE\_cmd\_keys(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00292\ \textcolor{keywordtype}{void}\ EVE\_cmd\_keys\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00293\ \textcolor{keywordtype}{void}\ EVE\_cmd\_number(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ font,\ uint16\_t\ options,\ int32\_t\ number);}
+\DoxyCodeLine{00294\ \textcolor{keywordtype}{void}\ EVE\_cmd\_number\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ font,\ uint16\_t\ options,\ int32\_t\ number);}
+\DoxyCodeLine{00295\ \textcolor{keywordtype}{void}\ EVE\_cmd\_progress(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ options,\ uint16\_t\ val,\ uint16\_t\ range);}
+\DoxyCodeLine{00296\ \textcolor{keywordtype}{void}\ EVE\_cmd\_progress\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ options,\ uint16\_t\ val,\ uint16\_t\ range);}
+\DoxyCodeLine{00297\ \textcolor{keywordtype}{void}\ EVE\_cmd\_romfont(uint32\_t\ font,\ uint32\_t\ romslot);}
+\DoxyCodeLine{00298\ \textcolor{keywordtype}{void}\ EVE\_cmd\_romfont\_burst(uint32\_t\ font,\ uint32\_t\ romslot);}
+\DoxyCodeLine{00299\ \textcolor{keywordtype}{void}\ EVE\_cmd\_rotate(uint32\_t\ angle);}
+\DoxyCodeLine{00300\ \textcolor{keywordtype}{void}\ EVE\_cmd\_rotate\_burst(uint32\_t\ angle);}
+\DoxyCodeLine{00301\ \textcolor{keywordtype}{void}\ EVE\_cmd\_scale(int32\_t\ scx,\ int32\_t\ scy);}
+\DoxyCodeLine{00302\ \textcolor{keywordtype}{void}\ EVE\_cmd\_scale\_burst(int32\_t\ scx,\ int32\_t\ scy);}
+\DoxyCodeLine{00303\ \textcolor{keywordtype}{void}\ EVE\_cmd\_scrollbar(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ options,\ uint16\_t\ val,\ uint16\_t\ size,\ uint16\_t\ range);}
+\DoxyCodeLine{00304\ \textcolor{keywordtype}{void}\ EVE\_cmd\_scrollbar\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ options,\ uint16\_t\ val,\ uint16\_t\ size,\ uint16\_t\ range);}
+\DoxyCodeLine{00305\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setbase(uint32\_t\ base);}
+\DoxyCodeLine{00306\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setbase\_burst(uint32\_t\ base);}
+\DoxyCodeLine{00307\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setbitmap(uint32\_t\ addr,\ uint16\_t\ fmt,\ uint16\_t\ width,\ uint16\_t\ height);}
+\DoxyCodeLine{00308\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setbitmap\_burst(uint32\_t\ addr,\ uint16\_t\ fmt,\ uint16\_t\ width,\ uint16\_t\ height);}
+\DoxyCodeLine{00309\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setfont(uint32\_t\ font,\ uint32\_t\ ptr);}
+\DoxyCodeLine{00310\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setfont\_burst(uint32\_t\ font,\ uint32\_t\ ptr);}
+\DoxyCodeLine{00311\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setfont2(uint32\_t\ font,\ uint32\_t\ ptr,\ uint32\_t\ firstchar);}
+\DoxyCodeLine{00312\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setfont2\_burst(uint32\_t\ font,\ uint32\_t\ ptr,\ uint32\_t\ firstchar);}
+\DoxyCodeLine{00313\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setscratch(uint32\_t\ handle);}
+\DoxyCodeLine{00314\ \textcolor{keywordtype}{void}\ EVE\_cmd\_setscratch\_burst(uint32\_t\ handle);}
+\DoxyCodeLine{00315\ \textcolor{keywordtype}{void}\ EVE\_cmd\_sketch(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint32\_t\ ptr,\ uint16\_t\ format);}
+\DoxyCodeLine{00316\ \textcolor{keywordtype}{void}\ EVE\_cmd\_sketch\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint32\_t\ ptr,\ uint16\_t\ format);}
+\DoxyCodeLine{00317\ \textcolor{keywordtype}{void}\ EVE\_cmd\_slider(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ options,\ uint16\_t\ val,\ uint16\_t\ range);}
+\DoxyCodeLine{00318\ \textcolor{keywordtype}{void}\ EVE\_cmd\_slider\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ hgt,\ uint16\_t\ options,\ uint16\_t\ val,\ uint16\_t\ range);}
+\DoxyCodeLine{00319\ \textcolor{keywordtype}{void}\ EVE\_cmd\_spinner(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ style,\ uint16\_t\ scale);}
+\DoxyCodeLine{00320\ \textcolor{keywordtype}{void}\ EVE\_cmd\_spinner\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ style,\ uint16\_t\ scale);}
+\DoxyCodeLine{00321\ \textcolor{keywordtype}{void}\ EVE\_cmd\_text(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00322\ \textcolor{keywordtype}{void}\ EVE\_cmd\_text\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ font,\ uint16\_t\ options,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00323\ \textcolor{keywordtype}{void}\ EVE\_cmd\_toggle(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ font,\ uint16\_t\ options,\ uint16\_t\ state,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00324\ \textcolor{keywordtype}{void}\ EVE\_cmd\_toggle\_burst(int16\_t\ xc0,\ int16\_t\ yc0,\ uint16\_t\ wid,\ uint16\_t\ font,\ uint16\_t\ options,\ uint16\_t\ state,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *p\_text);}
+\DoxyCodeLine{00325\ \textcolor{keywordtype}{void}\ EVE\_cmd\_translate(int32\_t\ tr\_x,\ int32\_t\ tr\_y);}
+\DoxyCodeLine{00326\ \textcolor{keywordtype}{void}\ EVE\_cmd\_translate\_burst(int32\_t\ tr\_x,\ int32\_t\ tr\_y);}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{keywordtype}{void}\ EVE\_color\_rgb(uint32\_t\ color);}
+\DoxyCodeLine{00329\ \textcolor{keywordtype}{void}\ EVE\_color\_rgb\_burst(uint32\_t\ color);}
+\DoxyCodeLine{00330\ \textcolor{keywordtype}{void}\ EVE\_color\_a(uint8\_t\ alpha);}
+\DoxyCodeLine{00331\ \textcolor{keywordtype}{void}\ EVE\_color\_a\_burst(uint8\_t\ alpha);}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \textcolor{comment}{/*\ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{00334\ \textcolor{comment}{\ \ \ \ special\ purpose\ functions}}
+\DoxyCodeLine{00335\ \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\ */}}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \textcolor{keywordtype}{void}\ EVE\_calibrate\_manual(uint16\_t\ width,\ uint16\_t\ height);}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EVE\_COMMANDS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,96 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+group\+\_\+t}
+\hypertarget{struct__lv__group__t}{}\label{struct__lv__group__t}\index{\_lv\_group\_t@{\_lv\_group\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+group\+\_\+private.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda \+\_\+lv\+\_\+group\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct__lv__group__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \mbox{\hyperlink{struct__lv__group__t_a3e17edeb69f746e7836b192688b42bf9}{obj\+\_\+ll}}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__group__t_a7932860f0e2d9a88da5df5abccc7e8aa}{obj\+\_\+focus}}
+\item 
+lv\+\_\+group\+\_\+focus\+\_\+cb\+\_\+t \mbox{\hyperlink{struct__lv__group__t_a0827156771bb68671288ccc913bb0156}{focus\+\_\+cb}}
+\item 
+lv\+\_\+group\+\_\+edge\+\_\+cb\+\_\+t \mbox{\hyperlink{struct__lv__group__t_ae7fda50b2846aaee6799a5660a323b93}{edge\+\_\+cb}}
+\item 
+\Hypertarget{struct__lv__group__t_ac73c377063106d76ca1f12101072a63d}\label{struct__lv__group__t_ac73c377063106d76ca1f12101072a63d} 
+void \texorpdfstring{$\ast$}{*} {\bfseries user\+\_\+data}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__group__t_a9bee9a1af52bbbd474caaa763de86793}{frozen}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__group__t_ada9687b664ac571dbf3488ec74ee1694}{editing}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__group__t_a3f3ab676489c054f33e287b2b23adb33}{refocus\+\_\+policy}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__group__t_a9be7897b37b9557f669ea4465db79db2}{wrap}}\+: 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Groups can be used to logically hold objects so that they can be individually focused. They are NOT for laying out objects on a screen (try layouts for that). 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__group__t_ae7fda50b2846aaee6799a5660a323b93}\label{struct__lv__group__t_ae7fda50b2846aaee6799a5660a323b93} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!edge\_cb@{edge\_cb}}
+\index{edge\_cb@{edge\_cb}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{edge\_cb}{edge\_cb}}
+{\footnotesize\ttfamily lv\+\_\+group\+\_\+edge\+\_\+cb\+\_\+t \+\_\+lv\+\_\+group\+\_\+t\+::edge\+\_\+cb}
+
+A function to call when an edge is reached, no more focus targets are available in this direction (to allow edge feedback like a sound or a scroll bounce) \Hypertarget{struct__lv__group__t_ada9687b664ac571dbf3488ec74ee1694}\label{struct__lv__group__t_ada9687b664ac571dbf3488ec74ee1694} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!editing@{editing}}
+\index{editing@{editing}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{editing}{editing}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+group\+\_\+t\+::editing}
+
+1\+: Edit mode, 0\+: Navigate mode \Hypertarget{struct__lv__group__t_a0827156771bb68671288ccc913bb0156}\label{struct__lv__group__t_a0827156771bb68671288ccc913bb0156} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!focus\_cb@{focus\_cb}}
+\index{focus\_cb@{focus\_cb}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{focus\_cb}{focus\_cb}}
+{\footnotesize\ttfamily lv\+\_\+group\+\_\+focus\+\_\+cb\+\_\+t \+\_\+lv\+\_\+group\+\_\+t\+::focus\+\_\+cb}
+
+A function to call when a new object is focused (optional) \Hypertarget{struct__lv__group__t_a9bee9a1af52bbbd474caaa763de86793}\label{struct__lv__group__t_a9bee9a1af52bbbd474caaa763de86793} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!frozen@{frozen}}
+\index{frozen@{frozen}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{frozen}{frozen}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+group\+\_\+t\+::frozen}
+
+1\+: can\textquotesingle{}t focus to new object \Hypertarget{struct__lv__group__t_a7932860f0e2d9a88da5df5abccc7e8aa}\label{struct__lv__group__t_a7932860f0e2d9a88da5df5abccc7e8aa} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!obj\_focus@{obj\_focus}}
+\index{obj\_focus@{obj\_focus}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{obj\_focus}{obj\_focus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+group\+\_\+t\+::obj\+\_\+focus}
+
+The object in focus \Hypertarget{struct__lv__group__t_a3e17edeb69f746e7836b192688b42bf9}\label{struct__lv__group__t_a3e17edeb69f746e7836b192688b42bf9} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!obj\_ll@{obj\_ll}}
+\index{obj\_ll@{obj\_ll}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{obj\_ll}{obj\_ll}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \+\_\+lv\+\_\+group\+\_\+t\+::obj\+\_\+ll}
+
+Linked list to store the objects in the group \Hypertarget{struct__lv__group__t_a3f3ab676489c054f33e287b2b23adb33}\label{struct__lv__group__t_a3f3ab676489c054f33e287b2b23adb33} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!refocus\_policy@{refocus\_policy}}
+\index{refocus\_policy@{refocus\_policy}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{refocus\_policy}{refocus\_policy}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+group\+\_\+t\+::refocus\+\_\+policy}
+
+1\+: Focus prev if focused on deletion. 0\+: Focus next if focused on deletion. \Hypertarget{struct__lv__group__t_a9be7897b37b9557f669ea4465db79db2}\label{struct__lv__group__t_a9be7897b37b9557f669ea4465db79db2} 
+\index{\_lv\_group\_t@{\_lv\_group\_t}!wrap@{wrap}}
+\index{wrap@{wrap}!\_lv\_group\_t@{\_lv\_group\_t}}
+\doxysubsubsection{\texorpdfstring{wrap}{wrap}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+group\+\_\+t\+::wrap}
+
+1\+: Focus next/prev can wrap at end of list. 0\+: Focus next/prev stops at end of list. 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/core/\mbox{\hyperlink{lv__group__private_8h}{lv\+\_\+group\+\_\+private.\+h}}\end{DoxyCompactItemize}

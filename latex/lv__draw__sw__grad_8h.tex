@@ -1,0 +1,74 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/sw/lv\+\_\+draw\+\_\+sw\+\_\+grad.h}
+\hypertarget{lv__draw__sw__grad_8h}{}\label{lv__draw__sw__grad_8h}\index{managed\_components/lvgl\_\_lvgl/src/draw/sw/lv\_draw\_sw\_grad.h@{managed\_components/lvgl\_\_lvgl/src/draw/sw/lv\_draw\_sw\_grad.h}}
+{\ttfamily \#include "{}../../misc/lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+style.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+sw\+\_\+grad.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+sw\+\_\+grad.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__sw__grad_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__sw__grad_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlv__draw__sw__grad__calc__t}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+calc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__draw__sw__grad_8h_a9dd4f8844f78c7f8c46b42f696b3dd18}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+color\+\_\+calculate}} (const \mbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, int32\+\_\+t range, int32\+\_\+t frac, \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} \texorpdfstring{$\ast$}{*}color\+\_\+out, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\+\_\+opa\+\_\+t}} \texorpdfstring{$\ast$}{*}opa\+\_\+out)
+\item 
+\mbox{\hyperlink{structlv__draw__sw__grad__calc__t}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+calc\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__sw__grad_8h_a8188d4afd8ffa6091d1af5450ef0ddbd}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+get}} (const \mbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}gradient, int32\+\_\+t w, int32\+\_\+t h)
+\item 
+void \mbox{\hyperlink{lv__draw__sw__grad_8h_a8569f9b90b8aea0932df1bfb8448bcf1}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+cleanup}} (\mbox{\hyperlink{structlv__draw__sw__grad__calc__t}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+calc\+\_\+t}} \texorpdfstring{$\ast$}{*}grad)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__draw__sw__grad_8h_a8569f9b90b8aea0932df1bfb8448bcf1}\label{lv__draw__sw__grad_8h_a8569f9b90b8aea0932df1bfb8448bcf1} 
+\index{lv\_draw\_sw\_grad.h@{lv\_draw\_sw\_grad.h}!lv\_draw\_sw\_grad\_cleanup@{lv\_draw\_sw\_grad\_cleanup}}
+\index{lv\_draw\_sw\_grad\_cleanup@{lv\_draw\_sw\_grad\_cleanup}!lv\_draw\_sw\_grad.h@{lv\_draw\_sw\_grad.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_sw\_grad\_cleanup()}{lv\_draw\_sw\_grad\_cleanup()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+cleanup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__draw__sw__grad__calc__t}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+calc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{grad }\end{DoxyParamCaption})}
+
+Clean up the gradient item after it was get with {\ttfamily lv\+\_\+grad\+\_\+get\+\_\+from\+\_\+cache}. 
+\begin{DoxyParams}{Parametri}
+{\em grad} & pointer to a gradient \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__sw__grad_8h_a9dd4f8844f78c7f8c46b42f696b3dd18}\label{lv__draw__sw__grad_8h_a9dd4f8844f78c7f8c46b42f696b3dd18} 
+\index{lv\_draw\_sw\_grad.h@{lv\_draw\_sw\_grad.h}!lv\_draw\_sw\_grad\_color\_calculate@{lv\_draw\_sw\_grad\_color\_calculate}}
+\index{lv\_draw\_sw\_grad\_color\_calculate@{lv\_draw\_sw\_grad\_color\_calculate}!lv\_draw\_sw\_grad.h@{lv\_draw\_sw\_grad.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_sw\_grad\_color\_calculate()}{lv\_draw\_sw\_grad\_color\_calculate()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+color\+\_\+calculate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{int32\+\_\+t}]{range,  }\item[{int32\+\_\+t}]{frac,  }\item[{\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{color\+\_\+out,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\+\_\+opa\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{opa\+\_\+out }\end{DoxyParamCaption})}
+
+Compute the color in the given gradient and fraction Gradient are specified in a virtual \mbox{[}0-\/255\mbox{]} range, so this function scales the virtual range to the given range 
+\begin{DoxyParams}{Parametri}
+{\em dsc} & The gradient descriptor to use \\
+\hline
+{\em range} & The range to use in computation. \\
+\hline
+{\em frac} & The current part used in the range. frac is in \mbox{[}0; range\mbox{]} \\
+\hline
+{\em color\+\_\+out} & Calculated gradient color \\
+\hline
+{\em opa\+\_\+out} & Calculated opacity \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__sw__grad_8h_a8188d4afd8ffa6091d1af5450ef0ddbd}\label{lv__draw__sw__grad_8h_a8188d4afd8ffa6091d1af5450ef0ddbd} 
+\index{lv\_draw\_sw\_grad.h@{lv\_draw\_sw\_grad.h}!lv\_draw\_sw\_grad\_get@{lv\_draw\_sw\_grad\_get}}
+\index{lv\_draw\_sw\_grad\_get@{lv\_draw\_sw\_grad\_get}!lv\_draw\_sw\_grad.h@{lv\_draw\_sw\_grad.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_sw\_grad\_get()}{lv\_draw\_sw\_grad\_get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__draw__sw__grad__calc__t}{lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+calc\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+sw\+\_\+grad\+\_\+get (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__grad__dsc__t}{lv\+\_\+grad\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gradient,  }\item[{int32\+\_\+t}]{w,  }\item[{int32\+\_\+t}]{h }\end{DoxyParamCaption})}
+
+Get a gradient cache from the given parameters 

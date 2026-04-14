@@ -1,0 +1,173 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+iter.c}
+\hypertarget{lv__iter_8c}{}\label{lv__iter_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_iter.c@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_iter.c}}
+{\ttfamily \#include "{}lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+iter.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+circle\+\_\+buf.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+iter.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+iter.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__iter_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__iter__t}{\+\_\+lv\+\_\+iter\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__iter_8c_a9a5dc414c70e9bd952e74838e8ee4cf2}{lv\+\_\+iter\+\_\+create}} (void \texorpdfstring{$\ast$}{*}instance, const uint32\+\_\+t elem\+\_\+size, const uint32\+\_\+t context\+\_\+size, lv\+\_\+iter\+\_\+next\+\_\+cb next\+\_\+cb)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__iter_8c_a202af55952542a4ea3b63cc37156bf67}{lv\+\_\+iter\+\_\+get\+\_\+context}} (const \mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter)
+\item 
+void \mbox{\hyperlink{lv__iter_8c_a4f20f9c5d73b821490dabb27945f05c9}{lv\+\_\+iter\+\_\+destroy}} (\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter)
+\item 
+void \mbox{\hyperlink{lv__iter_8c_ada6205803ba13bba5b029c09ca9dbea5}{lv\+\_\+iter\+\_\+make\+\_\+peekable}} (\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter, const uint32\+\_\+t capacity)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__iter_8c_aee0863cc60ffc8646e95045459d50b33}{lv\+\_\+iter\+\_\+next}} (\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter, void \texorpdfstring{$\ast$}{*}elem)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__iter_8c_a6042b1aa94d2231211e2f0a96ca0eb25}{lv\+\_\+iter\+\_\+peek}} (\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter, void \texorpdfstring{$\ast$}{*}elem)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__iter_8c_a1d05338a407feb758dd8ed84dcf3be79}{lv\+\_\+iter\+\_\+peek\+\_\+advance}} (\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__iter_8c_ae7461a2fef09e0f3753272c490073a21}{lv\+\_\+iter\+\_\+peek\+\_\+reset}} (\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter)
+\item 
+void \mbox{\hyperlink{lv__iter_8c_acbe59d9c6830f2e3f00fcd6ceb68f24d}{lv\+\_\+iter\+\_\+inspect}} (\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}iter, const lv\+\_\+iter\+\_\+inspect\+\_\+cb inspect\+\_\+cb)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__iter_8c_a9a5dc414c70e9bd952e74838e8ee4cf2}\label{lv__iter_8c_a9a5dc414c70e9bd952e74838e8ee4cf2} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_create@{lv\_iter\_create}}
+\index{lv\_iter\_create@{lv\_iter\_create}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_create()}{lv\_iter\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+iter\+\_\+create (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{instance,  }\item[{uint32\+\_\+t}]{elem\+\_\+size,  }\item[{uint32\+\_\+t}]{context\+\_\+size,  }\item[{lv\+\_\+iter\+\_\+next\+\_\+cb}]{next\+\_\+cb }\end{DoxyParamCaption})}
+
+Create an iterator based on an instance, and then the next element of the iterator can be obtained through lv\+\_\+iter\+\_\+next, In order to obtain the next operation in a unified and abstract way. 
+\begin{DoxyParams}{Parametri}
+{\em instance} & The instance to be iterated \\
+\hline
+{\em elem\+\_\+size} & The size of the element to be iterated in bytes \\
+\hline
+{\em context\+\_\+size} & The size of the context to be passed to the next\+\_\+cb in bytes \\
+\hline
+{\em next\+\_\+cb} & The callback function to get the next element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+The iterator object 
+\end{DoxyReturn}
+\Hypertarget{lv__iter_8c_a4f20f9c5d73b821490dabb27945f05c9}\label{lv__iter_8c_a4f20f9c5d73b821490dabb27945f05c9} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_destroy@{lv\_iter\_destroy}}
+\index{lv\_iter\_destroy@{lv\_iter\_destroy}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_destroy()}{lv\_iter\_destroy()}}
+{\footnotesize\ttfamily void lv\+\_\+iter\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter }\end{DoxyParamCaption})}
+
+Destroy the iterator object, and release the context. Other resources allocated by the user are not released. The user needs to release it by itself. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__iter_8c_a202af55952542a4ea3b63cc37156bf67}\label{lv__iter_8c_a202af55952542a4ea3b63cc37156bf67} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_get\_context@{lv\_iter\_get\_context}}
+\index{lv\_iter\_get\_context@{lv\_iter\_get\_context}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_get\_context()}{lv\_iter\_get\_context()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+iter\+\_\+get\+\_\+context (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter }\end{DoxyParamCaption})}
+
+Get the context of the iterator. You can use it to store some temporary variables associated with current iterator.. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the iter context 
+\end{DoxyReturn}
+\Hypertarget{lv__iter_8c_acbe59d9c6830f2e3f00fcd6ceb68f24d}\label{lv__iter_8c_acbe59d9c6830f2e3f00fcd6ceb68f24d} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_inspect@{lv\_iter\_inspect}}
+\index{lv\_iter\_inspect@{lv\_iter\_inspect}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_inspect()}{lv\_iter\_inspect()}}
+{\footnotesize\ttfamily void lv\+\_\+iter\+\_\+inspect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter,  }\item[{lv\+\_\+iter\+\_\+inspect\+\_\+cb}]{inspect\+\_\+cb }\end{DoxyParamCaption})}
+
+Inspect the element of the iterator. The callback function will be called for each element of the iterator. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+{\em inspect\+\_\+cb} & The callback function to inspect the element \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__iter_8c_ada6205803ba13bba5b029c09ca9dbea5}\label{lv__iter_8c_ada6205803ba13bba5b029c09ca9dbea5} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_make\_peekable@{lv\_iter\_make\_peekable}}
+\index{lv\_iter\_make\_peekable@{lv\_iter\_make\_peekable}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_make\_peekable()}{lv\_iter\_make\_peekable()}}
+{\footnotesize\ttfamily void lv\+\_\+iter\+\_\+make\+\_\+peekable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter,  }\item[{uint32\+\_\+t}]{capacity }\end{DoxyParamCaption})}
+
+Make the iterator peekable, which means that the user can peek the next element without advancing the iterator. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+{\em capacity} & The capacity of the peek buffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__iter_8c_aee0863cc60ffc8646e95045459d50b33}\label{lv__iter_8c_aee0863cc60ffc8646e95045459d50b33} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_next@{lv\_iter\_next}}
+\index{lv\_iter\_next@{lv\_iter\_next}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_next()}{lv\_iter\_next()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+iter\+\_\+next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter,  }\item[{void \texorpdfstring{$\ast$}{*}}]{elem }\end{DoxyParamCaption})}
+
+Get the next element of the iterator. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+{\em elem} & The pointer to store the next element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: Get the next element successfully LV\+\_\+\+RESULT\+\_\+\+INVALID\+: The next element is invalid 
+\end{DoxyReturn}
+\Hypertarget{lv__iter_8c_a6042b1aa94d2231211e2f0a96ca0eb25}\label{lv__iter_8c_a6042b1aa94d2231211e2f0a96ca0eb25} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_peek@{lv\_iter\_peek}}
+\index{lv\_iter\_peek@{lv\_iter\_peek}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_peek()}{lv\_iter\_peek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+iter\+\_\+peek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter,  }\item[{void \texorpdfstring{$\ast$}{*}}]{elem }\end{DoxyParamCaption})}
+
+Peek the next element of the iterator without advancing the iterator. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+{\em elem} & The pointer to store the next element \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: Peek the next element successfully LV\+\_\+\+RESULT\+\_\+\+INVALID\+: The next element is invalid 
+\end{DoxyReturn}
+\Hypertarget{lv__iter_8c_a1d05338a407feb758dd8ed84dcf3be79}\label{lv__iter_8c_a1d05338a407feb758dd8ed84dcf3be79} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_peek\_advance@{lv\_iter\_peek\_advance}}
+\index{lv\_iter\_peek\_advance@{lv\_iter\_peek\_advance}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_peek\_advance()}{lv\_iter\_peek\_advance()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+iter\+\_\+peek\+\_\+advance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter }\end{DoxyParamCaption})}
+
+Only advance the iterator without getting the next element. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: Peek the next element successfully LV\+\_\+\+RESULT\+\_\+\+INVALID\+: The next element is invalid 
+\end{DoxyReturn}
+\Hypertarget{lv__iter_8c_ae7461a2fef09e0f3753272c490073a21}\label{lv__iter_8c_ae7461a2fef09e0f3753272c490073a21} 
+\index{lv\_iter.c@{lv\_iter.c}!lv\_iter\_peek\_reset@{lv\_iter\_peek\_reset}}
+\index{lv\_iter\_peek\_reset@{lv\_iter\_peek\_reset}!lv\_iter.c@{lv\_iter.c}}
+\doxysubsubsection{\texorpdfstring{lv\_iter\_peek\_reset()}{lv\_iter\_peek\_reset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+iter\+\_\+peek\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__iter__t}{lv\+\_\+iter\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{iter }\end{DoxyParamCaption})}
+
+Reset the peek cursor to the {\ttfamily next} cursor. 
+\begin{DoxyParams}{Parametri}
+{\em iter} & {\ttfamily lv\+\_\+iter\+\_\+t} object create before \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: Reset the peek buffer successfully LV\+\_\+\+RESULT\+\_\+\+INVALID\+: The peek buffer is invalid 
+\end{DoxyReturn}

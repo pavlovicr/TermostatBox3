@@ -1,0 +1,151 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/tileview/lv\+\_\+tileview.c}
+\hypertarget{lv__tileview_8c}{}\label{lv__tileview_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/tileview/lv\_tileview.c@{managed\_components/lvgl\_\_lvgl/src/widgets/tileview/lv\_tileview.c}}
+{\ttfamily \#include "{}lv\+\_\+tileview\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../indev/lv\+\_\+indev.\+h"{}}\newline
+{\ttfamily \#include "{}../../indev/lv\+\_\+indev\+\_\+private.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+tileview.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+tileview.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__tileview_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tileview_8c_ae5cc5c3c3942d4e0852589c3ceed7106}{lv\+\_\+tileview\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tileview_8c_ac989591f5c916b4a78f3403c3db21ff5}{lv\+\_\+tileview\+\_\+add\+\_\+tile}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}tv, uint8\+\_\+t col\+\_\+id, uint8\+\_\+t row\+\_\+id, lv\+\_\+dir\+\_\+t dir)
+\item 
+void \mbox{\hyperlink{lv__tileview_8c_a1bca1abf04ad905072c32546ec22e214}{lv\+\_\+tileview\+\_\+set\+\_\+tile}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}tile\+\_\+obj, lv\+\_\+anim\+\_\+enable\+\_\+t anim\+\_\+en)
+\item 
+void \mbox{\hyperlink{lv__tileview_8c_a84bfa42a8177e88bcc9888cff56e9566}{lv\+\_\+tileview\+\_\+set\+\_\+tile\+\_\+by\+\_\+index}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}tv, uint32\+\_\+t col\+\_\+id, uint32\+\_\+t row\+\_\+id, lv\+\_\+anim\+\_\+enable\+\_\+t anim\+\_\+en)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__tileview_8c_a41f9febb4b282e1cbf623f9cefa67974}{lv\+\_\+tileview\+\_\+get\+\_\+tile\+\_\+active}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__tileview_8c_a2ecaf5f68f948538154dda12569ae6b1}{lv\+\_\+tileview\+\_\+class}}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__tileview_8c_acf2d0dfcd17710e53975685aa6e08626}{lv\+\_\+tileview\+\_\+tile\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__tileview_8c_ac989591f5c916b4a78f3403c3db21ff5}\label{lv__tileview_8c_ac989591f5c916b4a78f3403c3db21ff5} 
+\index{lv\_tileview.c@{lv\_tileview.c}!lv\_tileview\_add\_tile@{lv\_tileview\_add\_tile}}
+\index{lv\_tileview\_add\_tile@{lv\_tileview\_add\_tile}!lv\_tileview.c@{lv\_tileview.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tileview\_add\_tile()}{lv\_tileview\_add\_tile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tileview\+\_\+add\+\_\+tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tv,  }\item[{uint8\+\_\+t}]{col\+\_\+id,  }\item[{uint8\+\_\+t}]{row\+\_\+id,  }\item[{lv\+\_\+dir\+\_\+t}]{dir }\end{DoxyParamCaption})}
+
+Add a tile to the tileview 
+\begin{DoxyParams}{Parametri}
+{\em tv} & pointer to the tileview object \\
+\hline
+{\em col\+\_\+id} & column id of the tile \\
+\hline
+{\em row\+\_\+id} & row id of the tile \\
+\hline
+{\em dir} & direction to move to the next tile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the added tile object 
+\end{DoxyReturn}
+\Hypertarget{lv__tileview_8c_ae5cc5c3c3942d4e0852589c3ceed7106}\label{lv__tileview_8c_ae5cc5c3c3942d4e0852589c3ceed7106} 
+\index{lv\_tileview.c@{lv\_tileview.c}!lv\_tileview\_create@{lv\_tileview\_create}}
+\index{lv\_tileview\_create@{lv\_tileview\_create}!lv\_tileview.c@{lv\_tileview.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tileview\_create()}{lv\_tileview\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tileview\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a tileview object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new tileview \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created tileview 
+\end{DoxyReturn}
+\Hypertarget{lv__tileview_8c_a41f9febb4b282e1cbf623f9cefa67974}\label{lv__tileview_8c_a41f9febb4b282e1cbf623f9cefa67974} 
+\index{lv\_tileview.c@{lv\_tileview.c}!lv\_tileview\_get\_tile\_active@{lv\_tileview\_get\_tile\_active}}
+\index{lv\_tileview\_get\_tile\_active@{lv\_tileview\_get\_tile\_active}!lv\_tileview.c@{lv\_tileview.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tileview\_get\_tile\_active()}{lv\_tileview\_get\_tile\_active()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+tileview\+\_\+get\+\_\+tile\+\_\+active (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the currently active tile in the tileview 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the tileview object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the currently active tile object 
+\end{DoxyReturn}
+\Hypertarget{lv__tileview_8c_a1bca1abf04ad905072c32546ec22e214}\label{lv__tileview_8c_a1bca1abf04ad905072c32546ec22e214} 
+\index{lv\_tileview.c@{lv\_tileview.c}!lv\_tileview\_set\_tile@{lv\_tileview\_set\_tile}}
+\index{lv\_tileview\_set\_tile@{lv\_tileview\_set\_tile}!lv\_tileview.c@{lv\_tileview.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tileview\_set\_tile()}{lv\_tileview\_set\_tile()}}
+{\footnotesize\ttfamily void lv\+\_\+tileview\+\_\+set\+\_\+tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tv,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tile\+\_\+obj,  }\item[{lv\+\_\+anim\+\_\+enable\+\_\+t}]{anim\+\_\+en }\end{DoxyParamCaption})}
+
+Set the active tile in the tileview. 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to the tileview object \\
+\hline
+{\em tile\+\_\+obj} & pointer to the tile object to be set as active \\
+\hline
+{\em anim\+\_\+en} & animation enable flag (LV\+\_\+\+ANIM\+\_\+\+ON or LV\+\_\+\+ANIM\+\_\+\+OFF) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__tileview_8c_a84bfa42a8177e88bcc9888cff56e9566}\label{lv__tileview_8c_a84bfa42a8177e88bcc9888cff56e9566} 
+\index{lv\_tileview.c@{lv\_tileview.c}!lv\_tileview\_set\_tile\_by\_index@{lv\_tileview\_set\_tile\_by\_index}}
+\index{lv\_tileview\_set\_tile\_by\_index@{lv\_tileview\_set\_tile\_by\_index}!lv\_tileview.c@{lv\_tileview.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tileview\_set\_tile\_by\_index()}{lv\_tileview\_set\_tile\_by\_index()}}
+{\footnotesize\ttfamily void lv\+\_\+tileview\+\_\+set\+\_\+tile\+\_\+by\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tv,  }\item[{uint32\+\_\+t}]{col\+\_\+id,  }\item[{uint32\+\_\+t}]{row\+\_\+id,  }\item[{lv\+\_\+anim\+\_\+enable\+\_\+t}]{anim\+\_\+en }\end{DoxyParamCaption})}
+
+Set the active tile by index in the tileview 
+\begin{DoxyParams}{Parametri}
+{\em tv} & pointer to the tileview object \\
+\hline
+{\em col\+\_\+id} & column id of the tile to be set as active \\
+\hline
+{\em row\+\_\+id} & row id of the tile to be set as active \\
+\hline
+{\em anim\+\_\+en} & animation enable flag (LV\+\_\+\+ANIM\+\_\+\+ON or LV\+\_\+\+ANIM\+\_\+\+OFF) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__tileview_8c_a2ecaf5f68f948538154dda12569ae6b1}\label{lv__tileview_8c_a2ecaf5f68f948538154dda12569ae6b1} 
+\index{lv\_tileview.c@{lv\_tileview.c}!lv\_tileview\_class@{lv\_tileview\_class}}
+\index{lv\_tileview\_class@{lv\_tileview\_class}!lv\_tileview.c@{lv\_tileview.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tileview\_class}{lv\_tileview\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+tileview\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_tileview\_constructor,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__tileview__t}{lv\_tileview\_t}}),}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_tileview"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__tileview_8c_acf2d0dfcd17710e53975685aa6e08626}\label{lv__tileview_8c_acf2d0dfcd17710e53975685aa6e08626} 
+\index{lv\_tileview.c@{lv\_tileview.c}!lv\_tileview\_tile\_class@{lv\_tileview\_tile\_class}}
+\index{lv\_tileview\_tile\_class@{lv\_tileview\_tile\_class}!lv\_tileview.c@{lv\_tileview.c}}
+\doxysubsubsection{\texorpdfstring{lv\_tileview\_tile\_class}{lv\_tileview\_tile\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+tileview\+\_\+tile\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_tileview\_tile\_constructor,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__tileview__tile__t}{lv\_tileview\_tile\_t}}),}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_tile"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

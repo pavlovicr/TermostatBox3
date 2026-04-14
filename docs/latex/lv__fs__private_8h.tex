@@ -1,0 +1,45 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+fs\+\_\+private.h}
+\hypertarget{lv__fs__private_8h}{}\label{lv__fs__private_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_fs\_private.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_fs\_private.h}}
+{\ttfamily \#include "{}lv\+\_\+fs.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+fs\+\_\+private.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+fs\+\_\+private.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lv__fs__private_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__fs__private_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__fs__file__cache__t}{\+\_\+lv\+\_\+fs\+\_\+file\+\_\+cache\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__fs__private_8h_a9c11757b60e38af0315743c5e0109f54}{lv\+\_\+fs\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{lv__fs__private_8h_af8e57459fefa3d8ca23cc423eb2195ac}{lv\+\_\+fs\+\_\+deinit}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__fs__private_8h_af8e57459fefa3d8ca23cc423eb2195ac}\label{lv__fs__private_8h_af8e57459fefa3d8ca23cc423eb2195ac} 
+\index{lv\_fs\_private.h@{lv\_fs\_private.h}!lv\_fs\_deinit@{lv\_fs\_deinit}}
+\index{lv\_fs\_deinit@{lv\_fs\_deinit}!lv\_fs\_private.h@{lv\_fs\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_deinit()}{lv\_fs\_deinit()}}
+{\footnotesize\ttfamily void lv\+\_\+fs\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Deinitialize the File system interface \Hypertarget{lv__fs__private_8h_a9c11757b60e38af0315743c5e0109f54}\label{lv__fs__private_8h_a9c11757b60e38af0315743c5e0109f54} 
+\index{lv\_fs\_private.h@{lv\_fs\_private.h}!lv\_fs\_init@{lv\_fs\_init}}
+\index{lv\_fs\_init@{lv\_fs\_init}!lv\_fs\_private.h@{lv\_fs\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_init()}{lv\_fs\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+fs\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the File system interface 

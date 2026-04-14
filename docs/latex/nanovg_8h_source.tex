@@ -1,0 +1,713 @@
+\doxysection{nanovg.\+h}
+\hypertarget{nanovg_8h_source}{}\label{nanovg_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/nanovg/nanovg.h@{managed\_components/lvgl\_\_lvgl/src/libs/nanovg/nanovg.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (c)\ 2013\ Mikko\ Mononen\ memon@inside.org}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ software\ is\ provided\ 'as-\/is',\ without\ any\ express\ or\ implied}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ warranty.\ \ In\ no\ event\ will\ the\ authors\ be\ held\ liable\ for\ any\ damages}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ arising\ from\ the\ use\ of\ this\ software.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Permission\ is\ granted\ to\ anyone\ to\ use\ this\ software\ for\ any\ purpose,}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ including\ commercial\ applications,\ and\ to\ alter\ it\ and\ redistribute\ it}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ freely,\ subject\ to\ the\ following\ restrictions:}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ 1.\ The\ origin\ of\ this\ software\ must\ not\ be\ misrepresented;\ you\ must\ not}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ claim\ that\ you\ wrote\ the\ original\ software.\ If\ you\ use\ this\ software}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ \ \ in\ a\ product,\ an\ acknowledgment\ in\ the\ product\ documentation\ would\ be}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ \ \ appreciated\ but\ is\ not\ required.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ 2.\ Altered\ source\ versions\ must\ be\ plainly\ marked\ as\ such,\ and\ must\ not\ be}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ \ \ misrepresented\ as\ being\ the\ original\ software.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ 3.\ This\ notice\ may\ not\ be\ removed\ or\ altered\ from\ any\ source\ distribution.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ NANOVG\_H}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ NANOVG\_H}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00023\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#if\ LV\_USE\_NANOVG}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ NVG\_PI\ 3.14159265358979323846264338327f}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#pragma\ warning(push)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#pragma\ warning(disable:\ 4201)\ \ }\textcolor{comment}{//\ nonstandard\ extension\ used\ :\ nameless\ struct/union}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGcontext\ NVGcontext;}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{union\ }NVGcolor\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{float}\ rgba[4];}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r,\ g,\ b,\ a;}
+\DoxyCodeLine{00043\ \ \ \ \ \}\ ch;}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }NVGcolor\ NVGcolor;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{struct\ }NVGpaint\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ xform[6];}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ extent[2];}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ radius;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{float}\ feather;}
+\DoxyCodeLine{00052\ \ \ \ \ NVGcolor\ innerColor;}
+\DoxyCodeLine{00053\ \ \ \ \ NVGcolor\ outerColor;}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ image;}
+\DoxyCodeLine{00055\ \};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGpaint\ NVGpaint;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{enum}\ NVGwinding\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ NVG\_CCW\ =\ 1,\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Winding\ for\ solid\ shapes}}
+\DoxyCodeLine{00060\ \ \ \ \ NVG\_CW\ =\ 2,\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Winding\ for\ holes}}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{enum}\ NVGsolidity\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ NVG\_SOLID\ =\ 1,\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CCW}}
+\DoxyCodeLine{00065\ \ \ \ \ NVG\_HOLE\ =\ 2,\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ CW}}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{enum}\ NVGlineCap\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ NVG\_BUTT,}
+\DoxyCodeLine{00070\ \ \ \ \ NVG\_ROUND,}
+\DoxyCodeLine{00071\ \ \ \ \ NVG\_SQUARE,}
+\DoxyCodeLine{00072\ \ \ \ \ NVG\_BEVEL,}
+\DoxyCodeLine{00073\ \ \ \ \ NVG\_MITER,}
+\DoxyCodeLine{00074\ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{enum}\ NVGalign\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{comment}{//\ Horizontal\ align}}
+\DoxyCodeLine{00078\ \ \ \ \ NVG\_ALIGN\_LEFT\ \ \ \ \ \ =\ 1\ <<\ 0,\ \textcolor{comment}{//\ Default,\ align\ text\ horizontally\ to\ left.}}
+\DoxyCodeLine{00079\ \ \ \ \ NVG\_ALIGN\_CENTER\ \ \ \ =\ 1\ <<\ 1,\ \textcolor{comment}{//\ Align\ text\ horizontally\ to\ center.}}
+\DoxyCodeLine{00080\ \ \ \ \ NVG\_ALIGN\_RIGHT\ \ \ \ \ =\ 1\ <<\ 2,\ \textcolor{comment}{//\ Align\ text\ horizontally\ to\ right.}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{comment}{//\ Vertical\ align}}
+\DoxyCodeLine{00082\ \ \ \ \ NVG\_ALIGN\_TOP\ \ \ \ \ \ \ =\ 1\ <<\ 3,\ \textcolor{comment}{//\ Align\ text\ vertically\ to\ top.}}
+\DoxyCodeLine{00083\ \ \ \ \ NVG\_ALIGN\_MIDDLE\ \ \ \ =\ 1\ <<\ 4,\ \textcolor{comment}{//\ Align\ text\ vertically\ to\ middle.}}
+\DoxyCodeLine{00084\ \ \ \ \ NVG\_ALIGN\_BOTTOM\ \ \ \ =\ 1\ <<\ 5,\ \textcolor{comment}{//\ Align\ text\ vertically\ to\ bottom.}}
+\DoxyCodeLine{00085\ \ \ \ \ NVG\_ALIGN\_BASELINE\ \ =\ 1\ <<\ 6,\ \textcolor{comment}{//\ Default,\ align\ text\ vertically\ to\ baseline.}}
+\DoxyCodeLine{00086\ \};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{enum}\ NVGblendFactor\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ NVG\_ZERO\ =\ 1\ <<\ 0,}
+\DoxyCodeLine{00090\ \ \ \ \ NVG\_ONE\ =\ 1\ <<\ 1,}
+\DoxyCodeLine{00091\ \ \ \ \ NVG\_SRC\_COLOR\ =\ 1\ <<\ 2,}
+\DoxyCodeLine{00092\ \ \ \ \ NVG\_ONE\_MINUS\_SRC\_COLOR\ =\ 1\ <<\ 3,}
+\DoxyCodeLine{00093\ \ \ \ \ NVG\_DST\_COLOR\ =\ 1\ <<\ 4,}
+\DoxyCodeLine{00094\ \ \ \ \ NVG\_ONE\_MINUS\_DST\_COLOR\ =\ 1\ <<\ 5,}
+\DoxyCodeLine{00095\ \ \ \ \ NVG\_SRC\_ALPHA\ =\ 1\ <<\ 6,}
+\DoxyCodeLine{00096\ \ \ \ \ NVG\_ONE\_MINUS\_SRC\_ALPHA\ =\ 1\ <<\ 7,}
+\DoxyCodeLine{00097\ \ \ \ \ NVG\_DST\_ALPHA\ =\ 1\ <<\ 8,}
+\DoxyCodeLine{00098\ \ \ \ \ NVG\_ONE\_MINUS\_DST\_ALPHA\ =\ 1\ <<\ 9,}
+\DoxyCodeLine{00099\ \ \ \ \ NVG\_SRC\_ALPHA\_SATURATE\ =\ 1\ <<\ 10,}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{enum}\ NVGcompositeOperation\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ NVG\_SOURCE\_OVER,}
+\DoxyCodeLine{00104\ \ \ \ \ NVG\_SOURCE\_IN,}
+\DoxyCodeLine{00105\ \ \ \ \ NVG\_SOURCE\_OUT,}
+\DoxyCodeLine{00106\ \ \ \ \ NVG\_ATOP,}
+\DoxyCodeLine{00107\ \ \ \ \ NVG\_DESTINATION\_OVER,}
+\DoxyCodeLine{00108\ \ \ \ \ NVG\_DESTINATION\_IN,}
+\DoxyCodeLine{00109\ \ \ \ \ NVG\_DESTINATION\_OUT,}
+\DoxyCodeLine{00110\ \ \ \ \ NVG\_DESTINATION\_ATOP,}
+\DoxyCodeLine{00111\ \ \ \ \ NVG\_LIGHTER,}
+\DoxyCodeLine{00112\ \ \ \ \ NVG\_COPY,}
+\DoxyCodeLine{00113\ \ \ \ \ NVG\_XOR,}
+\DoxyCodeLine{00114\ \};}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{struct\ }NVGcompositeOperationState\ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{int}\ srcRGB;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{int}\ dstRGB;}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{int}\ srcAlpha;}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ dstAlpha;}
+\DoxyCodeLine{00121\ \};}
+\DoxyCodeLine{00122\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGcompositeOperationState\ NVGcompositeOperationState;}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{struct\ }NVGglyphPosition\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ str;\ \ \ \textcolor{comment}{//\ Position\ of\ the\ glyph\ in\ the\ input\ string.}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{float}\ x;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ x-\/coordinate\ of\ the\ logical\ glyph\ position.}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{float}\ minx,\ maxx;\ \ \ \textcolor{comment}{//\ The\ bounds\ of\ the\ glyph\ shape.}}
+\DoxyCodeLine{00128\ \};}
+\DoxyCodeLine{00129\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGglyphPosition\ NVGglyphPosition;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{struct\ }NVGtextRow\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ start;\ \textcolor{comment}{//\ Pointer\ to\ the\ input\ text\ where\ the\ row\ starts.}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ end;\ \ \ \textcolor{comment}{//\ Pointer\ to\ the\ input\ text\ where\ the\ row\ ends\ (one\ past\ the\ last\ character).}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ next;\ \ \textcolor{comment}{//\ Pointer\ to\ the\ beginning\ of\ the\ next\ row.}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{float}\ width;\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Logical\ width\ of\ the\ row.}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{float}\ minx,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ maxx;\ \ \ \textcolor{comment}{//\ Actual\ bounds\ of\ the\ row.\ Logical\ with\ and\ bounds\ can\ differ\ because\ of\ kerning\ and\ some\ parts\ over\ extending.}}
+\DoxyCodeLine{00138\ \};}
+\DoxyCodeLine{00139\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGtextRow\ NVGtextRow;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{enum}\ NVGimageFlags\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ NVG\_IMAGE\_GENERATE\_MIPMAPS\ \ =\ 1\ <<\ 0,\ \ \ \textcolor{comment}{//\ Generate\ mipmaps\ during\ creation\ of\ the\ image.}}
+\DoxyCodeLine{00143\ \ \ \ \ NVG\_IMAGE\_REPEATX\ \ \ \ \ \ \ \ \ \ \ =\ 1\ <<\ 1,\ \ \ \textcolor{comment}{//\ Repeat\ image\ in\ X\ direction.}}
+\DoxyCodeLine{00144\ \ \ \ \ NVG\_IMAGE\_REPEATY\ \ \ \ \ \ \ \ \ \ \ =\ 1\ <<\ 2,\ \ \ \textcolor{comment}{//\ Repeat\ image\ in\ Y\ direction.}}
+\DoxyCodeLine{00145\ \ \ \ \ NVG\_IMAGE\_FLIPY\ \ \ \ \ \ \ \ \ \ \ \ \ =\ 1\ <<\ 3,\ \ \ \textcolor{comment}{//\ Flips\ (inverses)\ image\ in\ Y\ direction\ when\ rendered.}}
+\DoxyCodeLine{00146\ \ \ \ \ NVG\_IMAGE\_PREMULTIPLIED\ \ \ \ \ =\ 1\ <<\ 4,\ \ \ \textcolor{comment}{//\ Image\ data\ has\ premultiplied\ alpha.}}
+\DoxyCodeLine{00147\ \ \ \ \ NVG\_IMAGE\_NEAREST\ \ \ \ \ \ \ \ \ \ \ =\ 1\ <<\ 5,\ \ \ \textcolor{comment}{//\ Image\ interpolation\ is\ Nearest\ instead\ Linear}}
+\DoxyCodeLine{00148\ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{comment}{//\ Begin\ drawing\ a\ new\ frame}}
+\DoxyCodeLine{00151\ \textcolor{comment}{//\ Calls\ to\ nanovg\ drawing\ API\ should\ be\ wrapped\ in\ nvgBeginFrame()\ \&\ nvgEndFrame()}}
+\DoxyCodeLine{00152\ \textcolor{comment}{//\ nvgBeginFrame()\ defines\ the\ size\ of\ the\ window\ to\ render\ to\ in\ relation\ currently}}
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ set\ viewport\ (i.e.\ glViewport\ on\ GL\ backends).\ Device\ pixel\ ration\ allows\ to}}
+\DoxyCodeLine{00154\ \textcolor{comment}{//\ control\ the\ rendering\ on\ Hi-\/DPI\ devices.}}
+\DoxyCodeLine{00155\ \textcolor{comment}{//\ For\ example,\ GLFW\ returns\ two\ dimension\ for\ an\ opened\ window:\ window\ size\ and}}
+\DoxyCodeLine{00156\ \textcolor{comment}{//\ frame\ buffer\ size.\ In\ that\ case\ you\ would\ set\ windowWidth/Height\ to\ the\ window\ size}}
+\DoxyCodeLine{00157\ \textcolor{comment}{//\ devicePixelRatio\ to:\ frameBufferWidth\ /\ windowWidth.}}
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ nvgBeginFrame(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ windowWidth,\ \textcolor{keywordtype}{float}\ windowHeight,\ \textcolor{keywordtype}{float}\ devicePixelRatio);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{comment}{//\ Cancels\ drawing\ the\ current\ frame.}}
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ nvgCancelFrame(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{comment}{//\ Ends\ drawing\ flushing\ remaining\ render\ state.}}
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ nvgEndFrame(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{comment}{//}}
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ Composite\ operation}}
+\DoxyCodeLine{00168\ \textcolor{comment}{//}}
+\DoxyCodeLine{00169\ \textcolor{comment}{//\ The\ composite\ operations\ in\ NanoVG\ are\ modeled\ after\ HTML\ Canvas\ API,\ and}}
+\DoxyCodeLine{00170\ \textcolor{comment}{//\ the\ blend\ func\ is\ based\ on\ OpenGL\ (see\ corresponding\ manuals\ for\ more\ info).}}
+\DoxyCodeLine{00171\ \textcolor{comment}{//\ The\ colors\ in\ the\ blending\ state\ have\ premultiplied\ alpha.}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{comment}{//\ Sets\ the\ composite\ operation.\ The\ op\ parameter\ should\ be\ one\ of\ NVGcompositeOperation.}}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ nvgGlobalCompositeOperation(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ op);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ Sets\ the\ composite\ operation\ with\ custom\ pixel\ arithmetic.\ The\ parameters\ should\ be\ one\ of\ NVGblendFactor.}}
+\DoxyCodeLine{00177\ \textcolor{keywordtype}{void}\ nvgGlobalCompositeBlendFunc(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ sfactor,\ \textcolor{keywordtype}{int}\ dfactor);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{comment}{//\ Sets\ the\ composite\ operation\ with\ custom\ pixel\ arithmetic\ for\ RGB\ and\ alpha\ components\ separately.\ The\ parameters\ should\ be\ one\ of\ NVGblendFactor.}}
+\DoxyCodeLine{00180\ \textcolor{keywordtype}{void}\ nvgGlobalCompositeBlendFuncSeparate(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ srcRGB,\ \textcolor{keywordtype}{int}\ dstRGB,\ \textcolor{keywordtype}{int}\ srcAlpha,\ \textcolor{keywordtype}{int}\ dstAlpha);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{comment}{//}}
+\DoxyCodeLine{00183\ \textcolor{comment}{//\ Color\ utils}}
+\DoxyCodeLine{00184\ \textcolor{comment}{//}}
+\DoxyCodeLine{00185\ \textcolor{comment}{//\ Colors\ in\ NanoVG\ are\ stored\ as\ unsigned\ ints\ in\ ABGR\ format.}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{comment}{//\ Returns\ a\ color\ value\ from\ red,\ green,\ blue\ values.\ Alpha\ will\ be\ set\ to\ 255\ (1.0f).}}
+\DoxyCodeLine{00188\ NVGcolor\ nvgRGB(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ r,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ g,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ b);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{comment}{//\ Returns\ a\ color\ value\ from\ red,\ green,\ blue\ values.\ Alpha\ will\ be\ set\ to\ 1.0f.}}
+\DoxyCodeLine{00191\ NVGcolor\ nvgRGBf(\textcolor{keywordtype}{float}\ r,\ \textcolor{keywordtype}{float}\ g,\ \textcolor{keywordtype}{float}\ b);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{comment}{//\ Returns\ a\ color\ value\ from\ red,\ green,\ blue\ and\ alpha\ values.}}
+\DoxyCodeLine{00195\ NVGcolor\ nvgRGBA(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ r,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ g,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ b,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ a);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{//\ Returns\ a\ color\ value\ from\ red,\ green,\ blue\ and\ alpha\ values.}}
+\DoxyCodeLine{00198\ NVGcolor\ nvgRGBAf(\textcolor{keywordtype}{float}\ r,\ \textcolor{keywordtype}{float}\ g,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ a);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{comment}{//\ Linearly\ interpolates\ from\ color\ c0\ to\ c1,\ and\ returns\ resulting\ color\ value.}}
+\DoxyCodeLine{00202\ NVGcolor\ nvgLerpRGBA(NVGcolor\ c0,\ NVGcolor\ c1,\ \textcolor{keywordtype}{float}\ u);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \textcolor{comment}{//\ Sets\ transparency\ of\ a\ color\ value.}}
+\DoxyCodeLine{00205\ NVGcolor\ nvgTransRGBA(NVGcolor\ c0,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ a);}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{comment}{//\ Sets\ transparency\ of\ a\ color\ value.}}
+\DoxyCodeLine{00208\ NVGcolor\ nvgTransRGBAf(NVGcolor\ c0,\ \textcolor{keywordtype}{float}\ a);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{comment}{//\ Returns\ color\ value\ specified\ by\ hue,\ saturation\ and\ lightness.}}
+\DoxyCodeLine{00211\ \textcolor{comment}{//\ HSL\ values\ are\ all\ in\ range\ [0..1],\ alpha\ will\ be\ set\ to\ 255.}}
+\DoxyCodeLine{00212\ NVGcolor\ nvgHSL(\textcolor{keywordtype}{float}\ h,\ \textcolor{keywordtype}{float}\ s,\ \textcolor{keywordtype}{float}\ l);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{comment}{//\ Returns\ color\ value\ specified\ by\ hue,\ saturation\ and\ lightness\ and\ alpha.}}
+\DoxyCodeLine{00215\ \textcolor{comment}{//\ HSL\ values\ are\ all\ in\ range\ [0..1],\ alpha\ in\ range\ [0..255]}}
+\DoxyCodeLine{00216\ NVGcolor\ nvgHSLA(\textcolor{keywordtype}{float}\ h,\ \textcolor{keywordtype}{float}\ s,\ \textcolor{keywordtype}{float}\ l,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ a);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{//}}
+\DoxyCodeLine{00219\ \textcolor{comment}{//\ State\ Handling}}
+\DoxyCodeLine{00220\ \textcolor{comment}{//}}
+\DoxyCodeLine{00221\ \textcolor{comment}{//\ NanoVG\ contains\ state\ which\ represents\ how\ paths\ will\ be\ rendered.}}
+\DoxyCodeLine{00222\ \textcolor{comment}{//\ The\ state\ contains\ transform,\ fill\ and\ stroke\ styles,\ text\ and\ font\ styles,}}
+\DoxyCodeLine{00223\ \textcolor{comment}{//\ and\ scissor\ clipping.}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{comment}{//\ Pushes\ and\ saves\ the\ current\ render\ state\ into\ a\ state\ stack.}}
+\DoxyCodeLine{00226\ \textcolor{comment}{//\ A\ matching\ nvgRestore()\ must\ be\ used\ to\ restore\ the\ state.}}
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ nvgSave(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{comment}{//\ Pops\ and\ restores\ current\ render\ state.}}
+\DoxyCodeLine{00230\ \textcolor{keywordtype}{void}\ nvgRestore(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \textcolor{comment}{//\ Resets\ current\ render\ state\ to\ default\ values.\ Does\ not\ affect\ the\ render\ state\ stack.}}
+\DoxyCodeLine{00233\ \textcolor{keywordtype}{void}\ nvgReset(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{comment}{//}}
+\DoxyCodeLine{00236\ \textcolor{comment}{//\ Render\ styles}}
+\DoxyCodeLine{00237\ \textcolor{comment}{//}}
+\DoxyCodeLine{00238\ \textcolor{comment}{//\ Fill\ and\ stroke\ render\ style\ can\ be\ either\ a\ solid\ color\ or\ a\ paint\ which\ is\ a\ gradient\ or\ a\ pattern.}}
+\DoxyCodeLine{00239\ \textcolor{comment}{//\ Solid\ color\ is\ simply\ defined\ as\ a\ color\ value,\ different\ kinds\ of\ paints\ can\ be\ created}}
+\DoxyCodeLine{00240\ \textcolor{comment}{//\ using\ nvgLinearGradient(),\ nvgBoxGradient(),\ nvgRadialGradient()\ and\ nvgImagePattern().}}
+\DoxyCodeLine{00241\ \textcolor{comment}{//}}
+\DoxyCodeLine{00242\ \textcolor{comment}{//\ Current\ render\ style\ can\ be\ saved\ and\ restored\ using\ nvgSave()\ and\ nvgRestore().}}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \textcolor{comment}{//\ Sets\ whether\ to\ draw\ antialias\ for\ nvgStroke()\ and\ nvgFill().\ It's\ enabled\ by\ default.}}
+\DoxyCodeLine{00245\ \textcolor{keywordtype}{void}\ nvgShapeAntiAlias(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ enabled);}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{comment}{//\ Sets\ current\ stroke\ style\ to\ a\ solid\ color.}}
+\DoxyCodeLine{00248\ \textcolor{keywordtype}{void}\ nvgStrokeColor(NVGcontext\ *\ ctx,\ NVGcolor\ color);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{comment}{//\ Sets\ current\ stroke\ style\ to\ a\ paint,\ which\ can\ be\ a\ one\ of\ the\ gradients\ or\ a\ pattern.}}
+\DoxyCodeLine{00251\ \textcolor{keywordtype}{void}\ nvgStrokePaint(NVGcontext\ *\ ctx,\ NVGpaint\ paint);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{comment}{//\ Sets\ current\ fill\ style\ to\ a\ solid\ color.}}
+\DoxyCodeLine{00254\ \textcolor{keywordtype}{void}\ nvgFillColor(NVGcontext\ *\ ctx,\ NVGcolor\ color);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{comment}{//\ Sets\ current\ fill\ style\ to\ a\ paint,\ which\ can\ be\ a\ one\ of\ the\ gradients\ or\ a\ pattern.}}
+\DoxyCodeLine{00257\ \textcolor{keywordtype}{void}\ nvgFillPaint(NVGcontext\ *\ ctx,\ NVGpaint\ paint);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{comment}{//\ Sets\ the\ miter\ limit\ of\ the\ stroke\ style.}}
+\DoxyCodeLine{00260\ \textcolor{comment}{//\ Miter\ limit\ controls\ when\ a\ sharp\ corner\ is\ beveled.}}
+\DoxyCodeLine{00261\ \textcolor{keywordtype}{void}\ nvgMiterLimit(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ limit);}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{comment}{//\ Sets\ the\ stroke\ width\ of\ the\ stroke\ style.}}
+\DoxyCodeLine{00264\ \textcolor{keywordtype}{void}\ nvgStrokeWidth(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ size);}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{comment}{//\ Sets\ how\ the\ end\ of\ the\ line\ (cap)\ is\ drawn,}}
+\DoxyCodeLine{00267\ \textcolor{comment}{//\ Can\ be\ one\ of:\ NVG\_BUTT\ (default),\ NVG\_ROUND,\ NVG\_SQUARE.}}
+\DoxyCodeLine{00268\ \textcolor{keywordtype}{void}\ nvgLineCap(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ cap);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{comment}{//\ Sets\ how\ sharp\ path\ corners\ are\ drawn.}}
+\DoxyCodeLine{00271\ \textcolor{comment}{//\ Can\ be\ one\ of\ NVG\_MITER\ (default),\ NVG\_ROUND,\ NVG\_BEVEL.}}
+\DoxyCodeLine{00272\ \textcolor{keywordtype}{void}\ nvgLineJoin(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ join);}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \textcolor{comment}{//\ Sets\ the\ transparency\ applied\ to\ all\ rendered\ shapes.}}
+\DoxyCodeLine{00275\ \textcolor{comment}{//\ Already\ transparent\ paths\ will\ get\ proportionally\ more\ transparent\ as\ well.}}
+\DoxyCodeLine{00276\ \textcolor{keywordtype}{void}\ nvgGlobalAlpha(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ alpha);}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \textcolor{comment}{//}}
+\DoxyCodeLine{00279\ \textcolor{comment}{//\ Transforms}}
+\DoxyCodeLine{00280\ \textcolor{comment}{//}}
+\DoxyCodeLine{00281\ \textcolor{comment}{//\ The\ paths,\ gradients,\ patterns\ and\ scissor\ region\ are\ transformed\ by\ an\ transformation}}
+\DoxyCodeLine{00282\ \textcolor{comment}{//\ matrix\ at\ the\ time\ when\ they\ are\ passed\ to\ the\ API.}}
+\DoxyCodeLine{00283\ \textcolor{comment}{//\ The\ current\ transformation\ matrix\ is\ a\ affine\ matrix:}}
+\DoxyCodeLine{00284\ \textcolor{comment}{//\ \ \ [sx\ kx\ tx]}}
+\DoxyCodeLine{00285\ \textcolor{comment}{//\ \ \ [ky\ sy\ ty]}}
+\DoxyCodeLine{00286\ \textcolor{comment}{//\ \ \ [\ 0\ \ 0\ \ 1]}}
+\DoxyCodeLine{00287\ \textcolor{comment}{//\ Where:\ sx,sy\ define\ scaling,\ kx,ky\ skewing,\ and\ tx,ty\ translation.}}
+\DoxyCodeLine{00288\ \textcolor{comment}{//\ The\ last\ row\ is\ assumed\ to\ be\ 0,0,1\ and\ is\ not\ stored.}}
+\DoxyCodeLine{00289\ \textcolor{comment}{//}}
+\DoxyCodeLine{00290\ \textcolor{comment}{//\ Apart\ from\ nvgResetTransform(),\ each\ transformation\ function\ first\ creates}}
+\DoxyCodeLine{00291\ \textcolor{comment}{//\ specific\ transformation\ matrix\ and\ pre-\/multiplies\ the\ current\ transformation\ by\ it.}}
+\DoxyCodeLine{00292\ \textcolor{comment}{//}}
+\DoxyCodeLine{00293\ \textcolor{comment}{//\ Current\ coordinate\ system\ (transformation)\ can\ be\ saved\ and\ restored\ using\ nvgSave()\ and\ nvgRestore().}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \textcolor{comment}{//\ Resets\ current\ transform\ to\ a\ identity\ matrix.}}
+\DoxyCodeLine{00296\ \textcolor{keywordtype}{void}\ nvgResetTransform(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \textcolor{comment}{//\ Premultiplies\ current\ coordinate\ system\ by\ specified\ matrix.}}
+\DoxyCodeLine{00299\ \textcolor{comment}{//\ The\ parameters\ are\ interpreted\ as\ matrix\ as\ follows:}}
+\DoxyCodeLine{00300\ \textcolor{comment}{//\ \ \ [a\ c\ e]}}
+\DoxyCodeLine{00301\ \textcolor{comment}{//\ \ \ [b\ d\ f]}}
+\DoxyCodeLine{00302\ \textcolor{comment}{//\ \ \ [0\ 0\ 1]}}
+\DoxyCodeLine{00303\ \textcolor{keywordtype}{void}\ nvgTransform(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b,\ \textcolor{keywordtype}{float}\ c,\ \textcolor{keywordtype}{float}\ d,\ \textcolor{keywordtype}{float}\ e,\ \textcolor{keywordtype}{float}\ f);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{comment}{//\ Translates\ current\ coordinate\ system.}}
+\DoxyCodeLine{00306\ \textcolor{keywordtype}{void}\ nvgTranslate(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{comment}{//\ Rotates\ current\ coordinate\ system.\ Angle\ is\ specified\ in\ radians.}}
+\DoxyCodeLine{00309\ \textcolor{keywordtype}{void}\ nvgRotate(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{comment}{//\ Skews\ the\ current\ coordinate\ system\ along\ X\ axis.\ Angle\ is\ specified\ in\ radians.}}
+\DoxyCodeLine{00312\ \textcolor{keywordtype}{void}\ nvgSkewX(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \textcolor{comment}{//\ Skews\ the\ current\ coordinate\ system\ along\ Y\ axis.\ Angle\ is\ specified\ in\ radians.}}
+\DoxyCodeLine{00315\ \textcolor{keywordtype}{void}\ nvgSkewY(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ angle);}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{comment}{//\ Scales\ the\ current\ coordinate\ system.}}
+\DoxyCodeLine{00318\ \textcolor{keywordtype}{void}\ nvgScale(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \textcolor{comment}{//\ Stores\ the\ top\ part\ (a-\/f)\ of\ the\ current\ transformation\ matrix\ in\ to\ the\ specified\ buffer.}}
+\DoxyCodeLine{00321\ \textcolor{comment}{//\ \ \ [a\ c\ e]}}
+\DoxyCodeLine{00322\ \textcolor{comment}{//\ \ \ [b\ d\ f]}}
+\DoxyCodeLine{00323\ \textcolor{comment}{//\ \ \ [0\ 0\ 1]}}
+\DoxyCodeLine{00324\ \textcolor{comment}{//\ There\ should\ be\ space\ for\ 6\ floats\ in\ the\ return\ buffer\ for\ the\ values\ a-\/f.}}
+\DoxyCodeLine{00325\ \textcolor{keywordtype}{void}\ nvgCurrentTransform(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ *\ xform);}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{comment}{//\ The\ following\ functions\ can\ be\ used\ to\ make\ calculations\ on\ 2x3\ transformation\ matrices.}}
+\DoxyCodeLine{00329\ \textcolor{comment}{//\ A\ 2x3\ matrix\ is\ represented\ as\ float[6].}}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ identity\ matrix.}}
+\DoxyCodeLine{00332\ \textcolor{keywordtype}{void}\ nvgTransformIdentity(\textcolor{keywordtype}{float}\ *\ dst);}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00334\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ translation\ matrix\ matrix.}}
+\DoxyCodeLine{00335\ \textcolor{keywordtype}{void}\ nvgTransformTranslate(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keywordtype}{float}\ tx,\ \textcolor{keywordtype}{float}\ ty);}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ scale\ matrix.}}
+\DoxyCodeLine{00338\ \textcolor{keywordtype}{void}\ nvgTransformScale(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keywordtype}{float}\ sx,\ \textcolor{keywordtype}{float}\ sy);}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ rotate\ matrix.\ Angle\ is\ specified\ in\ radians.}}
+\DoxyCodeLine{00341\ \textcolor{keywordtype}{void}\ nvgTransformRotate(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keywordtype}{float}\ a);}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ skew-\/x\ matrix.\ Angle\ is\ specified\ in\ radians.}}
+\DoxyCodeLine{00344\ \textcolor{keywordtype}{void}\ nvgTransformSkewX(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keywordtype}{float}\ a);}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ skew-\/y\ matrix.\ Angle\ is\ specified\ in\ radians.}}
+\DoxyCodeLine{00347\ \textcolor{keywordtype}{void}\ nvgTransformSkewY(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keywordtype}{float}\ a);}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ the\ result\ of\ multiplication\ of\ two\ transforms,\ of\ A\ =\ A*B.}}
+\DoxyCodeLine{00350\ \textcolor{keywordtype}{void}\ nvgTransformMultiply(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ src);}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00352\ \textcolor{comment}{//\ Sets\ the\ transform\ to\ the\ result\ of\ multiplication\ of\ two\ transforms,\ of\ A\ =\ B*A.}}
+\DoxyCodeLine{00353\ \textcolor{keywordtype}{void}\ nvgTransformPremultiply(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ src);}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \textcolor{comment}{//\ Sets\ the\ destination\ to\ inverse\ of\ specified\ transform.}}
+\DoxyCodeLine{00356\ \textcolor{comment}{//\ Returns\ 1\ if\ the\ inverse\ could\ be\ calculated,\ else\ 0.}}
+\DoxyCodeLine{00357\ \textcolor{keywordtype}{int}\ nvgTransformInverse(\textcolor{keywordtype}{float}\ *\ dst,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ src);}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{comment}{//\ Transform\ a\ point\ by\ given\ transform.}}
+\DoxyCodeLine{00360\ \textcolor{keywordtype}{void}\ nvgTransformPoint(\textcolor{keywordtype}{float}\ *\ dstx,\ \textcolor{keywordtype}{float}\ *\ dsty,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ xform,\ \textcolor{keywordtype}{float}\ srcx,\ \textcolor{keywordtype}{float}\ srcy);}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \textcolor{comment}{//\ Converts\ degrees\ to\ radians\ and\ vice\ versa.}}
+\DoxyCodeLine{00363\ \textcolor{keywordtype}{float}\ nvgDegToRad(\textcolor{keywordtype}{float}\ deg);}
+\DoxyCodeLine{00364\ \textcolor{keywordtype}{float}\ nvgRadToDeg(\textcolor{keywordtype}{float}\ rad);}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{comment}{//}}
+\DoxyCodeLine{00367\ \textcolor{comment}{//\ Images}}
+\DoxyCodeLine{00368\ \textcolor{comment}{//}}
+\DoxyCodeLine{00369\ \textcolor{comment}{//\ NanoVG\ allows\ you\ to\ load\ jpg,\ png,\ psd,\ tga,\ pic\ and\ gif\ files\ to\ be\ used\ for\ rendering.}}
+\DoxyCodeLine{00370\ \textcolor{comment}{//\ In\ addition\ you\ can\ upload\ your\ own\ image.\ The\ image\ loading\ is\ provided\ by\ stb\_image.}}
+\DoxyCodeLine{00371\ \textcolor{comment}{//\ The\ parameter\ imageFlags\ is\ combination\ of\ flags\ defined\ in\ NVGimageFlags.}}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \textcolor{comment}{//\ Creates\ image\ from\ specified\ image\ data\ with\ custom\ format.}}
+\DoxyCodeLine{00374\ \textcolor{comment}{//\ format:\ see\ NVGtexture.}}
+\DoxyCodeLine{00375\ \textcolor{comment}{//\ Returns\ handle\ to\ the\ image.}}
+\DoxyCodeLine{00376\ \textcolor{keywordtype}{int}\ nvgCreateImage(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags,\ \textcolor{keywordtype}{int}\ format,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data);}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \textcolor{comment}{//\ Updates\ image\ data\ specified\ by\ image\ handle.}}
+\DoxyCodeLine{00379\ \textcolor{keywordtype}{void}\ nvgUpdateImage(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data);}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{comment}{//\ Returns\ the\ dimensions\ of\ a\ created\ image.}}
+\DoxyCodeLine{00382\ \textcolor{keywordtype}{void}\ nvgImageSize(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keywordtype}{int}\ *\ w,\ \textcolor{keywordtype}{int}\ *\ h);}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \textcolor{comment}{//\ Deletes\ created\ image.}}
+\DoxyCodeLine{00385\ \textcolor{keywordtype}{void}\ nvgDeleteImage(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image);}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \textcolor{comment}{//}}
+\DoxyCodeLine{00388\ \textcolor{comment}{//\ Paints}}
+\DoxyCodeLine{00389\ \textcolor{comment}{//}}
+\DoxyCodeLine{00390\ \textcolor{comment}{//\ NanoVG\ supports\ four\ types\ of\ paints:\ linear\ gradient,\ box\ gradient,\ radial\ gradient\ and\ image\ pattern.}}
+\DoxyCodeLine{00391\ \textcolor{comment}{//\ These\ can\ be\ used\ as\ paints\ for\ strokes\ and\ fills.}}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \textcolor{comment}{//\ Creates\ and\ returns\ a\ linear\ gradient.\ Parameters\ (sx,sy)-\/(ex,ey)\ specify\ the\ start\ and\ end\ coordinates}}
+\DoxyCodeLine{00394\ \textcolor{comment}{//\ of\ the\ linear\ gradient,\ icol\ specifies\ the\ start\ color\ and\ ocol\ the\ end\ color.}}
+\DoxyCodeLine{00395\ \textcolor{comment}{//\ The\ gradient\ is\ transformed\ by\ the\ current\ transform\ when\ it\ is\ passed\ to\ nvgFillPaint()\ or\ nvgStrokePaint().}}
+\DoxyCodeLine{00396\ NVGpaint\ nvgLinearGradient(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ sx,\ \textcolor{keywordtype}{float}\ sy,\ \textcolor{keywordtype}{float}\ ex,\ \textcolor{keywordtype}{float}\ ey,}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGcolor\ icol,\ NVGcolor\ ocol);}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00399\ \textcolor{comment}{//\ Creates\ and\ returns\ a\ box\ gradient.\ Box\ gradient\ is\ a\ feathered\ rounded\ rectangle,\ it\ is\ useful\ for\ rendering}}
+\DoxyCodeLine{00400\ \textcolor{comment}{//\ drop\ shadows\ or\ highlights\ for\ boxes.\ Parameters\ (x,y)\ define\ the\ top-\/left\ corner\ of\ the\ rectangle,}}
+\DoxyCodeLine{00401\ \textcolor{comment}{//\ (w,h)\ define\ the\ size\ of\ the\ rectangle,\ r\ defines\ the\ corner\ radius,\ and\ f\ feather.\ Feather\ defines\ how\ blurry}}
+\DoxyCodeLine{00402\ \textcolor{comment}{//\ the\ border\ of\ the\ rectangle\ is.\ Parameter\ icol\ specifies\ the\ inner\ color\ and\ ocol\ the\ outer\ color\ of\ the\ gradient.}}
+\DoxyCodeLine{00403\ \textcolor{comment}{//\ The\ gradient\ is\ transformed\ by\ the\ current\ transform\ when\ it\ is\ passed\ to\ nvgFillPaint()\ or\ nvgStrokePaint().}}
+\DoxyCodeLine{00404\ NVGpaint\ nvgBoxGradient(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h,}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ r,\ \textcolor{keywordtype}{float}\ f,\ NVGcolor\ icol,\ NVGcolor\ ocol);}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{comment}{//\ Creates\ and\ returns\ a\ radial\ gradient.\ Parameters\ (cx,cy)\ specify\ the\ center,\ inr\ and\ outr\ specify}}
+\DoxyCodeLine{00408\ \textcolor{comment}{//\ the\ inner\ and\ outer\ radius\ of\ the\ gradient,\ icol\ specifies\ the\ start\ color\ and\ ocol\ the\ end\ color.}}
+\DoxyCodeLine{00409\ \textcolor{comment}{//\ The\ gradient\ is\ transformed\ by\ the\ current\ transform\ when\ it\ is\ passed\ to\ nvgFillPaint()\ or\ nvgStrokePaint().}}
+\DoxyCodeLine{00410\ NVGpaint\ nvgRadialGradient(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ cx,\ \textcolor{keywordtype}{float}\ cy,\ \textcolor{keywordtype}{float}\ inr,\ \textcolor{keywordtype}{float}\ outr,}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGcolor\ icol,\ NVGcolor\ ocol);}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \textcolor{comment}{//\ Creates\ and\ returns\ an\ image\ pattern.\ Parameters\ (ox,oy)\ specify\ the\ left-\/top\ location\ of\ the\ image\ pattern,}}
+\DoxyCodeLine{00414\ \textcolor{comment}{//\ (ex,ey)\ the\ size\ of\ one\ image,\ angle\ rotation\ around\ the\ top-\/left\ corner,\ image\ is\ handle\ to\ the\ image\ to\ render.}}
+\DoxyCodeLine{00415\ \textcolor{comment}{//\ The\ gradient\ is\ transformed\ by\ the\ current\ transform\ when\ it\ is\ passed\ to\ nvgFillPaint()\ or\ nvgStrokePaint().}}
+\DoxyCodeLine{00416\ NVGpaint\ nvgImagePattern(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ ox,\ \textcolor{keywordtype}{float}\ oy,\ \textcolor{keywordtype}{float}\ ex,\ \textcolor{keywordtype}{float}\ ey,}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ angle,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keywordtype}{float}\ alpha);}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{comment}{//}}
+\DoxyCodeLine{00420\ \textcolor{comment}{//\ Scissoring}}
+\DoxyCodeLine{00421\ \textcolor{comment}{//}}
+\DoxyCodeLine{00422\ \textcolor{comment}{//\ Scissoring\ allows\ you\ to\ clip\ the\ rendering\ into\ a\ rectangle.\ This\ is\ useful\ for\ various}}
+\DoxyCodeLine{00423\ \textcolor{comment}{//\ user\ interface\ cases\ like\ rendering\ a\ text\ edit\ or\ a\ timeline.}}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00425\ \textcolor{comment}{//\ Sets\ the\ current\ scissor\ rectangle.}}
+\DoxyCodeLine{00426\ \textcolor{comment}{//\ The\ scissor\ rectangle\ is\ transformed\ by\ the\ current\ transform.}}
+\DoxyCodeLine{00427\ \textcolor{keywordtype}{void}\ nvgScissor(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \textcolor{comment}{//\ Intersects\ current\ scissor\ rectangle\ with\ the\ specified\ rectangle.}}
+\DoxyCodeLine{00430\ \textcolor{comment}{//\ The\ scissor\ rectangle\ is\ transformed\ by\ the\ current\ transform.}}
+\DoxyCodeLine{00431\ \textcolor{comment}{//\ Note:\ in\ case\ the\ rotation\ of\ previous\ scissor\ rect\ differs\ from}}
+\DoxyCodeLine{00432\ \textcolor{comment}{//\ the\ current\ one,\ the\ intersection\ will\ be\ done\ between\ the\ specified}}
+\DoxyCodeLine{00433\ \textcolor{comment}{//\ rectangle\ and\ the\ previous\ scissor\ rectangle\ transformed\ in\ the\ current}}
+\DoxyCodeLine{00434\ \textcolor{comment}{//\ transform\ space.\ The\ resulting\ shape\ is\ always\ rectangle.}}
+\DoxyCodeLine{00435\ \textcolor{keywordtype}{void}\ nvgIntersectScissor(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h);}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \textcolor{comment}{//\ Reset\ and\ disables\ scissoring.}}
+\DoxyCodeLine{00438\ \textcolor{keywordtype}{void}\ nvgResetScissor(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \textcolor{comment}{//}}
+\DoxyCodeLine{00441\ \textcolor{comment}{//\ Paths}}
+\DoxyCodeLine{00442\ \textcolor{comment}{//}}
+\DoxyCodeLine{00443\ \textcolor{comment}{//\ Drawing\ a\ new\ shape\ starts\ with\ nvgBeginPath(),\ it\ clears\ all\ the\ currently\ defined\ paths.}}
+\DoxyCodeLine{00444\ \textcolor{comment}{//\ Then\ you\ define\ one\ or\ more\ paths\ and\ sub-\/paths\ which\ describe\ the\ shape.\ The\ are\ functions}}
+\DoxyCodeLine{00445\ \textcolor{comment}{//\ to\ draw\ common\ shapes\ like\ rectangles\ and\ circles,\ and\ lower\ level\ step-\/by-\/step\ functions,}}
+\DoxyCodeLine{00446\ \textcolor{comment}{//\ which\ allow\ to\ define\ a\ path\ curve\ by\ curve.}}
+\DoxyCodeLine{00447\ \textcolor{comment}{//}}
+\DoxyCodeLine{00448\ \textcolor{comment}{//\ NanoVG\ uses\ even-\/odd\ fill\ rule\ to\ draw\ the\ shapes.\ Solid\ shapes\ should\ have\ counter\ clockwise}}
+\DoxyCodeLine{00449\ \textcolor{comment}{//\ winding\ and\ holes\ should\ have\ counter\ clockwise\ order.\ To\ specify\ winding\ of\ a\ path\ you\ can}}
+\DoxyCodeLine{00450\ \textcolor{comment}{//\ call\ nvgPathWinding().\ This\ is\ useful\ especially\ for\ the\ common\ shapes,\ which\ are\ drawn\ CCW.}}
+\DoxyCodeLine{00451\ \textcolor{comment}{//}}
+\DoxyCodeLine{00452\ \textcolor{comment}{//\ Finally\ you\ can\ fill\ the\ path\ using\ current\ fill\ style\ by\ calling\ nvgFill(),\ and\ stroke\ it}}
+\DoxyCodeLine{00453\ \textcolor{comment}{//\ with\ current\ stroke\ style\ by\ calling\ nvgStroke().}}
+\DoxyCodeLine{00454\ \textcolor{comment}{//}}
+\DoxyCodeLine{00455\ \textcolor{comment}{//\ The\ curve\ segments\ and\ sub-\/paths\ are\ transformed\ by\ the\ current\ transform.}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \textcolor{comment}{//\ Clears\ the\ current\ path\ and\ sub-\/paths.}}
+\DoxyCodeLine{00458\ \textcolor{keywordtype}{void}\ nvgBeginPath(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \textcolor{comment}{//\ Starts\ new\ sub-\/path\ with\ specified\ point\ as\ first\ point.}}
+\DoxyCodeLine{00461\ \textcolor{keywordtype}{void}\ nvgMoveTo(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00462\ }
+\DoxyCodeLine{00463\ \textcolor{comment}{//\ Adds\ line\ segment\ from\ the\ last\ point\ in\ the\ path\ to\ the\ specified\ point.}}
+\DoxyCodeLine{00464\ \textcolor{keywordtype}{void}\ nvgLineTo(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00466\ \textcolor{comment}{//\ Adds\ cubic\ bezier\ segment\ from\ last\ point\ in\ the\ path\ via\ two\ control\ points\ to\ the\ specified\ point.}}
+\DoxyCodeLine{00467\ \textcolor{keywordtype}{void}\ nvgBezierTo(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ c1x,\ \textcolor{keywordtype}{float}\ c1y,\ \textcolor{keywordtype}{float}\ c2x,\ \textcolor{keywordtype}{float}\ c2y,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \textcolor{comment}{//\ Adds\ quadratic\ bezier\ segment\ from\ last\ point\ in\ the\ path\ via\ a\ control\ point\ to\ the\ specified\ point.}}
+\DoxyCodeLine{00470\ \textcolor{keywordtype}{void}\ nvgQuadTo(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ cx,\ \textcolor{keywordtype}{float}\ cy,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y);}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00472\ \textcolor{comment}{//\ Adds\ an\ arc\ segment\ at\ the\ corner\ defined\ by\ the\ last\ path\ point,\ and\ two\ specified\ points.}}
+\DoxyCodeLine{00473\ \textcolor{keywordtype}{void}\ nvgArcTo(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2,\ \textcolor{keywordtype}{float}\ radius);}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00475\ \textcolor{comment}{//\ Closes\ current\ sub-\/path\ with\ a\ line\ segment.}}
+\DoxyCodeLine{00476\ \textcolor{keywordtype}{void}\ nvgClosePath(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \textcolor{comment}{//\ Sets\ the\ current\ sub-\/path\ winding,\ see\ NVGwinding\ and\ NVGsolidity.}}
+\DoxyCodeLine{00479\ \textcolor{keywordtype}{void}\ nvgPathWinding(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ dir);}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00481\ \textcolor{comment}{//\ Creates\ new\ circle\ arc\ shaped\ sub-\/path.\ The\ arc\ center\ is\ at\ cx,cy,\ the\ arc\ radius\ is\ r,}}
+\DoxyCodeLine{00482\ \textcolor{comment}{//\ and\ the\ arc\ is\ drawn\ from\ angle\ a0\ to\ a1,\ and\ swept\ in\ direction\ dir\ (NVG\_CCW,\ or\ NVG\_CW).}}
+\DoxyCodeLine{00483\ \textcolor{comment}{//\ Angles\ are\ specified\ in\ radians.}}
+\DoxyCodeLine{00484\ \textcolor{keywordtype}{void}\ nvgArc(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ cx,\ \textcolor{keywordtype}{float}\ cy,\ \textcolor{keywordtype}{float}\ r,\ \textcolor{keywordtype}{float}\ a0,\ \textcolor{keywordtype}{float}\ a1,\ \textcolor{keywordtype}{int}\ dir);}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \textcolor{comment}{//\ Creates\ new\ rectangle\ shaped\ sub-\/path.}}
+\DoxyCodeLine{00487\ \textcolor{keywordtype}{void}\ nvgRect(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h);}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \textcolor{comment}{//\ Creates\ new\ rounded\ rectangle\ shaped\ sub-\/path.}}
+\DoxyCodeLine{00490\ \textcolor{keywordtype}{void}\ nvgRoundedRect(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h,\ \textcolor{keywordtype}{float}\ r);}
+\DoxyCodeLine{00491\ }
+\DoxyCodeLine{00492\ \textcolor{comment}{//\ Creates\ new\ rounded\ rectangle\ shaped\ sub-\/path\ with\ varying\ radii\ for\ each\ corner.}}
+\DoxyCodeLine{00493\ \textcolor{keywordtype}{void}\ nvgRoundedRectVarying(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h,\ \textcolor{keywordtype}{float}\ radTopLeft,\ \textcolor{keywordtype}{float}\ radTopRight,}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radBottomRight,\ \textcolor{keywordtype}{float}\ radBottomLeft);}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \textcolor{comment}{//\ Creates\ new\ ellipse\ shaped\ sub-\/path.}}
+\DoxyCodeLine{00497\ \textcolor{keywordtype}{void}\ nvgEllipse(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ cx,\ \textcolor{keywordtype}{float}\ cy,\ \textcolor{keywordtype}{float}\ rx,\ \textcolor{keywordtype}{float}\ ry);}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00499\ \textcolor{comment}{//\ Creates\ new\ circle\ shaped\ sub-\/path.}}
+\DoxyCodeLine{00500\ \textcolor{keywordtype}{void}\ nvgCircle(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ cx,\ \textcolor{keywordtype}{float}\ cy,\ \textcolor{keywordtype}{float}\ r);}
+\DoxyCodeLine{00501\ }
+\DoxyCodeLine{00502\ \textcolor{comment}{//\ Fills\ the\ current\ path\ with\ current\ fill\ style.}}
+\DoxyCodeLine{00503\ \textcolor{keywordtype}{void}\ nvgFill(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \textcolor{comment}{//\ Fills\ the\ current\ path\ with\ current\ stroke\ style.}}
+\DoxyCodeLine{00506\ \textcolor{keywordtype}{void}\ nvgStroke(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00507\ }
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \textcolor{comment}{//}}
+\DoxyCodeLine{00510\ \textcolor{comment}{//\ Text}}
+\DoxyCodeLine{00511\ \textcolor{comment}{//}}
+\DoxyCodeLine{00512\ \textcolor{comment}{//\ NanoVG\ allows\ you\ to\ load\ .ttf\ files\ and\ use\ the\ font\ to\ render\ text.}}
+\DoxyCodeLine{00513\ \textcolor{comment}{//}}
+\DoxyCodeLine{00514\ \textcolor{comment}{//\ The\ appearance\ of\ the\ text\ can\ be\ defined\ by\ setting\ the\ current\ text\ style}}
+\DoxyCodeLine{00515\ \textcolor{comment}{//\ and\ by\ specifying\ the\ fill\ color.\ Common\ text\ and\ font\ settings\ such\ as}}
+\DoxyCodeLine{00516\ \textcolor{comment}{//\ font\ size,\ letter\ spacing\ and\ text\ align\ are\ supported.\ Font\ blur\ allows\ you}}
+\DoxyCodeLine{00517\ \textcolor{comment}{//\ to\ create\ simple\ text\ effects\ such\ as\ drop\ shadows.}}
+\DoxyCodeLine{00518\ \textcolor{comment}{//}}
+\DoxyCodeLine{00519\ \textcolor{comment}{//\ At\ render\ time\ the\ font\ face\ can\ be\ set\ based\ on\ the\ font\ handles\ or\ name.}}
+\DoxyCodeLine{00520\ \textcolor{comment}{//}}
+\DoxyCodeLine{00521\ \textcolor{comment}{//\ Font\ measure\ functions\ return\ values\ in\ local\ space,\ the\ calculations\ are}}
+\DoxyCodeLine{00522\ \textcolor{comment}{//\ carried\ in\ the\ same\ resolution\ as\ the\ final\ rendering.\ This\ is\ done\ because}}
+\DoxyCodeLine{00523\ \textcolor{comment}{//\ the\ text\ glyph\ positions\ are\ snapped\ to\ the\ nearest\ pixels\ sharp\ rendering.}}
+\DoxyCodeLine{00524\ \textcolor{comment}{//}}
+\DoxyCodeLine{00525\ \textcolor{comment}{//\ The\ local\ space\ means\ that\ values\ are\ not\ rotated\ or\ scale\ as\ per\ the\ current}}
+\DoxyCodeLine{00526\ \textcolor{comment}{//\ transformation.\ For\ example\ if\ you\ set\ font\ size\ to\ 12,\ which\ would\ mean\ that}}
+\DoxyCodeLine{00527\ \textcolor{comment}{//\ line\ height\ is\ 16,\ then\ regardless\ of\ the\ current\ scaling\ and\ rotation,\ the}}
+\DoxyCodeLine{00528\ \textcolor{comment}{//\ returned\ line\ height\ is\ always\ 16.\ Some\ measures\ may\ vary\ because\ of\ the\ scaling}}
+\DoxyCodeLine{00529\ \textcolor{comment}{//\ since\ aforementioned\ pixel\ snapping.}}
+\DoxyCodeLine{00530\ \textcolor{comment}{//}}
+\DoxyCodeLine{00531\ \textcolor{comment}{//\ While\ this\ may\ sound\ a\ little\ odd,\ the\ setup\ allows\ you\ to\ always\ render\ the}}
+\DoxyCodeLine{00532\ \textcolor{comment}{//\ same\ way\ regardless\ of\ scaling.\ I.e.\ following\ works\ regardless\ of\ scaling:}}
+\DoxyCodeLine{00533\ \textcolor{comment}{//}}
+\DoxyCodeLine{00534\ \textcolor{comment}{//\ \ \ \ \ \ const\ char*\ txt\ =\ "{}Text\ me\ up."{};}}
+\DoxyCodeLine{00535\ \textcolor{comment}{//\ \ \ \ \ \ nvgTextBounds(vg,\ x,y,\ txt,\ NULL,\ bounds);}}
+\DoxyCodeLine{00536\ \textcolor{comment}{//\ \ \ \ \ \ nvgBeginPath(vg);}}
+\DoxyCodeLine{00537\ \textcolor{comment}{//\ \ \ \ \ \ nvgRect(vg,\ bounds[0],bounds[1],\ bounds[2]-\/bounds[0],\ bounds[3]-\/bounds[1]);}}
+\DoxyCodeLine{00538\ \textcolor{comment}{//\ \ \ \ \ \ nvgFill(vg);}}
+\DoxyCodeLine{00539\ \textcolor{comment}{//}}
+\DoxyCodeLine{00540\ \textcolor{comment}{//\ Note:\ currently\ only\ solid\ color\ fill\ is\ supported\ for\ text.}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \textcolor{comment}{//\ Creates\ font\ by\ loading\ it\ from\ the\ disk\ from\ specified\ file\ name.}}
+\DoxyCodeLine{00543\ \textcolor{comment}{//\ Returns\ handle\ to\ the\ font.}}
+\DoxyCodeLine{00544\ \textcolor{keywordtype}{int}\ nvgCreateFont(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ filename);}
+\DoxyCodeLine{00545\ }
+\DoxyCodeLine{00546\ \textcolor{comment}{//\ fontIndex\ specifies\ which\ font\ face\ to\ load\ from\ a\ .ttf/.ttc\ file.}}
+\DoxyCodeLine{00547\ \textcolor{keywordtype}{int}\ nvgCreateFontAtIndex(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ filename,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ fontIndex);}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00549\ \textcolor{comment}{//\ Creates\ font\ by\ loading\ it\ from\ the\ specified\ memory\ chunk.}}
+\DoxyCodeLine{00550\ \textcolor{comment}{//\ Returns\ handle\ to\ the\ font.}}
+\DoxyCodeLine{00551\ \textcolor{keywordtype}{int}\ nvgCreateFontMem(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data,\ \textcolor{keywordtype}{int}\ ndata,\ \textcolor{keywordtype}{int}\ freeData);}
+\DoxyCodeLine{00552\ }
+\DoxyCodeLine{00553\ \textcolor{comment}{//\ fontIndex\ specifies\ which\ font\ face\ to\ load\ from\ a\ .ttf/.ttc\ file.}}
+\DoxyCodeLine{00554\ \textcolor{keywordtype}{int}\ nvgCreateFontMemAtIndex(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data,\ \textcolor{keywordtype}{int}\ ndata,\ \textcolor{keywordtype}{int}\ freeData,}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ fontIndex);}
+\DoxyCodeLine{00556\ }
+\DoxyCodeLine{00557\ \textcolor{comment}{//\ Finds\ a\ loaded\ font\ of\ specified\ name,\ and\ returns\ handle\ to\ it,\ or\ -\/1\ if\ the\ font\ is\ not\ found.}}
+\DoxyCodeLine{00558\ \textcolor{keywordtype}{int}\ nvgFindFont(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name);}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00560\ \textcolor{comment}{//\ Adds\ a\ fallback\ font\ by\ handle.}}
+\DoxyCodeLine{00561\ \textcolor{keywordtype}{int}\ nvgAddFallbackFontId(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ baseFont,\ \textcolor{keywordtype}{int}\ fallbackFont);}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00563\ \textcolor{comment}{//\ Adds\ a\ fallback\ font\ by\ name.}}
+\DoxyCodeLine{00564\ \textcolor{keywordtype}{int}\ nvgAddFallbackFont(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ baseFont,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ fallbackFont);}
+\DoxyCodeLine{00565\ }
+\DoxyCodeLine{00566\ \textcolor{comment}{//\ Resets\ fallback\ fonts\ by\ handle.}}
+\DoxyCodeLine{00567\ \textcolor{keywordtype}{void}\ nvgResetFallbackFontsId(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ baseFont);}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \textcolor{comment}{//\ Resets\ fallback\ fonts\ by\ name.}}
+\DoxyCodeLine{00570\ \textcolor{keywordtype}{void}\ nvgResetFallbackFonts(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ baseFont);}
+\DoxyCodeLine{00571\ }
+\DoxyCodeLine{00572\ \textcolor{comment}{//\ Sets\ the\ font\ size\ of\ current\ text\ style.}}
+\DoxyCodeLine{00573\ \textcolor{keywordtype}{void}\ nvgFontSize(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ size);}
+\DoxyCodeLine{00574\ }
+\DoxyCodeLine{00575\ \textcolor{comment}{//\ Sets\ the\ blur\ of\ current\ text\ style.}}
+\DoxyCodeLine{00576\ \textcolor{keywordtype}{void}\ nvgFontBlur(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ blur);}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \textcolor{comment}{//\ Sets\ the\ letter\ spacing\ of\ current\ text\ style.}}
+\DoxyCodeLine{00579\ \textcolor{keywordtype}{void}\ nvgTextLetterSpacing(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ spacing);}
+\DoxyCodeLine{00580\ }
+\DoxyCodeLine{00581\ \textcolor{comment}{//\ Sets\ the\ proportional\ line\ height\ of\ current\ text\ style.\ The\ line\ height\ is\ specified\ as\ multiple\ of\ font\ size.}}
+\DoxyCodeLine{00582\ \textcolor{keywordtype}{void}\ nvgTextLineHeight(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ lineHeight);}
+\DoxyCodeLine{00583\ }
+\DoxyCodeLine{00584\ \textcolor{comment}{//\ Sets\ the\ text\ align\ of\ current\ text\ style,\ see\ NVGalign\ for\ options.}}
+\DoxyCodeLine{00585\ \textcolor{keywordtype}{void}\ nvgTextAlign(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ align);}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00587\ \textcolor{comment}{//\ Sets\ the\ font\ face\ based\ on\ specified\ id\ of\ current\ text\ style.}}
+\DoxyCodeLine{00588\ \textcolor{keywordtype}{void}\ nvgFontFaceId(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ font);}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00590\ \textcolor{comment}{//\ Sets\ the\ font\ face\ based\ on\ specified\ name\ of\ current\ text\ style.}}
+\DoxyCodeLine{00591\ \textcolor{keywordtype}{void}\ nvgFontFace(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ font);}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00593\ \textcolor{comment}{//\ Draws\ text\ string\ at\ specified\ location.\ If\ end\ is\ specified\ only\ the\ sub-\/string\ up\ to\ the\ end\ is\ drawn.}}
+\DoxyCodeLine{00594\ \textcolor{keywordtype}{float}\ nvgText(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ end);}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \textcolor{comment}{//\ Draws\ multi-\/line\ text\ string\ at\ specified\ location\ wrapped\ at\ the\ specified\ width.\ If\ end\ is\ specified\ only\ the\ sub-\/string\ up\ to\ the\ end\ is\ drawn.}}
+\DoxyCodeLine{00597\ \textcolor{comment}{//\ White\ space\ is\ stripped\ at\ the\ beginning\ of\ the\ rows,\ the\ text\ is\ split\ at\ word\ boundaries\ or\ when\ new-\/line\ characters\ are\ encountered.}}
+\DoxyCodeLine{00598\ \textcolor{comment}{//\ Words\ longer\ than\ the\ max\ width\ are\ slit\ at\ nearest\ character\ (i.e.\ no\ hyphenation).}}
+\DoxyCodeLine{00599\ \textcolor{keywordtype}{void}\ nvgTextBox(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ breakRowWidth,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ end);}
+\DoxyCodeLine{00600\ }
+\DoxyCodeLine{00601\ \textcolor{comment}{//\ Measures\ the\ specified\ text\ string.\ Parameter\ bounds\ should\ be\ a\ pointer\ to\ float[4],}}
+\DoxyCodeLine{00602\ \textcolor{comment}{//\ if\ the\ bounding\ box\ of\ the\ text\ should\ be\ returned.\ The\ bounds\ value\ are\ [xmin,ymin,\ xmax,ymax]}}
+\DoxyCodeLine{00603\ \textcolor{comment}{//\ Returns\ the\ horizontal\ advance\ of\ the\ measured\ text\ (i.e.\ where\ the\ next\ character\ should\ drawn).}}
+\DoxyCodeLine{00604\ \textcolor{comment}{//\ Measured\ values\ are\ returned\ in\ local\ coordinate\ space.}}
+\DoxyCodeLine{00605\ \textcolor{keywordtype}{float}\ nvgTextBounds(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ end,\ \textcolor{keywordtype}{float}\ *\ bounds);}
+\DoxyCodeLine{00606\ }
+\DoxyCodeLine{00607\ \textcolor{comment}{//\ Measures\ the\ specified\ multi-\/text\ string.\ Parameter\ bounds\ should\ be\ a\ pointer\ to\ float[4],}}
+\DoxyCodeLine{00608\ \textcolor{comment}{//\ if\ the\ bounding\ box\ of\ the\ text\ should\ be\ returned.\ The\ bounds\ value\ are\ [xmin,ymin,\ xmax,ymax]}}
+\DoxyCodeLine{00609\ \textcolor{comment}{//\ Measured\ values\ are\ returned\ in\ local\ coordinate\ space.}}
+\DoxyCodeLine{00610\ \textcolor{keywordtype}{void}\ nvgTextBoxBounds(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ breakRowWidth,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ end,}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ *\ bounds);}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00613\ \textcolor{comment}{//\ Calculates\ the\ glyph\ x\ positions\ of\ the\ specified\ text.\ If\ end\ is\ specified\ only\ the\ sub-\/string\ will\ be\ used.}}
+\DoxyCodeLine{00614\ \textcolor{comment}{//\ Measured\ values\ are\ returned\ in\ local\ coordinate\ space.}}
+\DoxyCodeLine{00615\ \textcolor{keywordtype}{int}\ nvgTextGlyphPositions(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ end,}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGglyphPosition\ *\ positions,\ \textcolor{keywordtype}{int}\ maxPositions);}
+\DoxyCodeLine{00617\ }
+\DoxyCodeLine{00618\ \textcolor{comment}{//\ Returns\ the\ vertical\ metrics\ based\ on\ the\ current\ text\ style.}}
+\DoxyCodeLine{00619\ \textcolor{comment}{//\ Measured\ values\ are\ returned\ in\ local\ coordinate\ space.}}
+\DoxyCodeLine{00620\ \textcolor{keywordtype}{void}\ nvgTextMetrics(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ *\ ascender,\ \textcolor{keywordtype}{float}\ *\ descender,\ \textcolor{keywordtype}{float}\ *\ lineh);}
+\DoxyCodeLine{00621\ }
+\DoxyCodeLine{00622\ \textcolor{comment}{//\ Breaks\ the\ specified\ text\ into\ lines.\ If\ end\ is\ specified\ only\ the\ sub-\/string\ will\ be\ used.}}
+\DoxyCodeLine{00623\ \textcolor{comment}{//\ White\ space\ is\ stripped\ at\ the\ beginning\ of\ the\ rows,\ the\ text\ is\ split\ at\ word\ boundaries\ or\ when\ new-\/line\ characters\ are\ encountered.}}
+\DoxyCodeLine{00624\ \textcolor{comment}{//\ Words\ longer\ than\ the\ max\ width\ are\ slit\ at\ nearest\ character\ (i.e.\ no\ hyphenation).}}
+\DoxyCodeLine{00625\ \textcolor{keywordtype}{int}\ nvgTextBreakLines(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \textcolor{keywordtype}{string},\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ end,\ \textcolor{keywordtype}{float}\ breakRowWidth,\ NVGtextRow\ *\ rows,}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ maxRows);}
+\DoxyCodeLine{00627\ }
+\DoxyCodeLine{00628\ \textcolor{comment}{//}}
+\DoxyCodeLine{00629\ \textcolor{comment}{//\ Internal\ Render\ API}}
+\DoxyCodeLine{00630\ \textcolor{comment}{//}}
+\DoxyCodeLine{00631\ \textcolor{keyword}{enum}\ NVGtexture\ \{}
+\DoxyCodeLine{00632\ \ \ \ \ NVG\_TEXTURE\_ALPHA\ =\ 0x01,}
+\DoxyCodeLine{00633\ \ \ \ \ NVG\_TEXTURE\_BGRA\ =\ 0x02,\ \ \ \textcolor{comment}{/*\ ARGB8888\ format\ (memory\ order:\ B-\/G-\/R-\/A)\ */}}
+\DoxyCodeLine{00634\ \ \ \ \ NVG\_TEXTURE\_RGBA\ =\ 0x03,\ \ \ \textcolor{comment}{/*\ Standard\ OpenGL\ RGBA\ format\ */}}
+\DoxyCodeLine{00635\ \ \ \ \ NVG\_TEXTURE\_BGR\ =\ 0x04,\ \ \ \ \textcolor{comment}{/*\ RGB888\ format\ (memory\ order:\ B-\/G-\/R)\ */}}
+\DoxyCodeLine{00636\ \ \ \ \ NVG\_TEXTURE\_RGB565\ =\ 0x05,\ \textcolor{comment}{/*\ RGB565\ format\ */}}
+\DoxyCodeLine{00637\ \ \ \ \ NVG\_TEXTURE\_BGRX\ =\ 0x06,\ \ \ \textcolor{comment}{/*\ XRGB8888\ format\ (memory\ order:\ B-\/G-\/R-\/X,\ X\ ignored)\ */}}
+\DoxyCodeLine{00638\ \};}
+\DoxyCodeLine{00639\ }
+\DoxyCodeLine{00640\ \textcolor{keyword}{struct\ }NVGscissor\ \{}
+\DoxyCodeLine{00641\ \ \ \ \ \textcolor{keywordtype}{float}\ xform[6];}
+\DoxyCodeLine{00642\ \ \ \ \ \textcolor{keywordtype}{float}\ extent[2];}
+\DoxyCodeLine{00643\ \};}
+\DoxyCodeLine{00644\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGscissor\ NVGscissor;}
+\DoxyCodeLine{00645\ }
+\DoxyCodeLine{00646\ \textcolor{keyword}{struct\ }NVGvertex\ \{}
+\DoxyCodeLine{00647\ \ \ \ \ \textcolor{keywordtype}{float}\ x,\ y,\ u,\ v;}
+\DoxyCodeLine{00648\ \};}
+\DoxyCodeLine{00649\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGvertex\ NVGvertex;}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \textcolor{keyword}{struct\ }NVGpath\ \{}
+\DoxyCodeLine{00652\ \ \ \ \ \textcolor{keywordtype}{int}\ first;}
+\DoxyCodeLine{00653\ \ \ \ \ \textcolor{keywordtype}{int}\ count;}
+\DoxyCodeLine{00654\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ closed;}
+\DoxyCodeLine{00655\ \ \ \ \ \textcolor{keywordtype}{int}\ nbevel;}
+\DoxyCodeLine{00656\ \ \ \ \ NVGvertex\ *\ fill;}
+\DoxyCodeLine{00657\ \ \ \ \ \textcolor{keywordtype}{int}\ nfill;}
+\DoxyCodeLine{00658\ \ \ \ \ NVGvertex\ *\ stroke;}
+\DoxyCodeLine{00659\ \ \ \ \ \textcolor{keywordtype}{int}\ nstroke;}
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keywordtype}{int}\ winding;}
+\DoxyCodeLine{00661\ \ \ \ \ \textcolor{keywordtype}{int}\ convex;}
+\DoxyCodeLine{00662\ \};}
+\DoxyCodeLine{00663\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGpath\ NVGpath;}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00665\ \textcolor{keyword}{struct\ }NVGparams\ \{}
+\DoxyCodeLine{00666\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ userPtr;}
+\DoxyCodeLine{00667\ \ \ \ \ \textcolor{keywordtype}{int}\ edgeAntiAlias;}
+\DoxyCodeLine{00668\ \ \ \ \ int\ (*renderCreate)(\textcolor{keywordtype}{void}\ *\ uptr);}
+\DoxyCodeLine{00669\ \ \ \ \ int\ (*renderCreateTexture)(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ type,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data);}
+\DoxyCodeLine{00670\ \ \ \ \ int\ (*renderDeleteTexture)(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ image);}
+\DoxyCodeLine{00671\ \ \ \ \ int\ (*renderUpdateTexture)(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data);}
+\DoxyCodeLine{00672\ \ \ \ \ int\ (*renderGetTextureSize)(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keywordtype}{int}\ *\ w,\ \textcolor{keywordtype}{int}\ *\ h);}
+\DoxyCodeLine{00673\ \ \ \ \ void\ (*renderViewport)(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keywordtype}{float}\ devicePixelRatio);}
+\DoxyCodeLine{00674\ \ \ \ \ void\ (*renderCancel)(\textcolor{keywordtype}{void}\ *\ uptr);}
+\DoxyCodeLine{00675\ \ \ \ \ void\ (*renderFlush)(\textcolor{keywordtype}{void}\ *\ uptr);}
+\DoxyCodeLine{00676\ \ \ \ \ void\ (*renderFill)(\textcolor{keywordtype}{void}\ *\ uptr,\ NVGpaint\ *\ paint,\ NVGcompositeOperationState\ compositeOperation,\ NVGscissor\ *\ scissor,}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ fringe,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ bounds,\ \textcolor{keyword}{const}\ NVGpath\ *\ paths,\ \textcolor{keywordtype}{int}\ npaths);}
+\DoxyCodeLine{00678\ \ \ \ \ void\ (*renderStroke)(\textcolor{keywordtype}{void}\ *\ uptr,\ NVGpaint\ *\ paint,\ NVGcompositeOperationState\ compositeOperation,\ NVGscissor\ *\ scissor,}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ fringe,\ \textcolor{keywordtype}{float}\ strokeWidth,\ \textcolor{keyword}{const}\ NVGpath\ *\ paths,\ \textcolor{keywordtype}{int}\ npaths);}
+\DoxyCodeLine{00680\ \ \ \ \ void\ (*renderTriangles)(\textcolor{keywordtype}{void}\ *\ uptr,\ NVGpaint\ *\ paint,\ NVGcompositeOperationState\ compositeOperation,}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGscissor\ *\ scissor,\ \textcolor{keyword}{const}\ NVGvertex\ *\ verts,\ \textcolor{keywordtype}{int}\ nverts,\ \textcolor{keywordtype}{float}\ fringe);}
+\DoxyCodeLine{00682\ \ \ \ \ void\ (*renderDelete)(\textcolor{keywordtype}{void}\ *\ uptr);}
+\DoxyCodeLine{00683\ \};}
+\DoxyCodeLine{00684\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }NVGparams\ NVGparams;}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00686\ \textcolor{comment}{//\ Constructor\ and\ destructor,\ called\ by\ the\ render\ back-\/end.}}
+\DoxyCodeLine{00687\ NVGcontext\ *\ nvgCreateInternal(NVGparams\ *\ params);}
+\DoxyCodeLine{00688\ \textcolor{keywordtype}{void}\ nvgDeleteInternal(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00690\ NVGparams\ *\ nvgInternalParams(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00691\ }
+\DoxyCodeLine{00692\ \textcolor{comment}{//\ Debug\ function\ to\ dump\ cached\ path\ data.}}
+\DoxyCodeLine{00693\ \textcolor{keywordtype}{void}\ nvgDebugDumpPathCache(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00694\ }
+\DoxyCodeLine{00695\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00696\ \textcolor{preprocessor}{\#pragma\ warning(pop)}}
+\DoxyCodeLine{00697\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00698\ }
+\DoxyCodeLine{00699\ \textcolor{preprocessor}{\#define\ NVG\_NOTUSED(v)\ for\ (;;)\ \{\ (void)(1\ ?\ (void)0\ :\ (\ (void)(v)\ )\ );\ break;\ \}}}
+\DoxyCodeLine{00700\ }
+\DoxyCodeLine{00701\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LV\_USE\_NANOVG}}
+\DoxyCodeLine{00702\ }
+\DoxyCodeLine{00703\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00704\ \}}
+\DoxyCodeLine{00705\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00706\ }
+\DoxyCodeLine{00707\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ NANOVG\_H}}
+
+\end{DoxyCode}

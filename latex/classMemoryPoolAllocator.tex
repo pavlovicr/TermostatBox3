@@ -1,0 +1,197 @@
+\doxysection{ Razred Memory\+Pool\+Allocator\texorpdfstring{$<$}{<} Base\+Allocator \texorpdfstring{$>$}{>}}
+\hypertarget{classMemoryPoolAllocator}{}\label{classMemoryPoolAllocator}\index{MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}}
+
+
+Default memory allocator used by the parser and DOM.  
+
+
+
+
+{\ttfamily \#include $<$allocators.\+h$>$}
+
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMemoryPoolAllocator_aeec85ac657f242ac5620115141be5209}{Memory\+Pool\+Allocator}} (size\+\_\+t chunk\+Size=k\+Default\+Chunk\+Capacity, Base\+Allocator \texorpdfstring{$\ast$}{*}base\+Allocator=0)
+\begin{DoxyCompactList}\small\item\em Constructor with chunk\+Size. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMemoryPoolAllocator_a1f0d865093fdb955d956b7a445a8ddbf}{Memory\+Pool\+Allocator}} (void \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t size, size\+\_\+t chunk\+Size=k\+Default\+Chunk\+Capacity, Base\+Allocator \texorpdfstring{$\ast$}{*}base\+Allocator=0)
+\begin{DoxyCompactList}\small\item\em Constructor with user-\/supplied buffer. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryPoolAllocator_afa7a6555d8a6e151148c8876c60a36c5}\label{classMemoryPoolAllocator_afa7a6555d8a6e151148c8876c60a36c5} 
+{\bfseries Memory\+Pool\+Allocator} (const \mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}} \&rhs) RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\Hypertarget{classMemoryPoolAllocator_a32812539a2d21759082f325ee78565c7}\label{classMemoryPoolAllocator_a32812539a2d21759082f325ee78565c7} 
+\mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}} \& {\bfseries operator=} (const \mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}} \&rhs) RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\mbox{\hyperlink{classMemoryPoolAllocator_aff48c4c1fa43bdd3a2b406231f0eb00e}{\texorpdfstring{$\sim$}{\string~}\+Memory\+Pool\+Allocator}} () RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryPoolAllocator_a6f6dce308aa10a28c898348db3bc75c1}\label{classMemoryPoolAllocator_a6f6dce308aa10a28c898348db3bc75c1} 
+void {\bfseries Clear} () RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Deallocates all memory chunks, excluding the first/user one. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classMemoryPoolAllocator_a60526f0a1e6bb225c49f10537635e30f}{Capacity}} () const RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Computes the total capacity of allocated memory chunks. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classMemoryPoolAllocator_a53abb6188aea4a687ca9f6d778fd1d2d}{Size}} () const RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Computes the memory blocks allocated. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMemoryPoolAllocator_aee5e0b6d09dfbbc9bbbc59399a14cc53}{Shared}} () const RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Whether the allocator is shared. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryPoolAllocator_a8d300531c1f556172aef1259ff55cb48}\label{classMemoryPoolAllocator_a8d300531c1f556172aef1259ff55cb48} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Malloc} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Allocates a memory block. (concept Allocator) \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryPoolAllocator_a7c273279d361b207ff622d4bdfc63074}\label{classMemoryPoolAllocator_a7c273279d361b207ff622d4bdfc63074} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Realloc} (void \texorpdfstring{$\ast$}{*}original\+Ptr, size\+\_\+t original\+Size, size\+\_\+t new\+Size)
+\begin{DoxyCompactList}\small\item\em Resizes a memory block (concept Allocator) \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryPoolAllocator_ab2b847d46e865b541c38fb68dfc7d408}\label{classMemoryPoolAllocator_ab2b847d46e865b541c38fb68dfc7d408} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}} \&rhs) const RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Compare (equality) with another \doxylink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}. \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryPoolAllocator_ab81d11c88aef06b905cece2e5a4e7b4d}\label{classMemoryPoolAllocator_ab81d11c88aef06b905cece2e5a4e7b4d} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}} \&rhs) const RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Compare (inequality) with another \doxylink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statične javne metode in atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMemoryPoolAllocator_ab2ba66e50d09ab315fbfb37f2a231f33}\label{classMemoryPoolAllocator_ab2ba66e50d09ab315fbfb37f2a231f33} 
+static void {\bfseries Free} (void \texorpdfstring{$\ast$}{*}ptr) RAPIDJSON\+\_\+\+NOEXCEPT
+\begin{DoxyCompactList}\small\item\em Frees a memory block (concept Allocator) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statični javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classMemoryPoolAllocator_ab4c7c5c631e451689bc9da392a65194f}\label{classMemoryPoolAllocator_ab4c7c5c631e451689bc9da392a65194f} 
+static const bool {\bfseries k\+Need\+Free} = false
+\begin{DoxyCompactList}\small\item\em Tell users that no need to call \doxylink{classMemoryPoolAllocator_ab2ba66e50d09ab315fbfb37f2a231f33}{Free()} with this allocator. (concept Allocator) \end{DoxyCompactList}\item 
+\Hypertarget{classMemoryPoolAllocator_a3a18920d6afd9e9c9e62d8fd8f73e095}\label{classMemoryPoolAllocator_a3a18920d6afd9e9c9e62d8fd8f73e095} 
+static const bool {\bfseries k\+Ref\+Counted} = true
+\begin{DoxyCompactList}\small\item\em Tell users that this allocator is reference counted on copy. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$typename Base\+Allocator = Crt\+Allocator$>$\newline
+class Memory\+Pool\+Allocator$<$ Base\+Allocator $>$}
+Default memory allocator used by the parser and DOM. 
+
+This allocator allocate memory blocks from pre-\/allocated memory chunks.
+
+It does not free memory blocks. And \doxylink{classMemoryPoolAllocator_a7c273279d361b207ff622d4bdfc63074}{Realloc()} only allocate new memory.
+
+The memory chunks are allocated by Base\+Allocator, which is \doxylink{classCrtAllocator}{Crt\+Allocator} by default.
+
+User may also supply a buffer as the first chunk.
+
+If the user-\/buffer is full then additional chunks are allocated by Base\+Allocator.
+
+The user-\/buffer is not deallocated by this allocator.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Base\+Allocator} & the allocator type for allocating memory chunks. Default is \doxylink{classCrtAllocator}{Crt\+Allocator}. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Opomba}
+implements Allocator concept 
+\end{DoxyNote}
+
+
+\doxysubsection{Opis konstruktorjev in destruktorjev }
+\Hypertarget{classMemoryPoolAllocator_aeec85ac657f242ac5620115141be5209}\label{classMemoryPoolAllocator_aeec85ac657f242ac5620115141be5209} 
+\index{MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}!MemoryPoolAllocator@{MemoryPoolAllocator}}
+\index{MemoryPoolAllocator@{MemoryPoolAllocator}!MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{MemoryPoolAllocator()}{MemoryPoolAllocator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Base\+Allocator  = Crt\+Allocator$>$ \\
+\mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}}$<$ Base\+Allocator $>$\mbox{\hyperlink{classMemoryPoolAllocator}{\+::\+Memory\+Pool\+Allocator}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{chunk\+Size = {\ttfamily kDefaultChunkCapacity},  }\item[{Base\+Allocator \texorpdfstring{$\ast$}{*}}]{base\+Allocator = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor with chunk\+Size. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em chunk\+Size} & The size of memory chunk. The default is k\+Default\+Chunk\+Size. \\
+\hline
+{\em base\+Allocator} & The allocator for allocating memory chunks. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMemoryPoolAllocator_a1f0d865093fdb955d956b7a445a8ddbf}\label{classMemoryPoolAllocator_a1f0d865093fdb955d956b7a445a8ddbf} 
+\index{MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}!MemoryPoolAllocator@{MemoryPoolAllocator}}
+\index{MemoryPoolAllocator@{MemoryPoolAllocator}!MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{MemoryPoolAllocator()}{MemoryPoolAllocator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Base\+Allocator  = Crt\+Allocator$>$ \\
+\mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}}$<$ Base\+Allocator $>$\mbox{\hyperlink{classMemoryPoolAllocator}{\+::\+Memory\+Pool\+Allocator}} (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{chunk\+Size = {\ttfamily kDefaultChunkCapacity},  }\item[{Base\+Allocator \texorpdfstring{$\ast$}{*}}]{base\+Allocator = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with user-\/supplied buffer. 
+
+The user buffer will be used firstly. When it is full, memory pool allocates new chunk with chunk size.
+
+The user buffer will not be deallocated when this allocator is destructed.
+
+
+\begin{DoxyParams}{Parametri}
+{\em buffer} & User supplied buffer. \\
+\hline
+{\em size} & Size of the buffer in bytes. It must at least larger than sizeof(\+Chunk\+Header). \\
+\hline
+{\em chunk\+Size} & The size of memory chunk. The default is k\+Default\+Chunk\+Size. \\
+\hline
+{\em base\+Allocator} & The allocator for allocating memory chunks. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMemoryPoolAllocator_aff48c4c1fa43bdd3a2b406231f0eb00e}\label{classMemoryPoolAllocator_aff48c4c1fa43bdd3a2b406231f0eb00e} 
+\index{MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}!````~MemoryPoolAllocator@{\texorpdfstring{$\sim$}{\string~}MemoryPoolAllocator}}
+\index{````~MemoryPoolAllocator@{\texorpdfstring{$\sim$}{\string~}MemoryPoolAllocator}!MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MemoryPoolAllocator()}{\string~MemoryPoolAllocator()}}
+{\footnotesize\ttfamily template$<$typename Base\+Allocator  = Crt\+Allocator$>$ \\
+\mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}}$<$ Base\+Allocator $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor. 
+
+This deallocates all memory chunks, excluding the user-\/supplied buffer. 
+
+\doxysubsection{Opis metod}
+\Hypertarget{classMemoryPoolAllocator_a60526f0a1e6bb225c49f10537635e30f}\label{classMemoryPoolAllocator_a60526f0a1e6bb225c49f10537635e30f} 
+\index{MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}!Capacity@{Capacity}}
+\index{Capacity@{Capacity}!MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Capacity()}{Capacity()}}
+{\footnotesize\ttfamily template$<$typename Base\+Allocator  = Crt\+Allocator$>$ \\
+size\+\_\+t \mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}}$<$ Base\+Allocator $>$\+::\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Computes the total capacity of allocated memory chunks. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+total capacity in bytes. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryPoolAllocator_aee5e0b6d09dfbbc9bbbc59399a14cc53}\label{classMemoryPoolAllocator_aee5e0b6d09dfbbc9bbbc59399a14cc53} 
+\index{MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}!Shared@{Shared}}
+\index{Shared@{Shared}!MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Shared()}{Shared()}}
+{\footnotesize\ttfamily template$<$typename Base\+Allocator  = Crt\+Allocator$>$ \\
+bool \mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}}$<$ Base\+Allocator $>$\+::\+Shared (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Whether the allocator is shared. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+true or false. 
+\end{DoxyReturn}
+\Hypertarget{classMemoryPoolAllocator_a53abb6188aea4a687ca9f6d778fd1d2d}\label{classMemoryPoolAllocator_a53abb6188aea4a687ca9f6d778fd1d2d} 
+\index{MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}!Size@{Size}}
+\index{Size@{Size}!MemoryPoolAllocator$<$ BaseAllocator $>$@{MemoryPoolAllocator$<$ BaseAllocator $>$}}
+\doxysubsubsection{\texorpdfstring{Size()}{Size()}}
+{\footnotesize\ttfamily template$<$typename Base\+Allocator  = Crt\+Allocator$>$ \\
+size\+\_\+t \mbox{\hyperlink{classMemoryPoolAllocator}{Memory\+Pool\+Allocator}}$<$ Base\+Allocator $>$\+::\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Computes the memory blocks allocated. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+total used bytes. 
+\end{DoxyReturn}
+
+
+Opis razreda je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/allocators.\+h\end{DoxyCompactItemize}

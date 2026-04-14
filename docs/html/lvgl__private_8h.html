@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/lvgl_private.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Datoteka lvgl_private.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__global_8h_source.html">src/core/lv_global.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__display__private_8h_source.html">src/display/lv_display_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__indev__private_8h_source.html">src/indev/lv_indev_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__text__private_8h_source.html">src/misc/lv_text_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__cache_8h_source.html">src/misc/cache/lv_cache.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__cache__entry__private_8h_source.html">src/misc/cache/lv_cache_entry_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__cache__private_8h_source.html">src/misc/cache/lv_cache_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__layout__private_8h_source.html">src/layouts/lv_layout_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__mem__private_8h_source.html">src/stdlib/lv_mem_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__file__explorer__private_8h_source.html">src/others/file_explorer/lv_file_explorer_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__fragment__private_8h_source.html">src/others/fragment/lv_fragment_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__translation__private_8h_source.html">src/others/translation/lv_translation_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__qrcode__private_8h_source.html">src/libs/qrcode/lv_qrcode_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__barcode__private_8h_source.html">src/libs/barcode/lv_barcode_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__triangle__private_8h_source.html">src/draw/lv_draw_triangle_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__private_8h_source.html">src/draw/lv_draw_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__rect__private_8h_source.html">src/draw/lv_draw_rect_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__image__private_8h_source.html">src/draw/lv_draw_image_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__image__decoder__private_8h_source.html">src/draw/lv_image_decoder_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__label__private_8h_source.html">src/draw/lv_draw_label_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__vector__private_8h_source.html">src/draw/lv_draw_vector_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__buf__private_8h_source.html">src/draw/lv_draw_buf_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__sw__private_8h_source.html">src/draw/sw/lv_draw_sw_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__sw__mask__private_8h_source.html">src/draw/sw/lv_draw_sw_mask_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__sw__blend__private_8h_source.html">src/draw/sw/blend/lv_draw_sw_blend_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__xkb__private_8h_source.html">src/drivers/libinput/lv_xkb_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__libinput__private_8h_source.html">src/drivers/libinput/lv_libinput_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__evdev__private_8h_source.html">src/drivers/evdev/lv_evdev_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__theme__private_8h_source.html">src/themes/lv_theme_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__refr__private_8h_source.html">src/core/lv_refr_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__style__private_8h_source.html">src/core/lv_obj_style_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__private_8h_source.html">src/core/lv_obj_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__scroll__private_8h_source.html">src/core/lv_obj_scroll_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__draw__private_8h_source.html">src/core/lv_obj_draw_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__class__private_8h_source.html">src/core/lv_obj_class_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__group__private_8h_source.html">src/core/lv_group_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__event__private_8h_source.html">src/core/lv_obj_event_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__observer__private_8h_source.html">src/core/lv_observer_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__sysmon__private_8h_source.html">src/debugging/sysmon/lv_sysmon_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__monkey__private_8h_source.html">src/debugging/monkey/lv_monkey_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__font__fmt__txt__private_8h_source.html">src/font/fmt_txt/lv_font_fmt_txt_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__timer__private_8h_source.html">src/misc/lv_timer_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__area__private_8h_source.html">src/misc/lv_area_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__fs__private_8h_source.html">src/misc/lv_fs_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__profiler__builtin__private_8h_source.html">src/misc/lv_profiler_builtin_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__event__private_8h_source.html">src/misc/lv_event_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__bidi__private_8h_source.html">src/misc/lv_bidi_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__rb__private_8h_source.html">src/misc/lv_rb_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__style__private_8h_source.html">src/misc/lv_style_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__color__op__private_8h_source.html">src/misc/lv_color_op_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__anim__private_8h_source.html">src/misc/lv_anim_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__anim__timeline__private_8h_source.html">src/misc/lv_anim_timeline_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__msgbox__private_8h_source.html">src/widgets/msgbox/lv_msgbox_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__buttonmatrix__private_8h_source.html">src/widgets/buttonmatrix/lv_buttonmatrix_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__slider__private_8h_source.html">src/widgets/slider/lv_slider_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__switch__private_8h_source.html">src/widgets/switch/lv_switch_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__calendar__private_8h_source.html">src/widgets/calendar/lv_calendar_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__imagebutton__private_8h_source.html">src/widgets/imagebutton/lv_imagebutton_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__bar__private_8h_source.html">src/widgets/bar/lv_bar_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__image__private_8h_source.html">src/widgets/image/lv_image_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__textarea__private_8h_source.html">src/widgets/textarea/lv_textarea_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__table__private_8h_source.html">src/widgets/table/lv_table_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__checkbox__private_8h_source.html">src/widgets/checkbox/lv_checkbox_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__roller__private_8h_source.html">src/widgets/roller/lv_roller_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__win__private_8h_source.html">src/widgets/win/lv_win_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__keyboard__private_8h_source.html">src/widgets/keyboard/lv_keyboard_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__line__private_8h_source.html">src/widgets/line/lv_line_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__animimage__private_8h_source.html">src/widgets/animimage/lv_animimage_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__dropdown__private_8h_source.html">src/widgets/dropdown/lv_dropdown_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__menu__private_8h_source.html">src/widgets/menu/lv_menu_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__chart__private_8h_source.html">src/widgets/chart/lv_chart_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__button__private_8h_source.html">src/widgets/button/lv_button_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__scale__private_8h_source.html">src/widgets/scale/lv_scale_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__led__private_8h_source.html">src/widgets/led/lv_led_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__arc__private_8h_source.html">src/widgets/arc/lv_arc_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__tileview__private_8h_source.html">src/widgets/tileview/lv_tileview_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__spinbox__private_8h_source.html">src/widgets/spinbox/lv_spinbox_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__span__private_8h_source.html">src/widgets/span/lv_span_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__label__private_8h_source.html">src/widgets/label/lv_label_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__canvas__private_8h_source.html">src/widgets/canvas/lv_canvas_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__tabview__private_8h_source.html">src/widgets/tabview/lv_tabview_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__3dtexture__private_8h_source.html">src/widgets/3dtexture/lv_3dtexture_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__ime__pinyin__private_8h_source.html">src/widgets/ime/lv_ime_pinyin_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__tick__private_8h_source.html">src/tick/lv_tick_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__tlsf__private_8h_source.html">src/stdlib/builtin/lv_tlsf_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__rlottie__private_8h_source.html">src/libs/rlottie/lv_rlottie_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__ffmpeg__private_8h_source.html">src/libs/ffmpeg/lv_ffmpeg_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__lottie__private_8h_source.html">src/widgets/lottie/lv_lottie_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__os__private_8h_source.html">src/osal/lv_os_private.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-&gt;B definira relacijo "A vključuje B". Vse datoteke, ki torej mejijo na tekočo (t.j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. </div>
+<div class="dyncontent">
+<div class="center"><img src="lvgl__private_8h__dep__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2lvgl__private_8hdep" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2lvgl__private_8hdep" id="amanaged__components_2lvgl____lvgl_2lvgl__private_8hdep">
+<area shape="rect" title=" " alt="" coords="106,5,287,45"/>
+<area shape="rect" href="lv__example__osal_8c.html" title=" " alt="" coords="5,93,188,163"/>
+<area shape="poly" title=" " alt="" coords="170,57,132,95,128,91,166,53"/>
+<area shape="rect" href="src_2lvgl__private_8h.html" title=" " alt="" coords="213,101,383,155"/>
+<area shape="poly" title=" " alt="" coords="227,53,273,98,270,102,224,57"/>
+<area shape="rect" href="lv__nuttx__libuv_8c.html" title=" " alt="" coords="213,211,383,265"/>
+<area shape="poly" title=" " alt="" coords="301,170,301,210,295,210,295,170"/>
+</map>
+</div>
+</div>
+<p><a href="lvgl__private_8h_source.html">izvorna koda</a></p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

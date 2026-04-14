@@ -1,0 +1,73 @@
+\doxysection{ Struktura UTF32\texorpdfstring{$<$}{<} Char\+Type \texorpdfstring{$>$}{>}}
+\hypertarget{structUTF32}{}\label{structUTF32}\index{UTF32$<$ CharType $>$@{UTF32$<$ CharType $>$}}
+
+
+UTF-\/32 encoding.  
+
+
+
+
+{\ttfamily \#include $<$encodings.\+h$>$}
+
+
+
+Diagram razredov za UTF32\texorpdfstring{$<$}{<} Char\+Type \texorpdfstring{$>$}{>}\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structUTF32__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structUTF32_a74d8c43df912db3defe8e6f286eadfb9}\label{structUTF32_a74d8c43df912db3defe8e6f286eadfb9} 
+enum \{ {\bfseries support\+Unicode} = 1
+ \}
+\item 
+\Hypertarget{structUTF32_ab4502672d56436e730ca5f647bb52be9}\label{structUTF32_ab4502672d56436e730ca5f647bb52be9} 
+typedef Char\+Type {\bfseries Ch}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structUTF32_aae11b766f799d311679d59e9f7077f83}\label{structUTF32_aae11b766f799d311679d59e9f7077f83} 
+{\bfseries RAPIDJSON\+\_\+\+STATIC\+\_\+\+ASSERT} (sizeof(Ch) $>$=4)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statične javne metode in atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structUTF32_a511d1b09672ce535085895a28d8c2f13}\label{structUTF32_a511d1b09672ce535085895a28d8c2f13} 
+{\footnotesize template$<$typename Output\+Stream $>$ }\\static void {\bfseries Encode} (Output\+Stream \&os, unsigned codepoint)
+\item 
+\Hypertarget{structUTF32_ae50dd8dff92c36ee184c6d4eccb1961e}\label{structUTF32_ae50dd8dff92c36ee184c6d4eccb1961e} 
+{\footnotesize template$<$typename Output\+Stream $>$ }\\static void {\bfseries Encode\+Unsafe} (Output\+Stream \&os, unsigned codepoint)
+\item 
+\Hypertarget{structUTF32_a6e7258a5e982e101345dffdc355e9b53}\label{structUTF32_a6e7258a5e982e101345dffdc355e9b53} 
+{\footnotesize template$<$typename Input\+Stream $>$ }\\static bool {\bfseries Decode} (Input\+Stream \&is, unsigned \texorpdfstring{$\ast$}{*}codepoint)
+\item 
+\Hypertarget{structUTF32_a71336fb0546b3079e01bbd51d2fa2e45}\label{structUTF32_a71336fb0546b3079e01bbd51d2fa2e45} 
+{\footnotesize template$<$typename Input\+Stream , typename Output\+Stream $>$ }\\static bool {\bfseries Validate} (Input\+Stream \&is, Output\+Stream \&os)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$typename Char\+Type = unsigned$>$\newline
+struct UTF32$<$ Char\+Type $>$}
+UTF-\/32 encoding. 
+
+\href{http://en.wikipedia.org/wiki/UTF-32}{\texttt{ http\+://en.\+wikipedia.\+org/wiki/\+UTF-\/32}} 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Char\+Type} & Type for storing 32-\/bit UTF-\/32 data. Default is unsigned. C++11 may use char32\+\_\+t instead. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Opomba}
+implements Encoding concept
+
+For in-\/memory access, no need to concern endianness. The code units and code points are represented by CPU\textquotesingle{}s endianness. For streaming, use \doxylink{structUTF32LE}{UTF32\+LE} and \doxylink{structUTF32BE}{UTF32\+BE}, which handle endianness. 
+\end{DoxyNote}
+
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/encodings.\+h\end{DoxyCompactItemize}

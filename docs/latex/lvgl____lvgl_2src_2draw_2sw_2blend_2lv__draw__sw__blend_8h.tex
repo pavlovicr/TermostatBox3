@@ -1,0 +1,67 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/sw/blend/lv\+\_\+draw\+\_\+sw\+\_\+blend.h}
+\hypertarget{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h}{}\label{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h}\index{managed\_components/lvgl\_\_lvgl/src/draw/sw/blend/lv\_draw\_sw\_blend.h@{managed\_components/lvgl\_\_lvgl/src/draw/sw/blend/lv\_draw\_sw\_blend.h}}
+{\ttfamily \#include "{}../lv\+\_\+draw\+\_\+sw\+\_\+mask.\+h"{}}\newline
+{\ttfamily \#include "{}../../../misc/lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}../../../misc/lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \#include "{}../../../misc/lv\+\_\+style.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+sw\+\_\+blend.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+sw\+\_\+blend.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlv__draw__sw__custom__blend__handler__t}{lv\+\_\+draw\+\_\+sw\+\_\+custom\+\_\+blend\+\_\+handler\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h_a21deaed1d13d230e88b5fc86b88adf18}{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+handler\+\_\+t}}) (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{struct__lv__draw__sw__blend__dsc__t}{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h_afdde1bfb3307af39474488089ddedbaa}{lv\+\_\+draw\+\_\+sw\+\_\+blend}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{struct__lv__draw__sw__blend__dsc__t}{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis uporabniško definiranega tipa}
+\Hypertarget{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h_a21deaed1d13d230e88b5fc86b88adf18}\label{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h_a21deaed1d13d230e88b5fc86b88adf18} 
+\index{lv\_draw\_sw\_blend.h@{lv\_draw\_sw\_blend.h}!lv\_draw\_sw\_blend\_handler\_t@{lv\_draw\_sw\_blend\_handler\_t}}
+\index{lv\_draw\_sw\_blend\_handler\_t@{lv\_draw\_sw\_blend\_handler\_t}!lv\_draw\_sw\_blend.h@{lv\_draw\_sw\_blend.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_sw\_blend\_handler\_t}{lv\_draw\_sw\_blend\_handler\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+handler\+\_\+t) (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{struct__lv__draw__sw__blend__dsc__t}{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)}
+
+Custom draw function for SW rendering. 
+\begin{DoxyParams}{Parametri}
+{\em t} & pointer to a draw task \\
+\hline
+{\em dsc} & pointer to an initialized blend descriptor \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h_afdde1bfb3307af39474488089ddedbaa}\label{lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend_8h_afdde1bfb3307af39474488089ddedbaa} 
+\index{lv\_draw\_sw\_blend.h@{lv\_draw\_sw\_blend.h}!lv\_draw\_sw\_blend@{lv\_draw\_sw\_blend}}
+\index{lv\_draw\_sw\_blend@{lv\_draw\_sw\_blend}!lv\_draw\_sw\_blend.h@{lv\_draw\_sw\_blend.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_sw\_blend()}{lv\_draw\_sw\_blend()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+sw\+\_\+blend (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{const \mbox{\hyperlink{struct__lv__draw__sw__blend__dsc__t}{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc }\end{DoxyParamCaption})}
+
+Call the blend function of the {\ttfamily layer}. 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+unit} & pointer to a draw unit \\
+\hline
+{\em dsc} & pointer to an initialized blend descriptor \\
+\hline
+\end{DoxyParams}

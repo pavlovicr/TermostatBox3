@@ -1,0 +1,144 @@
+\doxysection{nuttx\+\_\+mm.\+h}
+\hypertarget{nuttx__mm_8h_source}{}\label{nuttx__mm_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/drivers/nuttx/mock/nuttx\_mm.h@{managed\_components/lvgl\_\_lvgl/src/drivers/nuttx/mock/nuttx\_mm.h}}
+\mbox{\hyperlink{nuttx__mm_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ NUTTX\_MM\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ NUTTX\_MM\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ Special\ PID\ to\ query\ the\ info\ about\ alloc,\ free\ and\ mempool\ */}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ PID\_MM\_ORPHAN\ \ (-\/6)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ PID\_MM\_BIGGEST\ (-\/5)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ PID\_MM\_FREE\ \ \ \ (-\/4)}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ PID\_MM\_ALLOC\ \ \ (-\/3)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ PID\_MM\_LEAK\ \ \ \ (-\/2)}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ PID\_MM\_MEMPOOL\ (-\/1)}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifndef\ ULONG\_MAX}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ ULONG\_MAX\ \ \ 4294967295UL}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ CONFIG\_MM\_BACKTRACE\ 1}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmm__heap__s}{mm\_heap\_s}}\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{/*\ This\ is\ the\ size\ of\ the\ heap\ provided\ to\ mm\ */}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ mm\_heapsize;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{/*\ This\ is\ the\ heap\ maximum\ used\ memory\ size\ */}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ mm\_maxused;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{/*\ This\ is\ the\ current\ used\ size\ of\ the\ heap\ */}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ mm\_curused;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{/*\ Kasan\ is\ disable\ or\ enable\ for\ this\ heap\ */}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{bool}\ mm\_nokasan;}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmalltask}{malltask}}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{/*\ Negative\ pid\ means\ differently.\ See\ include/malloc.h\ */}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ pid;\ \textcolor{comment}{/*\ Process\ id\ */}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ seqmin;\ \textcolor{comment}{/*\ The\ minimum\ sequence\ */}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ seqmax;\ \textcolor{comment}{/*\ The\ maximum\ sequence\ */}}
+\DoxyCodeLine{00067\ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ mm\_memdump\_s\ malltask}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmallinfo}{mallinfo}}\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{int}\ arena;\ \ \ \ \textcolor{comment}{/*\ non-\/mmapped\ space\ allocated\ from\ system\ */}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ ordblks;\ \ \textcolor{comment}{/*\ number\ of\ free\ chunks\ */}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{int}\ smblks;\ \ \ \textcolor{comment}{/*\ number\ of\ fastbin\ blocks\ */}}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{int}\ hblks;\ \ \ \ \textcolor{comment}{/*\ number\ of\ mmapped\ regions\ */}}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{int}\ hblkhd;\ \ \ \textcolor{comment}{/*\ space\ in\ mmapped\ regions\ */}}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{int}\ usmblks;\ \ \textcolor{comment}{/*\ always\ 0,\ preserved\ for\ backwards\ compatibility\ */}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{int}\ fsmblks;\ \ \textcolor{comment}{/*\ space\ available\ in\ freed\ fastbin\ blocks\ */}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{int}\ uordblks;\ \textcolor{comment}{/*\ total\ allocated\ space\ */}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{int}\ fordblks;\ \textcolor{comment}{/*\ total\ free\ space\ */}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{int}\ keepcost;\ \textcolor{comment}{/*\ top-\/most,\ releasable\ (via\ malloc\_trim)\ space\ */}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ aordblks;\ \textcolor{comment}{/*\ This\ is\ the\ number\ of\ allocated\ (in\ use)\ chunks\ for\ task\ */}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ mxordblk;\ \textcolor{comment}{/*\ size\ of\ the\ largest\ free\ chunk\ */}}
+\DoxyCodeLine{00084\ \};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmm__heap__s}{mm\_heap\_s}}\ *\ mm\_initialize(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name,\ \textcolor{keywordtype}{void}\ *\ mem,\ \textcolor{keywordtype}{size\_t}\ size)}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ (void)name;}
+\DoxyCodeLine{00093\ \ \ \ \ (void)mem;}
+\DoxyCodeLine{00094\ \ \ \ \ (void)size;}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00096\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mm\_uninitialize(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structmm__heap__s}{mm\_heap\_s}}\ *\ heap)}
+\DoxyCodeLine{00099\ \{}
+\DoxyCodeLine{00100\ \ \ \ \ (void)heap;}
+\DoxyCodeLine{00101\ \}}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ *\ mm\_malloc(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structmm__heap__s}{mm\_heap\_s}}\ *\ heap,\ \textcolor{keywordtype}{size\_t}\ size)}
+\DoxyCodeLine{00104\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ (void)heap;}
+\DoxyCodeLine{00106\ \ \ \ \ (void)size;}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00108\ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mm\_free(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structmm__heap__s}{mm\_heap\_s}}\ *\ heap,\ \textcolor{keywordtype}{void}\ *\ ptr)}
+\DoxyCodeLine{00111\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ (void)heap;}
+\DoxyCodeLine{00113\ \ \ \ \ (void)ptr;}
+\DoxyCodeLine{00114\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ mm\_memdump(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structmm__heap__s}{mm\_heap\_s}}\ *\ heap,\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ mm\_memdump\_s\ *\ dump)}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ (void)heap;}
+\DoxyCodeLine{00119\ \ \ \ \ (void)dump;}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmallinfo}{mallinfo}}\ mm\_mallinfo(struct\ \mbox{\hyperlink{structmm__heap__s}{mm\_heap\_s}}\ *\ heap)}
+\DoxyCodeLine{00123\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ (void)heap;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structmallinfo}{mallinfo}}\ info\ =\ \{0\};}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ info;}
+\DoxyCodeLine{00127\ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ gettid(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{00130\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00132\ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00139\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*NUTTX\_MM\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

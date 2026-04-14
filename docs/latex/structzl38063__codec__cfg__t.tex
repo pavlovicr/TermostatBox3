@@ -1,0 +1,90 @@
+\doxysection{ Struktura zl38063\+\_\+codec\+\_\+cfg\+\_\+t}
+\hypertarget{structzl38063__codec__cfg__t}{}\label{structzl38063__codec__cfg__t}\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+
+
+ZL38063 codec configuration Notes\+: ZL38063 codec driver provide default configuration of I2S settings in firmware. Defaults are 48khz, 16 bits, 2 channels To playback other sample rate need do resampling firstly.  
+
+
+
+
+{\ttfamily \#include $<$zl38063\+\_\+codec.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structzl38063__codec__cfg__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structzl38063__codec__cfg__t_a7aa2bc213295eff7c434a2645c24853e}{ctrl\+\_\+if}}
+\item 
+const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structzl38063__codec__cfg__t_a3cf9c789b15958cc5b34cf66bc95a8d7}{gpio\+\_\+if}}
+\item 
+esp\+\_\+codec\+\_\+dec\+\_\+work\+\_\+mode\+\_\+t \mbox{\hyperlink{structzl38063__codec__cfg__t_abf18f84878df6ea36988b2cd50e50322}{codec\+\_\+mode}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structzl38063__codec__cfg__t_ab145fc14ff6c155e2cfd108f7d689ddc}{pa\+\_\+pin}}
+\item 
+bool \mbox{\hyperlink{structzl38063__codec__cfg__t_a7166914f0ab6757ad7c841181cfb7d32}{pa\+\_\+reverted}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structzl38063__codec__cfg__t_a7a469522afe2448346d387ddae570062}{reset\+\_\+pin}}
+\item 
+\mbox{\hyperlink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}} \mbox{\hyperlink{structzl38063__codec__cfg__t_a1e1b9cf9473f8d5753f99b15a80c8d1f}{hw\+\_\+gain}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+ZL38063 codec configuration Notes\+: ZL38063 codec driver provide default configuration of I2S settings in firmware. Defaults are 48khz, 16 bits, 2 channels To playback other sample rate need do resampling firstly. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structzl38063__codec__cfg__t_abf18f84878df6ea36988b2cd50e50322}\label{structzl38063__codec__cfg__t_abf18f84878df6ea36988b2cd50e50322} 
+\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}!codec\_mode@{codec\_mode}}
+\index{codec\_mode@{codec\_mode}!zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{codec\_mode}{codec\_mode}}
+{\footnotesize\ttfamily esp\+\_\+codec\+\_\+dec\+\_\+work\+\_\+mode\+\_\+t zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+::codec\+\_\+mode}
+
+Codec work mode\+: ADC or DAC \Hypertarget{structzl38063__codec__cfg__t_a7aa2bc213295eff7c434a2645c24853e}\label{structzl38063__codec__cfg__t_a7aa2bc213295eff7c434a2645c24853e} 
+\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}!ctrl\_if@{ctrl\_if}}
+\index{ctrl\_if@{ctrl\_if}!zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{ctrl\_if}{ctrl\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+::ctrl\+\_\+if}
+
+Codec Control interface \Hypertarget{structzl38063__codec__cfg__t_a3cf9c789b15958cc5b34cf66bc95a8d7}\label{structzl38063__codec__cfg__t_a3cf9c789b15958cc5b34cf66bc95a8d7} 
+\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}!gpio\_if@{gpio\_if}}
+\index{gpio\_if@{gpio\_if}!zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{gpio\_if}{gpio\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+::gpio\+\_\+if}
+
+Codec GPIO interface \Hypertarget{structzl38063__codec__cfg__t_a1e1b9cf9473f8d5753f99b15a80c8d1f}\label{structzl38063__codec__cfg__t_a1e1b9cf9473f8d5753f99b15a80c8d1f} 
+\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}!hw\_gain@{hw\_gain}}
+\index{hw\_gain@{hw\_gain}!zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{hw\_gain}{hw\_gain}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}} zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+::hw\+\_\+gain}
+
+Hardware gain \Hypertarget{structzl38063__codec__cfg__t_ab145fc14ff6c155e2cfd108f7d689ddc}\label{structzl38063__codec__cfg__t_ab145fc14ff6c155e2cfd108f7d689ddc} 
+\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}!pa\_pin@{pa\_pin}}
+\index{pa\_pin@{pa\_pin}!zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_pin}{pa\_pin}}
+{\footnotesize\ttfamily int16\+\_\+t zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+pin}
+
+PA chip power pin \Hypertarget{structzl38063__codec__cfg__t_a7166914f0ab6757ad7c841181cfb7d32}\label{structzl38063__codec__cfg__t_a7166914f0ab6757ad7c841181cfb7d32} 
+\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}!pa\_reverted@{pa\_reverted}}
+\index{pa\_reverted@{pa\_reverted}!zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_reverted}{pa\_reverted}}
+{\footnotesize\ttfamily bool zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+reverted}
+
+false\+: enable PA when pin set to 1, true\+: enable PA when pin set to 0 \Hypertarget{structzl38063__codec__cfg__t_a7a469522afe2448346d387ddae570062}\label{structzl38063__codec__cfg__t_a7a469522afe2448346d387ddae570062} 
+\index{zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}!reset\_pin@{reset\_pin}}
+\index{reset\_pin@{reset\_pin}!zl38063\_codec\_cfg\_t@{zl38063\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{reset\_pin}{reset\_pin}}
+{\footnotesize\ttfamily int16\+\_\+t zl38063\+\_\+codec\+\_\+cfg\+\_\+t\+::reset\+\_\+pin}
+
+Reset pin 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/device/include/zl38063\+\_\+codec.\+h\end{DoxyCompactItemize}

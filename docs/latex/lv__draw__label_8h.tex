@@ -1,0 +1,212 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/lv\+\_\+draw\+\_\+label.h}
+\hypertarget{lv__draw__label_8h}{}\label{lv__draw__label_8h}\index{managed\_components/lvgl\_\_lvgl/src/draw/lv\_draw\_label.h@{managed\_components/lvgl\_\_lvgl/src/draw/lv\_draw\_label.h}}
+{\ttfamily \#include "{}lv\+\_\+draw.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+draw\+\_\+rect.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+bidi.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+text.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+style.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+label.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+label.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__label_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__label_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structlv__draw__letter__dsc__t}{lv\+\_\+draw\+\_\+letter\+\_\+dsc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__label_8h_a9b77eed629d20fe870159e9cf652410e}\label{lv__draw__label_8h_a9b77eed629d20fe870159e9cf652410e} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+LABEL\+\_\+\+NO\+\_\+\+TXT\+\_\+\+SEL}~(0x\+FFFF)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+typedef void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__label_8h_ab49f7d1cff4d38521f231aed15b049e5}{lv\+\_\+draw\+\_\+glyph\+\_\+cb\+\_\+t}}) (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, \mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, \mbox{\hyperlink{structlv__draw__fill__dsc__t}{lv\+\_\+draw\+\_\+fill\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}fill\+\_\+dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}fill\+\_\+area)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__label_8h_a6c5723b6a2c5368ee5360237a61ca44f}\label{lv__draw__label_8h_a6c5723b6a2c5368ee5360237a61ca44f} 
+void {\bfseries lv\+\_\+draw\+\_\+letter\+\_\+dsc\+\_\+init} (\mbox{\hyperlink{structlv__draw__letter__dsc__t}{lv\+\_\+draw\+\_\+letter\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+void \mbox{\hyperlink{lv__draw__label_8h_a53131dc0af039669a23994cd82c799c8}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+init}} (\mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+\mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__label_8h_afd9c2bbf2571d85a84ac2dc1cba77090}{lv\+\_\+draw\+\_\+task\+\_\+get\+\_\+label\+\_\+dsc}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}task)
+\item 
+void \mbox{\hyperlink{lv__draw__label_8h_af80ef62018ad666b4ed49abfc343127b}{lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+init}} (\mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+void \mbox{\hyperlink{lv__draw__label_8h_a231bc086cbadcd1ca89691e58e57232b}{lv\+\_\+draw\+\_\+label}} (\mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*}layer, const \mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords)
+\item 
+void \mbox{\hyperlink{lv__draw__label_8h_a1143cd76c5f0e8260cf49a4b6d82e11a}{lv\+\_\+draw\+\_\+character}} (\mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*}layer, \mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}point, uint32\+\_\+t unicode\+\_\+letter)
+\item 
+void \mbox{\hyperlink{lv__draw__label_8h_acbc054f5a72312b1acbab5ad51032786}{lv\+\_\+draw\+\_\+letter}} (\mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*}layer, \mbox{\hyperlink{structlv__draw__letter__dsc__t}{lv\+\_\+draw\+\_\+letter\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}point)
+\item 
+void \mbox{\hyperlink{lv__draw__label_8h_ab9e9394fe4bc823b47834cb46e77f29b}{lv\+\_\+draw\+\_\+label\+\_\+iterate\+\_\+characters}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords, \mbox{\hyperlink{lv__draw__label_8h_ab49f7d1cff4d38521f231aed15b049e5}{lv\+\_\+draw\+\_\+glyph\+\_\+cb\+\_\+t}} cb)
+\item 
+void \mbox{\hyperlink{lv__draw__label_8h_ada1629acf778e899348b585b6ece92a7}{lv\+\_\+draw\+\_\+unit\+\_\+draw\+\_\+letter}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, \mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}pos, const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, uint32\+\_\+t letter, \mbox{\hyperlink{lv__draw__label_8h_ab49f7d1cff4d38521f231aed15b049e5}{lv\+\_\+draw\+\_\+glyph\+\_\+cb\+\_\+t}} cb)
+\begin{DoxyCompactList}\small\item\em Draw a single letter using the provided draw unit, glyph descriptor, position, font, and callback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis uporabniško definiranega tipa}
+\Hypertarget{lv__draw__label_8h_ab49f7d1cff4d38521f231aed15b049e5}\label{lv__draw__label_8h_ab49f7d1cff4d38521f231aed15b049e5} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_glyph\_cb\_t@{lv\_draw\_glyph\_cb\_t}}
+\index{lv\_draw\_glyph\_cb\_t@{lv\_draw\_glyph\_cb\_t}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_glyph\_cb\_t}{lv\_draw\_glyph\_cb\_t}}
+{\footnotesize\ttfamily typedef void(\texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+glyph\+\_\+cb\+\_\+t) (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, \mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, \mbox{\hyperlink{structlv__draw__fill__dsc__t}{lv\+\_\+draw\+\_\+fill\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}fill\+\_\+dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}fill\+\_\+area)}
+
+Passed as a parameter to {\ttfamily lv\+\_\+draw\+\_\+label\+\_\+iterate\+\_\+characters} to draw the characters one by one 
+\begin{DoxyParams}{Parametri}
+{\em t} & pointer to a draw task \\
+\hline
+{\em dsc} & pointer to {\ttfamily lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t} to describe the character to draw if NULL don\textquotesingle{}t draw character \\
+\hline
+{\em fill\+\_\+dsc} & pointer to a fill descriptor to draw a background for the character or underline or strike through if NULL do not fill anything \\
+\hline
+{\em fill\+\_\+area} & the area to fill if NULL do not fill anything \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__draw__label_8h_a1143cd76c5f0e8260cf49a4b6d82e11a}\label{lv__draw__label_8h_a1143cd76c5f0e8260cf49a4b6d82e11a} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_character@{lv\_draw\_character}}
+\index{lv\_draw\_character@{lv\_draw\_character}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_character()}{lv\_draw\_character()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+character (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{layer,  }\item[{\mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{point,  }\item[{uint32\+\_\+t}]{unicode\+\_\+letter }\end{DoxyParamCaption})}
+
+Create a draw task to render a single character 
+\begin{DoxyParams}{Parametri}
+{\em layer} & pointer to a layer \\
+\hline
+{\em dsc} & pointer to draw descriptor \\
+\hline
+{\em point} & position of the label \\
+\hline
+{\em unicode\+\_\+letter} & the letter to draw \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__label_8h_af80ef62018ad666b4ed49abfc343127b}\label{lv__draw__label_8h_af80ef62018ad666b4ed49abfc343127b} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_glyph\_dsc\_init@{lv\_draw\_glyph\_dsc\_init}}
+\index{lv\_draw\_glyph\_dsc\_init@{lv\_draw\_glyph\_dsc\_init}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_glyph\_dsc\_init()}{lv\_draw\_glyph\_dsc\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc }\end{DoxyParamCaption})}
+
+Initialize a glyph draw descriptor. Used internally. 
+\begin{DoxyParams}{Parametri}
+{\em dsc} & pointer to a draw descriptor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__label_8h_a231bc086cbadcd1ca89691e58e57232b}\label{lv__draw__label_8h_a231bc086cbadcd1ca89691e58e57232b} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_label@{lv\_draw\_label}}
+\index{lv\_draw\_label@{lv\_draw\_label}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_label()}{lv\_draw\_label()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+label (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{layer,  }\item[{const \mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords }\end{DoxyParamCaption})}
+
+Create a draw task to render a text 
+\begin{DoxyParams}{Parametri}
+{\em layer} & pointer to a layer \\
+\hline
+{\em dsc} & pointer to draw descriptor \\
+\hline
+{\em coords} & coordinates of the character \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__label_8h_a53131dc0af039669a23994cd82c799c8}\label{lv__draw__label_8h_a53131dc0af039669a23994cd82c799c8} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_label\_dsc\_init@{lv\_draw\_label\_dsc\_init}}
+\index{lv\_draw\_label\_dsc\_init@{lv\_draw\_label\_dsc\_init}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_label\_dsc\_init()}{lv\_draw\_label\_dsc\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc }\end{DoxyParamCaption})}
+
+Initialize a label draw descriptor 
+\begin{DoxyParams}{Parametri}
+{\em dsc} & pointer to a draw descriptor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__label_8h_ab9e9394fe4bc823b47834cb46e77f29b}\label{lv__draw__label_8h_ab9e9394fe4bc823b47834cb46e77f29b} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_label\_iterate\_characters@{lv\_draw\_label\_iterate\_characters}}
+\index{lv\_draw\_label\_iterate\_characters@{lv\_draw\_label\_iterate\_characters}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_label\_iterate\_characters()}{lv\_draw\_label\_iterate\_characters()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+label\+\_\+iterate\+\_\+characters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{const \mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords,  }\item[{\mbox{\hyperlink{lv__draw__label_8h_ab49f7d1cff4d38521f231aed15b049e5}{lv\+\_\+draw\+\_\+glyph\+\_\+cb\+\_\+t}}}]{cb }\end{DoxyParamCaption})}
+
+Should be used during rendering the characters to get the position and other parameters of the characters 
+\begin{DoxyParams}{Parametri}
+{\em t} & pointer to a draw task \\
+\hline
+{\em dsc} & pointer to draw descriptor \\
+\hline
+{\em coords} & coordinates of the label \\
+\hline
+{\em cb} & a callback to call to draw each glyphs one by one \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__label_8h_acbc054f5a72312b1acbab5ad51032786}\label{lv__draw__label_8h_acbc054f5a72312b1acbab5ad51032786} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_letter@{lv\_draw\_letter}}
+\index{lv\_draw\_letter@{lv\_draw\_letter}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_letter()}{lv\_draw\_letter()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+letter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__layer__t}{lv\+\_\+layer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{layer,  }\item[{\mbox{\hyperlink{structlv__draw__letter__dsc__t}{lv\+\_\+draw\+\_\+letter\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{point }\end{DoxyParamCaption})}
+
+Draw a single letter 
+\begin{DoxyParams}{Parametri}
+{\em layer} & pointer to a layer \\
+\hline
+{\em dsc} & pointer to draw descriptor \\
+\hline
+{\em point} & position of the label \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__label_8h_afd9c2bbf2571d85a84ac2dc1cba77090}\label{lv__draw__label_8h_afd9c2bbf2571d85a84ac2dc1cba77090} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_task\_get\_label\_dsc@{lv\_draw\_task\_get\_label\_dsc}}
+\index{lv\_draw\_task\_get\_label\_dsc@{lv\_draw\_task\_get\_label\_dsc}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_task\_get\_label\_dsc()}{lv\_draw\_task\_get\_label\_dsc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__draw__label__dsc__t}{lv\+\_\+draw\+\_\+label\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+task\+\_\+get\+\_\+label\+\_\+dsc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{task }\end{DoxyParamCaption})}
+
+Try to get a label draw descriptor from a draw task. 
+\begin{DoxyParams}{Parametri}
+{\em task} & draw task \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the task\textquotesingle{}s draw descriptor or NULL if the task is not of type LV\+\_\+\+DRAW\+\_\+\+TASK\+\_\+\+TYPE\+\_\+\+LABEL 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__label_8h_ada1629acf778e899348b585b6ece92a7}\label{lv__draw__label_8h_ada1629acf778e899348b585b6ece92a7} 
+\index{lv\_draw\_label.h@{lv\_draw\_label.h}!lv\_draw\_unit\_draw\_letter@{lv\_draw\_unit\_draw\_letter}}
+\index{lv\_draw\_unit\_draw\_letter@{lv\_draw\_unit\_draw\_letter}!lv\_draw\_label.h@{lv\_draw\_label.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_unit\_draw\_letter()}{lv\_draw\_unit\_draw\_letter()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+unit\+\_\+draw\+\_\+letter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{\mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pos,  }\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{uint32\+\_\+t}]{letter,  }\item[{\mbox{\hyperlink{lv__draw__label_8h_ab49f7d1cff4d38521f231aed15b049e5}{lv\+\_\+draw\+\_\+glyph\+\_\+cb\+\_\+t}}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Draw a single letter using the provided draw unit, glyph descriptor, position, font, and callback. 
+
+This function is responsible for rendering a single character from a text string, applying the necessary styling described by the glyph descriptor ({\ttfamily dsc}). It handles the retrieval of the glyph\textquotesingle{}s description, checks its visibility within the clipping area, and invokes the callback ({\ttfamily cb}) to render the glyph at the specified position ({\ttfamily pos}) using the given font ({\ttfamily font}).
+
+
+\begin{DoxyParams}{Parametri}
+{\em t} & Pointer to the drawing task. \\
+\hline
+{\em dsc} & Pointer to the descriptor containing styling for the glyph to be drawn. \\
+\hline
+{\em pos} & Pointer to the point coordinates where the letter should be drawn. \\
+\hline
+{\em font} & Pointer to the font containing the glyph. \\
+\hline
+{\em letter} & The Unicode code point of the letter to be drawn. \\
+\hline
+{\em cb} & Callback function to execute the actual rendering of the glyph. \\
+\hline
+\end{DoxyParams}

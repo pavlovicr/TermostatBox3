@@ -1,0 +1,148 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/document.h}
+\hypertarget{document_8h}{}\label{document_8h}\index{managed\_components/lvgl\_\_lvgl/src/libs/thorvg/rapidjson/document.h@{managed\_components/lvgl\_\_lvgl/src/libs/thorvg/rapidjson/document.h}}
+{\ttfamily \#include "{}reader.\+h"{}}\newline
+{\ttfamily \#include "{}internal/meta.\+h"{}}\newline
+{\ttfamily \#include "{}internal/strfunc.\+h"{}}\newline
+{\ttfamily \#include "{}memorystream.\+h"{}}\newline
+{\ttfamily \#include "{}encodedstream.\+h"{}}\newline
+{\ttfamily \#include $<$new$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}document.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko document.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{document_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{document_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classGenericMember}{Generic\+Member$<$ Encoding, Allocator $>$}}
+\begin{DoxyCompactList}\small\item\em Name-\/value pair in a JSON object value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGenericMemberIterator}{Generic\+Member\+Iterator$<$ Const, Encoding, Allocator $>$}}
+\begin{DoxyCompactList}\small\item\em (Constant) member iterator for a JSON object value \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structGenericStringRef}{Generic\+String\+Ref$<$ Char\+Type $>$}}
+\begin{DoxyCompactList}\small\item\em Reference to a constant string (not taking a copy) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGenericValue}{Generic\+Value$<$ Encoding, Allocator $>$}}
+\begin{DoxyCompactList}\small\item\em Represents a JSON value. Use Value for \doxylink{structUTF8}{UTF8} encoding and default allocator. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structGenericValue_1_1Flag}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Flag}}
+\item 
+struct \mbox{\hyperlink{structGenericValue_1_1String}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+String}}
+\item 
+struct \mbox{\hyperlink{structGenericValue_1_1ShortString}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Short\+String}}
+\item 
+union \mbox{\hyperlink{unionGenericValue_1_1Number}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Number}}
+\item 
+struct \mbox{\hyperlink{structGenericValue_1_1Number_1_1I}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Number\+::I}}
+\item 
+struct \mbox{\hyperlink{structGenericValue_1_1Number_1_1U}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Number\+::U}}
+\item 
+struct \mbox{\hyperlink{structGenericValue_1_1ObjectData}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Object\+Data}}
+\item 
+struct \mbox{\hyperlink{structGenericValue_1_1ArrayData}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Array\+Data}}
+\item 
+union \mbox{\hyperlink{unionGenericValue_1_1Data}{Generic\+Value$<$ Encoding, Allocator $>$\+::\+Data}}
+\item 
+class \mbox{\hyperlink{classGenericDocument}{Generic\+Document$<$ Encoding, Allocator, Stack\+Allocator $>$}}
+\begin{DoxyCompactList}\small\item\em A document for parsing JSON text as DOM. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGenericArray}{Generic\+Array$<$ Const, Value\+T $>$}}
+\begin{DoxyCompactList}\small\item\em Helper class for accessing Value of array type. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classGenericObject}{Generic\+Object$<$ Const, Value\+T $>$}}
+\begin{DoxyCompactList}\small\item\em Helper class for accessing Value of object type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group__RAPIDJSON__CONFIG_ga04a88f0b2db9091006eb7fc6deb6077b}{RAPIDJSON\+\_\+\+DEFAULT\+\_\+\+ALLOCATOR}}~\+::\+RAPIDJSON\+\_\+\+NAMESPACE\+::\+Memory\+Pool\+Allocator$<$\+::\+RAPIDJSON\+\_\+\+NAMESPACE\+::\+Crt\+Allocator$>$
+\begin{DoxyCompactList}\small\item\em Allows to choose default allocator. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__RAPIDJSON__CONFIG_ga1178cffff7c596922a5ed3fda30c5520}{RAPIDJSON\+\_\+\+DEFAULT\+\_\+\+STACK\+\_\+\+ALLOCATOR}}~\+::\+RAPIDJSON\+\_\+\+NAMESPACE\+::\+Crt\+Allocator
+\begin{DoxyCompactList}\small\item\em Allows to choose default stack allocator for Document. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__RAPIDJSON__CONFIG_ga5c88aa612939b592d15d3fc4bdf54272}{RAPIDJSON\+\_\+\+VALUE\+\_\+\+DEFAULT\+\_\+\+OBJECT\+\_\+\+CAPACITY}}~16
+\begin{DoxyCompactList}\small\item\em User defined k\+Default\+Object\+Capacity value. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{group__RAPIDJSON__CONFIG_ga10ba0ee06d0ac2803d0f2290d46b19f7}{RAPIDJSON\+\_\+\+VALUE\+\_\+\+DEFAULT\+\_\+\+ARRAY\+\_\+\+CAPACITY}}~16
+\begin{DoxyCompactList}\small\item\em User defined k\+Default\+Array\+Capacity value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481}\label{document_8h_a071cf97155ba72ac9a1fc4ad7e63d481} 
+typedef \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ \mbox{\hyperlink{structUTF8}{UTF8}}$<$$>$ $>$ {\bfseries Value}
+\begin{DoxyCompactList}\small\item\em \doxylink{classGenericValue}{Generic\+Value} with \doxylink{structUTF8}{UTF8} encoding. \end{DoxyCompactList}\item 
+\Hypertarget{document_8h_ac6ea5b168e3fe8c7fa532450fc9391f7}\label{document_8h_ac6ea5b168e3fe8c7fa532450fc9391f7} 
+typedef \mbox{\hyperlink{classGenericDocument}{Generic\+Document}}$<$ \mbox{\hyperlink{structUTF8}{UTF8}}$<$$>$ $>$ {\bfseries Document}
+\begin{DoxyCompactList}\small\item\em \doxylink{classGenericDocument}{Generic\+Document} with \doxylink{structUTF8}{UTF8} encoding. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Char\+Type $>$ }\\\mbox{\hyperlink{structGenericStringRef}{Generic\+String\+Ref}}$<$ Char\+Type $>$ \mbox{\hyperlink{document_8h_aa6b9fd9f6aa49405a574c362ba9af6b5}{String\+Ref}} (const Char\+Type \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Mark a character pointer as constant string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Char\+Type $>$ }\\\mbox{\hyperlink{structGenericStringRef}{Generic\+String\+Ref}}$<$ Char\+Type $>$ \mbox{\hyperlink{document_8h_a578c51ab574a50a9c760b9da7c7562f2}{String\+Ref}} (const Char\+Type \texorpdfstring{$\ast$}{*}str, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Mark a character pointer as constant string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{document_8h_aa6b9fd9f6aa49405a574c362ba9af6b5}\label{document_8h_aa6b9fd9f6aa49405a574c362ba9af6b5} 
+\index{document.h@{document.h}!StringRef@{StringRef}}
+\index{StringRef@{StringRef}!document.h@{document.h}}
+\doxysubsubsection{\texorpdfstring{StringRef()}{StringRef()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Char\+Type $>$ \\
+\mbox{\hyperlink{structGenericStringRef}{Generic\+String\+Ref}}$<$ Char\+Type $>$ String\+Ref (\begin{DoxyParamCaption}\item[{const Char\+Type \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mark a character pointer as constant string. 
+
+Mark a plain character pointer as a "{}string literal"{}. This function can be used to avoid copying a character string to be referenced as a value in a JSON \doxylink{classGenericValue}{Generic\+Value} object, if the string\textquotesingle{}s lifetime is known to be valid long enough. 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Char\+Type} & Character type of the string \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parametri}
+{\em str} & Constant string, lifetime assumed to be longer than the use of the string in e.\+g. a \doxylink{classGenericValue}{Generic\+Value} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+\doxylink{structGenericStringRef}{Generic\+String\+Ref} string reference object
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{Glej}
+Generic\+Value\+::\+Generic\+Value(\+String\+Ref\+Type), Generic\+Value\+::operator=(\+String\+Ref\+Type), Generic\+Value\+::\+Set\+String(\+String\+Ref\+Type), Generic\+Value\+::\+Push\+Back(\+String\+Ref\+Type, Allocator\&), Generic\+Value\+::\+Add\+Member 
+\end{DoxySeeAlso}
+\Hypertarget{document_8h_a578c51ab574a50a9c760b9da7c7562f2}\label{document_8h_a578c51ab574a50a9c760b9da7c7562f2} 
+\index{document.h@{document.h}!StringRef@{StringRef}}
+\index{StringRef@{StringRef}!document.h@{document.h}}
+\doxysubsubsection{\texorpdfstring{StringRef()}{StringRef()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Char\+Type $>$ \\
+\mbox{\hyperlink{structGenericStringRef}{Generic\+String\+Ref}}$<$ Char\+Type $>$ String\+Ref (\begin{DoxyParamCaption}\item[{const Char\+Type \texorpdfstring{$\ast$}{*}}]{str,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Mark a character pointer as constant string. 
+
+Mark a plain character pointer as a "{}string literal"{}. This function can be used to avoid copying a character string to be referenced as a value in a JSON \doxylink{classGenericValue}{Generic\+Value} object, if the string\textquotesingle{}s lifetime is known to be valid long enough.
+
+This version has better performance with supplied length, and also supports string containing null characters.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Char\+Type} & character type of the string \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parametri}
+{\em str} & Constant string, lifetime assumed to be longer than the use of the string in e.\+g. a \doxylink{classGenericValue}{Generic\+Value} \\
+\hline
+{\em length} & The length of source string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+\doxylink{structGenericStringRef}{Generic\+String\+Ref} string reference object 
+\end{DoxyReturn}

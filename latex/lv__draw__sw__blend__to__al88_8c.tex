@@ -1,0 +1,106 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/sw/blend/lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+to\+\_\+al88.c}
+\hypertarget{lv__draw__sw__blend__to__al88_8c}{}\label{lv__draw__sw__blend__to__al88_8c}\index{managed\_components/lvgl\_\_lvgl/src/draw/sw/blend/lv\_draw\_sw\_blend\_to\_al88.c@{managed\_components/lvgl\_\_lvgl/src/draw/sw/blend/lv\_draw\_sw\_blend\_to\_al88.c}}
+{\ttfamily \#include "{}lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+to\+\_\+al88.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../../misc/lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}../../../display/lv\+\_\+display.\+h"{}}\newline
+{\ttfamily \#include "{}../../../core/lv\+\_\+refr.\+h"{}}\newline
+{\ttfamily \#include "{}../../../misc/lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}../../../stdlib/lv\+\_\+string.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+to\+\_\+al88.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+to\+\_\+al88.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__sw__blend__to__al88_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlv__color__mix__alpha__cache__t}{lv\+\_\+color\+\_\+mix\+\_\+alpha\+\_\+cache\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a2515f0f34ed10d77845b07231d6ee8d4}\label{lv__draw__sw__blend__to__al88_8c_a2515f0f34ed10d77845b07231d6ee8d4} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+COLOR\+\_\+\+BLEND\+\_\+\+TO\+\_\+\+AL88}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_aae9ac9b382dda6a61361fb23db6cfe01}\label{lv__draw__sw__blend__to__al88_8c_aae9ac9b382dda6a61361fb23db6cfe01} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+COLOR\+\_\+\+BLEND\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a42a47acce85f8242c0db8c74966b5bc3}\label{lv__draw__sw__blend__to__al88_8c_a42a47acce85f8242c0db8c74966b5bc3} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+COLOR\+\_\+\+BLEND\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+MASK}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a3be172b3b00c19b9158d583fce24eae2}\label{lv__draw__sw__blend__to__al88_8c_a3be172b3b00c19b9158d583fce24eae2} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+COLOR\+\_\+\+BLEND\+\_\+\+TO\+\_\+\+AL88\+\_\+\+MIX\+\_\+\+MASK\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_aebced05f422c61068d3f48735ea6ff4c}\label{lv__draw__sw__blend__to__al88_8c_aebced05f422c61068d3f48735ea6ff4c} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB565\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_aba5c8530980e22875801c8e5068d107e}\label{lv__draw__sw__blend__to__al88_8c_aba5c8530980e22875801c8e5068d107e} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB565\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a7b7c342f3787c772de2846db7ccb0660}\label{lv__draw__sw__blend__to__al88_8c_a7b7c342f3787c772de2846db7ccb0660} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB565\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+MASK}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_af79cabfd39204e54decc738a889a9c29}\label{lv__draw__sw__blend__to__al88_8c_af79cabfd39204e54decc738a889a9c29} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB565\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+MIX\+\_\+\+MASK\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_adbc215e9f332f4172471994d7bdfa2ef}\label{lv__draw__sw__blend__to__al88_8c_adbc215e9f332f4172471994d7bdfa2ef} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a6dea5ac52a7649f564ad7c946b0ce4ff}\label{lv__draw__sw__blend__to__al88_8c_a6dea5ac52a7649f564ad7c946b0ce4ff} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a7f0f64ae30bb48e62e5d03adf691c4c4}\label{lv__draw__sw__blend__to__al88_8c_a7f0f64ae30bb48e62e5d03adf691c4c4} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+MASK}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a9a3deae60597018532f97706d6ea8a6f}\label{lv__draw__sw__blend__to__al88_8c_a9a3deae60597018532f97706d6ea8a6f} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+RGB888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+MIX\+\_\+\+MASK\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a5da5b2077d035e10e51805458cbafde3}\label{lv__draw__sw__blend__to__al88_8c_a5da5b2077d035e10e51805458cbafde3} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+ARGB8888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a617dc4a8037f451efc04932b16efedd4}\label{lv__draw__sw__blend__to__al88_8c_a617dc4a8037f451efc04932b16efedd4} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+ARGB8888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_ad2f86426034ce955fdf86b9978300688}\label{lv__draw__sw__blend__to__al88_8c_ad2f86426034ce955fdf86b9978300688} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+ARGB8888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+MASK}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a927c3a352131ee2e757f67f61ecd061f}\label{lv__draw__sw__blend__to__al88_8c_a927c3a352131ee2e757f67f61ecd061f} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+ARGB8888\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+MIX\+\_\+\+MASK\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a4d60edcb07e9d57ba8ac52ca70af5dd2}\label{lv__draw__sw__blend__to__al88_8c_a4d60edcb07e9d57ba8ac52ca70af5dd2} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+AL88\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a160d5ae8fdd4ddebb87b6bff2bae4781}\label{lv__draw__sw__blend__to__al88_8c_a160d5ae8fdd4ddebb87b6bff2bae4781} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+AL88\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a45a6896f940a4e80b15eaba194694a57}\label{lv__draw__sw__blend__to__al88_8c_a45a6896f940a4e80b15eaba194694a57} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+AL88\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+MASK}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a758918b2539ce3373152c434b9dbcd37}\label{lv__draw__sw__blend__to__al88_8c_a758918b2539ce3373152c434b9dbcd37} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+AL88\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+MIX\+\_\+\+MASK\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a44a41805486cf2406af0f5218adc185d}\label{lv__draw__sw__blend__to__al88_8c_a44a41805486cf2406af0f5218adc185d} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+I1\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_aeec3274a9008db8a77f7c573b64bd490}\label{lv__draw__sw__blend__to__al88_8c_aeec3274a9008db8a77f7c573b64bd490} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+I1\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_ae581579c435f84177f04d48969f7cb2e}\label{lv__draw__sw__blend__to__al88_8c_ae581579c435f84177f04d48969f7cb2e} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+I1\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+WITH\+\_\+\+MASK}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_ade698f13a4c437ba388c7fdeee1a4a72}\label{lv__draw__sw__blend__to__al88_8c_ade698f13a4c437ba388c7fdeee1a4a72} 
+\#define {\bfseries LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+I1\+\_\+\+BLEND\+\_\+\+NORMAL\+\_\+\+TO\+\_\+\+AL88\+\_\+\+MIX\+\_\+\+MASK\+\_\+\+OPA}(...)~LV\+\_\+\+RESULT\+\_\+\+INVALID
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a8c19ef6e323f380c7037172f2fc86a6a}\label{lv__draw__sw__blend__to__al88_8c_a8c19ef6e323f380c7037172f2fc86a6a} 
+void LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+color\+\_\+to\+\_\+al88} (\mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+fill\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+\Hypertarget{lv__draw__sw__blend__to__al88_8c_a8edeceb8d2eb96261ef37f9b593c85e5}\label{lv__draw__sw__blend__to__al88_8c_a8edeceb8d2eb96261ef37f9b593c85e5} 
+void LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+image\+\_\+to\+\_\+al88} (\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\end{DoxyCompactItemize}

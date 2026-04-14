@@ -1,0 +1,189 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+textarea\+\_\+t}
+\hypertarget{struct__lv__textarea__t}{}\label{struct__lv__textarea__t}\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+textarea\+\_\+private.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda \+\_\+lv\+\_\+textarea\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct__lv__textarea__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct__lv__textarea__t_ae98318c3c21e46b246fa9a91f03ee6bd}\label{struct__lv__textarea__t_ae98318c3c21e46b246fa9a91f03ee6bd} 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} {\bfseries obj}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__textarea__t_ae43b1b2dbde76f14865559f624965c6f}{label}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__textarea__t_aade1687c6f65511218016dc30f664d43}{placeholder\+\_\+txt}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__textarea__t_a581da57aa55ea30b478f9019bf5911c6}{pwd\+\_\+tmp}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__textarea__t_a344f53a2caa6637ac99e73d48a93f22a}{pwd\+\_\+bullet}}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__textarea__t_a5cfe3feba1867d115411ea7388a5fc19}{accepted\+\_\+chars}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_a5e3e62ca88997fab8d6b76ffa6b47aa3}{max\+\_\+length}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_a4bbc8463f5ba96bcf407c3de982d60bf}{pwd\+\_\+show\+\_\+time}}
+\item 
+\Hypertarget{struct__lv__textarea__t_ae12ec367499f46e9cd50e9b1f339cf73}\label{struct__lv__textarea__t_ae12ec367499f46e9cd50e9b1f339cf73} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>int32\_t \mbox{\hyperlink{struct__lv__textarea__t_a34e62074b75ea8c642dd501c1af93a22}{valid\_x}}\\
+\>uint32\_t \mbox{\hyperlink{struct__lv__textarea__t_ad276c8b7c818ba950252b6d1ed155d29}{pos}}\\
+\>\mbox{\hyperlink{structlv__area__t}{lv\_area\_t}} \mbox{\hyperlink{struct__lv__textarea__t_a68395a7ac1bdebd52ce542dd65a48b73}{area}}\\
+\>uint32\_t \mbox{\hyperlink{struct__lv__textarea__t_a81766444115b6871707fff2c748cbbd2}{txt\_byte\_pos}}\\
+\>uint8\_t \mbox{\hyperlink{struct__lv__textarea__t_a1e7a1fdf4e840cb43490c48ae6455e14}{show}}: 1\\
+\>uint8\_t \mbox{\hyperlink{struct__lv__textarea__t_af00e7a0f6ae64a10d7f0f576bfd04024}{click\_pos}}: 1\\
+\} {\bfseries cursor}\\
+
+\end{tabbing}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_aa44dd71437e965b27963213ca639e290}{sel\+\_\+start}}
+\item 
+\Hypertarget{struct__lv__textarea__t_a0886df74bc1010f82343c3e87eada7a0}\label{struct__lv__textarea__t_a0886df74bc1010f82343c3e87eada7a0} 
+uint32\+\_\+t {\bfseries sel\+\_\+end}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_a58f8a34e8e74801794c232dfc6e56a22}{text\+\_\+sel\+\_\+in\+\_\+prog}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_a52ab79eb43e08e23033d83c6bad3354e}{text\+\_\+sel\+\_\+en}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_a190d311cec3dc747c5a24b76fffe7f74}{pwd\+\_\+mode}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_a35e353bc42a96820bdb8296a17f632d8}{one\+\_\+line}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__textarea__t_a98d968eedc4140e507fdfb3275dcad05}{static\+\_\+accepted\+\_\+chars}}\+: 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Data of text area 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__textarea__t_a5cfe3feba1867d115411ea7388a5fc19}\label{struct__lv__textarea__t_a5cfe3feba1867d115411ea7388a5fc19} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!accepted\_chars@{accepted\_chars}}
+\index{accepted\_chars@{accepted\_chars}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{accepted\_chars}{accepted\_chars}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+textarea\+\_\+t\+::accepted\+\_\+chars}
+
+Only these characters will be accepted. NULL\+: accept all \Hypertarget{struct__lv__textarea__t_a68395a7ac1bdebd52ce542dd65a48b73}\label{struct__lv__textarea__t_a68395a7ac1bdebd52ce542dd65a48b73} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!area@{area}}
+\index{area@{area}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{area}{area}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \+\_\+lv\+\_\+textarea\+\_\+t\+::area}
+
+Cursor area relative to the Text Area \Hypertarget{struct__lv__textarea__t_af00e7a0f6ae64a10d7f0f576bfd04024}\label{struct__lv__textarea__t_af00e7a0f6ae64a10d7f0f576bfd04024} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!click\_pos@{click\_pos}}
+\index{click\_pos@{click\_pos}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{click\_pos}{click\_pos}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::click\+\_\+pos}
+
+1\+: Enable positioning the cursor by clicking the text area \Hypertarget{struct__lv__textarea__t_ae43b1b2dbde76f14865559f624965c6f}\label{struct__lv__textarea__t_ae43b1b2dbde76f14865559f624965c6f} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!label@{label}}
+\index{label@{label}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+textarea\+\_\+t\+::label}
+
+Label of the text area \Hypertarget{struct__lv__textarea__t_a5e3e62ca88997fab8d6b76ffa6b47aa3}\label{struct__lv__textarea__t_a5e3e62ca88997fab8d6b76ffa6b47aa3} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!max\_length@{max\_length}}
+\index{max\_length@{max\_length}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{max\_length}{max\_length}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::max\+\_\+length}
+
+The max. number of characters. 0\+: no limit \Hypertarget{struct__lv__textarea__t_a35e353bc42a96820bdb8296a17f632d8}\label{struct__lv__textarea__t_a35e353bc42a96820bdb8296a17f632d8} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!one\_line@{one\_line}}
+\index{one\_line@{one\_line}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{one\_line}{one\_line}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::one\+\_\+line}
+
+One line mode (ignore line breaks) \Hypertarget{struct__lv__textarea__t_aade1687c6f65511218016dc30f664d43}\label{struct__lv__textarea__t_aade1687c6f65511218016dc30f664d43} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!placeholder\_txt@{placeholder\_txt}}
+\index{placeholder\_txt@{placeholder\_txt}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{placeholder\_txt}{placeholder\_txt}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+textarea\+\_\+t\+::placeholder\+\_\+txt}
+
+Place holder label. only visible if text is an empty string \Hypertarget{struct__lv__textarea__t_ad276c8b7c818ba950252b6d1ed155d29}\label{struct__lv__textarea__t_ad276c8b7c818ba950252b6d1ed155d29} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!pos@{pos}}
+\index{pos@{pos}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::pos}
+
+The current cursor position (0\+: before 1st letter; 1\+: before 2nd letter ...) \Hypertarget{struct__lv__textarea__t_a344f53a2caa6637ac99e73d48a93f22a}\label{struct__lv__textarea__t_a344f53a2caa6637ac99e73d48a93f22a} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!pwd\_bullet@{pwd\_bullet}}
+\index{pwd\_bullet@{pwd\_bullet}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{pwd\_bullet}{pwd\_bullet}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+textarea\+\_\+t\+::pwd\+\_\+bullet}
+
+Replacement characters displayed in password mode \Hypertarget{struct__lv__textarea__t_a190d311cec3dc747c5a24b76fffe7f74}\label{struct__lv__textarea__t_a190d311cec3dc747c5a24b76fffe7f74} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!pwd\_mode@{pwd\_mode}}
+\index{pwd\_mode@{pwd\_mode}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{pwd\_mode}{pwd\_mode}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::pwd\+\_\+mode}
+
+Replace characters with \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} \Hypertarget{struct__lv__textarea__t_a4bbc8463f5ba96bcf407c3de982d60bf}\label{struct__lv__textarea__t_a4bbc8463f5ba96bcf407c3de982d60bf} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!pwd\_show\_time@{pwd\_show\_time}}
+\index{pwd\_show\_time@{pwd\_show\_time}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{pwd\_show\_time}{pwd\_show\_time}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::pwd\+\_\+show\+\_\+time}
+
+Time to show characters in password mode before change them to \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} \Hypertarget{struct__lv__textarea__t_a581da57aa55ea30b478f9019bf5911c6}\label{struct__lv__textarea__t_a581da57aa55ea30b478f9019bf5911c6} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!pwd\_tmp@{pwd\_tmp}}
+\index{pwd\_tmp@{pwd\_tmp}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{pwd\_tmp}{pwd\_tmp}}
+{\footnotesize\ttfamily char\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+textarea\+\_\+t\+::pwd\+\_\+tmp}
+
+Used to store the original text in password mode \Hypertarget{struct__lv__textarea__t_aa44dd71437e965b27963213ca639e290}\label{struct__lv__textarea__t_aa44dd71437e965b27963213ca639e290} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!sel\_start@{sel\_start}}
+\index{sel\_start@{sel\_start}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{sel\_start}{sel\_start}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::sel\+\_\+start}
+
+Temporary values for text selection \Hypertarget{struct__lv__textarea__t_a1e7a1fdf4e840cb43490c48ae6455e14}\label{struct__lv__textarea__t_a1e7a1fdf4e840cb43490c48ae6455e14} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!show@{show}}
+\index{show@{show}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{show}{show}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::show}
+
+Cursor is visible now or not (Handled by the library) \Hypertarget{struct__lv__textarea__t_a98d968eedc4140e507fdfb3275dcad05}\label{struct__lv__textarea__t_a98d968eedc4140e507fdfb3275dcad05} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!static\_accepted\_chars@{static\_accepted\_chars}}
+\index{static\_accepted\_chars@{static\_accepted\_chars}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{static\_accepted\_chars}{static\_accepted\_chars}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::static\+\_\+accepted\+\_\+chars}
+
+1\+: Only a pointer is saved in {\ttfamily accepted\+\_\+chars} \Hypertarget{struct__lv__textarea__t_a52ab79eb43e08e23033d83c6bad3354e}\label{struct__lv__textarea__t_a52ab79eb43e08e23033d83c6bad3354e} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!text\_sel\_en@{text\_sel\_en}}
+\index{text\_sel\_en@{text\_sel\_en}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{text\_sel\_en}{text\_sel\_en}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::text\+\_\+sel\+\_\+en}
+
+Text can be selected on this text area \Hypertarget{struct__lv__textarea__t_a58f8a34e8e74801794c232dfc6e56a22}\label{struct__lv__textarea__t_a58f8a34e8e74801794c232dfc6e56a22} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!text\_sel\_in\_prog@{text\_sel\_in\_prog}}
+\index{text\_sel\_in\_prog@{text\_sel\_in\_prog}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{text\_sel\_in\_prog}{text\_sel\_in\_prog}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::text\+\_\+sel\+\_\+in\+\_\+prog}
+
+User is in process of selecting \Hypertarget{struct__lv__textarea__t_a81766444115b6871707fff2c748cbbd2}\label{struct__lv__textarea__t_a81766444115b6871707fff2c748cbbd2} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!txt\_byte\_pos@{txt\_byte\_pos}}
+\index{txt\_byte\_pos@{txt\_byte\_pos}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{txt\_byte\_pos}{txt\_byte\_pos}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::txt\+\_\+byte\+\_\+pos}
+
+Byte index of the letter after (on) the cursor \Hypertarget{struct__lv__textarea__t_a34e62074b75ea8c642dd501c1af93a22}\label{struct__lv__textarea__t_a34e62074b75ea8c642dd501c1af93a22} 
+\index{\_lv\_textarea\_t@{\_lv\_textarea\_t}!valid\_x@{valid\_x}}
+\index{valid\_x@{valid\_x}!\_lv\_textarea\_t@{\_lv\_textarea\_t}}
+\doxysubsubsection{\texorpdfstring{valid\_x}{valid\_x}}
+{\footnotesize\ttfamily int32\+\_\+t \+\_\+lv\+\_\+textarea\+\_\+t\+::valid\+\_\+x}
+
+Used when stepping up/down to a shorter line. (Used by the library) 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/textarea/\mbox{\hyperlink{lv__textarea__private_8h}{lv\+\_\+textarea\+\_\+private.\+h}}\end{DoxyCompactItemize}

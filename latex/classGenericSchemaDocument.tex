@@ -1,0 +1,155 @@
+\doxysection{ Razred Generic\+Schema\+Document\texorpdfstring{$<$}{<} ValueT, Allocator \texorpdfstring{$>$}{>}}
+\hypertarget{classGenericSchemaDocument}{}\label{classGenericSchemaDocument}\index{GenericSchemaDocument$<$ ValueT, Allocator $>$@{GenericSchemaDocument$<$ ValueT, Allocator $>$}}
+
+
+JSON schema document.  
+
+
+
+
+{\ttfamily \#include $<$schema.\+h$>$}
+
+\doxysubsubsection*{Javni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericSchemaDocument_ae246f1b6573a5a8a2c0d73d4eb64d53a}\label{classGenericSchemaDocument_ae246f1b6573a5a8a2c0d73d4eb64d53a} 
+typedef ValueT {\bfseries Value\+Type}
+\item 
+\Hypertarget{classGenericSchemaDocument_aa53ca323efce50f88aea6fa0d03e9785}\label{classGenericSchemaDocument_aa53ca323efce50f88aea6fa0d03e9785} 
+typedef \mbox{\hyperlink{classIGenericRemoteSchemaDocumentProvider}{IGeneric\+Remote\+Schema\+Document\+Provider}}$<$ \mbox{\hyperlink{classGenericSchemaDocument}{Generic\+Schema\+Document}} $>$ {\bfseries IRemote\+Schema\+Document\+Provider\+Type}
+\item 
+\Hypertarget{classGenericSchemaDocument_ac0d88adf8c86917d8bc9563ffdab6a6d}\label{classGenericSchemaDocument_ac0d88adf8c86917d8bc9563ffdab6a6d} 
+typedef \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}} {\bfseries Allocator\+Type}
+\item 
+\Hypertarget{classGenericSchemaDocument_ad0293c28c9ffe80ab1f8ec86efee35c8}\label{classGenericSchemaDocument_ad0293c28c9ffe80ab1f8ec86efee35c8} 
+typedef Value\+Type\+::\+Encoding\+Type {\bfseries Encoding\+Type}
+\item 
+\Hypertarget{classGenericSchemaDocument_ab1dec56a78b29649eb8e4b85b101ec7c}\label{classGenericSchemaDocument_ab1dec56a78b29649eb8e4b85b101ec7c} 
+typedef Encoding\+Type\+::\+Ch {\bfseries Ch}
+\item 
+\Hypertarget{classGenericSchemaDocument_acaf115202b159a2eb72c97c3dc6c3895}\label{classGenericSchemaDocument_acaf115202b159a2eb72c97c3dc6c3895} 
+typedef \mbox{\hyperlink{classinternal_1_1Schema}{internal\+::\+Schema}}$<$ \mbox{\hyperlink{classGenericSchemaDocument}{Generic\+Schema\+Document}} $>$ {\bfseries Schema\+Type}
+\item 
+\Hypertarget{classGenericSchemaDocument_aeb62f562d4dc024402b00f97cbcef747}\label{classGenericSchemaDocument_aeb62f562d4dc024402b00f97cbcef747} 
+typedef \mbox{\hyperlink{classGenericPointer}{Generic\+Pointer}}$<$ Value\+Type, \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}} $>$ {\bfseries Pointer\+Type}
+\item 
+\Hypertarget{classGenericSchemaDocument_a777505b09fff6cf23b8cfed9e0350eec}\label{classGenericSchemaDocument_a777505b09fff6cf23b8cfed9e0350eec} 
+typedef \mbox{\hyperlink{classGenericValue}{Generic\+Value}}$<$ Encoding\+Type, \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator\+Type}} $>$ {\bfseries GValue}
+\item 
+\Hypertarget{classGenericSchemaDocument_afcfefaab7eecec6849d478557392e23c}\label{classGenericSchemaDocument_afcfefaab7eecec6849d478557392e23c} 
+typedef \mbox{\hyperlink{classGenericUri}{Generic\+Uri}}$<$ Value\+Type, \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}} $>$ {\bfseries Uri\+Type}
+\item 
+\Hypertarget{classGenericSchemaDocument_adc77ed1f500a224582385ff730de1aa3}\label{classGenericSchemaDocument_adc77ed1f500a224582385ff730de1aa3} 
+typedef \mbox{\hyperlink{structGenericStringRef}{Generic\+String\+Ref}}$<$ Ch $>$ {\bfseries String\+Ref\+Type}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGenericSchemaDocument_a00e74506bb3da4e1c82b62c955f717f6}{Generic\+Schema\+Document}} (const Value\+Type \&document, const Ch \texorpdfstring{$\ast$}{*}uri=0, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} uri\+Length=0, \mbox{\hyperlink{classIGenericRemoteSchemaDocumentProvider}{IRemote\+Schema\+Document\+Provider\+Type}} \texorpdfstring{$\ast$}{*}remote\+Provider=0, \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}} \texorpdfstring{$\ast$}{*}allocator=0, const \mbox{\hyperlink{classGenericPointer}{Pointer\+Type}} \&pointer=\mbox{\hyperlink{classGenericPointer}{Pointer\+Type}}(), const \mbox{\hyperlink{structSpecification}{Specification}} \&spec=\mbox{\hyperlink{structSpecification}{Specification}}(k\+Draft04))
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\Hypertarget{classGenericSchemaDocument_a6a54dfd1aec0f560f7e47e08f3fcb8f1}\label{classGenericSchemaDocument_a6a54dfd1aec0f560f7e47e08f3fcb8f1} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Generic\+Schema\+Document} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\Hypertarget{classGenericSchemaDocument_a4c36504f20f7f0cecedff02cbd9b749b}\label{classGenericSchemaDocument_a4c36504f20f7f0cecedff02cbd9b749b} 
+const \mbox{\hyperlink{classGenericValue}{GValue}} \& {\bfseries Get\+URI} () const
+\item 
+\Hypertarget{classGenericSchemaDocument_a7cd0dd144c2f88d55a0358b5341f7809}\label{classGenericSchemaDocument_a7cd0dd144c2f88d55a0358b5341f7809} 
+const \mbox{\hyperlink{structSpecification}{Specification}} \& {\bfseries Get\+Specification} () const
+\item 
+\Hypertarget{classGenericSchemaDocument_ad4869fab7911c5680a2aedc7f6a6b1c0}\label{classGenericSchemaDocument_ad4869fab7911c5680a2aedc7f6a6b1c0} 
+bool {\bfseries Is\+Supported\+Specification} () const
+\item 
+\Hypertarget{classGenericSchemaDocument_a6a0b2b360df728077bb5d3779f97e73d}\label{classGenericSchemaDocument_a6a0b2b360df728077bb5d3779f97e73d} 
+const \mbox{\hyperlink{classinternal_1_1Schema}{Schema\+Type}} \& {\bfseries Get\+Root} () const
+\begin{DoxyCompactList}\small\item\em Get the root schema. \end{DoxyCompactList}\item 
+\Hypertarget{classGenericSchemaDocument_ab67e14826411b540c96890754e03b55c}\label{classGenericSchemaDocument_ab67e14826411b540c96890754e03b55c} 
+\mbox{\hyperlink{classGenericValue}{GValue}} \& {\bfseries Get\+Error} ()
+\begin{DoxyCompactList}\small\item\em Gets the error object. \end{DoxyCompactList}\item 
+\Hypertarget{classGenericSchemaDocument_a96fe491cd78ac37f626283bb6f82be1b}\label{classGenericSchemaDocument_a96fe491cd78ac37f626283bb6f82be1b} 
+const \mbox{\hyperlink{classGenericValue}{GValue}} \& {\bfseries Get\+Error} () const
+\item 
+\Hypertarget{classGenericSchemaDocument_a78661bc8f6e235a06f803e8d53e823c2}\label{classGenericSchemaDocument_a78661bc8f6e235a06f803e8d53e823c2} 
+void {\bfseries Schema\+Error} (const \mbox{\hyperlink{group__RAPIDJSON__ERRORS_ga64f496d2cee8c9673f3105ec6008f290}{Schema\+Error\+Code}} code, const \mbox{\hyperlink{classGenericPointer}{Pointer\+Type}} \&location)
+\begin{DoxyCompactList}\small\item\em Default error method. \end{DoxyCompactList}\item 
+\Hypertarget{classGenericSchemaDocument_a99e6557e5945ca5a003f025a33b4ac76}\label{classGenericSchemaDocument_a99e6557e5945ca5a003f025a33b4ac76} 
+void {\bfseries Schema\+Error\+Value} (const \mbox{\hyperlink{group__RAPIDJSON__ERRORS_ga64f496d2cee8c9673f3105ec6008f290}{Schema\+Error\+Code}} code, const \mbox{\hyperlink{classGenericPointer}{Pointer\+Type}} \&location, const Ch \texorpdfstring{$\ast$}{*}value, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length)
+\begin{DoxyCompactList}\small\item\em Method for error with single string value insert. \end{DoxyCompactList}\item 
+\Hypertarget{classGenericSchemaDocument_aff66d9c52fad15e3bba4e5743598ab71}\label{classGenericSchemaDocument_aff66d9c52fad15e3bba4e5743598ab71} 
+void {\bfseries Schema\+Error\+Pointer} (const \mbox{\hyperlink{group__RAPIDJSON__ERRORS_ga64f496d2cee8c9673f3105ec6008f290}{Schema\+Error\+Code}} code, const \mbox{\hyperlink{classGenericPointer}{Pointer\+Type}} \&location, const Ch \texorpdfstring{$\ast$}{*}value, \mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}} length, const \mbox{\hyperlink{classGenericPointer}{Pointer\+Type}} \&pointer)
+\begin{DoxyCompactList}\small\item\em Method for error with invalid pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Statične javne metode in atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericSchemaDocument_a9c47f4621a9e782f0de037bb1449ba9c}\label{classGenericSchemaDocument_a9c47f4621a9e782f0de037bb1449ba9c} 
+static const \mbox{\hyperlink{structSpecification}{Specification}} {\bfseries Get\+Specification} (const Value\+Type \&document)
+\begin{DoxyCompactList}\small\item\em Static method to get the specification of any schema document. \end{DoxyCompactList}\item 
+\Hypertarget{classGenericSchemaDocument_a1b359fce52746cbb3c2c4370a0541864}\label{classGenericSchemaDocument_a1b359fce52746cbb3c2c4370a0541864} 
+static const \mbox{\hyperlink{structGenericStringRef}{String\+Ref\+Type}} \& {\bfseries Get\+Schema\+Error\+Keyword} (\mbox{\hyperlink{group__RAPIDJSON__ERRORS_ga64f496d2cee8c9673f3105ec6008f290}{Schema\+Error\+Code}} schema\+Error\+Code)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Prijatelji (Friends) }
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classGenericSchemaDocument_a706511849688d9245fc37109f02a03c4}\label{classGenericSchemaDocument_a706511849688d9245fc37109f02a03c4} 
+class {\bfseries internal\+::\+Schema$<$ Generic\+Schema\+Document $>$}
+\item 
+\Hypertarget{classGenericSchemaDocument_afcc03e6ba8f1a819e1a028c31ad38347}\label{classGenericSchemaDocument_afcc03e6ba8f1a819e1a028c31ad38347} 
+{\footnotesize template$<$typename , typename , typename $>$ }\\class {\bfseries Generic\+Schema\+Validator}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$typename ValueT, typename \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}} = Crt\+Allocator$>$\newline
+class Generic\+Schema\+Document$<$ Value\+T, Allocator $>$}
+JSON schema document. 
+
+A JSON schema document is a compiled version of a JSON schema. It is basically a tree of \doxylink{classinternal_1_1Schema}{internal\+::\+Schema}.
+
+\begin{DoxyNote}{Opomba}
+This is an immutable class (i.\+e. its instance cannot be modified after construction). 
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em ValueT} & Type of JSON value (e.\+g. {\ttfamily Value} ), which also determine the encoding. \\
+\hline
+{\em Allocator} & Allocator type for allocating memory of this document. \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Opis konstruktorjev in destruktorjev }
+\Hypertarget{classGenericSchemaDocument_a00e74506bb3da4e1c82b62c955f717f6}\label{classGenericSchemaDocument_a00e74506bb3da4e1c82b62c955f717f6} 
+\index{GenericSchemaDocument$<$ ValueT, Allocator $>$@{GenericSchemaDocument$<$ ValueT, Allocator $>$}!GenericSchemaDocument@{GenericSchemaDocument}}
+\index{GenericSchemaDocument@{GenericSchemaDocument}!GenericSchemaDocument$<$ ValueT, Allocator $>$@{GenericSchemaDocument$<$ ValueT, Allocator $>$}}
+\doxysubsubsection{\texorpdfstring{GenericSchemaDocument()}{GenericSchemaDocument()}}
+{\footnotesize\ttfamily template$<$typename ValueT , typename \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}}  = Crt\+Allocator$>$ \\
+\mbox{\hyperlink{classGenericSchemaDocument}{Generic\+Schema\+Document}}$<$ ValueT, \mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}} $>$\mbox{\hyperlink{classGenericSchemaDocument}{\+::\+Generic\+Schema\+Document}} (\begin{DoxyParamCaption}\item[{const Value\+Type \&}]{document,  }\item[{const Ch \texorpdfstring{$\ast$}{*}}]{uri = {\ttfamily 0},  }\item[{\mbox{\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type}}}]{uri\+Length = {\ttfamily 0},  }\item[{\mbox{\hyperlink{classIGenericRemoteSchemaDocumentProvider}{IRemote\+Schema\+Document\+Provider\+Type}} \texorpdfstring{$\ast$}{*}}]{remote\+Provider = {\ttfamily 0},  }\item[{\mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}} \texorpdfstring{$\ast$}{*}}]{allocator = {\ttfamily 0},  }\item[{const \mbox{\hyperlink{classGenericPointer}{Pointer\+Type}} \&}]{pointer = {\ttfamily \mbox{\hyperlink{classGenericPointer}{Pointer\+Type}}()},  }\item[{const \mbox{\hyperlink{structSpecification}{Specification}} \&}]{spec = {\ttfamily \mbox{\hyperlink{structSpecification}{Specification}}(kDraft04)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Constructor. 
+
+Compile a JSON document into schema document.
+
+
+\begin{DoxyParams}{Parametri}
+{\em document} & A JSON document as source. \\
+\hline
+{\em uri} & The base URI of this schema document for purposes of violation reporting. \\
+\hline
+{\em uri\+Length} & Length of {\ttfamily name}, in code points. \\
+\hline
+{\em remote\+Provider} & An optional remote schema document provider for resolving remote reference. Can be null. \\
+\hline
+{\em allocator} & An optional allocator instance for allocating memory. Can be null. \\
+\hline
+{\em pointer} & An optional JSON pointer to the start of the schema document \\
+\hline
+{\em spec} & Optional schema draft or Open\+API version. Used if no specification in document. Defaults to draft-\/04. \\
+\hline
+\end{DoxyParams}
+
+
+Opis razreda je zgrajen na podlagi naslednjih datotek \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/fwd.\+h\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/schema.\+h\end{DoxyCompactItemize}

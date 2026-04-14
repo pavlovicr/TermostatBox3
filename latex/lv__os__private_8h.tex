@@ -1,0 +1,61 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/osal/lv\+\_\+os\+\_\+private.h}
+\hypertarget{lv__os__private_8h}{}\label{lv__os__private_8h}\index{managed\_components/lvgl\_\_lvgl/src/osal/lv\_os\_private.h@{managed\_components/lvgl\_\_lvgl/src/osal/lv\_os\_private.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+os.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+os\+\_\+none.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+os\+\_\+private.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+os\+\_\+private.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__os__private_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__os__private_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__os__private_8h_a4860ecdafba2d1fe3c37a4b337808481}\label{lv__os__private_8h_a4860ecdafba2d1fe3c37a4b337808481} 
+enum {\bfseries lv\+\_\+thread\+\_\+prio\+\_\+t} \{ \newline
+{\bfseries LV\+\_\+\+THREAD\+\_\+\+PRIO\+\_\+\+LOWEST}
+, {\bfseries LV\+\_\+\+THREAD\+\_\+\+PRIO\+\_\+\+LOW}
+, {\bfseries LV\+\_\+\+THREAD\+\_\+\+PRIO\+\_\+\+MID}
+, {\bfseries LV\+\_\+\+THREAD\+\_\+\+PRIO\+\_\+\+HIGH}
+, \newline
+{\bfseries LV\+\_\+\+THREAD\+\_\+\+PRIO\+\_\+\+HIGHEST}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__os__private_8h_a67039a925146714429566535f4b93d7f}{lv\+\_\+os\+\_\+init}} (void)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__os__private_8h_ad6cdd96446ba77bd570df122c6c1fd55}{lv\+\_\+os\+\_\+get\+\_\+idle\+\_\+percent}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__os__private_8h_ad6cdd96446ba77bd570df122c6c1fd55}\label{lv__os__private_8h_ad6cdd96446ba77bd570df122c6c1fd55} 
+\index{lv\_os\_private.h@{lv\_os\_private.h}!lv\_os\_get\_idle\_percent@{lv\_os\_get\_idle\_percent}}
+\index{lv\_os\_get\_idle\_percent@{lv\_os\_get\_idle\_percent}!lv\_os\_private.h@{lv\_os\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_os\_get\_idle\_percent()}{lv\_os\_get\_idle\_percent()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+os\+\_\+get\+\_\+idle\+\_\+percent (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Set it for {\ttfamily LV\+\_\+\+SYSMON\+\_\+\+GET\+\_\+\+IDLE} to show the CPU usage \begin{DoxyReturn}{Rezultat(i)}
+the idle percentage since the last call 
+\end{DoxyReturn}
+\Hypertarget{lv__os__private_8h_a67039a925146714429566535f4b93d7f}\label{lv__os__private_8h_a67039a925146714429566535f4b93d7f} 
+\index{lv\_os\_private.h@{lv\_os\_private.h}!lv\_os\_init@{lv\_os\_init}}
+\index{lv\_os\_init@{lv\_os\_init}!lv\_os\_private.h@{lv\_os\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_os\_init()}{lv\_os\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+os\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the OS layer 

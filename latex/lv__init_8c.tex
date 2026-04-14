@@ -1,0 +1,95 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/lv\+\_\+init.c}
+\hypertarget{lv__init_8c}{}\label{lv__init_8c}\index{managed\_components/lvgl\_\_lvgl/src/lv\_init.c@{managed\_components/lvgl\_\_lvgl/src/lv\_init.c}}
+{\ttfamily \#include "{}misc/lv\+\_\+timer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}misc/lv\+\_\+profiler\+\_\+builtin\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}misc/lv\+\_\+anim\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}draw/lv\+\_\+image\+\_\+decoder\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}draw/lv\+\_\+draw\+\_\+buf\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}core/lv\+\_\+refr\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}core/lv\+\_\+obj\+\_\+style\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}core/lv\+\_\+group\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+init.\+h"{}}\newline
+{\ttfamily \#include "{}core/lv\+\_\+global.\+h"{}}\newline
+{\ttfamily \#include "{}core/lv\+\_\+obj.\+h"{}}\newline
+{\ttfamily \#include "{}display/lv\+\_\+display\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}indev/lv\+\_\+indev\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}layouts/lv\+\_\+layout\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}libs/bin\+\_\+decoder/lv\+\_\+bin\+\_\+decoder.\+h"{}}\newline
+{\ttfamily \#include "{}libs/bmp/lv\+\_\+bmp.\+h"{}}\newline
+{\ttfamily \#include "{}libs/ffmpeg/lv\+\_\+ffmpeg.\+h"{}}\newline
+{\ttfamily \#include "{}libs/freetype/lv\+\_\+freetype.\+h"{}}\newline
+{\ttfamily \#include "{}libs/fsdrv/lv\+\_\+fsdrv.\+h"{}}\newline
+{\ttfamily \#include "{}libs/tjpgd/lv\+\_\+tjpgd.\+h"{}}\newline
+{\ttfamily \#include "{}libs/libjpeg\+\_\+turbo/lv\+\_\+libjpeg\+\_\+turbo.\+h"{}}\newline
+{\ttfamily \#include "{}libs/lodepng/lv\+\_\+lodepng.\+h"{}}\newline
+{\ttfamily \#include "{}libs/libpng/lv\+\_\+libpng.\+h"{}}\newline
+{\ttfamily \#include "{}libs/libwebp/lv\+\_\+libwebp.\+h"{}}\newline
+{\ttfamily \#include "{}libs/tiny\+\_\+ttf/lv\+\_\+tiny\+\_\+ttf.\+h"{}}\newline
+{\ttfamily \#include "{}draw/lv\+\_\+draw.\+h"{}}\newline
+{\ttfamily \#include "{}misc/lv\+\_\+async.\+h"{}}\newline
+{\ttfamily \#include "{}misc/lv\+\_\+fs\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}widgets/gif/lv\+\_\+gif.\+h"{}}\newline
+{\ttfamily \#include "{}widgets/span/lv\+\_\+span.\+h"{}}\newline
+{\ttfamily \#include "{}themes/simple/lv\+\_\+theme\+\_\+simple.\+h"{}}\newline
+{\ttfamily \#include "{}misc/lv\+\_\+fs.\+h"{}}\newline
+{\ttfamily \#include "{}osal/lv\+\_\+os\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}debugging/sysmon/lv\+\_\+sysmon\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}others/translation/lv\+\_\+translation.\+h"{}}\newline
+{\ttfamily \#include "{}drivers/wayland/lv\+\_\+wayland\+\_\+private.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+init.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+init.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__init_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__init_8c_a535bda9c163448acb4dbe29f51a14cb8}\label{lv__init_8c_a535bda9c163448acb4dbe29f51a14cb8} 
+\#define {\bfseries lv\+\_\+initialized}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$inited
+\item 
+\Hypertarget{lv__init_8c_a1fae3fdf1c99ed90f67c78c8921ecec9}\label{lv__init_8c_a1fae3fdf1c99ed90f67c78c8921ecec9} 
+\#define {\bfseries lv\+\_\+deinit\+\_\+in\+\_\+progress}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$deinit\+\_\+in\+\_\+progress
+\item 
+\Hypertarget{lv__init_8c_a1fcd031222c5f1be80043f61ec582b74}\label{lv__init_8c_a1fcd031222c5f1be80043f61ec582b74} 
+\#define {\bfseries LV\+\_\+\+GLOBAL\+\_\+\+INIT}(\+\_\+\+\_\+\+GLOBAL\+\_\+\+PTR)~lv\+\_\+global\+\_\+init((\mbox{\hyperlink{struct__lv__global__t}{lv\+\_\+global\+\_\+t}} \texorpdfstring{$\ast$}{*})(\+\_\+\+\_\+\+GLOBAL\+\_\+\+PTR))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{lv__init_8c_a548cb2278027f044b648acd7f02b2f0c}{lv\+\_\+is\+\_\+initialized}} (void)
+\item 
+void \mbox{\hyperlink{lv__init_8c_a666fa58edac1e61856b2a00fe60308a0}{lv\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{lv__init_8c_a302a9934e9b77badac7f527b5116a156}{lv\+\_\+deinit}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__init_8c_a5b614bb131125990538a2ba9a916e5cf}\label{lv__init_8c_a5b614bb131125990538a2ba9a916e5cf} 
+\mbox{\hyperlink{struct__lv__global__t}{lv\+\_\+global\+\_\+t}} {\bfseries lv\+\_\+global}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__init_8c_a302a9934e9b77badac7f527b5116a156}\label{lv__init_8c_a302a9934e9b77badac7f527b5116a156} 
+\index{lv\_init.c@{lv\_init.c}!lv\_deinit@{lv\_deinit}}
+\index{lv\_deinit@{lv\_deinit}!lv\_init.c@{lv\_init.c}}
+\doxysubsubsection{\texorpdfstring{lv\_deinit()}{lv\_deinit()}}
+{\footnotesize\ttfamily void lv\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Deinit the \textquotesingle{}lv\textquotesingle{} library \Hypertarget{lv__init_8c_a666fa58edac1e61856b2a00fe60308a0}\label{lv__init_8c_a666fa58edac1e61856b2a00fe60308a0} 
+\index{lv\_init.c@{lv\_init.c}!lv\_init@{lv\_init}}
+\index{lv\_init@{lv\_init}!lv\_init.c@{lv\_init.c}}
+\doxysubsubsection{\texorpdfstring{lv\_init()}{lv\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize LVGL library. Should be called before any other LVGL related function. \Hypertarget{lv__init_8c_a548cb2278027f044b648acd7f02b2f0c}\label{lv__init_8c_a548cb2278027f044b648acd7f02b2f0c} 
+\index{lv\_init.c@{lv\_init.c}!lv\_is\_initialized@{lv\_is\_initialized}}
+\index{lv\_is\_initialized@{lv\_is\_initialized}!lv\_init.c@{lv\_init.c}}
+\doxysubsubsection{\texorpdfstring{lv\_is\_initialized()}{lv\_is\_initialized()}}
+{\footnotesize\ttfamily bool lv\+\_\+is\+\_\+initialized (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Returns whether the \textquotesingle{}lv\textquotesingle{} library is currently initialized 

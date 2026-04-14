@@ -1,0 +1,101 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/bin\+\_\+decoder/lv\+\_\+bin\+\_\+decoder.h}
+\hypertarget{lv__bin__decoder_8h}{}\label{lv__bin__decoder_8h}\index{managed\_components/lvgl\_\_lvgl/src/libs/bin\_decoder/lv\_bin\_decoder.h@{managed\_components/lvgl\_\_lvgl/src/libs/bin\_decoder/lv\_bin\_decoder.h}}
+{\ttfamily \#include "{}../../draw/lv\+\_\+image\+\_\+decoder.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+bin\+\_\+decoder.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+bin\+\_\+decoder.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__bin__decoder_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__bin__decoder_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__bin__decoder_8h_a9bc32f2e2199ae0872b90793bf504c3b}{lv\+\_\+bin\+\_\+decoder\+\_\+init}} (void)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__bin__decoder_8h_a25e1523d88b409c545f1a02945c2c224}{lv\+\_\+bin\+\_\+decoder\+\_\+info}} (\mbox{\hyperlink{struct__lv__image__decoder__t}{lv\+\_\+image\+\_\+decoder\+\_\+t}} \texorpdfstring{$\ast$}{*}decoder, \mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, \mbox{\hyperlink{structlv__image__header__t}{lv\+\_\+image\+\_\+header\+\_\+t}} \texorpdfstring{$\ast$}{*}header)
+\item 
+\Hypertarget{lv__bin__decoder_8h_a8773202ff5cf463ae75116c62ff8937f}\label{lv__bin__decoder_8h_a8773202ff5cf463ae75116c62ff8937f} 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} {\bfseries lv\+\_\+bin\+\_\+decoder\+\_\+get\+\_\+area} (\mbox{\hyperlink{struct__lv__image__decoder__t}{lv\+\_\+image\+\_\+decoder\+\_\+t}} \texorpdfstring{$\ast$}{*}decoder, \mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}full\+\_\+area, \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}decoded\+\_\+area)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__bin__decoder_8h_a1efbd8eac54d64de1aa4028bacb3267c}{lv\+\_\+bin\+\_\+decoder\+\_\+open}} (\mbox{\hyperlink{struct__lv__image__decoder__t}{lv\+\_\+image\+\_\+decoder\+\_\+t}} \texorpdfstring{$\ast$}{*}decoder, \mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\item 
+void \mbox{\hyperlink{lv__bin__decoder_8h_a4388a1dd1e14b6538b8b5979a60db701}{lv\+\_\+bin\+\_\+decoder\+\_\+close}} (\mbox{\hyperlink{struct__lv__image__decoder__t}{lv\+\_\+image\+\_\+decoder\+\_\+t}} \texorpdfstring{$\ast$}{*}decoder, \mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__bin__decoder_8h_a4388a1dd1e14b6538b8b5979a60db701}\label{lv__bin__decoder_8h_a4388a1dd1e14b6538b8b5979a60db701} 
+\index{lv\_bin\_decoder.h@{lv\_bin\_decoder.h}!lv\_bin\_decoder\_close@{lv\_bin\_decoder\_close}}
+\index{lv\_bin\_decoder\_close@{lv\_bin\_decoder\_close}!lv\_bin\_decoder.h@{lv\_bin\_decoder.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bin\_decoder\_close()}{lv\_bin\_decoder\_close()}}
+{\footnotesize\ttfamily void lv\+\_\+bin\+\_\+decoder\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__image__decoder__t}{lv\+\_\+image\+\_\+decoder\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{decoder,  }\item[{\mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc }\end{DoxyParamCaption})}
+
+Close the pending decoding. Free resources etc. 
+\begin{DoxyParams}{Parametri}
+{\em decoder} & pointer to the decoder the function associated with \\
+\hline
+{\em dsc} & pointer to decoder descriptor \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__bin__decoder_8h_a25e1523d88b409c545f1a02945c2c224}\label{lv__bin__decoder_8h_a25e1523d88b409c545f1a02945c2c224} 
+\index{lv\_bin\_decoder.h@{lv\_bin\_decoder.h}!lv\_bin\_decoder\_info@{lv\_bin\_decoder\_info}}
+\index{lv\_bin\_decoder\_info@{lv\_bin\_decoder\_info}!lv\_bin\_decoder.h@{lv\_bin\_decoder.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bin\_decoder\_info()}{lv\_bin\_decoder\_info()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+bin\+\_\+decoder\+\_\+info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__image__decoder__t}{lv\+\_\+image\+\_\+decoder\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{decoder,  }\item[{\mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{\mbox{\hyperlink{structlv__image__header__t}{lv\+\_\+image\+\_\+header\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{header }\end{DoxyParamCaption})}
+
+Get info about a lvgl binary image 
+\begin{DoxyParams}{Parametri}
+{\em decoder} & the decoder where this function belongs \\
+\hline
+{\em dsc} & image descriptor containing the source and type of the image and other info. \\
+\hline
+{\em header} & store the image data here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the info is successfully stored in {\ttfamily header}; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: unknown format or other error. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{TODO}
+\item[\mbox{\hyperlink{todo__todo000002}{TODO}}]This is a temp backward compatibility solution after adding magic in image header. \end{DoxyRefDesc}
+\Hypertarget{lv__bin__decoder_8h_a9bc32f2e2199ae0872b90793bf504c3b}\label{lv__bin__decoder_8h_a9bc32f2e2199ae0872b90793bf504c3b} 
+\index{lv\_bin\_decoder.h@{lv\_bin\_decoder.h}!lv\_bin\_decoder\_init@{lv\_bin\_decoder\_init}}
+\index{lv\_bin\_decoder\_init@{lv\_bin\_decoder\_init}!lv\_bin\_decoder.h@{lv\_bin\_decoder.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bin\_decoder\_init()}{lv\_bin\_decoder\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+bin\+\_\+decoder\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the binary image decoder module
+
+Initialize the lvgl binary image decoder module \Hypertarget{lv__bin__decoder_8h_a1efbd8eac54d64de1aa4028bacb3267c}\label{lv__bin__decoder_8h_a1efbd8eac54d64de1aa4028bacb3267c} 
+\index{lv\_bin\_decoder.h@{lv\_bin\_decoder.h}!lv\_bin\_decoder\_open@{lv\_bin\_decoder\_open}}
+\index{lv\_bin\_decoder\_open@{lv\_bin\_decoder\_open}!lv\_bin\_decoder.h@{lv\_bin\_decoder.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bin\_decoder\_open()}{lv\_bin\_decoder\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+bin\+\_\+decoder\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__image__decoder__t}{lv\+\_\+image\+\_\+decoder\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{decoder,  }\item[{\mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc }\end{DoxyParamCaption})}
+
+Open a lvgl binary image 
+\begin{DoxyParams}{Parametri}
+{\em decoder} & the decoder where this function belongs \\
+\hline
+{\em dsc} & pointer to decoder descriptor. {\ttfamily src}, {\ttfamily style} are already initialized in it. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the info is successfully stored in {\ttfamily header}; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: unknown format or other error.
+\end{DoxyReturn}
+Decode an image from a binary file 
+\begin{DoxyParams}{Parametri}
+{\em decoder} & pointer to the decoder \\
+\hline
+{\em dsc} & pointer to the decoder descriptor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: no error; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: can\textquotesingle{}t open the image 
+\end{DoxyReturn}

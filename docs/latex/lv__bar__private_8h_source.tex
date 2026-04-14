@@ -1,0 +1,68 @@
+\doxysection{lv\+\_\+bar\+\_\+private.\+h}
+\hypertarget{lv__bar__private_8h_source}{}\label{lv__bar__private_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/widgets/bar/lv\_bar\_private.h@{managed\_components/lvgl\_\_lvgl/src/widgets/bar/lv\_bar\_private.h}}
+\mbox{\hyperlink{lv__bar__private_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_BAR\_PRIVATE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_BAR\_PRIVATE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../core/lv\_obj\_private.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__bar_8h}{lv\_bar.h}}"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ LV\_USE\_BAR\ !=\ 0}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__bar__anim__t}{\_lv\_bar\_anim\_t}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ bar;}
+\DoxyCodeLine{00032\ \ \ \ \ int32\_t\ anim\_start;}
+\DoxyCodeLine{00033\ \ \ \ \ int32\_t\ anim\_end;}
+\DoxyCodeLine{00034\ \ \ \ \ int32\_t\ anim\_state;}
+\DoxyCodeLine{00035\ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__bar__t}{\_lv\_bar\_t}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ obj;}
+\DoxyCodeLine{00039\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct__lv__bar__t_ad404ee5d9cd579659c1eecc79987327a}{cur\_value}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct__lv__bar__t_a133a8b48d79902011cc99ade23541b5a}{min\_value}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct__lv__bar__t_ac5e45c0c15f2effc33e527af86a3e616}{max\_value}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ int32\_t\ \mbox{\hyperlink{struct__lv__bar__t_a0d5936b58e8bc7a7c3a64858843ebe67}{start\_value}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ \mbox{\hyperlink{struct__lv__bar__t_a04c547bc6cce0570824077ca81349eff}{indic\_area}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct__lv__bar__t_a533cb6bae56205fdd39bcce8040b7dc2}{val\_reversed}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{struct__lv__bar__anim__t}{lv\_bar\_anim\_t}}\ cur\_value\_anim;}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct__lv__bar__anim__t}{lv\_bar\_anim\_t}}\ start\_value\_anim;}
+\DoxyCodeLine{00047\ \ \ \ \ lv\_bar\_mode\_t\ \mbox{\hyperlink{struct__lv__bar__t_a5b4dc821dc4ab6a0d34250865da99f42}{mode}}\ :\ 3;\ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ lv\_bar\_orientation\_t\ \mbox{\hyperlink{struct__lv__bar__t_abd7bf9db8c2434f68dce9a0003bf5777}{orientation}}\ :\ 3;\ \ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_BAR\ !=\ 0\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00063\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_BAR\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

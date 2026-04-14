@@ -1,0 +1,41 @@
+\doxysection{es8374\+\_\+codec.\+h}
+\hypertarget{es8374__codec_8h_source}{}\label{es8374__codec_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/device/include/es8374\_codec.h@{managed\_components/espressif\_\_esp\_codec\_dev/device/include/es8374\_codec.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2023\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_ES8374\_CODEC\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_ES8374\_CODEC\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}audio\_codec\_if.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}audio\_codec\_ctrl\_if.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}audio\_codec\_gpio\_if.h"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ ES8374\_CODEC\_DEFAULT\_ADDR\ \ \ (0x20)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ ES8374\_CODEC\_DEFAULT\_ADDR\_1\ (0x21)}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\_codec\_ctrl\_if\_t}}\ *\mbox{\hyperlink{structes8374__codec__cfg__t_afcf78a2a4feeb2444f0a3aaf797b578a}{ctrl\_if}};\ \ \ \ \ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}}\ *\mbox{\hyperlink{structes8374__codec__cfg__t_abc956e36e298450b9db797f7bbb3d99a}{gpio\_if}};\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ esp\_codec\_dec\_work\_mode\_t\ \ \ \ \mbox{\hyperlink{structes8374__codec__cfg__t_a7a210c8299cd3ac7a49ffb26c9e8d4aa}{codec\_mode}};\ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structes8374__codec__cfg__t_a8e388f6d43420849eb754b0eddde60a1}{master\_mode}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ int16\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structes8374__codec__cfg__t_abd95b4e253888aa0a9edcd9b045008f5}{pa\_pin}};\ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structes8374__codec__cfg__t_afa08dc8af64dc51e0c139a3c0bdae4af}{pa\_reverted}};\ }
+\DoxyCodeLine{00030\ \}\ \mbox{\hyperlink{structes8374__codec__cfg__t}{es8374\_codec\_cfg\_t}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__if__t}{audio\_codec\_if\_t}}\ *es8374\_codec\_new(\mbox{\hyperlink{structes8374__codec__cfg__t}{es8374\_codec\_cfg\_t}}\ *codec\_cfg);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00041\ \}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_\_ES8374\_H\_\_}}
+
+\end{DoxyCode}

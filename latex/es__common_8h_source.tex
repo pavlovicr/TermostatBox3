@@ -1,0 +1,189 @@
+\doxysection{es\+\_\+common.\+h}
+\hypertarget{es__common_8h_source}{}\label{es__common_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/device/priv\_include/es\_common.h@{managed\_components/espressif\_\_esp\_codec\_dev/device/priv\_include/es\_common.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2023\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_ES\_COMMON\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_ES\_COMMON\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}esp\_log.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ CODEC\_MEM\_CHECK(ptr)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{if\ (ptr\ ==\ NULL)\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ ESP\_LOGE(TAG,\ "{}Fail\ to\ alloc\ memory\ at\ \%s:\%d"{},\ \_\_FUNCTION\_\_,\ \_\_LINE\_\_);\(\backslash\)}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ BITS(n)\ \ \ \ \ \ (1\ <<\ n)}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ MCLK\_DEFAULT\_DIV\ (256)}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ BIT\_LENGTH\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00026\ \ \ \ \ BIT\_LENGTH\_16BITS\ =\ 0x03,}
+\DoxyCodeLine{00027\ \ \ \ \ BIT\_LENGTH\_18BITS\ =\ 0x02,}
+\DoxyCodeLine{00028\ \ \ \ \ BIT\_LENGTH\_20BITS\ =\ 0x01,}
+\DoxyCodeLine{00029\ \ \ \ \ BIT\_LENGTH\_24BITS\ =\ 0x00,}
+\DoxyCodeLine{00030\ \ \ \ \ BIT\_LENGTH\_32BITS\ =\ 0x04,}
+\DoxyCodeLine{00031\ \ \ \ \ BIT\_LENGTH\_MAX,}
+\DoxyCodeLine{00032\ \}\ es\_bits\_length\_t;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ MCLK\_DIV\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00036\ \ \ \ \ MCLK\_DIV\_1\ =\ 1,}
+\DoxyCodeLine{00037\ \ \ \ \ MCLK\_DIV\_2\ =\ 2,}
+\DoxyCodeLine{00038\ \ \ \ \ MCLK\_DIV\_3\ =\ 3,}
+\DoxyCodeLine{00039\ \ \ \ \ MCLK\_DIV\_4\ =\ 4,}
+\DoxyCodeLine{00040\ \ \ \ \ MCLK\_DIV\_6\ =\ 5,}
+\DoxyCodeLine{00041\ \ \ \ \ MCLK\_DIV\_8\ =\ 6,}
+\DoxyCodeLine{00042\ \ \ \ \ MCLK\_DIV\_9\ =\ 7,}
+\DoxyCodeLine{00043\ \ \ \ \ MCLK\_DIV\_11\ =\ 8,}
+\DoxyCodeLine{00044\ \ \ \ \ MCLK\_DIV\_12\ =\ 9,}
+\DoxyCodeLine{00045\ \ \ \ \ MCLK\_DIV\_16\ =\ 10,}
+\DoxyCodeLine{00046\ \ \ \ \ MCLK\_DIV\_18\ =\ 11,}
+\DoxyCodeLine{00047\ \ \ \ \ MCLK\_DIV\_22\ =\ 12,}
+\DoxyCodeLine{00048\ \ \ \ \ MCLK\_DIV\_24\ =\ 13,}
+\DoxyCodeLine{00049\ \ \ \ \ MCLK\_DIV\_33\ =\ 14,}
+\DoxyCodeLine{00050\ \ \ \ \ MCLK\_DIV\_36\ =\ 15,}
+\DoxyCodeLine{00051\ \ \ \ \ MCLK\_DIV\_44\ =\ 16,}
+\DoxyCodeLine{00052\ \ \ \ \ MCLK\_DIV\_48\ =\ 17,}
+\DoxyCodeLine{00053\ \ \ \ \ MCLK\_DIV\_66\ =\ 18,}
+\DoxyCodeLine{00054\ \ \ \ \ MCLK\_DIV\_72\ =\ 19,}
+\DoxyCodeLine{00055\ \ \ \ \ MCLK\_DIV\_5\ =\ 20,}
+\DoxyCodeLine{00056\ \ \ \ \ MCLK\_DIV\_10\ =\ 21,}
+\DoxyCodeLine{00057\ \ \ \ \ MCLK\_DIV\_15\ =\ 22,}
+\DoxyCodeLine{00058\ \ \ \ \ MCLK\_DIV\_17\ =\ 23,}
+\DoxyCodeLine{00059\ \ \ \ \ MCLK\_DIV\_20\ =\ 24,}
+\DoxyCodeLine{00060\ \ \ \ \ MCLK\_DIV\_25\ =\ 25,}
+\DoxyCodeLine{00061\ \ \ \ \ MCLK\_DIV\_30\ =\ 26,}
+\DoxyCodeLine{00062\ \ \ \ \ MCLK\_DIV\_32\ =\ 27,}
+\DoxyCodeLine{00063\ \ \ \ \ MCLK\_DIV\_34\ =\ 28,}
+\DoxyCodeLine{00064\ \ \ \ \ MCLK\_DIV\_7\ =\ 29,}
+\DoxyCodeLine{00065\ \ \ \ \ MCLK\_DIV\_13\ =\ 30,}
+\DoxyCodeLine{00066\ \ \ \ \ MCLK\_DIV\_14\ =\ 31,}
+\DoxyCodeLine{00067\ \ \ \ \ MCLK\_DIV\_MAX,}
+\DoxyCodeLine{00068\ \}\ es\_sclk\_div\_t;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ LCLK\_DIV\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00072\ \ \ \ \ LCLK\_DIV\_128\ =\ 0,}
+\DoxyCodeLine{00073\ \ \ \ \ LCLK\_DIV\_192\ =\ 1,}
+\DoxyCodeLine{00074\ \ \ \ \ LCLK\_DIV\_256\ =\ 2,}
+\DoxyCodeLine{00075\ \ \ \ \ LCLK\_DIV\_384\ =\ 3,}
+\DoxyCodeLine{00076\ \ \ \ \ LCLK\_DIV\_512\ =\ 4,}
+\DoxyCodeLine{00077\ \ \ \ \ LCLK\_DIV\_576\ =\ 5,}
+\DoxyCodeLine{00078\ \ \ \ \ LCLK\_DIV\_768\ =\ 6,}
+\DoxyCodeLine{00079\ \ \ \ \ LCLK\_DIV\_1024\ =\ 7,}
+\DoxyCodeLine{00080\ \ \ \ \ LCLK\_DIV\_1152\ =\ 8,}
+\DoxyCodeLine{00081\ \ \ \ \ LCLK\_DIV\_1408\ =\ 9,}
+\DoxyCodeLine{00082\ \ \ \ \ LCLK\_DIV\_1536\ =\ 10,}
+\DoxyCodeLine{00083\ \ \ \ \ LCLK\_DIV\_2112\ =\ 11,}
+\DoxyCodeLine{00084\ \ \ \ \ LCLK\_DIV\_2304\ =\ 12,}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ LCLK\_DIV\_125\ =\ 16,}
+\DoxyCodeLine{00087\ \ \ \ \ LCLK\_DIV\_136\ =\ 17,}
+\DoxyCodeLine{00088\ \ \ \ \ LCLK\_DIV\_250\ =\ 18,}
+\DoxyCodeLine{00089\ \ \ \ \ LCLK\_DIV\_272\ =\ 19,}
+\DoxyCodeLine{00090\ \ \ \ \ LCLK\_DIV\_375\ =\ 20,}
+\DoxyCodeLine{00091\ \ \ \ \ LCLK\_DIV\_500\ =\ 21,}
+\DoxyCodeLine{00092\ \ \ \ \ LCLK\_DIV\_544\ =\ 22,}
+\DoxyCodeLine{00093\ \ \ \ \ LCLK\_DIV\_750\ =\ 23,}
+\DoxyCodeLine{00094\ \ \ \ \ LCLK\_DIV\_1000\ =\ 24,}
+\DoxyCodeLine{00095\ \ \ \ \ LCLK\_DIV\_1088\ =\ 25,}
+\DoxyCodeLine{00096\ \ \ \ \ LCLK\_DIV\_1496\ =\ 26,}
+\DoxyCodeLine{00097\ \ \ \ \ LCLK\_DIV\_1500\ =\ 27,}
+\DoxyCodeLine{00098\ \ \ \ \ LCLK\_DIV\_MAX,}
+\DoxyCodeLine{00099\ \}\ es\_lclk\_div\_t;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ D2SE\_PGA\_GAIN\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00103\ \ \ \ \ D2SE\_PGA\_GAIN\_DIS\ =\ 0,}
+\DoxyCodeLine{00104\ \ \ \ \ D2SE\_PGA\_GAIN\_EN\ =\ 1,}
+\DoxyCodeLine{00105\ \ \ \ \ D2SE\_PGA\_GAIN\_MAX\ =\ 2,}
+\DoxyCodeLine{00106\ \}\ es\_d2se\_pga\_t;}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ ADC\_INPUT\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00110\ \ \ \ \ ADC\_INPUT\_LINPUT1\_RINPUT1\ =\ 0x00,}
+\DoxyCodeLine{00111\ \ \ \ \ ADC\_INPUT\_MIC1\ =\ 0x05,}
+\DoxyCodeLine{00112\ \ \ \ \ ADC\_INPUT\_MIC2\ =\ 0x06,}
+\DoxyCodeLine{00113\ \ \ \ \ ADC\_INPUT\_LINPUT2\_RINPUT2\ =\ 0x50,}
+\DoxyCodeLine{00114\ \ \ \ \ ADC\_INPUT\_DIFFERENCE\ =\ 0xf0,}
+\DoxyCodeLine{00115\ \ \ \ \ ADC\_INPUT\_MAX,}
+\DoxyCodeLine{00116\ \}\ es\_adc\_input\_t;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ DAC\_OUTPUT\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00120\ \ \ \ \ DAC\_OUTPUT\_LOUT1\ =\ 0x04,}
+\DoxyCodeLine{00121\ \ \ \ \ DAC\_OUTPUT\_LOUT2\ =\ 0x08,}
+\DoxyCodeLine{00122\ \ \ \ \ DAC\_OUTPUT\_SPK\ =\ 0x09,}
+\DoxyCodeLine{00123\ \ \ \ \ DAC\_OUTPUT\_ROUT1\ =\ 0x10,}
+\DoxyCodeLine{00124\ \ \ \ \ DAC\_OUTPUT\_ROUT2\ =\ 0x20,}
+\DoxyCodeLine{00125\ \ \ \ \ DAC\_OUTPUT\_ALL\ =\ 0x3c,}
+\DoxyCodeLine{00126\ \ \ \ \ DAC\_OUTPUT\_MAX,}
+\DoxyCodeLine{00127\ \}\ es\_dac\_output\_t;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ MIC\_GAIN\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00131\ \ \ \ \ MIC\_GAIN\_0DB\ =\ 0,}
+\DoxyCodeLine{00132\ \ \ \ \ MIC\_GAIN\_3DB\ =\ 3,}
+\DoxyCodeLine{00133\ \ \ \ \ MIC\_GAIN\_6DB\ =\ 6,}
+\DoxyCodeLine{00134\ \ \ \ \ MIC\_GAIN\_9DB\ =\ 9,}
+\DoxyCodeLine{00135\ \ \ \ \ MIC\_GAIN\_12DB\ =\ 12,}
+\DoxyCodeLine{00136\ \ \ \ \ MIC\_GAIN\_15DB\ =\ 15,}
+\DoxyCodeLine{00137\ \ \ \ \ MIC\_GAIN\_18DB\ =\ 18,}
+\DoxyCodeLine{00138\ \ \ \ \ MIC\_GAIN\_21DB\ =\ 21,}
+\DoxyCodeLine{00139\ \ \ \ \ MIC\_GAIN\_24DB\ =\ 24,}
+\DoxyCodeLine{00140\ \ \ \ \ MIC\_GAIN\_MAX,}
+\DoxyCodeLine{00141\ \}\ es\_mic\_gain\_t;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ ES\_MODULE\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00145\ \ \ \ \ ES\_MODULE\_ADC\ =\ 0x01,}
+\DoxyCodeLine{00146\ \ \ \ \ ES\_MODULE\_DAC\ =\ 0x02,}
+\DoxyCodeLine{00147\ \ \ \ \ ES\_MODULE\_ADC\_DAC\ =\ 0x03,}
+\DoxyCodeLine{00148\ \ \ \ \ ES\_MODULE\_LINE\ =\ 0x04,}
+\DoxyCodeLine{00149\ \ \ \ \ ES\_MODULE\_MAX}
+\DoxyCodeLine{00150\ \}\ es\_module\_t;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ ES\_MODE\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00154\ \ \ \ \ ES\_MODE\_SLAVE\ =\ 0x00,}
+\DoxyCodeLine{00155\ \ \ \ \ ES\_MODE\_MASTER\ =\ 0x01,}
+\DoxyCodeLine{00156\ \ \ \ \ ES\_MODE\_MAX,}
+\DoxyCodeLine{00157\ \}\ es\_mode\_t;}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ ES\_I2S\_MIN\ =\ -\/1,}
+\DoxyCodeLine{00161\ \ \ \ \ ES\_I2S\_NORMAL\ =\ 0,}
+\DoxyCodeLine{00162\ \ \ \ \ ES\_I2S\_LEFT\ =\ 1,}
+\DoxyCodeLine{00163\ \ \ \ \ ES\_I2S\_RIGHT\ =\ 2,}
+\DoxyCodeLine{00164\ \ \ \ \ ES\_I2S\_DSP\ =\ 3,}
+\DoxyCodeLine{00165\ \ \ \ \ ES\_I2S\_MAX}
+\DoxyCodeLine{00166\ \}\ es\_i2s\_fmt\_t;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00169\ \ \ \ \ es\_sclk\_div\_t\ \mbox{\hyperlink{structes__i2s__clock__t_aff86f7381a0c1372602e7e6c61476854}{sclk\_div}};\ }
+\DoxyCodeLine{00170\ \ \ \ \ es\_lclk\_div\_t\ \mbox{\hyperlink{structes__i2s__clock__t_ad14575ccca5b42636a240cb4b0e364d8}{lclk\_div}};\ }
+\DoxyCodeLine{00171\ \}\ \mbox{\hyperlink{structes__i2s__clock__t}{es\_i2s\_clock\_t}};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00174\ \ \ \ \ ES\_PA\_SETUP\ =\ 1,}
+\DoxyCodeLine{00175\ \ \ \ \ ES\_PA\_ENABLE\ =\ (1\ <<\ 1),}
+\DoxyCodeLine{00176\ \ \ \ \ ES\_PA\_DISABLE\ =\ (1\ <<\ 2),}
+\DoxyCodeLine{00177\ \}\ es\_pa\_setting\_t;}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00180\ \}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

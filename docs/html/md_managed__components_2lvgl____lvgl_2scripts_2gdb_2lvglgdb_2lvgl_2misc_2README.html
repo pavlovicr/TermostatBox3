@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: LVGL GDB Scripts - Misc Module Extensions</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">LVGL GDB Scripts - Misc Module Extensions</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md576"></a> This directory contains GDB debugging scripts for LVGL's miscellaneous data structures, including red-black trees and cache systems.</p>
+<h1><a class="anchor" id="autotoc_md577"></a>
+Objects</h1>
+<h2><a class="anchor" id="autotoc_md578"></a>
+1. lv_rb.py - Red-Black Tree Support</h2>
+<p>Provides debugging support for LVGL's red-black tree (<code>lv_rb_t</code>) implementation.</p>
+<p><b>Classes:</b></p>
+<ul>
+<li><code>LVRedBlackTree</code> - Iterator for red-black tree nodes</li>
+</ul>
+<p><b>Functions:</b></p>
+<ul>
+<li><code>dump_rb_info(rb, datatype)</code> - Dump basic red-black tree information</li>
+</ul>
+<p><b>Usage:</b></p>
+<div class="fragment"><div class="line"># In GDB:</div>
+<div class="line">python tree = LVRedBlackTree(some_rb_tree)</div>
+<div class="line">python for data in tree: print(data)</div>
+<div class="line">python dump_rb_info(some_rb_tree, datatype)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md579"></a>
+2. lv_cache.py - Cache System Support</h2>
+<p>Provides debugging support for LVGL's cache system (<code>lv_cache_t</code>).</p>
+<p><b>Classes:</b></p>
+<ul>
+<li><code>LVCache</code> - Wrapper for cache objects</li>
+</ul>
+<p><b>Functions:</b></p>
+<ul>
+<li><code>dump_cache_info(cache, datatype)</code> - Dump cache information</li>
+</ul>
+<p><b>Usage:</b></p>
+<div class="fragment"><div class="line"># In GDB:</div>
+<div class="line">python cache = LVCache(some_cache)</div>
+<div class="line">python print(f&quot;Cache usage: {cache.get_usage_percentage()}%&quot;)</div>
+<div class="line">python dump_cache_info(some_cache, datatype)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md580"></a>
+3. lv_cache_entry.py - Cache Entry Support</h2>
+<p>Provides debugging support for cache entries (<code>lv_cache_entry_t</code>).</p>
+<p><b>Classes:</b></p>
+<ul>
+<li><code>LVCacheEntry</code> - Wrapper for cache entries</li>
+</ul>
+<p><b>Functions:</b></p>
+<ul>
+<li><code>dump_cache_entry_info(entry, datatype)</code> - Dump cache entry information</li>
+</ul>
+<p><b>Usage:</b></p>
+<div class="fragment"><div class="line"># In GDB:</div>
+<div class="line">python entry = LVCacheEntry(some_entry)</div>
+<div class="line">python print(f&quot;Ref count: {entry.get_ref_count()}&quot;)</div>
+<div class="line">python dump_cache_entry_info(some_entry, datatype)</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md581"></a>
+4. lv_cache_lru_rb.py - LRU Cache with RB Tree Support</h2>
+<p>Specialized support for LRU-based caches using red-black trees.</p>
+<p><b>Classes:</b></p>
+<ul>
+<li><code>LVCacheLRURB</code> - Specialized cache wrapper for LRU RB implementations</li>
+</ul>
+<p><b>Functions:</b></p>
+<ul>
+<li><code>dump_lru_rb_cache_info(cache)</code> - Dump LRU RB cache information</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md582"></a>
+5. lv_image_cache.py and lv_image_header_cache.py - Image Cache Support</h2>
+<p>Provides debugging support for LVGL's image cache (<code>lv_image_cache_t</code>).</p>
+<p><b>Classes:</b></p>
+<ul>
+<li><code>LVImageCache</code> - Wrapper for image cache objects</li>
+</ul>
+<p><b>Usage:</b></p>
+<div class="fragment"><div class="line"># In GDB:</div>
+<div class="line">python curr_inst().image_cache().print_info()</div>
+<div class="line">python curr_inst().image_cache().print_entries()</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md583"></a>
+Integration</h1>
+<p>All these modules are automatically imported and available when using the LVGL GDB scripts. You can access them through the main <code>lvgl</code> module:</p>
+<div class="fragment"><div class="line"># In GDB:</div>
+<div class="line">python from lvglgdb import LVRedBlackTree, LVCache, dump_rb_info, dump_cache_info</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md584"></a>
+Type Conversion Support</h1>
+<p>All wrapper classes support multiple input types:</p>
+<ul>
+<li><code>gdb.Value</code> objects (from GDB expressions)</li>
+<li><code>Value</code> objects (from lvglgdb.value module)</li>
+<li>Raw pointers as integers (e.g., <code>0x12345678</code>)</li>
+</ul>
+<p>This allows flexible usage patterns:</p>
+<div class="fragment"><div class="line"># From GDB variable</div>
+<div class="line">entry = LVCacheEntry(my_entry)</div>
+<div class="line"> </div>
+<div class="line"># From raw memory address</div>
+<div class="line">entry = LVCacheEntry(0x7fff12345678)</div>
+<div class="line"> </div>
+<div class="line"># From GDB expression result</div>
+<div class="line">entry = LVCacheEntry(gdb.parse_and_eval(&quot;*(lv_cache_entry_t*)0x7fff12345678&quot;))</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md585"></a>
+Examples</h1>
+<h2><a class="anchor" id="autotoc_md586"></a>
+Debugging a Red-Black Tree</h2>
+<div class="fragment"><div class="line"># Create tree iterator from variable</div>
+<div class="line">tree = LVRedBlackTree(some_rb_variable)</div>
+<div class="line"> </div>
+<div class="line"># Create from raw pointer (0x12345678)</div>
+<div class="line">tree = LVRedBlackTree(0x12345678)</div>
+<div class="line"> </div>
+<div class="line"># Iterate through all nodes</div>
+<div class="line">for data_ptr in tree:</div>
+<div class="line">    print(f&quot;Data pointer: {data_ptr}&quot;)</div>
+<div class="line"> </div>
+<div class="line"># Get tree info</div>
+<div class="line">print(f&quot;Tree has {len(tree)} nodes&quot;)</div>
+<div class="line">tree.print_info()</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md587"></a>
+Debugging a Cache</h2>
+<div class="fragment"><div class="line"># Create cache wrapper from variable</div>
+<div class="line">cache = LVCache(some_cache_variable)</div>
+<div class="line"> </div>
+<div class="line"># Create from raw pointer (0x12345678)</div>
+<div class="line">cache = LVCache(0x12345678)</div>
+<div class="line"> </div>
+<div class="line"># Check cache status</div>
+<div class="line">print(f&quot;Cache usage: {cache.get_usage_percentage():.1f}%&quot;)</div>
+<div class="line">print(f&quot;Cache enabled: {cache.is_enabled()}&quot;)</div>
+<div class="line"> </div>
+<div class="line"># Dump full info</div>
+<div class="line">cache.print_info()</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md588"></a>
+Debugging Cache Entries</h2>
+<div class="fragment"><div class="line"># Create entry wrapper from variable</div>
+<div class="line">entry = LVCacheEntry(some_entry_variable)</div>
+<div class="line"> </div>
+<div class="line"># Create from raw pointer (0x12345678)</div>
+<div class="line">entry = LVCacheEntry(0x12345678)</div>
+<div class="line"> </div>
+<div class="line"># Check entry status</div>
+<div class="line">print(f&quot;Ref count: {entry.get_ref_count()}&quot;)</div>
+<div class="line">print(f&quot;Invalid: {entry.is_invalid()}&quot;)</div>
+<div class="line"> </div>
+<div class="line"># Dump full info</div>
+<div class="line">entry.print_info()</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md589"></a>
+File Structure</h1>
+<ul>
+<li><code>lv_rb.py</code> - Red-black tree debugging support</li>
+<li><code>lv_cache.py</code> - General cache debugging support</li>
+<li><code>lv_cache_entry.py</code> - Cache entry debugging support</li>
+<li><code>lv_cache_lru_rb.py</code> - LRU RB cache specialized support</li>
+<li><code>lv_image_cache.py</code> - Image cache debugging support</li>
+<li><code>lv_image_header_cache.py</code> - Image header cache debugging support</li>
+<li><code>lv_cache_iter_base.py</code> - Cache iterator base class</li>
+<li><code>lv_cache_iter_factory.py</code> - Cache iterator factory functions</li>
+<li><code>__init__.py</code> - Module exports and initialization </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

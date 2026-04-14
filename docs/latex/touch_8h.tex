@@ -1,0 +1,33 @@
+\doxysection{Datoteka managed\+\_\+components/espressif\+\_\+\+\_\+esp-\/box-\/3/include/bsp/touch.h}
+\hypertarget{touch_8h}{}\label{touch_8h}\index{managed\_components/espressif\_\_esp-\/box-\/3/include/bsp/touch.h@{managed\_components/espressif\_\_esp-\/box-\/3/include/bsp/touch.h}}
+
+
+BSP Touchscreen.  
+
+
+{\ttfamily \#include "{}esp\+\_\+lcd\+\_\+touch.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}touch.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko touch.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{touch_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbsp__touch__config__t}{bsp\+\_\+touch\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BSP touch configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g04__display_ga4f2a60cbdb3279f6c82f1809ba3773b7}{bsp\+\_\+touch\+\_\+new}} (const \mbox{\hyperlink{structbsp__touch__config__t}{bsp\+\_\+touch\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}config, \mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} \texorpdfstring{$\ast$}{*}ret\+\_\+touch)
+\begin{DoxyCompactList}\small\item\em Create new touchscreen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+BSP Touchscreen. 
+
+This file offers API for basic touchscreen initialization. It is useful for users who want to use the touchscreen without the default Graphical Library LVGL.
+
+For standard LCD initialization with LVGL graphical library, you can call all-\/in-\/one function \doxylink{group__g04__display_gae4275824d225d70a382b86178f39450c}{bsp\+\_\+display\+\_\+start()}. 

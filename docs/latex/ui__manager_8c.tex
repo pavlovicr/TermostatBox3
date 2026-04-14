@@ -1,0 +1,163 @@
+\doxysection{Datoteka components/ui\+\_\+manager/ui\+\_\+manager.c}
+\hypertarget{ui__manager_8c}{}\label{ui__manager_8c}\index{components/ui\_manager/ui\_manager.c@{components/ui\_manager/ui\_manager.c}}
+
+
+UI Manager implementation.  
+
+
+{\ttfamily \#include "{}ui\+\_\+manager.\+h"{}}\newline
+{\ttfamily \#include "{}display\+\_\+manager.\+h"{}}\newline
+{\ttfamily \#include "{}bsp/esp-\/bsp.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}ui\+\_\+manager.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko ui\+\_\+manager.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ui__manager_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{ui__manager_8c_ab12d788f4d14c28c1aee1f88fe9285d5}{ui\+\_\+manager\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Inicializira UI manager (kreira screen elemente) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui__manager_8c_a3039fcc1685eb8798dcbacfd36f2fd78}{ui\+\_\+manager\+\_\+update\+\_\+temperature}} (float temperature, bool valid)
+\begin{DoxyCompactList}\small\item\em Posodobi prikaz temperature. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui__manager_8c_a681c4bef019976a1ed9f6d7bd3d018e9}{ui\+\_\+manager\+\_\+update\+\_\+humidity}} (float humidity, bool valid)
+\begin{DoxyCompactList}\small\item\em Posodobi prikaz vlažnosti. \end{DoxyCompactList}\item 
+\Hypertarget{ui__manager_8c_a4ac4b6a085347db0873bbd1c009f48ec}\label{ui__manager_8c_a4ac4b6a085347db0873bbd1c009f48ec} 
+void {\bfseries ui\+\_\+manager\+\_\+show\+\_\+sensor\+\_\+error} (void)
+\begin{DoxyCompactList}\small\item\em Prikaži napako na senzorju. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui__manager_8c_a3bfadc8c199ad93c3fdec64d24062175}{ui\+\_\+manager\+\_\+update\+\_\+furnace\+\_\+status}} (const char \texorpdfstring{$\ast$}{*}status, uint32\+\_\+t color)
+\begin{DoxyCompactList}\small\item\em Posodobi status peči. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui__manager_8c_a5d963cc03973cd17cfd4068735716311}{ui\+\_\+manager\+\_\+set\+\_\+target\+\_\+temperature}} (float target\+\_\+temp)
+\begin{DoxyCompactList}\small\item\em Nastavi target temperaturo (prikaz) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui__manager_8c_a59e5992ec1206236e6884958695248df}{ui\+\_\+manager\+\_\+update\+\_\+wifi\+\_\+status}} (bool connected, const char \texorpdfstring{$\ast$}{*}ip\+\_\+address, int8\+\_\+t rssi)
+\begin{DoxyCompactList}\small\item\em Posodobi Wi\+Fi status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ui__manager_8c_a3b8889e98cf4abf06b3219544bc0cd3e}{ui\+\_\+manager\+\_\+update\+\_\+power}} (float power\+\_\+w, bool online)
+\begin{DoxyCompactList}\small\item\em Posodobi Shelly power monitoring. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+UI Manager implementation. 
+
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{ui__manager_8c_ab12d788f4d14c28c1aee1f88fe9285d5}\label{ui__manager_8c_ab12d788f4d14c28c1aee1f88fe9285d5} 
+\index{ui\_manager.c@{ui\_manager.c}!ui\_manager\_init@{ui\_manager\_init}}
+\index{ui\_manager\_init@{ui\_manager\_init}!ui\_manager.c@{ui\_manager.c}}
+\doxysubsubsection{\texorpdfstring{ui\_manager\_init()}{ui\_manager\_init()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t ui\+\_\+manager\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializira UI manager (kreira screen elemente) 
+
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}
+\Hypertarget{ui__manager_8c_a5d963cc03973cd17cfd4068735716311}\label{ui__manager_8c_a5d963cc03973cd17cfd4068735716311} 
+\index{ui\_manager.c@{ui\_manager.c}!ui\_manager\_set\_target\_temperature@{ui\_manager\_set\_target\_temperature}}
+\index{ui\_manager\_set\_target\_temperature@{ui\_manager\_set\_target\_temperature}!ui\_manager.c@{ui\_manager.c}}
+\doxysubsubsection{\texorpdfstring{ui\_manager\_set\_target\_temperature()}{ui\_manager\_set\_target\_temperature()}}
+{\footnotesize\ttfamily void ui\+\_\+manager\+\_\+set\+\_\+target\+\_\+temperature (\begin{DoxyParamCaption}\item[{float}]{target\+\_\+temp }\end{DoxyParamCaption})}
+
+
+
+Nastavi target temperaturo (prikaz) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em target\+\_\+temp} & Target temperatura v °C \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui__manager_8c_a3bfadc8c199ad93c3fdec64d24062175}\label{ui__manager_8c_a3bfadc8c199ad93c3fdec64d24062175} 
+\index{ui\_manager.c@{ui\_manager.c}!ui\_manager\_update\_furnace\_status@{ui\_manager\_update\_furnace\_status}}
+\index{ui\_manager\_update\_furnace\_status@{ui\_manager\_update\_furnace\_status}!ui\_manager.c@{ui\_manager.c}}
+\doxysubsubsection{\texorpdfstring{ui\_manager\_update\_furnace\_status()}{ui\_manager\_update\_furnace\_status()}}
+{\footnotesize\ttfamily void ui\+\_\+manager\+\_\+update\+\_\+furnace\+\_\+status (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{status,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+
+
+Posodobi status peči. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em status} & Tekst statusa (npr. "{}\+HEATING"{}, "{}\+OFF"{}, "{}\+ERROR"{}) \\
+\hline
+{\em color} & Barva teksta (RGB hex) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui__manager_8c_a681c4bef019976a1ed9f6d7bd3d018e9}\label{ui__manager_8c_a681c4bef019976a1ed9f6d7bd3d018e9} 
+\index{ui\_manager.c@{ui\_manager.c}!ui\_manager\_update\_humidity@{ui\_manager\_update\_humidity}}
+\index{ui\_manager\_update\_humidity@{ui\_manager\_update\_humidity}!ui\_manager.c@{ui\_manager.c}}
+\doxysubsubsection{\texorpdfstring{ui\_manager\_update\_humidity()}{ui\_manager\_update\_humidity()}}
+{\footnotesize\ttfamily void ui\+\_\+manager\+\_\+update\+\_\+humidity (\begin{DoxyParamCaption}\item[{float}]{humidity,  }\item[{bool}]{valid }\end{DoxyParamCaption})}
+
+
+
+Posodobi prikaz vlažnosti. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em humidity} & Vlažnost v \% \\
+\hline
+{\em valid} & Ali so podatki veljavni \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui__manager_8c_a3b8889e98cf4abf06b3219544bc0cd3e}\label{ui__manager_8c_a3b8889e98cf4abf06b3219544bc0cd3e} 
+\index{ui\_manager.c@{ui\_manager.c}!ui\_manager\_update\_power@{ui\_manager\_update\_power}}
+\index{ui\_manager\_update\_power@{ui\_manager\_update\_power}!ui\_manager.c@{ui\_manager.c}}
+\doxysubsubsection{\texorpdfstring{ui\_manager\_update\_power()}{ui\_manager\_update\_power()}}
+{\footnotesize\ttfamily void ui\+\_\+manager\+\_\+update\+\_\+power (\begin{DoxyParamCaption}\item[{float}]{power\+\_\+w,  }\item[{bool}]{online }\end{DoxyParamCaption})}
+
+
+
+Posodobi Shelly power monitoring. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em power\+\_\+w} & Moč v wattih \\
+\hline
+{\em online} & Ali je Shelly dosegljiv \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui__manager_8c_a3039fcc1685eb8798dcbacfd36f2fd78}\label{ui__manager_8c_a3039fcc1685eb8798dcbacfd36f2fd78} 
+\index{ui\_manager.c@{ui\_manager.c}!ui\_manager\_update\_temperature@{ui\_manager\_update\_temperature}}
+\index{ui\_manager\_update\_temperature@{ui\_manager\_update\_temperature}!ui\_manager.c@{ui\_manager.c}}
+\doxysubsubsection{\texorpdfstring{ui\_manager\_update\_temperature()}{ui\_manager\_update\_temperature()}}
+{\footnotesize\ttfamily void ui\+\_\+manager\+\_\+update\+\_\+temperature (\begin{DoxyParamCaption}\item[{float}]{temperature,  }\item[{bool}]{valid }\end{DoxyParamCaption})}
+
+
+
+Posodobi prikaz temperature. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em temperature} & Temperatura v °C \\
+\hline
+{\em valid} & Ali so podatki veljavni \\
+\hline
+\end{DoxyParams}
+\Hypertarget{ui__manager_8c_a59e5992ec1206236e6884958695248df}\label{ui__manager_8c_a59e5992ec1206236e6884958695248df} 
+\index{ui\_manager.c@{ui\_manager.c}!ui\_manager\_update\_wifi\_status@{ui\_manager\_update\_wifi\_status}}
+\index{ui\_manager\_update\_wifi\_status@{ui\_manager\_update\_wifi\_status}!ui\_manager.c@{ui\_manager.c}}
+\doxysubsubsection{\texorpdfstring{ui\_manager\_update\_wifi\_status()}{ui\_manager\_update\_wifi\_status()}}
+{\footnotesize\ttfamily void ui\+\_\+manager\+\_\+update\+\_\+wifi\+\_\+status (\begin{DoxyParamCaption}\item[{bool}]{connected,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{ip\+\_\+address,  }\item[{int8\+\_\+t}]{rssi }\end{DoxyParamCaption})}
+
+
+
+Posodobi Wi\+Fi status. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em connected} & Ali je Wi\+Fi povezan \\
+\hline
+{\em ip\+\_\+address} & IP naslov (NULL če ni povezan) \\
+\hline
+{\em rssi} & Signal strength v d\+Bm \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,173 @@
+\doxysection{lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+riscv\+\_\+v\+\_\+to\+\_\+rgb888.\+h}
+\hypertarget{lv__draw__sw__blend__riscv__v__to__rgb888_8h_source}{}\label{lv__draw__sw__blend__riscv__v__to__rgb888_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/draw/sw/blend/riscv\_v/lv\_draw\_sw\_blend\_riscv\_v\_to\_rgb888.h@{managed\_components/lvgl\_\_lvgl/src/draw/sw/blend/riscv\_v/lv\_draw\_sw\_blend\_riscv\_v\_to\_rgb888.h}}
+\mbox{\hyperlink{lv__draw__sw__blend__riscv__v__to__rgb888_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_BLEND\_RISCV\_V\_TO\_RGB888\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_BLEND\_RISCV\_V\_TO\_RGB888\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../../../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_SW\_ASM\ ==\ LV\_DRAW\_SW\_ASM\_RISCV\_V}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}../../../../misc/lv\_types.h"{}}}
+\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ Color\ fill\ to\ RGB888/XRGB8888\ */}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888\_WITH\_OPA}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888\_WITH\_OPA(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888\_with\_opa(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888\_WITH\_MASK}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888\_WITH\_MASK(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888\_with\_mask(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888\_MIX\_MASK\_OPA}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_COLOR\_BLEND\_TO\_RGB888\_MIX\_MASK\_OPA(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888\_with\_opa\_mask(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*\ RGB565\ image\ blend\ to\ RGB888/XRGB8888\ */}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_OPA}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_OPA(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888\_with\_opa(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_MASK}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_MASK(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888\_with\_mask(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888\_MIX\_MASK\_OPA}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB565\_BLEND\_NORMAL\_TO\_RGB888\_MIX\_MASK\_OPA(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888\_with\_opa\_mask(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/*\ RGB888/XRGB8888\ image\ blend\ to\ RGB888/XRGB8888\ */}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888(dsc,\ dest\_px\_size,\ src\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888(dsc,\ dest\_px\_size,\ src\_px\_size)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_OPA}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_OPA(dsc,\ dest\_px\_size,\ src\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888\_with\_opa(dsc,\ dest\_px\_size,\ src\_px\_size)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_MASK}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_MASK(dsc,\ dest\_px\_size,\ src\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888\_with\_mask(dsc,\ dest\_px\_size,\ src\_px\_size)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888\_MIX\_MASK\_OPA}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_RGB888\_BLEND\_NORMAL\_TO\_RGB888\_MIX\_MASK\_OPA(dsc,\ dest\_px\_size,\ src\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888\_with\_opa\_mask(dsc,\ dest\_px\_size,\ src\_px\_size)}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{/*\ ARGB8888\ image\ blend\ to\ RGB888/XRGB8888\ */}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_OPA}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_OPA(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888\_with\_opa(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_MASK}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888\_WITH\_MASK(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888\_with\_mask(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888\_MIX\_MASK\_OPA}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_ARGB8888\_BLEND\_NORMAL\_TO\_RGB888\_MIX\_MASK\_OPA(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888\_with\_opa\_mask(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_ARGB8888\_PREMULTIPLIED\_BLEND\_NORMAL\_TO\_RGB888}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_ARGB8888\_PREMULTIPLIED\_BLEND\_NORMAL\_TO\_RGB888(dsc,\ dest\_px\_size)\ \(\backslash\)}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\ \ \ \ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_premultiplied\_to\_rgb888(dsc,\ dest\_px\_size)}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{comment}{/*\ Color\ fill\ functions\ */}}
+\DoxyCodeLine{00123\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888(\mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{lv\_draw\_sw\_blend\_fill\_dsc\_t}}\ *\ dsc,\ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00124\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888\_with\_opa(\mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{lv\_draw\_sw\_blend\_fill\_dsc\_t}}\ *\ dsc,\ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00125\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888\_with\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{lv\_draw\_sw\_blend\_fill\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00127\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_color\_to\_rgb888\_with\_opa\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{lv\_draw\_sw\_blend\_fill\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{comment}{/*\ RGB565\ to\ RGB888/XRGB8888\ blend\ functions\ */}}
+\DoxyCodeLine{00131\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,\ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00132\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888\_with\_opa(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00134\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888\_with\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00136\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb565\_to\_rgb888\_with\_opa\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{/*\ RGB888/XRGB8888\ to\ RGB888/XRGB8888\ blend\ functions\ */}}
+\DoxyCodeLine{00140\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,\ uint32\_t\ dest\_px\_size,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ src\_px\_size);}
+\DoxyCodeLine{00142\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888\_with\_opa(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size,\ uint32\_t\ src\_px\_size);}
+\DoxyCodeLine{00144\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888\_with\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size,\ uint32\_t\ src\_px\_size);}
+\DoxyCodeLine{00146\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_rgb888\_to\_rgb888\_with\_opa\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size,\ uint32\_t\ src\_px\_size);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{comment}{/*\ ARGB8888\ to\ RGB888/XRGB8888\ blend\ functions\ */}}
+\DoxyCodeLine{00150\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,\ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00151\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888\_with\_opa(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00153\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888\_with\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00155\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_to\_rgb888\_with\_opa\_mask(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00157\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_draw\_sw\_blend\_riscv\_v\_argb8888\_premultiplied\_to\_rgb888(\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}}\ *\ dsc,}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ dest\_px\_size);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00161\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00162\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_DRAW\_SW\_ASM\ ==\ LV\_DRAW\_SW\_ASM\_RISCV\_V\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00167\ \}}
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_DRAW\_SW\_BLEND\_RISCV\_V\_TO\_RGB888\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

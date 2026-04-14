@@ -1,0 +1,65 @@
+\doxysection{ Struktura dummy\+\_\+codec\+\_\+cfg\+\_\+t}
+\hypertarget{structdummy__codec__cfg__t}{}\label{structdummy__codec__cfg__t}\index{dummy\_codec\_cfg\_t@{dummy\_codec\_cfg\_t}}
+
+
+Dummy codec.  
+
+
+
+
+{\ttfamily \#include $<$dummy\+\_\+codec.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda dummy\+\_\+codec\+\_\+cfg\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{structdummy__codec__cfg__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structdummy__codec__cfg__t_ab39270b56d6e991b70177deef7f866fa}{gpio\+\_\+if}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structdummy__codec__cfg__t_aa48787d379d2a600f530789e34f01348}{pa\+\_\+pin}}
+\item 
+bool \mbox{\hyperlink{structdummy__codec__cfg__t_a9833580afaa5afef98e9b77362a2cb58}{pa\+\_\+reverted}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Dummy codec. 
+
+\begin{DoxyVerb}    This codec is used when a board has no external codec chip but still uses a speaker PA.
+    In `esp_codec_dev`, PA power control is tied to the codec open/close lifecycle.
+    By configuring `pa_pin` with this dummy codec, applications can still use APIs such as
+    `esp_codec_dev_open()` to automatically enable/disable the PA.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structdummy__codec__cfg__t_ab39270b56d6e991b70177deef7f866fa}\label{structdummy__codec__cfg__t_ab39270b56d6e991b70177deef7f866fa} 
+\index{dummy\_codec\_cfg\_t@{dummy\_codec\_cfg\_t}!gpio\_if@{gpio\_if}}
+\index{gpio\_if@{gpio\_if}!dummy\_codec\_cfg\_t@{dummy\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{gpio\_if}{gpio\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} dummy\+\_\+codec\+\_\+cfg\+\_\+t\+::gpio\+\_\+if}
+
+GPIO interface used for PA control \Hypertarget{structdummy__codec__cfg__t_aa48787d379d2a600f530789e34f01348}\label{structdummy__codec__cfg__t_aa48787d379d2a600f530789e34f01348} 
+\index{dummy\_codec\_cfg\_t@{dummy\_codec\_cfg\_t}!pa\_pin@{pa\_pin}}
+\index{pa\_pin@{pa\_pin}!dummy\_codec\_cfg\_t@{dummy\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_pin}{pa\_pin}}
+{\footnotesize\ttfamily int16\+\_\+t dummy\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+pin}
+
+PA enable GPIO pin, -\/1 means disabled \Hypertarget{structdummy__codec__cfg__t_a9833580afaa5afef98e9b77362a2cb58}\label{structdummy__codec__cfg__t_a9833580afaa5afef98e9b77362a2cb58} 
+\index{dummy\_codec\_cfg\_t@{dummy\_codec\_cfg\_t}!pa\_reverted@{pa\_reverted}}
+\index{pa\_reverted@{pa\_reverted}!dummy\_codec\_cfg\_t@{dummy\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_reverted}{pa\_reverted}}
+{\footnotesize\ttfamily bool dummy\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+reverted}
+
+false\+: high enable, true\+: low enable 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/device/include/dummy\+\_\+codec.\+h\end{DoxyCompactItemize}

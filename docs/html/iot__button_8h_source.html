@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/espressif__button/include/iot_button.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_684bb69a2e79ad762c39664e9906d471.html">espressif__button</a></li><li class="navelem"><a class="el" href="dir_d62d66e5230c35a8b96a8a8c9b6005d1.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">iot_button.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* SPDX-FileCopyrightText: 2022-2025 Espressif Systems (Shanghai) CO LTD</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;sdkconfig.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;esp_err.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;button_types.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">typedef</span> void (* button_cb_t)(<span class="keywordtype">void</span> *button_handle, <span class="keywordtype">void</span> *usr_data);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">typedef</span> void (* button_power_save_cb_t)(<span class="keywordtype">void</span> *usr_data);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structbutton__power__save__config__t.html">   24</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structbutton__power__save__config__t.html#af669a045aeccd4ac68a884238cffd127">   25</a></span>    button_power_save_cb_t <a class="code hl_variable" href="structbutton__power__save__config__t.html#af669a045aeccd4ac68a884238cffd127">enter_power_save_cb</a>;  </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structbutton__power__save__config__t.html#adb8046661d9e859211bdd3b23caba7b4">   26</a></span>    <span class="keywordtype">void</span> *<a class="code hl_variable" href="structbutton__power__save__config__t.html#adb8046661d9e859211bdd3b23caba7b4">usr_data</a>;                              </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>} <a class="code hl_struct" href="structbutton__power__save__config__t.html">button_power_save_config_t</a>;</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    BUTTON_PRESS_DOWN = 0,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    BUTTON_PRESS_UP,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    BUTTON_PRESS_REPEAT,</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    BUTTON_PRESS_REPEAT_DONE,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    BUTTON_SINGLE_CLICK,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    BUTTON_DOUBLE_CLICK,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    BUTTON_MULTIPLE_CLICK,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    BUTTON_LONG_PRESS_START,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    BUTTON_LONG_PRESS_HOLD,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    BUTTON_LONG_PRESS_UP,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    BUTTON_PRESS_END,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    BUTTON_EVENT_MAX,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    BUTTON_NONE_PRESS,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>} button_event_t;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="unionbutton__event__args__t.html">   53</a></span><span class="keyword">typedef</span> <span class="keyword">union </span>{</div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="};">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structbutton__event__args__t_1_1long__press__t.html">   58</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structbutton__event__args__t_1_1long__press__t.html">long_press_t</a> {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structbutton__event__args__t_1_1long__press__t.html#afa32d2d583e01cfd82b991656f82d961">   59</a></span>        uint16_t <a class="code hl_variable" href="structbutton__event__args__t_1_1long__press__t.html#afa32d2d583e01cfd82b991656f82d961">press_time</a>;    </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="unionbutton__event__args__t.html#ad5d9ca64370e85b41271a671f1c389aa">   60</a></span>    } long_press;               </div>
+</div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structbutton__event__args__t_1_1multiple__clicks__t.html">   66</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structbutton__event__args__t_1_1multiple__clicks__t.html">multiple_clicks_t</a> {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structbutton__event__args__t_1_1multiple__clicks__t.html#a4c6137289d1c4b002c11c0131c9d282e">   67</a></span>        uint16_t <a class="code hl_variable" href="structbutton__event__args__t_1_1multiple__clicks__t.html#a4c6137289d1c4b002c11c0131c9d282e">clicks</a>;        </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="unionbutton__event__args__t.html#a432e9f03857ccf1df4043c566612f601">   68</a></span>    } multiple_clicks;          </div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>} <a class="code hl_union" href="unionbutton__event__args__t.html">button_event_args_t</a>;</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    BUTTON_LONG_PRESS_TIME_MS = 0,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    BUTTON_SHORT_PRESS_TIME_MS,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    BUTTON_PARAM_MAX,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>} button_param_t;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>esp_err_t iot_button_delete(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>esp_err_t iot_button_register_cb(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle, button_event_t event, <a class="code hl_union" href="unionbutton__event__args__t.html">button_event_args_t</a> *event_args, button_cb_t cb, <span class="keywordtype">void</span> *usr_data);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>esp_err_t iot_button_unregister_cb(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle, button_event_t event, <a class="code hl_union" href="unionbutton__event__args__t.html">button_event_args_t</a> *event_args);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keywordtype">size_t</span> iot_button_count_cb(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">size_t</span> iot_button_count_event_cb(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle, button_event_t event);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>button_event_t iot_button_get_event(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">const</span> <span class="keywordtype">char</span> *iot_button_get_event_str(button_event_t event);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>esp_err_t iot_button_print_event(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>uint8_t iot_button_get_repeat(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>uint32_t iot_button_get_pressed_time(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>__attribute__((deprecated(<span class="stringliteral">&quot;Use iot_button_get_pressed_time() instead&quot;</span>)))</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>uint32_t iot_button_get_ticks_time(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>uint16_t iot_button_get_long_press_hold_cnt(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>esp_err_t iot_button_set_param(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle, button_param_t param, <span class="keywordtype">void</span> *value);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>uint8_t iot_button_get_key_level(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>esp_err_t iot_button_resume(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>esp_err_t iot_button_stop(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>esp_err_t iot_button_register_power_save_cb(const <a class="code hl_struct" href="structbutton__power__save__config__t.html">button_power_save_config_t</a> *config);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span> </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>}</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructbutton__dev__t_html"><div class="ttname"><a href="structbutton__dev__t.html">button_dev_t</a></div><div class="ttdoc">Structs to record individual key parameters.</div><div class="ttdef"><b>Definition</b> iot_button.c:69</div></div>
+<div class="ttc" id="astructbutton__event__args__t_1_1long__press__t_html"><div class="ttname"><a href="structbutton__event__args__t_1_1long__press__t.html">button_event_args_t::long_press_t</a></div><div class="ttdoc">Long press time event data.</div><div class="ttdef"><b>Definition</b> iot_button.h:58</div></div>
+<div class="ttc" id="astructbutton__event__args__t_1_1long__press__t_html_afa32d2d583e01cfd82b991656f82d961"><div class="ttname"><a href="structbutton__event__args__t_1_1long__press__t.html#afa32d2d583e01cfd82b991656f82d961">button_event_args_t::long_press_t::press_time</a></div><div class="ttdeci">uint16_t press_time</div><div class="ttdef"><b>Definition</b> iot_button.h:59</div></div>
+<div class="ttc" id="astructbutton__event__args__t_1_1multiple__clicks__t_html"><div class="ttname"><a href="structbutton__event__args__t_1_1multiple__clicks__t.html">button_event_args_t::multiple_clicks_t</a></div><div class="ttdoc">Multiple clicks event data.</div><div class="ttdef"><b>Definition</b> iot_button.h:66</div></div>
+<div class="ttc" id="astructbutton__event__args__t_1_1multiple__clicks__t_html_a4c6137289d1c4b002c11c0131c9d282e"><div class="ttname"><a href="structbutton__event__args__t_1_1multiple__clicks__t.html#a4c6137289d1c4b002c11c0131c9d282e">button_event_args_t::multiple_clicks_t::clicks</a></div><div class="ttdeci">uint16_t clicks</div><div class="ttdef"><b>Definition</b> iot_button.h:67</div></div>
+<div class="ttc" id="astructbutton__power__save__config__t_html"><div class="ttname"><a href="structbutton__power__save__config__t.html">button_power_save_config_t</a></div><div class="ttdoc">Structs to store power save callback info.</div><div class="ttdef"><b>Definition</b> iot_button.h:24</div></div>
+<div class="ttc" id="astructbutton__power__save__config__t_html_adb8046661d9e859211bdd3b23caba7b4"><div class="ttname"><a href="structbutton__power__save__config__t.html#adb8046661d9e859211bdd3b23caba7b4">button_power_save_config_t::usr_data</a></div><div class="ttdeci">void * usr_data</div><div class="ttdef"><b>Definition</b> iot_button.h:26</div></div>
+<div class="ttc" id="astructbutton__power__save__config__t_html_af669a045aeccd4ac68a884238cffd127"><div class="ttname"><a href="structbutton__power__save__config__t.html#af669a045aeccd4ac68a884238cffd127">button_power_save_config_t::enter_power_save_cb</a></div><div class="ttdeci">button_power_save_cb_t enter_power_save_cb</div><div class="ttdef"><b>Definition</b> iot_button.h:25</div></div>
+<div class="ttc" id="aunionbutton__event__args__t_html"><div class="ttname"><a href="unionbutton__event__args__t.html">button_event_args_t</a></div><div class="ttdoc">Button events arg.</div><div class="ttdef"><b>Definition</b> iot_button.h:53</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

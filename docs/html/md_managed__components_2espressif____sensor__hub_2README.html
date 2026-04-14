@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: SENSOR HUB</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">SENSOR HUB</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md456"></a> <code>Sensor hub</code> is a sensor management component that can realize hardware abstraction, device management and data distribution for sensor devices. From the point of application development, this component has the following features:</p>
+<ol type="1">
+<li>Support for registering sensor drivers through component approach, enabling users to focus on usage without concerning themselves with the implementation of the driver layer.</li>
+<li>Provides a unified sensor management and message notification mechanism, allowing users to simply select sensor operation modes, sampling intervals, ranges, etc., and register callback functions for events of interest. This ensures users are notified when the sensor state changes or data collection is complete.</li>
+</ol>
+<p><code>Sensor hub</code> can be used as a basic component for sensor applications in various intelligent scenarios such as environment monitoring, motion detection, health management and etc. as it simplifies operation and improves operating efficiency by centralized management of sensors.</p>
+<h1><a class="anchor" id="autotoc_md457"></a>
+How to register sensor_hub in other sensor drivers</h1>
+<p>To enable the <code>sensor_hub</code> to locate the sensor component, please refer to the following procedure:</p>
+<ol type="1">
+<li>Add a dependency on <code>sensor_hub</code> in the <code>idf_component.yml</code> file of the sensor driver.</li>
+<li>Implement specific functions based on the sensor type and register them in the <code>sensor_hub</code>.</li>
+</ol>
+<div class="fragment"><div class="line"><span class="keyword">static</span> imu_impl_t virtual_mpu6050_impl = {</div>
+<div class="line">    .init = virtual_imu_init,</div>
+<div class="line">    .deinit = virtual_imu_deinit,</div>
+<div class="line">    .test = virtual_imu_test,</div>
+<div class="line">    .acquire_acce = virtual_imu_acquire_acce,</div>
+<div class="line">    .acquire_gyro = virtual_imu_acquire_gyro,</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">SENSOR_HUB_DETECT_FN(IMU_ID, virtual_mpu6050, &amp;virtual_mpu6050_impl);</div>
+</div><!-- fragment --><ol type="1">
+<li>Modify the CMakeLists of the sensor driver to link the sensor registration function.</li>
+</ol>
+<div class="fragment"><div class="line">target_link_libraries(${COMPONENT_LIB} INTERFACE &quot;-u virtual_imu_init&quot;)</div>
+</div><!-- fragment --><p>The <code>test_apps</code> of <code>sensor_hub</code> provide examples of virtual sensor registration, which you can refer to when registering your own sensor.</p>
+<h1><a class="anchor" id="autotoc_md458"></a>
+Add component to your project</h1>
+<p>Please use the component manager command <code>add-dependency</code> to add the <code>sensor_hub</code> to your project's dependency, during the <code>CMake</code> step the component will be downloaded automatically</p>
+<div class="fragment"><div class="line">idf.py add-dependency &quot;espressif/sensor_hub=*&quot;</div>
+</div><!-- fragment --><p>Alternatively, you can create <code>idf_component.yml</code>. More is in <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-component-manager.html">Espressif's documentation</a>.</p>
+<h1><a class="anchor" id="autotoc_md459"></a>
+How to use</h1>
+<p><a href="https://docs.espressif.com/projects/esp-iot-solution/en/latest/sensors/sensor_hub.html">sensor_hub user guide</a> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

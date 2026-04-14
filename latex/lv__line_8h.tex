@@ -1,0 +1,176 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/line/lv\+\_\+line.h}
+\hypertarget{lv__line_8h}{}\label{lv__line_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/line/lv\_line.h@{managed\_components/lvgl\_\_lvgl/src/widgets/line/lv\_line.h}}
+{\ttfamily \#include "{}../../core/lv\+\_\+obj.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+line.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+line.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__line_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__line_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__line_8h_aee7232911c25b90c29583e6e2e0b240c}{lv\+\_\+line\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__line_8h_a336cec1d93f097e4017d792808dc6cef}{lv\+\_\+line\+\_\+set\+\_\+points}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}} points\mbox{[}$\,$\mbox{]}, uint32\+\_\+t point\+\_\+num)
+\item 
+void \mbox{\hyperlink{lv__line_8h_ae98c856d82972048e4b03554d159e09a}{lv\+\_\+line\+\_\+set\+\_\+points\+\_\+mutable}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}} points\mbox{[}$\,$\mbox{]}, uint32\+\_\+t point\+\_\+num)
+\item 
+void \mbox{\hyperlink{lv__line_8h_a09dcde641bfa7a39d78f6dd2fb91871c}{lv\+\_\+line\+\_\+set\+\_\+y\+\_\+invert}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+const \mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__line_8h_a8739ba7ead3460dff3019b2cafaa8f3b}{lv\+\_\+line\+\_\+get\+\_\+points}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__line_8h_abf2084a3fead4e345f7b9ec9f18cf986}{lv\+\_\+line\+\_\+get\+\_\+point\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__line_8h_aa170f773a8c7c151b4e44f9eccb6a8bb}{lv\+\_\+line\+\_\+is\+\_\+point\+\_\+array\+\_\+mutable}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__line_8h_a16d80e614a04545badc7ed2b297f912c}{lv\+\_\+line\+\_\+get\+\_\+points\+\_\+mutable}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__line_8h_a51bf18d5d00febe7d9816ba2cbd3884e}{lv\+\_\+line\+\_\+get\+\_\+y\+\_\+invert}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__line_8h_a14b2edcd7c68c6e99f53ea72fc128c36}\label{lv__line_8h_a14b2edcd7c68c6e99f53ea72fc128c36} 
+\mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\+\_\+\+ATTRIBUTE\+\_\+\+EXTERN\+\_\+\+DATA}} const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+line\+\_\+class}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__line_8h_aee7232911c25b90c29583e6e2e0b240c}\label{lv__line_8h_aee7232911c25b90c29583e6e2e0b240c} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_create@{lv\_line\_create}}
+\index{lv\_line\_create@{lv\_line\_create}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_create()}{lv\_line\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+line\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a line object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new line \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created line 
+\end{DoxyReturn}
+\Hypertarget{lv__line_8h_abf2084a3fead4e345f7b9ec9f18cf986}\label{lv__line_8h_abf2084a3fead4e345f7b9ec9f18cf986} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_get\_point\_count@{lv\_line\_get\_point\_count}}
+\index{lv\_line\_get\_point\_count@{lv\_line\_get\_point\_count}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_get\_point\_count()}{lv\_line\_get\_point\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+line\+\_\+get\+\_\+point\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the number of points in the array of points. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+number of points in array of points 
+\end{DoxyReturn}
+\Hypertarget{lv__line_8h_a8739ba7ead3460dff3019b2cafaa8f3b}\label{lv__line_8h_a8739ba7ead3460dff3019b2cafaa8f3b} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_get\_points@{lv\_line\_get\_points}}
+\index{lv\_line\_get\_points@{lv\_line\_get\_points}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_get\_points()}{lv\_line\_get\_points()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+line\+\_\+get\+\_\+points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the pointer to the array of points. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+const pointer to the array of points 
+\end{DoxyReturn}
+\Hypertarget{lv__line_8h_a16d80e614a04545badc7ed2b297f912c}\label{lv__line_8h_a16d80e614a04545badc7ed2b297f912c} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_get\_points\_mutable@{lv\_line\_get\_points\_mutable}}
+\index{lv\_line\_get\_points\_mutable@{lv\_line\_get\_points\_mutable}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_get\_points\_mutable()}{lv\_line\_get\_points\_mutable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+line\+\_\+get\+\_\+points\+\_\+mutable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a pointer to the mutable array of points or NULL if it is not mutable 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the array of points. NULL if not mutable. 
+\end{DoxyReturn}
+\Hypertarget{lv__line_8h_a51bf18d5d00febe7d9816ba2cbd3884e}\label{lv__line_8h_a51bf18d5d00febe7d9816ba2cbd3884e} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_get\_y\_invert@{lv\_line\_get\_y\_invert}}
+\index{lv\_line\_get\_y\_invert@{lv\_line\_get\_y\_invert}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_get\_y\_invert()}{lv\_line\_get\_y\_invert()}}
+{\footnotesize\ttfamily bool lv\+\_\+line\+\_\+get\+\_\+y\+\_\+invert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the y inversion attribute 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: y inversion is enabled, false\+: disabled 
+\end{DoxyReturn}
+\Hypertarget{lv__line_8h_aa170f773a8c7c151b4e44f9eccb6a8bb}\label{lv__line_8h_aa170f773a8c7c151b4e44f9eccb6a8bb} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_is\_point\_array\_mutable@{lv\_line\_is\_point\_array\_mutable}}
+\index{lv\_line\_is\_point\_array\_mutable@{lv\_line\_is\_point\_array\_mutable}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_is\_point\_array\_mutable()}{lv\_line\_is\_point\_array\_mutable()}}
+{\footnotesize\ttfamily bool lv\+\_\+line\+\_\+is\+\_\+point\+\_\+array\+\_\+mutable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Check the mutability of the stored point array pointer. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: the point array pointer is mutable, false\+: constant 
+\end{DoxyReturn}
+\Hypertarget{lv__line_8h_a336cec1d93f097e4017d792808dc6cef}\label{lv__line_8h_a336cec1d93f097e4017d792808dc6cef} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_set\_points@{lv\_line\_set\_points}}
+\index{lv\_line\_set\_points@{lv\_line\_set\_points}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_set\_points()}{lv\_line\_set\_points()}}
+{\footnotesize\ttfamily void lv\+\_\+line\+\_\+set\+\_\+points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}}}]{points\mbox{[}$\,$\mbox{]},  }\item[{uint32\+\_\+t}]{point\+\_\+num }\end{DoxyParamCaption})}
+
+Set an array of points. The line object will connect these points. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+{\em points} & an array of points. Only the address is saved, so the array needs to be alive while the line exists \\
+\hline
+{\em point\+\_\+num} & number of points in \textquotesingle{}point\+\_\+a\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__line_8h_ae98c856d82972048e4b03554d159e09a}\label{lv__line_8h_ae98c856d82972048e4b03554d159e09a} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_set\_points\_mutable@{lv\_line\_set\_points\_mutable}}
+\index{lv\_line\_set\_points\_mutable@{lv\_line\_set\_points\_mutable}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_set\_points\_mutable()}{lv\_line\_set\_points\_mutable()}}
+{\footnotesize\ttfamily void lv\+\_\+line\+\_\+set\+\_\+points\+\_\+mutable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{structlv__point__precise__t}{lv\+\_\+point\+\_\+precise\+\_\+t}}}]{points\mbox{[}$\,$\mbox{]},  }\item[{uint32\+\_\+t}]{point\+\_\+num }\end{DoxyParamCaption})}
+
+Set a non-\/const array of points. Identical to {\ttfamily lv\+\_\+line\+\_\+set\+\_\+points} except the array may be retrieved by {\ttfamily lv\+\_\+line\+\_\+get\+\_\+points\+\_\+mutable}. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+{\em points} & a non-\/const array of points. Only the address is saved, so the array needs to be alive while the line exists. \\
+\hline
+{\em point\+\_\+num} & number of points in \textquotesingle{}point\+\_\+a\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__line_8h_a09dcde641bfa7a39d78f6dd2fb91871c}\label{lv__line_8h_a09dcde641bfa7a39d78f6dd2fb91871c} 
+\index{lv\_line.h@{lv\_line.h}!lv\_line\_set\_y\_invert@{lv\_line\_set\_y\_invert}}
+\index{lv\_line\_set\_y\_invert@{lv\_line\_set\_y\_invert}!lv\_line.h@{lv\_line.h}}
+\doxysubsubsection{\texorpdfstring{lv\_line\_set\_y\_invert()}{lv\_line\_set\_y\_invert()}}
+{\footnotesize\ttfamily void lv\+\_\+line\+\_\+set\+\_\+y\+\_\+invert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Enable (or disable) the y coordinate inversion. If enabled then y will be subtracted from the height of the object, therefore the y = 0 coordinate will be on the bottom. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a line object \\
+\hline
+{\em en} & true\+: enable the y inversion, false\+:disable the y inversion \\
+\hline
+\end{DoxyParams}

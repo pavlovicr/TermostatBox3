@@ -1,0 +1,313 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/buttonmatrix/lv\+\_\+buttonmatrix.c}
+\hypertarget{lv__buttonmatrix_8c}{}\label{lv__buttonmatrix_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/buttonmatrix/lv\_buttonmatrix.c@{managed\_components/lvgl\_\_lvgl/src/widgets/buttonmatrix/lv\_buttonmatrix.c}}
+{\ttfamily \#include "{}lv\+\_\+buttonmatrix\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+area\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../indev/lv\+\_\+indev.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+group.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+refr.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+ap.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+buttonmatrix.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+buttonmatrix.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__buttonmatrix_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__buttonmatrix_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__buttonmatrix_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+buttonmatrix\+\_\+class)
+\item 
+\Hypertarget{lv__buttonmatrix_8c_a5a838edcc915470e7f200a17f40ae9d6}\label{lv__buttonmatrix_8c_a5a838edcc915470e7f200a17f40ae9d6} 
+\#define {\bfseries BTN\+\_\+\+EXTRA\+\_\+\+CLICK\+\_\+\+AREA\+\_\+\+MAX}~(\mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\+\_\+\+DPI\+\_\+\+DEF}} / 10)
+\item 
+\Hypertarget{lv__buttonmatrix_8c_ae188ee266d635beedb9f7f657ca102f2}\label{lv__buttonmatrix_8c_ae188ee266d635beedb9f7f657ca102f2} 
+\#define {\bfseries LV\+\_\+\+BUTTONMATRIX\+\_\+\+WIDTH\+\_\+\+MASK}~0x000F
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__buttonmatrix_8c_aa4cb8f71aede9e1485cee41362289b07}{lv\+\_\+buttonmatrix\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_afab00c1ec4088bb2f5d101c98dec4559}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+map}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}const map\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_adcaf51aab980c348e5f9b178728fe9b0}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+ctrl\+\_\+map}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}} ctrl\+\_\+map\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_a5fe2e95eacc734c20688338018771c64}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+selected\+\_\+button}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t btn\+\_\+id)
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_ab774195a90b800d1564d134f4c192af3}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+button\+\_\+ctrl}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t btn\+\_\+id, \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}} ctrl)
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_af30320773de78d1ed92cbf553fda67bc}{lv\+\_\+buttonmatrix\+\_\+clear\+\_\+button\+\_\+ctrl}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t btn\+\_\+id, \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}} ctrl)
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_a8f9a5b93e1b04abe1e8781fefb206ec0}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+button\+\_\+ctrl\+\_\+all}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}} ctrl)
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_a4dd877ff6f0875d4802fabcc1726765c}{lv\+\_\+buttonmatrix\+\_\+clear\+\_\+button\+\_\+ctrl\+\_\+all}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}} ctrl)
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_aeb11f72e08dd783056b05aff62caf097}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+button\+\_\+width}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t btn\+\_\+id, uint32\+\_\+t width)
+\item 
+void \mbox{\hyperlink{lv__buttonmatrix_8c_ac4afe546114b3a7820dcde85a10e6ba6}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+one\+\_\+checked}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+const char \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__buttonmatrix_8c_a78e0bb2dc97ca5e0158fddf5988d4621}{lv\+\_\+buttonmatrix\+\_\+get\+\_\+map}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__buttonmatrix_8c_accc9be6c5fbd0a364f5e61a43117bf01}{lv\+\_\+buttonmatrix\+\_\+get\+\_\+selected\+\_\+button}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__buttonmatrix_8c_a6d5e12bf5e9b6b8c67fe975cdba08ebe}{lv\+\_\+buttonmatrix\+\_\+get\+\_\+button\+\_\+text}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t btn\+\_\+id)
+\item 
+bool \mbox{\hyperlink{lv__buttonmatrix_8c_afe9ebd7cf85e07357f436a8af40842bc}{lv\+\_\+buttonmatrix\+\_\+has\+\_\+button\+\_\+ctrl}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t btn\+\_\+id, \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}} ctrl)
+\item 
+bool \mbox{\hyperlink{lv__buttonmatrix_8c_ab8b4c86ec03fb98c525c3f989491698f}{lv\+\_\+buttonmatrix\+\_\+get\+\_\+one\+\_\+checked}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__buttonmatrix_8c_a5869b57daeea2db8501b4e164f2a4d85}{lv\+\_\+buttonmatrix\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__buttonmatrix_8c_af30320773de78d1ed92cbf553fda67bc}\label{lv__buttonmatrix_8c_af30320773de78d1ed92cbf553fda67bc} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_clear\_button\_ctrl@{lv\_buttonmatrix\_clear\_button\_ctrl}}
+\index{lv\_buttonmatrix\_clear\_button\_ctrl@{lv\_buttonmatrix\_clear\_button\_ctrl}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_clear\_button\_ctrl()}{lv\_buttonmatrix\_clear\_button\_ctrl()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+clear\+\_\+button\+\_\+ctrl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{btn\+\_\+id,  }\item[{\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}}}]{ctrl }\end{DoxyParamCaption})}
+
+Clear the attributes of a button of the button matrix 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to button matrix object \\
+\hline
+{\em btn\+\_\+id} & 0 based index of the button to modify. (Not counting new lines) \\
+\hline
+{\em ctrl} & OR-\/ed attributes. E.\+g. {\ttfamily LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+NO\+\_\+\+REPEAT \texorpdfstring{$\vert$}{|} LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+CHECKABLE} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_a4dd877ff6f0875d4802fabcc1726765c}\label{lv__buttonmatrix_8c_a4dd877ff6f0875d4802fabcc1726765c} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_clear\_button\_ctrl\_all@{lv\_buttonmatrix\_clear\_button\_ctrl\_all}}
+\index{lv\_buttonmatrix\_clear\_button\_ctrl\_all@{lv\_buttonmatrix\_clear\_button\_ctrl\_all}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_clear\_button\_ctrl\_all()}{lv\_buttonmatrix\_clear\_button\_ctrl\_all()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+clear\+\_\+button\+\_\+ctrl\+\_\+all (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}}}]{ctrl }\end{DoxyParamCaption})}
+
+Clear the attributes of all buttons of a button matrix 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a button matrix object \\
+\hline
+{\em ctrl} & attribute(s) to set from {\ttfamily lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}. Values can be ORed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_aa4cb8f71aede9e1485cee41362289b07}\label{lv__buttonmatrix_8c_aa4cb8f71aede9e1485cee41362289b07} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_create@{lv\_buttonmatrix\_create}}
+\index{lv\_buttonmatrix\_create@{lv\_buttonmatrix\_create}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_create()}{lv\_buttonmatrix\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+buttonmatrix\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a button matrix object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new button matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created button matrix 
+\end{DoxyReturn}
+\Hypertarget{lv__buttonmatrix_8c_a6d5e12bf5e9b6b8c67fe975cdba08ebe}\label{lv__buttonmatrix_8c_a6d5e12bf5e9b6b8c67fe975cdba08ebe} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_get\_button\_text@{lv\_buttonmatrix\_get\_button\_text}}
+\index{lv\_buttonmatrix\_get\_button\_text@{lv\_buttonmatrix\_get\_button\_text}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_get\_button\_text()}{lv\_buttonmatrix\_get\_button\_text()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+buttonmatrix\+\_\+get\+\_\+button\+\_\+text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{btn\+\_\+id }\end{DoxyParamCaption})}
+
+Get the button\textquotesingle{}s text 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to button matrix object \\
+\hline
+{\em btn\+\_\+id} & the index a button not counting new line characters. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+text of btn\+\_\+index\`{} button 
+\end{DoxyReturn}
+\Hypertarget{lv__buttonmatrix_8c_a78e0bb2dc97ca5e0158fddf5988d4621}\label{lv__buttonmatrix_8c_a78e0bb2dc97ca5e0158fddf5988d4621} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_get\_map@{lv\_buttonmatrix\_get\_map}}
+\index{lv\_buttonmatrix\_get\_map@{lv\_buttonmatrix\_get\_map}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_get\_map()}{lv\_buttonmatrix\_get\_map()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*}const  \texorpdfstring{$\ast$}{*} lv\+\_\+buttonmatrix\+\_\+get\+\_\+map (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the current map of a button matrix 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a button matrix object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the current map 
+\end{DoxyReturn}
+\Hypertarget{lv__buttonmatrix_8c_ab8b4c86ec03fb98c525c3f989491698f}\label{lv__buttonmatrix_8c_ab8b4c86ec03fb98c525c3f989491698f} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_get\_one\_checked@{lv\_buttonmatrix\_get\_one\_checked}}
+\index{lv\_buttonmatrix\_get\_one\_checked@{lv\_buttonmatrix\_get\_one\_checked}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_get\_one\_checked()}{lv\_buttonmatrix\_get\_one\_checked()}}
+{\footnotesize\ttfamily bool lv\+\_\+buttonmatrix\+\_\+get\+\_\+one\+\_\+checked (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Tell whether "{}one check"{} mode is enabled or not. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & Button matrix object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: "{}one check"{} mode is enabled; false\+: disabled 
+\end{DoxyReturn}
+\Hypertarget{lv__buttonmatrix_8c_accc9be6c5fbd0a364f5e61a43117bf01}\label{lv__buttonmatrix_8c_accc9be6c5fbd0a364f5e61a43117bf01} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_get\_selected\_button@{lv\_buttonmatrix\_get\_selected\_button}}
+\index{lv\_buttonmatrix\_get\_selected\_button@{lv\_buttonmatrix\_get\_selected\_button}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_get\_selected\_button()}{lv\_buttonmatrix\_get\_selected\_button()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+buttonmatrix\+\_\+get\+\_\+selected\+\_\+button (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the index of the lastly "{}activated"{} button by the user (pressed, released, focused etc) Useful in the {\ttfamily event\+\_\+cb} to get the text of the button, check if hidden etc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to button matrix object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+index of the last released button (LV\+\_\+\+BUTTONMATRIX\+\_\+\+BUTTON\+\_\+\+NONE\+: if unset) 
+\end{DoxyReturn}
+\Hypertarget{lv__buttonmatrix_8c_afe9ebd7cf85e07357f436a8af40842bc}\label{lv__buttonmatrix_8c_afe9ebd7cf85e07357f436a8af40842bc} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_has\_button\_ctrl@{lv\_buttonmatrix\_has\_button\_ctrl}}
+\index{lv\_buttonmatrix\_has\_button\_ctrl@{lv\_buttonmatrix\_has\_button\_ctrl}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_has\_button\_ctrl()}{lv\_buttonmatrix\_has\_button\_ctrl()}}
+{\footnotesize\ttfamily bool lv\+\_\+buttonmatrix\+\_\+has\+\_\+button\+\_\+ctrl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{btn\+\_\+id,  }\item[{\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}}}]{ctrl }\end{DoxyParamCaption})}
+
+Get the whether a control value is enabled or disabled for button of a button matrix 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a button matrix object \\
+\hline
+{\em btn\+\_\+id} & the index of a button not counting new line characters. \\
+\hline
+{\em ctrl} & control values to check (ORed value can be used) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: the control attribute is enabled false\+: disabled 
+\end{DoxyReturn}
+\Hypertarget{lv__buttonmatrix_8c_ab774195a90b800d1564d134f4c192af3}\label{lv__buttonmatrix_8c_ab774195a90b800d1564d134f4c192af3} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_set\_button\_ctrl@{lv\_buttonmatrix\_set\_button\_ctrl}}
+\index{lv\_buttonmatrix\_set\_button\_ctrl@{lv\_buttonmatrix\_set\_button\_ctrl}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_set\_button\_ctrl()}{lv\_buttonmatrix\_set\_button\_ctrl()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+set\+\_\+button\+\_\+ctrl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{btn\+\_\+id,  }\item[{\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}}}]{ctrl }\end{DoxyParamCaption})}
+
+Set the attributes of a button of the button matrix 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to button matrix object \\
+\hline
+{\em btn\+\_\+id} & 0 based index of the button to modify. (Not counting new lines) \\
+\hline
+{\em ctrl} & OR-\/ed attributes. E.\+g. {\ttfamily LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+NO\+\_\+\+REPEAT \texorpdfstring{$\vert$}{|} LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+CHECKABLE} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_a8f9a5b93e1b04abe1e8781fefb206ec0}\label{lv__buttonmatrix_8c_a8f9a5b93e1b04abe1e8781fefb206ec0} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_set\_button\_ctrl\_all@{lv\_buttonmatrix\_set\_button\_ctrl\_all}}
+\index{lv\_buttonmatrix\_set\_button\_ctrl\_all@{lv\_buttonmatrix\_set\_button\_ctrl\_all}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_set\_button\_ctrl\_all()}{lv\_buttonmatrix\_set\_button\_ctrl\_all()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+set\+\_\+button\+\_\+ctrl\+\_\+all (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}}}]{ctrl }\end{DoxyParamCaption})}
+
+Set attributes of all buttons of a button matrix 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a button matrix object \\
+\hline
+{\em ctrl} & attribute(s) to set from {\ttfamily lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}. Values can be ORed. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_aeb11f72e08dd783056b05aff62caf097}\label{lv__buttonmatrix_8c_aeb11f72e08dd783056b05aff62caf097} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_set\_button\_width@{lv\_buttonmatrix\_set\_button\_width}}
+\index{lv\_buttonmatrix\_set\_button\_width@{lv\_buttonmatrix\_set\_button\_width}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_set\_button\_width()}{lv\_buttonmatrix\_set\_button\_width()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+set\+\_\+button\+\_\+width (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{btn\+\_\+id,  }\item[{uint32\+\_\+t}]{width }\end{DoxyParamCaption})}
+
+Set a single button\textquotesingle{}s relative width. This method will cause the matrix be regenerated and is a relatively expensive operation. It is recommended that initial width be specified using {\ttfamily lv\+\_\+buttonmatrix\+\_\+set\+\_\+ctrl\+\_\+map} and this method only be used for dynamic changes. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to button matrix object \\
+\hline
+{\em btn\+\_\+id} & 0 based index of the button to modify. \\
+\hline
+{\em width} & relative width compared to the buttons in the same row. \mbox{[}1..15\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_adcaf51aab980c348e5f9b178728fe9b0}\label{lv__buttonmatrix_8c_adcaf51aab980c348e5f9b178728fe9b0} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_set\_ctrl\_map@{lv\_buttonmatrix\_set\_ctrl\_map}}
+\index{lv\_buttonmatrix\_set\_ctrl\_map@{lv\_buttonmatrix\_set\_ctrl\_map}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_set\_ctrl\_map()}{lv\_buttonmatrix\_set\_ctrl\_map()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+set\+\_\+ctrl\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632}{lv\+\_\+buttonmatrix\+\_\+ctrl\+\_\+t}}}]{ctrl\+\_\+map\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Set the button control map (hidden, disabled etc.) for a button matrix. The control map array will be copied and so may be deallocated after this function returns. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a button matrix object \\
+\hline
+{\em ctrl\+\_\+map} & pointer to an array of {\ttfamily lv\+\_\+button\+\_\+ctrl\+\_\+t} control bytes. The length of the array and position of the elements must match the number and order of the individual buttons (i.\+e. excludes newline entries). An element of the map should look like e.\+g.\+: {\ttfamily ctrl\+\_\+map\mbox{[}0\mbox{]} = width \texorpdfstring{$\vert$}{|} LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+NO\+\_\+\+REPEAT \texorpdfstring{$\vert$}{|} LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+TGL\+\_\+\+ENABLE} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_afab00c1ec4088bb2f5d101c98dec4559}\label{lv__buttonmatrix_8c_afab00c1ec4088bb2f5d101c98dec4559} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_set\_map@{lv\_buttonmatrix\_set\_map}}
+\index{lv\_buttonmatrix\_set\_map@{lv\_buttonmatrix\_set\_map}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_set\_map()}{lv\_buttonmatrix\_set\_map()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+set\+\_\+map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}const}]{map\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Set a new map. Buttons will be created/deleted according to the map. The button matrix keeps a reference to the map and so the string array must not be deallocated during the life of the matrix. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a button matrix object \\
+\hline
+{\em map} & pointer a string array. The last string has to be\+: "{}"{}. Use "{}\textbackslash{}n"{} to make a line break. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_ac4afe546114b3a7820dcde85a10e6ba6}\label{lv__buttonmatrix_8c_ac4afe546114b3a7820dcde85a10e6ba6} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_set\_one\_checked@{lv\_buttonmatrix\_set\_one\_checked}}
+\index{lv\_buttonmatrix\_set\_one\_checked@{lv\_buttonmatrix\_set\_one\_checked}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_set\_one\_checked()}{lv\_buttonmatrix\_set\_one\_checked()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+set\+\_\+one\+\_\+checked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Make the button matrix like a selector widget (only one button may be checked at a time). {\ttfamily LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+CHECKABLE} must be enabled on the buttons to be selected using {\ttfamily lv\+\_\+buttonmatrix\+\_\+set\+\_\+ctrl()} or {\ttfamily \doxylink{lv__buttonmatrix_8h_a8f9a5b93e1b04abe1e8781fefb206ec0}{lv\+\_\+buttonmatrix\+\_\+set\+\_\+button\+\_\+ctrl\+\_\+all()}}. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a button matrix object \\
+\hline
+{\em en} & whether "{}one check"{} mode is enabled \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__buttonmatrix_8c_a5fe2e95eacc734c20688338018771c64}\label{lv__buttonmatrix_8c_a5fe2e95eacc734c20688338018771c64} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_set\_selected\_button@{lv\_buttonmatrix\_set\_selected\_button}}
+\index{lv\_buttonmatrix\_set\_selected\_button@{lv\_buttonmatrix\_set\_selected\_button}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_set\_selected\_button()}{lv\_buttonmatrix\_set\_selected\_button()}}
+{\footnotesize\ttfamily void lv\+\_\+buttonmatrix\+\_\+set\+\_\+selected\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{btn\+\_\+id }\end{DoxyParamCaption})}
+
+Set the selected buttons 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to button matrix object \\
+\hline
+{\em btn\+\_\+id} & 0 based index of the button to modify. (Not counting new lines) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__buttonmatrix_8c_a5869b57daeea2db8501b4e164f2a4d85}\label{lv__buttonmatrix_8c_a5869b57daeea2db8501b4e164f2a4d85} 
+\index{lv\_buttonmatrix.c@{lv\_buttonmatrix.c}!lv\_buttonmatrix\_class@{lv\_buttonmatrix\_class}}
+\index{lv\_buttonmatrix\_class@{lv\_buttonmatrix\_class}!lv\_buttonmatrix.c@{lv\_buttonmatrix.c}}
+\doxysubsubsection{\texorpdfstring{lv\_buttonmatrix\_class}{lv\_buttonmatrix\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+buttonmatrix\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_buttonmatrix\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_buttonmatrix\_destructor,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_buttonmatrix\_event,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ *\ 2,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}},}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__buttonmatrix__t}{lv\_buttonmatrix\_t}}),}
+\DoxyCodeLine{\ \ \ \ .editable\ =\ LV\_OBJ\_CLASS\_EDITABLE\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .group\_def\ =\ LV\_OBJ\_CLASS\_GROUP\_DEF\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_buttonmatrix"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

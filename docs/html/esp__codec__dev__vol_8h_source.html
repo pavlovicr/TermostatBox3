@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/espressif__esp_codec_dev/include/esp_codec_dev_vol.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_f4a2867ba7786a073a355b3494ec8cdc.html">espressif__esp_codec_dev</a></li><li class="navelem"><a class="el" href="dir_3edcb056607474295a495d78cabb7604.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">esp_codec_dev_vol.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * SPDX-FileCopyrightText: 2023 Espressif Systems (Shanghai) CO LTD</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef _ESP_CODEC_DEV_VOL_H_</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define _ESP_CODEC_DEV_VOL_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;esp_codec_dev_types.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__map__t.html">   18</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__map__t.html#a8754d37dca31dc9f199632131904985d">   19</a></span>    <span class="keywordtype">int</span>   <a class="code hl_variable" href="structesp__codec__dev__vol__map__t.html#a8754d37dca31dc9f199632131904985d">vol</a>;      </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__map__t.html#a3316221124668010dbc73e1e54f2b84d">   20</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structesp__codec__dev__vol__map__t.html#a3316221124668010dbc73e1e54f2b84d">db_value</a>; </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <a class="code hl_struct" href="structesp__codec__dev__vol__map__t.html">esp_codec_dev_vol_map_t</a>;</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__range__t.html">   26</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__range__t.html#a072d52ed1c996aa0981f5ff6b9fd5971">   27</a></span>    <a class="code hl_struct" href="structesp__codec__dev__vol__map__t.html">esp_codec_dev_vol_map_t</a> <a class="code hl_variable" href="structesp__codec__dev__vol__range__t.html#a072d52ed1c996aa0981f5ff6b9fd5971">min_vol</a>; </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__range__t.html#a571b9e6b673e968cffd86089218c2113">   28</a></span>    <a class="code hl_struct" href="structesp__codec__dev__vol__map__t.html">esp_codec_dev_vol_map_t</a> <a class="code hl_variable" href="structesp__codec__dev__vol__range__t.html#a571b9e6b673e968cffd86089218c2113">max_vol</a>; </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>} <a class="code hl_struct" href="structesp__codec__dev__vol__range__t.html">esp_codec_dev_vol_range_t</a>;</div>
+</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__curve__t.html">   34</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__curve__t.html#ab8f896e126985bef66b358dd55c764d6">   35</a></span>    <a class="code hl_struct" href="structesp__codec__dev__vol__map__t.html">esp_codec_dev_vol_map_t</a> *<a class="code hl_variable" href="structesp__codec__dev__vol__curve__t.html#ab8f896e126985bef66b358dd55c764d6">vol_map</a>; </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structesp__codec__dev__vol__curve__t.html#abf8b1bafcb8a36cebeed30100bcecd43">   36</a></span>    <span class="keywordtype">int</span>                      <a class="code hl_variable" href="structesp__codec__dev__vol__curve__t.html#abf8b1bafcb8a36cebeed30100bcecd43">count</a>;   </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>} <a class="code hl_struct" href="structesp__codec__dev__vol__curve__t.html">esp_codec_dev_vol_curve_t</a>;</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * Audio gain overview:</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *                           |----------------Software Gain--------------|--Hardware Gain--|</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> *  |--------------------|   |--------------------|   |------------------|   |---------|   |----------------|</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> *  | Digital Audio Data |--&gt;| Audio Process Gain |--&gt;| Codec DAC Volume |--&gt;| PA Gain |--&gt;| Speaker Output |</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> *  |--------------------|   |--------------------|   |------------------|   |---------|   |----------------|</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * Final speaker loudness is affected by both Software Gain and Hardware Gain.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * Software Gain (Adjustable):</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> *   Audio Process Gain: Gain by audio post processor, such as ALC, AGC, DRC target MAX Gain.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> *   Codec DAC Volume: The audio codec DAC volume control, such as ES8311 DAC_Volume control register.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * Hardware Gain (Fixed):</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> *   PA Gain: The speaker power amplifier Gain, which is determined by the hardware circuit.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * The speaker playback route gain (Audio Process Gain + Codec DAC Volume + PA Gain) needs to ensure that the</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * speaker PA output is not saturated and exceeds the speaker rated power. We define the maximum route gain</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * as MAX_GAIN. To ensure the speaker PA output is not saturated, MAX_GAIN can be calculated simply by the formula.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> *    MAX_GAIN = 20 * log(Vpa/Vdac)</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> *    Vpa: PA power supply</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> *    Vdac: Codec DAC power supply</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * e.g., Vpa = 5V, Vdac = 3.3V, then MAX_GAIN = 20 * log(5/3.3) = 3.6 dB.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> * If the speaker rated power is lower than the speaker PA MAX power, MAX_GAIN should be defined according to</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * the speaker rated power.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="};">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structesp__codec__dev__hw__gain__t.html">   73</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structesp__codec__dev__hw__gain__t.html#a097201c35a4cf01ba4e493fd198b9da2">   74</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structesp__codec__dev__hw__gain__t.html#a097201c35a4cf01ba4e493fd198b9da2">pa_voltage</a>;        </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="structesp__codec__dev__hw__gain__t.html#a33b6e4d687b2f45c5b355904e1d1c9a0">   75</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structesp__codec__dev__hw__gain__t.html#a33b6e4d687b2f45c5b355904e1d1c9a0">codec_dac_voltage</a>; </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="structesp__codec__dev__hw__gain__t.html#ae9108b9bc1c43923289164d6bd258d62">   76</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="structesp__codec__dev__hw__gain__t.html#ae9108b9bc1c43923289164d6bd258d62">pa_gain</a>;           </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>} <a class="code hl_struct" href="structesp__codec__dev__hw__gain__t.html">esp_codec_dev_hw_gain_t</a>;</div>
+</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">int</span> esp_codec_dev_vol_calc_reg(<span class="keyword">const</span> <a class="code hl_struct" href="structesp__codec__dev__vol__range__t.html">esp_codec_dev_vol_range_t</a> *vol_range, <span class="keywordtype">float</span> db);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">float</span> esp_codec_dev_vol_calc_db(<span class="keyword">const</span> <a class="code hl_struct" href="structesp__codec__dev__vol__range__t.html">esp_codec_dev_vol_range_t</a> *vol_range, <span class="keywordtype">int</span> vol);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keywordtype">float</span> esp_codec_dev_col_calc_hw_gain(<a class="code hl_struct" href="structesp__codec__dev__hw__gain__t.html">esp_codec_dev_hw_gain_t</a>* hw_gain);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructesp__codec__dev__hw__gain__t_html"><div class="ttname"><a href="structesp__codec__dev__hw__gain__t.html">esp_codec_dev_hw_gain_t</a></div><div class="ttdoc">Codec hardware gain setting Notes: Hardware gain generally consists of 2 parts.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:73</div></div>
+<div class="ttc" id="astructesp__codec__dev__hw__gain__t_html_a097201c35a4cf01ba4e493fd198b9da2"><div class="ttname"><a href="structesp__codec__dev__hw__gain__t.html#a097201c35a4cf01ba4e493fd198b9da2">esp_codec_dev_hw_gain_t::pa_voltage</a></div><div class="ttdeci">float pa_voltage</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:74</div></div>
+<div class="ttc" id="astructesp__codec__dev__hw__gain__t_html_a33b6e4d687b2f45c5b355904e1d1c9a0"><div class="ttname"><a href="structesp__codec__dev__hw__gain__t.html#a33b6e4d687b2f45c5b355904e1d1c9a0">esp_codec_dev_hw_gain_t::codec_dac_voltage</a></div><div class="ttdeci">float codec_dac_voltage</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:75</div></div>
+<div class="ttc" id="astructesp__codec__dev__hw__gain__t_html_ae9108b9bc1c43923289164d6bd258d62"><div class="ttname"><a href="structesp__codec__dev__hw__gain__t.html#ae9108b9bc1c43923289164d6bd258d62">esp_codec_dev_hw_gain_t::pa_gain</a></div><div class="ttdeci">float pa_gain</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:76</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__curve__t_html"><div class="ttname"><a href="structesp__codec__dev__vol__curve__t.html">esp_codec_dev_vol_curve_t</a></div><div class="ttdoc">Codec volume curve configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:34</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__curve__t_html_ab8f896e126985bef66b358dd55c764d6"><div class="ttname"><a href="structesp__codec__dev__vol__curve__t.html#ab8f896e126985bef66b358dd55c764d6">esp_codec_dev_vol_curve_t::vol_map</a></div><div class="ttdeci">esp_codec_dev_vol_map_t * vol_map</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:35</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__curve__t_html_abf8b1bafcb8a36cebeed30100bcecd43"><div class="ttname"><a href="structesp__codec__dev__vol__curve__t.html#abf8b1bafcb8a36cebeed30100bcecd43">esp_codec_dev_vol_curve_t::count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:36</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__map__t_html"><div class="ttname"><a href="structesp__codec__dev__vol__map__t.html">esp_codec_dev_vol_map_t</a></div><div class="ttdoc">Codec volume map to decibel.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:18</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__map__t_html_a3316221124668010dbc73e1e54f2b84d"><div class="ttname"><a href="structesp__codec__dev__vol__map__t.html#a3316221124668010dbc73e1e54f2b84d">esp_codec_dev_vol_map_t::db_value</a></div><div class="ttdeci">float db_value</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:20</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__map__t_html_a8754d37dca31dc9f199632131904985d"><div class="ttname"><a href="structesp__codec__dev__vol__map__t.html#a8754d37dca31dc9f199632131904985d">esp_codec_dev_vol_map_t::vol</a></div><div class="ttdeci">int vol</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:19</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__range__t_html"><div class="ttname"><a href="structesp__codec__dev__vol__range__t.html">esp_codec_dev_vol_range_t</a></div><div class="ttdoc">Codec volume range setting.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:26</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__range__t_html_a072d52ed1c996aa0981f5ff6b9fd5971"><div class="ttname"><a href="structesp__codec__dev__vol__range__t.html#a072d52ed1c996aa0981f5ff6b9fd5971">esp_codec_dev_vol_range_t::min_vol</a></div><div class="ttdeci">esp_codec_dev_vol_map_t min_vol</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:27</div></div>
+<div class="ttc" id="astructesp__codec__dev__vol__range__t_html_a571b9e6b673e968cffd86089218c2113"><div class="ttname"><a href="structesp__codec__dev__vol__range__t.html#a571b9e6b673e968cffd86089218c2113">esp_codec_dev_vol_range_t::max_vol</a></div><div class="ttdeci">esp_codec_dev_vol_map_t max_vol</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:28</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

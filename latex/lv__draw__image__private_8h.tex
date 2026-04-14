@@ -1,0 +1,97 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/lv\+\_\+draw\+\_\+image\+\_\+private.h}
+\hypertarget{lv__draw__image__private_8h}{}\label{lv__draw__image__private_8h}\index{managed\_components/lvgl\_\_lvgl/src/draw/lv\_draw\_image\_private.h@{managed\_components/lvgl\_\_lvgl/src/draw/lv\_draw\_image\_private.h}}
+{\ttfamily \#include "{}lv\+\_\+draw\+\_\+image.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+image\+\_\+private.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+image\+\_\+private.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__image__private_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__image__private_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__draw__image__sup__t}{\+\_\+lv\+\_\+draw\+\_\+image\+\_\+sup\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__draw__image__private_8h_a3b341060fd85a667abd8b826327c93a4}{lv\+\_\+draw\+\_\+image\+\_\+normal\+\_\+helper}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{struct__lv__draw__image__dsc__t}{lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords, \mbox{\hyperlink{lv__draw__image_8h_a79f415540ecac2897df82bd8a4f33bf6}{lv\+\_\+draw\+\_\+image\+\_\+core\+\_\+cb}} draw\+\_\+core\+\_\+cb, const \mbox{\hyperlink{struct__lv__image__decoder__args__t}{lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t}} \texorpdfstring{$\ast$}{*}decoder\+\_\+args)
+\item 
+void \mbox{\hyperlink{lv__draw__image__private_8h_a668f29bad497b7230338d38c1f6d0a89}{lv\+\_\+draw\+\_\+image\+\_\+tiled\+\_\+helper}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{struct__lv__draw__image__dsc__t}{lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords, \mbox{\hyperlink{lv__draw__image_8h_a79f415540ecac2897df82bd8a4f33bf6}{lv\+\_\+draw\+\_\+image\+\_\+core\+\_\+cb}} draw\+\_\+core\+\_\+cb, const \mbox{\hyperlink{struct__lv__image__decoder__args__t}{lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t}} \texorpdfstring{$\ast$}{*}decoder\+\_\+args)
+\item 
+void \mbox{\hyperlink{lv__draw__image__private_8h_ac90ed670c8d8da29ca85f73252eae0a1}{lv\+\_\+image\+\_\+buf\+\_\+get\+\_\+transformed\+\_\+area}} (\mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}res, int32\+\_\+t w, int32\+\_\+t h, int32\+\_\+t angle, uint16\+\_\+t scale\+\_\+x, uint16\+\_\+t scale\+\_\+y, const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}pivot)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__draw__image__private_8h_a3b341060fd85a667abd8b826327c93a4}\label{lv__draw__image__private_8h_a3b341060fd85a667abd8b826327c93a4} 
+\index{lv\_draw\_image\_private.h@{lv\_draw\_image\_private.h}!lv\_draw\_image\_normal\_helper@{lv\_draw\_image\_normal\_helper}}
+\index{lv\_draw\_image\_normal\_helper@{lv\_draw\_image\_normal\_helper}!lv\_draw\_image\_private.h@{lv\_draw\_image\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_image\_normal\_helper()}{lv\_draw\_image\_normal\_helper()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+image\+\_\+normal\+\_\+helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{const \mbox{\hyperlink{struct__lv__draw__image__dsc__t}{lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords,  }\item[{\mbox{\hyperlink{lv__draw__image_8h_a79f415540ecac2897df82bd8a4f33bf6}{lv\+\_\+draw\+\_\+image\+\_\+core\+\_\+cb}}}]{draw\+\_\+core\+\_\+cb,  }\item[{const \mbox{\hyperlink{struct__lv__image__decoder__args__t}{lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{decoder\+\_\+args }\end{DoxyParamCaption})}
+
+Can be used by draw units to handle the decoding and prepare everything for the actual image rendering 
+\begin{DoxyParams}{Parametri}
+{\em t} & pointer to a draw task \\
+\hline
+{\em draw\+\_\+dsc} & the draw descriptor of the image \\
+\hline
+{\em coords} & the absolute coordinates of the image \\
+\hline
+{\em draw\+\_\+core\+\_\+cb} & a callback to perform the actual rendering \\
+\hline
+{\em decoder\+\_\+args} & the args passed to image decoders, or NULL for defaults \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__image__private_8h_a668f29bad497b7230338d38c1f6d0a89}\label{lv__draw__image__private_8h_a668f29bad497b7230338d38c1f6d0a89} 
+\index{lv\_draw\_image\_private.h@{lv\_draw\_image\_private.h}!lv\_draw\_image\_tiled\_helper@{lv\_draw\_image\_tiled\_helper}}
+\index{lv\_draw\_image\_tiled\_helper@{lv\_draw\_image\_tiled\_helper}!lv\_draw\_image\_private.h@{lv\_draw\_image\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_image\_tiled\_helper()}{lv\_draw\_image\_tiled\_helper()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+image\+\_\+tiled\+\_\+helper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{const \mbox{\hyperlink{struct__lv__draw__image__dsc__t}{lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords,  }\item[{\mbox{\hyperlink{lv__draw__image_8h_a79f415540ecac2897df82bd8a4f33bf6}{lv\+\_\+draw\+\_\+image\+\_\+core\+\_\+cb}}}]{draw\+\_\+core\+\_\+cb,  }\item[{const \mbox{\hyperlink{struct__lv__image__decoder__args__t}{lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{decoder\+\_\+args }\end{DoxyParamCaption})}
+
+Can be used by draw units for TILED images to handle the decoding and prepare everything for the actual image rendering 
+\begin{DoxyParams}{Parametri}
+{\em t} & pointer to a draw task \\
+\hline
+{\em draw\+\_\+dsc} & the draw descriptor of the image \\
+\hline
+{\em coords} & the absolute coordinates of the image \\
+\hline
+{\em draw\+\_\+core\+\_\+cb} & a callback to perform the actual rendering \\
+\hline
+{\em decoder\+\_\+args} & the args passed to image decoders, or NULL for defaults \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__image__private_8h_ac90ed670c8d8da29ca85f73252eae0a1}\label{lv__draw__image__private_8h_ac90ed670c8d8da29ca85f73252eae0a1} 
+\index{lv\_draw\_image\_private.h@{lv\_draw\_image\_private.h}!lv\_image\_buf\_get\_transformed\_area@{lv\_image\_buf\_get\_transformed\_area}}
+\index{lv\_image\_buf\_get\_transformed\_area@{lv\_image\_buf\_get\_transformed\_area}!lv\_draw\_image\_private.h@{lv\_draw\_image\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_buf\_get\_transformed\_area()}{lv\_image\_buf\_get\_transformed\_area()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+buf\+\_\+get\+\_\+transformed\+\_\+area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{res,  }\item[{int32\+\_\+t}]{w,  }\item[{int32\+\_\+t}]{h,  }\item[{int32\+\_\+t}]{angle,  }\item[{uint16\+\_\+t}]{scale\+\_\+x,  }\item[{uint16\+\_\+t}]{scale\+\_\+y,  }\item[{const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pivot }\end{DoxyParamCaption})}
+
+Get the area of a rectangle if its rotated and scaled 
+\begin{DoxyParams}{Parametri}
+{\em res} & store the coordinates here \\
+\hline
+{\em w} & width of the rectangle to transform \\
+\hline
+{\em h} & height of the rectangle to transform \\
+\hline
+{\em angle} & angle of rotation \\
+\hline
+{\em scale\+\_\+x} & zoom in x direction, (256 no zoom) \\
+\hline
+{\em scale\+\_\+y} & zoom in y direction, (256 no zoom) \\
+\hline
+{\em pivot} & x,y pivot coordinates of rotation \\
+\hline
+\end{DoxyParams}

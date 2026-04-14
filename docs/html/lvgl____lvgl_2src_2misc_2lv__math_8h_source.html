@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/src/misc/lv_math.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_3fae1cc67f391465909e41a1075a2efb.html">misc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">lv_math.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef LV_MATH_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define LV_MATH_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *      INCLUDES</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *********************/</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../lv_conf_internal.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html">lv_types.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *      DEFINES</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> *********************/</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define LV_TRIGO_SIN_MAX 32768</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a32656adf979cc453f3abc9ed5efad596">   23</a></span><span class="preprocessor">#define LV_TRIGO_SHIFT 15 </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#ac6341faec2d9d29861fb3e7132834f7e">   25</a></span><span class="preprocessor">#define LV_BEZIER_VAL_SHIFT 10 </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a371be2f990b1496a0aa78009e4be993b">   26</a></span><span class="preprocessor">#define LV_BEZIER_VAL_MAX (1L &lt;&lt; LV_BEZIER_VAL_SHIFT) </span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a88461eba860b72b1e6b09f3bd6cfc71f">   27</a></span><span class="preprocessor">#define LV_BEZIER_VAL_FLOAT(f) ((int32_t)((f) * LV_BEZIER_VAL_MAX)) </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#ad4577fb83c6407df79c27f3da958de0b">   30</a></span><span class="preprocessor">#define LV_ALIGN_UP(x, align) (((x) + ((align) - 1)) &amp; ~((align) - 1))</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a38814dbbe4df39305c4379a2653b24dd">   33</a></span><span class="preprocessor">#define LV_ROUND_UP(x, round) ((((x) + ((round) - 1)) / (round)) * (round))</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> *      TYPEDEFS</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structlv__sqrt__res__t.html">   39</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    uint16_t i;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    uint16_t f;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>} <a class="code hl_struct" href="structlv__sqrt__res__t.html">lv_sqrt_res_t</a>;</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>int32_t <span class="comment">/* LV_ATTRIBUTE_FAST_MEM */</span> <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a8d2562a388dc8132c13d3b04cdd4f4d9">lv_trigo_sin</a>(int16_t angle);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>int32_t LV_ATTRIBUTE_FAST_MEM lv_trigo_cos(int16_t angle);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>int32_t <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a5a46113b1d4acc058b4c9be059d2d77e">lv_cubic_bezier</a>(int32_t x, int32_t x1, int32_t y1, int32_t x2, int32_t y2);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>int32_t <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#acb212b3ab7bf94524a2914dd6ec890ff">lv_bezier3</a>(int32_t t, int32_t u0, uint32_t u1, int32_t u2, int32_t u3);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>uint16_t <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#aa370544a0021f2c99f2121706f0a8cf4">lv_atan2</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keywordtype">void</span> <span class="comment">/* LV_ATTRIBUTE_FAST_MEM */</span> <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#af3ef65f0b2d622552974ab1f090cd6b7">lv_sqrt</a>(uint32_t x, <a class="code hl_struct" href="structlv__sqrt__res__t.html">lv_sqrt_res_t</a> * q, uint32_t mask);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>int32_t <span class="comment">/* LV_ATTRIBUTE_FAST_MEM */</span> <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#ac482e0ef1a9bf5bbc968a4369c898a3f">lv_sqrt32</a>(uint32_t x);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keyword">static</span> <span class="keyword">inline</span> int32_t lv_sqr(int32_t x)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>{</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">return</span> x * x;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>}</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>int64_t <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#aca39dfc033229e55b9c43ffe22be95fb">lv_pow</a>(int64_t base, int8_t exp);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>int32_t <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a9fb7b71b56ee26f6c4810badce931c39">lv_map</a>(int32_t x, int32_t min_in, int32_t max_in, int32_t min_out, int32_t max_out);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keywordtype">void</span> <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a7526b1a0f26ab4e2d980db084306ac27">lv_rand_set_seed</a>(uint32_t seed);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>uint32_t <a class="code hl_function" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#ac1bd8f75fea405a2a693b7bae62d128a">lv_rand</a>(uint32_t min, uint32_t max);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="preprocessor">#define LV_MIN(a, b) ((a) &lt; (b) ? (a) : (b))</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="preprocessor">#define LV_MIN3(a, b, c) (LV_MIN(LV_MIN(a,b), c))</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#define LV_MIN4(a, b, c, d) (LV_MIN(LV_MIN(a,b), LV_MIN(c,d)))</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="preprocessor">#define LV_MAX(a, b) ((a) &gt; (b) ? (a) : (b))</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#define LV_MAX3(a, b, c) (LV_MAX(LV_MAX(a,b), c))</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#define LV_MAX4(a, b, c, d) (LV_MAX(LV_MAX(a,b), LV_MAX(c,d)))</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#define LV_CLAMP(min, val, max) (LV_MAX(min, (LV_MIN(val, max))))</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#define LV_ABS(x) ((x) &gt; 0 ? (x) : (-(x)))</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#define LV_UDIV255(x) (((x) * 0x8081U) &gt;&gt; 0x17)</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">#define LV_IS_SIGNED(t) (((t)(-1)) &lt; ((t)0))</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#define LV_UMAX_OF(t) (((0x1ULL &lt;&lt; ((sizeof(t) * 8ULL) - 1ULL)) - 1ULL) | (0xFULL &lt;&lt; ((sizeof(t) * 8ULL) - 4ULL)))</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#define LV_SMAX_OF(t) (((0x1ULL &lt;&lt; ((sizeof(t) * 8ULL) - 1ULL)) - 1ULL) | (0x7ULL &lt;&lt; ((sizeof(t) * 8ULL) - 4ULL)))</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#define LV_MAX_OF(t) ((unsigned long)(LV_IS_SIGNED(t) ? LV_SMAX_OF(t) : LV_UMAX_OF(t)))</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_a5a46113b1d4acc058b4c9be059d2d77e"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a5a46113b1d4acc058b4c9be059d2d77e">lv_cubic_bezier</a></div><div class="ttdeci">int32_t lv_cubic_bezier(int32_t x, int32_t x1, int32_t y1, int32_t x2, int32_t y2)</div><div class="ttdef"><b>Definition</b> lv_math.c:126</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_a7526b1a0f26ab4e2d980db084306ac27"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a7526b1a0f26ab4e2d980db084306ac27">lv_rand_set_seed</a></div><div class="ttdeci">void lv_rand_set_seed(uint32_t seed)</div><div class="ttdef"><b>Definition</b> lv_math.c:437</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_a8d2562a388dc8132c13d3b04cdd4f4d9"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a8d2562a388dc8132c13d3b04cdd4f4d9">lv_trigo_sin</a></div><div class="ttdeci">int32_t lv_trigo_sin(int16_t angle)</div><div class="ttdef"><b>Definition</b> lv_math.c:52</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_a9fb7b71b56ee26f6c4810badce931c39"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#a9fb7b71b56ee26f6c4810badce931c39">lv_map</a></div><div class="ttdeci">int32_t lv_map(int32_t x, int32_t min_in, int32_t max_in, int32_t min_out, int32_t max_out)</div><div class="ttdef"><b>Definition</b> lv_math.c:414</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_aa370544a0021f2c99f2121706f0a8cf4"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#aa370544a0021f2c99f2121706f0a8cf4">lv_atan2</a></div><div class="ttdeci">uint16_t lv_atan2(int x, int y)</div><div class="ttdef"><b>Definition</b> lv_math.c:314</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_ac1bd8f75fea405a2a693b7bae62d128a"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#ac1bd8f75fea405a2a693b7bae62d128a">lv_rand</a></div><div class="ttdeci">uint32_t lv_rand(uint32_t min, uint32_t max)</div><div class="ttdef"><b>Definition</b> lv_math.c:442</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_ac482e0ef1a9bf5bbc968a4369c898a3f"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#ac482e0ef1a9bf5bbc968a4369c898a3f">lv_sqrt32</a></div><div class="ttdeci">int32_t lv_sqrt32(uint32_t x)</div><div class="ttdef"><b>Definition</b> lv_math.c:232</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_aca39dfc033229e55b9c43ffe22be95fb"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#aca39dfc033229e55b9c43ffe22be95fb">lv_pow</a></div><div class="ttdeci">int64_t lv_pow(int64_t base, int8_t exp)</div><div class="ttdef"><b>Definition</b> lv_math.c:391</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_acb212b3ab7bf94524a2914dd6ec890ff"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#acb212b3ab7bf94524a2914dd6ec890ff">lv_bezier3</a></div><div class="ttdeci">int32_t lv_bezier3(int32_t t, int32_t u0, uint32_t u1, int32_t u2, int32_t u3)</div><div class="ttdef"><b>Definition</b> lv_math.c:459</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__math_8h_html_af3ef65f0b2d622552974ab1f090cd6b7"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__math_8h.html#af3ef65f0b2d622552974ab1f090cd6b7">lv_sqrt</a></div><div class="ttdeci">void lv_sqrt(uint32_t x, lv_sqrt_res_t *q, uint32_t mask)</div><div class="ttdef"><b>Definition</b> lv_math.c:208</div></div>
+<div class="ttc" id="alvgl____lvgl_2src_2misc_2lv__types_8h_html"><div class="ttname"><a href="lvgl____lvgl_2src_2misc_2lv__types_8h.html">lv_types.h</a></div></div>
+<div class="ttc" id="astructlv__sqrt__res__t_html"><div class="ttname"><a href="structlv__sqrt__res__t.html">lv_sqrt_res_t</a></div><div class="ttdef"><b>Definition</b> lv_math.h:39</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

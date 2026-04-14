@@ -1,0 +1,583 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/lv\+\_\+draw\+\_\+buf.h}
+\hypertarget{lv__draw__buf_8h}{}\label{lv__draw__buf_8h}\index{managed\_components/lvgl\_\_lvgl/src/draw/lv\_draw\_buf.h@{managed\_components/lvgl\_\_lvgl/src/draw/lv\_draw\_buf.h}}
+{\ttfamily \#include "{}../misc/lv\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+area.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+image\+\_\+dsc.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+buf.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+buf.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__buf_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__buf_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__draw__buf__t}{\+\_\+lv\+\_\+draw\+\_\+buf\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lv__draw__buf_8h_a0baa314f9201203e76d04ccca7d420a8}{LV\+\_\+\+STRIDE\+\_\+\+AUTO}}~0
+\item 
+\#define \mbox{\hyperlink{lv__draw__buf_8h_a78958d1af51a67a1e6059f4ae06628b3}{LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+STRIDE}}(w,  cf)~    \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__math_8h_a38814dbbe4df39305c4379a2653b24dd}{LV\+\_\+\+ROUND\+\_\+\+UP}}(((w) \texorpdfstring{$\ast$}{*} LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+GET\+\_\+\+BPP(cf) + 7) / 8, \mbox{\hyperlink{lv__conf__cmsis_8h_ae7fc9b56f638e655ffd02ad236241307}{LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+STRIDE\+\_\+\+ALIGN}})
+\item 
+\#define \mbox{\hyperlink{lv__draw__buf_8h_a771a515541aceab00e83d4e17a921f21}{LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+SIZE}}(w,  h,  cf)
+\item 
+\#define \mbox{\hyperlink{lv__draw__buf_8h_a9e8f0809964b17439a5bdc773bb3ca32}{LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+DEFINE\+\_\+\+STATIC}}(name,  \+\_\+w,  \+\_\+h,  \+\_\+cf)
+\item 
+\#define \mbox{\hyperlink{lv__draw__buf_8h_aa0616d3ce6f46d598419f4159ccfbc5a}{LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+INIT\+\_\+\+STATIC}}(name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__buf_8h_a2c9987262245095bcc36933a2859d22b}\label{lv__draw__buf_8h_a2c9987262245095bcc36933a2859d22b} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+malloc\+\_\+cb\+\_\+t}) (size\+\_\+t size, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} color\+\_\+format)
+\item 
+\Hypertarget{lv__draw__buf_8h_a3e24376c08da156adb751ce822a4cd32}\label{lv__draw__buf_8h_a3e24376c08da156adb751ce822a4cd32} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+free\+\_\+cb\+\_\+t}) (void \texorpdfstring{$\ast$}{*}draw\+\_\+buf)
+\item 
+\Hypertarget{lv__draw__buf_8h_a18cd746c355c8c0bb4c39f08ab220447}\label{lv__draw__buf_8h_a18cd746c355c8c0bb4c39f08ab220447} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+copy\+\_\+cb\+\_\+t}) (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}dest, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}dest\+\_\+area, const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}src, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}src\+\_\+area)
+\item 
+\Hypertarget{lv__draw__buf_8h_a19459bba2fafd523fc23af1481284091}\label{lv__draw__buf_8h_a19459bba2fafd523fc23af1481284091} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+align\+\_\+cb\+\_\+t}) (void \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} color\+\_\+format)
+\item 
+\Hypertarget{lv__draw__buf_8h_a83e1ce109f5a731ae87fd8cf63e8e886}\label{lv__draw__buf_8h_a83e1ce109f5a731ae87fd8cf63e8e886} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+cache\+\_\+operation\+\_\+cb\+\_\+t}) (const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area)
+\item 
+\Hypertarget{lv__draw__buf_8h_a8a19697c10596e87cd71d2e7efe97186}\label{lv__draw__buf_8h_a8a19697c10596e87cd71d2e7efe97186} 
+typedef uint32\+\_\+t(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+width\+\_\+to\+\_\+stride\+\_\+cb\+\_\+t}) (uint32\+\_\+t w, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} color\+\_\+format)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__buf_8h_a7b1f9128088e4332771b76d76ba5fd06}\label{lv__draw__buf_8h_a7b1f9128088e4332771b76d76ba5fd06} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\mbox{\hyperlink{lv__draw__buf_8h_a0baa314f9201203e76d04ccca7d420a8}{LV\+\_\+\+STRIDE\+\_\+\+AUTO}})
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_a125eb0fef207e11057d673609626242c}{lv\+\_\+draw\+\_\+buf\+\_\+init\+\_\+with\+\_\+default\+\_\+handlers}} (\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}handlers)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_ada823b9ea937918296c37916f5c5a413}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+init}} (\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}handlers, lv\+\_\+draw\+\_\+buf\+\_\+malloc\+\_\+cb\+\_\+t buf\+\_\+malloc\+\_\+cb, lv\+\_\+draw\+\_\+buf\+\_\+free\+\_\+cb\+\_\+t buf\+\_\+free\+\_\+cb, lv\+\_\+draw\+\_\+buf\+\_\+copy\+\_\+cb\+\_\+t buf\+\_\+copy\+\_\+cb, lv\+\_\+draw\+\_\+buf\+\_\+align\+\_\+cb\+\_\+t align\+\_\+pointer\+\_\+cb, lv\+\_\+draw\+\_\+buf\+\_\+cache\+\_\+operation\+\_\+cb\+\_\+t invalidate\+\_\+cache\+\_\+cb, lv\+\_\+draw\+\_\+buf\+\_\+cache\+\_\+operation\+\_\+cb\+\_\+t flush\+\_\+cache\+\_\+cb, lv\+\_\+draw\+\_\+buf\+\_\+width\+\_\+to\+\_\+stride\+\_\+cb\+\_\+t width\+\_\+to\+\_\+stride\+\_\+cb)
+\item 
+\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_a5c274ee329e7ee2af59d61198af80175}{lv\+\_\+draw\+\_\+buf\+\_\+get\+\_\+handlers}} (void)
+\item 
+\Hypertarget{lv__draw__buf_8h_ac254dd7bee8c6d5bf97f9b0591bc8a41}\label{lv__draw__buf_8h_ac254dd7bee8c6d5bf97f9b0591bc8a41} 
+\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+get\+\_\+font\+\_\+handlers} (void)
+\item 
+\Hypertarget{lv__draw__buf_8h_a0d599e43a8cd6ffe9aab2cf08b782f91}\label{lv__draw__buf_8h_a0d599e43a8cd6ffe9aab2cf08b782f91} 
+\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+get\+\_\+image\+\_\+handlers} (void)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_a1ce34fc37500ea1f5c0cff17dbd79478}{lv\+\_\+draw\+\_\+buf\+\_\+align}} (void \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} color\+\_\+format)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_acb4b4aa2f4d6353f1b1122afb3241bb9}{lv\+\_\+draw\+\_\+buf\+\_\+align\+\_\+ex}} (const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}handlers, void \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} color\+\_\+format)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_af73248ab8d53d76ec0026b1f4d9a1011}{lv\+\_\+draw\+\_\+buf\+\_\+invalidate\+\_\+cache}} (const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_a4c2e82f6d51b4f38782b3e13917e4d20}{lv\+\_\+draw\+\_\+buf\+\_\+flush\+\_\+cache}} (const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}area)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__draw__buf_8h_a5e4ce86b66ca95a36277c79cb5ff3716}{lv\+\_\+draw\+\_\+buf\+\_\+width\+\_\+to\+\_\+stride}} (uint32\+\_\+t w, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} color\+\_\+format)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__draw__buf_8h_af6719c9b19a140a5b06fdbeb86883390}{lv\+\_\+draw\+\_\+buf\+\_\+width\+\_\+to\+\_\+stride\+\_\+ex}} (const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}handlers, uint32\+\_\+t w, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} color\+\_\+format)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_aec9bd4d0f15df3800ee67a985885b898}{lv\+\_\+draw\+\_\+buf\+\_\+clear}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}a)
+\item 
+\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_a9efa15f1c2e128c938ea00e991f68e2e}{lv\+\_\+draw\+\_\+buf\+\_\+create}} (uint32\+\_\+t w, uint32\+\_\+t h, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} cf, uint32\+\_\+t stride)
+\item 
+\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_ae8aa8fd645d2328ecaae6ead3e7cf857}{lv\+\_\+draw\+\_\+buf\+\_\+create\+\_\+ex}} (const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}handlers, uint32\+\_\+t w, uint32\+\_\+t h, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} cf, uint32\+\_\+t stride)
+\item 
+\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_a23ba82ccbb0fa3a14acf635e9f6a8ca6}{lv\+\_\+draw\+\_\+buf\+\_\+dup}} (const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf)
+\item 
+\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_aa6cd50e1e8e295c425f5312fb9341e29}{lv\+\_\+draw\+\_\+buf\+\_\+dup\+\_\+ex}} (const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}handlers, const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__draw__buf_8h_a01105d7027e1dcc9ed171e1ca1d44a05}{lv\+\_\+draw\+\_\+buf\+\_\+init}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, uint32\+\_\+t w, uint32\+\_\+t h, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} cf, uint32\+\_\+t stride, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t data\+\_\+size)
+\item 
+\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_a5d6d377cd51b6c3453e8a7049f6a182c}{lv\+\_\+draw\+\_\+buf\+\_\+reshape}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} cf, uint32\+\_\+t w, uint32\+\_\+t h, uint32\+\_\+t stride)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_ae89817d75ce93a9466166bb016424e24}{lv\+\_\+draw\+\_\+buf\+\_\+destroy}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_a81fec0a0a72cf8e71b8929ecfeb38d04}{lv\+\_\+draw\+\_\+buf\+\_\+copy}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}dest, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}dest\+\_\+area, const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}src, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}src\+\_\+area)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__draw__buf_8h_a65d8c63c13f6b8bc4d139eec94a313be}{lv\+\_\+draw\+\_\+buf\+\_\+goto\+\_\+xy}} (const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t x, uint32\+\_\+t y)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__draw__buf_8h_aa9b952c01157cee406bf588dd0032050}{lv\+\_\+draw\+\_\+buf\+\_\+adjust\+\_\+stride}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}src, uint32\+\_\+t stride)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__draw__buf_8h_a8bb0ef36ec38dadcc9d72b8c19eb06fd}{lv\+\_\+draw\+\_\+buf\+\_\+premultiply}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__draw__buf_8h_ab7932c8e393452e9f1838df59fc89064}{lv\+\_\+draw\+\_\+buf\+\_\+from\+\_\+image}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}buf, const \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}img)
+\item 
+\Hypertarget{lv__draw__buf_8h_a3b1012f9299b41320934921cee162ac0}\label{lv__draw__buf_8h_a3b1012f9299b41320934921cee162ac0} 
+void {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+to\+\_\+image} (const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}buf, \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}img)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_ad01b735f422179198d7b0df05708238e}{lv\+\_\+draw\+\_\+buf\+\_\+set\+\_\+palette}} (\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf, uint8\+\_\+t index, \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} color)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_a48bfe11c1cb8f418faf11287330c80ec}{lv\+\_\+image\+\_\+buf\+\_\+set\+\_\+palette}} (\mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, uint8\+\_\+t id, \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} c)
+\item 
+void \mbox{\hyperlink{lv__draw__buf_8h_a12e7feea3616993863d2255ca946db7d}{lv\+\_\+image\+\_\+buf\+\_\+free}} (\mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{lv__draw__buf_8h_a9e8f0809964b17439a5bdc773bb3ca32}\label{lv__draw__buf_8h_a9e8f0809964b17439a5bdc773bb3ca32} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!LV\_DRAW\_BUF\_DEFINE\_STATIC@{LV\_DRAW\_BUF\_DEFINE\_STATIC}}
+\index{LV\_DRAW\_BUF\_DEFINE\_STATIC@{LV\_DRAW\_BUF\_DEFINE\_STATIC}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRAW\_BUF\_DEFINE\_STATIC}{LV\_DRAW\_BUF\_DEFINE\_STATIC}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+DEFINE\+\_\+\+STATIC(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{\+\_\+w,  }\item[{}]{\+\_\+h,  }\item[{}]{\+\_\+cf }\end{DoxyParamCaption})}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ LV\_ATTRIBUTE\_MEM\_ALIGN\ uint8\_t\ buf\_\#\#name[\mbox{\hyperlink{lv__draw__buf_8h_a771a515541aceab00e83d4e17a921f21}{LV\_DRAW\_BUF\_SIZE}}(\_w,\ \_h,\ \_cf)];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\_draw\_buf\_t}}\ name\ =\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .header\ =\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .magic\ =\ \mbox{\hyperlink{lv__image__dsc_8h_a6e696c21fccd59770c4c0cca52e0ff64}{LV\_IMAGE\_HEADER\_MAGIC}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .cf\ =\ (\_cf),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .flags\ =\ \mbox{\hyperlink{lv__image__dsc_8h_a88c8f6c5faabde4a6731ee4479cb14dea7e863702e43ff56abc27e9f8eaa424a3}{LV\_IMAGE\_FLAGS\_MODIFIABLE}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .w\ =\ (\_w),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .h\ =\ (\_h),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .stride\ =\ \mbox{\hyperlink{lv__draw__buf_8h_a78958d1af51a67a1e6059f4ae06628b3}{LV\_DRAW\_BUF\_STRIDE}}(\_w,\ \_cf),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .reserved\_2\ =\ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .data\_size\ =\ \textcolor{keyword}{sizeof}(buf\_\#\#name),\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .data\ =\ buf\_\#\#name,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ .unaligned\_data\ =\ buf\_\#\#name,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}
+Define a static draw buffer with the given width, height, and color format. Stride alignment is set to LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+STRIDE\+\_\+\+ALIGN.
+
+For platform that needs special buffer alignment, call LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+INIT\+\_\+\+STATIC. \Hypertarget{lv__draw__buf_8h_aa0616d3ce6f46d598419f4159ccfbc5a}\label{lv__draw__buf_8h_aa0616d3ce6f46d598419f4159ccfbc5a} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!LV\_DRAW\_BUF\_INIT\_STATIC@{LV\_DRAW\_BUF\_INIT\_STATIC}}
+\index{LV\_DRAW\_BUF\_INIT\_STATIC@{LV\_DRAW\_BUF\_INIT\_STATIC}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRAW\_BUF\_INIT\_STATIC}{LV\_DRAW\_BUF\_INIT\_STATIC}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+INIT\+\_\+\+STATIC(\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__image__header__t}{lv\_image\_header\_t}}\ *\ header\ =\ \&name.header;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lv\_draw\_buf\_init(\&name,\ header-\/>w,\ header-\/>h,\ (\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}})header-\/>cf,\ header-\/>stride,\ buf\_\#\#name,\ \textcolor{keyword}{sizeof}(buf\_\#\#name));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lv\_draw\_buf\_set\_flag(\&name,\ \mbox{\hyperlink{lv__image__dsc_8h_a88c8f6c5faabde4a6731ee4479cb14dea7e863702e43ff56abc27e9f8eaa424a3}{LV\_IMAGE\_FLAGS\_MODIFIABLE}});\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\Hypertarget{lv__draw__buf_8h_a771a515541aceab00e83d4e17a921f21}\label{lv__draw__buf_8h_a771a515541aceab00e83d4e17a921f21} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!LV\_DRAW\_BUF\_SIZE@{LV\_DRAW\_BUF\_SIZE}}
+\index{LV\_DRAW\_BUF\_SIZE@{LV\_DRAW\_BUF\_SIZE}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRAW\_BUF\_SIZE}{LV\_DRAW\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+SIZE(\begin{DoxyParamCaption}\item[{}]{w,  }\item[{}]{h,  }\item[{}]{cf }\end{DoxyParamCaption})}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ (\mbox{\hyperlink{lv__draw__buf_8h_a78958d1af51a67a1e6059f4ae06628b3}{LV\_DRAW\_BUF\_STRIDE}}(w,\ cf)\ *\ (h)\ +\ \mbox{\hyperlink{lv__conf__cmsis_8h_a7fff0ccf8191513edb65222122b20dab}{LV\_DRAW\_BUF\_ALIGN}}\ +\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ LV\_COLOR\_INDEXED\_PALETTE\_SIZE(cf)\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structlv__color32__t}{lv\_color32\_t}}))}
+
+\end{DoxyCode}
+Allocate a slightly larger buffer, so we can adjust the start address to meet alignment \Hypertarget{lv__draw__buf_8h_a78958d1af51a67a1e6059f4ae06628b3}\label{lv__draw__buf_8h_a78958d1af51a67a1e6059f4ae06628b3} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!LV\_DRAW\_BUF\_STRIDE@{LV\_DRAW\_BUF\_STRIDE}}
+\index{LV\_DRAW\_BUF\_STRIDE@{LV\_DRAW\_BUF\_STRIDE}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_DRAW\_BUF\_STRIDE}{LV\_DRAW\_BUF\_STRIDE}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+STRIDE(\begin{DoxyParamCaption}\item[{}]{w,  }\item[{}]{cf }\end{DoxyParamCaption})~    \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__math_8h_a38814dbbe4df39305c4379a2653b24dd}{LV\+\_\+\+ROUND\+\_\+\+UP}}(((w) \texorpdfstring{$\ast$}{*} LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+GET\+\_\+\+BPP(cf) + 7) / 8, \mbox{\hyperlink{lv__conf__cmsis_8h_ae7fc9b56f638e655ffd02ad236241307}{LV\+\_\+\+DRAW\+\_\+\+BUF\+\_\+\+STRIDE\+\_\+\+ALIGN}})}
+
+Stride alignment for draw buffers. It may vary between different color formats and hardware. Refine it to suit your needs. \Hypertarget{lv__draw__buf_8h_a0baa314f9201203e76d04ccca7d420a8}\label{lv__draw__buf_8h_a0baa314f9201203e76d04ccca7d420a8} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!LV\_STRIDE\_AUTO@{LV\_STRIDE\_AUTO}}
+\index{LV\_STRIDE\_AUTO@{LV\_STRIDE\_AUTO}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{LV\_STRIDE\_AUTO}{LV\_STRIDE\_AUTO}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+STRIDE\+\_\+\+AUTO~0}
+
+Use this value to let LVGL calculate stride automatically 
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__draw__buf_8h_aa9b952c01157cee406bf588dd0032050}\label{lv__draw__buf_8h_aa9b952c01157cee406bf588dd0032050} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_adjust\_stride@{lv\_draw\_buf\_adjust\_stride}}
+\index{lv\_draw\_buf\_adjust\_stride@{lv\_draw\_buf\_adjust\_stride}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_adjust\_stride()}{lv\_draw\_buf\_adjust\_stride()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+draw\+\_\+buf\+\_\+adjust\+\_\+stride (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src,  }\item[{uint32\+\_\+t}]{stride }\end{DoxyParamCaption})}
+
+Adjust the stride of a draw buf in place. 
+\begin{DoxyParams}{Parametri}
+{\em src} & pointer to a draw buffer \\
+\hline
+{\em stride} & the new stride in bytes for image. Use LV\+\_\+\+STRIDE\+\_\+\+AUTO for automatic calculation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: success or LV\+\_\+\+RESULT\+\_\+\+INVALID\+: failed 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_a1ce34fc37500ea1f5c0cff17dbd79478}\label{lv__draw__buf_8h_a1ce34fc37500ea1f5c0cff17dbd79478} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_align@{lv\_draw\_buf\_align}}
+\index{lv\_draw\_buf\_align@{lv\_draw\_buf\_align}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_align()}{lv\_draw\_buf\_align()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+align (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{color\+\_\+format }\end{DoxyParamCaption})}
+
+Align the address of a buffer. The buffer needs to be large enough for the real data after alignment 
+\begin{DoxyParams}{Parametri}
+{\em buf} & the data to align \\
+\hline
+{\em color\+\_\+format} & the color format of the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the aligned buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_acb4b4aa2f4d6353f1b1122afb3241bb9}\label{lv__draw__buf_8h_acb4b4aa2f4d6353f1b1122afb3241bb9} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_align\_ex@{lv\_draw\_buf\_align\_ex}}
+\index{lv\_draw\_buf\_align\_ex@{lv\_draw\_buf\_align\_ex}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_align\_ex()}{lv\_draw\_buf\_align\_ex()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+align\+\_\+ex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handlers,  }\item[{void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{color\+\_\+format }\end{DoxyParamCaption})}
+
+Align the address of a buffer with custom draw buffer handlers. The buffer needs to be large enough for the real data after alignment 
+\begin{DoxyParams}{Parametri}
+{\em handlers} & the draw buffer handlers \\
+\hline
+{\em buf} & the data to align \\
+\hline
+{\em color\+\_\+format} & the color format of the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the aligned buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_aec9bd4d0f15df3800ee67a985885b898}\label{lv__draw__buf_8h_aec9bd4d0f15df3800ee67a985885b898} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_clear@{lv\_draw\_buf\_clear}}
+\index{lv\_draw\_buf\_clear@{lv\_draw\_buf\_clear}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_clear()}{lv\_draw\_buf\_clear()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+Clear an area on the buffer 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & pointer to draw buffer \\
+\hline
+{\em a} & the area to clear, or NULL to clear the whole buffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_a81fec0a0a72cf8e71b8929ecfeb38d04}\label{lv__draw__buf_8h_a81fec0a0a72cf8e71b8929ecfeb38d04} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_copy@{lv\_draw\_buf\_copy}}
+\index{lv\_draw\_buf\_copy@{lv\_draw\_buf\_copy}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_copy()}{lv\_draw\_buf\_copy()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dest\+\_\+area,  }\item[{const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src\+\_\+area }\end{DoxyParamCaption})}
+
+Copy an area from a buffer to another 
+\begin{DoxyParams}{Parametri}
+{\em dest} & pointer to the destination draw buffer \\
+\hline
+{\em dest\+\_\+area} & the area to copy from the destination buffer, if NULL, use the whole buffer \\
+\hline
+{\em src} & pointer to the source draw buffer \\
+\hline
+{\em src\+\_\+area} & the area to copy from the destination buffer, if NULL, use the whole buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+{\ttfamily dest\+\_\+area} and {\ttfamily src\+\_\+area} should have the same width and height 
+
+The default copy function required {\ttfamily dest} and {\ttfamily src} to have the same color format. Overwriting dest-\/\texorpdfstring{$>$}{>}handlers-\/\texorpdfstring{$>$}{>}buf\+\_\+copy\+\_\+cb can resolve this limitation. 
+\end{DoxyNote}
+\Hypertarget{lv__draw__buf_8h_a9efa15f1c2e128c938ea00e991f68e2e}\label{lv__draw__buf_8h_a9efa15f1c2e128c938ea00e991f68e2e} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_create@{lv\_draw\_buf\_create}}
+\index{lv\_draw\_buf\_create@{lv\_draw\_buf\_create}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_create()}{lv\_draw\_buf\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+create (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{w,  }\item[{uint32\+\_\+t}]{h,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{cf,  }\item[{uint32\+\_\+t}]{stride }\end{DoxyParamCaption})}
+
+Note\+: Eventually, lv\+\_\+draw\+\_\+buf\+\_\+malloc/free will be kept as private. For now, we use {\ttfamily create} to distinguish with malloc.
+
+Create an draw buf by allocating struct for {\ttfamily lv\+\_\+draw\+\_\+buf\+\_\+t} and allocating a buffer for it that meets specified requirements.
+
+
+\begin{DoxyParams}{Parametri}
+{\em w} & the buffer width in pixels \\
+\hline
+{\em h} & the buffer height in pixels \\
+\hline
+{\em cf} & the color format for image \\
+\hline
+{\em stride} & the stride in bytes for image. Use 0 for automatic calculation based on w, cf, and global stride alignment configuration. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_ae8aa8fd645d2328ecaae6ead3e7cf857}\label{lv__draw__buf_8h_ae8aa8fd645d2328ecaae6ead3e7cf857} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_create\_ex@{lv\_draw\_buf\_create\_ex}}
+\index{lv\_draw\_buf\_create\_ex@{lv\_draw\_buf\_create\_ex}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_create\_ex()}{lv\_draw\_buf\_create\_ex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+create\+\_\+ex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handlers,  }\item[{uint32\+\_\+t}]{w,  }\item[{uint32\+\_\+t}]{h,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{cf,  }\item[{uint32\+\_\+t}]{stride }\end{DoxyParamCaption})}
+
+Note\+: Eventually, lv\+\_\+draw\+\_\+buf\+\_\+malloc/free will be kept as private. For now, we use {\ttfamily create} to distinguish with malloc.
+
+Create an draw buf by allocating struct for {\ttfamily lv\+\_\+draw\+\_\+buf\+\_\+t} and allocating a buffer for it that meets specified requirements.
+
+
+\begin{DoxyParams}{Parametri}
+{\em handlers} & the draw buffer handlers \\
+\hline
+{\em w} & the buffer width in pixels \\
+\hline
+{\em h} & the buffer height in pixels \\
+\hline
+{\em cf} & the color format for image \\
+\hline
+{\em stride} & the stride in bytes for image. Use 0 for automatic calculation based on w, cf, and global stride alignment configuration. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_ae89817d75ce93a9466166bb016424e24}\label{lv__draw__buf_8h_ae89817d75ce93a9466166bb016424e24} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_destroy@{lv\_draw\_buf\_destroy}}
+\index{lv\_draw\_buf\_destroy@{lv\_draw\_buf\_destroy}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_destroy()}{lv\_draw\_buf\_destroy()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf }\end{DoxyParamCaption})}
+
+Destroy a draw buf by freeing the actual buffer if it\textquotesingle{}s marked as LV\+\_\+\+IMAGE\+\_\+\+FLAGS\+\_\+\+ALLOCATED in header. Then free the lv\+\_\+draw\+\_\+buf\+\_\+t struct.
+
+
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & the draw buffer to destroy \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_a23ba82ccbb0fa3a14acf635e9f6a8ca6}\label{lv__draw__buf_8h_a23ba82ccbb0fa3a14acf635e9f6a8ca6} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_dup@{lv\_draw\_buf\_dup}}
+\index{lv\_draw\_buf\_dup@{lv\_draw\_buf\_dup}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_dup()}{lv\_draw\_buf\_dup()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+dup (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf }\end{DoxyParamCaption})}
+
+Duplicate a draw buf with same image size, stride and color format. Copy the image data too. 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & the draw buf to duplicate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the duplicated draw buf on success, NULL if failed 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_aa6cd50e1e8e295c425f5312fb9341e29}\label{lv__draw__buf_8h_aa6cd50e1e8e295c425f5312fb9341e29} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_dup\_ex@{lv\_draw\_buf\_dup\_ex}}
+\index{lv\_draw\_buf\_dup\_ex@{lv\_draw\_buf\_dup\_ex}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_dup\_ex()}{lv\_draw\_buf\_dup\_ex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+dup\+\_\+ex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handlers,  }\item[{const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf }\end{DoxyParamCaption})}
+
+Duplicate a draw buf with same image size, stride and color format. Copy the image data too. 
+\begin{DoxyParams}{Parametri}
+{\em handlers} & the draw buffer handlers \\
+\hline
+{\em draw\+\_\+buf} & the draw buf to duplicate \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the duplicated draw buf on success, NULL if failed 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_a4c2e82f6d51b4f38782b3e13917e4d20}\label{lv__draw__buf_8h_a4c2e82f6d51b4f38782b3e13917e4d20} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_flush\_cache@{lv\_draw\_buf\_flush\_cache}}
+\index{lv\_draw\_buf\_flush\_cache@{lv\_draw\_buf\_flush\_cache}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_flush\_cache()}{lv\_draw\_buf\_flush\_cache()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+flush\+\_\+cache (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{area }\end{DoxyParamCaption})}
+
+Flush the cache of the buffer 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & the draw buffer needs to be flushed \\
+\hline
+{\em area} & the area to flush in the buffer, use NULL to flush the whole draw buffer address range \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_ab7932c8e393452e9f1838df59fc89064}\label{lv__draw__buf_8h_ab7932c8e393452e9f1838df59fc89064} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_from\_image@{lv\_draw\_buf\_from\_image}}
+\index{lv\_draw\_buf\_from\_image@{lv\_draw\_buf\_from\_image}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_from\_image()}{lv\_draw\_buf\_from\_image()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+draw\+\_\+buf\+\_\+from\+\_\+image (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{const \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{img }\end{DoxyParamCaption})}
+
+As of now, draw buf share same definition as {\ttfamily \doxylink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}}. And is interchangeable with {\ttfamily \doxylink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}}. \Hypertarget{lv__draw__buf_8h_a5c274ee329e7ee2af59d61198af80175}\label{lv__draw__buf_8h_a5c274ee329e7ee2af59d61198af80175} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_get\_handlers@{lv\_draw\_buf\_get\_handlers}}
+\index{lv\_draw\_buf\_get\_handlers@{lv\_draw\_buf\_get\_handlers}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_get\_handlers()}{lv\_draw\_buf\_get\_handlers()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+get\+\_\+handlers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the struct which holds the callbacks for draw buf management. Custom callback can be set on the returned value \begin{DoxyReturn}{Rezultat(i)}
+pointer to the struct of handlers 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_a65d8c63c13f6b8bc4d139eec94a313be}\label{lv__draw__buf_8h_a65d8c63c13f6b8bc4d139eec94a313be} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_goto\_xy@{lv\_draw\_buf\_goto\_xy}}
+\index{lv\_draw\_buf\_goto\_xy@{lv\_draw\_buf\_goto\_xy}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_goto\_xy()}{lv\_draw\_buf\_goto\_xy()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+goto\+\_\+xy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint32\+\_\+t}]{x,  }\item[{uint32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+Return pointer to the buffer at the given coordinates \Hypertarget{lv__draw__buf_8h_ada823b9ea937918296c37916f5c5a413}\label{lv__draw__buf_8h_ada823b9ea937918296c37916f5c5a413} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_handlers\_init@{lv\_draw\_buf\_handlers\_init}}
+\index{lv\_draw\_buf\_handlers\_init@{lv\_draw\_buf\_handlers\_init}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_handlers\_init()}{lv\_draw\_buf\_handlers\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handlers,  }\item[{lv\+\_\+draw\+\_\+buf\+\_\+malloc\+\_\+cb\+\_\+t}]{buf\+\_\+malloc\+\_\+cb,  }\item[{lv\+\_\+draw\+\_\+buf\+\_\+free\+\_\+cb\+\_\+t}]{buf\+\_\+free\+\_\+cb,  }\item[{lv\+\_\+draw\+\_\+buf\+\_\+copy\+\_\+cb\+\_\+t}]{buf\+\_\+copy\+\_\+cb,  }\item[{lv\+\_\+draw\+\_\+buf\+\_\+align\+\_\+cb\+\_\+t}]{align\+\_\+pointer\+\_\+cb,  }\item[{lv\+\_\+draw\+\_\+buf\+\_\+cache\+\_\+operation\+\_\+cb\+\_\+t}]{invalidate\+\_\+cache\+\_\+cb,  }\item[{lv\+\_\+draw\+\_\+buf\+\_\+cache\+\_\+operation\+\_\+cb\+\_\+t}]{flush\+\_\+cache\+\_\+cb,  }\item[{lv\+\_\+draw\+\_\+buf\+\_\+width\+\_\+to\+\_\+stride\+\_\+cb\+\_\+t}]{width\+\_\+to\+\_\+stride\+\_\+cb }\end{DoxyParamCaption})}
+
+Initialize the draw buffer with given handlers.
+
+
+\begin{DoxyParams}{Parametri}
+{\em handlers} & the draw buffer handlers to set \\
+\hline
+{\em buf\+\_\+malloc\+\_\+cb} & the callback to allocate memory for the buffer \\
+\hline
+{\em buf\+\_\+free\+\_\+cb} & the callback to free memory of the buffer \\
+\hline
+{\em buf\+\_\+copy\+\_\+cb} & the callback to copy a draw buffer to an other \\
+\hline
+{\em align\+\_\+pointer\+\_\+cb} & the callback to align the buffer \\
+\hline
+{\em invalidate\+\_\+cache\+\_\+cb} & the callback to invalidate the cache of the buffer \\
+\hline
+{\em flush\+\_\+cache\+\_\+cb} & the callback to flush buffer \\
+\hline
+{\em width\+\_\+to\+\_\+stride\+\_\+cb} & the callback to calculate the stride based on the width and color format \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_a01105d7027e1dcc9ed171e1ca1d44a05}\label{lv__draw__buf_8h_a01105d7027e1dcc9ed171e1ca1d44a05} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_init@{lv\_draw\_buf\_init}}
+\index{lv\_draw\_buf\_init@{lv\_draw\_buf\_init}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_init()}{lv\_draw\_buf\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+draw\+\_\+buf\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf,  }\item[{uint32\+\_\+t}]{w,  }\item[{uint32\+\_\+t}]{h,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{cf,  }\item[{uint32\+\_\+t}]{stride,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{uint32\+\_\+t}]{data\+\_\+size }\end{DoxyParamCaption})}
+
+Initialize a draw buf with the given buffer and parameters. Clear draw buffer flag to zero. 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & the draw buf to initialize \\
+\hline
+{\em w} & the buffer width in pixels \\
+\hline
+{\em h} & the buffer height in pixels \\
+\hline
+{\em cf} & the color format \\
+\hline
+{\em stride} & the stride in bytes. Use 0 for automatic calculation \\
+\hline
+{\em data} & the buffer used for drawing. Unaligned {\ttfamily data} will be aligned internally \\
+\hline
+{\em data\+\_\+size} & the size of the buffer in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+return LV\+\_\+\+RESULT\+\_\+\+OK on success, LV\+\_\+\+RESULT\+\_\+\+INVALID otherwise 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_a125eb0fef207e11057d673609626242c}\label{lv__draw__buf_8h_a125eb0fef207e11057d673609626242c} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_init\_with\_default\_handlers@{lv\_draw\_buf\_init\_with\_default\_handlers}}
+\index{lv\_draw\_buf\_init\_with\_default\_handlers@{lv\_draw\_buf\_init\_with\_default\_handlers}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_init\_with\_default\_handlers()}{lv\_draw\_buf\_init\_with\_default\_handlers()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+init\+\_\+with\+\_\+default\+\_\+handlers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handlers }\end{DoxyParamCaption})}
+
+Initialize the draw buffer with the default handlers.
+
+
+\begin{DoxyParams}{Parametri}
+{\em handlers} & the draw buffer handlers to set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_af73248ab8d53d76ec0026b1f4d9a1011}\label{lv__draw__buf_8h_af73248ab8d53d76ec0026b1f4d9a1011} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_invalidate\_cache@{lv\_draw\_buf\_invalidate\_cache}}
+\index{lv\_draw\_buf\_invalidate\_cache@{lv\_draw\_buf\_invalidate\_cache}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_invalidate\_cache()}{lv\_draw\_buf\_invalidate\_cache()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+invalidate\+\_\+cache (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{area }\end{DoxyParamCaption})}
+
+Invalidate the cache of the buffer 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & the draw buffer needs to be invalidated \\
+\hline
+{\em area} & the area to invalidate in the buffer, use NULL to invalidate the whole draw buffer address range \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_a8bb0ef36ec38dadcc9d72b8c19eb06fd}\label{lv__draw__buf_8h_a8bb0ef36ec38dadcc9d72b8c19eb06fd} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_premultiply@{lv\_draw\_buf\_premultiply}}
+\index{lv\_draw\_buf\_premultiply@{lv\_draw\_buf\_premultiply}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_premultiply()}{lv\_draw\_buf\_premultiply()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+draw\+\_\+buf\+\_\+premultiply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf }\end{DoxyParamCaption})}
+
+Premultiply draw buffer color with alpha channel. If it\textquotesingle{}s already premultiplied, return directly. Only color formats with alpha channel will be processed.
+
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: premultiply success 
+\end{DoxyReturn}
+We only need to flush the palette table, so we set y2 equal to y1 to improve performance and reduce cache flush overhead.\Hypertarget{lv__draw__buf_8h_a5d6d377cd51b6c3453e8a7049f6a182c}\label{lv__draw__buf_8h_a5d6d377cd51b6c3453e8a7049f6a182c} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_reshape@{lv\_draw\_buf\_reshape}}
+\index{lv\_draw\_buf\_reshape@{lv\_draw\_buf\_reshape}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_reshape()}{lv\_draw\_buf\_reshape()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+draw\+\_\+buf\+\_\+reshape (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{cf,  }\item[{uint32\+\_\+t}]{w,  }\item[{uint32\+\_\+t}]{h,  }\item[{uint32\+\_\+t}]{stride }\end{DoxyParamCaption})}
+
+Keep using the existing memory, reshape the draw buffer to the given width and height. Return NULL if data\+\_\+size is smaller than the required size. 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & pointer to a draw buffer \\
+\hline
+{\em cf} & the new color format, use 0 or LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+UNKNOWN to keep using the original color format. \\
+\hline
+{\em w} & the new width in pixels \\
+\hline
+{\em h} & the new height in pixels \\
+\hline
+{\em stride} & the stride in bytes for image. Use 0 for automatic calculation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_ad01b735f422179198d7b0df05708238e}\label{lv__draw__buf_8h_ad01b735f422179198d7b0df05708238e} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_set\_palette@{lv\_draw\_buf\_set\_palette}}
+\index{lv\_draw\_buf\_set\_palette@{lv\_draw\_buf\_set\_palette}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_set\_palette()}{lv\_draw\_buf\_set\_palette()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+buf\+\_\+set\+\_\+palette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf,  }\item[{uint8\+\_\+t}]{index,  }\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{color }\end{DoxyParamCaption})}
+
+Set the palette color of an indexed image. Valid only for {\ttfamily LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+I1/2/4/8} 
+\begin{DoxyParams}{Parametri}
+{\em draw\+\_\+buf} & pointer to an image descriptor \\
+\hline
+{\em index} & the palette color to set\+:
+\begin{DoxyItemize}
+\item for {\ttfamily LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+I1}\+: 0..1
+\item for {\ttfamily LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+I2}\+: 0..3
+\item for {\ttfamily LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+I4}\+: 0..15
+\item for {\ttfamily LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+I8}\+: 0..255 
+\end{DoxyItemize}\\
+\hline
+{\em color} & the color to set in \doxylink{structlv__color32__t}{lv\+\_\+color32\+\_\+t} format \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__draw__buf_8h_a5e4ce86b66ca95a36277c79cb5ff3716}\label{lv__draw__buf_8h_a5e4ce86b66ca95a36277c79cb5ff3716} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_width\_to\_stride@{lv\_draw\_buf\_width\_to\_stride}}
+\index{lv\_draw\_buf\_width\_to\_stride@{lv\_draw\_buf\_width\_to\_stride}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_width\_to\_stride()}{lv\_draw\_buf\_width\_to\_stride()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+draw\+\_\+buf\+\_\+width\+\_\+to\+\_\+stride (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{w,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{color\+\_\+format }\end{DoxyParamCaption})}
+
+Calculate the stride in bytes based on a width and color format 
+\begin{DoxyParams}{Parametri}
+{\em w} & the width in pixels \\
+\hline
+{\em color\+\_\+format} & the color format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the stride in bytes 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_af6719c9b19a140a5b06fdbeb86883390}\label{lv__draw__buf_8h_af6719c9b19a140a5b06fdbeb86883390} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_draw\_buf\_width\_to\_stride\_ex@{lv\_draw\_buf\_width\_to\_stride\_ex}}
+\index{lv\_draw\_buf\_width\_to\_stride\_ex@{lv\_draw\_buf\_width\_to\_stride\_ex}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_buf\_width\_to\_stride\_ex()}{lv\_draw\_buf\_width\_to\_stride\_ex()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+draw\+\_\+buf\+\_\+width\+\_\+to\+\_\+stride\+\_\+ex (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{handlers,  }\item[{uint32\+\_\+t}]{w,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}}}]{color\+\_\+format }\end{DoxyParamCaption})}
+
+Calculate the stride in bytes based on a width and color format 
+\begin{DoxyParams}{Parametri}
+{\em handlers} & the draw buffer handlers \\
+\hline
+{\em w} & the width in pixels \\
+\hline
+{\em color\+\_\+format} & the color format \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the stride in bytes 
+\end{DoxyReturn}
+\Hypertarget{lv__draw__buf_8h_a12e7feea3616993863d2255ca946db7d}\label{lv__draw__buf_8h_a12e7feea3616993863d2255ca946db7d} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_image\_buf\_free@{lv\_image\_buf\_free}}
+\index{lv\_image\_buf\_free@{lv\_image\_buf\_free}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_buf\_free()}{lv\_image\_buf\_free()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+buf\+\_\+free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Zastarelo}
+\item[\mbox{\hyperlink{deprecated__deprecated000003}{Zastarelo}}]Use lv\+\_\+draw\+\_\+buffer\+\_\+create/destroy instead. Free the data pointer and dsc struct of an image. \end{DoxyRefDesc}
+\Hypertarget{lv__draw__buf_8h_a48bfe11c1cb8f418faf11287330c80ec}\label{lv__draw__buf_8h_a48bfe11c1cb8f418faf11287330c80ec} 
+\index{lv\_draw\_buf.h@{lv\_draw\_buf.h}!lv\_image\_buf\_set\_palette@{lv\_image\_buf\_set\_palette}}
+\index{lv\_image\_buf\_set\_palette@{lv\_image\_buf\_set\_palette}!lv\_draw\_buf.h@{lv\_draw\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_buf\_set\_palette()}{lv\_image\_buf\_set\_palette()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+buf\+\_\+set\+\_\+palette (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}}}]{c }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Zastarelo}
+\item[\mbox{\hyperlink{deprecated__deprecated000002}{Zastarelo}}]Use lv\+\_\+draw\+\_\+buf\+\_\+set\+\_\+palette instead. \end{DoxyRefDesc}

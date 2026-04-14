@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Examples Directory Requirements</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Examples Directory Requirements</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md558"></a> </p><div class="fragment"><div class="line">lvgl/examples/</div>
+<div class="line">    index.rst        (directory-order directive since sub-dirs</div>
+<div class="line">                     are not presented in alphabetical order)</div>
+<div class="line">    anim/</div>
+<div class="line">        index.rst    (see below for expected contents)</div>
+<div class="line">        lv_example_anim_1.c</div>
+<div class="line">        lv_example_anim_2.c</div>
+<div class="line">        lv_example_anim_3.c</div>
+<div class="line">        lv_example_anim_4.c</div>
+<div class="line">        lv_example_anim_timeline_1.c</div>
+<div class="line">    ...</div>
+<div class="line">    layouts/</div>
+<div class="line">        flex/</div>
+<div class="line">            index.rst    (see below for expected contents)</div>
+<div class="line">            lv_example_flex_1.c</div>
+<div class="line">            lv_example_flex_2.c</div>
+<div class="line">            lv_example_flex_3.c</div>
+<div class="line">            etc.</div>
+<div class="line">        grid/</div>
+<div class="line">            etc.</div>
+<div class="line">    libs/</div>
+<div class="line">        index.rst        (section-heading name: &quot;3rd-Party Libraries&quot;</div>
+<div class="line">                         [since it is different than parent directory name])</div>
+<div class="line">        barcode/</div>
+<div class="line">            index.rst    (see below for expected contents)</div>
+<div class="line">            lv_example_barcode_1.c</div>
+<div class="line">            lv_example_barcode_1.h</div>
+<div class="line">        bmp/</div>
+<div class="line">            etc.</div>
+<div class="line">        etc.</div>
+<div class="line">    etc.</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md559"></a>
+index.rst Requirements</h1>
+<div class="fragment"><div class="line">Example 1 Title  &lt;-- required for each example</div>
+<div class="line">---------------  &lt;-- required for each example</div>
+<div class="line">                                         &lt;-- blank lines are ignored</div>
+<div class="line">.. lv_example:: anim/lv_example_anim_1   &lt;-- path relative to the `lvgl/examples/` dir</div>
+<div class="line">    :language: c</div>
+</div><!-- fragment --><p>Repeat the above pattern for each example in current directory. That number may be zero (0) for directories like <code>libs/</code> in which all examples are in directories below that level. See directory structure above.</p>
+<p>For paths outside the current directory, simply provide the path to the code example relative to the <code>lvgl/examples/</code> directory. Example from <code>lvgl/examples/widgets/scale/index.rst</code>:</p>
+<div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">A round scale style simulating a compass</div>
+<div class="line">----------------------------------------</div>
+<div class="line"> </div>
+<div class="line">.. lv_example:: widgets/scale/lv_example_scale_12</div>
+<div class="line">  :language: c</div>
+<div class="line"> </div>
+<div class="line">Axis ticks and labels with scrolling on a chart</div>
+<div class="line">-----------------------------------------------</div>
+<div class="line"> </div>
+<div class="line">.. lv_example:: widgets/chart/lv_example_chart_2     &lt;-- path is outside scale/ dir</div>
+<div class="line">  :language: c</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md560"></a>
+Note</h3>
+<p>Starting the example code filename with <code>lv_example_</code> is not a requirement of the <code>example_list.py</code> script, but does make it clear that it is an example, so this pattern should be preserved for new and changed examples.</p>
+<h2><a class="anchor" id="autotoc_md561"></a>
+Custom Section Headings</h2>
+<p>If a section heading needs to be spelled differently than the capitalized name of the parent directory, then an <code>index.rst</code> file in that directory may contain the desired section-heading name in an <code>.. example_heading:</code> pseudo-directive. Example from <code>lvgl/examples/libs/index.rst</code>:</p>
+<div class="fragment"><div class="line">.. example_heading: 3rd-Party Libraries</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md562"></a>
+Optional Directory Reordering</h2>
+<p>There are cases where it is not appropriate to present the contents of a set of subdirectories in alphabetical order. When this is the case, a pseudo-directive in the <code>index.rst</code> file in the parent directory can be specified to govern the sequence its subdirectories are processed. The example below is from <code>lvgl/examples/widgets/index.rst</code>. It is provided in order to cause the "Base Widget" (obj) directory to be processed first (and thus included in the output first).</p>
+<div class="fragment"><div class="line">.. dir_order:</div>
+<div class="line"> </div>
+<div class="line">    obj</div>
+<div class="line">    animimg</div>
+<div class="line">    arc</div>
+<div class="line">    arclabel</div>
+<div class="line">    bar</div>
+<div class="line">    button</div>
+<div class="line">    buttonmatrix</div>
+<div class="line">    etc.</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md563"></a>
+Note</h3>
+<p>A warning is issued if either:</p>
+<ul>
+<li>a subdirectory is named that does not exist, or</li>
+<li>a subdirectory exists that is not in the list and not in the <code>avoid_dirs</code> list. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,314 @@
+\doxysection{itoa.\+h}
+\hypertarget{itoa_8h_source}{}\label{itoa_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/thorvg/rapidjson/internal/itoa.h@{managed\_components/lvgl\_\_lvgl/src/libs/thorvg/rapidjson/internal/itoa.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Tencent\ is\ pleased\ to\ support\ the\ open\ source\ community\ by\ making\ RapidJSON\ available.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Copyright\ (C)\ 2015\ THL\ A29\ Limited,\ a\ Tencent\ company,\ and\ Milo\ Yip.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ License\ (the\ "{}License"{});\ you\ may\ not\ use\ this\ file\ except}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ in\ compliance\ with\ the\ License.\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ http://opensource.org/licenses/MIT}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software\ distributed}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,\ WITHOUT\ WARRANTIES\ OR}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.\ See\ the\ License\ for\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ specific\ language\ governing\ permissions\ and\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ RAPIDJSON\_ITOA\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ RAPIDJSON\_ITOA\_}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../rapidjson.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gad3806c8251fdc7da9618b7e922674ffc}{RAPIDJSON\_NAMESPACE\_BEGIN}}}
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }internal\ \{}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ GetDigitsLut()\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ cDigitsLut[200]\ =\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'0'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'1'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'2'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'3'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'4'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'5'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'6'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'7'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'8'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'9'},}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{charliteral}{'9'},\textcolor{charliteral}{'0'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'1'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'2'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'3'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'4'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'5'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'6'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'7'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'8'},\textcolor{charliteral}{'9'},\textcolor{charliteral}{'9'}}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ cDigitsLut;}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}*\ u32toa(uint32\_t\ value,\ \textcolor{keywordtype}{char}*\ buffer)\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gabeba18d612187bad2ac62aed9276d47c}{RAPIDJSON\_ASSERT}}(buffer\ !=\ 0);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ cDigitsLut\ =\ GetDigitsLut();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ 10000)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d1\ =\ (value\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d2\ =\ (value\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 1000)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1];}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 100)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1\ +\ 1];}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 10)}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2];}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2\ +\ 1];}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (value\ <\ 100000000)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value\ =\ bbbbcccc}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ b\ =\ value\ /\ 10000;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ c\ =\ value\ \%\ 10000;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d1\ =\ (b\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d2\ =\ (b\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d3\ =\ (c\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d4\ =\ (c\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 10000000)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1];}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 1000000)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1\ +\ 1];}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 100000)}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2];}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2\ +\ 1];}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3];}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3\ +\ 1];}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4];}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4\ +\ 1];}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value\ =\ aabbbbcccc\ in\ decimal}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ a\ =\ value\ /\ 100000000;\ \textcolor{comment}{//\ 1\ to\ 42}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ value\ \%=\ 100000000;}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ >=\ 10)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ i\ =\ a\ <<\ 1;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i];}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i\ +\ 1];}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'0'}\ +\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(a));}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ b\ =\ value\ /\ 10000;\ \textcolor{comment}{//\ 0\ to\ 9999}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ c\ =\ value\ \%\ 10000;\ \textcolor{comment}{//\ 0\ to\ 9999}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d1\ =\ (b\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d2\ =\ (b\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d3\ =\ (c\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d4\ =\ (c\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1];}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1\ +\ 1];}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2];}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2\ +\ 1];}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3];}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3\ +\ 1];}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4];}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4\ +\ 1];}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{return}\ buffer;}
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}*\ i32toa(int32\_t\ value,\ \textcolor{keywordtype}{char}*\ buffer)\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gabeba18d612187bad2ac62aed9276d47c}{RAPIDJSON\_ASSERT}}(buffer\ !=\ 0);}
+\DoxyCodeLine{00117\ \ \ \ \ uint32\_t\ u\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ 0)\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ *buffer++\ =\ \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ u\ =\ \string~u\ +\ 1;}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordflow}{return}\ u32toa(u,\ buffer);}
+\DoxyCodeLine{00124\ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}*\ u64toa(uint64\_t\ value,\ \textcolor{keywordtype}{char}*\ buffer)\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gabeba18d612187bad2ac62aed9276d47c}{RAPIDJSON\_ASSERT}}(buffer\ !=\ 0);}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ cDigitsLut\ =\ GetDigitsLut();}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ \ kTen8\ =\ 100000000;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ \ kTen9\ =\ kTen8\ *\ 10;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ kTen10\ =\ kTen8\ *\ 100;}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ kTen11\ =\ kTen8\ *\ 1000;}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ kTen12\ =\ kTen8\ *\ 10000;}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ kTen13\ =\ kTen8\ *\ 100000;}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ kTen14\ =\ kTen8\ *\ 1000000;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ kTen15\ =\ kTen8\ *\ 10000000;}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ kTen16\ =\ kTen8\ *\ kTen8;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ kTen8)\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ uint32\_t\ v\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ <\ 10000)\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d1\ =\ (v\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d2\ =\ (v\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ >=\ 1000)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1];}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ >=\ 100)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1\ +\ 1];}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (v\ >=\ 10)}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2];}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2\ +\ 1];}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ value\ =\ bbbbcccc}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ b\ =\ v\ /\ 10000;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ c\ =\ v\ \%\ 10000;}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d1\ =\ (b\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d2\ =\ (b\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d3\ =\ (c\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d4\ =\ (c\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 10000000)}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1];}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 1000000)}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1\ +\ 1];}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ 100000)}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2];}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2\ +\ 1];}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3];}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3\ +\ 1];}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4];}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4\ +\ 1];}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (value\ <\ kTen16)\ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ v0\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ /\ kTen8);}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ v1\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ \%\ kTen8);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ b0\ =\ v0\ /\ 10000;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ c0\ =\ v0\ \%\ 10000;}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d1\ =\ (b0\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d2\ =\ (b0\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d3\ =\ (c0\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d4\ =\ (c0\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ b1\ =\ v1\ /\ 10000;}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ c1\ =\ v1\ \%\ 10000;}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d5\ =\ (b1\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d6\ =\ (b1\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d7\ =\ (c1\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d8\ =\ (c1\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ kTen15)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1];}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ kTen14)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1\ +\ 1];}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ kTen13)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2];}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ kTen12)}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2\ +\ 1];}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ kTen11)}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3];}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ kTen10)}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3\ +\ 1];}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ >=\ kTen9)}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4];}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4\ +\ 1];}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d5];}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d5\ +\ 1];}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d6];}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d6\ +\ 1];}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d7];}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d7\ +\ 1];}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d8];}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d8\ +\ 1];}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ a\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ /\ kTen16);\ \textcolor{comment}{//\ 1\ to\ 1844}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ value\ \%=\ kTen16;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ <\ 10)}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'0'}\ +\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(a));}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (a\ <\ 100)\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ i\ =\ a\ <<\ 1;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i];}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i\ +\ 1];}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (a\ <\ 1000)\ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(\textcolor{charliteral}{'0'}\ +\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}\textcolor{keyword}{>}(a\ /\ 100));}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ i\ =\ (a\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i];}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i\ +\ 1];}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ i\ =\ (a\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ j\ =\ (a\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i];}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[i\ +\ 1];}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[j];}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[j\ +\ 1];}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ v0\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ /\ kTen8);}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ v1\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(value\ \%\ kTen8);}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ b0\ =\ v0\ /\ 10000;}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ c0\ =\ v0\ \%\ 10000;}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d1\ =\ (b0\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d2\ =\ (b0\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d3\ =\ (c0\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d4\ =\ (c0\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ b1\ =\ v1\ /\ 10000;}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ c1\ =\ v1\ \%\ 10000;}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d5\ =\ (b1\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d6\ =\ (b1\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d7\ =\ (c1\ /\ 100)\ <<\ 1;}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ d8\ =\ (c1\ \%\ 100)\ <<\ 1;}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1];}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d1\ +\ 1];}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2];}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d2\ +\ 1];}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3];}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d3\ +\ 1];}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4];}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d4\ +\ 1];}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d5];}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d5\ +\ 1];}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d6];}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d6\ +\ 1];}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d7];}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d7\ +\ 1];}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d8];}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ *buffer++\ =\ cDigitsLut[d8\ +\ 1];}
+\DoxyCodeLine{00289\ \ \ \ \ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordflow}{return}\ buffer;}
+\DoxyCodeLine{00292\ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{char}*\ i64toa(int64\_t\ value,\ \textcolor{keywordtype}{char}*\ buffer)\ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gabeba18d612187bad2ac62aed9276d47c}{RAPIDJSON\_ASSERT}}(buffer\ !=\ 0);}
+\DoxyCodeLine{00296\ \ \ \ \ uint64\_t\ u\ =\ \textcolor{keyword}{static\_cast<}uint64\_t\textcolor{keyword}{>}(value);}
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{if}\ (value\ <\ 0)\ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ *buffer++\ =\ \textcolor{charliteral}{'-\/'};}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ u\ =\ \string~u\ +\ 1;}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ u64toa(u,\ buffer);}
+\DoxyCodeLine{00303\ \}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \}\ \textcolor{comment}{//\ namespace\ internal}}
+\DoxyCodeLine{00306\ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gaf18f052a98b9f5df5448d39484b743c1}{RAPIDJSON\_NAMESPACE\_END}}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RAPIDJSON\_ITOA\_}}
+
+\end{DoxyCode}

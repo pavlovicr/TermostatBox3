@@ -1,0 +1,271 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+style.c}
+\hypertarget{lv__style_8c}{}\label{lv__style_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_style.c@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_style.c}}
+{\ttfamily \#include "{}lv\+\_\+style\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../core/lv\+\_\+global.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+mem.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+style.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+style.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__style_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__style_8c_ac21fdcf3f814c8a57ac393c3a04fb7a5}\label{lv__style_8c_ac21fdcf3f814c8a57ac393c3a04fb7a5} 
+\#define {\bfseries lv\+\_\+style\+\_\+custom\+\_\+prop\+\_\+flag\+\_\+lookup\+\_\+table\+\_\+size}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$style\+\_\+custom\+\_\+table\+\_\+size
+\item 
+\Hypertarget{lv__style_8c_af47e1f0ade1f5f32a57cccb0e6551b11}\label{lv__style_8c_af47e1f0ade1f5f32a57cccb0e6551b11} 
+\#define {\bfseries lv\+\_\+style\+\_\+custom\+\_\+prop\+\_\+flag\+\_\+lookup\+\_\+table}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$style\+\_\+custom\+\_\+prop\+\_\+flag\+\_\+lookup\+\_\+table
+\item 
+\Hypertarget{lv__style_8c_ae909bf186f1e52351d4f7886d0ab122b}\label{lv__style_8c_ae909bf186f1e52351d4f7886d0ab122b} 
+\#define {\bfseries last\+\_\+custom\+\_\+prop\+\_\+id}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$style\+\_\+last\+\_\+custom\+\_\+prop\+\_\+id
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__style_8c_a327db2c3050bd2d1a1693aa6981205dd}{lv\+\_\+style\+\_\+init}} (\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style)
+\item 
+void \mbox{\hyperlink{lv__style_8c_afd91dc8011c22491bae7010959267741}{lv\+\_\+style\+\_\+reset}} (\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style)
+\item 
+void \mbox{\hyperlink{lv__style_8c_a96b9ec304e44d8e09da362cc820d8a0e}{lv\+\_\+style\+\_\+copy}} (\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}src)
+\item 
+void \mbox{\hyperlink{lv__style_8c_aeec4c17371df41de1d8521ea85239530}{lv\+\_\+style\+\_\+merge}} (\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}src)
+\item 
+lv\+\_\+style\+\_\+prop\+\_\+t \mbox{\hyperlink{lv__style_8c_ace023b040b9b555b1dcf276a08603fae}{lv\+\_\+style\+\_\+register\+\_\+prop}} (uint8\+\_\+t flag)
+\item 
+lv\+\_\+style\+\_\+prop\+\_\+t \mbox{\hyperlink{lv__style_8c_aa04566bb5235a758912e3cb46a21d2e4}{lv\+\_\+style\+\_\+get\+\_\+num\+\_\+custom\+\_\+props}} (void)
+\item 
+bool \mbox{\hyperlink{lv__style_8c_a7d2d6138592056144847db78feba2320}{lv\+\_\+style\+\_\+remove\+\_\+prop}} (\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style, lv\+\_\+style\+\_\+prop\+\_\+t prop)
+\item 
+void \mbox{\hyperlink{lv__style_8c_a29e7e4bbafc2bcc964bbff48942d894c}{lv\+\_\+style\+\_\+set\+\_\+prop}} (\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style, lv\+\_\+style\+\_\+prop\+\_\+t prop, \mbox{\hyperlink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}} value)
+\item 
+lv\+\_\+style\+\_\+res\+\_\+t \mbox{\hyperlink{lv__style_8c_a3d1f0f0816bf24c58ea748ee38fb4a2e}{lv\+\_\+style\+\_\+get\+\_\+prop}} (const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style, lv\+\_\+style\+\_\+prop\+\_\+t prop, \mbox{\hyperlink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}} \texorpdfstring{$\ast$}{*}value)
+\item 
+void \mbox{\hyperlink{lv__style_8c_a410dd81df9cd14067e90f2db56363289}{lv\+\_\+style\+\_\+transition\+\_\+dsc\+\_\+init}} (\mbox{\hyperlink{structlv__style__transition__dsc__t}{lv\+\_\+style\+\_\+transition\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}tr, const lv\+\_\+style\+\_\+prop\+\_\+t props\mbox{[}$\,$\mbox{]}, \mbox{\hyperlink{lv__anim_8h_ab24ee67f903ada67fd9ee43d785553a4}{lv\+\_\+anim\+\_\+path\+\_\+cb\+\_\+t}} path\+\_\+cb, uint32\+\_\+t time, uint32\+\_\+t delay, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+\mbox{\hyperlink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}} \mbox{\hyperlink{lv__style_8c_ac0c2eb5a726aea484d0254282be82538}{lv\+\_\+style\+\_\+prop\+\_\+get\+\_\+default}} (lv\+\_\+style\+\_\+prop\+\_\+t prop)
+\item 
+bool \mbox{\hyperlink{lv__style_8c_a3343d3e8d42132d6e280b80f0995eb64}{lv\+\_\+style\+\_\+is\+\_\+empty}} (const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{lv__style_8c_aaf9363c9182086f84fa86f0739363aee}{lv\+\_\+style\+\_\+prop\+\_\+lookup\+\_\+flags}} (lv\+\_\+style\+\_\+prop\+\_\+t prop)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__style_8c_a13f4a704fe8d8c9d2d1d0fad87b37ea3}\label{lv__style_8c_a13f4a704fe8d8c9d2d1d0fad87b37ea3} 
+const lv\+\_\+style\+\_\+prop\+\_\+t {\bfseries lv\+\_\+style\+\_\+const\+\_\+prop\+\_\+id\+\_\+inv} = LV\+\_\+\+STYLE\+\_\+\+PROP\+\_\+\+INV
+\item 
+\Hypertarget{lv__style_8c_a19c8f529f1822883db0cd4f4cda8ad55}\label{lv__style_8c_a19c8f529f1822883db0cd4f4cda8ad55} 
+const uint8\+\_\+t {\bfseries lv\+\_\+style\+\_\+builtin\+\_\+prop\+\_\+flag\+\_\+lookup\+\_\+table} \mbox{[}LV\+\_\+\+STYLE\+\_\+\+NUM\+\_\+\+BUILT\+\_\+\+IN\+\_\+\+PROPS\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__style_8c_a96b9ec304e44d8e09da362cc820d8a0e}\label{lv__style_8c_a96b9ec304e44d8e09da362cc820d8a0e} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_copy@{lv\_style\_copy}}
+\index{lv\_style\_copy@{lv\_style\_copy}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_copy()}{lv\_style\_copy()}}
+{\footnotesize\ttfamily void lv\+\_\+style\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst,  }\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+Copy all properties of a style to an other. It has the same affect callying the same {\ttfamily lv\+\_\+set\+\_\+style\+\_\+...} functions on both styles. It means new memory will be allocated to store the properties in the destination style. After the copy the destination style is fully independent of the source and source can removed without affecting the destination style. 
+\begin{DoxyParams}{Parametri}
+{\em dst} & the destination to copy into (can not the a constant style) \\
+\hline
+{\em src} & the source style to copy from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__style_8c_aa04566bb5235a758912e3cb46a21d2e4}\label{lv__style_8c_aa04566bb5235a758912e3cb46a21d2e4} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_get\_num\_custom\_props@{lv\_style\_get\_num\_custom\_props}}
+\index{lv\_style\_get\_num\_custom\_props@{lv\_style\_get\_num\_custom\_props}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_get\_num\_custom\_props()}{lv\_style\_get\_num\_custom\_props()}}
+{\footnotesize\ttfamily lv\+\_\+style\+\_\+prop\+\_\+t lv\+\_\+style\+\_\+get\+\_\+num\+\_\+custom\+\_\+props (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get the number of custom properties that have been registered thus far. \Hypertarget{lv__style_8c_a3d1f0f0816bf24c58ea748ee38fb4a2e}\label{lv__style_8c_a3d1f0f0816bf24c58ea748ee38fb4a2e} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_get\_prop@{lv\_style\_get\_prop}}
+\index{lv\_style\_get\_prop@{lv\_style\_get\_prop}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_get\_prop()}{lv\_style\_get\_prop()}}
+{\footnotesize\ttfamily lv\+\_\+style\+\_\+res\+\_\+t lv\+\_\+style\+\_\+get\+\_\+prop (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style,  }\item[{lv\+\_\+style\+\_\+prop\+\_\+t}]{prop,  }\item[{\mbox{\hyperlink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{value }\end{DoxyParamCaption})}
+
+Get the value of a property 
+\begin{DoxyParams}{Parametri}
+{\em style} & pointer to a style \\
+\hline
+{\em prop} & the ID of a property \\
+\hline
+{\em value} & pointer to a {\ttfamily \doxylink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}} variable to store the value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the property wasn\textquotesingle{}t found in the style ({\ttfamily value} is unchanged) LV\+\_\+\+RESULT\+\_\+\+OK\+: the property was fond, and {\ttfamily value} is set accordingly 
+\end{DoxyReturn}
+\begin{DoxyNote}{Opomba}
+For performance reasons there are no sanity check on {\ttfamily style} 
+\end{DoxyNote}
+\Hypertarget{lv__style_8c_a327db2c3050bd2d1a1693aa6981205dd}\label{lv__style_8c_a327db2c3050bd2d1a1693aa6981205dd} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_init@{lv\_style\_init}}
+\index{lv\_style\_init@{lv\_style\_init}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_init()}{lv\_style\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+style\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style }\end{DoxyParamCaption})}
+
+Initialize a style 
+\begin{DoxyParams}{Parametri}
+{\em style} & pointer to a style to initialize \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+Do not call {\ttfamily lv\+\_\+style\+\_\+init} on styles that already have some properties because this function won\textquotesingle{}t free the used memory, just sets a default state for the style. In other words be sure to initialize styles only once! 
+\end{DoxyNote}
+\Hypertarget{lv__style_8c_a3343d3e8d42132d6e280b80f0995eb64}\label{lv__style_8c_a3343d3e8d42132d6e280b80f0995eb64} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_is\_empty@{lv\_style\_is\_empty}}
+\index{lv\_style\_is\_empty@{lv\_style\_is\_empty}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_is\_empty()}{lv\_style\_is\_empty()}}
+{\footnotesize\ttfamily bool lv\+\_\+style\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style }\end{DoxyParamCaption})}
+
+Checks if a style is empty (has no properties) 
+\begin{DoxyParams}{Parametri}
+{\em style} & pointer to a style \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true if the style is empty 
+\end{DoxyReturn}
+\Hypertarget{lv__style_8c_aeec4c17371df41de1d8521ea85239530}\label{lv__style_8c_aeec4c17371df41de1d8521ea85239530} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_merge@{lv\_style\_merge}}
+\index{lv\_style\_merge@{lv\_style\_merge}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_merge()}{lv\_style\_merge()}}
+{\footnotesize\ttfamily void lv\+\_\+style\+\_\+merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst,  }\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+Copy all properties of a style to an other without resetting the dst style. It has the same effect as calling the same {\ttfamily lv\+\_\+set\+\_\+style\+\_\+...} functions on both styles. It means new memory will be allocated to store the properties in the destination style. After the copy the destination style is fully independent of the source and source can removed without affecting the destination style. 
+\begin{DoxyParams}{Parametri}
+{\em dst} & the destination to copy into (cannot be a constant style) \\
+\hline
+{\em src} & the source style to copy from. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__style_8c_ac0c2eb5a726aea484d0254282be82538}\label{lv__style_8c_ac0c2eb5a726aea484d0254282be82538} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_prop\_get\_default@{lv\_style\_prop\_get\_default}}
+\index{lv\_style\_prop\_get\_default@{lv\_style\_prop\_get\_default}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_prop\_get\_default()}{lv\_style\_prop\_get\_default()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}} lv\+\_\+style\+\_\+prop\+\_\+get\+\_\+default (\begin{DoxyParamCaption}\item[{lv\+\_\+style\+\_\+prop\+\_\+t}]{prop }\end{DoxyParamCaption})}
+
+Get the default value of a property 
+\begin{DoxyParams}{Parametri}
+{\em prop} & the ID of a property \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the default value 
+\end{DoxyReturn}
+\Hypertarget{lv__style_8c_aaf9363c9182086f84fa86f0739363aee}\label{lv__style_8c_aaf9363c9182086f84fa86f0739363aee} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_prop\_lookup\_flags@{lv\_style\_prop\_lookup\_flags}}
+\index{lv\_style\_prop\_lookup\_flags@{lv\_style\_prop\_lookup\_flags}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_prop\_lookup\_flags()}{lv\_style\_prop\_lookup\_flags()}}
+{\footnotesize\ttfamily uint8\+\_\+t lv\+\_\+style\+\_\+prop\+\_\+lookup\+\_\+flags (\begin{DoxyParamCaption}\item[{lv\+\_\+style\+\_\+prop\+\_\+t}]{prop }\end{DoxyParamCaption})}
+
+Get the flags of a built-\/in or custom property.
+
+
+\begin{DoxyParams}{Parametri}
+{\em prop} & a style property \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the flags of the property 
+\end{DoxyReturn}
+\Hypertarget{lv__style_8c_ace023b040b9b555b1dcf276a08603fae}\label{lv__style_8c_ace023b040b9b555b1dcf276a08603fae} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_register\_prop@{lv\_style\_register\_prop}}
+\index{lv\_style\_register\_prop@{lv\_style\_register\_prop}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_register\_prop()}{lv\_style\_register\_prop()}}
+{\footnotesize\ttfamily lv\+\_\+style\+\_\+prop\+\_\+t lv\+\_\+style\+\_\+register\+\_\+prop (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{flag }\end{DoxyParamCaption})}
+
+Register a new style property for custom usage \begin{DoxyReturn}{Rezultat(i)}
+a new property ID, or LV\+\_\+\+STYLE\+\_\+\+PROP\+\_\+\+INV if there are no more available.
+\end{DoxyReturn}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{lv\_style\_prop\_t\ MY\_PROP;}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_style\_set\_my\_prop(\mbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ *\ style,\ \mbox{\hyperlink{structlv__color__t}{lv\_color\_t}}\ value)\ \{}
+\DoxyCodeLine{\mbox{\hyperlink{unionlv__style__value__t}{lv\_style\_value\_t}}\ v\ =\ \{.color\ =\ value\};\ \mbox{\hyperlink{lv__style_8c_a29e7e4bbafc2bcc964bbff48942d894c}{lv\_style\_set\_prop}}(style,\ MY\_PROP,\ v);\ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{...}
+\DoxyCodeLine{MY\_PROP\ =\ \mbox{\hyperlink{lv__style_8c_ace023b040b9b555b1dcf276a08603fae}{lv\_style\_register\_prop}}();}
+\DoxyCodeLine{...}
+\DoxyCodeLine{lv\_style\_set\_my\_prop(\&style1,\ lv\_palette\_main(LV\_PALETTE\_RED));}
+
+\end{DoxyCode}
+ \Hypertarget{lv__style_8c_a7d2d6138592056144847db78feba2320}\label{lv__style_8c_a7d2d6138592056144847db78feba2320} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_remove\_prop@{lv\_style\_remove\_prop}}
+\index{lv\_style\_remove\_prop@{lv\_style\_remove\_prop}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_remove\_prop()}{lv\_style\_remove\_prop()}}
+{\footnotesize\ttfamily bool lv\+\_\+style\+\_\+remove\+\_\+prop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style,  }\item[{lv\+\_\+style\+\_\+prop\+\_\+t}]{prop }\end{DoxyParamCaption})}
+
+Remove a property from a style 
+\begin{DoxyParams}{Parametri}
+{\em style} & pointer to a style \\
+\hline
+{\em prop} & a style property ORed with a state. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: the property was found and removed; false\+: the property wasn\textquotesingle{}t found 
+\end{DoxyReturn}
+\Hypertarget{lv__style_8c_afd91dc8011c22491bae7010959267741}\label{lv__style_8c_afd91dc8011c22491bae7010959267741} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_reset@{lv\_style\_reset}}
+\index{lv\_style\_reset@{lv\_style\_reset}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_reset()}{lv\_style\_reset()}}
+{\footnotesize\ttfamily void lv\+\_\+style\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style }\end{DoxyParamCaption})}
+
+Clear all properties from a style and free all allocated memories. 
+\begin{DoxyParams}{Parametri}
+{\em style} & pointer to a style \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__style_8c_a29e7e4bbafc2bcc964bbff48942d894c}\label{lv__style_8c_a29e7e4bbafc2bcc964bbff48942d894c} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_set\_prop@{lv\_style\_set\_prop}}
+\index{lv\_style\_set\_prop@{lv\_style\_set\_prop}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_set\_prop()}{lv\_style\_set\_prop()}}
+{\footnotesize\ttfamily void lv\+\_\+style\+\_\+set\+\_\+prop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style,  }\item[{lv\+\_\+style\+\_\+prop\+\_\+t}]{prop,  }\item[{\mbox{\hyperlink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}}}]{value }\end{DoxyParamCaption})}
+
+Set the value of property in a style. This function shouldn\textquotesingle{}t be used directly by the user. Instead use {\ttfamily lv\+\_\+style\+\_\+set\+\_\+\texorpdfstring{$<$}{<}prop\+\_\+name\texorpdfstring{$>$}{>}()}. E.\+g. {\ttfamily lv\+\_\+style\+\_\+set\+\_\+bg\+\_\+color()} 
+\begin{DoxyParams}{Parametri}
+{\em style} & pointer to style \\
+\hline
+{\em prop} & the ID of a property (e.\+g. {\ttfamily LV\+\_\+\+STYLE\+\_\+\+BG\+\_\+\+COLOR}) \\
+\hline
+{\em value} & {\ttfamily \doxylink{unionlv__style__value__t}{lv\+\_\+style\+\_\+value\+\_\+t}} variable in which a field is set according to the type of {\ttfamily prop} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__style_8c_a410dd81df9cd14067e90f2db56363289}\label{lv__style_8c_a410dd81df9cd14067e90f2db56363289} 
+\index{lv\_style.c@{lv\_style.c}!lv\_style\_transition\_dsc\_init@{lv\_style\_transition\_dsc\_init}}
+\index{lv\_style\_transition\_dsc\_init@{lv\_style\_transition\_dsc\_init}!lv\_style.c@{lv\_style.c}}
+\doxysubsubsection{\texorpdfstring{lv\_style\_transition\_dsc\_init()}{lv\_style\_transition\_dsc\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+style\+\_\+transition\+\_\+dsc\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__style__transition__dsc__t}{lv\+\_\+style\+\_\+transition\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{tr,  }\item[{const lv\+\_\+style\+\_\+prop\+\_\+t}]{props\mbox{[}$\,$\mbox{]},  }\item[{\mbox{\hyperlink{lv__anim_8h_ab24ee67f903ada67fd9ee43d785553a4}{lv\+\_\+anim\+\_\+path\+\_\+cb\+\_\+t}}}]{path\+\_\+cb,  }\item[{uint32\+\_\+t}]{time,  }\item[{uint32\+\_\+t}]{delay,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Initialize a transition descriptor. 
+\begin{DoxyParams}{Parametri}
+{\em tr} & pointer to a transition descriptor to initialize \\
+\hline
+{\em props} & an array with the properties to transition. The last element must be zero. \\
+\hline
+{\em path\+\_\+cb} & an animation path (ease) callback. If {\ttfamily NULL} liner path will be used. \\
+\hline
+{\em time} & duration of the transition in \mbox{[}ms\mbox{]} \\
+\hline
+{\em delay} & delay before the transition in \mbox{[}ms\mbox{]} \\
+\hline
+{\em user\+\_\+data} & any custom data that will be saved in the transition animation and will be available when {\ttfamily path\+\_\+cb} is called\\
+\hline
+\end{DoxyParams}
+Example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keyword}{static}\ lv\_style\_prop\_t\ trans\_props[]\ =\ \{\ LV\_STYLE\_BG\_OPA,\ LV\_STYLE\_BG\_COLOR,\ 0\ \};}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{structlv__style__transition__dsc__t}{lv\_style\_transition\_dsc\_t}}\ trans1;}
+\DoxyCodeLine{\mbox{\hyperlink{lv__style_8c_a410dd81df9cd14067e90f2db56363289}{lv\_style\_transition\_dsc\_init}}(\&trans1,\ trans\_props,\ NULL,\ 300,\ 0,\ NULL);}
+
+\end{DoxyCode}
+ 

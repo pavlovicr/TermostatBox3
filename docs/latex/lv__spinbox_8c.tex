@@ -1,0 +1,441 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/spinbox/lv\+\_\+spinbox.c}
+\hypertarget{lv__spinbox_8c}{}\label{lv__spinbox_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/spinbox/lv\_spinbox.c@{managed\_components/lvgl\_\_lvgl/src/widgets/spinbox/lv\_spinbox.c}}
+{\ttfamily \#include "{}lv\+\_\+spinbox\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../indev/lv\+\_\+indev.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+spinbox.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+spinbox.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__spinbox_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__spinbox_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__spinbox_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+spinbox\+\_\+class)
+\item 
+\Hypertarget{lv__spinbox_8c_a5f0bac8abb5dce2d53f8893423e997b4}\label{lv__spinbox_8c_a5f0bac8abb5dce2d53f8893423e997b4} 
+\#define {\bfseries LV\+\_\+\+SPINBOX\+\_\+\+MAX\+\_\+\+DIGIT\+\_\+\+COUNT\+\_\+\+WITH\+\_\+8\+BYTES}~(LV\+\_\+\+SPINBOX\+\_\+\+MAX\+\_\+\+DIGIT\+\_\+\+COUNT + 8U)
+\item 
+\Hypertarget{lv__spinbox_8c_a91b37995401ce2e44149b1a7dc641005}\label{lv__spinbox_8c_a91b37995401ce2e44149b1a7dc641005} 
+\#define {\bfseries LV\+\_\+\+SPINBOX\+\_\+\+MAX\+\_\+\+DIGIT\+\_\+\+COUNT\+\_\+\+WITH\+\_\+4\+BYTES}~(LV\+\_\+\+SPINBOX\+\_\+\+MAX\+\_\+\+DIGIT\+\_\+\+COUNT + 4U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__spinbox_8c_ae156852c002d8612263fed8cea095ca1}{lv\+\_\+spinbox\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_ab90a300653e93e33a46af74a50806578}{lv\+\_\+spinbox\+\_\+set\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t v)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_ae3ae6dc2f0d1d76c24224df682b603cd}{lv\+\_\+spinbox\+\_\+set\+\_\+rollover}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool rollover)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a1c4d9f640f430bfa23e43a4355ada8f1}{lv\+\_\+spinbox\+\_\+set\+\_\+digit\+\_\+format}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t digit\+\_\+count, uint32\+\_\+t sep\+\_\+pos)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a7e5c7c0b9777e8b2e86c0d9a540b9ae4}{lv\+\_\+spinbox\+\_\+set\+\_\+digit\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t digit\+\_\+count)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a975f24aa72438cf7bfee3666f4e1ac78}{lv\+\_\+spinbox\+\_\+set\+\_\+dec\+\_\+point\+\_\+pos}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t dec\+\_\+point\+\_\+pos)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_af2de1a90294ad884715505ad82e8751f}{lv\+\_\+spinbox\+\_\+set\+\_\+step}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t step)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_abe2786c5d0a0253b0982152a21920082}{lv\+\_\+spinbox\+\_\+set\+\_\+range}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min\+\_\+value, int32\+\_\+t max\+\_\+value)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a22129260d872c3ead44d4ded4ba9a95a}{lv\+\_\+spinbox\+\_\+set\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min\+\_\+value)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a891e10d66dd2e173a37c8bc8f64b7883}{lv\+\_\+spinbox\+\_\+set\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t max\+\_\+value)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a10b7df31ab61bcbd7e0b73abd1f2d0ca}{lv\+\_\+spinbox\+\_\+set\+\_\+cursor\+\_\+pos}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t pos)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a20cbdd839e4371a6e83bd23b8a2eb948}{lv\+\_\+spinbox\+\_\+set\+\_\+digit\+\_\+step\+\_\+direction}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+dir\+\_\+t direction)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__spinbox_8c_a2d2482626b8e38a8a43c462c71216381}{lv\+\_\+spinbox\+\_\+get\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__spinbox_8c_a0c8339e63ef3ab378555424b40f90880}{lv\+\_\+spinbox\+\_\+get\+\_\+step}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_ae5ae4be8fcc42c0dd119cc8744707536}{lv\+\_\+spinbox\+\_\+step\+\_\+next}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a5e5b134aabc06c96be42ec328112784a}{lv\+\_\+spinbox\+\_\+step\+\_\+prev}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__spinbox_8c_a798aa2746ee6f103f6e557f5c53b1a2a}{lv\+\_\+spinbox\+\_\+get\+\_\+rollover}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__spinbox_8c_ae97fccb5bdb4d1184d9a59550f2e81fd}{lv\+\_\+spinbox\+\_\+get\+\_\+digit\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__spinbox_8c_a1b5f7b97d70b3b11f16ab68dbfe67d60}{lv\+\_\+spinbox\+\_\+get\+\_\+dec\+\_\+point\+\_\+pos}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__spinbox_8c_a642dd9c59e319d155d431396604f3758}{lv\+\_\+spinbox\+\_\+get\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__spinbox_8c_abd60d546caa4634ec8b9e1f8944d6b7f}{lv\+\_\+spinbox\+\_\+get\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+dir\+\_\+t \mbox{\hyperlink{lv__spinbox_8c_ad9a9d60d165169453b3b5acd6f3d30bc}{lv\+\_\+spinbox\+\_\+get\+\_\+digit\+\_\+step\+\_\+direction}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_aae97fc287c6a1d5662ea79d21aef8d09}{lv\+\_\+spinbox\+\_\+increment}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__spinbox_8c_a096c73fcbbd794745544efaaf34e723e}{lv\+\_\+spinbox\+\_\+decrement}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__spinbox_8c_a517673e42cb9ecf0c521ccffa90e05d9}{lv\+\_\+spinbox\+\_\+bind\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__spinbox_8c_a44c2d0ad36df3f61c8cf8631e85bd96f}{lv\+\_\+spinbox\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__spinbox_8c_a517673e42cb9ecf0c521ccffa90e05d9}\label{lv__spinbox_8c_a517673e42cb9ecf0c521ccffa90e05d9} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_bind\_value@{lv\_spinbox\_bind\_value}}
+\index{lv\_spinbox\_bind\_value@{lv\_spinbox\_bind\_value}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_bind\_value()}{lv\_spinbox\_bind\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+spinbox\+\_\+bind\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+
+Bind an integer subject to a Spinbox\textquotesingle{}s value. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Spinbox \\
+\hline
+{\em subject} & pointer to Subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to newly-\/created Observer 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_ae156852c002d8612263fed8cea095ca1}\label{lv__spinbox_8c_ae156852c002d8612263fed8cea095ca1} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_create@{lv\_spinbox\_create}}
+\index{lv\_spinbox\_create@{lv\_spinbox\_create}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_create()}{lv\_spinbox\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+spinbox\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a spinbox object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created spinbox 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_a096c73fcbbd794745544efaaf34e723e}\label{lv__spinbox_8c_a096c73fcbbd794745544efaaf34e723e} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_decrement@{lv\_spinbox\_decrement}}
+\index{lv\_spinbox\_decrement@{lv\_spinbox\_decrement}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_decrement()}{lv\_spinbox\_decrement()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+decrement (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Decrement spinbox value by one step 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a1b5f7b97d70b3b11f16ab68dbfe67d60}\label{lv__spinbox_8c_a1b5f7b97d70b3b11f16ab68dbfe67d60} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_dec\_point\_pos@{lv\_spinbox\_get\_dec\_point\_pos}}
+\index{lv\_spinbox\_get\_dec\_point\_pos@{lv\_spinbox\_get\_dec\_point\_pos}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_dec\_point\_pos()}{lv\_spinbox\_get\_dec\_point\_pos()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+spinbox\+\_\+get\+\_\+dec\+\_\+point\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the decimal point position 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+decimal point position 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_ae97fccb5bdb4d1184d9a59550f2e81fd}\label{lv__spinbox_8c_ae97fccb5bdb4d1184d9a59550f2e81fd} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_digit\_count@{lv\_spinbox\_get\_digit\_count}}
+\index{lv\_spinbox\_get\_digit\_count@{lv\_spinbox\_get\_digit\_count}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_digit\_count()}{lv\_spinbox\_get\_digit\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+spinbox\+\_\+get\+\_\+digit\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the spinbox digit count 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+number of digits 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_ad9a9d60d165169453b3b5acd6f3d30bc}\label{lv__spinbox_8c_ad9a9d60d165169453b3b5acd6f3d30bc} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_digit\_step\_direction@{lv\_spinbox\_get\_digit\_step\_direction}}
+\index{lv\_spinbox\_get\_digit\_step\_direction@{lv\_spinbox\_get\_digit\_step\_direction}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_digit\_step\_direction()}{lv\_spinbox\_get\_digit\_step\_direction()}}
+{\footnotesize\ttfamily lv\+\_\+dir\+\_\+t lv\+\_\+spinbox\+\_\+get\+\_\+digit\+\_\+step\+\_\+direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the digit step direction 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+direction (LV\+\_\+\+DIR\+\_\+\+RIGHT or LV\+\_\+\+DIR\+\_\+\+LEFT) 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_abd60d546caa4634ec8b9e1f8944d6b7f}\label{lv__spinbox_8c_abd60d546caa4634ec8b9e1f8944d6b7f} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_max\_value@{lv\_spinbox\_get\_max\_value}}
+\index{lv\_spinbox\_get\_max\_value@{lv\_spinbox\_get\_max\_value}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_max\_value()}{lv\_spinbox\_get\_max\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spinbox\+\_\+get\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the spinbox maximum value 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+maximum value 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_a642dd9c59e319d155d431396604f3758}\label{lv__spinbox_8c_a642dd9c59e319d155d431396604f3758} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_min\_value@{lv\_spinbox\_get\_min\_value}}
+\index{lv\_spinbox\_get\_min\_value@{lv\_spinbox\_get\_min\_value}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_min\_value()}{lv\_spinbox\_get\_min\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spinbox\+\_\+get\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the spinbox minimum value 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+minimum value 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_a798aa2746ee6f103f6e557f5c53b1a2a}\label{lv__spinbox_8c_a798aa2746ee6f103f6e557f5c53b1a2a} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_rollover@{lv\_spinbox\_get\_rollover}}
+\index{lv\_spinbox\_get\_rollover@{lv\_spinbox\_get\_rollover}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_rollover()}{lv\_spinbox\_get\_rollover()}}
+{\footnotesize\ttfamily bool lv\+\_\+spinbox\+\_\+get\+\_\+rollover (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get spinbox rollover function status 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a0c8339e63ef3ab378555424b40f90880}\label{lv__spinbox_8c_a0c8339e63ef3ab378555424b40f90880} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_step@{lv\_spinbox\_get\_step}}
+\index{lv\_spinbox\_get\_step@{lv\_spinbox\_get\_step}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_step()}{lv\_spinbox\_get\_step()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spinbox\+\_\+get\+\_\+step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the spinbox step value (user has to convert to float according to its digit format) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+value integer step value of the spinbox 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_a2d2482626b8e38a8a43c462c71216381}\label{lv__spinbox_8c_a2d2482626b8e38a8a43c462c71216381} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_get\_value@{lv\_spinbox\_get\_value}}
+\index{lv\_spinbox\_get\_value@{lv\_spinbox\_get\_value}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_get\_value()}{lv\_spinbox\_get\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+spinbox\+\_\+get\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the spinbox numeral value (user has to convert to float according to its digit format) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+value integer value of the spinbox 
+\end{DoxyReturn}
+\Hypertarget{lv__spinbox_8c_aae97fc287c6a1d5662ea79d21aef8d09}\label{lv__spinbox_8c_aae97fc287c6a1d5662ea79d21aef8d09} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_increment@{lv\_spinbox\_increment}}
+\index{lv\_spinbox\_increment@{lv\_spinbox\_increment}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_increment()}{lv\_spinbox\_increment()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+increment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Increment spinbox value by one step 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a10b7df31ab61bcbd7e0b73abd1f2d0ca}\label{lv__spinbox_8c_a10b7df31ab61bcbd7e0b73abd1f2d0ca} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_cursor\_pos@{lv\_spinbox\_set\_cursor\_pos}}
+\index{lv\_spinbox\_set\_cursor\_pos@{lv\_spinbox\_set\_cursor\_pos}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_cursor\_pos()}{lv\_spinbox\_set\_cursor\_pos()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+cursor\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Set cursor position to a specific digit for edition 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em pos} & selected position in spinbox \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a975f24aa72438cf7bfee3666f4e1ac78}\label{lv__spinbox_8c_a975f24aa72438cf7bfee3666f4e1ac78} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_dec\_point\_pos@{lv\_spinbox\_set\_dec\_point\_pos}}
+\index{lv\_spinbox\_set\_dec\_point\_pos@{lv\_spinbox\_set\_dec\_point\_pos}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_dec\_point\_pos()}{lv\_spinbox\_set\_dec\_point\_pos()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+dec\+\_\+point\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{dec\+\_\+point\+\_\+pos }\end{DoxyParamCaption})}
+
+Set the position of the decimal point 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em dec\+\_\+point\+\_\+pos} & 0\+: there is no separator, 2\+: two integer digits \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a7e5c7c0b9777e8b2e86c0d9a540b9ae4}\label{lv__spinbox_8c_a7e5c7c0b9777e8b2e86c0d9a540b9ae4} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_digit\_count@{lv\_spinbox\_set\_digit\_count}}
+\index{lv\_spinbox\_set\_digit\_count@{lv\_spinbox\_set\_digit\_count}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_digit\_count()}{lv\_spinbox\_set\_digit\_count()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+digit\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{digit\+\_\+count }\end{DoxyParamCaption})}
+
+Set the number of digits 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em digit\+\_\+count} & number of digits \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a1c4d9f640f430bfa23e43a4355ada8f1}\label{lv__spinbox_8c_a1c4d9f640f430bfa23e43a4355ada8f1} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_digit\_format@{lv\_spinbox\_set\_digit\_format}}
+\index{lv\_spinbox\_set\_digit\_format@{lv\_spinbox\_set\_digit\_format}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_digit\_format()}{lv\_spinbox\_set\_digit\_format()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+digit\+\_\+format (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{digit\+\_\+count,  }\item[{uint32\+\_\+t}]{sep\+\_\+pos }\end{DoxyParamCaption})}
+
+Set spinbox digit format (digit count and decimal format) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em digit\+\_\+count} & number of digit excluding the decimal separator and the sign \\
+\hline
+{\em sep\+\_\+pos} & number of digit before the decimal point. If 0, decimal point is not shown \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a20cbdd839e4371a6e83bd23b8a2eb948}\label{lv__spinbox_8c_a20cbdd839e4371a6e83bd23b8a2eb948} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_digit\_step\_direction@{lv\_spinbox\_set\_digit\_step\_direction}}
+\index{lv\_spinbox\_set\_digit\_step\_direction@{lv\_spinbox\_set\_digit\_step\_direction}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_digit\_step\_direction()}{lv\_spinbox\_set\_digit\_step\_direction()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+digit\+\_\+step\+\_\+direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+dir\+\_\+t}]{direction }\end{DoxyParamCaption})}
+
+Set direction of digit step when clicking an encoder button while in editing mode 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em direction} & the direction (LV\+\_\+\+DIR\+\_\+\+RIGHT or LV\+\_\+\+DIR\+\_\+\+LEFT) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a891e10d66dd2e173a37c8bc8f64b7883}\label{lv__spinbox_8c_a891e10d66dd2e173a37c8bc8f64b7883} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_max\_value@{lv\_spinbox\_set\_max\_value}}
+\index{lv\_spinbox\_set\_max\_value@{lv\_spinbox\_set\_max\_value}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_max\_value()}{lv\_spinbox\_set\_max\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{max\+\_\+value }\end{DoxyParamCaption})}
+
+Set the maximum value 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em max\+\_\+value} & the maximum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a22129260d872c3ead44d4ded4ba9a95a}\label{lv__spinbox_8c_a22129260d872c3ead44d4ded4ba9a95a} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_min\_value@{lv\_spinbox\_set\_min\_value}}
+\index{lv\_spinbox\_set\_min\_value@{lv\_spinbox\_set\_min\_value}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_min\_value()}{lv\_spinbox\_set\_min\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min\+\_\+value }\end{DoxyParamCaption})}
+
+Set the minimum value 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em min\+\_\+value} & the minimum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_abe2786c5d0a0253b0982152a21920082}\label{lv__spinbox_8c_abe2786c5d0a0253b0982152a21920082} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_range@{lv\_spinbox\_set\_range}}
+\index{lv\_spinbox\_set\_range@{lv\_spinbox\_set\_range}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_range()}{lv\_spinbox\_set\_range()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min\+\_\+value,  }\item[{int32\+\_\+t}]{max\+\_\+value }\end{DoxyParamCaption})}
+
+Set spinbox value range 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em min\+\_\+value} & minimum value, inclusive \\
+\hline
+{\em max\+\_\+value} & maximum value, inclusive \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_ae3ae6dc2f0d1d76c24224df682b603cd}\label{lv__spinbox_8c_ae3ae6dc2f0d1d76c24224df682b603cd} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_rollover@{lv\_spinbox\_set\_rollover}}
+\index{lv\_spinbox\_set\_rollover@{lv\_spinbox\_set\_rollover}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_rollover()}{lv\_spinbox\_set\_rollover()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+rollover (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{rollover }\end{DoxyParamCaption})}
+
+Set spinbox rollover function 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em rollover} & true or false to enable or disable (default) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_af2de1a90294ad884715505ad82e8751f}\label{lv__spinbox_8c_af2de1a90294ad884715505ad82e8751f} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_step@{lv\_spinbox\_set\_step}}
+\index{lv\_spinbox\_set\_step@{lv\_spinbox\_set\_step}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_step()}{lv\_spinbox\_set\_step()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{step }\end{DoxyParamCaption})}
+
+Set spinbox step 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em step} & steps on increment/decrement. Can be 1, 10, 100, 1000, etc the digit that will change. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_ab90a300653e93e33a46af74a50806578}\label{lv__spinbox_8c_ab90a300653e93e33a46af74a50806578} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_set\_value@{lv\_spinbox\_set\_value}}
+\index{lv\_spinbox\_set\_value@{lv\_spinbox\_set\_value}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_set\_value()}{lv\_spinbox\_set\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+set\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{v }\end{DoxyParamCaption})}
+
+Set spinbox value 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+{\em v} & value to be set \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_ae5ae4be8fcc42c0dd119cc8744707536}\label{lv__spinbox_8c_ae5ae4be8fcc42c0dd119cc8744707536} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_step\_next@{lv\_spinbox\_step\_next}}
+\index{lv\_spinbox\_step\_next@{lv\_spinbox\_step\_next}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_step\_next()}{lv\_spinbox\_step\_next()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+step\+\_\+next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Select next lower digit for edition by dividing the step by 10 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__spinbox_8c_a5e5b134aabc06c96be42ec328112784a}\label{lv__spinbox_8c_a5e5b134aabc06c96be42ec328112784a} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_step\_prev@{lv\_spinbox\_step\_prev}}
+\index{lv\_spinbox\_step\_prev@{lv\_spinbox\_step\_prev}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_step\_prev()}{lv\_spinbox\_step\_prev()}}
+{\footnotesize\ttfamily void lv\+\_\+spinbox\+\_\+step\+\_\+prev (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Select next higher digit for edition by multiplying the step by 10 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to spinbox \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__spinbox_8c_a44c2d0ad36df3f61c8cf8631e85bd96f}\label{lv__spinbox_8c_a44c2d0ad36df3f61c8cf8631e85bd96f} 
+\index{lv\_spinbox.c@{lv\_spinbox.c}!lv\_spinbox\_class@{lv\_spinbox\_class}}
+\index{lv\_spinbox\_class@{lv\_spinbox\_class}!lv\_spinbox.c@{lv\_spinbox.c}}
+\doxysubsubsection{\texorpdfstring{lv\_spinbox\_class}{lv\_spinbox\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+spinbox\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_spinbox\_constructor,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_spinbox\_event,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}},}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__spinbox__t}{lv\_spinbox\_t}}),}
+\DoxyCodeLine{\ \ \ \ .editable\ =\ LV\_OBJ\_CLASS\_EDITABLE\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&lv\_textarea\_class,}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_spinbox"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

@@ -1,0 +1,526 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/arc/lv\+\_\+arc.h}
+\hypertarget{lv__arc_8h}{}\label{lv__arc_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/arc/lv\_arc.h@{managed\_components/lvgl\_\_lvgl/src/widgets/arc/lv\_arc.h}}
+{\ttfamily \#include "{}../../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+observer.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+arc.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+arc.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__arc_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__arc_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\+\_\+arc\+\_\+mode\+\_\+t}} \{ \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfab362e0969e5099623bd7cea7f76a8e4f}{LV\+\_\+\+ARC\+\_\+\+MODE\+\_\+\+NORMAL}}
+, \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfa72865921da20091062f46ef8e1efb689}{LV\+\_\+\+ARC\+\_\+\+MODE\+\_\+\+SYMMETRICAL}}
+, \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfa17850198fc8a717abc09522010858c29}{LV\+\_\+\+ARC\+\_\+\+MODE\+\_\+\+REVERSE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__arc_8h_a94165113f9c98541f24d5f7af95c86bb}{lv\+\_\+arc\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_af5935ec21569fe577f1e66fd2258005d}{lv\+\_\+arc\+\_\+set\+\_\+start\+\_\+angle}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t start)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_aacab0b2f603d6085ce21c84342556751}{lv\+\_\+arc\+\_\+set\+\_\+end\+\_\+angle}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t end)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a86e806959cc2e0afa81c7a1bef748924}{lv\+\_\+arc\+\_\+set\+\_\+angles}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t start, lv\+\_\+value\+\_\+precise\+\_\+t end)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_aa1856c625ec853068aa17a2a4fb5c144}{lv\+\_\+arc\+\_\+set\+\_\+bg\+\_\+start\+\_\+angle}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t start)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a4aa39a7f7d0d0a484ab52916ba109ab4}{lv\+\_\+arc\+\_\+set\+\_\+bg\+\_\+end\+\_\+angle}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t end)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a5d57548f444d002d8be0012c39c23ec8}{lv\+\_\+arc\+\_\+set\+\_\+bg\+\_\+angles}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t start, lv\+\_\+value\+\_\+precise\+\_\+t end)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_aaafaa4ed3293c4801dc8d5f3556dd3ee}{lv\+\_\+arc\+\_\+set\+\_\+rotation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t rotation)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_ad893892b371fe0c58d7f0f21e2f6b678}{lv\+\_\+arc\+\_\+set\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\+\_\+arc\+\_\+mode\+\_\+t}} type)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a56cded6a22e59691f2070386c2b0b690}{lv\+\_\+arc\+\_\+set\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a397e794471663b65ce0b37c63610ff8c}{lv\+\_\+arc\+\_\+set\+\_\+range}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_ab10e96b6e2178593c1456be934ea798a}{lv\+\_\+arc\+\_\+set\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a3a79e75e0fa6176b58f53d24de9c6c61}{lv\+\_\+arc\+\_\+set\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_aede50ecdbba4139d2e352b289f594984}{lv\+\_\+arc\+\_\+set\+\_\+change\+\_\+rate}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t rate)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a5a5e154114e592756a4bb763cf059b49}{lv\+\_\+arc\+\_\+set\+\_\+knob\+\_\+offset}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t offset)
+\item 
+lv\+\_\+value\+\_\+precise\+\_\+t \mbox{\hyperlink{lv__arc_8h_a6680839bdd679b340c300b1b37016ae1}{lv\+\_\+arc\+\_\+get\+\_\+angle\+\_\+start}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+value\+\_\+precise\+\_\+t \mbox{\hyperlink{lv__arc_8h_ab351a22d8f7378d6971a0e354558d26d}{lv\+\_\+arc\+\_\+get\+\_\+angle\+\_\+end}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+value\+\_\+precise\+\_\+t \mbox{\hyperlink{lv__arc_8h_ae37a5aa4025c201f1635aff8e16cdadc}{lv\+\_\+arc\+\_\+get\+\_\+bg\+\_\+angle\+\_\+start}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+value\+\_\+precise\+\_\+t \mbox{\hyperlink{lv__arc_8h_aa1e3b104bec3854eef8acdc0a003d093}{lv\+\_\+arc\+\_\+get\+\_\+bg\+\_\+angle\+\_\+end}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__arc_8h_a9f1afef2cb0dfece03a79a9649dcfb1f}{lv\+\_\+arc\+\_\+get\+\_\+value}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__arc_8h_abdb73713635493c32c8fca65ee4a2845}{lv\+\_\+arc\+\_\+get\+\_\+min\+\_\+value}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__arc_8h_a7f75defc7a198aab9d5e6f5223d4f2dc}{lv\+\_\+arc\+\_\+get\+\_\+max\+\_\+value}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\+\_\+arc\+\_\+mode\+\_\+t}} \mbox{\hyperlink{lv__arc_8h_a5d806c041cd57cb98713ecc2020e86d1}{lv\+\_\+arc\+\_\+get\+\_\+mode}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__arc_8h_a582931ef19d0bf1f37d96dc661222a3f}{lv\+\_\+arc\+\_\+get\+\_\+rotation}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__arc_8h_afed81d49b25655a9c769b9356b9b4350}{lv\+\_\+arc\+\_\+get\+\_\+knob\+\_\+offset}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__arc_8h_a1b2d795867073040d81af0146d60f0a8}{lv\+\_\+arc\+\_\+get\+\_\+change\+\_\+rate}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__arc_8h_a5d49f630c2fafbeaa4ba76b6d03648b1}{lv\+\_\+arc\+\_\+bind\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a7eda4ecc160433c2cf0a1b657129581c}{lv\+\_\+arc\+\_\+align\+\_\+obj\+\_\+to\+\_\+angle}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj\+\_\+to\+\_\+align, int32\+\_\+t r\+\_\+offset)
+\item 
+void \mbox{\hyperlink{lv__arc_8h_a0fecbafd93d64d74f1e62cf18286d6df}{lv\+\_\+arc\+\_\+rotate\+\_\+obj\+\_\+to\+\_\+angle}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj\+\_\+to\+\_\+rotate, int32\+\_\+t r\+\_\+offset)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__arc_8h_a867c188e25152434a79917c9f754cf7d}\label{lv__arc_8h_a867c188e25152434a79917c9f754cf7d} 
+\mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\+\_\+\+ATTRIBUTE\+\_\+\+EXTERN\+\_\+\+DATA}} const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+arc\+\_\+class}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis naštevnega (enum) tipa}
+\Hypertarget{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}\label{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_mode\_t@{lv\_arc\_mode\_t}}
+\index{lv\_arc\_mode\_t@{lv\_arc\_mode\_t}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_mode\_t}{lv\_arc\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\+\_\+arc\+\_\+mode\+\_\+t}}}
+
+In which direction the indicator should grow. \begin{DoxyEnumFields}{Vrednosti naštevnih tipov}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_ARC\_MODE\_NORMAL@{LV\_ARC\_MODE\_NORMAL}!lv\_arc.h@{lv\_arc.h}}\index{lv\_arc.h@{lv\_arc.h}!LV\_ARC\_MODE\_NORMAL@{LV\_ARC\_MODE\_NORMAL}}}\Hypertarget{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfab362e0969e5099623bd7cea7f76a8e4f}\label{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfab362e0969e5099623bd7cea7f76a8e4f} 
+LV\+\_\+\+ARC\+\_\+\+MODE\+\_\+\+NORMAL&Clock-\/wise \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_ARC\_MODE\_SYMMETRICAL@{LV\_ARC\_MODE\_SYMMETRICAL}!lv\_arc.h@{lv\_arc.h}}\index{lv\_arc.h@{lv\_arc.h}!LV\_ARC\_MODE\_SYMMETRICAL@{LV\_ARC\_MODE\_SYMMETRICAL}}}\Hypertarget{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfa72865921da20091062f46ef8e1efb689}\label{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfa72865921da20091062f46ef8e1efb689} 
+LV\+\_\+\+ARC\+\_\+\+MODE\+\_\+\+SYMMETRICAL&Left/right from the midpoint \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_ARC\_MODE\_REVERSE@{LV\_ARC\_MODE\_REVERSE}!lv\_arc.h@{lv\_arc.h}}\index{lv\_arc.h@{lv\_arc.h}!LV\_ARC\_MODE\_REVERSE@{LV\_ARC\_MODE\_REVERSE}}}\Hypertarget{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfa17850198fc8a717abc09522010858c29}\label{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bfa17850198fc8a717abc09522010858c29} 
+LV\+\_\+\+ARC\+\_\+\+MODE\+\_\+\+REVERSE&Counterclock-\/wise \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__arc_8h_a7eda4ecc160433c2cf0a1b657129581c}\label{lv__arc_8h_a7eda4ecc160433c2cf0a1b657129581c} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_align\_obj\_to\_angle@{lv\_arc\_align\_obj\_to\_angle}}
+\index{lv\_arc\_align\_obj\_to\_angle@{lv\_arc\_align\_obj\_to\_angle}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_align\_obj\_to\_angle()}{lv\_arc\_align\_obj\_to\_angle()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+align\+\_\+obj\+\_\+to\+\_\+angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj\+\_\+to\+\_\+align,  }\item[{int32\+\_\+t}]{r\+\_\+offset }\end{DoxyParamCaption})}
+
+Align an object to the current position of the arc (knob) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em obj\+\_\+to\+\_\+align} & pointer to an object to align \\
+\hline
+{\em r\+\_\+offset} & consider the radius larger with this value (\texorpdfstring{$<$}{<} 0\+: for smaller radius) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_a5d49f630c2fafbeaa4ba76b6d03648b1}\label{lv__arc_8h_a5d49f630c2fafbeaa4ba76b6d03648b1} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_bind\_value@{lv\_arc\_bind\_value}}
+\index{lv\_arc\_bind\_value@{lv\_arc\_bind\_value}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_bind\_value()}{lv\_arc\_bind\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+arc\+\_\+bind\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+
+Bind an integer subject to an Arc\textquotesingle{}s value. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Arc \\
+\hline
+{\em subject} & pointer to Subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to newly-\/created Observer 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a94165113f9c98541f24d5f7af95c86bb}\label{lv__arc_8h_a94165113f9c98541f24d5f7af95c86bb} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_create@{lv\_arc\_create}}
+\index{lv\_arc\_create@{lv\_arc\_create}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_create()}{lv\_arc\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+arc\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create an arc object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new arc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created arc 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_ab351a22d8f7378d6971a0e354558d26d}\label{lv__arc_8h_ab351a22d8f7378d6971a0e354558d26d} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_angle\_end@{lv\_arc\_get\_angle\_end}}
+\index{lv\_arc\_get\_angle\_end@{lv\_arc\_get\_angle\_end}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_angle\_end()}{lv\_arc\_get\_angle\_end()}}
+{\footnotesize\ttfamily lv\+\_\+value\+\_\+precise\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+angle\+\_\+end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the end angle of an arc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the end angle \mbox{[}0..360\mbox{]} (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a6680839bdd679b340c300b1b37016ae1}\label{lv__arc_8h_a6680839bdd679b340c300b1b37016ae1} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_angle\_start@{lv\_arc\_get\_angle\_start}}
+\index{lv\_arc\_get\_angle\_start@{lv\_arc\_get\_angle\_start}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_angle\_start()}{lv\_arc\_get\_angle\_start()}}
+{\footnotesize\ttfamily lv\+\_\+value\+\_\+precise\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+angle\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the start angle of an arc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the start angle \mbox{[}0..360\mbox{]} (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_aa1e3b104bec3854eef8acdc0a003d093}\label{lv__arc_8h_aa1e3b104bec3854eef8acdc0a003d093} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_bg\_angle\_end@{lv\_arc\_get\_bg\_angle\_end}}
+\index{lv\_arc\_get\_bg\_angle\_end@{lv\_arc\_get\_bg\_angle\_end}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_bg\_angle\_end()}{lv\_arc\_get\_bg\_angle\_end()}}
+{\footnotesize\ttfamily lv\+\_\+value\+\_\+precise\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+bg\+\_\+angle\+\_\+end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the end angle of an arc background. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the end angle \mbox{[}0..360\mbox{]} (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_ae37a5aa4025c201f1635aff8e16cdadc}\label{lv__arc_8h_ae37a5aa4025c201f1635aff8e16cdadc} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_bg\_angle\_start@{lv\_arc\_get\_bg\_angle\_start}}
+\index{lv\_arc\_get\_bg\_angle\_start@{lv\_arc\_get\_bg\_angle\_start}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_bg\_angle\_start()}{lv\_arc\_get\_bg\_angle\_start()}}
+{\footnotesize\ttfamily lv\+\_\+value\+\_\+precise\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+bg\+\_\+angle\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the start angle of an arc background. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the start angle \mbox{[}0..360\mbox{]} (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a1b2d795867073040d81af0146d60f0a8}\label{lv__arc_8h_a1b2d795867073040d81af0146d60f0a8} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_change\_rate@{lv\_arc\_get\_change\_rate}}
+\index{lv\_arc\_get\_change\_rate@{lv\_arc\_get\_change\_rate}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_change\_rate()}{lv\_arc\_get\_change\_rate()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+change\+\_\+rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the change rate of an arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the change rate 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_afed81d49b25655a9c769b9356b9b4350}\label{lv__arc_8h_afed81d49b25655a9c769b9356b9b4350} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_knob\_offset@{lv\_arc\_get\_knob\_offset}}
+\index{lv\_arc\_get\_knob\_offset@{lv\_arc\_get\_knob\_offset}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_knob\_offset()}{lv\_arc\_get\_knob\_offset()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+knob\+\_\+offset (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the current knob angle offset 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+arc\textquotesingle{}s current knob offset 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a7f75defc7a198aab9d5e6f5223d4f2dc}\label{lv__arc_8h_a7f75defc7a198aab9d5e6f5223d4f2dc} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_max\_value@{lv\_arc\_get\_max\_value}}
+\index{lv\_arc\_get\_max\_value@{lv\_arc\_get\_max\_value}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_max\_value()}{lv\_arc\_get\_max\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the maximum value of an arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the maximum value of the arc 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_abdb73713635493c32c8fca65ee4a2845}\label{lv__arc_8h_abdb73713635493c32c8fca65ee4a2845} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_min\_value@{lv\_arc\_get\_min\_value}}
+\index{lv\_arc\_get\_min\_value@{lv\_arc\_get\_min\_value}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_min\_value()}{lv\_arc\_get\_min\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the minimum value of an arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the minimum value of the arc 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a5d806c041cd57cb98713ecc2020e86d1}\label{lv__arc_8h_a5d806c041cd57cb98713ecc2020e86d1} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_mode@{lv\_arc\_get\_mode}}
+\index{lv\_arc\_get\_mode@{lv\_arc\_get\_mode}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_mode()}{lv\_arc\_get\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\+\_\+arc\+\_\+mode\+\_\+t}} lv\+\_\+arc\+\_\+get\+\_\+mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get whether the arc is type or not. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+arc\textquotesingle{}s mode 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a582931ef19d0bf1f37d96dc661222a3f}\label{lv__arc_8h_a582931ef19d0bf1f37d96dc661222a3f} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_rotation@{lv\_arc\_get\_rotation}}
+\index{lv\_arc\_get\_rotation@{lv\_arc\_get\_rotation}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_rotation()}{lv\_arc\_get\_rotation()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+rotation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the rotation for the whole arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+arc\textquotesingle{}s current rotation 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a9f1afef2cb0dfece03a79a9649dcfb1f}\label{lv__arc_8h_a9f1afef2cb0dfece03a79a9649dcfb1f} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_get\_value@{lv\_arc\_get\_value}}
+\index{lv\_arc\_get\_value@{lv\_arc\_get\_value}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_value()}{lv\_arc\_get\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the value of an arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the value of the arc 
+\end{DoxyReturn}
+\Hypertarget{lv__arc_8h_a0fecbafd93d64d74f1e62cf18286d6df}\label{lv__arc_8h_a0fecbafd93d64d74f1e62cf18286d6df} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_rotate\_obj\_to\_angle@{lv\_arc\_rotate\_obj\_to\_angle}}
+\index{lv\_arc\_rotate\_obj\_to\_angle@{lv\_arc\_rotate\_obj\_to\_angle}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_rotate\_obj\_to\_angle()}{lv\_arc\_rotate\_obj\_to\_angle()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+rotate\+\_\+obj\+\_\+to\+\_\+angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj\+\_\+to\+\_\+rotate,  }\item[{int32\+\_\+t}]{r\+\_\+offset }\end{DoxyParamCaption})}
+
+Rotate an object to the current position of the arc (knob) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em obj\+\_\+to\+\_\+rotate} & pointer to an object to rotate \\
+\hline
+{\em r\+\_\+offset} & consider the radius larger with this value (\texorpdfstring{$<$}{<} 0\+: for smaller radius) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_a86e806959cc2e0afa81c7a1bef748924}\label{lv__arc_8h_a86e806959cc2e0afa81c7a1bef748924} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_angles@{lv\_arc\_set\_angles}}
+\index{lv\_arc\_set\_angles@{lv\_arc\_set\_angles}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_angles()}{lv\_arc\_set\_angles()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+angles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{start,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{end }\end{DoxyParamCaption})}
+
+Set the start and end angles 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em start} & the start angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+{\em end} & the end angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_a5d57548f444d002d8be0012c39c23ec8}\label{lv__arc_8h_a5d57548f444d002d8be0012c39c23ec8} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_bg\_angles@{lv\_arc\_set\_bg\_angles}}
+\index{lv\_arc\_set\_bg\_angles@{lv\_arc\_set\_bg\_angles}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_bg\_angles()}{lv\_arc\_set\_bg\_angles()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+bg\+\_\+angles (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{start,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{end }\end{DoxyParamCaption})}
+
+Set the start and end angles of the arc background 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em start} & the start angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+{\em end} & the end angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_a4aa39a7f7d0d0a484ab52916ba109ab4}\label{lv__arc_8h_a4aa39a7f7d0d0a484ab52916ba109ab4} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_bg\_end\_angle@{lv\_arc\_set\_bg\_end\_angle}}
+\index{lv\_arc\_set\_bg\_end\_angle@{lv\_arc\_set\_bg\_end\_angle}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_bg\_end\_angle()}{lv\_arc\_set\_bg\_end\_angle()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+bg\+\_\+end\+\_\+angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{end }\end{DoxyParamCaption})}
+
+Set the start angle of an arc background. 0 deg\+: right, 90 bottom etc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em end} & the end angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_aa1856c625ec853068aa17a2a4fb5c144}\label{lv__arc_8h_aa1856c625ec853068aa17a2a4fb5c144} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_bg\_start\_angle@{lv\_arc\_set\_bg\_start\_angle}}
+\index{lv\_arc\_set\_bg\_start\_angle@{lv\_arc\_set\_bg\_start\_angle}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_bg\_start\_angle()}{lv\_arc\_set\_bg\_start\_angle()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+bg\+\_\+start\+\_\+angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{start }\end{DoxyParamCaption})}
+
+Set the start angle of an arc background. 0 deg\+: right, 90 bottom, etc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em start} & the start angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_aede50ecdbba4139d2e352b289f594984}\label{lv__arc_8h_aede50ecdbba4139d2e352b289f594984} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_change\_rate@{lv\_arc\_set\_change\_rate}}
+\index{lv\_arc\_set\_change\_rate@{lv\_arc\_set\_change\_rate}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_change\_rate()}{lv\_arc\_set\_change\_rate()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+change\+\_\+rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{rate }\end{DoxyParamCaption})}
+
+Set a change rate to limit the speed how fast the arc should reach the pressed point. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em rate} & the change rate \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_aacab0b2f603d6085ce21c84342556751}\label{lv__arc_8h_aacab0b2f603d6085ce21c84342556751} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_end\_angle@{lv\_arc\_set\_end\_angle}}
+\index{lv\_arc\_set\_end\_angle@{lv\_arc\_set\_end\_angle}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_end\_angle()}{lv\_arc\_set\_end\_angle()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+end\+\_\+angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{end }\end{DoxyParamCaption})}
+
+Set the end angle of an arc. 0 deg\+: right, 90 bottom, etc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em end} & the end angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_a5a5e154114e592756a4bb763cf059b49}\label{lv__arc_8h_a5a5e154114e592756a4bb763cf059b49} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_knob\_offset@{lv\_arc\_set\_knob\_offset}}
+\index{lv\_arc\_set\_knob\_offset@{lv\_arc\_set\_knob\_offset}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_knob\_offset()}{lv\_arc\_set\_knob\_offset()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+knob\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+Set an offset angle for the knob 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em offset} & knob offset from main arc in degrees \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_a3a79e75e0fa6176b58f53d24de9c6c61}\label{lv__arc_8h_a3a79e75e0fa6176b58f53d24de9c6c61} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_max\_value@{lv\_arc\_set\_max\_value}}
+\index{lv\_arc\_set\_max\_value@{lv\_arc\_set\_max\_value}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_max\_value()}{lv\_arc\_set\_max\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set the maximum values of an arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the arc object \\
+\hline
+{\em max} & maximum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_ab10e96b6e2178593c1456be934ea798a}\label{lv__arc_8h_ab10e96b6e2178593c1456be934ea798a} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_min\_value@{lv\_arc\_set\_min\_value}}
+\index{lv\_arc\_set\_min\_value@{lv\_arc\_set\_min\_value}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_min\_value()}{lv\_arc\_set\_min\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min }\end{DoxyParamCaption})}
+
+Set the minimum values of an arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the arc object \\
+\hline
+{\em min} & minimum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_ad893892b371fe0c58d7f0f21e2f6b678}\label{lv__arc_8h_ad893892b371fe0c58d7f0f21e2f6b678} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_mode@{lv\_arc\_set\_mode}}
+\index{lv\_arc\_set\_mode@{lv\_arc\_set\_mode}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_mode()}{lv\_arc\_set\_mode()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\+\_\+arc\+\_\+mode\+\_\+t}}}]{type }\end{DoxyParamCaption})}
+
+Set in which direction the indicator should grow. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to arc object \\
+\hline
+{\em type} & arc\textquotesingle{}s mode \\
+\hline
+\end{DoxyParams}
+Force set\+\_\+value handling
+
+LV\+\_\+\+ARC\+\_\+\+TYPE\+\_\+\+NORMAL\Hypertarget{lv__arc_8h_a397e794471663b65ce0b37c63610ff8c}\label{lv__arc_8h_a397e794471663b65ce0b37c63610ff8c} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_range@{lv\_arc\_set\_range}}
+\index{lv\_arc\_set\_range@{lv\_arc\_set\_range}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_range()}{lv\_arc\_set\_range()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set minimum and the maximum values of an arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the arc object \\
+\hline
+{\em min} & minimum value \\
+\hline
+{\em max} & maximum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_aaafaa4ed3293c4801dc8d5f3556dd3ee}\label{lv__arc_8h_aaafaa4ed3293c4801dc8d5f3556dd3ee} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_rotation@{lv\_arc\_set\_rotation}}
+\index{lv\_arc\_set\_rotation@{lv\_arc\_set\_rotation}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_rotation()}{lv\_arc\_set\_rotation()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{rotation }\end{DoxyParamCaption})}
+
+Set the rotation for the whole arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em rotation} & rotation angle \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_af5935ec21569fe577f1e66fd2258005d}\label{lv__arc_8h_af5935ec21569fe577f1e66fd2258005d} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_start\_angle@{lv\_arc\_set\_start\_angle}}
+\index{lv\_arc\_set\_start\_angle@{lv\_arc\_set\_start\_angle}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_start\_angle()}{lv\_arc\_set\_start\_angle()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+start\+\_\+angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{start }\end{DoxyParamCaption})}
+
+Set the start angle of an arc. 0 deg\+: right, 90 bottom, etc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em start} & the start angle. (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arc_8h_a56cded6a22e59691f2070386c2b0b690}\label{lv__arc_8h_a56cded6a22e59691f2070386c2b0b690} 
+\index{lv\_arc.h@{lv\_arc.h}!lv\_arc\_set\_value@{lv\_arc\_set\_value}}
+\index{lv\_arc\_set\_value@{lv\_arc\_set\_value}!lv\_arc.h@{lv\_arc.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arc\_set\_value()}{lv\_arc\_set\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+arc\+\_\+set\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Set a new value on the arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc object \\
+\hline
+{\em value} & new value \\
+\hline
+\end{DoxyParams}

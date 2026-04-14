@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/misc/lv_anim_timeline.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_3fae1cc67f391465909e41a1075a2efb.html">misc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_anim_timeline.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__anim__private_8h_source.html">lv_anim_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__assert_8h_source.html">lv_assert.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__anim__timeline__private_8h_source.html">lv_anim_timeline_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__mem_8h_source.html">../stdlib/lv_mem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h_source.html">../stdlib/lv_string.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_anim_timeline.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_anim_timeline.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__anim__timeline_8c__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2misc_2lv__anim__timeline_8c" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2misc_2lv__anim__timeline_8c" id="amanaged__components_2lvgl____lvgl_2src_2misc_2lv__anim__timeline_8c">
+<area shape="rect" title=" " alt="" coords="637,5,807,60"/>
+<area shape="rect" href="lv__anim__private_8h.html" title=" " alt="" coords="546,181,685,207"/>
+<area shape="poly" title=" " alt="" coords="707,62,633,171,629,168,702,59"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="869,255,962,280"/>
+<area shape="poly" title=" " alt="" coords="760,58,813,106,867,178,905,241,900,244,863,181,809,110,757,62"/>
+<area shape="rect" href="lv__mem_8h.html" title=" " alt="" coords="759,328,898,353"/>
+<area shape="poly" title=" " alt="" coords="734,59,823,314,818,315,729,61"/>
+<area shape="rect" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h.html" title=" " alt="" coords="733,401,823,427"/>
+<area shape="poly" title=" " alt="" coords="725,60,725,193,725,269,729,302,739,335,765,389,761,391,734,337,723,303,719,269,719,193,719,60"/>
+<area shape="rect" href="lv__anim__timeline__private_8h.html" title=" " alt="" coords="370,108,570,133"/>
+<area shape="poly" title=" " alt="" coords="646,63,518,106,516,101,644,58"/>
+<area shape="rect" href="lv__anim_8h.html" title=" " alt="" coords="405,255,492,280"/>
+<area shape="poly" title=" " alt="" coords="590,209,489,252,487,247,588,204"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="476,548,627,573"/>
+<area shape="poly" title=" " alt="" coords="406,277,327,293,284,306,244,322,210,342,186,366,179,379,175,393,176,409,182,426,198,453,215,470,267,498,315,517,366,532,463,550,462,555,365,537,314,522,265,502,212,474,193,456,177,428,171,410,170,393,174,377,181,362,206,338,242,317,283,301,326,288,405,272"/>
+<area shape="rect" href="lv__ext__data_8h.html" title=" " alt="" coords="5,475,116,500"/>
+<area shape="poly" title=" " alt="" coords="406,275,258,293,185,309,157,319,137,330,109,360,89,395,76,431,68,462,62,461,71,430,84,393,105,356,134,326,155,314,184,304,257,288,405,269"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="507,475,596,500"/>
+<area shape="poly" title=" " alt="" coords="464,278,485,299,506,327,522,362,535,398,550,461,545,462,530,400,517,364,501,329,481,303,460,282"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html" title=" " alt="" coords="192,401,279,427"/>
+<area shape="poly" title=" " alt="" coords="433,282,266,395,263,391,430,278"/>
+<area shape="rect" href="lv__timer_8h.html" title=" " alt="" coords="405,328,492,353"/>
+<area shape="poly" title=" " alt="" coords="451,280,451,314,446,314,446,280"/>
+<area shape="rect" href="lv__ll_8h.html" title=" " alt="" coords="597,401,658,427"/>
+<area shape="poly" title=" " alt="" coords="490,278,536,297,580,326,604,356,620,387,616,390,600,359,576,330,533,301,488,283"/>
+<area shape="rect" href="lv__conf__kconfig_8h.html" title=" " alt="" coords="412,621,547,647"/>
+<area shape="poly" title=" " alt="" coords="541,576,503,614,499,610,538,572"/>
+<area shape="rect" title=" " alt="" coords="571,621,675,647"/>
+<area shape="poly" title=" " alt="" coords="565,572,604,610,600,614,561,576"/>
+<area shape="poly" title=" " alt="" coords="117,495,136,497,463,544,462,549,135,503,116,500"/>
+<area shape="poly" title=" " alt="" coords="554,500,554,534,549,534,549,500"/>
+<area shape="poly" title=" " alt="" coords="243,425,264,462,280,481,300,498,338,518,380,534,463,551,462,556,378,539,336,523,296,502,276,485,260,465,238,428"/>
+<area shape="poly" title=" " alt="" coords="280,423,494,470,493,476,279,428"/>
+<area shape="poly" title=" " alt="" coords="412,356,383,368,357,384,342,404,341,414,344,425,376,466,416,498,460,523,501,541,499,546,458,528,413,503,372,470,340,428,335,414,337,402,353,380,380,363,410,351"/>
+<area shape="poly" title=" " alt="" coords="459,352,537,462,533,465,455,355"/>
+<area shape="rect" href="lv__tick_8h.html" title=" " alt="" coords="354,401,471,427"/>
+<area shape="poly" title=" " alt="" coords="445,355,427,390,422,388,440,352"/>
+<area shape="poly" title=" " alt="" coords="478,351,587,394,585,399,476,356"/>
+<area shape="poly" title=" " alt="" coords="426,425,496,498,533,536,529,540,492,502,422,429"/>
+<area shape="poly" title=" " alt="" coords="436,424,518,466,515,471,434,429"/>
+<area shape="poly" title=" " alt="" coords="629,427,624,462,610,501,595,523,578,541,574,537,591,519,605,499,619,460,624,427"/>
+<area shape="poly" title=" " alt="" coords="617,429,576,467,572,463,613,425"/>
+<area shape="poly" title=" " alt="" coords="926,279,958,330,975,364,987,401,990,420,988,436,982,451,973,463,946,484,911,502,844,530,772,547,703,557,641,562,640,557,702,552,771,542,842,524,909,498,943,479,969,459,977,448,983,435,985,420,982,402,970,366,953,332,922,282"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__log_8h.html" title=" " alt="" coords="899,401,972,427"/>
+<area shape="poly" title=" " alt="" coords="920,280,934,387,929,388,914,281"/>
+<area shape="poly" title=" " alt="" coords="903,282,855,321,852,317,900,278"/>
+<area shape="poly" title=" " alt="" coords="934,428,915,465,900,485,881,502,838,520,777,534,641,554,640,548,776,529,837,515,878,498,896,482,911,462,929,426"/>
+<area shape="poly" title=" " alt="" coords="899,425,610,478,609,473,898,419"/>
+<area shape="poly" title=" " alt="" coords="836,353,845,388,845,409,838,428,819,452,797,474,747,508,691,532,638,547,637,542,689,527,744,503,794,470,815,449,833,425,839,408,840,388,831,354"/>
+<area shape="poly" title=" " alt="" coords="809,356,671,429,588,471,586,466,669,424,806,351"/>
+<area shape="poly" title=" " alt="" coords="822,355,796,392,792,389,818,352"/>
+<area shape="poly" title=" " alt="" coords="761,429,583,543,580,538,758,425"/>
+<area shape="poly" title=" " alt="" coords="742,429,602,473,600,468,741,424"/>
+<area shape="rect" href="lv__anim__timeline_8h.html" title=" " alt="" coords="375,181,522,207"/>
+<area shape="poly" title=" " alt="" coords="469,134,459,169,453,167,464,133"/>
+<area shape="poly" title=" " alt="" coords="451,207,451,241,446,241,446,207"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:afe22742e57b02478ee9ede8bf55b910d" id="r_afe22742e57b02478ee9ede8bf55b910d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#afe22742e57b02478ee9ede8bf55b910d">lv_anim_timeline_create</a> (void)</td></tr>
+<tr class="separator:afe22742e57b02478ee9ede8bf55b910d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e5b8715d6aa502203aea629af31c130" id="r_a3e5b8715d6aa502203aea629af31c130"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a3e5b8715d6aa502203aea629af31c130">lv_anim_timeline_delete</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:a3e5b8715d6aa502203aea629af31c130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a045fd50fdf6e545ba71df95c3f8fa80c" id="r_a045fd50fdf6e545ba71df95c3f8fa80c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a045fd50fdf6e545ba71df95c3f8fa80c">lv_anim_timeline_add</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at, uint32_t start_time, const <a class="el" href="struct__lv__anim__t.html">lv_anim_t</a> *a)</td></tr>
+<tr class="separator:a045fd50fdf6e545ba71df95c3f8fa80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a631773d63194f6443cb4fa2b80a6f055" id="r_a631773d63194f6443cb4fa2b80a6f055"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a631773d63194f6443cb4fa2b80a6f055">lv_anim_timeline_start</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:a631773d63194f6443cb4fa2b80a6f055"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8132aef401ea21c6ec3ec31561bbdc4" id="r_aa8132aef401ea21c6ec3ec31561bbdc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#aa8132aef401ea21c6ec3ec31561bbdc4">lv_anim_timeline_pause</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:aa8132aef401ea21c6ec3ec31561bbdc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8a2f74c2b88b4cd70a9b20d8f27190e" id="r_ad8a2f74c2b88b4cd70a9b20d8f27190e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#ad8a2f74c2b88b4cd70a9b20d8f27190e">lv_anim_timeline_set_reverse</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at, bool reverse)</td></tr>
+<tr class="separator:ad8a2f74c2b88b4cd70a9b20d8f27190e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae94c90fcb02c4e3fb1446d7f27c91530" id="r_ae94c90fcb02c4e3fb1446d7f27c91530"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#ae94c90fcb02c4e3fb1446d7f27c91530">lv_anim_timeline_set_delay</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at, uint32_t delay)</td></tr>
+<tr class="separator:ae94c90fcb02c4e3fb1446d7f27c91530"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a005c3788328cf30e25d523c2082de18d" id="r_a005c3788328cf30e25d523c2082de18d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a005c3788328cf30e25d523c2082de18d">lv_anim_timeline_set_repeat_count</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at, uint32_t cnt)</td></tr>
+<tr class="separator:a005c3788328cf30e25d523c2082de18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4fd52767514d6f5c0a391d7baaadf5" id="r_aeb4fd52767514d6f5c0a391d7baaadf5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#aeb4fd52767514d6f5c0a391d7baaadf5">lv_anim_timeline_set_repeat_delay</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at, uint32_t delay)</td></tr>
+<tr class="separator:aeb4fd52767514d6f5c0a391d7baaadf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a220b311c65a98b559ec4ba5d2b597650" id="r_a220b311c65a98b559ec4ba5d2b597650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a220b311c65a98b559ec4ba5d2b597650">lv_anim_timeline_set_progress</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at, uint16_t progress)</td></tr>
+<tr class="separator:a220b311c65a98b559ec4ba5d2b597650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb085bdebb2d81dc5da45662a7087202" id="r_acb085bdebb2d81dc5da45662a7087202"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#acb085bdebb2d81dc5da45662a7087202">lv_anim_timeline_set_user_data</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at, void *user_data)</td></tr>
+<tr class="separator:acb085bdebb2d81dc5da45662a7087202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefa7a248ae35b30bcbe6773fbe5c508d" id="r_aefa7a248ae35b30bcbe6773fbe5c508d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#aefa7a248ae35b30bcbe6773fbe5c508d">lv_anim_timeline_get_playtime</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:aefa7a248ae35b30bcbe6773fbe5c508d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabc8223c96f7f777898dfbf1463f6fdd" id="r_aabc8223c96f7f777898dfbf1463f6fdd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#aabc8223c96f7f777898dfbf1463f6fdd">lv_anim_timeline_get_reverse</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:aabc8223c96f7f777898dfbf1463f6fdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5077a3314ecec011376a571bd8f10426" id="r_a5077a3314ecec011376a571bd8f10426"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a5077a3314ecec011376a571bd8f10426">lv_anim_timeline_get_delay</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:a5077a3314ecec011376a571bd8f10426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b212252595f6e705d61a381732d2462" id="r_a7b212252595f6e705d61a381732d2462"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a7b212252595f6e705d61a381732d2462">lv_anim_timeline_get_progress</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:a7b212252595f6e705d61a381732d2462"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9dd15bca34223a019b350eec4d900766" id="r_a9dd15bca34223a019b350eec4d900766"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a9dd15bca34223a019b350eec4d900766">lv_anim_timeline_get_repeat_count</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:a9dd15bca34223a019b350eec4d900766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7eb48bf2d08374e62bff16506d3b471d" id="r_a7eb48bf2d08374e62bff16506d3b471d"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a7eb48bf2d08374e62bff16506d3b471d">lv_anim_timeline_get_repeat_delay</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:a7eb48bf2d08374e62bff16506d3b471d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a970fbb05f65b65bafe83177f3f161382" id="r_a970fbb05f65b65bafe83177f3f161382"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#a970fbb05f65b65bafe83177f3f161382">lv_anim_timeline_get_user_data</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *at)</td></tr>
+<tr class="separator:a970fbb05f65b65bafe83177f3f161382"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62e035d0e29b25be563856ce5cbd5d1" id="r_ac62e035d0e29b25be563856ce5cbd5d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__anim__timeline_8c.html#ac62e035d0e29b25be563856ce5cbd5d1">lv_anim_timeline_merge</a> (<a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *dest, const <a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *src, int32_t delay)</td></tr>
+<tr class="separator:ac62e035d0e29b25be563856ce5cbd5d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="a045fd50fdf6e545ba71df95c3f8fa80c" name="a045fd50fdf6e545ba71df95c3f8fa80c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a045fd50fdf6e545ba71df95c3f8fa80c">&#9670;&#160;</a></span>lv_anim_timeline_add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>start_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__anim__t.html">lv_anim_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add animation to the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+    <tr><td class="paramname">start_time</td><td>the time the animation started on the timeline, note that start_time will override the value of delay. </td></tr>
+    <tr><td class="paramname">a</td><td>pointer to an animation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afe22742e57b02478ee9ede8bf55b910d" name="afe22742e57b02478ee9ede8bf55b910d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe22742e57b02478ee9ede8bf55b910d">&#9670;&#160;</a></span>lv_anim_timeline_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> * lv_anim_timeline_create </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create an animation timeline. </p><dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the animation timeline. </dd></dl>
+
+</div>
+</div>
+<a id="a3e5b8715d6aa502203aea629af31c130" name="a3e5b8715d6aa502203aea629af31c130"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5b8715d6aa502203aea629af31c130">&#9670;&#160;</a></span>lv_anim_timeline_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Delete animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5077a3314ecec011376a571bd8f10426" name="a5077a3314ecec011376a571bd8f10426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5077a3314ecec011376a571bd8f10426">&#9670;&#160;</a></span>lv_anim_timeline_get_delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_anim_timeline_get_delay </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the wait time when playing from the very start, or reverse from the very end. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to an animation timeline </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the remaining time in milliseconds </dd></dl>
+
+</div>
+</div>
+<a id="aefa7a248ae35b30bcbe6773fbe5c508d" name="aefa7a248ae35b30bcbe6773fbe5c508d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefa7a248ae35b30bcbe6773fbe5c508d">&#9670;&#160;</a></span>lv_anim_timeline_get_playtime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_anim_timeline_get_playtime </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the time used to play the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>total time spent in animation timeline. </dd></dl>
+
+</div>
+</div>
+<a id="a7b212252595f6e705d61a381732d2462" name="a7b212252595f6e705d61a381732d2462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b212252595f6e705d61a381732d2462">&#9670;&#160;</a></span>lv_anim_timeline_get_progress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t lv_anim_timeline_get_progress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the progress of the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>return value 0~65535 to map 0~100% animation progress. </dd></dl>
+
+</div>
+</div>
+<a id="a9dd15bca34223a019b350eec4d900766" name="a9dd15bca34223a019b350eec4d900766"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dd15bca34223a019b350eec4d900766">&#9670;&#160;</a></span>lv_anim_timeline_get_repeat_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_anim_timeline_get_repeat_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get repeat count of the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7eb48bf2d08374e62bff16506d3b471d" name="a7eb48bf2d08374e62bff16506d3b471d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7eb48bf2d08374e62bff16506d3b471d">&#9670;&#160;</a></span>lv_anim_timeline_get_repeat_delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_anim_timeline_get_repeat_delay </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get repeat delay of the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aabc8223c96f7f777898dfbf1463f6fdd" name="aabc8223c96f7f777898dfbf1463f6fdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabc8223c96f7f777898dfbf1463f6fdd">&#9670;&#160;</a></span>lv_anim_timeline_get_reverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lv_anim_timeline_get_reverse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get whether the animation timeline is played in reverse. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>return true if it is reverse playback. </dd></dl>
+
+</div>
+</div>
+<a id="a970fbb05f65b65bafe83177f3f161382" name="a970fbb05f65b65bafe83177f3f161382"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a970fbb05f65b65bafe83177f3f161382">&#9670;&#160;</a></span>lv_anim_timeline_get_user_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * lv_anim_timeline_get_user_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the user_data of a an animation timeline </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac62e035d0e29b25be563856ce5cbd5d1" name="ac62e035d0e29b25be563856ce5cbd5d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac62e035d0e29b25be563856ce5cbd5d1">&#9670;&#160;</a></span>lv_anim_timeline_merge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_merge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>delay</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Merge (add) all animations of a timeline to another </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>merge animation into this timeline </td></tr>
+    <tr><td class="paramname">src</td><td>merge the animations of this timeline </td></tr>
+    <tr><td class="paramname">delay</td><td>add the animations with this extra delay </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa8132aef401ea21c6ec3ec31561bbdc4" name="aa8132aef401ea21c6ec3ec31561bbdc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8132aef401ea21c6ec3ec31561bbdc4">&#9670;&#160;</a></span>lv_anim_timeline_pause()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_pause </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Pause the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae94c90fcb02c4e3fb1446d7f27c91530" name="ae94c90fcb02c4e3fb1446d7f27c91530"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae94c90fcb02c4e3fb1446d7f27c91530">&#9670;&#160;</a></span>lv_anim_timeline_set_delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_set_delay </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>delay</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the time to wait before starting the animation. Applies only when playing from the very start, or reverse from the very end. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to an animation timeline </td></tr>
+    <tr><td class="paramname">delay</td><td>the delay time in milliseconds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a220b311c65a98b559ec4ba5d2b597650" name="a220b311c65a98b559ec4ba5d2b597650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a220b311c65a98b559ec4ba5d2b597650">&#9670;&#160;</a></span>lv_anim_timeline_set_progress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_set_progress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>progress</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the progress of the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+    <tr><td class="paramname">progress</td><td>set value 0~65535 to map 0~100% animation progress. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a005c3788328cf30e25d523c2082de18d" name="a005c3788328cf30e25d523c2082de18d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a005c3788328cf30e25d523c2082de18d">&#9670;&#160;</a></span>lv_anim_timeline_set_repeat_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_set_repeat_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Make the animation timeline repeat itself. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+    <tr><td class="paramname">cnt</td><td>repeat count or <code>LV_ANIM_REPEAT_INFINITE</code> for infinite repetition. 0: to disable repetition. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeb4fd52767514d6f5c0a391d7baaadf5" name="aeb4fd52767514d6f5c0a391d7baaadf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4fd52767514d6f5c0a391d7baaadf5">&#9670;&#160;</a></span>lv_anim_timeline_set_repeat_delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_set_repeat_delay </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>delay</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set a delay before repeating the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+    <tr><td class="paramname">delay</td><td>delay in milliseconds before repeating the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad8a2f74c2b88b4cd70a9b20d8f27190e" name="ad8a2f74c2b88b4cd70a9b20d8f27190e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8a2f74c2b88b4cd70a9b20d8f27190e">&#9670;&#160;</a></span>lv_anim_timeline_set_reverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_set_reverse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>reverse</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the playback direction of the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+    <tr><td class="paramname">reverse</td><td>whether to play in reverse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acb085bdebb2d81dc5da45662a7087202" name="acb085bdebb2d81dc5da45662a7087202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb085bdebb2d81dc5da45662a7087202">&#9670;&#160;</a></span>lv_anim_timeline_set_user_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_anim_timeline_set_user_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the user_data of a an animation timeline </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+    <tr><td class="paramname">user_data</td><td>pointer to any data. Only the pointer will be saved. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a631773d63194f6443cb4fa2b80a6f055" name="a631773d63194f6443cb4fa2b80a6f055"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a631773d63194f6443cb4fa2b80a6f055">&#9670;&#160;</a></span>lv_anim_timeline_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_anim_timeline_start </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__anim__timeline__t.html">lv_anim_timeline_t</a> *&#160;</td>
+          <td class="paramname"><em>at</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Start the animation timeline. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">at</td><td>pointer to the animation timeline. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>total time spent in animation timeline. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

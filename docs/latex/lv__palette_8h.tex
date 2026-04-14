@@ -1,0 +1,63 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+palette.h}
+\hypertarget{lv__palette_8h}{}\label{lv__palette_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_palette.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_palette.h}}
+{\ttfamily \#include "{}lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+palette.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+palette.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__palette_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__palette_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__palette_8h_ab9eb65d3f0938343eac9418471bd0d9c}\label{lv__palette_8h_ab9eb65d3f0938343eac9418471bd0d9c} 
+enum {\bfseries lv\+\_\+palette\+\_\+t} \{ \newline
+{\bfseries LV\+\_\+\+PALETTE\+\_\+\+RED}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+PINK}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+PURPLE}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+DEEP\+\_\+\+PURPLE}
+, \newline
+{\bfseries LV\+\_\+\+PALETTE\+\_\+\+INDIGO}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+BLUE}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+LIGHT\+\_\+\+BLUE}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+CYAN}
+, \newline
+{\bfseries LV\+\_\+\+PALETTE\+\_\+\+TEAL}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+GREEN}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+LIGHT\+\_\+\+GREEN}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+LIME}
+, \newline
+{\bfseries LV\+\_\+\+PALETTE\+\_\+\+YELLOW}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+AMBER}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+ORANGE}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+DEEP\+\_\+\+ORANGE}
+, \newline
+{\bfseries LV\+\_\+\+PALETTE\+\_\+\+BROWN}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+BLUE\+\_\+\+GREY}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+GREY}
+, {\bfseries LV\+\_\+\+PALETTE\+\_\+\+LAST}
+, \newline
+{\bfseries LV\+\_\+\+PALETTE\+\_\+\+NONE} = 0xff
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__palette_8h_a02d11c7e2f70e8b777901d9e403c6b34}\label{lv__palette_8h_a02d11c7e2f70e8b777901d9e403c6b34} 
+\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} {\bfseries lv\+\_\+palette\+\_\+main} (lv\+\_\+palette\+\_\+t p)
+\item 
+\Hypertarget{lv__palette_8h_acf087458512c83eba0b5feacc3e26396}\label{lv__palette_8h_acf087458512c83eba0b5feacc3e26396} 
+\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} {\bfseries lv\+\_\+palette\+\_\+lighten} (lv\+\_\+palette\+\_\+t p, uint8\+\_\+t lvl)
+\item 
+\Hypertarget{lv__palette_8h_a024d5d5539910f590b43b23f5908c695}\label{lv__palette_8h_a024d5d5539910f590b43b23f5908c695} 
+\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} {\bfseries lv\+\_\+palette\+\_\+darken} (lv\+\_\+palette\+\_\+t p, uint8\+\_\+t lvl)
+\end{DoxyCompactItemize}

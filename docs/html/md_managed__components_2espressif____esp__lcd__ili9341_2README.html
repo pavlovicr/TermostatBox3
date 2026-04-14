@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: ESP LCD ILI9341</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">ESP LCD ILI9341</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md281"></a> <a href="https://components.espressif.com/components/espressif/esp_lcd_ili9341"><img src="https://components.espressif.com/components/espressif/esp_lcd_ili9341/badge.svg" alt="Component Registry" style="pointer-events: none;" class="inline"/></a></p>
+<p>Implementation of the ILI9341 LCD controller with esp_lcd component.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">LCD controller   </th><th class="markdownTableHeadCenter">Communication interface   </th><th class="markdownTableHeadCenter">Component name   </th><th class="markdownTableHeadCenter">Link to datasheet    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">ILI9341   </td><td class="markdownTableBodyCenter">SPI   </td><td class="markdownTableBodyCenter">esp_lcd_ili9341   </td><td class="markdownTableBodyCenter"><a href="https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf">Specification</a>   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md282"></a>
+Add to project</h1>
+<p>Packages from this repository are uploaded to <a href="https://components.espressif.com/">Espressif's component service</a>. You can add them to your project via <code>idf.py add-dependency</code>, e.g.</p>
+<div class="fragment"><div class="line">idf.py add-dependency &quot;espressif/esp_lcd_ili9341^2.0.0&quot;</div>
+</div><!-- fragment --><p>Alternatively, you can create <code>idf_component.yml</code>. More is in <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/tools/idf-component-manager.html">Espressif's documentation</a>.</p>
+<h1><a class="anchor" id="autotoc_md283"></a>
+Example use</h1>
+<div class="fragment"><div class="line">    ESP_LOGI(TAG, <span class="stringliteral">&quot;Initialize SPI bus&quot;</span>);</div>
+<div class="line">    <span class="keyword">const</span> spi_bus_config_t bus_config = <a class="code hl_define" href="esp__lcd__ili9341_8h.html#a2d59d1fcccefb9635fd1c3909ab4a403">ILI9341_PANEL_BUS_SPI_CONFIG</a>(EXAMPLE_PIN_NUM_LCD_PCLK, EXAMPLE_PIN_NUM_LCD_MOSI,</div>
+<div class="line">                                                                     EXAMPLE_LCD_H_RES * 80 * <span class="keyword">sizeof</span>(uint16_t));</div>
+<div class="line">    ESP_ERROR_CHECK(spi_bus_initialize(EXAMPLE_LCD_HOST, &amp;bus_config, SPI_DMA_CH_AUTO));</div>
+<div class="line"> </div>
+<div class="line">    ESP_LOGI(TAG, <span class="stringliteral">&quot;Install panel IO&quot;</span>);</div>
+<div class="line">    esp_lcd_panel_io_handle_t io_handle = NULL;</div>
+<div class="line">    <span class="keyword">const</span> esp_lcd_panel_io_spi_config_t io_config = <a class="code hl_define" href="esp__lcd__ili9341_8h.html#a5057231436891c995830c7d8de38568d">ILI9341_PANEL_IO_SPI_CONFIG</a>(EXAMPLE_PIN_NUM_LCD_CS, EXAMPLE_PIN_NUM_LCD_DC,</div>
+<div class="line">                                                                                example_callback, &amp;example_callback_ctx);</div>
+<div class="line">    ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi((esp_lcd_spi_bus_handle_t)EXAMPLE_LCD_HOST, &amp;io_config, &amp;io_handle));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// static const ili9341_lcd_init_cmd_t lcd_init_cmds[] = {</span></div>
+<div class="line"><span class="comment">// // {cmd, { data }, data_size, delay_ms}</span></div>
+<div class="line"><span class="comment">//    {0xCF, (uint8_t []){0x00, 0xAA, 0XE0}, 3, 0},</span></div>
+<div class="line"><span class="comment">//    {0xED, (uint8_t []){0x67, 0x03, 0X12, 0X81}, 4, 0},</span></div>
+<div class="line"><span class="comment">//    {0xE8, (uint8_t []){0x8A, 0x01, 0x78}, 3, 0},</span></div>
+<div class="line"><span class="comment">//     ...</span></div>
+<div class="line"><span class="comment">// };</span></div>
+<div class="line"> </div>
+<div class="line">    ESP_LOGI(TAG, <span class="stringliteral">&quot;Install ILI9341 panel driver&quot;</span>);</div>
+<div class="line">    esp_lcd_panel_handle_t panel_handle = NULL;</div>
+<div class="line">    <span class="comment">// ili9341_vendor_config_t vendor_config = {  // Uncomment these lines if use custom initialization commands</span></div>
+<div class="line">    <span class="comment">//     .init_cmds = lcd_init_cmds,</span></div>
+<div class="line">    <span class="comment">//     .init_cmds_size = sizeof(lcd_init_cmds) / sizeof(ili9341_lcd_init_cmd_t),</span></div>
+<div class="line">    <span class="comment">// };</span></div>
+<div class="line">    <span class="keyword">const</span> esp_lcd_panel_dev_config_t panel_config = {</div>
+<div class="line">        .reset_gpio_num = EXAMPLE_PIN_NUM_LCD_RST,   <span class="comment">// Set to -1 if not use</span></div>
+<div class="line">        .rgb_ele_order = LCD_RGB_ELEMENT_ORDER_RGB,  <span class="comment">// RGB element order: R-G-B</span></div>
+<div class="line">        .bits_per_pixel = 16,                        <span class="comment">// Implemented by LCD command `3Ah` (16/18)</span></div>
+<div class="line">        <span class="comment">// .vendor_config = &amp;vendor_config,          // Uncomment this line if use custom initialization commands</span></div>
+<div class="line">    };</div>
+<div class="line">    ESP_ERROR_CHECK(esp_lcd_new_panel_ili9341(io_handle, &amp;panel_config, &amp;panel_handle));</div>
+<div class="line">    ESP_ERROR_CHECK(esp_lcd_panel_reset(panel_handle));</div>
+<div class="line">    ESP_ERROR_CHECK(esp_lcd_panel_init(panel_handle));</div>
+<div class="line">    ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle, <span class="keyword">true</span>));</div>
+<div class="ttc" id="aesp__lcd__ili9341_8h_html_a2d59d1fcccefb9635fd1c3909ab4a403"><div class="ttname"><a href="esp__lcd__ili9341_8h.html#a2d59d1fcccefb9635fd1c3909ab4a403">ILI9341_PANEL_BUS_SPI_CONFIG</a></div><div class="ttdeci">#define ILI9341_PANEL_BUS_SPI_CONFIG(sclk, mosi, max_trans_sz)</div><div class="ttdoc">LCD panel bus configuration structure.</div><div class="ttdef"><b>Definition</b> esp_lcd_ili9341.h:67</div></div>
+<div class="ttc" id="aesp__lcd__ili9341_8h_html_a5057231436891c995830c7d8de38568d"><div class="ttname"><a href="esp__lcd__ili9341_8h.html#a5057231436891c995830c7d8de38568d">ILI9341_PANEL_IO_SPI_CONFIG</a></div><div class="ttdeci">#define ILI9341_PANEL_IO_SPI_CONFIG(cs, dc, callback, callback_ctx)</div><div class="ttdoc">LCD panel IO configuration structure.</div><div class="ttdef"><b>Definition</b> esp_lcd_ili9341.h:86</div></div>
+</div><!-- fragment --><p>There is an example in ESP-IDF with this LCD controller. Please follow this <a href="https://github.com/espressif/esp-idf/tree/master/examples/peripherals/lcd/spi_lcd_touch">link</a>.</p>
+<h1><a class="anchor" id="autotoc_md284"></a>
+Predefined init vendor commands</h1>
+<p>This driver contains various predefined vendor initialization commands which in some cases can improve image quality. Usage is in example below.</p>
+<p>Include selected commands: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="esp__lcd__ili9341__init__cmds__1_8h.html">esp_lcd_ili9341_init_cmds_1.h</a>&quot;</span></div>
+<div class="ttc" id="aesp__lcd__ili9341__init__cmds__1_8h_html"><div class="ttname"><a href="esp__lcd__ili9341__init__cmds__1_8h.html">esp_lcd_ili9341_init_cmds_1.h</a></div><div class="ttdoc">ESP LCD: ILI9341 Init Commands 1.</div></div>
+</div><!-- fragment --><p>Use vendor config structure: </p><div class="fragment"><div class="line">...</div>
+<div class="line"> </div>
+<div class="line">ili9341_vendor_config_t vendor_config = {</div>
+<div class="line">    .init_cmds = ili9341_lcd_init_vendor,</div>
+<div class="line">    .init_cmds_size = <span class="keyword">sizeof</span>(ili9341_lcd_init_vendor) / <span class="keyword">sizeof</span>(<a class="code hl_struct" href="structili9341__lcd__init__cmd__t.html">ili9341_lcd_init_cmd_t</a>),</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">const</span> esp_lcd_panel_dev_config_t panel_config = {</div>
+<div class="line">    ...</div>
+<div class="line">    .vendor_config = &amp;vendor_config,</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="ttc" id="astructili9341__lcd__init__cmd__t_html"><div class="ttname"><a href="structili9341__lcd__init__cmd__t.html">ili9341_lcd_init_cmd_t</a></div><div class="ttdoc">LCD panel initialization commands.</div><div class="ttdef"><b>Definition</b> esp_lcd_ili9341.h:23</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

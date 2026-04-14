@@ -1,0 +1,79 @@
+\doxysection{Datoteka components/display\+\_\+manager/display\+\_\+manager.c}
+\hypertarget{display__manager_8c}{}\label{display__manager_8c}\index{components/display\_manager/display\_manager.c@{components/display\_manager/display\_manager.c}}
+
+
+Display Manager implementacija.  
+
+
+{\ttfamily \#include "{}display\+\_\+manager.\+h"{}}\newline
+{\ttfamily \#include "{}bsp/esp-\/bsp.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+log.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}display\+\_\+manager.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko display\+\_\+manager.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{display__manager_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{display__manager_8c_a17edc5290aef7e8d9d5162cee4c06ceb}{display\+\_\+manager\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Inicializira display manager. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{display__manager_8c_acf4ce5fd5f257e046ff6f8626f34e2ea}{display\+\_\+manager\+\_\+get\+\_\+screen}} (void)
+\begin{DoxyCompactList}\small\item\em Dobi aktivni LVGL screen. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{display__manager_8c_adf3942e3c2f3b173fe3df4e5ea3bbfdd}{display\+\_\+manager\+\_\+set\+\_\+brightness}} (uint8\+\_\+t brightness)
+\begin{DoxyCompactList}\small\item\em Nastavi svetlost backlight-\/a. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Display Manager implementacija. 
+
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{display__manager_8c_acf4ce5fd5f257e046ff6f8626f34e2ea}\label{display__manager_8c_acf4ce5fd5f257e046ff6f8626f34e2ea} 
+\index{display\_manager.c@{display\_manager.c}!display\_manager\_get\_screen@{display\_manager\_get\_screen}}
+\index{display\_manager\_get\_screen@{display\_manager\_get\_screen}!display\_manager.c@{display\_manager.c}}
+\doxysubsubsection{\texorpdfstring{display\_manager\_get\_screen()}{display\_manager\_get\_screen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} display\+\_\+manager\+\_\+get\+\_\+screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Dobi aktivni LVGL screen. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+Pointer na aktivni screen 
+\end{DoxyReturn}
+\Hypertarget{display__manager_8c_a17edc5290aef7e8d9d5162cee4c06ceb}\label{display__manager_8c_a17edc5290aef7e8d9d5162cee4c06ceb} 
+\index{display\_manager.c@{display\_manager.c}!display\_manager\_init@{display\_manager\_init}}
+\index{display\_manager\_init@{display\_manager\_init}!display\_manager.c@{display\_manager.c}}
+\doxysubsubsection{\texorpdfstring{display\_manager\_init()}{display\_manager\_init()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t display\+\_\+manager\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializira display manager. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}
+\Hypertarget{display__manager_8c_adf3942e3c2f3b173fe3df4e5ea3bbfdd}\label{display__manager_8c_adf3942e3c2f3b173fe3df4e5ea3bbfdd} 
+\index{display\_manager.c@{display\_manager.c}!display\_manager\_set\_brightness@{display\_manager\_set\_brightness}}
+\index{display\_manager\_set\_brightness@{display\_manager\_set\_brightness}!display\_manager.c@{display\_manager.c}}
+\doxysubsubsection{\texorpdfstring{display\_manager\_set\_brightness()}{display\_manager\_set\_brightness()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t display\+\_\+manager\+\_\+set\+\_\+brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{brightness }\end{DoxyParamCaption})}
+
+
+
+Nastavi svetlost backlight-\/a. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em brightness} & Vrednost 0-\/100\% \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}

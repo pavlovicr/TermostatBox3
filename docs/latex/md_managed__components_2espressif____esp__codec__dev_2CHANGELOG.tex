@@ -1,0 +1,159 @@
+\chapter{Changelog}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG}{}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG}\index{Changelog@{Changelog}}
+\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md216}%
+\Hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md216}%
+ \hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md217}{}\doxysection{\texorpdfstring{v1.\+5.\+7}{v1.5.7}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md217}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md218}{}\doxysubsection{\texorpdfstring{Feature}{Feature}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md218}
+
+\begin{DoxyItemize}
+\item Added support for resolving TX I2S handle from RX pair channel when only RX handle is provided in full duplex mode.
+\item Added slot bit width reconfiguration when peer codec on the same I2S port already runs with wider slots.
+\item Added channel gain setting for ES8389
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md219}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md219}
+
+\begin{DoxyItemize}
+\item Fixed 2ch TDM record wrongly for default right alignment comparing with STD mode.
+\item Enhanced compatible check for multiple instance of codec\+\_\+dev use same I2S port.
+\begin{DoxyItemize}
+\item Peer lookup prefers another data\+\_\+if on the same port with only RX or only TX; if none, it matches the same data\+\_\+if that has both RX and TX.
+\end{DoxyItemize}
+\item Fixed incorrect ES8389 microphone gain table
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md220}{}\doxysection{\texorpdfstring{v1.\+5.\+6}{v1.5.6}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md220}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md221}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md221}
+
+\begin{DoxyItemize}
+\item Fixed es8311 pop issue when init again without close
+\item Fixed the esp\+\_\+adc dependency issue
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md222}{}\doxysection{\texorpdfstring{v1.\+5.\+5}{v1.5.5}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md222}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md223}{}\doxysubsection{\texorpdfstring{Feature}{Feature}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md223}
+
+\begin{DoxyItemize}
+\item Added internal ADC microphone data interface support through {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+adc\+\_\+data}.
+\item Added dummy codec support for PA-\/only speaker designs, allowing {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+open/close} to control PA automatically.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md224}{}\doxysection{\texorpdfstring{v1.\+5.\+4}{v1.5.4}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md224}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md225}{}\doxysubsection{\texorpdfstring{Feature}{Feature}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md225}
+
+\begin{DoxyItemize}
+\item Added support for I2S clock source configuration, primarily for low-\/power applications
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md226}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md226}
+
+\begin{DoxyItemize}
+\item Fixed header dependency issue for compatibility with ESP-\/\+IDF v6.\+0
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md227}{}\doxysection{\texorpdfstring{v1.\+5.\+3}{v1.5.3}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md227}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md228}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md228}
+
+\begin{DoxyItemize}
+\item Fixed the ES8389 no-\/sound playback issue.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md229}{}\doxysection{\texorpdfstring{v1.\+5.\+2}{v1.5.2}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md229}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md230}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md230}
+
+\begin{DoxyItemize}
+\item Fixed race condition when duplex I2S used by multiple data interface and run open in parallel.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md231}{}\doxysection{\texorpdfstring{v1.\+5.\+1}{v1.5.1}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md231}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md232}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md232}
+
+\begin{DoxyItemize}
+\item Fixed the register configuration for es8311 when playing 8k\+Hz audio without using MCLK.
+\item Fixed race condition when record or playback disable and enable during another running.
+\item Fixed test\+\_\+app build failed on esp-\/idf v6.\+x.
+\item Added support for duplex I2S TX and RX use multiple codecs (data\+\_\+if use same port with one channel only).
+\item Added {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+dump\+\_\+reg} to dump codec registers.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md233}{}\doxysection{\texorpdfstring{v1.\+5.\+0}{v1.5.0}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md233}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md234}{}\doxysubsection{\texorpdfstring{Refactor}{Refactor}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md234}
+
+\begin{DoxyItemize}
+\item Clean up the component dependency, no longer depend on the {\ttfamily driver} component
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md235}{}\doxysection{\texorpdfstring{v1.\+4.\+0}{v1.4.0}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md235}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md236}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md236}
+
+\begin{DoxyItemize}
+\item Fixed name error in some macro definitions for ES7210.
+\item Fixed link error for {\ttfamily vol\+\_\+range} redefinition.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md237}{}\doxysection{\texorpdfstring{v1.\+3.\+6}{v1.3.6}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md237}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md238}{}\doxysubsection{\texorpdfstring{Feature}{Feature}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md238}
+
+\begin{DoxyItemize}
+\item Added support for CJC8910 codec.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md239}{}\doxysubsection{\texorpdfstring{Bug Fixed}{Bug Fixed}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md239}
+
+\begin{DoxyItemize}
+\item Added missing ES8389 include in {\ttfamily \doxylink{esp__codec__dev__defaults_8h_source}{esp\+\_\+codec\+\_\+dev\+\_\+defaults.\+h}}.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md240}{}\doxysection{\texorpdfstring{v1.\+3.\+5}{v1.3.5}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md240}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md241}{}\doxysubsection{\texorpdfstring{Feature}{Feature}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md241}
+
+\begin{DoxyItemize}
+\item Added support for ES8389 codec，see detail datasheet \href{http://www.everest-semi.com/pdf/ES8389\%20PB.pdf}{\texttt{ ES8389}}
+\item Added read/write register APIs
+\item Disabled {\ttfamily CONFIG\+\_\+\+CODEC\+\_\+\+I2\+C\+\_\+\+BACKWARD\+\_\+\+COMPATIBLE} by default. For ESP-\/\+IDF v5.\+x users who wish to continue using the legacy {\ttfamily i2c\+\_\+driver\+\_\+xx} APIs, please enable this option manually.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md242}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md242}
+
+\begin{DoxyItemize}
+\item Fixed I2S PDM play noise issue
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md243}{}\doxysection{\texorpdfstring{v1.\+3.\+4}{v1.3.4}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md243}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md244}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md244}
+
+\begin{DoxyItemize}
+\item Enhance ES8311 I2C noise immunity
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md245}{}\doxysection{\texorpdfstring{v1.\+3.\+3}{v1.3.3}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md245}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md246}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md246}
+
+\begin{DoxyItemize}
+\item Fix codec without mute API, set mute wrong behavior
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md247}{}\doxysection{\texorpdfstring{v1.\+3.\+2}{v1.3.2}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md247}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md248}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md248}
+
+\begin{DoxyItemize}
+\item Fix {\ttfamily ES8374} volume register set error
+\item Fix {\ttfamily ES8388} microphone volume gain set incorrect
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md249}{}\doxysection{\texorpdfstring{v1.\+3.\+1}{v1.3.1}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md249}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md250}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md250}
+
+\begin{DoxyItemize}
+\item Fix condition {\ttfamily CODEC\+\_\+\+I2\+C\+\_\+\+BACKWARD\+\_\+\+COMPATIBLE} reversed
+\item Fix {\ttfamily CODEC\+\_\+\+I2\+C\+\_\+\+BACKWARD\+\_\+\+COMPATIBLE} set to false build error
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md251}{}\doxysection{\texorpdfstring{v1.\+3.\+0}{v1.3.0}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md251}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md252}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md252}
+
+\begin{DoxyItemize}
+\item Add configuration {\ttfamily CODEC\+\_\+\+I2\+C\+\_\+\+BACKWARD\+\_\+\+COMPATIBLE} in Kconfig to allow use of the old I2C driver. Default is set to {\ttfamily y} for backward compatibility. To use the new I2C driver, set it to {\ttfamily n} instead.
+\item Fix send I2C address low byte firstly
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md253}{}\doxysection{\texorpdfstring{v1.\+2.\+0}{v1.2.0}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md253}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md254}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md254}
+
+\begin{DoxyItemize}
+\item Add IDF v5.\+3 support Using new i2c driver {\ttfamily esp\+\_\+driver\+\_\+i2c}, add {\ttfamily bus\+\_\+handle} configuration for {\ttfamily \doxylink{structaudio__codec__i2c__cfg__t}{audio\+\_\+codec\+\_\+i2c\+\_\+cfg\+\_\+t}}. User need create the {\ttfamily bus\+\_\+handle} using API {\ttfamily i2c\+\_\+new\+\_\+master\+\_\+bus} instead of {\ttfamily i2c\+\_\+driver\+\_\+install}.
+\item Change test code to standalone application, user can directly build it under folder \href{test_apps/codec_dev_test}{\texttt{ codec\+\_\+dev\+\_\+test}}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md255}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md255}
+
+\begin{DoxyItemize}
+\item Fix I2S work in PDM mode record or play mono channel audio wrongly
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md256}{}\doxysection{\texorpdfstring{v1.\+1.\+0}{v1.1.0}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md256}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md257}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md257}
+
+\begin{DoxyItemize}
+\item Add driver for AW88298, see detail datasheet \href{https://datasheetspdf.com/download_new.php?id=1513778}{\texttt{ AW88298}}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md258}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md258}
+
+\begin{DoxyItemize}
+\item Fix ES8311 playback fade in for long time
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md259}{}\doxysection{\texorpdfstring{v1.\+0.\+3}{v1.0.3}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md259}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md260}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md260}
+
+\begin{DoxyItemize}
+\item Fix I2S TX and RX work in share mode, need enable TX before RX
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md261}{}\doxysection{\texorpdfstring{v1.\+0.\+2}{v1.0.2}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md261}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md262}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md262}
+
+\begin{DoxyItemize}
+\item Add I2S TDM support
+\item Add API to {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+in\+\_\+channel\+\_\+gain} to set input channel gain dependently
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md263}{}\doxysection{\texorpdfstring{v1.\+0.\+1}{v1.0.1}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md263}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md264}{}\doxysubsection{\texorpdfstring{Bug Fixes}{Bug Fixes}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md264}
+
+\begin{DoxyItemize}
+\item Fix ES8388 volume register set incorrectly
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md265}{}\doxysection{\texorpdfstring{v1.\+0.\+0}{v1.0.0}}\label{md_managed__components_2espressif____esp__codec__dev_2CHANGELOG_autotoc_md265}
+
+\begin{DoxyItemize}
+\item Initial version of {\ttfamily esp\+\_\+codec\+\_\+dev} 
+\end{DoxyItemize}

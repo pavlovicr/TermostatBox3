@@ -1,0 +1,53 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/stdlib/lv\+\_\+sprintf.h}
+\hypertarget{lv__sprintf_8h}{}\label{lv__sprintf_8h}\index{managed\_components/lvgl\_\_lvgl/src/stdlib/lv\_sprintf.h@{managed\_components/lvgl\_\_lvgl/src/stdlib/lv\_sprintf.h}}
+{\ttfamily \#include "{}../misc/lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+sprintf.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+sprintf.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lv__sprintf_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__sprintf_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__sprintf_8h_acf2121e30de3a3a1b233d61603ecfb29}\label{lv__sprintf_8h_acf2121e30de3a3a1b233d61603ecfb29} 
+\#define {\bfseries LV\+\_\+\+PRId32}~"{}d"{}
+\item 
+\Hypertarget{lv__sprintf_8h_a1d0a8004139d4627a0d3144eddf033ff}\label{lv__sprintf_8h_a1d0a8004139d4627a0d3144eddf033ff} 
+\#define {\bfseries LV\+\_\+\+PRIu32}~"{}u"{}
+\item 
+\Hypertarget{lv__sprintf_8h_a00f9cd10ff32f498cea5742935b1f275}\label{lv__sprintf_8h_a00f9cd10ff32f498cea5742935b1f275} 
+\#define {\bfseries LV\+\_\+\+PRIx32}~"{}x"{}
+\item 
+\Hypertarget{lv__sprintf_8h_a00b6a8615c9d7a1df288428b3a547d3d}\label{lv__sprintf_8h_a00b6a8615c9d7a1df288428b3a547d3d} 
+\#define {\bfseries LV\+\_\+\+PRIX32}~"{}X"{}
+\item 
+\Hypertarget{lv__sprintf_8h_a824a3fc4af20d8cab6c372df0fb201d2}\label{lv__sprintf_8h_a824a3fc4af20d8cab6c372df0fb201d2} 
+\#define {\bfseries LV\+\_\+\+PRId64}~"{}lld"{}
+\item 
+\Hypertarget{lv__sprintf_8h_a6dcab057e315259888c9c7a8dc78c98c}\label{lv__sprintf_8h_a6dcab057e315259888c9c7a8dc78c98c} 
+\#define {\bfseries LV\+\_\+\+PRIu64}~"{}llu"{}
+\item 
+\Hypertarget{lv__sprintf_8h_a4ca510bb28acf551a41bc888815b4c2d}\label{lv__sprintf_8h_a4ca510bb28acf551a41bc888815b4c2d} 
+\#define {\bfseries LV\+\_\+\+PRIx64}~"{}llx"{}
+\item 
+\Hypertarget{lv__sprintf_8h_aa3605ebbbcda87020c9ac85d2fc9ea78}\label{lv__sprintf_8h_aa3605ebbbcda87020c9ac85d2fc9ea78} 
+\#define {\bfseries LV\+\_\+\+PRIX64}~"{}ll\+X"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__sprintf_8h_a5480d8503f8285409692a6116c7df5e7}\label{lv__sprintf_8h_a5480d8503f8285409692a6116c7df5e7} 
+int {\bfseries lv\+\_\+snprintf} (char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t count, const char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em GLOBAL FUNCTIONS FOR LVGL. \end{DoxyCompactList}\item 
+\Hypertarget{lv__sprintf_8h_af55dc6709f1bb7ea99ccfd7bd1f6edf2}\label{lv__sprintf_8h_af55dc6709f1bb7ea99ccfd7bd1f6edf2} 
+int {\bfseries lv\+\_\+vsnprintf} (char \texorpdfstring{$\ast$}{*}buffer, size\+\_\+t count, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\end{DoxyCompactItemize}

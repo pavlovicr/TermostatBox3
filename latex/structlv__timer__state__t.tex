@@ -1,0 +1,67 @@
+\doxysection{ Struktura lv\+\_\+timer\+\_\+state\+\_\+t}
+\hypertarget{structlv__timer__state__t}{}\label{structlv__timer__state__t}\index{lv\_timer\_state\_t@{lv\_timer\_state\_t}}
+
+
+Kolaboracijski diagram razreda lv\+\_\+timer\+\_\+state\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{structlv__timer__state__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \mbox{\hyperlink{structlv__timer__state__t_ae941ce014e3669b5a2538a21ffb9b6a9}{timer\+\_\+ll}}
+\item 
+\Hypertarget{structlv__timer__state__t_a8c2d949bdd57daa2a555cddca92e0a04}\label{structlv__timer__state__t_a8c2d949bdd57daa2a555cddca92e0a04} 
+bool {\bfseries lv\+\_\+timer\+\_\+run}
+\item 
+\Hypertarget{structlv__timer__state__t_a2756cf551711ed609cd7cec721d6f2e8}\label{structlv__timer__state__t_a2756cf551711ed609cd7cec721d6f2e8} 
+uint8\+\_\+t {\bfseries idle\+\_\+last}
+\item 
+\Hypertarget{structlv__timer__state__t_a2471cb60b0d5018eead28b608db287c7}\label{structlv__timer__state__t_a2471cb60b0d5018eead28b608db287c7} 
+bool {\bfseries timer\+\_\+deleted}
+\item 
+\Hypertarget{structlv__timer__state__t_af0decbec081223415493e77bf3cdbaec}\label{structlv__timer__state__t_af0decbec081223415493e77bf3cdbaec} 
+bool {\bfseries timer\+\_\+created}
+\item 
+\Hypertarget{structlv__timer__state__t_a88da0fa7c833b9b5fbef92af0f634577}\label{structlv__timer__state__t_a88da0fa7c833b9b5fbef92af0f634577} 
+volatile uint32\+\_\+t {\bfseries timer\+\_\+time\+\_\+until\+\_\+next}
+\item 
+\Hypertarget{structlv__timer__state__t_a09868d6097b1a7ce336bd519e6e683f4}\label{structlv__timer__state__t_a09868d6097b1a7ce336bd519e6e683f4} 
+bool {\bfseries already\+\_\+running}
+\item 
+\Hypertarget{structlv__timer__state__t_ac6ad5084ca7da682ca4c9472f29ab8ac}\label{structlv__timer__state__t_ac6ad5084ca7da682ca4c9472f29ab8ac} 
+uint32\+\_\+t {\bfseries periodic\+\_\+last\+\_\+tick}
+\item 
+\Hypertarget{structlv__timer__state__t_a2f995bc7d77e0c5158885cac802bcb3b}\label{structlv__timer__state__t_a2f995bc7d77e0c5158885cac802bcb3b} 
+uint32\+\_\+t {\bfseries busy\+\_\+time}
+\item 
+\Hypertarget{structlv__timer__state__t_a0b04ae025fa5ad9396cb4781c5054e7d}\label{structlv__timer__state__t_a0b04ae025fa5ad9396cb4781c5054e7d} 
+uint32\+\_\+t {\bfseries idle\+\_\+period\+\_\+start}
+\item 
+\Hypertarget{structlv__timer__state__t_aa93914205edcaeabd6eba7d20edc4299}\label{structlv__timer__state__t_aa93914205edcaeabd6eba7d20edc4299} 
+uint32\+\_\+t {\bfseries run\+\_\+cnt}
+\item 
+\Hypertarget{structlv__timer__state__t_ae1cfc1ea42ab02e97b9b4a4c1943ec9e}\label{structlv__timer__state__t_ae1cfc1ea42ab02e97b9b4a4c1943ec9e} 
+\mbox{\hyperlink{lv__timer_8h_a0735c7731e190c96870582eda3c2c6ab}{lv\+\_\+timer\+\_\+handler\+\_\+resume\+\_\+cb\+\_\+t}} {\bfseries resume\+\_\+cb}
+\item 
+\Hypertarget{structlv__timer__state__t_a06dbd6499392e459e302405517e393ff}\label{structlv__timer__state__t_a06dbd6499392e459e302405517e393ff} 
+void \texorpdfstring{$\ast$}{*} {\bfseries resume\+\_\+data}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structlv__timer__state__t_ae941ce014e3669b5a2538a21ffb9b6a9}\label{structlv__timer__state__t_ae941ce014e3669b5a2538a21ffb9b6a9} 
+\index{lv\_timer\_state\_t@{lv\_timer\_state\_t}!timer\_ll@{timer\_ll}}
+\index{timer\_ll@{timer\_ll}!lv\_timer\_state\_t@{lv\_timer\_state\_t}}
+\doxysubsubsection{\texorpdfstring{timer\_ll}{timer\_ll}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} lv\+\_\+timer\+\_\+state\+\_\+t\+::timer\+\_\+ll}
+
+Linked list to store the lv\+\_\+timers 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/\mbox{\hyperlink{lv__timer__private_8h}{lv\+\_\+timer\+\_\+private.\+h}}\end{DoxyCompactItemize}

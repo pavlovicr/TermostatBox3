@@ -1,0 +1,82 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+assert.h}
+\hypertarget{lvgl____lvgl_2src_2misc_2lv__assert_8h}{}\label{lvgl____lvgl_2src_2misc_2lv__assert_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_assert.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_assert.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+mem.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+assert.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+assert.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{lvgl____lvgl_2src_2misc_2lv__assert_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__assert_8h_a6f28be74978da222b03c2694241d3d01}{LV\+\_\+\+ASSERT}}(expr)
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__assert_8h_a0ec4363af9fedf7ddeaaa41d31f364bb}{LV\+\_\+\+ASSERT\+\_\+\+MSG}}(expr,  msg)
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__assert_8h_a26f3b081686091321f0fa061433f1f9d}{LV\+\_\+\+ASSERT\+\_\+\+FORMAT\+\_\+\+MSG}}(expr,  format, ...)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__assert_8h_a3fe9ba05eba3d37b7cd1d3765c34487d}\label{lvgl____lvgl_2src_2misc_2lv__assert_8h_a3fe9ba05eba3d37b7cd1d3765c34487d} 
+\#define {\bfseries LV\+\_\+\+ASSERT\+\_\+\+NULL}(p)~LV\+\_\+\+ASSERT\+\_\+\+MSG(p != NULL, "{}NULL pointer"{});
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__assert_8h_a124f08761ffc45565d4511eaf68f777e}\label{lvgl____lvgl_2src_2misc_2lv__assert_8h_a124f08761ffc45565d4511eaf68f777e} 
+\#define {\bfseries LV\+\_\+\+ASSERT\+\_\+\+MALLOC}(p)~LV\+\_\+\+ASSERT\+\_\+\+MSG(p != NULL, "{}Out of memory"{});
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__assert_8h_af38d38ce6d4c4d4f2c59c2887be633ca}\label{lvgl____lvgl_2src_2misc_2lv__assert_8h_af38d38ce6d4c4d4f2c59c2887be633ca} 
+\#define {\bfseries LV\+\_\+\+ASSERT\+\_\+\+MEM\+\_\+\+INTEGRITY}()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__assert_8h_a6f28be74978da222b03c2694241d3d01}\label{lvgl____lvgl_2src_2misc_2lv__assert_8h_a6f28be74978da222b03c2694241d3d01} 
+\index{lv\_assert.h@{lv\_assert.h}!LV\_ASSERT@{LV\_ASSERT}}
+\index{LV\_ASSERT@{LV\_ASSERT}!lv\_assert.h@{lv\_assert.h}}
+\doxysubsubsection{\texorpdfstring{LV\_ASSERT}{LV\_ASSERT}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{expr }\end{DoxyParamCaption})}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if(!(expr))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LV\_LOG\_ERROR(\textcolor{stringliteral}{"{}Asserted\ at\ expression:\ \%s"{}},\ \#expr);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LV\_ASSERT\_HANDLER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__assert_8h_a26f3b081686091321f0fa061433f1f9d}\label{lvgl____lvgl_2src_2misc_2lv__assert_8h_a26f3b081686091321f0fa061433f1f9d} 
+\index{lv\_assert.h@{lv\_assert.h}!LV\_ASSERT\_FORMAT\_MSG@{LV\_ASSERT\_FORMAT\_MSG}}
+\index{LV\_ASSERT\_FORMAT\_MSG@{LV\_ASSERT\_FORMAT\_MSG}!lv\_assert.h@{lv\_assert.h}}
+\doxysubsubsection{\texorpdfstring{LV\_ASSERT\_FORMAT\_MSG}{LV\_ASSERT\_FORMAT\_MSG}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+ASSERT\+\_\+\+FORMAT\+\_\+\+MSG(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if(!(expr))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LV\_LOG\_ERROR(\textcolor{stringliteral}{"{}Asserted\ at\ expression:\ \%s\ "{}}\ format\ ,\ \#expr,\ \_\_VA\_ARGS\_\_);\ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LV\_ASSERT\_HANDLER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__assert_8h_a0ec4363af9fedf7ddeaaa41d31f364bb}\label{lvgl____lvgl_2src_2misc_2lv__assert_8h_a0ec4363af9fedf7ddeaaa41d31f364bb} 
+\index{lv\_assert.h@{lv\_assert.h}!LV\_ASSERT\_MSG@{LV\_ASSERT\_MSG}}
+\index{LV\_ASSERT\_MSG@{LV\_ASSERT\_MSG}!lv\_assert.h@{lv\_assert.h}}
+\doxysubsubsection{\texorpdfstring{LV\_ASSERT\_MSG}{LV\_ASSERT\_MSG}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+ASSERT\+\_\+\+MSG(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if(!(expr))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LV\_LOG\_ERROR(\textcolor{stringliteral}{"{}Asserted\ at\ expression:\ \%s\ (\%s)"{}},\ \#expr,\ msg);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LV\_ASSERT\_HANDLER\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}

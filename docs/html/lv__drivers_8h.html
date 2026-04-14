@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/drivers/lv_drivers.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_73089b14b8d192fc5a0235c13fbdc946.html">drivers</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Datoteka lv_drivers.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__sdl__window_8h_source.html">sdl/lv_sdl_window.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__sdl__mouse_8h_source.html">sdl/lv_sdl_mouse.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__sdl__mousewheel_8h_source.html">sdl/lv_sdl_mousewheel.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__sdl__keyboard_8h_source.html">sdl/lv_sdl_keyboard.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__x11_8h_source.html">x11/lv_x11.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__linux__drm_8h_source.html">display/drm/lv_linux_drm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__linux__fbdev_8h_source.html">display/fb/lv_linux_fbdev.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__tft__espi_8h_source.html">display/tft_espi/lv_tft_espi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__lovyan__gfx_8h_source.html">display/lovyan_gfx/lv_lovyan_gfx.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__lcd__generic__mipi_8h_source.html">display/lcd/lv_lcd_generic_mipi.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__ili9341_8h_source.html">display/ili9341/lv_ili9341.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__st7735_8h_source.html">display/st7735/lv_st7735.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__st7789_8h_source.html">display/st7789/lv_st7789.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__st7796_8h_source.html">display/st7796/lv_st7796.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__nv3007_8h_source.html">display/nv3007/lv_nv3007.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__renesas__glcdc_8h_source.html">display/renesas_glcdc/lv_renesas_glcdc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__st__ltdc_8h_source.html">display/st_ltdc/lv_st_ltdc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__ft81x_8h_source.html">display/ft81x/lv_ft81x.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__eve__display_8h_source.html">draw/eve/lv_draw_eve_display.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__eve__display__defines_8h_source.html">draw/eve/lv_draw_eve_display_defines.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__nuttx__entry_8h_source.html">nuttx/lv_nuttx_entry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__nuttx__fbdev_8h_source.html">nuttx/lv_nuttx_fbdev.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__nuttx__touchscreen_8h_source.html">nuttx/lv_nuttx_touchscreen.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__nuttx__lcd_8h_source.html">nuttx/lv_nuttx_lcd.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__nuttx__libuv_8h_source.html">nuttx/lv_nuttx_libuv.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__evdev_8h_source.html">evdev/lv_evdev.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__libinput_8h_source.html">libinput/lv_libinput.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__windows__input_8h_source.html">windows/lv_windows_input.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__windows__display_8h_source.html">windows/lv_windows_display.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__opengles__window_8h_source.html">opengles/lv_opengles_window.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__opengles__texture_8h_source.html">opengles/lv_opengles_texture.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__opengles__driver_8h_source.html">opengles/lv_opengles_driver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__opengles__glfw_8h_source.html">opengles/lv_opengles_glfw.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__opengles__egl_8h_source.html">opengles/lv_opengles_egl.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__qnx_8h_source.html">qnx/lv_qnx.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__wayland_8h_source.html">wayland/lv_wayland.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__uefi__context_8h_source.html">uefi/lv_uefi_context.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__uefi__indev_8h_source.html">uefi/lv_uefi_indev.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__uefi__display_8h_source.html">uefi/lv_uefi_display.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_drivers.h" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_drivers.h. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__drivers_8h__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2drivers_2lv__drivers_8h" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2drivers_2lv__drivers_8h" id="amanaged__components_2lvgl____lvgl_2src_2drivers_2lv__drivers_8h">
+<area shape="rect" title=" " alt="" coords="2582,5,2753,60"/>
+<area shape="rect" href="lv__sdl__window_8h.html" title=" " alt="" coords="2030,203,2180,229"/>
+<area shape="poly" title=" " alt="" coords="2639,62,2533,150,2484,169,2442,180,2403,186,2367,188,2290,189,2245,192,2194,199,2170,203,2169,198,2193,193,2245,186,2290,183,2366,183,2403,181,2441,175,2483,164,2530,146,2636,58"/>
+<area shape="rect" href="lv__sdl__mouse_8h.html" title=" " alt="" coords="2594,115,2741,141"/>
+<area shape="poly" title=" " alt="" coords="2670,60,2670,101,2665,101,2665,60"/>
+<area shape="rect" href="lv__sdl__mousewheel_8h.html" title=" " alt="" coords="2766,115,2951,141"/>
+<area shape="poly" title=" " alt="" coords="2723,58,2824,107,2822,112,2720,62"/>
+<area shape="rect" href="lv__sdl__keyboard_8h.html" title=" " alt="" coords="2357,115,2520,141"/>
+<area shape="poly" title=" " alt="" coords="2604,63,2480,113,2478,108,2602,58"/>
+<area shape="rect" href="lv__x11_8h.html" title=" " alt="" coords="582,203,687,229"/>
+<area shape="poly" title=" " alt="" coords="2582,37,1998,44,1147,58,729,68,372,80,120,94,46,102,16,110,10,119,8,128,10,137,16,146,43,160,95,172,248,191,423,203,568,210,568,215,422,208,248,196,94,177,42,165,13,150,5,139,3,128,5,117,13,106,45,97,119,89,372,75,728,63,1147,53,1998,39,2582,32"/>
+<area shape="rect" href="lv__linux__drm_8h.html" title=" " alt="" coords="710,196,865,236"/>
+<area shape="poly" title=" " alt="" coords="2582,37,2001,44,1154,58,738,68,383,80,132,94,60,102,29,110,23,119,21,128,23,137,30,146,43,155,66,162,137,174,230,181,336,186,549,190,697,194,697,199,549,195,336,191,230,186,136,179,65,167,41,159,26,150,19,139,16,128,18,117,26,106,59,97,132,89,383,75,738,63,1154,53,2000,39,2582,32"/>
+<area shape="rect" href="lv__linux__fbdev_8h.html" title=" " alt="" coords="1877,108,2018,148"/>
+<area shape="poly" title=" " alt="" coords="2583,44,2339,68,2188,87,2032,111,2032,105,2187,82,2339,63,2582,38"/>
+<area shape="rect" href="lv__tft__espi_8h.html" title=" " alt="" coords="2043,108,2180,148"/>
+<area shape="poly" title=" " alt="" coords="2583,49,2406,76,2200,111,2195,112,2194,106,2199,105,2405,70,2582,44"/>
+<area shape="rect" href="lv__lovyan__gfx_8h.html" title=" " alt="" coords="2204,196,2350,236"/>
+<area shape="poly" title=" " alt="" coords="2754,37,2842,48,2886,57,2925,68,2957,82,2976,101,2981,112,2981,124,2966,150,2952,159,2931,166,2868,177,2689,189,2498,194,2364,199,2364,194,2498,189,2689,184,2867,171,2929,161,2950,154,2962,146,2976,122,2976,113,2972,104,2954,87,2923,73,2885,62,2841,53,2753,42"/>
+<area shape="rect" href="lv__lcd__generic__mipi_8h.html" title=" " alt="" coords="940,196,1075,236"/>
+<area shape="poly" title=" " alt="" coords="2582,37,2188,41,1649,52,1388,61,1164,74,1003,90,954,100,931,110,925,119,923,128,930,148,947,168,968,186,965,190,943,171,925,150,918,128,920,117,927,106,953,95,1002,85,1164,69,1387,56,1649,47,2188,36,2582,32"/>
+<area shape="rect" href="lv__ili9341_8h.html" title=" " alt="" coords="941,108,1074,148"/>
+<area shape="poly" title=" " alt="" coords="2582,39,2275,47,1849,61,1416,83,1232,96,1088,111,1088,105,1231,91,1415,77,1848,56,2274,41,2582,33"/>
+<area shape="rect" href="lv__st7735_8h.html" title=" " alt="" coords="1099,115,1295,141"/>
+<area shape="poly" title=" " alt="" coords="2582,38,2360,44,2045,56,1679,77,1308,111,1271,116,1270,110,1308,105,1679,72,2044,50,2360,38,2582,33"/>
+<area shape="rect" href="lv__st7789_8h.html" title=" " alt="" coords="222,115,418,141"/>
+<area shape="poly" title=" " alt="" coords="2582,38,2155,46,1533,60,897,82,630,95,429,111,391,116,391,110,429,105,630,90,896,76,1533,55,2155,40,2582,33"/>
+<area shape="rect" href="lv__st7796_8h.html" title=" " alt="" coords="442,115,638,141"/>
+<area shape="poly" title=" " alt="" coords="2582,38,1634,62,1066,84,829,96,649,111,612,116,611,110,649,105,828,91,1066,78,1634,57,2582,33"/>
+<area shape="rect" href="lv__nv3007_8h.html" title=" " alt="" coords="662,115,866,141"/>
+<area shape="poly" title=" " alt="" coords="2582,37,2300,40,1881,50,1389,73,1134,89,885,111,843,116,842,111,885,105,1134,84,1388,67,1881,45,2300,35,2582,32"/>
+<area shape="rect" href="lv__renesas__glcdc_8h.html" title=" " alt="" coords="1320,108,1485,148"/>
+<area shape="poly" title=" " alt="" coords="2582,38,2390,44,2124,56,1815,78,1499,111,1499,105,1815,72,2123,51,2390,39,2582,33"/>
+<area shape="rect" href="lv__st__ltdc_8h.html" title=" " alt="" coords="3031,460,3163,500"/>
+<area shape="poly" title=" " alt="" coords="2753,34,2936,46,3046,57,3159,73,3266,93,3361,120,3402,136,3436,153,3464,173,3485,194,3501,226,3502,238,3499,248,3482,261,3455,268,3389,273,3357,278,3332,286,3270,325,3213,370,3126,452,3122,448,3210,366,3267,321,3329,282,3356,272,3389,268,3454,262,3480,256,3494,245,3497,238,3496,228,3480,198,3461,177,3434,158,3399,141,3359,125,3265,99,3158,78,3046,62,2936,51,2753,40"/>
+<area shape="rect" href="lv__ft81x_8h.html" title=" " alt="" coords="3187,467,3362,493"/>
+<area shape="poly" title=" " alt="" coords="2753,35,2905,43,3087,57,3260,78,3330,91,3383,105,3426,121,3459,136,3487,158,3512,195,3519,216,3511,237,3496,253,3480,262,3446,266,3411,269,3394,274,3376,286,3341,326,3314,372,3295,418,3283,455,3278,453,3290,416,3309,370,3337,323,3373,282,3391,270,3410,264,3446,261,3479,257,3493,249,3507,235,3513,216,3507,197,3483,162,3457,140,3424,126,3382,111,3329,96,3259,83,3087,62,2905,48,2753,40"/>
+<area shape="rect" href="lv__draw__eve__display_8h.html" title=" " alt="" coords="3386,284,3554,324"/>
+<area shape="poly" title=" " alt="" coords="2753,32,2965,36,3225,47,3349,56,3456,69,3535,85,3562,95,3579,106,3600,138,3605,169,3597,202,3579,237,3560,261,3535,280,3532,275,3556,258,3575,235,3592,200,3599,169,3595,140,3575,110,3560,100,3534,90,3455,74,3349,62,3225,52,2965,41,2753,37"/>
+<area shape="rect" href="lv__draw__eve__display__defines_8h.html" title=" " alt="" coords="3437,460,3605,500"/>
+<area shape="poly" title=" " alt="" coords="2754,32,2972,35,3241,46,3370,55,3480,68,3563,85,3591,95,3608,106,3616,118,3621,133,3622,171,3616,217,3604,267,3570,368,3538,448,3533,446,3565,366,3598,265,3611,216,3617,171,3615,134,3611,120,3605,110,3589,99,3562,90,3480,73,3369,61,3241,51,2972,40,2753,37"/>
+<area shape="rect" href="lv__nuttx__entry_8h.html" title=" " alt="" coords="2911,203,3075,229"/>
+<area shape="poly" title=" " alt="" coords="2753,33,2850,39,2955,52,3004,61,3047,73,3082,88,3106,106,3113,120,3114,134,3108,147,3097,160,3068,182,3035,200,3033,195,3065,178,3094,156,3103,145,3108,133,3108,122,3102,110,3079,92,3046,78,3003,66,2954,57,2850,44,2753,39"/>
+<area shape="rect" href="lv__nuttx__fbdev_8h.html" title=" " alt="" coords="1509,115,1677,141"/>
+<area shape="poly" title=" " alt="" coords="2583,40,2195,61,1944,82,1689,111,1660,115,1659,110,1689,105,1943,77,2195,56,2582,34"/>
+<area shape="rect" href="lv__nuttx__touchscreen_8h.html" title=" " alt="" coords="3100,203,3310,229"/>
+<area shape="poly" title=" " alt="" coords="2753,38,2851,47,2960,61,3058,81,3097,92,3127,106,3150,124,3169,146,3196,189,3192,192,3165,149,3146,128,3124,110,3095,97,3057,86,2959,66,2851,52,2753,43"/>
+<area shape="rect" href="lv__nuttx__lcd_8h.html" title=" " alt="" coords="1702,115,1852,141"/>
+<area shape="poly" title=" " alt="" coords="2583,41,2266,64,2066,84,1866,111,1840,115,1839,110,1865,105,2066,79,2266,59,2582,36"/>
+<area shape="rect" href="lv__nuttx__libuv_8h.html" title=" " alt="" coords="2374,203,2537,229"/>
+<area shape="poly" title=" " alt="" coords="2754,33,2857,41,2909,49,2957,60,2995,74,3020,94,3026,106,3026,120,3021,134,3010,150,2994,163,2974,174,2922,188,2859,195,2791,197,2654,195,2595,195,2549,199,2522,203,2521,198,2549,193,2595,190,2654,190,2791,192,2859,190,2921,183,2972,169,2991,159,3006,146,3017,132,3021,119,3021,107,3016,97,2992,79,2955,65,2908,54,2856,46,2753,39"/>
+<area shape="rect" href="lv__evdev_8h.html" title=" " alt="" coords="3334,203,3470,229"/>
+<area shape="poly" title=" " alt="" coords="2754,37,2944,59,3055,79,3165,105,3223,125,3280,149,3371,194,3369,199,3278,154,3221,130,3163,111,3054,84,2943,64,2753,42"/>
+<area shape="rect" href="lv__libinput_8h.html" title=" " alt="" coords="2561,203,2716,229"/>
+<area shape="poly" title=" " alt="" coords="2753,35,2839,43,2931,56,3010,76,3040,90,3061,106,3070,128,3067,139,3060,150,3034,168,2997,180,2952,187,2902,191,2804,194,2728,199,2704,203,2703,198,2727,193,2803,188,2902,186,2951,182,2996,175,3032,163,3057,146,3063,137,3064,128,3056,110,3037,94,3008,81,2930,61,2839,48,2753,41"/>
+<area shape="rect" href="lv__windows__input_8h.html" title=" " alt="" coords="1535,196,1694,236"/>
+<area shape="poly" title=" " alt="" coords="2582,37,2506,43,2418,55,2326,77,2281,92,2238,110,2225,120,2217,130,2209,141,2194,150,2126,176,2066,190,2011,196,1958,196,1847,191,1783,191,1708,198,1707,193,1782,186,1847,185,1958,191,2011,191,2065,185,2124,171,2192,146,2205,137,2213,127,2222,116,2236,106,2279,87,2324,72,2417,50,2506,38,2582,32"/>
+<area shape="rect" href="lv__windows__display_8h.html" title=" " alt="" coords="1718,196,1876,236"/>
+<area shape="poly" title=" " alt="" coords="2583,42,2517,49,2442,63,2364,82,2289,110,2274,120,2265,130,2254,141,2238,150,2189,169,2146,180,2069,188,1990,189,1890,198,1890,193,1990,184,2069,183,2145,175,2188,164,2236,146,2251,137,2261,126,2271,116,2287,106,2362,77,2440,57,2516,44,2582,36"/>
+<area shape="rect" href="lv__opengles__window_8h.html" title=" " alt="" coords="3629,284,3792,324"/>
+<area shape="poly" title=" " alt="" coords="2754,32,2986,35,3278,46,3417,55,3538,68,3629,85,3661,95,3680,106,3695,123,3706,143,3719,188,3721,232,3719,270,3713,270,3716,232,3713,188,3701,145,3691,126,3677,110,3658,99,3628,90,3538,73,3417,61,3277,51,2986,41,2753,37"/>
+<area shape="rect" href="lv__opengles__texture_8h.html" title=" " alt="" coords="3680,460,3842,500"/>
+<area shape="poly" title=" " alt="" coords="2753,30,2971,31,3249,40,3390,49,3519,63,3630,81,3711,105,3758,124,3796,143,3811,155,3822,171,3829,190,3832,215,3832,305,3827,346,3815,385,3784,449,3779,447,3810,383,3822,345,3826,305,3826,215,3824,191,3817,173,3807,159,3793,147,3755,129,3710,111,3628,86,3519,68,3389,55,3249,45,2971,37,2753,36"/>
+<area shape="rect" href="lv__opengles__driver_8h.html" title=" " alt="" coords="3866,284,4029,324"/>
+<area shape="poly" title=" " alt="" coords="2753,32,3019,36,3362,47,3529,57,3675,69,3786,85,3824,95,3849,106,3870,122,3887,141,3914,185,3933,230,3944,270,3939,271,3928,232,3910,187,3883,144,3866,126,3846,110,3822,100,3785,90,3674,74,3529,62,3362,52,3019,41,2753,37"/>
+<area shape="rect" href="lv__opengles__glfw_8h.html" title=" " alt="" coords="3917,372,4080,412"/>
+<area shape="poly" title=" " alt="" coords="2754,33,3026,39,3379,52,3551,62,3703,74,3819,88,3859,97,3886,106,3945,139,3986,175,4017,220,4044,283,4047,304,4044,325,4025,362,4021,360,4039,323,4042,304,4039,285,4012,223,3982,178,3942,143,3884,110,3858,102,3818,94,3702,79,3551,67,3379,58,3026,45,2753,38"/>
+<area shape="rect" href="lv__opengles__egl_8h.html" title=" " alt="" coords="4018,460,4181,500"/>
+<area shape="poly" title=" " alt="" coords="2753,31,3011,33,3355,43,3530,52,3694,65,3833,83,3938,105,4003,120,4061,134,4085,145,4104,161,4116,184,4120,214,4120,305,4116,381,4108,446,4102,446,4110,381,4114,305,4114,215,4111,185,4099,164,4082,149,4060,139,4002,126,3937,111,3832,88,3693,70,3530,57,3355,48,3011,39,2753,36"/>
+<area shape="rect" href="lv__qnx_8h.html" title="LVGL driver for the QNX Screen compositing window manager." alt="" coords="1900,203,2006,229"/>
+<area shape="poly" title=" " alt="" coords="2583,47,2468,70,2406,88,2346,110,2330,120,2318,130,2306,141,2289,150,2215,174,2155,182,2094,186,2018,199,2003,202,2002,197,2017,193,2093,181,2154,176,2214,169,2287,146,2303,136,2315,126,2327,116,2344,106,2404,83,2467,65,2582,42"/>
+<area shape="rect" href="lv__wayland_8h.html" title=" " alt="" coords="4155,291,4322,317"/>
+<area shape="poly" title=" " alt="" coords="2754,31,3078,31,3512,40,3726,49,3913,62,4056,81,4105,92,4137,106,4159,123,4178,143,4206,190,4225,238,4236,277,4231,279,4220,240,4202,193,4173,147,4155,127,4134,110,4104,97,4055,86,3912,67,3725,54,3512,45,3078,37,2754,36"/>
+<area shape="rect" href="lv__uefi__context_8h.html" title=" " alt="" coords="4274,379,4435,405"/>
+<area shape="poly" title=" " alt="" coords="2754,32,3084,36,3528,47,3747,56,3940,69,4088,85,4140,95,4174,106,4234,139,4274,176,4305,221,4337,283,4351,325,4356,365,4351,366,4346,326,4332,285,4300,224,4270,179,4231,143,4172,110,4139,100,4087,90,3939,74,3746,61,3528,52,3084,41,2754,37"/>
+<area shape="rect" href="lv__uefi__indev_8h.html" title=" " alt="" coords="2740,203,2886,229"/>
+<area shape="poly" title=" " alt="" coords="2754,34,2845,41,2943,54,3029,75,3061,89,3083,106,3092,128,3083,150,3059,160,3007,173,2880,203,2879,198,3006,168,3057,155,3079,146,3087,128,3079,110,3058,93,3027,80,2942,59,2844,46,2753,40"/>
+<area shape="rect" href="lv__uefi__display_8h.html" title=" " alt="" coords="40,115,197,141"/>
+<area shape="poly" title=" " alt="" coords="2582,37,2118,42,1431,54,727,76,432,92,209,111,180,115,179,110,209,105,431,86,727,71,1431,49,2118,37,2582,32"/>
+<area shape="rect" href="lv__display_8h.html" title=" " alt="" coords="1710,291,1884,317"/>
+<area shape="poly" title=" " alt="" coords="2064,231,1852,290,1851,285,2063,226"/>
+<area shape="rect" href="lv__indev_8h.html" title=" " alt="" coords="2380,291,2532,317"/>
+<area shape="poly" title=" " alt="" coords="2153,226,2397,286,2395,291,2151,231"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="2388,467,2524,493"/>
+<area shape="poly" title=" " alt="" coords="1884,307,1948,314,2021,325,2096,344,2168,370,2184,379,2195,390,2205,400,2220,410,2300,441,2378,462,2377,467,2298,446,2217,414,2201,404,2191,393,2181,384,2165,374,2094,349,2019,331,1948,319,1884,312"/>
+<area shape="rect" href="lv__timer_8h.html" title=" " alt="" coords="2544,379,2679,405"/>
+<area shape="poly" title=" " alt="" coords="1884,307,2174,326,2353,345,2534,369,2556,374,2555,379,2533,375,2353,350,2173,332,1884,312"/>
+<area shape="rect" href="lv__event_8h.html" title=" " alt="" coords="2230,379,2367,405"/>
+<area shape="poly" title=" " alt="" coords="1875,314,2211,369,2234,374,2233,379,2210,375,1874,319"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color_8h.html" title=" " alt="" coords="2024,379,2154,405"/>
+<area shape="poly" title=" " alt="" coords="1837,314,2038,373,2036,378,1836,319"/>
+<area shape="rect" href="lv__area_8h.html" title=" " alt="" coords="2391,379,2520,405"/>
+<area shape="poly" title=" " alt="" coords="1884,309,2110,331,2245,348,2380,369,2401,374,2400,379,2379,375,2244,353,2109,336,1884,314"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="3199,548,3350,573"/>
+<area shape="poly" title=" " alt="" coords="2524,487,2612,497,2928,528,3186,550,3185,555,2928,533,2612,503,2524,493"/>
+<area shape="poly" title=" " alt="" coords="2592,407,2490,463,2488,458,2589,403"/>
+<area shape="poly" title=" " alt="" coords="2637,402,2742,449,2811,475,2883,497,2962,516,3043,530,3186,549,3185,554,3042,536,2961,521,2882,503,2810,480,2740,454,2634,407"/>
+<area shape="poly" title=" " alt="" coords="2321,402,2424,458,2421,463,2318,407"/>
+<area shape="poly" title=" " alt="" coords="2305,404,2330,452,2351,477,2377,498,2422,511,2502,522,2727,539,2979,550,3186,555,3185,560,2979,555,2727,544,2501,527,2421,516,2375,502,2347,481,2326,454,2301,406"/>
+<area shape="poly" title=" " alt="" coords="2139,402,2394,462,2393,467,2138,407"/>
+<area shape="poly" title=" " alt="" coords="2110,403,2202,451,2264,477,2328,497,2403,511,2501,523,2741,540,2988,550,3186,555,3185,560,2988,555,2741,545,2501,528,2402,516,2327,503,2262,482,2200,456,2107,407"/>
+<area shape="poly" title=" " alt="" coords="2458,405,2458,453,2453,453,2453,405"/>
+<area shape="poly" title=" " alt="" coords="2483,402,2603,449,2682,475,2763,497,2876,519,2991,535,3186,552,3185,558,2990,540,2875,524,2762,503,2680,480,2601,454,2481,407"/>
+<area shape="poly" title=" " alt="" coords="2478,315,2580,370,2577,375,2476,319"/>
+<area shape="poly" title=" " alt="" coords="2436,319,2333,375,2331,370,2433,314"/>
+<area shape="poly" title=" " alt="" coords="2458,317,2458,365,2453,365,2453,317"/>
+<area shape="rect" href="lv__group_8h.html" title=" " alt="" coords="2703,379,2838,405"/>
+<area shape="poly" title=" " alt="" coords="2499,314,2716,373,2715,378,2498,319"/>
+<area shape="poly" title=" " alt="" coords="2729,407,2512,466,2510,461,2727,402"/>
+<area shape="poly" title=" " alt="" coords="2790,403,2868,449,2921,475,2975,497,3084,527,3186,546,3185,551,3082,533,2974,503,2918,480,2866,453,2787,407"/>
+<area shape="poly" title=" " alt="" coords="2616,143,2576,151,2469,166,2385,174,2301,183,2194,199,2169,203,2168,198,2193,193,2300,178,2384,169,2468,161,2575,145,2615,138"/>
+<area shape="poly" title=" " alt="" coords="2800,143,2753,151,2596,167,2473,173,2350,180,2194,199,2167,203,2166,198,2193,193,2350,175,2473,168,2596,161,2753,145,2799,138"/>
+<area shape="poly" title=" " alt="" coords="2395,143,2163,203,2162,197,2393,138"/>
+<area shape="poly" title=" " alt="" coords="669,226,699,233,787,245,902,256,1182,274,1697,297,1697,302,1181,280,902,261,786,251,698,239,668,231"/>
+<area shape="poly" title=" " alt="" coords="669,226,699,233,1415,263,2366,297,2366,302,1415,268,698,239,667,231"/>
+<area shape="rect" href="lv__image__dsc_8h.html" title=" " alt="" coords="1512,460,1655,500"/>
+<area shape="poly" title=" " alt="" coords="674,226,699,233,1501,454,1500,459,698,239,672,231"/>
+<area shape="poly" title=" " alt="" coords="1655,482,3185,553,3185,558,1655,487"/>
+<area shape="poly" title=" " alt="" coords="866,231,884,233,1111,259,1337,277,1696,297,1696,302,1337,282,1111,264,883,239,865,236"/>
+<area shape="poly" title=" " alt="" coords="1877,148,1864,151,1776,155,1661,156,1603,159,1551,166,1509,178,1493,187,1481,198,1466,223,1466,233,1470,242,1489,258,1520,271,1559,282,1604,289,1697,297,1696,303,1604,294,1558,287,1518,276,1486,263,1466,245,1461,234,1461,221,1476,194,1490,183,1507,174,1550,161,1603,154,1661,151,1776,150,1863,145,1876,143"/>
+<area shape="poly" title=" " alt="" coords="2043,148,2031,151,1933,156,1770,162,1610,175,1554,185,1535,191,1524,198,1512,218,1514,235,1528,250,1552,263,1620,282,1698,293,1697,298,1619,287,1550,268,1525,254,1509,238,1507,217,1521,194,1533,186,1552,180,1610,169,1770,157,1933,151,2030,145,2042,143"/>
+<area shape="poly" title=" " alt="" coords="2205,236,2194,239,1886,292,1885,287,2193,233,2204,231"/>
+<area shape="poly" title=" " alt="" coords="2317,234,2421,283,2418,288,2315,238"/>
+<area shape="poly" title=" " alt="" coords="1076,222,1697,289,1696,294,1075,227"/>
+<area shape="poly" title=" " alt="" coords="1010,148,1010,182,1005,182,1005,148"/>
+<area shape="poly" title=" " alt="" coords="1173,143,1063,193,1061,188,1171,138"/>
+<area shape="poly" title=" " alt="" coords="382,138,429,145,568,160,676,168,784,176,922,193,927,194,927,200,921,199,783,181,675,173,567,166,429,151,381,143"/>
+<area shape="poly" title=" " alt="" coords="606,138,922,193,928,195,926,200,921,199,605,143"/>
+<area shape="poly" title=" " alt="" coords="798,138,942,189,940,194,796,143"/>
+<area shape="poly" title=" " alt="" coords="1396,149,1388,169,1384,192,1384,215,1394,234,1413,249,1441,262,1519,281,1610,292,1697,298,1697,303,1609,297,1518,286,1440,267,1410,254,1390,238,1379,216,1378,192,1383,168,1391,147"/>
+<area shape="poly" title=" " alt="" coords="3141,498,3237,540,3235,545,3139,502"/>
+<area shape="poly" title=" " alt="" coords="3277,493,3277,534,3272,534,3272,493"/>
+<area shape="poly" title=" " alt="" coords="3468,325,3437,407,3410,456,3376,502,3348,526,3317,544,3314,540,3345,522,3373,498,3406,454,3432,405,3463,323"/>
+<area shape="poly" title=" " alt="" coords="3463,503,3324,546,3323,541,3461,497"/>
+<area shape="poly" title=" " alt="" coords="2943,231,2899,239,2615,268,2333,287,2084,299,1898,304,1897,298,2084,293,2333,282,2614,263,2898,233,2942,226"/>
+<area shape="poly" title=" " alt="" coords="2993,229,2983,278,2977,350,2979,389,2986,429,3000,466,3022,498,3047,515,3087,528,3186,547,3185,552,3086,533,3045,519,3018,502,2995,468,2981,430,2974,390,2972,350,2978,277,2987,228"/>
+<area shape="poly" title=" " alt="" coords="2938,231,2899,239,2546,293,2545,288,2898,233,2937,226"/>
+<area shape="poly" title=" " alt="" coords="1532,143,1478,158,1429,178,1412,190,1401,204,1400,218,1409,234,1427,249,1454,261,1527,279,1613,291,1697,297,1697,302,1613,296,1526,285,1452,266,1424,253,1404,238,1395,219,1396,202,1408,187,1426,173,1476,153,1531,138"/>
+<area shape="poly" title=" " alt="" coords="3138,231,3088,239,2790,273,2545,297,2545,292,2790,268,3087,233,3137,226"/>
+<area shape="poly" title=" " alt="" coords="1725,143,1690,151,1640,157,1587,161,1484,168,1445,176,1420,188,1415,196,1414,206,1419,219,1430,234,1446,248,1471,259,1539,277,1619,289,1697,296,1697,301,1618,294,1538,283,1469,264,1444,252,1426,238,1414,221,1409,207,1410,194,1417,184,1443,171,1484,163,1586,156,1640,152,1689,145,1724,138"/>
+<area shape="poly" title=" " alt="" coords="2403,231,2363,239,2112,273,1898,296,1897,291,2111,267,2362,233,2402,226"/>
+<area shape="poly" title=" " alt="" coords="2458,229,2458,277,2453,277,2453,229"/>
+<area shape="poly" title=" " alt="" coords="3360,231,3323,239,3105,266,2888,285,2694,297,2546,303,2545,298,2694,291,2887,280,3104,261,3322,233,3359,226"/>
+<area shape="poly" title=" " alt="" coords="2615,231,2494,288,2492,283,2613,226"/>
+<area shape="poly" title=" " alt="" coords="1656,234,1762,283,1759,288,1653,238"/>
+<area shape="poly" title=" " alt="" coords="1694,232,1706,233,1889,257,2072,274,2366,295,2365,301,2071,280,1888,262,1705,239,1694,237"/>
+<area shape="poly" title=" " alt="" coords="1800,236,1800,277,1794,277,1794,236"/>
+<area shape="poly" title=" " alt="" coords="1877,231,1888,233,2148,269,2366,292,2366,297,2148,274,1887,239,1876,237"/>
+<area shape="poly" title=" " alt="" coords="3710,325,3701,363,3684,412,3657,461,3640,483,3619,502,3600,513,3574,522,3509,537,3364,556,3363,550,3508,532,3573,517,3598,508,3616,498,3636,479,3653,458,3679,409,3696,362,3705,324"/>
+<area shape="poly" title=" " alt="" coords="3680,499,3662,503,3364,549,3363,544,3661,497,3679,494"/>
+<area shape="poly" title=" " alt="" coords="3937,325,3908,373,3895,410,3890,443,3881,473,3872,488,3856,502,3829,513,3784,522,3652,538,3364,558,3364,553,3652,533,3783,517,3828,508,3853,498,3867,484,3877,471,3885,442,3890,409,3903,371,3932,323"/>
+<area shape="poly" title=" " alt="" coords="3989,414,3954,460,3929,484,3900,502,3856,518,3798,530,3653,548,3497,557,3363,561,3363,556,3497,552,3652,543,3797,525,3854,513,3897,498,3925,479,3950,456,3985,411"/>
+<area shape="poly" title=" " alt="" coords="4019,496,3967,503,3634,535,3364,556,3363,551,3633,530,3966,497,4018,491"/>
+<area shape="poly" title=" " alt="" coords="1933,231,1831,287,1829,282,1931,227"/>
+<area shape="poly" title=" " alt="" coords="1990,226,2018,233,2204,268,2367,290,2366,295,2203,273,2017,239,1988,231"/>
+<area shape="poly" title=" " alt="" coords="4243,317,4245,353,4241,404,4227,457,4213,481,4195,502,4177,512,4149,520,4068,534,3961,545,3837,552,3577,560,3364,562,3364,557,3577,555,3837,547,3961,539,4068,529,4148,515,4175,507,4191,498,4209,478,4222,455,4236,403,4239,353,4237,317"/>
+<area shape="poly" title=" " alt="" coords="4349,406,4311,455,4283,482,4249,502,4197,515,4108,526,3860,543,3585,554,3363,560,3363,555,3585,549,3860,538,4108,521,4196,510,4247,498,4279,477,4308,451,4345,403"/>
+<area shape="poly" title=" " alt="" coords="2766,231,2517,291,2516,286,2765,226"/>
+<area shape="poly" title=" " alt="" coords="168,138,209,145,275,151,356,154,546,157,735,166,815,177,878,194,894,203,904,214,914,225,929,234,993,252,1078,266,1290,286,1512,296,1697,300,1697,305,1512,301,1289,291,1078,271,992,257,927,238,911,229,901,218,891,207,876,198,814,182,735,171,546,162,356,159,274,156,209,151,167,143"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-&gt;B definira relacijo "A vključuje B". Vse datoteke, ki torej mejijo na tekočo (t.j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. </div>
+<div class="dyncontent">
+<div class="center"><img src="lv__drivers_8h__dep__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2drivers_2lv__drivers_8hdep" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2drivers_2lv__drivers_8hdep" id="amanaged__components_2lvgl____lvgl_2src_2drivers_2lv__drivers_8hdep">
+<area shape="rect" title=" " alt="" coords="5207,5,5377,60"/>
+<area shape="rect" href="lvgl_8h.html" title=" " alt="" coords="5207,108,5377,148"/>
+<area shape="poly" title=" " alt="" coords="5295,74,5295,108,5289,108,5289,74"/>
+<area shape="rect" href="lv__demos_8h.html" title=" " alt="" coords="957,203,1128,258"/>
+<area shape="poly" title=" " alt="" coords="5193,134,3956,157,2100,199,1128,229,1128,224,2100,193,3956,151,5193,128"/>
+<area shape="rect" href="lv__demo__widgets__components_8h.html" title=" " alt="" coords="2113,203,2351,258"/>
+<area shape="poly" title=" " alt="" coords="5193,133,4182,149,3451,169,2700,199,2352,222,2351,217,2700,193,3451,164,4181,144,5193,128"/>
+<area shape="rect" href="lv__examples_8h.html" title=" " alt="" coords="2712,203,2883,258"/>
+<area shape="poly" title=" " alt="" coords="5193,133,4688,139,3971,152,3291,172,3042,184,2895,199,2866,206,2865,201,2894,193,3041,179,3291,166,3971,147,4688,134,5193,128"/>
+<area shape="rect" href="lv__nuttx__cache_8c.html" title=" " alt="" coords="2907,203,3080,258"/>
+<area shape="poly" title=" " alt="" coords="5192,133,4724,141,4069,154,3451,173,3226,185,3092,199,3063,206,3062,201,3092,193,3225,180,3451,168,4069,149,4724,135,5192,128"/>
+<area shape="rect" href="lv__nuttx__image__cache_8c.html" title=" " alt="" coords="3104,203,3325,258"/>
+<area shape="poly" title=" " alt="" coords="5193,132,4809,136,4272,146,3732,165,3508,180,3338,199,3301,206,3300,201,3337,193,3507,175,3732,160,4272,140,4809,130,5193,127"/>
+<area shape="rect" href="lv__bmp_8c.html" title=" " alt="" coords="3349,203,3520,258"/>
+<area shape="poly" title=" " alt="" coords="5193,132,4843,134,4362,143,4114,151,3882,163,3683,179,3532,199,3503,206,3502,201,3532,193,3682,173,3882,158,4114,146,4362,138,4842,129,5193,127"/>
+<area shape="rect" href="lv__ftsystem_8c.html" title=" " alt="" coords="3545,203,3717,258"/>
+<area shape="poly" title=" " alt="" coords="5192,133,4878,136,4455,147,4035,166,3861,181,3730,199,3700,206,3699,201,3729,193,3861,176,4035,161,4455,141,4878,131,5192,127"/>
+<area shape="rect" href="lv__fs__fatfs_8c.html" title=" " alt="" coords="3741,203,3912,258"/>
+<area shape="poly" title=" " alt="" coords="5193,133,4915,139,4548,150,4187,169,4038,183,3925,199,3896,206,3894,201,3923,193,4037,177,4187,164,4548,145,4915,133,5193,128"/>
+<area shape="rect" href="lv__fs__frogfs_8c.html" title=" " alt="" coords="3936,203,4107,258"/>
+<area shape="poly" title=" " alt="" coords="5193,134,4951,141,4641,154,4339,173,4214,185,4119,199,4090,206,4089,201,4118,193,4213,179,4338,167,4641,148,4951,136,5193,129"/>
+<area shape="rect" href="lv__fs__memfs_8c.html" title=" " alt="" coords="4131,203,4301,258"/>
+<area shape="poly" title=" " alt="" coords="5193,135,4735,157,4491,176,4390,187,4314,199,4286,206,4284,201,4313,193,4390,181,4490,170,4735,152,5193,130"/>
+<area shape="rect" href="lv__fs__posix_8c.html" title=" " alt="" coords="4325,203,4496,258"/>
+<area shape="poly" title=" " alt="" coords="5193,133,5057,137,4885,148,4697,167,4509,199,4481,206,4480,201,4507,193,4696,162,4885,142,5056,132,5193,127"/>
+<area shape="rect" href="lv__fs__stdio_8c.html" title=" " alt="" coords="4520,203,4691,258"/>
+<area shape="poly" title=" " alt="" coords="5193,137,4968,156,4835,174,4703,199,4676,206,4675,201,4702,193,4834,169,4967,151,5193,131"/>
+<area shape="rect" href="lv__fs__uefi_8c.html" title=" " alt="" coords="4715,203,4885,258"/>
+<area shape="poly" title=" " alt="" coords="5193,144,5053,166,4898,199,4873,206,4871,201,4897,193,5052,161,5192,139"/>
+<area shape="rect" href="lv__fs__win32_8c.html" title=" " alt="" coords="4909,203,5080,258"/>
+<area shape="poly" title=" " alt="" coords="5223,155,5093,199,5071,206,5070,201,5091,193,5221,150"/>
+<area shape="rect" href="lv__libjpeg__turbo_8c.html" title=" " alt="" coords="5104,196,5283,265"/>
+<area shape="poly" title=" " alt="" coords="5266,160,5228,198,5225,194,5262,156"/>
+<area shape="rect" href="lv__libpng_8c.html" title=" " alt="" coords="5307,203,5477,258"/>
+<area shape="poly" title=" " alt="" coords="5322,156,5368,201,5364,205,5319,160"/>
+<area shape="rect" href="lv__libwebp_8c.html" title=" " alt="" coords="5501,203,5672,258"/>
+<area shape="poly" title=" " alt="" coords="5362,150,5490,193,5512,201,5510,206,5488,199,5360,155"/>
+<area shape="rect" href="lodepng_8h_source.html" title=" " alt="" coords="5696,203,5867,258"/>
+<area shape="poly" title=" " alt="" coords="5392,139,5531,161,5685,193,5710,201,5709,206,5683,199,5530,166,5391,144"/>
+<area shape="rect" href="lv__lodepng_8c.html" title=" " alt="" coords="5891,203,6061,258"/>
+<area shape="poly" title=" " alt="" coords="5391,131,5616,151,5748,169,5879,193,5907,201,5905,206,5878,199,5747,174,5615,156,5391,137"/>
+<area shape="rect" href="qrcodegen_8h_source.html" title=" " alt="" coords="6085,203,6256,258"/>
+<area shape="poly" title=" " alt="" coords="5391,127,5527,132,5698,142,5886,162,6074,193,6102,201,6100,206,6073,199,5885,167,5697,148,5527,137,5391,133"/>
+<area shape="rect" href="lv__svg__decoder_8c.html" title=" " alt="" coords="6280,203,6451,258"/>
+<area shape="poly" title=" " alt="" coords="5391,130,5848,152,6091,171,6192,181,6269,193,6297,201,6296,206,6267,199,6191,187,6091,176,5848,158,5391,135"/>
+<area shape="rect" href="lv__svg__render_8c.html" title=" " alt="" coords="6475,203,6645,258"/>
+<area shape="poly" title=" " alt="" coords="5391,129,5633,136,5942,148,6244,167,6368,179,6463,193,6492,201,6491,206,6462,199,6368,185,6243,173,5942,154,5633,141,5391,134"/>
+<area shape="rect" href="lv__tjpgd_8c.html" title=" " alt="" coords="6669,203,6840,258"/>
+<area shape="poly" title=" " alt="" coords="5391,128,5669,133,6035,145,6395,164,6545,177,6658,193,6687,201,6686,206,6657,199,6544,183,6395,169,6035,150,5669,139,5391,133"/>
+<area shape="rect" href="src_2lvgl_8h.html" title=" " alt="" coords="6864,211,7035,251"/>
+<area shape="poly" title=" " alt="" coords="5391,127,5706,131,6128,141,6547,161,6721,175,6853,193,6904,208,6903,213,6851,199,6720,181,6547,166,6128,146,5706,136,5391,133"/>
+<area shape="rect" href="lv__theme__default_8c.html" title=" " alt="" coords="7059,203,7261,258"/>
+<area shape="poly" title=" " alt="" coords="5391,127,5740,131,6218,141,6697,161,6896,175,7047,193,7081,201,7080,206,7046,199,6896,181,6697,166,6218,147,5740,136,5391,133"/>
+<area shape="rect" href="lv__theme_8c.html" title=" " alt="" coords="7285,203,7456,258"/>
+<area shape="poly" title=" " alt="" coords="5391,126,5781,127,6325,134,6608,142,6874,154,7102,171,7274,193,7303,201,7302,206,7273,199,7101,176,6873,160,6608,147,6325,139,5780,132,5391,131"/>
+<area shape="rect" href="lv__theme__mono_8c.html" title=" " alt="" coords="7481,203,7663,258"/>
+<area shape="poly" title=" " alt="" coords="5391,126,5815,126,6416,133,6730,141,7024,153,7277,170,7468,193,7500,201,7499,206,7468,199,7277,176,7024,158,6729,146,6416,138,5815,131,5391,131"/>
+<area shape="rect" href="lv__theme__simple_8c.html" title=" " alt="" coords="7688,203,7885,258"/>
+<area shape="poly" title=" " alt="" coords="5392,128,6607,149,7283,168,7530,180,7676,193,7710,201,7709,206,7676,199,7530,186,7282,174,6607,154,5392,133"/>
+<area shape="rect" href="lv__calendar_8c.html" title=" " alt="" coords="7909,203,8080,258"/>
+<area shape="poly" title=" " alt="" coords="5391,127,5935,133,6718,145,7463,165,7736,178,7898,193,7928,201,7927,206,7897,199,7736,183,7463,170,6717,150,5935,138,5391,133"/>
+<area shape="rect" href="unity__support_8h_source.html" title=" " alt="" coords="8104,203,8275,258"/>
+<area shape="poly" title=" " alt="" coords="5391,127,5972,132,6815,143,7622,163,7918,177,8023,185,8092,193,8123,201,8121,206,8092,199,8022,190,7917,182,7622,168,6815,149,5972,137,5391,133"/>
+<area shape="rect" href="lv__demo__benchmark_8h.html" title=" " alt="" coords="5,321,219,375"/>
+<area shape="poly" title=" " alt="" coords="944,239,803,248,625,262,428,285,231,316,199,323,198,318,230,311,427,280,625,257,803,242,944,234"/>
+<area shape="rect" href="lv__demo__gltf_8h.html" title=" " alt="" coords="243,321,413,375"/>
+<area shape="poly" title=" " alt="" coords="944,242,707,267,566,288,426,316,399,323,398,318,425,311,565,283,706,261,944,236"/>
+<area shape="rect" href="lv__demo__keypad__encoder_8h.html" title=" " alt="" coords="437,313,632,383"/>
+<area shape="poly" title=" " alt="" coords="944,252,802,280,645,316,633,319,632,314,643,311,801,275,943,247"/>
+<area shape="rect" href="lv__demos_8c.html" title=" " alt="" coords="656,321,827,375"/>
+<area shape="poly" title=" " alt="" coords="962,265,811,323,809,318,960,260"/>
+<area shape="rect" href="lv__demo__music_8h.html" title=" " alt="" coords="851,321,1029,375"/>
+<area shape="poly" title=" " alt="" coords="1012,270,966,322,962,319,1008,266"/>
+<area shape="rect" href="lv__demo__render_8h.html" title=" " alt="" coords="1054,321,1237,375"/>
+<area shape="poly" title=" " alt="" coords="1077,266,1124,319,1120,322,1073,270"/>
+<area shape="rect" href="lv__demo__stress_8h.html" title=" " alt="" coords="1261,321,1440,375"/>
+<area shape="poly" title=" " alt="" coords="1126,260,1281,318,1280,323,1124,265"/>
+<area shape="rect" href="lv__demo__vector__graphic_8h.html" title=" " alt="" coords="1465,313,1650,383"/>
+<area shape="poly" title=" " alt="" coords="1142,246,1289,274,1453,311,1465,314,1464,319,1451,316,1288,279,1141,251"/>
+<area shape="rect" href="lv__demo__widgets_8h.html" title=" " alt="" coords="1674,321,1865,375"/>
+<area shape="poly" title=" " alt="" coords="1142,237,1380,263,1521,284,1662,311,1691,318,1689,323,1661,316,1520,289,1379,268,1141,242"/>
+<area shape="rect" href="lv__demo__widgets__components_8c.html" title=" " alt="" coords="1889,321,2127,375"/>
+<area shape="poly" title=" " alt="" coords="2170,267,2060,323,2058,318,2168,262"/>
+<area shape="rect" href="lv__example__gltf_8h.html" title=" " alt="" coords="2152,313,2323,383"/>
+<area shape="poly" title=" " alt="" coords="2699,248,2528,275,2335,316,2324,319,2322,314,2334,311,2527,270,2698,242"/>
+<area shape="rect" href="lv__example__fragment__1_8c.html" title="Basic usage of obj fragment." alt="" coords="2347,313,2557,383"/>
+<area shape="poly" title=" " alt="" coords="2707,265,2554,316,2552,311,2705,260"/>
+<area shape="rect" href="lv__example__fragment__2_8c.html" title="Navigation stack using obj fragment." alt="" coords="2581,313,2792,383"/>
+<area shape="poly" title=" " alt="" coords="2765,269,2721,315,2717,311,2761,266"/>
+<area shape="rect" href="lv__example__osal_8c.html" title=" " alt="" coords="2817,313,2999,383"/>
+<area shape="poly" title=" " alt="" coords="2834,266,2877,311,2874,315,2830,269"/>
+<area shape="rect" href="lv__example__scroll_8h.html" title=" " alt="" coords="3024,321,3219,375"/>
+<area shape="poly" title=" " alt="" coords="2877,260,3041,318,3039,323,2875,265"/>
+<area shape="rect" href="lv__example__style_8h.html" title=" " alt="" coords="3243,321,3439,375"/>
+<area shape="poly" title=" " alt="" coords="2870,259,2883,263,2977,280,3051,288,3125,294,3219,311,3248,318,3247,323,3218,316,3124,300,3050,293,2976,286,2882,268,2869,265"/>
+<area shape="poly" title=" " alt="" coords="3041,318,2878,261,2879,256,3043,313"/>
+<area shape="poly" title=" " alt="" coords="3258,320,3242,316,3148,300,3074,293,3000,286,2906,268,2880,261,2881,256,2907,263,3001,280,3075,288,3149,294,3243,311,3259,314"/>
+<area shape="rect" href="lv__observer_8c.html" title=" " alt="" coords="6767,321,6937,375"/>
+<area shape="poly" title=" " alt="" coords="6926,263,6876,322,6872,319,6922,260"/>
+<area shape="rect" href="lv__nxp__elcdif_8h.html" title=" " alt="" coords="6961,313,7132,383"/>
+<area shape="poly" title=" " alt="" coords="6976,260,7020,312,7016,315,6972,263"/>
+</map>
+</div>
+</div>
+<p><a href="lv__drivers_8h_source.html">izvorna koda</a></p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

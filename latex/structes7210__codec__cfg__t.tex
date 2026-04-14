@@ -1,0 +1,75 @@
+\doxysection{ Struktura es7210\+\_\+codec\+\_\+cfg\+\_\+t}
+\hypertarget{structes7210__codec__cfg__t}{}\label{structes7210__codec__cfg__t}\index{es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}}
+
+
+ES7210 codec configuration, only support ADC feature.  
+
+
+
+
+{\ttfamily \#include $<$es7210\+\_\+adc.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda es7210\+\_\+codec\+\_\+cfg\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{structes7210__codec__cfg__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structes7210__codec__cfg__t_a29dc3df3d9204008ff13a63f3b635a3c}{ctrl\+\_\+if}}
+\item 
+bool \mbox{\hyperlink{structes7210__codec__cfg__t_a061b5c062ecb965165664cf7f1b0886e}{master\+\_\+mode}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structes7210__codec__cfg__t_aac519cd773af2eb9e73a9261404bc310}{mic\+\_\+selected}}
+\item 
+es7210\+\_\+mclk\+\_\+src\+\_\+t \mbox{\hyperlink{structes7210__codec__cfg__t_afb97f14abfbe8ada9d6611a3e4b2fae2}{mclk\+\_\+src}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structes7210__codec__cfg__t_a5052de0141f2204c7bcc5e34c4626d61}{mclk\+\_\+div}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+ES7210 codec configuration, only support ADC feature. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structes7210__codec__cfg__t_a29dc3df3d9204008ff13a63f3b635a3c}\label{structes7210__codec__cfg__t_a29dc3df3d9204008ff13a63f3b635a3c} 
+\index{es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}!ctrl\_if@{ctrl\_if}}
+\index{ctrl\_if@{ctrl\_if}!es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{ctrl\_if}{ctrl\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} es7210\+\_\+codec\+\_\+cfg\+\_\+t\+::ctrl\+\_\+if}
+
+Codec Control interface \Hypertarget{structes7210__codec__cfg__t_a061b5c062ecb965165664cf7f1b0886e}\label{structes7210__codec__cfg__t_a061b5c062ecb965165664cf7f1b0886e} 
+\index{es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}!master\_mode@{master\_mode}}
+\index{master\_mode@{master\_mode}!es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{master\_mode}{master\_mode}}
+{\footnotesize\ttfamily bool es7210\+\_\+codec\+\_\+cfg\+\_\+t\+::master\+\_\+mode}
+
+Whether codec works as I2S master or not \Hypertarget{structes7210__codec__cfg__t_a5052de0141f2204c7bcc5e34c4626d61}\label{structes7210__codec__cfg__t_a5052de0141f2204c7bcc5e34c4626d61} 
+\index{es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}!mclk\_div@{mclk\_div}}
+\index{mclk\_div@{mclk\_div}!es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{mclk\_div}{mclk\_div}}
+{\footnotesize\ttfamily uint16\+\_\+t es7210\+\_\+codec\+\_\+cfg\+\_\+t\+::mclk\+\_\+div}
+
+MCLK/\+LRCK default is 256 if not provided \Hypertarget{structes7210__codec__cfg__t_afb97f14abfbe8ada9d6611a3e4b2fae2}\label{structes7210__codec__cfg__t_afb97f14abfbe8ada9d6611a3e4b2fae2} 
+\index{es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}!mclk\_src@{mclk\_src}}
+\index{mclk\_src@{mclk\_src}!es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{mclk\_src}{mclk\_src}}
+{\footnotesize\ttfamily es7210\+\_\+mclk\+\_\+src\+\_\+t es7210\+\_\+codec\+\_\+cfg\+\_\+t\+::mclk\+\_\+src}
+
+MCLK clock source in master mode \Hypertarget{structes7210__codec__cfg__t_aac519cd773af2eb9e73a9261404bc310}\label{structes7210__codec__cfg__t_aac519cd773af2eb9e73a9261404bc310} 
+\index{es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}!mic\_selected@{mic\_selected}}
+\index{mic\_selected@{mic\_selected}!es7210\_codec\_cfg\_t@{es7210\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{mic\_selected}{mic\_selected}}
+{\footnotesize\ttfamily uint8\+\_\+t es7210\+\_\+codec\+\_\+cfg\+\_\+t\+::mic\+\_\+selected}
+
+Selected microphone 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/device/include/es7210\+\_\+adc.\+h\end{DoxyCompactItemize}

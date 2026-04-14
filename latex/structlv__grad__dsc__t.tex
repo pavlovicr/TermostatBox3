@@ -1,0 +1,137 @@
+\doxysection{ Struktura lv\+\_\+grad\+\_\+dsc\+\_\+t}
+\hypertarget{structlv__grad__dsc__t}{}\label{structlv__grad__dsc__t}\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+grad.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda lv\+\_\+grad\+\_\+dsc\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{structlv__grad__dsc__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structlv__grad__stop__t}{lv\+\_\+grad\+\_\+stop\+\_\+t}} \mbox{\hyperlink{structlv__grad__dsc__t_a8dc151f415f81b480c2271a61bc16c47}{stops}} \mbox{[}\mbox{\hyperlink{lv__conf__cmsis_8h_a88ff980a9ad6b9613a5034d073f7dee3}{LV\+\_\+\+GRADIENT\+\_\+\+MAX\+\_\+\+STOPS}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structlv__grad__dsc__t_a9bc6aa40e9b42a10389d99877cdb65ac}{stops\+\_\+count}}
+\item 
+\mbox{\hyperlink{lv__grad_8h_a56ae635a653fde43c01434edf9df6a90}{lv\+\_\+grad\+\_\+dir\+\_\+t}} \mbox{\hyperlink{structlv__grad__dsc__t_a63223754438f889dc8b358701f301b5f}{dir}}\+: 4
+\item 
+\mbox{\hyperlink{lv__grad_8h_a2a1cce6d14aa02ed8ab6d5426e95fecf}{lv\+\_\+grad\+\_\+extend\+\_\+t}} \mbox{\hyperlink{structlv__grad__dsc__t_afbef985fbf2a429a3e96d8cedd26e71e}{extend}}\+: 3
+\item 
+\Hypertarget{structlv__grad__dsc__t_a71b923b2e36e147c8ac20e8adc293c3b}\label{structlv__grad__dsc__t_a71b923b2e36e147c8ac20e8adc293c3b} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} \mbox{\hyperlink{structlv__grad__dsc__t_aa29b955cd534ba83ce841ce445892ba6}{start}}\\
+\>\>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} \mbox{\hyperlink{structlv__grad__dsc__t_ab75de864d2343e5b681a7c67d8c21ab2}{end}}\\
+\>\} {\bfseries linear}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} \mbox{\hyperlink{structlv__grad__dsc__t_aa7ce9cc0856277e594cf2a819e5545a2}{focal}}\\
+\>\>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} \mbox{\hyperlink{structlv__grad__dsc__t_a691df659293430c245b28694f93a9ca8}{focal\_extent}}\\
+\>\>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} \mbox{\hyperlink{structlv__grad__dsc__t_ab75de864d2343e5b681a7c67d8c21ab2}{end}}\\
+\>\>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} \mbox{\hyperlink{structlv__grad__dsc__t_a945eca5e48b71382297bf2f7cf80511f}{end\_extent}}\\
+\>\} {\bfseries radial}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} \mbox{\hyperlink{structlv__grad__dsc__t_ad8e311dcecb550d97dcbe70946b510ea}{center}}\\
+\>\>int16\_t \mbox{\hyperlink{structlv__grad__dsc__t_ad6a22bc14111d16e538a1c8eb29df0fd}{start\_angle}}\\
+\>\>int16\_t \mbox{\hyperlink{structlv__grad__dsc__t_a4bf7d12014f0029068b136a75b9a1057}{end\_angle}}\\
+\>\} {\bfseries conical}\\
+\} {\bfseries params}\\
+
+\end{tabbing}\item 
+\Hypertarget{structlv__grad__dsc__t_ac2348f77fe516ea17b78bd768cde4601}\label{structlv__grad__dsc__t_ac2348f77fe516ea17b78bd768cde4601} 
+void \texorpdfstring{$\ast$}{*} {\bfseries state}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+A descriptor of a gradient. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structlv__grad__dsc__t_ad8e311dcecb550d97dcbe70946b510ea}\label{structlv__grad__dsc__t_ad8e311dcecb550d97dcbe70946b510ea} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!center@{center}}
+\index{center@{center}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{center}{center}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::center}
+
+Conical gradient center point \Hypertarget{structlv__grad__dsc__t_a63223754438f889dc8b358701f301b5f}\label{structlv__grad__dsc__t_a63223754438f889dc8b358701f301b5f} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!dir@{dir}}
+\index{dir@{dir}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__grad_8h_a56ae635a653fde43c01434edf9df6a90}{lv\+\_\+grad\+\_\+dir\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::dir}
+
+The gradient direction. Any of LV\+\_\+\+GRAD\+\_\+\+DIR\+\_\+\+NONE, LV\+\_\+\+GRAD\+\_\+\+DIR\+\_\+\+VER, LV\+\_\+\+GRAD\+\_\+\+DIR\+\_\+\+HOR, LV\+\_\+\+GRAD\+\_\+\+TYPE\+\_\+\+LINEAR, LV\+\_\+\+GRAD\+\_\+\+TYPE\+\_\+\+RADIAL, LV\+\_\+\+GRAD\+\_\+\+TYPE\+\_\+\+CONICAL \Hypertarget{structlv__grad__dsc__t_ab75de864d2343e5b681a7c67d8c21ab2}\label{structlv__grad__dsc__t_ab75de864d2343e5b681a7c67d8c21ab2} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!end@{end}}
+\index{end@{end}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::end}
+
+Linear gradient vector end point
+
+Center of the ending circle in local coordinates \Hypertarget{structlv__grad__dsc__t_a4bf7d12014f0029068b136a75b9a1057}\label{structlv__grad__dsc__t_a4bf7d12014f0029068b136a75b9a1057} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!end\_angle@{end\_angle}}
+\index{end\_angle@{end\_angle}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{end\_angle}{end\_angle}}
+{\footnotesize\ttfamily int16\+\_\+t lv\+\_\+grad\+\_\+dsc\+\_\+t\+::end\+\_\+angle}
+
+End angle 0..3600 \Hypertarget{structlv__grad__dsc__t_a945eca5e48b71382297bf2f7cf80511f}\label{structlv__grad__dsc__t_a945eca5e48b71382297bf2f7cf80511f} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!end\_extent@{end\_extent}}
+\index{end\_extent@{end\_extent}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{end\_extent}{end\_extent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::end\+\_\+extent}
+
+Point on the circle determining the radius of the gradient \Hypertarget{structlv__grad__dsc__t_afbef985fbf2a429a3e96d8cedd26e71e}\label{structlv__grad__dsc__t_afbef985fbf2a429a3e96d8cedd26e71e} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!extend@{extend}}
+\index{extend@{extend}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{extend}{extend}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__grad_8h_a2a1cce6d14aa02ed8ab6d5426e95fecf}{lv\+\_\+grad\+\_\+extend\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::extend}
+
+Behaviour outside the defined range. LV\+\_\+\+GRAD\+\_\+\+EXTEND\+\_\+\+NONE, LV\+\_\+\+GRAD\+\_\+\+EXTEND\+\_\+\+PAD, LV\+\_\+\+GRAD\+\_\+\+EXTEND\+\_\+\+REPEAT, LV\+\_\+\+GRAD\+\_\+\+EXTEND\+\_\+\+REFLECT \Hypertarget{structlv__grad__dsc__t_aa7ce9cc0856277e594cf2a819e5545a2}\label{structlv__grad__dsc__t_aa7ce9cc0856277e594cf2a819e5545a2} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!focal@{focal}}
+\index{focal@{focal}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{focal}{focal}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::focal}
+
+Center of the focal (starting) circle in local coordinates \Hypertarget{structlv__grad__dsc__t_a691df659293430c245b28694f93a9ca8}\label{structlv__grad__dsc__t_a691df659293430c245b28694f93a9ca8} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!focal\_extent@{focal\_extent}}
+\index{focal\_extent@{focal\_extent}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{focal\_extent}{focal\_extent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::focal\+\_\+extent}
+
+Point on the circle (can be the same as the center) \Hypertarget{structlv__grad__dsc__t_aa29b955cd534ba83ce841ce445892ba6}\label{structlv__grad__dsc__t_aa29b955cd534ba83ce841ce445892ba6} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!start@{start}}
+\index{start@{start}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::start}
+
+Linear gradient vector start point \Hypertarget{structlv__grad__dsc__t_ad6a22bc14111d16e538a1c8eb29df0fd}\label{structlv__grad__dsc__t_ad6a22bc14111d16e538a1c8eb29df0fd} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!start\_angle@{start\_angle}}
+\index{start\_angle@{start\_angle}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{start\_angle}{start\_angle}}
+{\footnotesize\ttfamily int16\+\_\+t lv\+\_\+grad\+\_\+dsc\+\_\+t\+::start\+\_\+angle}
+
+Start angle 0..3600 \Hypertarget{structlv__grad__dsc__t_a8dc151f415f81b480c2271a61bc16c47}\label{structlv__grad__dsc__t_a8dc151f415f81b480c2271a61bc16c47} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!stops@{stops}}
+\index{stops@{stops}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{stops}{stops}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__grad__stop__t}{lv\+\_\+grad\+\_\+stop\+\_\+t}} lv\+\_\+grad\+\_\+dsc\+\_\+t\+::stops\mbox{[}\mbox{\hyperlink{lv__conf__cmsis_8h_a88ff980a9ad6b9613a5034d073f7dee3}{LV\+\_\+\+GRADIENT\+\_\+\+MAX\+\_\+\+STOPS}}\mbox{]}}
+
+A gradient stop array \Hypertarget{structlv__grad__dsc__t_a9bc6aa40e9b42a10389d99877cdb65ac}\label{structlv__grad__dsc__t_a9bc6aa40e9b42a10389d99877cdb65ac} 
+\index{lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}!stops\_count@{stops\_count}}
+\index{stops\_count@{stops\_count}!lv\_grad\_dsc\_t@{lv\_grad\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{stops\_count}{stops\_count}}
+{\footnotesize\ttfamily uint8\+\_\+t lv\+\_\+grad\+\_\+dsc\+\_\+t\+::stops\+\_\+count}
+
+The number of used stops in the array 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/\mbox{\hyperlink{lv__grad_8h}{lv\+\_\+grad.\+h}}\end{DoxyCompactItemize}

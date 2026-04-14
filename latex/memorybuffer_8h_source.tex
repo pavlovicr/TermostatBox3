@@ -1,0 +1,63 @@
+\doxysection{memorybuffer.\+h}
+\hypertarget{memorybuffer_8h_source}{}\label{memorybuffer_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/thorvg/rapidjson/memorybuffer.h@{managed\_components/lvgl\_\_lvgl/src/libs/thorvg/rapidjson/memorybuffer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Tencent\ is\ pleased\ to\ support\ the\ open\ source\ community\ by\ making\ RapidJSON\ available.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ Copyright\ (C)\ 2015\ THL\ A29\ Limited,\ a\ Tencent\ company,\ and\ Milo\ Yip.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ License\ (the\ "{}License"{});\ you\ may\ not\ use\ this\ file\ except}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ in\ compliance\ with\ the\ License.\ You\ may\ obtain\ a\ copy\ of\ the\ License\ at}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ http://opensource.org/licenses/MIT}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ Unless\ required\ by\ applicable\ law\ or\ agreed\ to\ in\ writing,\ software\ distributed}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ under\ the\ License\ is\ distributed\ on\ an\ "{}AS\ IS"{}\ BASIS,\ WITHOUT\ WARRANTIES\ OR}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ CONDITIONS\ OF\ ANY\ KIND,\ either\ express\ or\ implied.\ See\ the\ License\ for\ the}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ specific\ language\ governing\ permissions\ and\ limitations\ under\ the\ License.}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifndef\ RAPIDJSON\_MEMORYBUFFER\_H\_}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ RAPIDJSON\_MEMORYBUFFER\_H\_}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}stream.h"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}internal/stack.h"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gad3806c8251fdc7da9618b7e922674ffc}{RAPIDJSON\_NAMESPACE\_BEGIN}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ Allocator\ =\ CrtAllocator>}
+\DoxyCodeLine{00037\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structGenericMemoryBuffer}{GenericMemoryBuffer}}\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{char}\ Ch;\ \textcolor{comment}{//\ byte}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{structGenericMemoryBuffer}{GenericMemoryBuffer}}(\mbox{\hyperlink{classrapidjson_1_1Allocator}{Allocator}}*\ allocator\ =\ 0,\ \textcolor{keywordtype}{size\_t}\ capacity\ =\ kDefaultCapacity)\ :\ stack\_(allocator,\ capacity)\ \{\}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ Put(Ch\ c)\ \{\ *stack\_.template\ Push<Ch>()\ =\ c;\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ Flush()\ \{\}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ Clear()\ \{\ stack\_.Clear();\ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ ShrinkToFit()\ \{\ stack\_.ShrinkToFit();\ \}}
+\DoxyCodeLine{00047\ \ \ \ \ Ch*\ Push(\textcolor{keywordtype}{size\_t}\ count)\ \{\ \textcolor{keywordflow}{return}\ stack\_.template\ Push<Ch>(count);\ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ Pop(\textcolor{keywordtype}{size\_t}\ count)\ \{\ stack\_.template\ Pop<Ch>(count);\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{const}\ Ch*\ GetBuffer()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ stack\_.template\ Bottom<Ch>();}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ GetSize()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ stack\_.GetSize();\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ kDefaultCapacity\ =\ 256;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classinternal_1_1Stack}{internal::Stack<Allocator>}}\ stack\_;}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structGenericMemoryBuffer}{GenericMemoryBuffer<>}}\ \mbox{\hyperlink{structGenericMemoryBuffer}{MemoryBuffer}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{template}<>}
+\DoxyCodeLine{00064\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ PutN(\mbox{\hyperlink{structGenericMemoryBuffer}{MemoryBuffer}}\&\ memoryBuffer,\ \textcolor{keywordtype}{char}\ c,\ \textcolor{keywordtype}{size\_t}\ n)\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ std::memset(memoryBuffer.stack\_.Push<\textcolor{keywordtype}{char}>(n),\ c,\ n\ *\ \textcolor{keyword}{sizeof}(c));}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \mbox{\hyperlink{group__RAPIDJSON__CONFIG_gaf18f052a98b9f5df5448d39484b743c1}{RAPIDJSON\_NAMESPACE\_END}}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ RAPIDJSON\_MEMORYBUFFER\_H\_}}
+
+\end{DoxyCode}

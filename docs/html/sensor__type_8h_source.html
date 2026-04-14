@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/espressif__sensor_hub/include/sensor_type.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_fbfe55d555334583eb77a653efdd9f0f.html">espressif__sensor_hub</a></li><li class="navelem"><a class="el" href="dir_0540f63c4966c7ccb2f41dcebf5bb901.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">sensor_type.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * SPDX-FileCopyrightText: 2023-2024 Espressif Systems (Shanghai) CO LTD</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef _IOT_SENSOR_TYPE_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define _IOT_SENSOR_TYPE_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;esp_err.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *sensor_device_impl_t;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define SENSOR_EVENT_ANY_ID ESP_EVENT_ANY_ID </span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *sensor_driver_handle_t;        </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *bus_handle_t;                  </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define SENSOR_DATA_GROUP_MAX_NUM 6          </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#ifndef AXIS3_T</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">typedef</span> <span class="keyword">union </span>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">float</span> x; </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">float</span> y; </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keywordtype">float</span> z; </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    };</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">float</span> axis[3];</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>} axis3_t;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define AXIS3_T axis3_t</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#ifndef RGBW_T</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">float</span> r; </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">float</span> g; </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">float</span> b; </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">float</span> w; </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>} rgbw_t;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define RGBW_T rgbw_t</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#ifndef UV_T</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">float</span> uv;  </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">float</span> uva; </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">float</span> uvb; </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>} uv_t;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#define UV_T uv_t</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    NULL_ID,         </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    HUMITURE_ID,     </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    IMU_ID,          </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    LIGHT_SENSOR_ID, </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    SENSOR_TYPE_MAX, </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>} sensor_type_t;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    COMMAND_SET_MODE,  </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    COMMAND_SET_RANGE, </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    COMMAND_SET_ODR,   </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    COMMAND_SET_POWER, </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    COMMAND_SELF_TEST, </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    COMMAND_MAX        </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>} sensor_command_t;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    POWER_MODE_WAKEUP, </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    POWER_MODE_SLEEP,  </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    POWER_MAX          </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>} sensor_power_mode_t;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    MODE_DEFAULT,   </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    MODE_POLLING,   </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    MODE_INTERRUPT, </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    MODE_MAX,       </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>} sensor_mode_t;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    RANGE_DEFAULT, </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    RANGE_MIN,     </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    RANGE_MEDIUM,  </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    RANGE_MAX,     </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>} sensor_range_t;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    SENSOR_STARTED,              </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    SENSOR_STOPED,               </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    SENSOR_EVENT_COMMON_END = 9, </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>} sensor_event_id_t;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    SENSOR_ACCE_DATA_READY = 10,    </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    SENSOR_GYRO_DATA_READY,         </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    SENSOR_MAG_DATA_READY,          </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    SENSOR_TEMP_DATA_READY,         </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    SENSOR_HUMI_DATA_READY,         </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    SENSOR_BARO_DATA_READY,         </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    SENSOR_LIGHT_DATA_READY,        </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    SENSOR_RGBW_DATA_READY,         </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    SENSOR_UV_DATA_READY,           </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    SENSOR_PROXI_DATA_READY,        </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    SENSOR_HR_DATA_READY,           </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    SENSOR_TVOC_DATA_READY,         </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    SENSOR_NOISE_DATA_READY,        </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    SENSOR_STEP_DATA_READY,         </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    SENSOR_FORCE_DATA_READY,        </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    SENSOR_CURRENT_DATA_READY,      </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    SENSOR_VOLTAGE_DATA_READY,      </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    SENSOR_EVENT_ID_END,            </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>} sensor_data_event_id_t;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#ae492014b595577abd06f774b463374bd">  161</a></span>    int64_t                  <a class="code hl_variable" href="structsensor__data__t.html#ae492014b595577abd06f774b463374bd">timestamp</a>;       </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a25507b4fad43144e8979ac5e7ebd43fb">  162</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>*              <a class="code hl_variable" href="structsensor__data__t.html#a25507b4fad43144e8979ac5e7ebd43fb">sensor_name</a>;     </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#acae6c43187fda2418fec341c8f71d42d">  163</a></span>    sensor_type_t            <a class="code hl_variable" href="structsensor__data__t.html#acae6c43187fda2418fec341c8f71d42d">sensor_type</a>;     </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#af13031c7f2c630ff9e81f82e20cee2dd">  164</a></span>    uint8_t                  <a class="code hl_variable" href="structsensor__data__t.html#af13031c7f2c630ff9e81f82e20cee2dd">sensor_addr</a>;     </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a43cda84d09384696247f3ec624ed1242">  165</a></span>    int32_t                  <a class="code hl_variable" href="structsensor__data__t.html#a43cda84d09384696247f3ec624ed1242">event_id</a>;        </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a94bcbb782162668f27a49bab2b26cd68">  166</a></span>    uint32_t                 <a class="code hl_variable" href="structsensor__data__t.html#a94bcbb782162668f27a49bab2b26cd68">min_delay</a>;       </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keyword">union </span>{</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a1662e1f0165631236a3782400874027d">  168</a></span>        axis3_t              <a class="code hl_variable" href="structsensor__data__t.html#a1662e1f0165631236a3782400874027d">acce</a>;            </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a746c90a793fbd6dd64f533fc447b0cb2">  169</a></span>        axis3_t              <a class="code hl_variable" href="structsensor__data__t.html#a746c90a793fbd6dd64f533fc447b0cb2">gyro</a>;            </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a4433f6abf5523e08cc5a40f32ca7092d">  170</a></span>        axis3_t              <a class="code hl_variable" href="structsensor__data__t.html#a4433f6abf5523e08cc5a40f32ca7092d">mag</a>;             </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordtype">float</span>                temperature;     </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keywordtype">float</span>                humidity;        </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a398722443380df66c45f074b10313a5b">  173</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a398722443380df66c45f074b10313a5b">baro</a>;            </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a67559d4a59264e7538fc0bce88c82206">  174</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a67559d4a59264e7538fc0bce88c82206">light</a>;           </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a3783fb4791adcd1e77fd9ec3df5787da">  175</a></span>        rgbw_t               <a class="code hl_variable" href="structsensor__data__t.html#a3783fb4791adcd1e77fd9ec3df5787da">rgbw</a>;            </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#aff461c1ec7808c53337eb9d1dd7033ff">  176</a></span>        uv_t                 <a class="code hl_variable" href="structsensor__data__t.html#aff461c1ec7808c53337eb9d1dd7033ff">uv</a>;              </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a7202401394902e3b698011dfd4b293e9">  177</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a7202401394902e3b698011dfd4b293e9">proximity</a>;       </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a299246363ce39c89aa8cacd5ac5fa94d">  178</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a299246363ce39c89aa8cacd5ac5fa94d">hr</a>;              </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a293e4b93569495f9d6af99232b0f06fe">  179</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a293e4b93569495f9d6af99232b0f06fe">tvoc</a>;            </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a1f4e2f9c4ca2d18e3828c734e8d3850e">  180</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a1f4e2f9c4ca2d18e3828c734e8d3850e">noise</a>;           </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a302e4d35647c996171f17f1403c8ed06">  181</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a302e4d35647c996171f17f1403c8ed06">step</a>;            </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a015faf1b28a33c56ec046678b13dfd00">  182</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a015faf1b28a33c56ec046678b13dfd00">force</a>;           </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a983037f06b7ed6a410f3ebbdfd979b7e">  183</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#a983037f06b7ed6a410f3ebbdfd979b7e">current</a>;         </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#aac6efdb0976be507901dc5a9fb117a15">  184</a></span>        <span class="keywordtype">float</span>                <a class="code hl_variable" href="structsensor__data__t.html#aac6efdb0976be507901dc5a9fb117a15">voltage</a>;         </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="structsensor__data__t.html#a95e8e9d9553ca796a97282e8e0295b9b">  185</a></span>        <span class="keywordtype">float</span>                data[4];         </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    };</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>} <a class="code hl_struct" href="structsensor__data__t.html">sensor_data_t</a>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="foldopen" id="foldopen00193" data-start="{" data-end="};">
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="structsensor__data__group__t.html">  193</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="structsensor__data__group__t.html#ab6203898fa3a64f06cd254010249e00b">  194</a></span>    uint8_t <a class="code hl_variable" href="structsensor__data__group__t.html#ab6203898fa3a64f06cd254010249e00b">number</a>;                                       </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="structsensor__data__group__t.html#a68eabfd8f2a593eb961a6f0e3fc87a10">  195</a></span>    <a class="code hl_struct" href="structsensor__data__t.html">sensor_data_t</a> sensor_data[SENSOR_DATA_GROUP_MAX_NUM]; </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>} <a class="code hl_struct" href="structsensor__data__group__t.html">sensor_data_group_t</a>;</div>
+</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    sensor_type_t type;                                                                    </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    sensor_driver_handle_t (*create)(bus_handle_t, <span class="keyword">const</span> <span class="keywordtype">char</span> *sensor_name, uint8_t addr); </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    esp_err_t (*remove)(sensor_driver_handle_t *);                                         </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    esp_err_t (*acquire)(sensor_driver_handle_t, <a class="code hl_struct" href="structsensor__data__group__t.html">sensor_data_group_t</a> *);                   </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    esp_err_t (*control)(sensor_driver_handle_t, sensor_command_t cmd, <span class="keywordtype">void</span> *args);        </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>} iot_sensor_impl_t;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructsensor__data__group__t_html"><div class="ttname"><a href="structsensor__data__group__t.html">sensor_data_group_t</a></div><div class="ttdoc">sensor data group type</div><div class="ttdef"><b>Definition</b> sensor_type.h:193</div></div>
+<div class="ttc" id="astructsensor__data__group__t_html_ab6203898fa3a64f06cd254010249e00b"><div class="ttname"><a href="structsensor__data__group__t.html#ab6203898fa3a64f06cd254010249e00b">sensor_data_group_t::number</a></div><div class="ttdeci">uint8_t number</div><div class="ttdef"><b>Definition</b> sensor_type.h:194</div></div>
+<div class="ttc" id="astructsensor__data__t_html"><div class="ttname"><a href="structsensor__data__t.html">sensor_data_t</a></div><div class="ttdoc">AHT21 sensor data structure.</div><div class="ttdef"><b>Definition</b> sensor_manager.h:11</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a015faf1b28a33c56ec046678b13dfd00"><div class="ttname"><a href="structsensor__data__t.html#a015faf1b28a33c56ec046678b13dfd00">sensor_data_t::force</a></div><div class="ttdeci">float force</div><div class="ttdef"><b>Definition</b> sensor_type.h:182</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a1662e1f0165631236a3782400874027d"><div class="ttname"><a href="structsensor__data__t.html#a1662e1f0165631236a3782400874027d">sensor_data_t::acce</a></div><div class="ttdeci">axis3_t acce</div><div class="ttdef"><b>Definition</b> sensor_type.h:168</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a1f4e2f9c4ca2d18e3828c734e8d3850e"><div class="ttname"><a href="structsensor__data__t.html#a1f4e2f9c4ca2d18e3828c734e8d3850e">sensor_data_t::noise</a></div><div class="ttdeci">float noise</div><div class="ttdef"><b>Definition</b> sensor_type.h:180</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a25507b4fad43144e8979ac5e7ebd43fb"><div class="ttname"><a href="structsensor__data__t.html#a25507b4fad43144e8979ac5e7ebd43fb">sensor_data_t::sensor_name</a></div><div class="ttdeci">const char * sensor_name</div><div class="ttdef"><b>Definition</b> sensor_type.h:162</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a293e4b93569495f9d6af99232b0f06fe"><div class="ttname"><a href="structsensor__data__t.html#a293e4b93569495f9d6af99232b0f06fe">sensor_data_t::tvoc</a></div><div class="ttdeci">float tvoc</div><div class="ttdef"><b>Definition</b> sensor_type.h:179</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a299246363ce39c89aa8cacd5ac5fa94d"><div class="ttname"><a href="structsensor__data__t.html#a299246363ce39c89aa8cacd5ac5fa94d">sensor_data_t::hr</a></div><div class="ttdeci">float hr</div><div class="ttdef"><b>Definition</b> sensor_type.h:178</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a302e4d35647c996171f17f1403c8ed06"><div class="ttname"><a href="structsensor__data__t.html#a302e4d35647c996171f17f1403c8ed06">sensor_data_t::step</a></div><div class="ttdeci">float step</div><div class="ttdef"><b>Definition</b> sensor_type.h:181</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a3783fb4791adcd1e77fd9ec3df5787da"><div class="ttname"><a href="structsensor__data__t.html#a3783fb4791adcd1e77fd9ec3df5787da">sensor_data_t::rgbw</a></div><div class="ttdeci">rgbw_t rgbw</div><div class="ttdef"><b>Definition</b> sensor_type.h:175</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a398722443380df66c45f074b10313a5b"><div class="ttname"><a href="structsensor__data__t.html#a398722443380df66c45f074b10313a5b">sensor_data_t::baro</a></div><div class="ttdeci">float baro</div><div class="ttdef"><b>Definition</b> sensor_type.h:173</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a43cda84d09384696247f3ec624ed1242"><div class="ttname"><a href="structsensor__data__t.html#a43cda84d09384696247f3ec624ed1242">sensor_data_t::event_id</a></div><div class="ttdeci">int32_t event_id</div><div class="ttdef"><b>Definition</b> sensor_type.h:165</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a4433f6abf5523e08cc5a40f32ca7092d"><div class="ttname"><a href="structsensor__data__t.html#a4433f6abf5523e08cc5a40f32ca7092d">sensor_data_t::mag</a></div><div class="ttdeci">axis3_t mag</div><div class="ttdef"><b>Definition</b> sensor_type.h:170</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a67559d4a59264e7538fc0bce88c82206"><div class="ttname"><a href="structsensor__data__t.html#a67559d4a59264e7538fc0bce88c82206">sensor_data_t::light</a></div><div class="ttdeci">float light</div><div class="ttdef"><b>Definition</b> sensor_type.h:174</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a7202401394902e3b698011dfd4b293e9"><div class="ttname"><a href="structsensor__data__t.html#a7202401394902e3b698011dfd4b293e9">sensor_data_t::proximity</a></div><div class="ttdeci">float proximity</div><div class="ttdef"><b>Definition</b> sensor_type.h:177</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a746c90a793fbd6dd64f533fc447b0cb2"><div class="ttname"><a href="structsensor__data__t.html#a746c90a793fbd6dd64f533fc447b0cb2">sensor_data_t::gyro</a></div><div class="ttdeci">axis3_t gyro</div><div class="ttdef"><b>Definition</b> sensor_type.h:169</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a94bcbb782162668f27a49bab2b26cd68"><div class="ttname"><a href="structsensor__data__t.html#a94bcbb782162668f27a49bab2b26cd68">sensor_data_t::min_delay</a></div><div class="ttdeci">uint32_t min_delay</div><div class="ttdef"><b>Definition</b> sensor_type.h:166</div></div>
+<div class="ttc" id="astructsensor__data__t_html_a983037f06b7ed6a410f3ebbdfd979b7e"><div class="ttname"><a href="structsensor__data__t.html#a983037f06b7ed6a410f3ebbdfd979b7e">sensor_data_t::current</a></div><div class="ttdeci">float current</div><div class="ttdef"><b>Definition</b> sensor_type.h:183</div></div>
+<div class="ttc" id="astructsensor__data__t_html_aac6efdb0976be507901dc5a9fb117a15"><div class="ttname"><a href="structsensor__data__t.html#aac6efdb0976be507901dc5a9fb117a15">sensor_data_t::voltage</a></div><div class="ttdeci">float voltage</div><div class="ttdef"><b>Definition</b> sensor_type.h:184</div></div>
+<div class="ttc" id="astructsensor__data__t_html_acae6c43187fda2418fec341c8f71d42d"><div class="ttname"><a href="structsensor__data__t.html#acae6c43187fda2418fec341c8f71d42d">sensor_data_t::sensor_type</a></div><div class="ttdeci">sensor_type_t sensor_type</div><div class="ttdef"><b>Definition</b> sensor_type.h:163</div></div>
+<div class="ttc" id="astructsensor__data__t_html_ae492014b595577abd06f774b463374bd"><div class="ttname"><a href="structsensor__data__t.html#ae492014b595577abd06f774b463374bd">sensor_data_t::timestamp</a></div><div class="ttdeci">int64_t timestamp</div><div class="ttdef"><b>Definition</b> sensor_type.h:161</div></div>
+<div class="ttc" id="astructsensor__data__t_html_af13031c7f2c630ff9e81f82e20cee2dd"><div class="ttname"><a href="structsensor__data__t.html#af13031c7f2c630ff9e81f82e20cee2dd">sensor_data_t::sensor_addr</a></div><div class="ttdeci">uint8_t sensor_addr</div><div class="ttdef"><b>Definition</b> sensor_type.h:164</div></div>
+<div class="ttc" id="astructsensor__data__t_html_aff461c1ec7808c53337eb9d1dd7033ff"><div class="ttname"><a href="structsensor__data__t.html#aff461c1ec7808c53337eb9d1dd7033ff">sensor_data_t::uv</a></div><div class="ttdeci">uv_t uv</div><div class="ttdef"><b>Definition</b> sensor_type.h:176</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

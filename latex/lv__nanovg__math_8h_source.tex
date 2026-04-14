@@ -1,0 +1,88 @@
+\doxysection{lv\+\_\+nanovg\+\_\+math.\+h}
+\hypertarget{lv__nanovg__math_8h_source}{}\label{lv__nanovg__math_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/draw/nanovg/lv\_nanovg\_math.h@{managed\_components/lvgl\_\_lvgl/src/draw/nanovg/lv\_nanovg\_math.h}}
+\mbox{\hyperlink{lv__nanovg__math_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_NANOVG\_MATH\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_NANOVG\_MATH\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_NANOVG}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <float.h>}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_PI\ \ 3.14159265358979323846f}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_HALF\_PI\ 1.57079632679489661923f}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_TWO\_PI\ 6.28318530717958647692f}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ NVG\_DEG\_TO\_RAD\ 0.017453292519943295769236907684886f}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ NVG\_RAD\_TO\_DEG\ 57.295779513082320876798154814105f}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_TANF(x)\ tanf(x)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_SINF(x)\ sinf(x)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_COSF(x)\ cosf(x)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_ASINF(x)\ asinf(x)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_ACOSF(x)\ acosf(x)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_FABSF(x)\ fabsf(x)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_SQRTF(x)\ sqrtf(x)}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_RADIANS(deg)\ ((deg)\ *\ NVG\_DEG\_TO\_RAD)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ NVG\_MATH\_DEGREES(rad)\ ((rad)\ *\ NVG\_RAD\_TO\_DEG)}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ nvg\_math\_is\_zero(\textcolor{keywordtype}{float}\ a)}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ (NVG\_MATH\_FABSF(a)\ <\ FLT\_EPSILON);}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ nvg\_math\_is\_equal(\textcolor{keywordtype}{float}\ a,\ \textcolor{keywordtype}{float}\ b)}
+\DoxyCodeLine{00071\ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ nvg\_math\_is\_zero(a\ -\/\ b);}
+\DoxyCodeLine{00073\ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ nvg\_math\_inv\_sqrtf(\textcolor{keywordtype}{float}\ number)}
+\DoxyCodeLine{00081\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{/*\ From\ https://en.wikipedia.org/wiki/Fast\_inverse\_square\_root\#Avoiding\_undefined\_behavior\ */}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ f;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ int32\_t\ i;}
+\DoxyCodeLine{00086\ \ \ \ \ \}\ conv\ =\ \{\ .f\ =\ number\ \};}
+\DoxyCodeLine{00087\ \ \ \ \ conv.i\ \ =\ 0x5f3759df\ -\/\ (conv.i\ >>\ 1);}
+\DoxyCodeLine{00088\ \ \ \ \ conv.f\ *=\ 1.5F\ -\/\ (number\ *\ 0.5F\ *\ conv.f\ *\ conv.f);}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{return}\ conv.f;}
+\DoxyCodeLine{00090\ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_DRAW\_NANOVG*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00099\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_NANOVG\_MATH\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

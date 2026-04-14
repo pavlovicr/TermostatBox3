@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: How to Create CMSIS-Pack</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">How to Create CMSIS-Pack</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md549"></a></p>
+<h1><a class="anchor" id="autotoc_md550"></a>
+STEP 1 Update 'lv_conf_cmsis.h'</h1>
+<ol type="1">
+<li>Copy the <b><a class="el" href="lv__conf__template_8h_source.html">lv_conf_template.h</a></b> to '<b>cmsis-pack</b>' directory</li>
+<li>Set the macro protector to '1'</li>
+</ol>
+<div class="fragment"><div class="line">...</div>
+<div class="line"><span class="comment">/* clang-format off */</span></div>
+<div class="line">#<span class="keywordflow">if</span> 1 <span class="comment">/*Set it to &quot;1&quot; to enable content*/</span></div>
+<div class="line">...</div>
+</div><!-- fragment --><p>remove the misleading guide above this code segment.</p>
+<div class="fragment"><div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * Copy this file as `lv_conf.h`</span></div>
+<div class="line"><span class="comment"> * 1. simply next to the `lvgl` folder</span></div>
+<div class="line"><span class="comment"> * 2. or any other places and</span></div>
+<div class="line"><span class="comment"> *    - define `LV_CONF_INCLUDE_SIMPLE`</span></div>
+<div class="line"><span class="comment"> *    - add the path as include path</span></div>
+<div class="line"><span class="comment"> */</span></div>
+</div><!-- fragment --><ol type="1">
+<li>Add including for '<b>RTE_Components.h</b>'</li>
+</ol>
+<div class="fragment"><div class="line"><span class="preprocessor">#ifndef LV_CONF_CMSIS_H</span></div>
+<div class="line"><span class="preprocessor">#define LV_CONF_CMSIS_H</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined(_RTE_)</span></div>
+<div class="line"><span class="preprocessor">#include &quot;RTE_Components.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line">...</div>
+</div><!-- fragment --><ol type="1">
+<li>Remove macro definitions for<ul>
+<li>LV_USE_IME_PINYIN</li>
+<li>LV_USE_OS</li>
+<li>LV_USE_FILE_EXPLORER</li>
+<li>LV_USE_DEMO_WIDGETS</li>
+<li>LV_USE_DEMO_KEYPAD_AND_ENCODER</li>
+<li>LV_USE_DEMO_BENCHMARK</li>
+<li>LV_USE_DEMO_RENDER</li>
+<li>LV_USE_DEMO_STRESS</li>
+<li>LV_USE_DEMO_MUSIC</li>
+<li>LV_USE_DEMO_FLEX_LAYOUT</li>
+<li>LV_USE_DEMO_MULTILANG</li>
+<li>LV_USE_DEMO_VECTOR_GRAPHIC</li>
+<li>LV_USE_DEMO_EBIKE</li>
+<li>LV_USE_DEMO_HIGH_RES</li>
+<li>LV_USE_DEMO_SMARTWATCH</li>
+<li>LV_USE_DEMO_GLTF</li>
+<li>LV_USE_DRAW_VG_LITE</li>
+<li>LV_USE_PXP</li>
+<li>LV_USE_FS_FROGFS</li>
+<li>LV_USE_GLTF</li>
+<li>LV_USE_GSTREAMER</li>
+<li>LV_USE_VG_LITE_DRIVER</li>
+<li>LV_USE_LOVYAN_GFX</li>
+<li>LV_USE_G2D</li>
+<li>LV_USE_DRAW_SDL</li>
+<li>LV_USE_DRAW_ARM2D_SYNC</li>
+<li>LV_USE_DRAW_ARM2D_ASYNC</li>
+<li>LV_USE_DRAW_DAVE2D</li>
+<li>LV_USE_DRAW_DMA2D</li>
+<li>LV_USE_DRAW_EVE</li>
+<li>LV_USE_DRAW_NANOVG</li>
+<li>LV_USE_NANOVG</li>
+<li>LV_USE_PPA</li>
+<li>LV_USE_NV3007</li>
+<li>LV_USE_NXP_ELCDIF</li>
+<li>LV_USE_TRANSLATION</li>
+<li>LV_USE_SNAPSHOT</li>
+<li>LV_USE_MONKEY</li>
+<li>LV_USE_GRIDNAV</li>
+<li>LV_USE_FRAGMENT</li>
+<li>LV_USE_IMGFONT</li>
+<li>LV_USE_LINUX_DRM</li>
+<li>LV_USE_LINUX_FBDEV</li>
+<li>LV_USE_WINDOWS</li>
+<li>LV_USE_TFT_ESPI</li>
+<li>LV_USE_ST7735</li>
+<li>LV_USE_ST7789</li>
+<li>LV_USE_ST7796</li>
+<li>LV_USE_ST_LTDC</li>
+<li>LV_USE_FT81X</li>
+<li>LV_USE_ILI9341</li>
+<li>LV_USE_RENESAS_GLCDC</li>
+<li>LV_USE_NEMA_GFX</li>
+<li>LV_USE_SVG</li>
+</ul>
+</li>
+<li>Update <code>LV_LOG_PRINTF</code> to <code>1</code> and <code>LV_LOG_LEVEL</code> to <code>LV_LOG_LEVEL_USER</code></li>
+<li>Set <code>LV_FONT_MONTSERRAT_12</code>, <code>LV_FONT_MONTSERRAT_20</code>, <code>LV_FONT_MONTSERRAT_24</code>, <code>LV_FONT_MONTSERRAT_26</code> and <code>LV_FONT_MONTSERRAT_16</code> to <code>1</code> (So Widgets and Benchmark can be compiled correctly, this is for improving the out of box experience.)</li>
+<li>Update macro <code>LV_ATTRIBUTE_MEM_ALIGN</code> and <code>LV_ATTRIBUTE_MEM_ALIGN_SIZE</code> to force a WORD alignment. <div class="fragment"><div class="line"><span class="preprocessor">#define LV_ATTRIBUTE_MEM_ALIGN_SIZE     1</span></div>
+<div class="line"><span class="preprocessor">#define LV_DRAW_BUF_STRIDE_ALIGN        4</span></div>
+<div class="line"><span class="preprocessor">#define LV_ATTRIBUTE_MEM_ALIGN          __attribute__((aligned(4)))</span></div>
+</div><!-- fragment --> Make sure <code>LV_MEM_SIZE</code> is no less than <code>(128*1024U)</code>.</li>
+<li>Remove following macro definitions in the <code>3rd party libraries</code> section:<ul>
+<li>#define LV_USE_FS_STDIO 0</li>
+<li>#define LV_USE_FS_POSIX 0</li>
+<li>#define LV_USE_FS_WIN32 0</li>
+<li>#define LV_USE_FS_FATFS 0</li>
+<li>#define LV_USE_FS_LITTLEFS 0</li>
+<li>#define LV_USE_FS_ARDUINO_ESP_LITTLEFS 0</li>
+<li>#define LV_USE_FS_ARDUINO_SD 0</li>
+<li>#define LV_USE_FS_MEMFS 0</li>
+<li>#define LV_USE_LODEPNG 0</li>
+<li>#define LV_USE_LIBPNG 0</li>
+<li>#define LV_USE_BMP 0</li>
+<li>#define LV_USE_RLE 0</li>
+<li>#define LV_USE_TJPGD 0</li>
+<li>#define LV_USE_LIBJPEG_TURBO 0</li>
+<li>#define LV_USE_LIBWEBP 0</li>
+<li>#define LV_USE_GIF 0</li>
+<li>#define LV_USE_BARCODE 0</li>
+<li>#define LV_USE_QRCODE 0</li>
+<li>#define LV_USE_FREETYPE 0</li>
+<li>#define LV_USE_TINY_TTF 0</li>
+<li>#define LV_USE_RLOTTIE 0</li>
+<li>#define LV_USE_FFMPEG 0</li>
+<li>#define LV_USE_FONT_MANAGER 0</li>
+</ul>
+</li>
+<li><p class="startli">update the definition of following macros: <code>LV_USE_VECTOR_GRAPHIC</code>, <code>LV_USE_THORVG_INTERNAL</code> and <code>LV_USE_THORVG_EXTERNAL</code> as</p>
+<div class="fragment"><div class="line"><span class="comment">/*Enable Vector Graphic APIs*/</span></div>
+<div class="line"><span class="preprocessor">#ifndef LV_USE_VECTOR_GRAPHIC</span></div>
+<div class="line"><span class="preprocessor">#   define LV_USE_VECTOR_GRAPHIC  0</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* Enable ThorVG (vector graphics library) from the src/libs folder */</span></div>
+<div class="line"><span class="preprocessor">#   define LV_USE_THORVG_INTERNAL 0</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* Enable ThorVG by assuming that its installed and linked to the project */</span></div>
+<div class="line"><span class="preprocessor">#   define LV_USE_THORVG_EXTERNAL 0</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></li>
+<li><p class="startli">update the definition of following macros: <code>LV_USE_LZ4</code>, <code>LV_USE_LZ4_INTERNAL</code> and <code>LV_USE_LZ4_EXTERNAL</code> as</p>
+<p class="startli">```c /*Enable LZ4 compress/decompress lib*/ #ifndef LV_USE_LZ4 </p>
+</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md551"></a>
+define LV_USE_LZ4  0</h1>
+<p>/*Use lvgl built-in LZ4 lib*/ </p>
+<h1><a class="anchor" id="autotoc_md552"></a>
+define LV_USE_LZ4_INTERNAL  0</h1>
+<p>/*Use external LZ4 library*/ </p>
+<h1><a class="anchor" id="autotoc_md553"></a>
+define LV_USE_LZ4_EXTERNAL  0</h1>
+<p>#endif ```</p>
+<ol type="1">
+<li>Add the following code to <code>HAL SETTINGS</code>:</li>
+</ol>
+<div class="fragment"><div class="line"><span class="comment">/*customize tick-get */</span></div>
+<div class="line"><span class="preprocessor">#if defined(__PERF_COUNTER__) &amp;&amp; __PERF_COUNTER__</span></div>
+<div class="line"><span class="preprocessor">    #define LV_GLOBAL_INIT(__GLOBAL_PTR)                                    \</span></div>
+<div class="line"><span class="preprocessor">            do {                                                            \</span></div>
+<div class="line"><span class="preprocessor">                lv_global_init((lv_global_t *)(__GLOBAL_PTR));              \</span></div>
+<div class="line"><span class="preprocessor">                extern uint32_t perfc_tick_get(void);                       \</span></div>
+<div class="line"><span class="preprocessor">                (__GLOBAL_PTR)-&gt;tick_state.tick_get_cb = perfc_tick_get;    \</span></div>
+<div class="line"><span class="preprocessor">            } while(0)</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --><ol type="1">
+<li>Replace the macro definition:</li>
+</ol>
+<div class="fragment"><div class="line"><span class="preprocessor">#define  LV_USE_DRAW_SW_ASM     LV_DRAW_SW_ASM_NONE</span></div>
+</div><!-- fragment --><p>with:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#if !defined(LV_USE_DRAW_SW_ASM) &amp;&amp; defined(RTE_Acceleration_Arm_2D)</span></div>
+<div class="line">    <span class="comment">/*turn-on helium acceleration when Arm-2D and the Helium-powered device are detected */</span></div>
+<div class="line"><span class="preprocessor">    #if defined(__ARM_FEATURE_MVE) &amp;&amp; __ARM_FEATURE_MVE</span></div>
+<div class="line"><span class="preprocessor">        #define LV_USE_DRAW_SW_ASM  LV_DRAW_SW_ASM_HELIUM</span></div>
+<div class="line"><span class="preprocessor">        #define LV_USE_DRAW_ARM2D_SYNC   1</span></div>
+<div class="line"><span class="preprocessor">    #endif</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifndef LV_USE_DRAW_SW_ASM</span></div>
+<div class="line"><span class="preprocessor">    #define  LV_USE_DRAW_SW_ASM     LV_DRAW_SW_ASM_NONE</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --><ol type="1">
+<li>Update macro <code>LV_PROFILER_INCLUDE</code>:</li>
+</ol>
+<div class="fragment"><div class="line"><span class="preprocessor">#define LV_PROFILER_INCLUDE &quot;src/misc/lv_profiler_builtin.h&quot;</span></div>
+</div><!-- fragment --><ol type="1">
+<li>Add the following macro definition to <b>COLOR SETTINGS</b> section:</li>
+</ol>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#define LV_COLOR_16_SWAP 0</span></div>
+</div><!-- fragment --><ol type="1">
+<li>rename '<b><a class="el" href="lv__conf__template_8h_source.html">lv_conf_template.h</a></b>' to '<b><a class="el" href="lv__conf__cmsis_8h.html">lv_conf_cmsis.h</a></b>'.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md554"></a>
+STEP 2 Check, Update and Run the 'gen_pack.sh'</h2>
+<div class="fragment"><div class="line">if [ `uname -s` = &quot;Linux&quot; ]</div>
+<div class="line">  then</div>
+<div class="line">  CMSIS_PACK_PATH=&quot;/home/$USER/.arm/Packs/ARM/CMSIS/5.7.0/&quot;</div>
+<div class="line">  PATH_TO_ADD=&quot;$CMSIS_PACK_PATH/CMSIS/Utilities/Linux64/&quot;</div>
+<div class="line">else</div>
+<div class="line">  CMSIS_PACK_PATH=&quot;/C/Users/$USER/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0&quot;</div>
+<div class="line">  PATH_TO_ADD=&quot;/C/Program Files (x86)/7-Zip/:$CMSIS_PACK_PATH/CMSIS/Utilities/Win32/:/C/xmllint/&quot;</div>
+<div class="line">fi</div>
+<div class="line">[[ &quot;:$PATH:&quot; != *&quot;:$PATH_TO_ADD}:&quot;* ]] &amp;&amp; PATH=&quot;${PATH}:${PATH_TO_ADD}&quot;</div>
+<div class="line">echo $PATH_TO_ADD appended to PATH</div>
+<div class="line">echo &quot; &quot;</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md555"></a>
+A. For Windows users</h3>
+<p>Update the '<b>CMSIS_PACK_PATH</b>' accordingly (Usually just replace the name gabriel with your own windows account name is sufficient.).</p>
+<p>Update the '<b>PATH_TO_ADD</b>' to point to the installation folders of <b>7Zip</b> and <b>xmllint</b>.</p>
+<p>Launch the git-bash and go to the cmsis-pack folder.</p>
+<p>enter the following command:</p>
+<div class="fragment"><div class="line">./gen_pack.sh</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md556"></a>
+B. For Linux Users</h3>
+<p>Update '<b>PATH_TO_ADD</b>' if necessary.</p>
+<p>go to the <b>cmsis-pack</b> folder.</p>
+<p>enter the following command:</p>
+<div class="fragment"><div class="line">./gen_pack.sh</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/libs/nema_gfx/include/cortex_m55_m7/nema_hal.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_5563018187e2f5a07f2f363af71d283b.html">libs</a></li><li class="navelem"><a class="el" href="dir_ec3c85f27a5d16f0b801523dbc7d33d1.html">nema_gfx</a></li><li class="navelem"><a class="el" href="dir_71c2364a41826ce833bacada08fbb8d4.html">include</a></li><li class="navelem"><a class="el" href="dir_f068a87c48b7682d756249d4985120e6.html">cortex_m55_m7</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">nema_hal.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* TSI 2023.xmo */</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/*******************************************************************************</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * Copyright (c) 2023 Think Silicon Single Member PC</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Permission is hereby granted, free of charge, to any person obtaining a copy</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * of this header file and/or associated documentation files to use, copy,</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * modify, merge, publish, distribute, sublicense, and/or sell copies of the</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * Materials, and to permit persons to whom the Materials are furnished to do</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * so, subject to the following conditions:</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * The above copyright notice and this permission notice shall be included in</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * all copies or substantial portions of the Materials.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * MODIFICATIONS TO THIS FILE MAY MEAN IT NO LONGER ACCURATELY REFLECTS</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * NEMAGFX API. THE UNMODIFIED, NORMATIVE VERSIONS OF THINK-SILICON NEMAGFX</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * SPECIFICATIONS AND HEADER INFORMATION ARE LOCATED AT:</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> *   https://think-silicon.com/products/software/nemagfx-api</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *  The software is provided &#39;as is&#39;, without warranty of any kind, express or</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> *  implied, including but not limited to the warranties of merchantability,</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> *  fitness for a particular purpose and noninfringement. In no event shall</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> *  Think Silicon Single Member PC be liable for any claim, damages or other</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *  liability, whether in an action of contract, tort or otherwise, arising</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> *  from, out of or in connection with the software or the use or other dealings</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> *  in the software.</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> ******************************************************************************/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#ifndef NEMA_HAL_H__</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#define NEMA_HAL_H__</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="cortex__m55__m7_2nema__sys__defs_8h.html">nema_sys_defs.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t_</a> {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span>       <a class="code hl_variable" href="structnema__buffer__t__.html#a4f74270429e318714b5377fa5f859332">size</a>;                 </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">int</span>       <a class="code hl_variable" href="structnema__buffer__t__.html#aa0dab10f730c0d6634687414ee06808c">fd</a>;                   </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span>     *<a class="code hl_variable" href="structnema__buffer__t__.html#a051d172cf776a30d066221e398eca809">base_virt</a>;            </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    uintptr_t <a class="code hl_variable" href="structnema__buffer__t__.html#a0f135dac0268737b1646f4dc33ffb086">base_phys</a>;            </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>int32_t nema_sys_init(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">int</span> nema_wait_irq(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">int</span> nema_wait_irq_cl(<span class="keywordtype">int</span> cl_id);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">int</span> nema_wait_irq_brk(<span class="keywordtype">int</span> brk_id);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>uint32_t nema_reg_read(uint32_t reg);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> nema_reg_write(uint32_t reg, uint32_t value);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> nema_buffer_create(<span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> nema_buffer_create_pool(<span class="keywordtype">int</span> pool, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">void</span> *nema_buffer_map(<a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> *bo);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="keywordtype">void</span> nema_buffer_unmap(<a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> *bo);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keywordtype">void</span> nema_buffer_destroy(<a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> *bo);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>uintptr_t nema_buffer_phys(<a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> *bo);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keywordtype">void</span> nema_buffer_flush(<a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> * bo);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keywordtype">void</span> *nema_host_malloc(<span class="keywordtype">size_t</span> size);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="keywordtype">void</span>  nema_host_free(<span class="keywordtype">void</span> *ptr );</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword">typedef</span> <span class="keyword">struct </span>nema_ringbuffer_t_ {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_struct" href="structnema__buffer__t__.html">nema_buffer_t</a> bo;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordtype">int</span>      offset;    <span class="comment">//number of 32-bit entries</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordtype">int</span>      last_submission_id;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>} nema_ringbuffer_t;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="keywordtype">int</span> nema_rb_init(nema_ringbuffer_t *rb, <span class="keywordtype">int</span> reset);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">#define MUTEX_RB     0</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">#define MUTEX_MALLOC 1</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="preprocessor">#define MUTEX_FLUSH  2</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">#define MUTEX_MAX    2</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="keywordtype">int</span> nema_mutex_lock(<span class="keywordtype">int</span> mutex_id);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="keywordtype">int</span> nema_mutex_unlock(<span class="keywordtype">int</span> mutex_id);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>}</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="acortex__m55__m7_2nema__sys__defs_8h_html"><div class="ttname"><a href="cortex__m55__m7_2nema__sys__defs_8h.html">nema_sys_defs.h</a></div><div class="ttdoc">Header file of NemaGFX System Definitions for STM32 Platforms. This file provides definition of types...</div></div>
+<div class="ttc" id="astructnema__buffer__t___html"><div class="ttname"><a href="structnema__buffer__t__.html">nema_buffer_t_</a></div><div class="ttdef"><b>Definition</b> nema_hal.h:38</div></div>
+<div class="ttc" id="astructnema__buffer__t___html_a051d172cf776a30d066221e398eca809"><div class="ttname"><a href="structnema__buffer__t__.html#a051d172cf776a30d066221e398eca809">nema_buffer_t_::base_virt</a></div><div class="ttdeci">void * base_virt</div><div class="ttdef"><b>Definition</b> nema_hal.h:41</div></div>
+<div class="ttc" id="astructnema__buffer__t___html_a0f135dac0268737b1646f4dc33ffb086"><div class="ttname"><a href="structnema__buffer__t__.html#a0f135dac0268737b1646f4dc33ffb086">nema_buffer_t_::base_phys</a></div><div class="ttdeci">uintptr_t base_phys</div><div class="ttdef"><b>Definition</b> nema_hal.h:42</div></div>
+<div class="ttc" id="astructnema__buffer__t___html_a4f74270429e318714b5377fa5f859332"><div class="ttname"><a href="structnema__buffer__t__.html#a4f74270429e318714b5377fa5f859332">nema_buffer_t_::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition</b> nema_hal.h:39</div></div>
+<div class="ttc" id="astructnema__buffer__t___html_aa0dab10f730c0d6634687414ee06808c"><div class="ttname"><a href="structnema__buffer__t__.html#aa0dab10f730c0d6634687414ee06808c">nema_buffer_t_::fd</a></div><div class="ttdeci">int fd</div><div class="ttdef"><b>Definition</b> nema_hal.h:40</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

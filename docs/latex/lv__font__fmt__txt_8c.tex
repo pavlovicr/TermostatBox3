@@ -1,0 +1,92 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/font/fmt\+\_\+txt/lv\+\_\+font\+\_\+fmt\+\_\+txt.c}
+\hypertarget{lv__font__fmt__txt_8c}{}\label{lv__font__fmt__txt_8c}\index{managed\_components/lvgl\_\_lvgl/src/font/fmt\_txt/lv\_font\_fmt\_txt.c@{managed\_components/lvgl\_\_lvgl/src/font/fmt\_txt/lv\_font\_fmt\_txt.c}}
+{\ttfamily \#include "{}../lv\+\_\+font.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+global.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+utils.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+mem.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+font\+\_\+fmt\+\_\+txt.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+font\+\_\+fmt\+\_\+txt.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__font__fmt__txt_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structkern__pair__ref__t}{kern\+\_\+pair\+\_\+ref\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__font__fmt__txt_8c_adc9f0f192051764250223f6764f46637}{lv\+\_\+font\+\_\+get\+\_\+bitmap\+\_\+fmt\+\_\+txt}} (\mbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}g\+\_\+dsc, \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+buf)
+\item 
+bool \mbox{\hyperlink{lv__font__fmt__txt_8c_a3d3da99be985754e7ece9aec210bff97}{lv\+\_\+font\+\_\+get\+\_\+glyph\+\_\+dsc\+\_\+fmt\+\_\+txt}} (const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, \mbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc\+\_\+out, uint32\+\_\+t unicode\+\_\+letter, uint32\+\_\+t unicode\+\_\+letter\+\_\+next)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__font__class__t}{lv\+\_\+font\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__font__fmt__txt_8c_a83068b346d1dc289cab6f0638f724a89}{lv\+\_\+builtin\+\_\+font\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__font__fmt__txt_8c_adc9f0f192051764250223f6764f46637}\label{lv__font__fmt__txt_8c_adc9f0f192051764250223f6764f46637} 
+\index{lv\_font\_fmt\_txt.c@{lv\_font\_fmt\_txt.c}!lv\_font\_get\_bitmap\_fmt\_txt@{lv\_font\_get\_bitmap\_fmt\_txt}}
+\index{lv\_font\_get\_bitmap\_fmt\_txt@{lv\_font\_get\_bitmap\_fmt\_txt}!lv\_font\_fmt\_txt.c@{lv\_font\_fmt\_txt.c}}
+\doxysubsubsection{\texorpdfstring{lv\_font\_get\_bitmap\_fmt\_txt()}{lv\_font\_get\_bitmap\_fmt\_txt()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} lv\+\_\+font\+\_\+get\+\_\+bitmap\+\_\+fmt\+\_\+txt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{g\+\_\+dsc,  }\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+buf }\end{DoxyParamCaption})}
+
+Used as {\ttfamily get\+\_\+glyph\+\_\+bitmap} callback in lvgl\textquotesingle{}s native font format if the font is uncompressed. 
+\begin{DoxyParams}{Parametri}
+{\em g\+\_\+dsc} & the glyph descriptor including which font to use, which supply the glyph\+\_\+index and format. \\
+\hline
+{\em draw\+\_\+buf} & a draw buffer that can be used to store the bitmap of the glyph, it\textquotesingle{}s OK not to use it. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to an A8 bitmap (not necessarily bitmap\+\_\+out) or NULL if {\ttfamily unicode\+\_\+letter} not found 
+\end{DoxyReturn}
+LV\+\_\+\+USE\+\_\+\+FONT\+\_\+\+COMPRESSED\Hypertarget{lv__font__fmt__txt_8c_a3d3da99be985754e7ece9aec210bff97}\label{lv__font__fmt__txt_8c_a3d3da99be985754e7ece9aec210bff97} 
+\index{lv\_font\_fmt\_txt.c@{lv\_font\_fmt\_txt.c}!lv\_font\_get\_glyph\_dsc\_fmt\_txt@{lv\_font\_get\_glyph\_dsc\_fmt\_txt}}
+\index{lv\_font\_get\_glyph\_dsc\_fmt\_txt@{lv\_font\_get\_glyph\_dsc\_fmt\_txt}!lv\_font\_fmt\_txt.c@{lv\_font\_fmt\_txt.c}}
+\doxysubsubsection{\texorpdfstring{lv\_font\_get\_glyph\_dsc\_fmt\_txt()}{lv\_font\_get\_glyph\_dsc\_fmt\_txt()}}
+{\footnotesize\ttfamily bool lv\+\_\+font\+\_\+get\+\_\+glyph\+\_\+dsc\+\_\+fmt\+\_\+txt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{\mbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc\+\_\+out,  }\item[{uint32\+\_\+t}]{unicode\+\_\+letter,  }\item[{uint32\+\_\+t}]{unicode\+\_\+letter\+\_\+next }\end{DoxyParamCaption})}
+
+Used as {\ttfamily get\+\_\+glyph\+\_\+dsc} callback in lvgl\textquotesingle{}s native font format if the font is uncompressed. 
+\begin{DoxyParams}{Parametri}
+{\em font} & pointer to font \\
+\hline
+{\em dsc\+\_\+out} & store the result descriptor here \\
+\hline
+{\em unicode\+\_\+letter} & a UNICODE letter code \\
+\hline
+{\em unicode\+\_\+letter\+\_\+next} & the unicode letter succeeding the letter under test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: descriptor is successfully loaded into {\ttfamily dsc\+\_\+out}. false\+: the letter was not found, no data is loaded to {\ttfamily dsc\+\_\+out} 
+\end{DoxyReturn}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__font__fmt__txt_8c_a83068b346d1dc289cab6f0638f724a89}\label{lv__font__fmt__txt_8c_a83068b346d1dc289cab6f0638f724a89} 
+\index{lv\_font\_fmt\_txt.c@{lv\_font\_fmt\_txt.c}!lv\_builtin\_font\_class@{lv\_builtin\_font\_class}}
+\index{lv\_builtin\_font\_class@{lv\_builtin\_font\_class}!lv\_font\_fmt\_txt.c@{lv\_font\_fmt\_txt.c}}
+\doxysubsubsection{\texorpdfstring{lv\_builtin\_font\_class}{lv\_builtin\_font\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__font__class__t}{lv\+\_\+font\+\_\+class\+\_\+t}} lv\+\_\+builtin\+\_\+font\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .create\_cb\ =\ builtin\_font\_create\_cb,}
+\DoxyCodeLine{\ \ \ \ .delete\_cb\ =\ builtin\_font\_delete\_cb,}
+\DoxyCodeLine{\ \ \ \ .dup\_src\_cb\ =\ builtin\_font\_dup\_src\_cb,}
+\DoxyCodeLine{\ \ \ \ .free\_src\_cb\ =\ builtin\_font\_free\_src\_cb,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

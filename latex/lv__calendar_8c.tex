@@ -1,0 +1,305 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/calendar/lv\+\_\+calendar.c}
+\hypertarget{lv__calendar_8c}{}\label{lv__calendar_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/calendar/lv\_calendar.c@{managed\_components/lvgl\_\_lvgl/src/widgets/calendar/lv\_calendar.c}}
+{\ttfamily \#include "{}lv\+\_\+calendar\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../../lvgl.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+calendar.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+calendar.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__calendar_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__calendar_8c_ad85074271fb1658c3dbed861193c0cb4}\label{lv__calendar_8c_ad85074271fb1658c3dbed861193c0cb4} 
+\#define {\bfseries LV\+\_\+\+CALENDAR\+\_\+\+CTRL\+\_\+\+TODAY}~\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632a1fcfab2ad776a0359916e1d7e6371050}{LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+CUSTOM\+\_\+1}}
+\item 
+\Hypertarget{lv__calendar_8c_a400492190f883be9366a3b474745b6d7}\label{lv__calendar_8c_a400492190f883be9366a3b474745b6d7} 
+\#define {\bfseries LV\+\_\+\+CALENDAR\+\_\+\+CTRL\+\_\+\+HIGHLIGHT}~\mbox{\hyperlink{lv__buttonmatrix_8h_afc89731eac25222abcfd183003644632a666d21640a37a9b18f125a6a534ccbcb}{LV\+\_\+\+BUTTONMATRIX\+\_\+\+CTRL\+\_\+\+CUSTOM\+\_\+2}}
+\item 
+\Hypertarget{lv__calendar_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__calendar_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+calendar\+\_\+class)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__calendar_8c_a20955372b28e24b9076c4e201f87be6f}{lv\+\_\+calendar\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\Hypertarget{lv__calendar_8c_af651741153d8b3c636d9ac5499a40258}\label{lv__calendar_8c_af651741153d8b3c636d9ac5499a40258} 
+void {\bfseries lv\+\_\+calendar\+\_\+set\+\_\+day\+\_\+names} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}day\+\_\+names\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_a49b93def5d18e72b854e2007f6f3297b}{lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+date}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t year, uint32\+\_\+t month, uint32\+\_\+t day)
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_af88f29faa7b26989da5c928351ea4803}{lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+year}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t year)
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_a3f81d89de0df2baea01316e33c2f830a}{lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+month}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t month)
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_ae5e4c67a203a16946a437dd7d35b1d34}{lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+day}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t day)
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_a90003ca9a2971bae20e0eb56f9526118}{lv\+\_\+calendar\+\_\+set\+\_\+highlighted\+\_\+dates}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} highlighted\mbox{[}$\,$\mbox{]}, size\+\_\+t date\+\_\+num)
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_a0eb25f0cebc0b7728361504e39cb0779}{lv\+\_\+calendar\+\_\+set\+\_\+month\+\_\+shown}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t year, uint32\+\_\+t month)
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_a871b002484f95b9a8aff778c90d8b665}{lv\+\_\+calendar\+\_\+set\+\_\+shown\+\_\+year}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t year)
+\item 
+void \mbox{\hyperlink{lv__calendar_8c_a5eef4273c1995dcee2fb9a998995d460}{lv\+\_\+calendar\+\_\+set\+\_\+shown\+\_\+month}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t month)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__calendar_8c_ae21ea1ebe9d1aa371ee83b70c58e0577}{lv\+\_\+calendar\+\_\+get\+\_\+btnmatrix}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const \mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__calendar_8c_ac3ffcece4e8a24de649109932fa2d315}{lv\+\_\+calendar\+\_\+get\+\_\+today\+\_\+date}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const \mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__calendar_8c_a52ce4fe2da5506d3270adf79f047434c}{lv\+\_\+calendar\+\_\+get\+\_\+showed\+\_\+date}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__calendar_8c_a1bba8a6ee37b053da5c231b38ddc4ba1}{lv\+\_\+calendar\+\_\+get\+\_\+highlighted\+\_\+dates}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+size\+\_\+t \mbox{\hyperlink{lv__calendar_8c_adbfbb643ee93009448d63bee22043138}{lv\+\_\+calendar\+\_\+get\+\_\+highlighted\+\_\+dates\+\_\+num}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__calendar_8c_a23e92e4ab183a849ade3187836130ec6}{lv\+\_\+calendar\+\_\+get\+\_\+pressed\+\_\+date}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*}date)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__calendar_8c_ac85e0a2a9b39cae50fdecc0191909efb}{lv\+\_\+calendar\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__calendar_8c_a20955372b28e24b9076c4e201f87be6f}\label{lv__calendar_8c_a20955372b28e24b9076c4e201f87be6f} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_create@{lv\_calendar\_create}}
+\index{lv\_calendar\_create@{lv\_calendar\_create}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_create()}{lv\_calendar\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+calendar\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a calendar widget 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new calendar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer the created calendar 
+\end{DoxyReturn}
+\Hypertarget{lv__calendar_8c_ae21ea1ebe9d1aa371ee83b70c58e0577}\label{lv__calendar_8c_ae21ea1ebe9d1aa371ee83b70c58e0577} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_get\_btnmatrix@{lv\_calendar\_get\_btnmatrix}}
+\index{lv\_calendar\_get\_btnmatrix@{lv\_calendar\_get\_btnmatrix}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_get\_btnmatrix()}{lv\_calendar\_get\_btnmatrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+calendar\+\_\+get\+\_\+btnmatrix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the button matrix object of the calendar. It shows the dates and day names. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to a the button matrix 
+\end{DoxyReturn}
+\Hypertarget{lv__calendar_8c_a1bba8a6ee37b053da5c231b38ddc4ba1}\label{lv__calendar_8c_a1bba8a6ee37b053da5c231b38ddc4ba1} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_get\_highlighted\_dates@{lv\_calendar\_get\_highlighted\_dates}}
+\index{lv\_calendar\_get\_highlighted\_dates@{lv\_calendar\_get\_highlighted\_dates}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_get\_highlighted\_dates()}{lv\_calendar\_get\_highlighted\_dates()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+calendar\+\_\+get\+\_\+highlighted\+\_\+dates (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{calendar }\end{DoxyParamCaption})}
+
+Get the highlighted dates 
+\begin{DoxyParams}{Parametri}
+{\em calendar} & pointer to a calendar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to an {\ttfamily \doxylink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} array containing the dates. 
+\end{DoxyReturn}
+\Hypertarget{lv__calendar_8c_adbfbb643ee93009448d63bee22043138}\label{lv__calendar_8c_adbfbb643ee93009448d63bee22043138} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_get\_highlighted\_dates\_num@{lv\_calendar\_get\_highlighted\_dates\_num}}
+\index{lv\_calendar\_get\_highlighted\_dates\_num@{lv\_calendar\_get\_highlighted\_dates\_num}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_get\_highlighted\_dates\_num()}{lv\_calendar\_get\_highlighted\_dates\_num()}}
+{\footnotesize\ttfamily size\+\_\+t lv\+\_\+calendar\+\_\+get\+\_\+highlighted\+\_\+dates\+\_\+num (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{calendar }\end{DoxyParamCaption})}
+
+Get the number of the highlighted dates 
+\begin{DoxyParams}{Parametri}
+{\em calendar} & pointer to a calendar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+number of highlighted days 
+\end{DoxyReturn}
+\Hypertarget{lv__calendar_8c_a23e92e4ab183a849ade3187836130ec6}\label{lv__calendar_8c_a23e92e4ab183a849ade3187836130ec6} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_get\_pressed\_date@{lv\_calendar\_get\_pressed\_date}}
+\index{lv\_calendar\_get\_pressed\_date@{lv\_calendar\_get\_pressed\_date}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_get\_pressed\_date()}{lv\_calendar\_get\_pressed\_date()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+calendar\+\_\+get\+\_\+pressed\+\_\+date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{calendar,  }\item[{\mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{date }\end{DoxyParamCaption})}
+
+Get the currently pressed day 
+\begin{DoxyParams}{Parametri}
+{\em calendar} & pointer to a calendar object \\
+\hline
+{\em date} & store the pressed date here \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: there is a valid pressed date LV\+\_\+\+RESULT\+\_\+\+INVALID\+: there is no pressed data 
+\end{DoxyReturn}
+\Hypertarget{lv__calendar_8c_a52ce4fe2da5506d3270adf79f047434c}\label{lv__calendar_8c_a52ce4fe2da5506d3270adf79f047434c} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_get\_showed\_date@{lv\_calendar\_get\_showed\_date}}
+\index{lv\_calendar\_get\_showed\_date@{lv\_calendar\_get\_showed\_date}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_get\_showed\_date()}{lv\_calendar\_get\_showed\_date()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+calendar\+\_\+get\+\_\+showed\+\_\+date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{calendar }\end{DoxyParamCaption})}
+
+Get the currently showed 
+\begin{DoxyParams}{Parametri}
+{\em calendar} & pointer to a calendar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to an {\ttfamily \doxylink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} variable containing the date is being shown. 
+\end{DoxyReturn}
+\Hypertarget{lv__calendar_8c_ac3ffcece4e8a24de649109932fa2d315}\label{lv__calendar_8c_ac3ffcece4e8a24de649109932fa2d315} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_get\_today\_date@{lv\_calendar\_get\_today\_date}}
+\index{lv\_calendar\_get\_today\_date@{lv\_calendar\_get\_today\_date}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_get\_today\_date()}{lv\_calendar\_get\_today\_date()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+calendar\+\_\+get\+\_\+today\+\_\+date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{calendar }\end{DoxyParamCaption})}
+
+Get the today\textquotesingle{}s date 
+\begin{DoxyParams}{Parametri}
+{\em calendar} & pointer to a calendar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+return pointer to an {\ttfamily \doxylink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} variable containing the date of today. 
+\end{DoxyReturn}
+\Hypertarget{lv__calendar_8c_a90003ca9a2971bae20e0eb56f9526118}\label{lv__calendar_8c_a90003ca9a2971bae20e0eb56f9526118} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_highlighted\_dates@{lv\_calendar\_set\_highlighted\_dates}}
+\index{lv\_calendar\_set\_highlighted\_dates@{lv\_calendar\_set\_highlighted\_dates}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_highlighted\_dates()}{lv\_calendar\_set\_highlighted\_dates()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+highlighted\+\_\+dates (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}}}]{highlighted\mbox{[}$\,$\mbox{]},  }\item[{size\+\_\+t}]{date\+\_\+num }\end{DoxyParamCaption})}
+
+Set the highlighted dates 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em highlighted} & pointer to an {\ttfamily \doxylink{structlv__calendar__date__t}{lv\+\_\+calendar\+\_\+date\+\_\+t}} array containing the dates. Only the pointer will be saved so this variable can\textquotesingle{}t be local which will be destroyed later. \\
+\hline
+{\em date\+\_\+num} & number of dates in the array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__calendar_8c_a0eb25f0cebc0b7728361504e39cb0779}\label{lv__calendar_8c_a0eb25f0cebc0b7728361504e39cb0779} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_month\_shown@{lv\_calendar\_set\_month\_shown}}
+\index{lv\_calendar\_set\_month\_shown@{lv\_calendar\_set\_month\_shown}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_month\_shown()}{lv\_calendar\_set\_month\_shown()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+month\+\_\+shown (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{year,  }\item[{uint32\+\_\+t}]{month }\end{DoxyParamCaption})}
+
+Set the currently shown year and month at once 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em year} & shown year \\
+\hline
+{\em month} & shown month \mbox{[}1..12\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__calendar_8c_a5eef4273c1995dcee2fb9a998995d460}\label{lv__calendar_8c_a5eef4273c1995dcee2fb9a998995d460} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_shown\_month@{lv\_calendar\_set\_shown\_month}}
+\index{lv\_calendar\_set\_shown\_month@{lv\_calendar\_set\_shown\_month}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_shown\_month()}{lv\_calendar\_set\_shown\_month()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+shown\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{month }\end{DoxyParamCaption})}
+
+Set the currently shown month 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em month} & shown month \mbox{[}1..12\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__calendar_8c_a871b002484f95b9a8aff778c90d8b665}\label{lv__calendar_8c_a871b002484f95b9a8aff778c90d8b665} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_shown\_year@{lv\_calendar\_set\_shown\_year}}
+\index{lv\_calendar\_set\_shown\_year@{lv\_calendar\_set\_shown\_year}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_shown\_year()}{lv\_calendar\_set\_shown\_year()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+shown\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{year }\end{DoxyParamCaption})}
+
+Set the currently shown year 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em year} & shown year \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__calendar_8c_a49b93def5d18e72b854e2007f6f3297b}\label{lv__calendar_8c_a49b93def5d18e72b854e2007f6f3297b} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_today\_date@{lv\_calendar\_set\_today\_date}}
+\index{lv\_calendar\_set\_today\_date@{lv\_calendar\_set\_today\_date}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_today\_date()}{lv\_calendar\_set\_today\_date()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+date (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{year,  }\item[{uint32\+\_\+t}]{month,  }\item[{uint32\+\_\+t}]{day }\end{DoxyParamCaption})}
+
+Set the today\textquotesingle{}s year, month and day at once 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em year} & today\textquotesingle{}s year \\
+\hline
+{\em month} & today\textquotesingle{}s month \mbox{[}1..12\mbox{]} \\
+\hline
+{\em day} & today\textquotesingle{}s day \mbox{[}1..31\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__calendar_8c_ae5e4c67a203a16946a437dd7d35b1d34}\label{lv__calendar_8c_ae5e4c67a203a16946a437dd7d35b1d34} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_today\_day@{lv\_calendar\_set\_today\_day}}
+\index{lv\_calendar\_set\_today\_day@{lv\_calendar\_set\_today\_day}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_today\_day()}{lv\_calendar\_set\_today\_day()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+day (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{day }\end{DoxyParamCaption})}
+
+Set the today\textquotesingle{}s year 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em day} & today\textquotesingle{}s day \mbox{[}1..31\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__calendar_8c_a3f81d89de0df2baea01316e33c2f830a}\label{lv__calendar_8c_a3f81d89de0df2baea01316e33c2f830a} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_today\_month@{lv\_calendar\_set\_today\_month}}
+\index{lv\_calendar\_set\_today\_month@{lv\_calendar\_set\_today\_month}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_today\_month()}{lv\_calendar\_set\_today\_month()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+month (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{month }\end{DoxyParamCaption})}
+
+Set the today\textquotesingle{}s year 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em month} & today\textquotesingle{}s month \mbox{[}1..12\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__calendar_8c_af88f29faa7b26989da5c928351ea4803}\label{lv__calendar_8c_af88f29faa7b26989da5c928351ea4803} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_set\_today\_year@{lv\_calendar\_set\_today\_year}}
+\index{lv\_calendar\_set\_today\_year@{lv\_calendar\_set\_today\_year}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_set\_today\_year()}{lv\_calendar\_set\_today\_year()}}
+{\footnotesize\ttfamily void lv\+\_\+calendar\+\_\+set\+\_\+today\+\_\+year (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{year }\end{DoxyParamCaption})}
+
+Set the today\textquotesingle{}s year 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a calendar object \\
+\hline
+{\em year} & today\textquotesingle{}s year \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__calendar_8c_ac85e0a2a9b39cae50fdecc0191909efb}\label{lv__calendar_8c_ac85e0a2a9b39cae50fdecc0191909efb} 
+\index{lv\_calendar.c@{lv\_calendar.c}!lv\_calendar\_class@{lv\_calendar\_class}}
+\index{lv\_calendar\_class@{lv\_calendar\_class}!lv\_calendar.c@{lv\_calendar.c}}
+\doxysubsubsection{\texorpdfstring{lv\_calendar\_class}{lv\_calendar\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+calendar\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_calendar\_constructor,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ (\mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ *\ 3)\ /\ 2,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ (\mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ *\ 3)\ /\ 2,}
+\DoxyCodeLine{\ \ \ \ .group\_def\ =\ LV\_OBJ\_CLASS\_GROUP\_DEF\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__calendar__t}{lv\_calendar\_t}}),}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_calendar"{}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

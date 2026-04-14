@@ -1,0 +1,102 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/themes/simple/lv\+\_\+theme\+\_\+simple.c}
+\hypertarget{lv__theme__simple_8c}{}\label{lv__theme__simple_8c}\index{managed\_components/lvgl\_\_lvgl/src/themes/simple/lv\_theme\_simple.c@{managed\_components/lvgl\_\_lvgl/src/themes/simple/lv\_theme\_simple.c}}
+{\ttfamily \#include "{}../lv\+\_\+theme\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../../lvgl.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+theme\+\_\+simple.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+global.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+theme\+\_\+simple.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+theme\+\_\+simple.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__theme__simple_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmy__theme__styles__t}{my\+\_\+theme\+\_\+styles\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__my__theme__t}{\+\_\+my\+\_\+theme\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__theme__simple_8c_a9744fca2a31ff9aa94573084eb1a837c}\label{lv__theme__simple_8c_a9744fca2a31ff9aa94573084eb1a837c} 
+\#define {\bfseries theme\+\_\+def}~(\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{struct__my__theme__t}{my\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*})(\&LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$theme\+\_\+simple))
+\item 
+\Hypertarget{lv__theme__simple_8c_ae0d6ab86088ce9d2116a88c41a4e70cd}\label{lv__theme__simple_8c_ae0d6ab86088ce9d2116a88c41a4e70cd} 
+\#define {\bfseries COLOR\+\_\+\+SCR}~lv\+\_\+palette\+\_\+lighten(LV\+\_\+\+PALETTE\+\_\+\+GREY, 4)
+\item 
+\Hypertarget{lv__theme__simple_8c_a9b44987ffdc2af19b635206b94334b69}\label{lv__theme__simple_8c_a9b44987ffdc2af19b635206b94334b69} 
+\#define {\bfseries COLOR\+\_\+\+WHITE}~\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color_8c_ae88f1b549583615e288c9c3557cd249b}{lv\+\_\+color\+\_\+white}}()
+\item 
+\Hypertarget{lv__theme__simple_8c_ae23907c0eb2b07f33ffed04a8016327a}\label{lv__theme__simple_8c_ae23907c0eb2b07f33ffed04a8016327a} 
+\#define {\bfseries COLOR\+\_\+\+LIGHT}~lv\+\_\+palette\+\_\+lighten(LV\+\_\+\+PALETTE\+\_\+\+GREY, 2)
+\item 
+\Hypertarget{lv__theme__simple_8c_ab11a1e906cb01bc770ed84c059a2a910}\label{lv__theme__simple_8c_ab11a1e906cb01bc770ed84c059a2a910} 
+\#define {\bfseries COLOR\+\_\+\+DARK}~lv\+\_\+palette\+\_\+main(LV\+\_\+\+PALETTE\+\_\+\+GREY)
+\item 
+\Hypertarget{lv__theme__simple_8c_a82f3830461d1f2f3a8384936fb926920}\label{lv__theme__simple_8c_a82f3830461d1f2f3a8384936fb926920} 
+\#define {\bfseries COLOR\+\_\+\+DIM}~lv\+\_\+palette\+\_\+darken(LV\+\_\+\+PALETTE\+\_\+\+GREY, 2)
+\item 
+\Hypertarget{lv__theme__simple_8c_a87c1c8b120bc45fc5890eb540c71cf94}\label{lv__theme__simple_8c_a87c1c8b120bc45fc5890eb540c71cf94} 
+\#define {\bfseries SCROLLBAR\+\_\+\+WIDTH}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__theme__simple_8c_a4ee14a1d67129a28317f4037ff33db38}\label{lv__theme__simple_8c_a4ee14a1d67129a28317f4037ff33db38} 
+typedef struct \mbox{\hyperlink{struct__my__theme__t}{\+\_\+my\+\_\+theme\+\_\+t}} {\bfseries my\+\_\+theme\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__theme__simple_8c_a2e02aab40e2f6ba323bf8934393fc98d}{lv\+\_\+theme\+\_\+simple\+\_\+init}} (\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\+\_\+display\+\_\+t}} \texorpdfstring{$\ast$}{*}disp)
+\item 
+bool \mbox{\hyperlink{lv__theme__simple_8c_aaae38c73551e83d048422caa65854346}{lv\+\_\+theme\+\_\+simple\+\_\+is\+\_\+inited}} (void)
+\item 
+\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__theme__simple_8c_a016782388e9be88f962863e858214c5e}{lv\+\_\+theme\+\_\+simple\+\_\+get}} (void)
+\item 
+void \mbox{\hyperlink{lv__theme__simple_8c_a9e2303d67e9f6ec6ad23a61fe14d15f5}{lv\+\_\+theme\+\_\+simple\+\_\+deinit}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__theme__simple_8c_a9e2303d67e9f6ec6ad23a61fe14d15f5}\label{lv__theme__simple_8c_a9e2303d67e9f6ec6ad23a61fe14d15f5} 
+\index{lv\_theme\_simple.c@{lv\_theme\_simple.c}!lv\_theme\_simple\_deinit@{lv\_theme\_simple\_deinit}}
+\index{lv\_theme\_simple\_deinit@{lv\_theme\_simple\_deinit}!lv\_theme\_simple.c@{lv\_theme\_simple.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_simple\_deinit()}{lv\_theme\_simple\_deinit()}}
+{\footnotesize\ttfamily void lv\+\_\+theme\+\_\+simple\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Deinitialize the simple theme \Hypertarget{lv__theme__simple_8c_a016782388e9be88f962863e858214c5e}\label{lv__theme__simple_8c_a016782388e9be88f962863e858214c5e} 
+\index{lv\_theme\_simple.c@{lv\_theme\_simple.c}!lv\_theme\_simple\_get@{lv\_theme\_simple\_get}}
+\index{lv\_theme\_simple\_get@{lv\_theme\_simple\_get}!lv\_theme\_simple.c@{lv\_theme\_simple.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_simple\_get()}{lv\_theme\_simple\_get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+theme\+\_\+simple\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get simple theme \begin{DoxyReturn}{Rezultat(i)}
+a pointer to simple theme, or NULL if this is not initialized 
+\end{DoxyReturn}
+\Hypertarget{lv__theme__simple_8c_a2e02aab40e2f6ba323bf8934393fc98d}\label{lv__theme__simple_8c_a2e02aab40e2f6ba323bf8934393fc98d} 
+\index{lv\_theme\_simple.c@{lv\_theme\_simple.c}!lv\_theme\_simple\_init@{lv\_theme\_simple\_init}}
+\index{lv\_theme\_simple\_init@{lv\_theme\_simple\_init}!lv\_theme\_simple.c@{lv\_theme\_simple.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_simple\_init()}{lv\_theme\_simple\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+theme\+\_\+simple\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\+\_\+display\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp }\end{DoxyParamCaption})}
+
+Initialize the theme 
+\begin{DoxyParams}{Parametri}
+{\em disp} & pointer to display \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+a pointer to reference this theme later 
+\end{DoxyReturn}
+\Hypertarget{lv__theme__simple_8c_aaae38c73551e83d048422caa65854346}\label{lv__theme__simple_8c_aaae38c73551e83d048422caa65854346} 
+\index{lv\_theme\_simple.c@{lv\_theme\_simple.c}!lv\_theme\_simple\_is\_inited@{lv\_theme\_simple\_is\_inited}}
+\index{lv\_theme\_simple\_is\_inited@{lv\_theme\_simple\_is\_inited}!lv\_theme\_simple.c@{lv\_theme\_simple.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_simple\_is\_inited()}{lv\_theme\_simple\_is\_inited()}}
+{\footnotesize\ttfamily bool lv\+\_\+theme\+\_\+simple\+\_\+is\+\_\+inited (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check if the theme is initialized \begin{DoxyReturn}{Rezultat(i)}
+true if default theme is initialized, false otherwise 
+\end{DoxyReturn}

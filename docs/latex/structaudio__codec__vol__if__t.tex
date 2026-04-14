@@ -1,0 +1,57 @@
+\doxysection{ Struktura audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}
+\hypertarget{structaudio__codec__vol__if__t}{}\label{structaudio__codec__vol__if__t}\index{audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}}
+
+
+Structure for volume interface.  
+
+
+
+
+{\ttfamily \#include $<$audio\+\_\+codec\+\_\+vol\+\_\+if.\+h$>$}
+
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__vol__if__t_a6d37acbae12373d6d340cd8d8426f36e}{open}} )(const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, \mbox{\hyperlink{structesp__codec__dev__sample__info__t}{esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t}} \texorpdfstring{$\ast$}{*}fs, int fade\+\_\+time)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__vol__if__t_a7ccb45ded54518aaebf38b91f332d851}{set\+\_\+vol}} )(const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, float db\+\_\+value)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__vol__if__t_a15604cd26c9780d979094121cc239f62}{process}} )(const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, uint8\+\_\+t \texorpdfstring{$\ast$}{*}in, int len, uint8\+\_\+t \texorpdfstring{$\ast$}{*}out, int out\+\_\+len)
+\item 
+int(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structaudio__codec__vol__if__t_ad1f73629c4bb0c3421cc565c3fc67946}{close}} )(const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Structure for volume interface. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structaudio__codec__vol__if__t_ad1f73629c4bb0c3421cc565c3fc67946}\label{structaudio__codec__vol__if__t_ad1f73629c4bb0c3421cc565c3fc67946} 
+\index{audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}!close@{close}}
+\index{close@{close}!audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}}
+\doxysubsubsection{\texorpdfstring{close}{close}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t\+::close) (const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h)}
+
+Close volume processor \Hypertarget{structaudio__codec__vol__if__t_a6d37acbae12373d6d340cd8d8426f36e}\label{structaudio__codec__vol__if__t_a6d37acbae12373d6d340cd8d8426f36e} 
+\index{audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}!open@{open}}
+\index{open@{open}!audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}}
+\doxysubsubsection{\texorpdfstring{open}{open}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t\+::open) (const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, \mbox{\hyperlink{structesp__codec__dev__sample__info__t}{esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t}} \texorpdfstring{$\ast$}{*}fs, int fade\+\_\+time)}
+
+Open for software volume processor \Hypertarget{structaudio__codec__vol__if__t_a15604cd26c9780d979094121cc239f62}\label{structaudio__codec__vol__if__t_a15604cd26c9780d979094121cc239f62} 
+\index{audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}!process@{process}}
+\index{process@{process}!audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}}
+\doxysubsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t\+::process) (const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, uint8\+\_\+t \texorpdfstring{$\ast$}{*}in, int len, uint8\+\_\+t \texorpdfstring{$\ast$}{*}out, int out\+\_\+len)}
+
+Process data \Hypertarget{structaudio__codec__vol__if__t_a7ccb45ded54518aaebf38b91f332d851}\label{structaudio__codec__vol__if__t_a7ccb45ded54518aaebf38b91f332d851} 
+\index{audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}!set\_vol@{set\_vol}}
+\index{set\_vol@{set\_vol}!audio\_codec\_vol\_if\_t@{audio\_codec\_vol\_if\_t}}
+\doxysubsubsection{\texorpdfstring{set\_vol}{set\_vol}}
+{\footnotesize\ttfamily int(\texorpdfstring{$\ast$}{*} audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t\+::set\+\_\+vol) (const \mbox{\hyperlink{structaudio__codec__vol__if__t}{audio\+\_\+codec\+\_\+vol\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*}h, float db\+\_\+value)}
+
+Set volume in decibel unit 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/interface/audio\+\_\+codec\+\_\+vol\+\_\+if.\+h\end{DoxyCompactItemize}

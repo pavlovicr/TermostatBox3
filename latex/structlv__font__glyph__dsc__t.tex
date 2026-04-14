@@ -1,0 +1,152 @@
+\doxysection{ Struktura lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t}
+\hypertarget{structlv__font__glyph__dsc__t}{}\label{structlv__font__glyph__dsc__t}\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+font.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structlv__font__glyph__dsc__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structlv__font__glyph__dsc__t_a5d0923a31311134ed4485d91171aae87}{resolved\+\_\+font}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_af270ea3d337c8aabde5fde0eaf89c03d}{adv\+\_\+w}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a022b928638ae67252a0ba5ca0e02194f}{box\+\_\+w}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_af268a2d7d09f9d39730dd2f51d686876}{box\+\_\+h}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a1783ed58651f60f9aea13ad6beeb5fbb}{ofs\+\_\+x}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a39db997d742b572c38fbc2f24b525c00}{ofs\+\_\+y}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a4e514dceb1a31331b95b20ee618d7d56}{stride}}
+\item 
+\mbox{\hyperlink{lv__font_8h_aa94ff2cf9b39485dc799248e7fbec8fe}{lv\+\_\+font\+\_\+glyph\+\_\+format\+\_\+t}} \mbox{\hyperlink{structlv__font__glyph__dsc__t_a8b009b6a28c53552b13622d7dacf291b}{format}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a6fad34b9b29f20af392350627e4ee848}{is\+\_\+placeholder}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a231dd14c6c549e8ad2ef5c819d4584f7}{req\+\_\+raw\+\_\+bitmap}}\+: 1
+\item 
+int32\+\_\+t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a1740992c24c997c92db31fb450863794}{outline\+\_\+stroke\+\_\+width}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>uint32\_t \mbox{\hyperlink{structlv__font__glyph__dsc__t_a182685da22a5eb2b7dfb880db6f63f9d}{index}}\\
+\>const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structlv__font__glyph__dsc__t_aedc6e30de61acad87cc011169ddb42e7}{src}}\\
+\} \mbox{\hyperlink{structlv__font__glyph__dsc__t_a433c8726f4da82f9d0d7ab6a05f27f63}{gid}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structlv__font__glyph__dsc__t_a70f8df1fa47903dd5be4139147c24a06}{entry}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Describes the properties of a glyph. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structlv__font__glyph__dsc__t_af270ea3d337c8aabde5fde0eaf89c03d}\label{structlv__font__glyph__dsc__t_af270ea3d337c8aabde5fde0eaf89c03d} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!adv\_w@{adv\_w}}
+\index{adv\_w@{adv\_w}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{adv\_w}{adv\_w}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::adv\+\_\+w}
+
+The glyph needs this space. Draw the next glyph after this width. \Hypertarget{structlv__font__glyph__dsc__t_af268a2d7d09f9d39730dd2f51d686876}\label{structlv__font__glyph__dsc__t_af268a2d7d09f9d39730dd2f51d686876} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!box\_h@{box\_h}}
+\index{box\_h@{box\_h}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{box\_h}{box\_h}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::box\+\_\+h}
+
+Height of the glyph\textquotesingle{}s bounding box \Hypertarget{structlv__font__glyph__dsc__t_a022b928638ae67252a0ba5ca0e02194f}\label{structlv__font__glyph__dsc__t_a022b928638ae67252a0ba5ca0e02194f} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!box\_w@{box\_w}}
+\index{box\_w@{box\_w}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{box\_w}{box\_w}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::box\+\_\+w}
+
+Width of the glyph\textquotesingle{}s bounding box \Hypertarget{structlv__font__glyph__dsc__t_a70f8df1fa47903dd5be4139147c24a06}\label{structlv__font__glyph__dsc__t_a70f8df1fa47903dd5be4139147c24a06} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!entry@{entry}}
+\index{entry@{entry}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{entry}{entry}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\+\_\+cache\+\_\+entry\+\_\+t}}\texorpdfstring{$\ast$}{*} lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::entry}
+
+The cache entry of the glyph draw data. Used by the font cache \Hypertarget{structlv__font__glyph__dsc__t_a8b009b6a28c53552b13622d7dacf291b}\label{structlv__font__glyph__dsc__t_a8b009b6a28c53552b13622d7dacf291b} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!format@{format}}
+\index{format@{format}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__font_8h_aa94ff2cf9b39485dc799248e7fbec8fe}{lv\+\_\+font\+\_\+glyph\+\_\+format\+\_\+t}} lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::format}
+
+Font format of the glyph see lv\+\_\+font\+\_\+glyph\+\_\+format\+\_\+t \Hypertarget{structlv__font__glyph__dsc__t_a433c8726f4da82f9d0d7ab6a05f27f63}\label{structlv__font__glyph__dsc__t_a433c8726f4da82f9d0d7ab6a05f27f63} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!gid@{gid}}
+\index{gid@{gid}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{[union]}{[union]}}
+{\footnotesize\ttfamily union  \{ ... \}  lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::gid}
+
+The index of the glyph in the font file. Used by the font cache \Hypertarget{structlv__font__glyph__dsc__t_a182685da22a5eb2b7dfb880db6f63f9d}\label{structlv__font__glyph__dsc__t_a182685da22a5eb2b7dfb880db6f63f9d} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!index@{index}}
+\index{index@{index}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{index}{index}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::index}
+
+Glyph descriptor index \Hypertarget{structlv__font__glyph__dsc__t_a6fad34b9b29f20af392350627e4ee848}\label{structlv__font__glyph__dsc__t_a6fad34b9b29f20af392350627e4ee848} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!is\_placeholder@{is\_placeholder}}
+\index{is\_placeholder@{is\_placeholder}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{is\_placeholder}{is\_placeholder}}
+{\footnotesize\ttfamily uint8\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::is\+\_\+placeholder}
+
+Glyph is missing. But placeholder will still be displayed \Hypertarget{structlv__font__glyph__dsc__t_a1783ed58651f60f9aea13ad6beeb5fbb}\label{structlv__font__glyph__dsc__t_a1783ed58651f60f9aea13ad6beeb5fbb} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!ofs\_x@{ofs\_x}}
+\index{ofs\_x@{ofs\_x}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{ofs\_x}{ofs\_x}}
+{\footnotesize\ttfamily int16\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::ofs\+\_\+x}
+
+x offset of the bounding box \Hypertarget{structlv__font__glyph__dsc__t_a39db997d742b572c38fbc2f24b525c00}\label{structlv__font__glyph__dsc__t_a39db997d742b572c38fbc2f24b525c00} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!ofs\_y@{ofs\_y}}
+\index{ofs\_y@{ofs\_y}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{ofs\_y}{ofs\_y}}
+{\footnotesize\ttfamily int16\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::ofs\+\_\+y}
+
+y offset of the bounding box \Hypertarget{structlv__font__glyph__dsc__t_a1740992c24c997c92db31fb450863794}\label{structlv__font__glyph__dsc__t_a1740992c24c997c92db31fb450863794} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!outline\_stroke\_width@{outline\_stroke\_width}}
+\index{outline\_stroke\_width@{outline\_stroke\_width}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{outline\_stroke\_width}{outline\_stroke\_width}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::outline\+\_\+stroke\+\_\+width}
+
+used with freetype vector fonts -\/ width of the letter border \Hypertarget{structlv__font__glyph__dsc__t_a231dd14c6c549e8ad2ef5c819d4584f7}\label{structlv__font__glyph__dsc__t_a231dd14c6c549e8ad2ef5c819d4584f7} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!req\_raw\_bitmap@{req\_raw\_bitmap}}
+\index{req\_raw\_bitmap@{req\_raw\_bitmap}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{req\_raw\_bitmap}{req\_raw\_bitmap}}
+{\footnotesize\ttfamily uint8\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::req\+\_\+raw\+\_\+bitmap}
+
+0\+: Get bitmap should return an A8 or ARGB8888 image. 1\+: return the bitmap as it is (Maybe A1/2/4 or any proprietary formats). \Hypertarget{structlv__font__glyph__dsc__t_a5d0923a31311134ed4485d91171aae87}\label{structlv__font__glyph__dsc__t_a5d0923a31311134ed4485d91171aae87} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!resolved\_font@{resolved\_font}}
+\index{resolved\_font@{resolved\_font}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{resolved\_font}{resolved\_font}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}}\texorpdfstring{$\ast$}{*} lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::resolved\+\_\+font}
+
+Pointer to a font where the glyph was actually found after handling fallbacks \Hypertarget{structlv__font__glyph__dsc__t_aedc6e30de61acad87cc011169ddb42e7}\label{structlv__font__glyph__dsc__t_aedc6e30de61acad87cc011169ddb42e7} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!src@{src}}
+\index{src@{src}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{src}{src}}
+{\footnotesize\ttfamily const void\texorpdfstring{$\ast$}{*} lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::src}
+
+Pointer to the source data used by image fonts \Hypertarget{structlv__font__glyph__dsc__t_a4e514dceb1a31331b95b20ee618d7d56}\label{structlv__font__glyph__dsc__t_a4e514dceb1a31331b95b20ee618d7d56} 
+\index{lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}!stride@{stride}}
+\index{stride@{stride}!lv\_font\_glyph\_dsc\_t@{lv\_font\_glyph\_dsc\_t}}
+\doxysubsubsection{\texorpdfstring{stride}{stride}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+font\+\_\+glyph\+\_\+dsc\+\_\+t\+::stride}
+
+Bytes in each line. If 0 than there is no padding at the end of the line. 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/font/\mbox{\hyperlink{lv__font_8h}{lv\+\_\+font.\+h}}\end{DoxyCompactItemize}

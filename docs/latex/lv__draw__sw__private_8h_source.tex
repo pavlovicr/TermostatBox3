@@ -1,0 +1,77 @@
+\doxysection{lv\+\_\+draw\+\_\+sw\+\_\+private.\+h}
+\hypertarget{lv__draw__sw__private_8h_source}{}\label{lv__draw__sw__private_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/draw/sw/lv\_draw\_sw\_private.h@{managed\_components/lvgl\_\_lvgl/src/draw/sw/lv\_draw\_sw\_private.h}}
+\mbox{\hyperlink{lv__draw__sw__private_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_DRAW\_SW\_PRIVATE\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_DRAW\_SW\_PRIVATE\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__draw__sw_8h}{lv\_draw\_sw.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../lv\_draw\_private.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_SW}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__task__t}{lv\_draw\_task\_t}}\ *\ task\_act;}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{structlv__thread__t}{lv\_thread\_t}}\ thread;}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{structlv__thread__sync__t}{lv\_thread\_sync\_t}}\ sync;}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__unit__t}{lv\_draw\_unit\_t}}\ *\ draw\_unit;}
+\DoxyCodeLine{00039\ \ \ \ \ uint32\_t\ idx;}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ inited;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{bool}\ exit\_status;}
+\DoxyCodeLine{00042\ \}\ \mbox{\hyperlink{structlv__draw__sw__thread__dsc__t}{lv\_draw\_sw\_thread\_dsc\_t}};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__unit__t}{\_lv\_draw\_sw\_unit\_t}}\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__unit__t}{lv\_draw\_unit\_t}}\ base\_unit;}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#if\ LV\_USE\_OS}}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{structlv__draw__sw__thread__dsc__t}{lv\_draw\_sw\_thread\_dsc\_t}}\ thread\_dscs[\mbox{\hyperlink{lv__conf__cmsis_8h_a0ad9686f13a7d11c5c4439698b8101f2}{LV\_DRAW\_SW\_DRAW\_UNIT\_CNT}}];}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__task__t}{lv\_draw\_task\_t}}\ *\ task\_act;}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#if\ LV\_DRAW\_SW\_SHADOW\_CACHE\_SIZE}}
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ uint8\_t\ cache[\mbox{\hyperlink{lv__conf__cmsis_8h_a187b6fbe2f4a4d51a7cbc9eb8b155d6f}{LV\_DRAW\_SW\_SHADOW\_CACHE\_SIZE}}\ *\ \mbox{\hyperlink{lv__conf__cmsis_8h_a187b6fbe2f4a4d51a7cbc9eb8b155d6f}{LV\_DRAW\_SW\_SHADOW\_CACHE\_SIZE}}];}
+\DoxyCodeLine{00056\ \ \ \ \ int32\_t\ cache\_size;}
+\DoxyCodeLine{00057\ \ \ \ \ int32\_t\ cache\_r;}
+\DoxyCodeLine{00058\ \}\ lv\_draw\_sw\_shadow\_cache\_t;}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_DRAW\_SW\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00072\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_SW\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

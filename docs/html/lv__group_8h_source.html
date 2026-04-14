@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/src/core/lv_group.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_961a4f466e715ffc0416260339e0187d.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">lv_group.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="lv__group_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef LV_GROUP_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define LV_GROUP_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *      INCLUDES</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *********************/</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../lv_conf_internal.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;../misc/lv_types.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;../misc/lv_ll.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> *      DEFINES</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> *********************/</span></div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="lv__group_8h.html#ab2463aef0f356690e6e37c418146c22d">   25</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    LV_KEY_UP        = 17,  <span class="comment">/*0x11*/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    LV_KEY_DOWN      = 18,  <span class="comment">/*0x12*/</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    LV_KEY_RIGHT     = 19,  <span class="comment">/*0x13*/</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    LV_KEY_LEFT      = 20,  <span class="comment">/*0x14*/</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    LV_KEY_ESC       = 27,  <span class="comment">/*0x1B*/</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    LV_KEY_DEL       = 127, <span class="comment">/*0x7F*/</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    LV_KEY_BACKSPACE = 8,   <span class="comment">/*0x08*/</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    LV_KEY_ENTER     = 10,  <span class="comment">/*0x0A, &#39;\n&#39;*/</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    LV_KEY_NEXT      = 9,   <span class="comment">/*0x09, &#39;\t&#39;*/</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    LV_KEY_PREV      = 11,  <span class="comment">/*0x0B, &#39;*/</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    LV_KEY_HOME      = 2,   <span class="comment">/*0x02, STX*/</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    LV_KEY_END       = 3,   <span class="comment">/*0x03, ETX*/</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>} <a class="code hl_enumeration" href="lv__group_8h.html#ab2463aef0f356690e6e37c418146c22d">lv_key_t</a>;</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> *      TYPEDEFS</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">typedef</span> void (*lv_group_focus_cb_t)(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> *);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">typedef</span> void (*lv_group_edge_cb_t)(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> *, bool);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    LV_GROUP_REFOCUS_POLICY_NEXT = 0,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    LV_GROUP_REFOCUS_POLICY_PREV = 1</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>} lv_group_refocus_policy_t;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * <a class="code hl_function" href="lv__group_8h.html#afd24771585b9b5cdbdc2eb7f0b9cb520">lv_group_create</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a3d4da845685cbdd2d576c43384b32660">lv_group_delete</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#ac3c7c582c324f2501ed585d683fd69e2">lv_group_set_default</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * <a class="code hl_function" href="lv__group_8h.html#a3a366f11be2d259dbff771a53beaedaa">lv_group_get_default</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a8673d9c19c91d2edecf2b1bff42c48fc">lv_group_add_obj</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#aa061dceb32f6727af000ef3392792e1a">lv_group_swap_obj</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj1, <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj2);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a219dc0b6d0674a706655aedcd56cf5ae">lv_group_remove_obj</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a1c6a83ae23426121b9b5920e0b2c9447">lv_group_remove_all_objs</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a64199ace138af107ba25116f367997a3">lv_group_focus_obj</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#ad5479089f9d9554f88428bf63241515f">lv_group_focus_next</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a6d5b7b4a734589a68a03ed93addc17fd">lv_group_focus_prev</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a95552390442529a311a425259348c707">lv_group_focus_freeze</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, <span class="keywordtype">bool</span> en);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><a class="code hl_enumeration" href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h.html#a5b0d1e3e8ccbb62b04ba2a6688ead275">lv_result_t</a> <a class="code hl_function" href="lv__group_8h.html#a193c579295c9a859f91eb2872275ce9f">lv_group_send_data</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, uint32_t c);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#adfb0a96484ca6f6d4691c257f25eb273">lv_group_set_focus_cb</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, lv_group_focus_cb_t focus_cb);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#aa67bd604693906b5b9ec14fbd5b39df5">lv_group_set_edge_cb</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, lv_group_edge_cb_t edge_cb);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#aa666a2561be02d6dc630d346fe1a5a30">lv_group_set_refocus_policy</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, lv_group_refocus_policy_t policy);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a823ad3a59540394774e86316f9c4b690">lv_group_set_editing</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, <span class="keywordtype">bool</span> edit);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#a18dcc5be6193ff5ca2281edae8fcf3af">lv_group_set_wrap</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, <span class="keywordtype">bool</span> en);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * <a class="code hl_function" href="lv__group_8h.html#a32f6012476aedc5eaa4ef9b493b28557">lv_group_get_focused</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>lv_group_focus_cb_t <a class="code hl_function" href="lv__group_8h.html#a44d1bd48f901ea2dab301e50e4983825">lv_group_get_focus_cb</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>lv_group_edge_cb_t <a class="code hl_function" href="lv__group_8h.html#ac0cc6230633760554bbc7ee15a4b1850">lv_group_get_edge_cb</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="keywordtype">bool</span> <a class="code hl_function" href="lv__group_8h.html#a06dd3f21e367415bd7845cbb9a0acc1c">lv_group_get_editing</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keywordtype">bool</span> <a class="code hl_function" href="lv__group_8h.html#a3746b6bf277dc31b7888986d7683ee7b">lv_group_get_wrap</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>uint32_t <a class="code hl_function" href="lv__group_8h.html#a7482be16fb7de1689f73df46a51807e2">lv_group_get_obj_count</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * <a class="code hl_function" href="lv__group_8h.html#a46f6f43434a62b7cffeced6c752762cc">lv_group_get_obj_by_index</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, uint32_t index);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>uint32_t <a class="code hl_function" href="lv__group_8h.html#a6a77f022aa9790dba609446b7c1f46e6">lv_group_get_count</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a>  * <a class="code hl_function" href="lv__group_8h.html#a51e27aa6d63758865d109d73e0f607b3">lv_group_by_index</a>(uint32_t index);</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="preprocessor">#if LV_USE_EXT_DATA</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="keywordtype">void</span> lv_group_set_external_data(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, <span class="keywordtype">void</span> * data, <span class="keywordtype">void</span> (* free_cb)(<span class="keywordtype">void</span> * data));</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__group_8h.html#af3d3ca0f65908957c79b01a35af02cfc">lv_group_set_user_data</a>(<a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group, <span class="keywordtype">void</span> * user_data);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="keywordtype">void</span> * <a class="code hl_function" href="lv__group_8h.html#a722bc3fb7337bc2f799242c2b47eb38d">lv_group_get_user_data</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__group__t.html">lv_group_t</a> * group);</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="preprocessor">#endif </span><span class="comment">/*LV_GROUP_H*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="aespressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_html_a5b0d1e3e8ccbb62b04ba2a6688ead275"><div class="ttname"><a href="espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h.html#a5b0d1e3e8ccbb62b04ba2a6688ead275">lv_result_t</a></div><div class="ttdeci">lv_result_t</div><div class="ttdef"><b>Definition</b> lv_types.h:31</div></div>
+<div class="ttc" id="alv__group_8h_html_a06dd3f21e367415bd7845cbb9a0acc1c"><div class="ttname"><a href="lv__group_8h.html#a06dd3f21e367415bd7845cbb9a0acc1c">lv_group_get_editing</a></div><div class="ttdeci">bool lv_group_get_editing(const lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:372</div></div>
+<div class="ttc" id="alv__group_8h_html_a18dcc5be6193ff5ca2281edae8fcf3af"><div class="ttname"><a href="lv__group_8h.html#a18dcc5be6193ff5ca2281edae8fcf3af">lv_group_set_wrap</a></div><div class="ttdeci">void lv_group_set_wrap(lv_group_t *group, bool en)</div><div class="ttdef"><b>Definition</b> lv_group.c:346</div></div>
+<div class="ttc" id="alv__group_8h_html_a193c579295c9a859f91eb2872275ce9f"><div class="ttname"><a href="lv__group_8h.html#a193c579295c9a859f91eb2872275ce9f">lv_group_send_data</a></div><div class="ttdeci">lv_result_t lv_group_send_data(lv_group_t *group, uint32_t c)</div><div class="ttdef"><b>Definition</b> lv_group.c:296</div></div>
+<div class="ttc" id="alv__group_8h_html_a1c6a83ae23426121b9b5920e0b2c9447"><div class="ttname"><a href="lv__group_8h.html#a1c6a83ae23426121b9b5920e0b2c9447">lv_group_remove_all_objs</a></div><div class="ttdeci">void lv_group_remove_all_objs(lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:213</div></div>
+<div class="ttc" id="alv__group_8h_html_a219dc0b6d0674a706655aedcd56cf5ae"><div class="ttname"><a href="lv__group_8h.html#a219dc0b6d0674a706655aedcd56cf5ae">lv_group_remove_obj</a></div><div class="ttdeci">void lv_group_remove_obj(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_group.c:172</div></div>
+<div class="ttc" id="alv__group_8h_html_a32f6012476aedc5eaa4ef9b493b28557"><div class="ttname"><a href="lv__group_8h.html#a32f6012476aedc5eaa4ef9b493b28557">lv_group_get_focused</a></div><div class="ttdeci">lv_obj_t * lv_group_get_focused(const lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:352</div></div>
+<div class="ttc" id="alv__group_8h_html_a3746b6bf277dc31b7888986d7683ee7b"><div class="ttname"><a href="lv__group_8h.html#a3746b6bf277dc31b7888986d7683ee7b">lv_group_get_wrap</a></div><div class="ttdeci">bool lv_group_get_wrap(lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:378</div></div>
+<div class="ttc" id="alv__group_8h_html_a3a366f11be2d259dbff771a53beaedaa"><div class="ttname"><a href="lv__group_8h.html#a3a366f11be2d259dbff771a53beaedaa">lv_group_get_default</a></div><div class="ttdeci">lv_group_t * lv_group_get_default(void)</div><div class="ttdef"><b>Definition</b> lv_group.c:121</div></div>
+<div class="ttc" id="alv__group_8h_html_a3d4da845685cbdd2d576c43384b32660"><div class="ttname"><a href="lv__group_8h.html#a3d4da845685cbdd2d576c43384b32660">lv_group_delete</a></div><div class="ttdeci">void lv_group_delete(lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:78</div></div>
+<div class="ttc" id="alv__group_8h_html_a44d1bd48f901ea2dab301e50e4983825"><div class="ttname"><a href="lv__group_8h.html#a44d1bd48f901ea2dab301e50e4983825">lv_group_get_focus_cb</a></div><div class="ttdeci">lv_group_focus_cb_t lv_group_get_focus_cb(const lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:360</div></div>
+<div class="ttc" id="alv__group_8h_html_a46f6f43434a62b7cffeced6c752762cc"><div class="ttname"><a href="lv__group_8h.html#a46f6f43434a62b7cffeced6c752762cc">lv_group_get_obj_by_index</a></div><div class="ttdeci">lv_obj_t * lv_group_get_obj_by_index(lv_group_t *group, uint32_t index)</div><div class="ttdef"><b>Definition</b> lv_group.c:390</div></div>
+<div class="ttc" id="alv__group_8h_html_a51e27aa6d63758865d109d73e0f607b3"><div class="ttname"><a href="lv__group_8h.html#a51e27aa6d63758865d109d73e0f607b3">lv_group_by_index</a></div><div class="ttdeci">lv_group_t * lv_group_by_index(uint32_t index)</div><div class="ttdef"><b>Definition</b> lv_group.c:409</div></div>
+<div class="ttc" id="alv__group_8h_html_a64199ace138af107ba25116f367997a3"><div class="ttname"><a href="lv__group_8h.html#a64199ace138af107ba25116f367997a3">lv_group_focus_obj</a></div><div class="ttdeci">void lv_group_focus_obj(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_group.c:233</div></div>
+<div class="ttc" id="alv__group_8h_html_a6a77f022aa9790dba609446b7c1f46e6"><div class="ttname"><a href="lv__group_8h.html#a6a77f022aa9790dba609446b7c1f46e6">lv_group_get_count</a></div><div class="ttdeci">uint32_t lv_group_get_count(void)</div><div class="ttdef"><b>Definition</b> lv_group.c:404</div></div>
+<div class="ttc" id="alv__group_8h_html_a6d5b7b4a734589a68a03ed93addc17fd"><div class="ttname"><a href="lv__group_8h.html#a6d5b7b4a734589a68a03ed93addc17fd">lv_group_focus_prev</a></div><div class="ttdeci">void lv_group_focus_prev(lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:277</div></div>
+<div class="ttc" id="alv__group_8h_html_a722bc3fb7337bc2f799242c2b47eb38d"><div class="ttname"><a href="lv__group_8h.html#a722bc3fb7337bc2f799242c2b47eb38d">lv_group_get_user_data</a></div><div class="ttdeci">void * lv_group_get_user_data(const lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:443</div></div>
+<div class="ttc" id="alv__group_8h_html_a7482be16fb7de1689f73df46a51807e2"><div class="ttname"><a href="lv__group_8h.html#a7482be16fb7de1689f73df46a51807e2">lv_group_get_obj_count</a></div><div class="ttdeci">uint32_t lv_group_get_obj_count(lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:384</div></div>
+<div class="ttc" id="alv__group_8h_html_a823ad3a59540394774e86316f9c4b690"><div class="ttname"><a href="lv__group_8h.html#a823ad3a59540394774e86316f9c4b690">lv_group_set_editing</a></div><div class="ttdeci">void lv_group_set_editing(lv_group_t *group, bool edit)</div><div class="ttdef"><b>Definition</b> lv_group.c:322</div></div>
+<div class="ttc" id="alv__group_8h_html_a8673d9c19c91d2edecf2b1bff42c48fc"><div class="ttname"><a href="lv__group_8h.html#a8673d9c19c91d2edecf2b1bff42c48fc">lv_group_add_obj</a></div><div class="ttdeci">void lv_group_add_obj(lv_group_t *group, lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_group.c:126</div></div>
+<div class="ttc" id="alv__group_8h_html_a95552390442529a311a425259348c707"><div class="ttname"><a href="lv__group_8h.html#a95552390442529a311a425259348c707">lv_group_focus_freeze</a></div><div class="ttdeci">void lv_group_focus_freeze(lv_group_t *group, bool en)</div><div class="ttdef"><b>Definition</b> lv_group.c:288</div></div>
+<div class="ttc" id="alv__group_8h_html_aa061dceb32f6727af000ef3392792e1a"><div class="ttname"><a href="lv__group_8h.html#aa061dceb32f6727af000ef3392792e1a">lv_group_swap_obj</a></div><div class="ttdeci">void lv_group_swap_obj(lv_obj_t *obj1, lv_obj_t *obj2)</div><div class="ttdef"><b>Definition</b> lv_group.c:152</div></div>
+<div class="ttc" id="alv__group_8h_html_aa666a2561be02d6dc630d346fe1a5a30"><div class="ttname"><a href="lv__group_8h.html#aa666a2561be02d6dc630d346fe1a5a30">lv_group_set_refocus_policy</a></div><div class="ttdeci">void lv_group_set_refocus_policy(lv_group_t *group, lv_group_refocus_policy_t policy)</div><div class="ttdef"><b>Definition</b> lv_group.c:340</div></div>
+<div class="ttc" id="alv__group_8h_html_aa67bd604693906b5b9ec14fbd5b39df5"><div class="ttname"><a href="lv__group_8h.html#aa67bd604693906b5b9ec14fbd5b39df5">lv_group_set_edge_cb</a></div><div class="ttdeci">void lv_group_set_edge_cb(lv_group_t *group, lv_group_edge_cb_t edge_cb)</div><div class="ttdef"><b>Definition</b> lv_group.c:315</div></div>
+<div class="ttc" id="alv__group_8h_html_ab2463aef0f356690e6e37c418146c22d"><div class="ttname"><a href="lv__group_8h.html#ab2463aef0f356690e6e37c418146c22d">lv_key_t</a></div><div class="ttdeci">lv_key_t</div><div class="ttdef"><b>Definition</b> lv_group.h:25</div></div>
+<div class="ttc" id="alv__group_8h_html_ac0cc6230633760554bbc7ee15a4b1850"><div class="ttname"><a href="lv__group_8h.html#ac0cc6230633760554bbc7ee15a4b1850">lv_group_get_edge_cb</a></div><div class="ttdeci">lv_group_edge_cb_t lv_group_get_edge_cb(const lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:366</div></div>
+<div class="ttc" id="alv__group_8h_html_ac3c7c582c324f2501ed585d683fd69e2"><div class="ttname"><a href="lv__group_8h.html#ac3c7c582c324f2501ed585d683fd69e2">lv_group_set_default</a></div><div class="ttdeci">void lv_group_set_default(lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:116</div></div>
+<div class="ttc" id="alv__group_8h_html_ad5479089f9d9554f88428bf63241515f"><div class="ttname"><a href="lv__group_8h.html#ad5479089f9d9554f88428bf63241515f">lv_group_focus_next</a></div><div class="ttdeci">void lv_group_focus_next(lv_group_t *group)</div><div class="ttdef"><b>Definition</b> lv_group.c:266</div></div>
+<div class="ttc" id="alv__group_8h_html_adfb0a96484ca6f6d4691c257f25eb273"><div class="ttname"><a href="lv__group_8h.html#adfb0a96484ca6f6d4691c257f25eb273">lv_group_set_focus_cb</a></div><div class="ttdeci">void lv_group_set_focus_cb(lv_group_t *group, lv_group_focus_cb_t focus_cb)</div><div class="ttdef"><b>Definition</b> lv_group.c:308</div></div>
+<div class="ttc" id="alv__group_8h_html_af3d3ca0f65908957c79b01a35af02cfc"><div class="ttname"><a href="lv__group_8h.html#af3d3ca0f65908957c79b01a35af02cfc">lv_group_set_user_data</a></div><div class="ttdeci">void lv_group_set_user_data(lv_group_t *group, void *user_data)</div><div class="ttdef"><b>Definition</b> lv_group.c:437</div></div>
+<div class="ttc" id="alv__group_8h_html_afd24771585b9b5cdbdc2eb7f0b9cb520"><div class="ttname"><a href="lv__group_8h.html#afd24771585b9b5cdbdc2eb7f0b9cb520">lv_group_create</a></div><div class="ttdeci">lv_group_t * lv_group_create(void)</div><div class="ttdef"><b>Definition</b> lv_group.c:55</div></div>
+<div class="ttc" id="astruct__lv__group__t_html"><div class="ttname"><a href="struct__lv__group__t.html">_lv_group_t</a></div><div class="ttdef"><b>Definition</b> lv_group_private.h:31</div></div>
+<div class="ttc" id="astruct__lv__obj__t_html"><div class="ttname"><a href="struct__lv__obj__t.html">_lv_obj_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_private.h:55</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

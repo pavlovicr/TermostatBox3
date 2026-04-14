@@ -1,0 +1,2167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/widgets/chart/lv_chart.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_e9f8e557d5343d9e0f422cb5bf98db87.html">widgets</a></li><li class="navelem"><a class="el" href="dir_bb87912e4fba46e090a3054b69bd3a3b.html">chart</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#func-members">Funkcije</a> &#124;
+<a href="#var-members">Spremenljivke</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_chart.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__chart__private_8h_source.html">lv_chart_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__area__private_8h_source.html">../../misc/lv_area_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__private_8h_source.html">../../draw/lv_draw_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__vector__private_8h_source.html">../../draw/lv_draw_vector_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__private_8h_source.html">../../core/lv_obj_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__class__private_8h_source.html">../../core/lv_obj_class_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__draw__private_8h_source.html">../../core/lv_obj_draw_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__assert_8h_source.html">../../misc/lv_assert.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_chart.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_chart.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__chart_8c__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2widgets_2chart_2lv__chart_8c" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2widgets_2chart_2lv__chart_8c" id="amanaged__components_2lvgl____lvgl_2src_2widgets_2chart_2lv__chart_8c">
+<area shape="rect" title=" " alt="" coords="799,5,969,60"/>
+<area shape="rect" href="lv__chart__private_8h.html" title=" " alt="" coords="368,115,507,141"/>
+<area shape="poly" title=" " alt="" coords="799,54,506,115,505,110,798,49"/>
+<area shape="rect" href="lv__obj__private_8h.html" title=" " alt="" coords="187,203,370,229"/>
+<area shape="poly" title=" " alt="" coords="799,41,685,48,556,62,438,82,391,95,357,110,335,128,317,149,291,192,287,190,313,146,332,124,355,106,390,90,437,77,555,57,685,43,798,35"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="489,900,583,925"/>
+<area shape="poly" title=" " alt="" coords="799,40,616,53,508,65,402,82,305,105,225,135,194,152,171,171,157,192,152,215,152,386,158,425,175,455,199,479,227,500,255,521,280,545,297,577,304,618,304,767,309,795,321,819,340,840,364,857,420,883,476,899,475,904,418,888,361,862,336,844,317,822,303,797,299,768,299,618,292,579,275,549,251,525,224,504,196,483,171,459,153,427,147,386,147,214,152,190,167,168,191,148,222,130,303,100,401,77,508,60,615,47,798,34"/>
+<area shape="rect" href="lv__area__private_8h.html" title=" " alt="" coords="627,108,757,148"/>
+<area shape="poly" title=" " alt="" coords="831,62,744,104,742,100,829,58"/>
+<area shape="rect" href="lv__draw__private_8h.html" title=" " alt="" coords="2749,519,2883,559"/>
+<area shape="poly" title=" " alt="" coords="969,31,1382,35,1658,43,1944,57,2214,79,2334,94,2440,111,2529,132,2597,155,2622,168,2640,183,2652,198,2656,214,2656,386,2659,407,2666,426,2690,460,2724,488,2760,510,2757,515,2721,493,2686,464,2661,428,2653,408,2651,386,2651,215,2647,200,2636,186,2619,173,2594,160,2527,137,2439,117,2334,99,2213,85,1944,62,1657,48,1382,40,969,36"/>
+<area shape="rect" href="lv__draw__vector__private_8h.html" title=" " alt="" coords="1477,108,1611,148"/>
+<area shape="poly" title=" " alt="" coords="970,43,1464,113,1463,118,969,49"/>
+<area shape="rect" href="lv__obj__class__private_8h.html" title=" " alt="" coords="855,284,1012,324"/>
+<area shape="poly" title=" " alt="" coords="891,60,930,270,925,271,886,61"/>
+<area shape="rect" href="lv__obj__draw__private_8h.html" title=" " alt="" coords="1194,196,1350,236"/>
+<area shape="poly" title=" " alt="" coords="941,58,1220,188,1218,192,939,62"/>
+<area shape="poly" title=" " alt="" coords="417,143,314,199,311,194,415,138"/>
+<area shape="rect" href="lv__chart_8h.html" title=" " alt="" coords="394,203,481,229"/>
+<area shape="poly" title=" " alt="" coords="440,141,440,189,435,189,435,141"/>
+<area shape="rect" href="lv__ext__data_8h.html" title=" " alt="" coords="5,1047,163,1072"/>
+<area shape="poly" title=" " alt="" coords="262,231,218,265,165,316,140,347,120,381,106,418,101,457,101,914,98,979,91,1033,85,1033,92,978,96,914,96,456,101,417,115,379,136,344,161,312,214,260,259,227"/>
+<area shape="rect" href="lv__obj_8h.html" title=" " alt="" coords="697,291,770,317"/>
+<area shape="poly" title=" " alt="" coords="340,226,684,291,683,296,339,231"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="1190,1120,1341,1145"/>
+<area shape="poly" title=" " alt="" coords="163,1068,182,1069,466,1090,748,1107,1176,1126,1176,1131,747,1112,466,1096,181,1075,163,1073"/>
+<area shape="poly" title=" " alt="" coords="697,310,568,323,487,334,403,349,326,369,262,393,237,408,218,423,207,439,203,457,203,987,203,1014,206,1035,215,1053,234,1070,253,1079,285,1088,378,1102,501,1113,644,1120,939,1128,1176,1129,1176,1134,939,1133,643,1125,501,1118,378,1107,284,1093,251,1084,230,1074,211,1056,201,1037,198,1014,197,987,197,456,202,437,214,419,234,403,259,389,324,364,402,344,486,329,567,318,696,305"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="1460,1047,1596,1072"/>
+<area shape="poly" title=" " alt="" coords="771,310,843,321,956,332,1053,336,1217,335,1296,335,1381,339,1476,350,1588,369,1683,386,1724,394,1761,404,1794,420,1823,443,1849,475,1870,518,1884,556,1892,590,1895,622,1892,651,1885,681,1873,711,1838,780,1809,825,1775,868,1737,907,1698,943,1622,1002,1561,1042,1558,1037,1619,997,1694,939,1733,903,1771,864,1805,822,1834,777,1868,709,1880,679,1887,651,1889,622,1887,591,1879,557,1866,520,1844,478,1820,447,1791,425,1759,409,1723,399,1682,391,1588,375,1476,355,1380,345,1296,341,1217,340,1052,341,956,337,842,327,770,315"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__style_8h.html" title=" " alt="" coords="1435,680,1567,705"/>
+<area shape="poly" title=" " alt="" coords="771,309,843,321,932,328,1047,333,1161,344,1208,355,1244,370,1283,398,1310,427,1330,458,1345,490,1374,557,1395,593,1426,630,1474,670,1470,674,1422,634,1391,596,1369,560,1340,492,1325,461,1306,431,1279,402,1241,374,1206,360,1160,350,1047,338,932,333,842,327,770,315"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color_8h.html" title=" " alt="" coords="1387,827,1517,852"/>
+<area shape="poly" title=" " alt="" coords="771,309,905,337,974,353,1024,370,1079,396,1121,424,1137,441,1151,462,1172,518,1177,539,1172,560,1163,572,1152,579,1129,585,1108,591,1098,598,1090,608,1086,619,1090,631,1118,669,1152,703,1190,733,1231,758,1315,796,1389,820,1387,826,1313,801,1229,763,1187,737,1148,707,1114,673,1086,633,1081,619,1086,605,1095,594,1105,586,1128,580,1150,574,1159,568,1167,557,1172,539,1167,519,1146,464,1133,444,1117,428,1077,400,1022,374,973,359,904,342,770,315"/>
+<area shape="poly" title=" " alt="" coords="697,311,656,317,607,329,556,347,509,374,464,410,431,443,420,462,412,483,405,537,405,767,409,812,416,830,430,850,457,875,489,892,487,897,454,879,426,854,411,833,403,814,400,767,400,537,407,481,415,459,427,440,460,406,507,370,554,342,605,324,655,312,696,306"/>
+<area shape="rect" href="lv__area_8h.html" title=" " alt="" coords="1218,827,1347,852"/>
+<area shape="poly" title=" " alt="" coords="724,319,703,345,680,383,665,426,663,448,667,470,684,521,704,557,731,591,769,630,816,673,873,703,927,721,972,728,1018,734,1074,751,1097,763,1119,776,1177,800,1233,820,1231,825,1175,805,1116,781,1094,768,1072,756,1017,739,972,733,926,727,871,708,813,678,765,634,727,594,700,560,679,523,661,471,658,448,660,425,675,380,699,342,720,315"/>
+<area shape="rect" href="lv__obj__tree_8h.html" title=" " alt="" coords="440,827,547,852"/>
+<area shape="poly" title=" " alt="" coords="697,309,657,313,612,324,568,343,549,357,533,374,500,428,479,488,468,551,465,615,467,676,474,731,489,813,484,814,468,732,462,676,459,615,463,551,474,487,495,426,529,370,546,353,565,338,610,318,656,308,696,303"/>
+<area shape="rect" href="lv__obj__pos_8h.html" title=" " alt="" coords="542,372,645,397"/>
+<area shape="poly" title=" " alt="" coords="714,319,627,368,625,363,711,315"/>
+<area shape="rect" href="lv__obj__scroll_8h.html" title=" " alt="" coords="947,753,1061,779"/>
+<area shape="poly" title=" " alt="" coords="771,310,885,337,942,354,982,370,1040,400,1084,427,1119,463,1150,518,1157,539,1150,560,1139,574,1125,581,1098,587,1070,591,1057,597,1045,608,1026,640,1014,676,1008,710,1006,740,1001,740,1003,710,1009,674,1021,638,1041,605,1054,593,1068,586,1097,581,1123,576,1135,569,1146,557,1152,539,1146,520,1115,466,1080,431,1037,404,980,374,940,359,884,343,770,316"/>
+<area shape="rect" href="lv__obj__style_8h.html" title=" " alt="" coords="811,607,923,632"/>
+<area shape="poly" title=" " alt="" coords="750,315,785,346,830,392,875,451,893,484,908,518,912,539,908,559,899,580,888,597,883,594,895,577,903,558,907,539,903,519,889,486,870,454,826,396,781,350,746,319"/>
+<area shape="rect" href="lv__obj__draw_8h.html" title=" " alt="" coords="1465,372,1575,397"/>
+<area shape="poly" title=" " alt="" coords="771,310,843,321,1014,341,1184,357,1451,376,1451,382,1184,362,1014,346,842,327,770,315"/>
+<area shape="rect" href="lv__obj__class_8h.html" title=" " alt="" coords="675,445,789,471"/>
+<area shape="poly" title=" " alt="" coords="736,317,735,432,730,432,731,317"/>
+<area shape="rect" href="lv__obj__property_8h.html" title=" " alt="" coords="760,526,893,551"/>
+<area shape="poly" title=" " alt="" coords="742,316,771,370,804,444,824,512,819,513,799,446,766,373,738,318"/>
+<area shape="rect" href="lv__obj__event_8h.html" title=" " alt="" coords="1019,526,1136,551"/>
+<area shape="poly" title=" " alt="" coords="771,307,857,327,906,345,951,370,990,403,1023,442,1068,512,1063,515,1018,445,986,407,948,374,903,350,855,332,770,312"/>
+<area shape="rect" href="lv__group_8h.html" title=" " alt="" coords="289,973,423,999"/>
+<area shape="poly" title=" " alt="" coords="697,310,649,316,591,327,529,346,471,374,420,407,384,440,371,459,362,481,357,507,355,537,355,841,358,960,352,960,349,841,349,537,351,506,357,479,367,457,380,437,417,403,468,370,527,341,589,322,648,311,696,305"/>
+<area shape="poly" title=" " alt="" coords="1486,1075,1322,1119,1320,1114,1485,1069"/>
+<area shape="poly" title=" " alt="" coords="1511,704,1540,760,1552,798,1557,838,1557,914,1551,980,1538,1034,1533,1033,1545,979,1552,914,1552,838,1547,799,1535,762,1506,707"/>
+<area shape="poly" title=" " alt="" coords="1500,707,1463,815,1458,813,1495,705"/>
+<area shape="poly" title=" " alt="" coords="1435,698,1337,702,1212,712,1073,729,935,756,829,788,727,826,572,896,570,891,725,821,827,783,934,751,1072,724,1211,706,1337,697,1435,692"/>
+<area shape="poly" title=" " alt="" coords="1485,708,1313,821,1310,817,1482,703"/>
+<area shape="rect" href="lv__text_8h.html" title=" " alt="" coords="1745,753,1823,779"/>
+<area shape="poly" title=" " alt="" coords="1547,703,1732,749,1731,754,1546,708"/>
+<area shape="poly" title=" " alt="" coords="1472,850,1526,888,1557,914,1586,944,1610,976,1625,1009,1626,1042,1620,1058,1610,1074,1593,1087,1569,1099,1504,1115,1428,1126,1355,1131,1354,1126,1428,1120,1503,1110,1567,1094,1590,1083,1606,1070,1616,1056,1621,1041,1619,1010,1605,978,1582,947,1553,918,1522,892,1469,854"/>
+<area shape="poly" title=" " alt="" coords="1459,851,1522,1033,1517,1035,1454,853"/>
+<area shape="poly" title=" " alt="" coords="1386,852,1360,855,923,890,597,911,597,905,922,885,1360,849,1386,847"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html" title=" " alt="" coords="1339,900,1426,925"/>
+<area shape="poly" title=" " alt="" coords="1442,854,1405,892,1401,888,1439,850"/>
+<area shape="poly" title=" " alt="" coords="523,928,507,943,493,960,486,979,490,998,508,1019,525,1035,544,1045,563,1051,609,1059,665,1069,803,1097,942,1114,1071,1124,1176,1128,1176,1133,1071,1129,942,1120,802,1102,663,1075,608,1064,562,1057,542,1050,522,1039,504,1023,486,1000,481,979,488,958,503,939,519,924"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__log_8h.html" title=" " alt="" coords="499,973,573,999"/>
+<area shape="poly" title=" " alt="" coords="539,926,539,960,533,960,533,926"/>
+<area shape="rect" href="lv__mem_8h.html" title=" " alt="" coords="597,973,736,999"/>
+<area shape="poly" title=" " alt="" coords="558,923,635,964,632,969,556,928"/>
+<area shape="poly" title=" " alt="" coords="560,996,641,1033,694,1053,747,1069,862,1093,978,1110,1177,1126,1176,1131,977,1115,861,1099,746,1075,692,1058,639,1038,558,1001"/>
+<area shape="poly" title=" " alt="" coords="574,994,586,996,830,1024,1072,1042,1286,1051,1446,1055,1446,1060,1286,1056,1072,1047,830,1030,585,1001,573,999"/>
+<area shape="poly" title=" " alt="" coords="683,997,735,1034,770,1054,806,1069,903,1097,1002,1114,1096,1124,1176,1128,1176,1133,1096,1129,1001,1119,902,1102,804,1075,767,1058,732,1038,679,1001"/>
+<area shape="poly" title=" " alt="" coords="737,994,755,996,1142,1030,1446,1050,1446,1056,1141,1035,754,1001,736,999"/>
+<area shape="poly" title=" " alt="" coords="1379,927,1281,1109,1276,1106,1374,924"/>
+<area shape="poly" title=" " alt="" coords="1394,924,1461,997,1505,1036,1501,1040,1457,1001,1390,927"/>
+<area shape="poly" title=" " alt="" coords="1285,852,1269,1106,1264,1106,1279,852"/>
+<area shape="poly" title=" " alt="" coords="1289,851,1305,885,1330,924,1368,961,1412,993,1492,1038,1489,1043,1409,997,1365,965,1326,927,1300,888,1284,853"/>
+<area shape="poly" title=" " alt="" coords="1300,850,1357,890,1354,894,1297,854"/>
+<area shape="poly" title=" " alt="" coords="1785,780,1772,834,1746,915,1726,959,1701,1002,1670,1041,1634,1074,1613,1086,1584,1095,1513,1111,1432,1122,1355,1129,1354,1124,1431,1117,1512,1106,1583,1090,1611,1081,1630,1070,1666,1037,1696,999,1721,956,1741,913,1767,833,1779,779"/>
+<area shape="poly" title=" " alt="" coords="1776,780,1549,1038,1545,1034,1772,777"/>
+<area shape="poly" title=" " alt="" coords="1745,776,1362,830,1361,824,1744,770"/>
+<area shape="poly" title=" " alt="" coords="515,850,571,880,654,921,753,963,857,996,936,1014,1018,1028,1181,1046,1329,1055,1446,1057,1446,1062,1329,1060,1181,1051,1017,1033,935,1019,855,1001,751,968,652,926,569,885,512,855"/>
+<area shape="poly" title=" " alt="" coords="593,398,589,428,587,469,591,514,605,558,623,588,642,611,661,629,682,644,731,669,791,703,860,746,936,776,1005,796,1077,811,1205,829,1204,834,1076,816,1004,801,934,781,858,750,788,708,728,674,679,648,658,633,638,615,619,591,600,560,586,515,581,469,584,427,588,397"/>
+<area shape="poly" title=" " alt="" coords="1022,777,1165,873,1269,936,1378,996,1482,1040,1480,1044,1376,1001,1266,941,1162,877,1019,781"/>
+<area shape="poly" title=" " alt="" coords="1049,776,1225,821,1224,826,1048,781"/>
+<area shape="poly" title=" " alt="" coords="855,634,830,660,804,696,794,716,787,736,786,757,792,778,802,794,815,803,829,811,846,825,890,877,921,922,955,961,979,979,1010,996,1045,1008,1092,1019,1209,1035,1336,1046,1447,1052,1446,1058,1336,1051,1209,1041,1091,1024,1044,1014,1008,1001,976,984,952,965,917,926,886,880,842,829,826,816,812,807,798,797,787,780,781,758,782,735,789,714,799,693,826,656,852,630"/>
+<area shape="poly" title=" " alt="" coords="923,624,1422,680,1422,685,923,630"/>
+<area shape="poly" title=" " alt="" coords="1576,393,1846,443,1951,459,2047,467,2135,474,2215,484,2289,504,2324,520,2357,540,2389,565,2420,596,2450,634,2478,679,2488,706,2488,734,2479,761,2462,788,2438,815,2410,840,2342,888,2269,930,2200,964,2112,1001,2069,1012,2014,1022,1878,1038,1610,1057,1610,1051,1878,1032,2013,1016,2068,1007,2110,996,2197,960,2266,926,2339,884,2406,836,2434,811,2457,785,2474,759,2483,733,2483,707,2474,681,2445,637,2416,600,2386,569,2354,544,2322,525,2287,509,2214,490,2134,479,2047,472,1950,464,1845,448,1575,398"/>
+<area shape="poly" title=" " alt="" coords="1465,396,1375,412,1259,437,1132,473,1069,495,1008,521,896,601,893,596,1005,516,1067,490,1130,468,1258,432,1374,406,1464,391"/>
+<area shape="rect" href="lv__draw__rect_8h.html" title=" " alt="" coords="1437,526,1603,551"/>
+<area shape="poly" title=" " alt="" coords="1523,397,1523,512,1517,512,1517,397"/>
+<area shape="rect" href="lv__draw__label_8h.html" title=" " alt="" coords="1613,445,1785,471"/>
+<area shape="poly" title=" " alt="" coords="1550,395,1658,438,1656,443,1548,400"/>
+<area shape="rect" href="lv__draw__image_8h.html" title=" " alt="" coords="1968,526,2149,551"/>
+<area shape="poly" title=" " alt="" coords="1576,392,1680,412,1798,443,1828,455,1857,468,2008,519,2006,524,1855,473,1826,460,1796,448,1679,417,1575,397"/>
+<area shape="rect" href="lv__draw__line_8h.html" title=" " alt="" coords="1099,607,1263,632"/>
+<area shape="poly" title=" " alt="" coords="1505,400,1211,601,1208,597,1502,395"/>
+<area shape="rect" href="lv__draw__arc_8h.html" title=" " alt="" coords="1627,526,1787,551"/>
+<area shape="poly" title=" " alt="" coords="1532,396,1562,430,1603,469,1639,495,1675,517,1672,522,1636,499,1600,473,1558,434,1528,400"/>
+<area shape="poly" title=" " alt="" coords="1521,552,1507,667,1502,666,1516,551"/>
+<area shape="poly" title=" " alt="" coords="1532,550,1553,578,1575,616,1588,661,1588,684,1582,706,1563,742,1537,774,1483,821,1479,817,1533,770,1558,739,1578,704,1583,683,1582,662,1570,618,1549,581,1528,553"/>
+<area shape="poly" title=" " alt="" coords="1513,553,1303,817,1298,814,1509,550"/>
+<area shape="rect" href="lv__draw_8h.html" title=" " alt="" coords="2186,607,2270,632"/>
+<area shape="poly" title=" " alt="" coords="1573,549,1615,556,1773,576,1930,592,2172,612,2172,617,1929,598,1772,582,1614,561,1572,554"/>
+<area shape="poly" title=" " alt="" coords="2271,623,2374,643,2421,658,2439,668,2451,678,2472,709,2486,737,2496,774,2499,819,2492,872,2470,932,2429,1000,2411,1022,2393,1038,2355,1056,2258,1075,2179,1089,2074,1100,1821,1117,1560,1128,1354,1133,1354,1127,1560,1122,1821,1112,2074,1095,2178,1083,2257,1069,2353,1051,2390,1033,2407,1018,2424,997,2465,930,2487,870,2494,818,2491,775,2481,739,2468,711,2447,682,2436,672,2419,663,2373,648,2270,628"/>
+<area shape="poly" title=" " alt="" coords="2270,618,2326,623,2383,636,2407,647,2425,662,2435,682,2433,706,2416,753,2394,789,2369,817,2340,839,2271,879,2188,928,2130,970,2103,986,2066,1001,1978,1020,1856,1036,1610,1056,1610,1051,1855,1031,1977,1015,2065,996,2101,981,2127,965,2185,923,2269,874,2337,835,2365,813,2390,786,2411,750,2428,705,2430,683,2421,666,2405,652,2382,641,2325,628,2270,624"/>
+<area shape="poly" title=" " alt="" coords="2186,627,1582,686,1581,681,2186,622"/>
+<area shape="poly" title=" " alt="" coords="2193,635,2042,683,1832,752,1830,746,2041,677,2191,630"/>
+<area shape="rect" href="lv__profiler_8h.html" title=" " alt="" coords="2809,1047,2954,1072"/>
+<area shape="poly" title=" " alt="" coords="2271,623,2388,641,2459,657,2529,678,2826,822,3121,972,3126,986,3121,1000,3099,1012,3059,1024,2957,1047,2956,1041,3058,1019,3097,1007,3117,997,3121,986,3117,975,2824,827,2527,682,2458,662,2387,647,2270,628"/>
+<area shape="rect" href="lv__matrix_8h.html" title=" " alt="" coords="2865,680,3007,705"/>
+<area shape="poly" title=" " alt="" coords="2270,622,2851,680,2851,686,2270,628"/>
+<area shape="rect" href="lv__event_8h.html" title=" " alt="" coords="2281,680,2418,705"/>
+<area shape="poly" title=" " alt="" coords="2249,630,2319,671,2317,675,2246,634"/>
+<area shape="rect" href="lv__image__decoder_8h.html" title=" " alt="" coords="2053,680,2205,705"/>
+<area shape="poly" title=" " alt="" coords="2214,634,2158,674,2155,670,2211,630"/>
+<area shape="rect" href="lv__draw__buf_8h.html" title=" " alt="" coords="1949,753,2109,779"/>
+<area shape="poly" title=" " alt="" coords="2233,632,2234,668,2230,688,2219,707,2199,726,2175,741,2123,759,2122,754,2173,736,2196,722,2215,704,2225,687,2229,667,2227,632"/>
+<area shape="poly" title=" " alt="" coords="2808,1067,1355,1130,1354,1125,2808,1061"/>
+<area shape="poly" title=" " alt="" coords="3008,694,3153,705,3238,715,3322,729,3399,747,3462,771,3486,785,3505,801,3517,818,3521,838,3521,986,3530,998,3527,1007,3510,1016,3470,1027,3398,1039,3130,1075,2966,1089,2750,1100,2231,1118,1718,1128,1354,1133,1354,1128,1718,1123,2231,1112,2749,1095,2966,1083,3129,1069,3398,1034,3468,1021,3508,1011,3523,1004,3524,999,3516,988,3516,838,3512,820,3501,804,3483,789,3460,775,3397,752,3321,734,3237,720,3153,710,3007,699"/>
+<area shape="poly" title=" " alt="" coords="2360,704,2391,760,2405,798,2411,838,2411,988,2408,998,2401,1008,2375,1026,2335,1042,2282,1056,2146,1080,1982,1098,1806,1112,1632,1122,1354,1132,1354,1127,1632,1117,1806,1107,1982,1093,2145,1074,2281,1051,2333,1037,2373,1021,2397,1004,2403,996,2405,987,2405,838,2400,799,2387,762,2355,707"/>
+<area shape="poly" title=" " alt="" coords="2336,708,2054,927,2002,969,1978,985,1945,1001,1895,1012,1808,1025,1610,1051,1609,1046,1807,1020,1894,1007,1943,996,1976,981,1999,965,2050,923,2333,703"/>
+<area shape="rect" href="lv__array_8h.html" title=" " alt="" coords="2285,753,2371,779"/>
+<area shape="poly" title=" " alt="" coords="2348,706,2338,741,2333,739,2343,705"/>
+<area shape="poly" title=" " alt="" coords="2319,781,2276,824,2207,886,2120,949,2072,978,2022,1001,1944,1021,1834,1037,1610,1056,1609,1051,1833,1031,1943,1016,2020,996,2069,973,2117,945,2204,881,2272,820,2315,777"/>
+<area shape="poly" title=" " alt="" coords="2135,705,2145,753,2147,784,2142,808,2130,831,2110,854,2055,906,2005,946,1956,976,1908,999,1801,1034,1665,1075,1584,1096,1502,1111,1355,1129,1354,1123,1501,1106,1583,1091,1663,1069,1800,1029,1906,994,1954,971,2002,941,2052,902,2106,850,2126,828,2137,807,2141,783,2140,754,2130,706"/>
+<area shape="poly" title=" " alt="" coords="2133,706,2133,740,2130,760,2124,780,2082,858,2061,888,2038,914,1982,958,1904,1001,1861,1013,1785,1026,1610,1050,1609,1045,1785,1021,1860,1007,1902,996,1979,953,2034,910,2057,885,2077,855,2119,778,2125,759,2128,739,2128,706"/>
+<area shape="poly" title=" " alt="" coords="2094,708,1959,749,1837,781,1708,802,1606,811,1505,818,1375,829,1361,831,1360,826,1374,824,1505,812,1606,806,1707,797,1835,776,1957,744,2092,703"/>
+<area shape="poly" title=" " alt="" coords="2115,708,2058,747,2055,743,2112,703"/>
+<area shape="poly" title=" " alt="" coords="2028,780,2009,823,1977,883,1931,948,1903,977,1871,1001,1824,1020,1757,1034,1610,1054,1610,1048,1756,1029,1823,1014,1868,996,1899,973,1927,944,1973,881,2005,820,2023,778"/>
+<area shape="poly" title=" " alt="" coords="1949,780,1531,831,1531,826,1949,775"/>
+<area shape="poly" title=" " alt="" coords="1949,776,1693,798,1375,829,1361,831,1360,826,1374,824,1693,793,1949,771"/>
+<area shape="poly" title=" " alt="" coords="1613,469,1557,476,1502,487,1455,502,1439,511,1427,520,1418,538,1415,557,1419,578,1427,598,1453,637,1481,668,1477,672,1448,640,1422,600,1414,579,1410,558,1413,537,1423,517,1436,506,1453,497,1500,482,1556,471,1612,464"/>
+<area shape="poly" title=" " alt="" coords="1737,468,1772,487,1788,501,1801,517,1810,543,1809,568,1801,593,1787,617,1752,664,1718,707,1693,748,1680,764,1659,781,1628,798,1596,812,1531,830,1530,824,1594,807,1626,793,1656,776,1676,760,1689,745,1714,704,1748,661,1783,614,1796,591,1804,567,1805,544,1796,520,1784,504,1769,491,1734,473"/>
+<area shape="poly" title=" " alt="" coords="1770,468,1811,486,1830,500,1845,517,1857,543,1859,579,1850,631,1825,706,1804,744,1799,741,1820,704,1845,630,1854,579,1851,544,1840,520,1826,504,1808,491,1767,473"/>
+<area shape="poly" title=" " alt="" coords="1674,473,1559,523,1557,518,1672,468"/>
+<area shape="poly" title=" " alt="" coords="1785,464,2009,487,2107,501,2163,516,2183,533,2199,552,2221,592,2216,595,2194,555,2179,536,2160,521,2106,507,2008,492,1785,469"/>
+<area shape="poly" title=" " alt="" coords="2017,554,1557,679,1556,674,2016,549"/>
+<area shape="poly" title=" " alt="" coords="2084,549,2192,599,2190,603,2082,554"/>
+<area shape="poly" title=" " alt="" coords="2066,550,2121,666,2116,668,2062,553"/>
+<area shape="poly" title=" " alt="" coords="2060,552,2035,740,2030,739,2055,551"/>
+<area shape="poly" title=" " alt="" coords="1142,635,1095,652,1040,677,985,711,937,755,883,817,861,846,844,875,834,904,832,933,839,964,858,997,889,1031,925,1059,965,1081,1008,1098,1096,1119,1176,1128,1176,1133,1095,1124,1006,1103,963,1085,922,1063,885,1035,854,1000,835,966,827,934,829,903,840,873,857,843,879,814,933,751,981,707,1038,672,1093,647,1140,630"/>
+<area shape="poly" title=" " alt="" coords="1233,629,1437,674,1436,680,1232,635"/>
+<area shape="poly" title=" " alt="" coords="1197,630,1428,816,1425,820,1194,634"/>
+<area shape="poly" title=" " alt="" coords="1186,631,1202,696,1216,737,1234,777,1263,815,1259,818,1230,780,1211,739,1196,697,1181,633"/>
+<area shape="poly" title=" " alt="" coords="1787,544,1990,564,2239,594,2357,613,2459,633,2534,655,2559,666,2574,678,2581,683,2589,684,2597,685,2602,692,2593,736,2549,853,2513,936,2494,968,2472,996,2446,1020,2415,1041,2378,1059,2333,1075,2247,1093,2134,1108,2002,1119,1859,1126,1575,1133,1354,1135,1354,1129,1575,1128,1858,1121,2001,1113,2134,1103,2247,1088,2331,1069,2376,1054,2412,1036,2442,1016,2468,993,2489,965,2508,933,2544,851,2588,734,2597,693,2595,690,2589,690,2580,688,2570,682,2556,671,2532,660,2457,638,2356,618,2238,600,1989,569,1787,549"/>
+<area shape="poly" title=" " alt="" coords="1693,554,1530,674,1526,669,1690,549"/>
+<area shape="poly" title=" " alt="" coords="1714,551,1728,606,1729,636,1722,660,1692,707,1663,748,1648,764,1625,781,1574,808,1521,826,1520,821,1572,803,1623,776,1644,760,1659,745,1687,704,1717,658,1723,636,1723,607,1708,552"/>
+<area shape="poly" title=" " alt="" coords="1703,553,1658,624,1623,668,1582,707,1521,748,1456,781,1392,807,1338,825,1337,820,1391,802,1453,776,1518,743,1578,703,1619,664,1654,621,1698,550"/>
+<area shape="poly" title=" " alt="" coords="1783,549,2173,607,2172,612,1782,554"/>
+<area shape="poly" title=" " alt="" coords="734,471,733,519,732,539,733,558,747,596,769,631,834,724,890,793,955,854,1044,923,1106,966,1176,996,1245,1017,1317,1032,1447,1050,1446,1055,1316,1037,1244,1022,1174,1001,1104,971,1041,927,951,858,886,796,830,727,764,633,742,598,728,559,726,539,728,519,729,471"/>
+<area shape="poly" title=" " alt="" coords="735,471,738,510,751,558,769,598,800,630,842,659,880,679,916,693,951,702,1027,719,1070,732,1118,751,1251,818,1249,822,1116,756,1068,737,1025,724,950,707,915,698,878,684,840,664,797,634,765,601,745,560,733,511,730,471"/>
+<area shape="poly" title=" " alt="" coords="748,469,804,515,800,519,744,473"/>
+<area shape="poly" title=" " alt="" coords="822,553,803,591,783,648,775,680,771,713,772,746,780,778,811,854,827,884,845,910,867,933,892,954,962,996,1001,1011,1053,1023,1184,1040,1325,1050,1446,1054,1446,1059,1325,1055,1183,1045,1052,1028,999,1016,960,1001,889,959,863,937,841,913,822,887,806,857,775,779,767,747,766,713,770,679,777,646,798,589,817,551"/>
+<area shape="poly" title=" " alt="" coords="894,546,1099,573,1202,589,1277,604,1380,637,1465,672,1463,677,1378,642,1275,609,1201,594,1098,578,893,551"/>
+<area shape="poly" title=" " alt="" coords="835,550,857,593,852,596,830,553"/>
+<area shape="poly" title=" " alt="" coords="1063,553,1016,591,989,617,963,646,942,678,929,711,926,745,937,777,959,810,984,840,1042,893,1109,937,1181,972,1254,1000,1324,1021,1447,1046,1445,1051,1323,1026,1252,1005,1179,977,1107,942,1039,898,980,844,954,813,932,780,921,745,923,710,937,676,959,643,985,613,1012,587,1059,549"/>
+<area shape="poly" title=" " alt="" coords="1048,554,911,604,909,599,1046,549"/>
+<area shape="poly" title=" " alt="" coords="1136,544,2268,679,2267,684,1136,550"/>
+<area shape="poly" title=" " alt="" coords="366,998,397,1035,419,1054,444,1070,485,1080,557,1090,759,1106,1176,1126,1176,1131,759,1111,557,1095,484,1085,442,1074,416,1059,393,1039,362,1001"/>
+<area shape="poly" title=" " alt="" coords="424,991,488,996,1035,1030,1446,1051,1446,1057,1035,1035,488,1001,423,996"/>
+<area shape="poly" title=" " alt="" coords="406,231,360,253,310,286,287,306,270,329,258,355,253,384,253,987,257,1011,266,1028,280,1040,299,1048,347,1058,402,1069,468,1084,556,1096,771,1113,995,1123,1176,1127,1176,1133,994,1128,771,1119,556,1101,467,1089,401,1075,346,1063,298,1053,278,1044,262,1032,252,1013,248,988,248,383,253,353,265,326,284,302,306,281,357,248,404,226"/>
+<area shape="poly" title=" " alt="" coords="478,226,684,286,683,291,477,231"/>
+<area shape="poly" title=" " alt="" coords="664,150,607,192,577,220,548,251,524,285,508,321,503,358,511,397,546,477,584,542,624,596,670,641,722,678,782,712,853,744,936,776,1005,798,1076,814,1205,831,1204,836,1075,819,1003,803,934,781,851,749,780,717,719,683,666,645,620,600,579,545,542,479,505,398,497,359,503,320,520,282,544,248,573,216,604,188,660,146"/>
+<area shape="poly" title=" " alt="" coords="2749,552,2284,613,2284,608,2749,546"/>
+<area shape="rect" href="lv__os__private_8h.html" title=" " alt="" coords="3183,900,3347,925"/>
+<area shape="poly" title=" " alt="" coords="2821,559,2826,618,2829,691,2829,767,2832,780,2838,791,2864,813,2902,833,2950,851,3062,878,3170,897,3169,902,3061,884,2949,856,2900,838,2861,818,2834,794,2827,781,2824,768,2824,691,2821,618,2816,559"/>
+<area shape="rect" href="lv__cache_8h.html" title=" " alt="" coords="2686,900,2866,925"/>
+<area shape="poly" title=" " alt="" coords="2810,560,2790,618,2782,654,2779,691,2779,767,2779,886,2773,886,2773,767,2773,691,2777,653,2785,616,2805,558"/>
+<area shape="poly" title=" " alt="" coords="3282,924,3298,939,3313,959,3321,979,3319,990,3314,1000,3277,1038,3239,1061,3201,1073,3161,1077,3072,1072,3022,1071,2967,1075,2819,1088,2624,1100,2156,1117,1690,1128,1355,1133,1355,1128,1690,1122,2156,1112,2624,1094,2819,1083,2966,1069,3022,1066,3073,1067,3161,1071,3200,1068,3237,1056,3274,1034,3310,997,3314,989,3315,980,3308,961,3294,943,3278,928"/>
+<area shape="poly" title=" " alt="" coords="3253,928,3197,966,3159,986,3119,1001,3025,1016,2865,1028,2424,1045,1954,1055,1610,1060,1610,1055,1954,1050,2424,1040,2864,1022,3024,1010,3118,996,3157,981,3194,961,3250,923"/>
+<area shape="rect" href="lv__os_8h.html" title=" " alt="" coords="3231,973,3299,999"/>
+<area shape="poly" title=" " alt="" coords="3268,926,3268,960,3263,960,3263,926"/>
+<area shape="rect" href="lv__os__none_8h.html" title=" " alt="" coords="3375,973,3481,999"/>
+<area shape="poly" title=" " alt="" coords="3293,923,3390,965,3388,970,3290,928"/>
+<area shape="poly" title=" " alt="" coords="3231,998,3212,1001,3065,1015,2870,1026,2402,1044,1939,1054,1610,1060,1610,1054,1939,1049,2402,1038,2869,1021,3064,1009,3212,996,3231,993"/>
+<area shape="poly" title=" " alt="" coords="2712,928,2496,963,2224,1001,1883,1035,1610,1055,1609,1050,1882,1030,2224,996,2495,958,2711,923"/>
+<area shape="rect" href="lv__cache__entry_8h.html" title=" " alt="" coords="2547,973,2677,999"/>
+<area shape="poly" title=" " alt="" coords="2751,928,2652,970,2650,965,2749,923"/>
+<area shape="rect" href="lv__cache__class_8h_source.html" title=" " alt="" coords="2701,973,2869,999"/>
+<area shape="poly" title=" " alt="" coords="2780,925,2785,959,2779,960,2775,926"/>
+<area shape="rect" href="lv__cache__instance_8h.html" title=" " alt="" coords="2894,973,3106,999"/>
+<area shape="poly" title=" " alt="" coords="2813,923,2952,967,2950,972,2811,928"/>
+<area shape="poly" title=" " alt="" coords="2547,994,1610,1055,1610,1050,2546,989"/>
+<area shape="rect" href="lv__draw__vector_8h.html" title=" " alt="" coords="2154,445,2286,471"/>
+<area shape="poly" title=" " alt="" coords="1584,146,2185,437,2183,442,1582,151"/>
+<area shape="poly" title=" " alt="" coords="2287,458,2443,463,2634,474,2804,491,2863,503,2896,516,2911,532,2922,551,2936,591,2941,632,2941,666,2936,666,2936,632,2931,592,2917,553,2907,536,2893,521,2861,508,2803,496,2634,479,2443,469,2286,463"/>
+<area shape="poly" title=" " alt="" coords="2287,464,2388,484,2431,498,2458,517,2476,548,2481,568,2482,589,2479,614,2470,641,2455,672,2433,707,2407,732,2377,750,2374,745,2404,728,2429,704,2450,670,2465,639,2473,612,2477,589,2476,568,2471,550,2454,520,2428,503,2386,489,2286,470"/>
+<area shape="poly" title=" " alt="" coords="2198,473,2095,523,2093,518,2195,468"/>
+<area shape="poly" title=" " alt="" coords="910,326,760,439,757,435,907,322"/>
+<area shape="poly" title=" " alt="" coords="1301,234,1493,362,1490,366,1298,238"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:a9be806f23ad96997f1d62c1a6dfabe05" id="r_a9be806f23ad96997f1d62c1a6dfabe05"><td class="memItemLeft" align="right" valign="top"><a id="a9be806f23ad96997f1d62c1a6dfabe05" name="a9be806f23ad96997f1d62c1a6dfabe05"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MY_CLASS</b>&#160;&#160;&#160;(&amp;lv_chart_class)</td></tr>
+<tr class="separator:a9be806f23ad96997f1d62c1a6dfabe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaac06c8c2f6b2baf35d9adc6abbfddb1" id="r_aaac06c8c2f6b2baf35d9adc6abbfddb1"><td class="memItemLeft" align="right" valign="top"><a id="aaac06c8c2f6b2baf35d9adc6abbfddb1" name="aaac06c8c2f6b2baf35d9adc6abbfddb1"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LV_CHART_HDIV_DEF</b>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:aaac06c8c2f6b2baf35d9adc6abbfddb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae66f3f5ae15a398b046e075af637c690" id="r_ae66f3f5ae15a398b046e075af637c690"><td class="memItemLeft" align="right" valign="top"><a id="ae66f3f5ae15a398b046e075af637c690" name="ae66f3f5ae15a398b046e075af637c690"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LV_CHART_VDIV_DEF</b>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ae66f3f5ae15a398b046e075af637c690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8823f91ce8c699bbc507725d0a1905a" id="r_ab8823f91ce8c699bbc507725d0a1905a"><td class="memItemLeft" align="right" valign="top"><a id="ab8823f91ce8c699bbc507725d0a1905a" name="ab8823f91ce8c699bbc507725d0a1905a"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LV_CHART_POINT_CNT_DEF</b>&#160;&#160;&#160;10</td></tr>
+<tr class="separator:ab8823f91ce8c699bbc507725d0a1905a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a62d0e1c61f18298f0375909295000d" id="r_a7a62d0e1c61f18298f0375909295000d"><td class="memItemLeft" align="right" valign="top"><a id="a7a62d0e1c61f18298f0375909295000d" name="a7a62d0e1c61f18298f0375909295000d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LV_CHART_LABEL_MAX_TEXT_LENGTH</b>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:a7a62d0e1c61f18298f0375909295000d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a6529af6120c2648b70556ea12b141f7b" id="r_a6529af6120c2648b70556ea12b141f7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a6529af6120c2648b70556ea12b141f7b">lv_chart_create</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *parent)</td></tr>
+<tr class="separator:a6529af6120c2648b70556ea12b141f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab564480b52da2510727a9eb470045f39" id="r_ab564480b52da2510727a9eb470045f39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ab564480b52da2510727a9eb470045f39">lv_chart_set_type</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="lv__chart_8h.html#a4278d5a201518e2fc34bc771c7ea70f6">lv_chart_type_t</a> type)</td></tr>
+<tr class="separator:ab564480b52da2510727a9eb470045f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0faf0064ef3831a512ac7740dfb06b13" id="r_a0faf0064ef3831a512ac7740dfb06b13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a0faf0064ef3831a512ac7740dfb06b13">lv_chart_set_point_count</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, uint32_t cnt)</td></tr>
+<tr class="separator:a0faf0064ef3831a512ac7740dfb06b13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51e51cc77c869b56158c9c3387649ecf" id="r_a51e51cc77c869b56158c9c3387649ecf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a51e51cc77c869b56158c9c3387649ecf">lv_chart_set_axis_min_value</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a> axis, int32_t min)</td></tr>
+<tr class="separator:a51e51cc77c869b56158c9c3387649ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf15fb2006fb28b4a35c7867a485178d" id="r_aaf15fb2006fb28b4a35c7867a485178d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#aaf15fb2006fb28b4a35c7867a485178d">lv_chart_set_axis_max_value</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a> axis, int32_t max)</td></tr>
+<tr class="separator:aaf15fb2006fb28b4a35c7867a485178d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3509d858c7072cb48d52cc3610ddba5" id="r_aa3509d858c7072cb48d52cc3610ddba5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#aa3509d858c7072cb48d52cc3610ddba5">lv_chart_set_axis_range</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a> axis, int32_t min, int32_t max)</td></tr>
+<tr class="separator:aa3509d858c7072cb48d52cc3610ddba5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93ad4bb5e42fb4d789f162110d9a9142" id="r_a93ad4bb5e42fb4d789f162110d9a9142"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a93ad4bb5e42fb4d789f162110d9a9142">lv_chart_set_update_mode</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="lv__chart_8h.html#a4494fe7996df897cc57b12c631e38917">lv_chart_update_mode_t</a> update_mode)</td></tr>
+<tr class="separator:a93ad4bb5e42fb4d789f162110d9a9142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99a7c47bbb13183d0b8d7f3de7582107" id="r_a99a7c47bbb13183d0b8d7f3de7582107"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a99a7c47bbb13183d0b8d7f3de7582107">lv_chart_set_div_line_count</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, uint32_t hdiv, uint32_t vdiv)</td></tr>
+<tr class="separator:a99a7c47bbb13183d0b8d7f3de7582107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c8db7aa77c975c9fb1e5d5d9fd68ae" id="r_a92c8db7aa77c975c9fb1e5d5d9fd68ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a92c8db7aa77c975c9fb1e5d5d9fd68ae">lv_chart_set_hor_div_line_count</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, uint32_t cnt)</td></tr>
+<tr class="separator:a92c8db7aa77c975c9fb1e5d5d9fd68ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9724ead6b7e4e3816e104b18580f475b" id="r_a9724ead6b7e4e3816e104b18580f475b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a9724ead6b7e4e3816e104b18580f475b">lv_chart_set_ver_div_line_count</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, uint32_t cnt)</td></tr>
+<tr class="separator:a9724ead6b7e4e3816e104b18580f475b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13500555e10ee92cbd723db16a2d959c" id="r_a13500555e10ee92cbd723db16a2d959c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lv__chart_8h.html#a4278d5a201518e2fc34bc771c7ea70f6">lv_chart_type_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a13500555e10ee92cbd723db16a2d959c">lv_chart_get_type</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a13500555e10ee92cbd723db16a2d959c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947e3dd674dd4d892aead983d722c4f5" id="r_a947e3dd674dd4d892aead983d722c4f5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a947e3dd674dd4d892aead983d722c4f5">lv_chart_get_point_count</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a947e3dd674dd4d892aead983d722c4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36626d427509f964797e23da6a21e4c5" id="r_a36626d427509f964797e23da6a21e4c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lv__chart_8h.html#a4494fe7996df897cc57b12c631e38917">lv_chart_update_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a36626d427509f964797e23da6a21e4c5">lv_chart_get_update_mode</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a36626d427509f964797e23da6a21e4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea5250a42ca8a8cf9766463554c18a72" id="r_aea5250a42ca8a8cf9766463554c18a72"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#aea5250a42ca8a8cf9766463554c18a72">lv_chart_get_hor_div_line_count</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:aea5250a42ca8a8cf9766463554c18a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fe4e4ea7a2f4314582acb1052037030" id="r_a3fe4e4ea7a2f4314582acb1052037030"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a3fe4e4ea7a2f4314582acb1052037030">lv_chart_get_ver_div_line_count</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a3fe4e4ea7a2f4314582acb1052037030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a083d5a0277fca40031c0b45141953b0b" id="r_a083d5a0277fca40031c0b45141953b0b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a083d5a0277fca40031c0b45141953b0b">lv_chart_get_x_start_point</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser)</td></tr>
+<tr class="separator:a083d5a0277fca40031c0b45141953b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5f8c7f0c4a3df2ab8c91f275d62e684" id="r_ac5f8c7f0c4a3df2ab8c91f275d62e684"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ac5f8c7f0c4a3df2ab8c91f275d62e684">lv_chart_get_point_pos_by_id</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, uint32_t id, <a class="el" href="structlv__point__t.html">lv_point_t</a> *p_out)</td></tr>
+<tr class="separator:ac5f8c7f0c4a3df2ab8c91f275d62e684"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b3c0e87e5f6286318c2973c95f1a08" id="r_a63b3c0e87e5f6286318c2973c95f1a08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a63b3c0e87e5f6286318c2973c95f1a08">lv_chart_refresh</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a63b3c0e87e5f6286318c2973c95f1a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94528ab74309379615ce3f52fa9e2ca6" id="r_a94528ab74309379615ce3f52fa9e2ca6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a94528ab74309379615ce3f52fa9e2ca6">lv_chart_add_series</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="structlv__color__t.html">lv_color_t</a> color, <a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a> axis)</td></tr>
+<tr class="separator:a94528ab74309379615ce3f52fa9e2ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae487fb2863bf944effb41e943d18ac18" id="r_ae487fb2863bf944effb41e943d18ac18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ae487fb2863bf944effb41e943d18ac18">lv_chart_remove_series</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *series)</td></tr>
+<tr class="separator:ae487fb2863bf944effb41e943d18ac18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e5d862b392e536043c1a0c7f69ef7ce" id="r_a5e5d862b392e536043c1a0c7f69ef7ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a5e5d862b392e536043c1a0c7f69ef7ce">lv_chart_hide_series</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *series, bool hide)</td></tr>
+<tr class="separator:a5e5d862b392e536043c1a0c7f69ef7ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adba2ced7eec01909e9eb70f5fe192ce5" id="r_adba2ced7eec01909e9eb70f5fe192ce5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#adba2ced7eec01909e9eb70f5fe192ce5">lv_chart_set_series_color</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *series, <a class="el" href="structlv__color__t.html">lv_color_t</a> color)</td></tr>
+<tr class="separator:adba2ced7eec01909e9eb70f5fe192ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51397470e8f87764d83689e4c68ec75c" id="r_a51397470e8f87764d83689e4c68ec75c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlv__color__t.html">lv_color_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a51397470e8f87764d83689e4c68ec75c">lv_chart_get_series_color</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, const <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *series)</td></tr>
+<tr class="separator:a51397470e8f87764d83689e4c68ec75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078f42fd6c732ff862401f3dc96be627" id="r_a078f42fd6c732ff862401f3dc96be627"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a078f42fd6c732ff862401f3dc96be627">lv_chart_set_x_start_point</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, uint32_t id)</td></tr>
+<tr class="separator:a078f42fd6c732ff862401f3dc96be627"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebcb6fc5f0cdb904d82c4a4efb39cc61" id="r_aebcb6fc5f0cdb904d82c4a4efb39cc61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#aebcb6fc5f0cdb904d82c4a4efb39cc61">lv_chart_get_series_next</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, const <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser)</td></tr>
+<tr class="separator:aebcb6fc5f0cdb904d82c4a4efb39cc61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3603fc7d2b9c48451d47f5edf9dd4c" id="r_a1c3603fc7d2b9c48451d47f5edf9dd4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a1c3603fc7d2b9c48451d47f5edf9dd4c">lv_chart_add_cursor</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="structlv__color__t.html">lv_color_t</a> color, lv_dir_t dir)</td></tr>
+<tr class="separator:a1c3603fc7d2b9c48451d47f5edf9dd4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba8a2bf6827c2330634856a0cc6fbaee" id="r_aba8a2bf6827c2330634856a0cc6fbaee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#aba8a2bf6827c2330634856a0cc6fbaee">lv_chart_remove_cursor</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *cursor)</td></tr>
+<tr class="separator:aba8a2bf6827c2330634856a0cc6fbaee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24fcab0e1c494936ba03fa5a8ed276ae" id="r_a24fcab0e1c494936ba03fa5a8ed276ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a24fcab0e1c494936ba03fa5a8ed276ae">lv_chart_set_cursor_pos</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, <a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *cursor, <a class="el" href="structlv__point__t.html">lv_point_t</a> *pos)</td></tr>
+<tr class="separator:a24fcab0e1c494936ba03fa5a8ed276ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a431be688f76868f17e266e3a5de67329" id="r_a431be688f76868f17e266e3a5de67329"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a431be688f76868f17e266e3a5de67329">lv_chart_set_cursor_pos_x</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, <a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *cursor, int32_t x)</td></tr>
+<tr class="separator:a431be688f76868f17e266e3a5de67329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab56ab7de20aef47ed6259ce031d095ae" id="r_ab56ab7de20aef47ed6259ce031d095ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ab56ab7de20aef47ed6259ce031d095ae">lv_chart_set_cursor_pos_y</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, <a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *cursor, int32_t y)</td></tr>
+<tr class="separator:ab56ab7de20aef47ed6259ce031d095ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ee1cb2bfbf2a681d74cf12b62cc21b" id="r_a78ee1cb2bfbf2a681d74cf12b62cc21b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a78ee1cb2bfbf2a681d74cf12b62cc21b">lv_chart_set_cursor_point</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, <a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *cursor, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, uint32_t point_id)</td></tr>
+<tr class="separator:a78ee1cb2bfbf2a681d74cf12b62cc21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a605ecf3aa1f3d9a03228d74818945794" id="r_a605ecf3aa1f3d9a03228d74818945794"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlv__point__t.html">lv_point_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a605ecf3aa1f3d9a03228d74818945794">lv_chart_get_cursor_point</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *chart, <a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *cursor)</td></tr>
+<tr class="separator:a605ecf3aa1f3d9a03228d74818945794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ba30bec64a52066ff0e863cab09772" id="r_a51ba30bec64a52066ff0e863cab09772"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a51ba30bec64a52066ff0e863cab09772">lv_chart_set_all_values</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, int32_t value)</td></tr>
+<tr class="separator:a51ba30bec64a52066ff0e863cab09772"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6bd83c596bc8e585940b2edc4dd59a4" id="r_ad6bd83c596bc8e585940b2edc4dd59a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ad6bd83c596bc8e585940b2edc4dd59a4">lv_chart_set_next_value</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, int32_t value)</td></tr>
+<tr class="separator:ad6bd83c596bc8e585940b2edc4dd59a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc483855e0971969933c51cfea418a42" id="r_adc483855e0971969933c51cfea418a42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#adc483855e0971969933c51cfea418a42">lv_chart_set_next_value2</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, int32_t x_value, int32_t y_value)</td></tr>
+<tr class="separator:adc483855e0971969933c51cfea418a42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55471500967d886754ff1ab0df8b89de" id="r_a55471500967d886754ff1ab0df8b89de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a55471500967d886754ff1ab0df8b89de">lv_chart_set_series_values</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, const int32_t values[], size_t values_cnt)</td></tr>
+<tr class="separator:a55471500967d886754ff1ab0df8b89de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c74f532c9096275c3eaef16f6f35414" id="r_a7c74f532c9096275c3eaef16f6f35414"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a7c74f532c9096275c3eaef16f6f35414">lv_chart_set_series_values2</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, const int32_t x_values[], const int32_t y_values[], size_t values_cnt)</td></tr>
+<tr class="separator:a7c74f532c9096275c3eaef16f6f35414"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a660f066fd1403775185984f1eeade1aa" id="r_a660f066fd1403775185984f1eeade1aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a660f066fd1403775185984f1eeade1aa">lv_chart_set_series_value_by_id</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, uint32_t id, int32_t value)</td></tr>
+<tr class="separator:a660f066fd1403775185984f1eeade1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16ed15eaf5cd603f91b0f600875617d9" id="r_a16ed15eaf5cd603f91b0f600875617d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a16ed15eaf5cd603f91b0f600875617d9">lv_chart_set_series_value_by_id2</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, uint32_t id, int32_t x_value, int32_t y_value)</td></tr>
+<tr class="separator:a16ed15eaf5cd603f91b0f600875617d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80c8f29942f6145b1c701a52531aa8ad" id="r_a80c8f29942f6145b1c701a52531aa8ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a80c8f29942f6145b1c701a52531aa8ad">lv_chart_set_series_ext_y_array</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, int32_t array[])</td></tr>
+<tr class="separator:a80c8f29942f6145b1c701a52531aa8ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae24eefe6db4b7cad2c516464493d9720" id="r_ae24eefe6db4b7cad2c516464493d9720"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ae24eefe6db4b7cad2c516464493d9720">lv_chart_set_series_ext_x_array</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser, int32_t array[])</td></tr>
+<tr class="separator:ae24eefe6db4b7cad2c516464493d9720"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ccb52602c063dafd9f84e5199d931d3" id="r_a3ccb52602c063dafd9f84e5199d931d3"><td class="memItemLeft" align="right" valign="top">int32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a3ccb52602c063dafd9f84e5199d931d3">lv_chart_get_series_y_array</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser)</td></tr>
+<tr class="separator:a3ccb52602c063dafd9f84e5199d931d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab792cd5ee46390b79ee3929365a828a4" id="r_ab792cd5ee46390b79ee3929365a828a4"><td class="memItemLeft" align="right" valign="top">int32_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ab792cd5ee46390b79ee3929365a828a4">lv_chart_get_series_x_array</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *ser)</td></tr>
+<tr class="separator:ab792cd5ee46390b79ee3929365a828a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df0e2ef309d5106bfa84950d005ec0f" id="r_a3df0e2ef309d5106bfa84950d005ec0f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a3df0e2ef309d5106bfa84950d005ec0f">lv_chart_get_pressed_point</a> (const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a3df0e2ef309d5106bfa84950d005ec0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e4dddc6405fd81de0055c3ab9807327" id="r_a2e4dddc6405fd81de0055c3ab9807327"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#a2e4dddc6405fd81de0055c3ab9807327">lv_chart_get_first_point_center_offset</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a2e4dddc6405fd81de0055c3ab9807327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Spremenljivke</h2></td></tr>
+<tr class="memitem:ae7d2ac58b6dc4028517083b684995355" id="r_ae7d2ac58b6dc4028517083b684995355"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct__lv__obj__class__t.html">lv_obj_class_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__chart_8c.html#ae7d2ac58b6dc4028517083b684995355">lv_chart_class</a></td></tr>
+<tr class="separator:ae7d2ac58b6dc4028517083b684995355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="a1c3603fc7d2b9c48451d47f5edf9dd4c" name="a1c3603fc7d2b9c48451d47f5edf9dd4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3603fc7d2b9c48451d47f5edf9dd4c">&#9670;&#160;</a></span>lv_chart_add_cursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> * lv_chart_add_cursor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__color__t.html">lv_color_t</a>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_dir_t&#160;</td>
+          <td class="paramname"><em>dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add a cursor with a given color </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">color</td><td>color of the cursor </td></tr>
+    <tr><td class="paramname">dir</td><td>direction of the cursor. <code>LV_DIR_RIGHT/LEFT/TOP/DOWN/HOR/VER/ALL</code>. OR-ed values are possible </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the created cursor </dd></dl>
+
+</div>
+</div>
+<a id="a94528ab74309379615ce3f52fa9e2ca6" name="a94528ab74309379615ce3f52fa9e2ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94528ab74309379615ce3f52fa9e2ca6">&#9670;&#160;</a></span>lv_chart_add_series()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> * lv_chart_add_series </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__color__t.html">lv_color_t</a>&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a>&#160;</td>
+          <td class="paramname"><em>axis</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Allocate and add a data series to the chart </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">color</td><td>color of the data series </td></tr>
+    <tr><td class="paramname">axis</td><td>the y axis to which the series should be attached (LV_CHART_AXIS_PRIMARY_Y or LV_CHART_AXIS_SECONDARY_Y) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the allocated data series or NULL on failure </dd></dl>
+
+</div>
+</div>
+<a id="a6529af6120c2648b70556ea12b141f7b" name="a6529af6120c2648b70556ea12b141f7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6529af6120c2648b70556ea12b141f7b">&#9670;&#160;</a></span>lv_chart_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_chart_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a chart object </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>pointer to an object, it will be the parent of the new chart </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the created chart </dd></dl>
+
+</div>
+</div>
+<a id="a605ecf3aa1f3d9a03228d74818945794" name="a605ecf3aa1f3d9a03228d74818945794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605ecf3aa1f3d9a03228d74818945794">&#9670;&#160;</a></span>lv_chart_get_cursor_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlv__point__t.html">lv_point_t</a> lv_chart_get_cursor_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *&#160;</td>
+          <td class="paramname"><em>cursor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the coordinate of the cursor with respect to the paddings </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cursor</td><td>pointer to cursor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>coordinate of the cursor as <a class="el" href="structlv__point__t.html">lv_point_t</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2e4dddc6405fd81de0055c3ab9807327" name="a2e4dddc6405fd81de0055c3ab9807327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e4dddc6405fd81de0055c3ab9807327">&#9670;&#160;</a></span>lv_chart_get_first_point_center_offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t lv_chart_get_first_point_center_offset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the overall offset from the chart's side to the center of the first point. In case of a bar chart it will be the center of the first column group </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the offset of the center </dd></dl>
+
+</div>
+</div>
+<a id="aea5250a42ca8a8cf9766463554c18a72" name="aea5250a42ca8a8cf9766463554c18a72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea5250a42ca8a8cf9766463554c18a72">&#9670;&#160;</a></span>lv_chart_get_hor_div_line_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_chart_get_hor_div_line_count </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the number of horizontal division lines </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the number of horizontal division lines </dd></dl>
+
+</div>
+</div>
+<a id="a947e3dd674dd4d892aead983d722c4f5" name="a947e3dd674dd4d892aead983d722c4f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947e3dd674dd4d892aead983d722c4f5">&#9670;&#160;</a></span>lv_chart_get_point_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_chart_get_point_count </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the data point number per data line on chart </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>point number on each data line </dd></dl>
+
+</div>
+</div>
+<a id="ac5f8c7f0c4a3df2ab8c91f275d62e684" name="ac5f8c7f0c4a3df2ab8c91f275d62e684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f8c7f0c4a3df2ab8c91f275d62e684">&#9670;&#160;</a></span>lv_chart_get_point_pos_by_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_get_point_pos_by_id </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__point__t.html">lv_point_t</a> *&#160;</td>
+          <td class="paramname"><em>p_out</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the position of a point to the chart. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to series </td></tr>
+    <tr><td class="paramname">id</td><td>the index. </td></tr>
+    <tr><td class="paramname">p_out</td><td>store the result position here </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3df0e2ef309d5106bfa84950d005ec0f" name="a3df0e2ef309d5106bfa84950d005ec0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df0e2ef309d5106bfa84950d005ec0f">&#9670;&#160;</a></span>lv_chart_get_pressed_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_chart_get_pressed_point </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the index of the currently pressed point. It's the same for every series. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the index of the point [0 .. point count] or LV_CHART_POINT_ID_NONE if no point is being pressed </dd></dl>
+
+</div>
+</div>
+<a id="a51397470e8f87764d83689e4c68ec75c" name="a51397470e8f87764d83689e4c68ec75c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51397470e8f87764d83689e4c68ec75c">&#9670;&#160;</a></span>lv_chart_get_series_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlv__color__t.html">lv_color_t</a> lv_chart_get_series_color </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>series</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the color of a series </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object. </td></tr>
+    <tr><td class="paramname">series</td><td>pointer to a series object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the color of the series </dd></dl>
+
+</div>
+</div>
+<a id="aebcb6fc5f0cdb904d82c4a4efb39cc61" name="aebcb6fc5f0cdb904d82c4a4efb39cc61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebcb6fc5f0cdb904d82c4a4efb39cc61">&#9670;&#160;</a></span>lv_chart_get_series_next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> * lv_chart_get_series_next </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the next series. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart </td></tr>
+    <tr><td class="paramname">ser</td><td>the previous series or NULL to get the first </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the next series or NULL if there is no more. </dd></dl>
+
+</div>
+</div>
+<a id="ab792cd5ee46390b79ee3929365a828a4" name="ab792cd5ee46390b79ee3929365a828a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab792cd5ee46390b79ee3929365a828a4">&#9670;&#160;</a></span>lv_chart_get_series_x_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t * lv_chart_get_series_x_array </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the array of x values of a series </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the array of values with 'point_count' elements </dd></dl>
+
+</div>
+</div>
+<a id="a3ccb52602c063dafd9f84e5199d931d3" name="a3ccb52602c063dafd9f84e5199d931d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ccb52602c063dafd9f84e5199d931d3">&#9670;&#160;</a></span>lv_chart_get_series_y_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t * lv_chart_get_series_y_array </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the array of y values of a series </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the array of values with 'point_count' elements </dd></dl>
+
+</div>
+</div>
+<a id="a13500555e10ee92cbd723db16a2d959c" name="a13500555e10ee92cbd723db16a2d959c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13500555e10ee92cbd723db16a2d959c">&#9670;&#160;</a></span>lv_chart_get_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lv__chart_8h.html#a4278d5a201518e2fc34bc771c7ea70f6">lv_chart_type_t</a> lv_chart_get_type </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the type of a chart </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>type of the chart (from 'lv_chart_t' enum) </dd></dl>
+
+</div>
+</div>
+<a id="a36626d427509f964797e23da6a21e4c5" name="a36626d427509f964797e23da6a21e4c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36626d427509f964797e23da6a21e4c5">&#9670;&#160;</a></span>lv_chart_get_update_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lv__chart_8h.html#a4494fe7996df897cc57b12c631e38917">lv_chart_update_mode_t</a> lv_chart_get_update_mode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the update mode of a chart </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the update mode </dd></dl>
+
+</div>
+</div>
+<a id="a3fe4e4ea7a2f4314582acb1052037030" name="a3fe4e4ea7a2f4314582acb1052037030"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fe4e4ea7a2f4314582acb1052037030">&#9670;&#160;</a></span>lv_chart_get_ver_div_line_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_chart_get_ver_div_line_count </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the number of vertical division lines </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the number of vertical division lines </dd></dl>
+
+</div>
+</div>
+<a id="a083d5a0277fca40031c0b45141953b0b" name="a083d5a0277fca40031c0b45141953b0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a083d5a0277fca40031c0b45141953b0b">&#9670;&#160;</a></span>lv_chart_get_x_start_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_chart_get_x_start_point </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current index of the x-axis start point in the data array </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the index of the current x start point in the data array </dd></dl>
+
+</div>
+</div>
+<a id="a5e5d862b392e536043c1a0c7f69ef7ce" name="a5e5d862b392e536043c1a0c7f69ef7ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e5d862b392e536043c1a0c7f69ef7ce">&#9670;&#160;</a></span>lv_chart_hide_series()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_hide_series </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>series</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>hide</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Hide/Unhide a single series of a chart. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object. </td></tr>
+    <tr><td class="paramname">series</td><td>pointer to a series object </td></tr>
+    <tr><td class="paramname">hide</td><td>true: hide the series </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a63b3c0e87e5f6286318c2973c95f1a08" name="a63b3c0e87e5f6286318c2973c95f1a08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b3c0e87e5f6286318c2973c95f1a08">&#9670;&#160;</a></span>lv_chart_refresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_refresh </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Refresh a chart if its data line has changed </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aba8a2bf6827c2330634856a0cc6fbaee" name="aba8a2bf6827c2330634856a0cc6fbaee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba8a2bf6827c2330634856a0cc6fbaee">&#9670;&#160;</a></span>lv_chart_remove_cursor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_remove_cursor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *&#160;</td>
+          <td class="paramname"><em>cursor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Remove a cursor </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">cursor</td><td>pointer to the cursor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae487fb2863bf944effb41e943d18ac18" name="ae487fb2863bf944effb41e943d18ac18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae487fb2863bf944effb41e943d18ac18">&#9670;&#160;</a></span>lv_chart_remove_series()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_remove_series </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>series</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deallocate and remove a data series from a chart </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">series</td><td>pointer to a data series on 'chart' </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a51ba30bec64a52066ff0e863cab09772" name="a51ba30bec64a52066ff0e863cab09772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51ba30bec64a52066ff0e863cab09772">&#9670;&#160;</a></span>lv_chart_set_all_values()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_all_values </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize all data points of a series with a value </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">value</td><td>the new value for all points. <code>LV_CHART_POINT_NONE</code> can be used to hide the points. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaf15fb2006fb28b4a35c7867a485178d" name="aaf15fb2006fb28b4a35c7867a485178d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf15fb2006fb28b4a35c7867a485178d">&#9670;&#160;</a></span>lv_chart_set_axis_max_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_axis_max_value </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a>&#160;</td>
+          <td class="paramname"><em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the maximal y values on an axis </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">axis</td><td><code>LV_CHART_AXIS_PRIMARY_Y</code> or <code>LV_CHART_AXIS_SECONDARY_Y</code> </td></tr>
+    <tr><td class="paramname">max</td><td>maximum value of the y axis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a51e51cc77c869b56158c9c3387649ecf" name="a51e51cc77c869b56158c9c3387649ecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e51cc77c869b56158c9c3387649ecf">&#9670;&#160;</a></span>lv_chart_set_axis_min_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_axis_min_value </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a>&#160;</td>
+          <td class="paramname"><em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>min</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the minimal values on an axis </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">axis</td><td><code>LV_CHART_AXIS_PRIMARY_Y</code> or <code>LV_CHART_AXIS_SECONDARY_Y</code> </td></tr>
+    <tr><td class="paramname">min</td><td>minimal value of the y axis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3509d858c7072cb48d52cc3610ddba5" name="aa3509d858c7072cb48d52cc3610ddba5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3509d858c7072cb48d52cc3610ddba5">&#9670;&#160;</a></span>lv_chart_set_axis_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_axis_range </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__chart_8h.html#a76db46ad7b9f3168e8ad45dfebd22185">lv_chart_axis_t</a>&#160;</td>
+          <td class="paramname"><em>axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the minimal and maximal y values on an axis </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">axis</td><td><code>LV_CHART_AXIS_PRIMARY_Y</code> or <code>LV_CHART_AXIS_SECONDARY_Y</code> </td></tr>
+    <tr><td class="paramname">min</td><td>minimum value of the y axis </td></tr>
+    <tr><td class="paramname">max</td><td>maximum value of the y axis </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a78ee1cb2bfbf2a681d74cf12b62cc21b" name="a78ee1cb2bfbf2a681d74cf12b62cc21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ee1cb2bfbf2a681d74cf12b62cc21b">&#9670;&#160;</a></span>lv_chart_set_cursor_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_cursor_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>point_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Stick the cursor to a point </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cursor</td><td>pointer to the cursor </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a series </td></tr>
+    <tr><td class="paramname">point_id</td><td>the point's index or <code>LV_CHART_POINT_NONE</code> to not assign to any points. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a24fcab0e1c494936ba03fa5a8ed276ae" name="a24fcab0e1c494936ba03fa5a8ed276ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24fcab0e1c494936ba03fa5a8ed276ae">&#9670;&#160;</a></span>lv_chart_set_cursor_pos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_cursor_pos </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__point__t.html">lv_point_t</a> *&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the coordinate of the cursor with respect to the paddings </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cursor</td><td>pointer to the cursor </td></tr>
+    <tr><td class="paramname">pos</td><td>the new coordinate of cursor relative to the chart </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a431be688f76868f17e266e3a5de67329" name="a431be688f76868f17e266e3a5de67329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a431be688f76868f17e266e3a5de67329">&#9670;&#160;</a></span>lv_chart_set_cursor_pos_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_cursor_pos_x </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the X coordinate of the cursor with respect to the paddings </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cursor</td><td>pointer to the cursor </td></tr>
+    <tr><td class="paramname">x</td><td>the new X coordinate of cursor relative to the chart </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab56ab7de20aef47ed6259ce031d095ae" name="ab56ab7de20aef47ed6259ce031d095ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab56ab7de20aef47ed6259ce031d095ae">&#9670;&#160;</a></span>lv_chart_set_cursor_pos_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_cursor_pos_y </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__cursor__t.html">lv_chart_cursor_t</a> *&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the coordinate of the cursor with respect to the paddings </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cursor</td><td>pointer to the cursor </td></tr>
+    <tr><td class="paramname">y</td><td>the new Y coordinate of cursor relative to the chart </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a99a7c47bbb13183d0b8d7f3de7582107" name="a99a7c47bbb13183d0b8d7f3de7582107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a7c47bbb13183d0b8d7f3de7582107">&#9670;&#160;</a></span>lv_chart_set_div_line_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_div_line_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>hdiv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>vdiv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the number of horizontal and vertical division lines </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">hdiv</td><td>number of horizontal division lines </td></tr>
+    <tr><td class="paramname">vdiv</td><td>number of vertical division lines </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a92c8db7aa77c975c9fb1e5d5d9fd68ae" name="a92c8db7aa77c975c9fb1e5d5d9fd68ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92c8db7aa77c975c9fb1e5d5d9fd68ae">&#9670;&#160;</a></span>lv_chart_set_hor_div_line_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_hor_div_line_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the number of horizontal division lines </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cnt</td><td>number of horizontal division lines </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6bd83c596bc8e585940b2edc4dd59a4" name="ad6bd83c596bc8e585940b2edc4dd59a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6bd83c596bc8e585940b2edc4dd59a4">&#9670;&#160;</a></span>lv_chart_set_next_value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_next_value </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the next point's Y value according to the update mode policy. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">value</td><td>the new value of the next data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adc483855e0971969933c51cfea418a42" name="adc483855e0971969933c51cfea418a42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc483855e0971969933c51cfea418a42">&#9670;&#160;</a></span>lv_chart_set_next_value2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_next_value2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the next point's X and Y value according to the update mode policy. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">x_value</td><td>the new X value of the next data </td></tr>
+    <tr><td class="paramname">y_value</td><td>the new Y value of the next data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0faf0064ef3831a512ac7740dfb06b13" name="a0faf0064ef3831a512ac7740dfb06b13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0faf0064ef3831a512ac7740dfb06b13">&#9670;&#160;</a></span>lv_chart_set_point_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_point_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the number of points on a data line on a chart </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cnt</td><td>new number of points on the data lines </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="adba2ced7eec01909e9eb70f5fe192ce5" name="adba2ced7eec01909e9eb70f5fe192ce5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adba2ced7eec01909e9eb70f5fe192ce5">&#9670;&#160;</a></span>lv_chart_set_series_color()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_series_color </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>chart</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>series</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__color__t.html">lv_color_t</a>&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Change the color of a series </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chart</td><td>pointer to a chart object. </td></tr>
+    <tr><td class="paramname">series</td><td>pointer to a series object </td></tr>
+    <tr><td class="paramname">color</td><td>the new color of the series </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae24eefe6db4b7cad2c516464493d9720" name="ae24eefe6db4b7cad2c516464493d9720"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24eefe6db4b7cad2c516464493d9720">&#9670;&#160;</a></span>lv_chart_set_series_ext_x_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_series_ext_x_array </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>array</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set an external array for the x data points to use for the chart NOTE: It is the users responsibility to make sure the <code>point_cnt</code> matches the external array size. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">array</td><td>external array of points for chart </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a80c8f29942f6145b1c701a52531aa8ad" name="a80c8f29942f6145b1c701a52531aa8ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80c8f29942f6145b1c701a52531aa8ad">&#9670;&#160;</a></span>lv_chart_set_series_ext_y_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_series_ext_y_array </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>array</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set an external array for the y data points to use for the chart NOTE: It is the users responsibility to make sure the <code>point_cnt</code> matches the external array size. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">array</td><td>external array of points for chart </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a660f066fd1403775185984f1eeade1aa" name="a660f066fd1403775185984f1eeade1aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a660f066fd1403775185984f1eeade1aa">&#9670;&#160;</a></span>lv_chart_set_series_value_by_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_series_value_by_id </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set an individual point's y value of a chart's series directly based on its index </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">id</td><td>the index of the x point in the array </td></tr>
+    <tr><td class="paramname">value</td><td>value to assign to array point </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a16ed15eaf5cd603f91b0f600875617d9" name="a16ed15eaf5cd603f91b0f600875617d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16ed15eaf5cd603f91b0f600875617d9">&#9670;&#160;</a></span>lv_chart_set_series_value_by_id2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_series_value_by_id2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>x_value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>y_value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set an individual point's x and y value of a chart's series directly based on its index Can be used only with <code>LV_CHART_TYPE_SCATTER</code>. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">id</td><td>the index of the x point in the array </td></tr>
+    <tr><td class="paramname">x_value</td><td>the new X value of the next data </td></tr>
+    <tr><td class="paramname">y_value</td><td>the new Y value of the next data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55471500967d886754ff1ab0df8b89de" name="a55471500967d886754ff1ab0df8b89de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55471500967d886754ff1ab0df8b89de">&#9670;&#160;</a></span>lv_chart_set_series_values()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_series_values </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int32_t&#160;</td>
+          <td class="paramname"><em>values</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>values_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Same as <code>lv_chart_set_next_value</code> but set the values from an array </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">values</td><td>the new values to set </td></tr>
+    <tr><td class="paramname">values_cnt</td><td>number of items in <code>values</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7c74f532c9096275c3eaef16f6f35414" name="a7c74f532c9096275c3eaef16f6f35414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c74f532c9096275c3eaef16f6f35414">&#9670;&#160;</a></span>lv_chart_set_series_values2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_series_values2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int32_t&#160;</td>
+          <td class="paramname"><em>x_values</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int32_t&#160;</td>
+          <td class="paramname"><em>y_values</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>values_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Same as <code>lv_chart_set_next_value2</code> but set the values from an array </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">x_values</td><td>the new values to set on the X axis </td></tr>
+    <tr><td class="paramname">y_values</td><td>the new values to set o nthe Y axis </td></tr>
+    <tr><td class="paramname">values_cnt</td><td>number of items in <code>x_values</code> and <code>y_values</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab564480b52da2510727a9eb470045f39" name="ab564480b52da2510727a9eb470045f39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab564480b52da2510727a9eb470045f39">&#9670;&#160;</a></span>lv_chart_set_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_type </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__chart_8h.html#a4278d5a201518e2fc34bc771c7ea70f6">lv_chart_type_t</a>&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set a new type for a chart </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">type</td><td>new type of the chart (from 'lv_chart_type_t' enum) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a93ad4bb5e42fb4d789f162110d9a9142" name="a93ad4bb5e42fb4d789f162110d9a9142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93ad4bb5e42fb4d789f162110d9a9142">&#9670;&#160;</a></span>lv_chart_set_update_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_update_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__chart_8h.html#a4494fe7996df897cc57b12c631e38917">lv_chart_update_mode_t</a>&#160;</td>
+          <td class="paramname"><em>update_mode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set update mode of the chart object. Affects </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">update_mode</td><td>the update mode </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9724ead6b7e4e3816e104b18580f475b" name="a9724ead6b7e4e3816e104b18580f475b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9724ead6b7e4e3816e104b18580f475b">&#9670;&#160;</a></span>lv_chart_set_ver_div_line_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_ver_div_line_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the number of vertical division lines </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">cnt</td><td>number of vertical division lines </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a078f42fd6c732ff862401f3dc96be627" name="a078f42fd6c732ff862401f3dc96be627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078f42fd6c732ff862401f3dc96be627">&#9670;&#160;</a></span>lv_chart_set_x_start_point()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_chart_set_x_start_point </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct__lv__chart__series__t.html">lv_chart_series_t</a> *&#160;</td>
+          <td class="paramname"><em>ser</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the index of the x-axis start point in the data array. This point will be considers the first (left) point and the other points will be drawn after it. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a chart object </td></tr>
+    <tr><td class="paramname">ser</td><td>pointer to a data series on 'chart' </td></tr>
+    <tr><td class="paramname">id</td><td>the index of the x point in the data array </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Opis spremenljivke</h2>
+<a id="ae7d2ac58b6dc4028517083b684995355" name="ae7d2ac58b6dc4028517083b684995355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d2ac58b6dc4028517083b684995355">&#9670;&#160;</a></span>lv_chart_class</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct__lv__obj__class__t.html">lv_obj_class_t</a> lv_chart_class</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Začetna vrednost / definicija :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .constructor_cb = lv_chart_constructor,</div>
+<div class="line">    .destructor_cb = lv_chart_destructor,</div>
+<div class="line">    .event_cb = lv_chart_event,</div>
+<div class="line">    .width_def = LV_PCT(100),</div>
+<div class="line">    .height_def = <a class="code hl_define" href="lv__conf__cmsis_8h.html#aadf0386c6d60d0c07153b38654f6b6d3">LV_DPI_DEF</a> * 2,</div>
+<div class="line">    .instance_size = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__lv__chart__t.html">lv_chart_t</a>),</div>
+<div class="line">    .base_class = &amp;<a class="code hl_variable" href="lv__obj_8c.html#a424ca3b432ad82f98c4b05950b597d44">lv_obj_class</a>,</div>
+<div class="line">    .name = <span class="stringliteral">&quot;lv_chart&quot;</span>,</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="ttc" id="alv__conf__cmsis_8h_html_aadf0386c6d60d0c07153b38654f6b6d3"><div class="ttname"><a href="lv__conf__cmsis_8h.html#aadf0386c6d60d0c07153b38654f6b6d3">LV_DPI_DEF</a></div><div class="ttdeci">#define LV_DPI_DEF</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:94</div></div>
+<div class="ttc" id="alv__obj_8c_html_a424ca3b432ad82f98c4b05950b597d44"><div class="ttname"><a href="lv__obj_8c.html#a424ca3b432ad82f98c4b05950b597d44">lv_obj_class</a></div><div class="ttdeci">const lv_obj_class_t lv_obj_class</div><div class="ttdef"><b>Definition</b> lv_obj.c:213</div></div>
+<div class="ttc" id="astruct__lv__chart__t_html"><div class="ttname"><a href="struct__lv__chart__t.html">_lv_chart_t</a></div><div class="ttdef"><b>Definition</b> lv_chart_private.h:54</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

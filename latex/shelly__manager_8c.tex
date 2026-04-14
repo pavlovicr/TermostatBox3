@@ -1,0 +1,110 @@
+\doxysection{Datoteka components/shelly\+\_\+manager/shelly\+\_\+manager.c}
+\hypertarget{shelly__manager_8c}{}\label{shelly__manager_8c}\index{components/shelly\_manager/shelly\_manager.c@{components/shelly\_manager/shelly\_manager.c}}
+
+
+Shelly 2PM Gen3 HTTP API implementation (simplified, no JSON parsing)  
+
+
+{\ttfamily \#include "{}shelly\+\_\+manager.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+http\+\_\+client.\+h"{}}\newline
+{\ttfamily \#include "{}esp\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}shelly\+\_\+manager.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko shelly\+\_\+manager.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{shelly__manager_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{shelly__manager_8c_a5f251aab585b065570abef74d164745d}{shelly\+\_\+manager\+\_\+init}} (const char \texorpdfstring{$\ast$}{*}ip\+\_\+address)
+\begin{DoxyCompactList}\small\item\em Inicializira Shelly manager. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{shelly__manager_8c_a00090829e03e8089a45482f2349dd662}{shelly\+\_\+manager\+\_\+set\+\_\+ip}} (const char \texorpdfstring{$\ast$}{*}ip\+\_\+address)
+\begin{DoxyCompactList}\small\item\em Nastavi IP naslov Shelly naprave. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{shelly__manager_8c_ac53636660eb6981d394a57478ff6aeb0}{shelly\+\_\+manager\+\_\+set\+\_\+relay}} (uint8\+\_\+t channel, bool on)
+\begin{DoxyCompactList}\small\item\em Vklopi/izklopi relay. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{shelly__manager_8c_a8dcfca3ecc2df21888ae4e068be164a8}{shelly\+\_\+manager\+\_\+get\+\_\+status}} (\mbox{\hyperlink{structshelly__status__t}{shelly\+\_\+status\+\_\+t}} \texorpdfstring{$\ast$}{*}status)
+\begin{DoxyCompactList}\small\item\em Preberi status Shelly naprave. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Shelly 2PM Gen3 HTTP API implementation (simplified, no JSON parsing) 
+
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{shelly__manager_8c_a8dcfca3ecc2df21888ae4e068be164a8}\label{shelly__manager_8c_a8dcfca3ecc2df21888ae4e068be164a8} 
+\index{shelly\_manager.c@{shelly\_manager.c}!shelly\_manager\_get\_status@{shelly\_manager\_get\_status}}
+\index{shelly\_manager\_get\_status@{shelly\_manager\_get\_status}!shelly\_manager.c@{shelly\_manager.c}}
+\doxysubsubsection{\texorpdfstring{shelly\_manager\_get\_status()}{shelly\_manager\_get\_status()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t shelly\+\_\+manager\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structshelly__status__t}{shelly\+\_\+status\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{status }\end{DoxyParamCaption})}
+
+
+
+Preberi status Shelly naprave. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em status} & Output struktura za status \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}
+\Hypertarget{shelly__manager_8c_a5f251aab585b065570abef74d164745d}\label{shelly__manager_8c_a5f251aab585b065570abef74d164745d} 
+\index{shelly\_manager.c@{shelly\_manager.c}!shelly\_manager\_init@{shelly\_manager\_init}}
+\index{shelly\_manager\_init@{shelly\_manager\_init}!shelly\_manager.c@{shelly\_manager.c}}
+\doxysubsubsection{\texorpdfstring{shelly\_manager\_init()}{shelly\_manager\_init()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t shelly\+\_\+manager\+\_\+init (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{ip\+\_\+address }\end{DoxyParamCaption})}
+
+
+
+Inicializira Shelly manager. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em ip\+\_\+address} & Shelly IP naslov (npr. "{}192.\+168.\+1.\+100"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}
+\Hypertarget{shelly__manager_8c_a00090829e03e8089a45482f2349dd662}\label{shelly__manager_8c_a00090829e03e8089a45482f2349dd662} 
+\index{shelly\_manager.c@{shelly\_manager.c}!shelly\_manager\_set\_ip@{shelly\_manager\_set\_ip}}
+\index{shelly\_manager\_set\_ip@{shelly\_manager\_set\_ip}!shelly\_manager.c@{shelly\_manager.c}}
+\doxysubsubsection{\texorpdfstring{shelly\_manager\_set\_ip()}{shelly\_manager\_set\_ip()}}
+{\footnotesize\ttfamily void shelly\+\_\+manager\+\_\+set\+\_\+ip (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{ip\+\_\+address }\end{DoxyParamCaption})}
+
+
+
+Nastavi IP naslov Shelly naprave. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em ip\+\_\+address} & Nova IP naslov \\
+\hline
+\end{DoxyParams}
+\Hypertarget{shelly__manager_8c_ac53636660eb6981d394a57478ff6aeb0}\label{shelly__manager_8c_ac53636660eb6981d394a57478ff6aeb0} 
+\index{shelly\_manager.c@{shelly\_manager.c}!shelly\_manager\_set\_relay@{shelly\_manager\_set\_relay}}
+\index{shelly\_manager\_set\_relay@{shelly\_manager\_set\_relay}!shelly\_manager.c@{shelly\_manager.c}}
+\doxysubsubsection{\texorpdfstring{shelly\_manager\_set\_relay()}{shelly\_manager\_set\_relay()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t shelly\+\_\+manager\+\_\+set\+\_\+relay (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel,  }\item[{bool}]{on }\end{DoxyParamCaption})}
+
+
+
+Vklopi/izklopi relay. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em channel} & Channel (0 ali 1) \\
+\hline
+{\em on} & True za vklop, false za izklop \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}

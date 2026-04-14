@@ -1,0 +1,533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: SD Card and SPIFFS</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Strukture</a> &#124;
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">SD Card and SPIFFS</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>SPIFFS and SD card BSP API.  
+<a href="#details">...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Strukture</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">BSP SD card configuration structure.  <a href="structbsp__sdcard__cfg__t.html#details">...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:gab09257cafdfb516962f4f1976175f58c" id="r_gab09257cafdfb516962f4f1976175f58c"><td class="memItemLeft" align="right" valign="top"><a id="gab09257cafdfb516962f4f1976175f58c" name="gab09257cafdfb516962f4f1976175f58c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D0</b>&#160;&#160;&#160;(GPIO_NUM_9)</td></tr>
+<tr class="separator:gab09257cafdfb516962f4f1976175f58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9dcc2109b20c3c18b2459a6fca8e31fc" id="r_ga9dcc2109b20c3c18b2459a6fca8e31fc"><td class="memItemLeft" align="right" valign="top"><a id="ga9dcc2109b20c3c18b2459a6fca8e31fc" name="ga9dcc2109b20c3c18b2459a6fca8e31fc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D1</b>&#160;&#160;&#160;(GPIO_NUM_13)</td></tr>
+<tr class="separator:ga9dcc2109b20c3c18b2459a6fca8e31fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafde4a6bea5dd6d76b91d425333ba776e" id="r_gafde4a6bea5dd6d76b91d425333ba776e"><td class="memItemLeft" align="right" valign="top"><a id="gafde4a6bea5dd6d76b91d425333ba776e" name="gafde4a6bea5dd6d76b91d425333ba776e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D2</b>&#160;&#160;&#160;(GPIO_NUM_42)</td></tr>
+<tr class="separator:gafde4a6bea5dd6d76b91d425333ba776e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64d8ab0f51532e2d8009766ab6e71c42" id="r_ga64d8ab0f51532e2d8009766ab6e71c42"><td class="memItemLeft" align="right" valign="top"><a id="ga64d8ab0f51532e2d8009766ab6e71c42" name="ga64d8ab0f51532e2d8009766ab6e71c42"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D3</b>&#160;&#160;&#160;(GPIO_NUM_12)</td></tr>
+<tr class="separator:ga64d8ab0f51532e2d8009766ab6e71c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9628c257bf4118d66bf869b252532088" id="r_ga9628c257bf4118d66bf869b252532088"><td class="memItemLeft" align="right" valign="top"><a id="ga9628c257bf4118d66bf869b252532088" name="ga9628c257bf4118d66bf869b252532088"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_CMD</b>&#160;&#160;&#160;(GPIO_NUM_14)</td></tr>
+<tr class="separator:ga9628c257bf4118d66bf869b252532088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b2f67dbe6e1c9c3a1e252847778c93c" id="r_ga9b2f67dbe6e1c9c3a1e252847778c93c"><td class="memItemLeft" align="right" valign="top"><a id="ga9b2f67dbe6e1c9c3a1e252847778c93c" name="ga9b2f67dbe6e1c9c3a1e252847778c93c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_CLK</b>&#160;&#160;&#160;(GPIO_NUM_11)</td></tr>
+<tr class="separator:ga9b2f67dbe6e1c9c3a1e252847778c93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf3b7b7976f2ace3c05582c650a6a15d" id="r_gabf3b7b7976f2ace3c05582c650a6a15d"><td class="memItemLeft" align="right" valign="top"><a id="gabf3b7b7976f2ace3c05582c650a6a15d" name="gabf3b7b7976f2ace3c05582c650a6a15d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_DET</b>&#160;&#160;&#160;(GPIO_NUM_NC)</td></tr>
+<tr class="separator:gabf3b7b7976f2ace3c05582c650a6a15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd5f01e7ffbe870883746bdb97f9f13d" id="r_gafd5f01e7ffbe870883746bdb97f9f13d"><td class="memItemLeft" align="right" valign="top"><a id="gafd5f01e7ffbe870883746bdb97f9f13d" name="gafd5f01e7ffbe870883746bdb97f9f13d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_POWER</b>&#160;&#160;&#160;(GPIO_NUM_43)</td></tr>
+<tr class="separator:gafd5f01e7ffbe870883746bdb97f9f13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa073dcc8c7b1ce03c845e59b1902fd62" id="r_gaa073dcc8c7b1ce03c845e59b1902fd62"><td class="memItemLeft" align="right" valign="top"><a id="gaa073dcc8c7b1ce03c845e59b1902fd62" name="gaa073dcc8c7b1ce03c845e59b1902fd62"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_MISO</b>&#160;&#160;&#160;(GPIO_NUM_9)</td></tr>
+<tr class="separator:gaa073dcc8c7b1ce03c845e59b1902fd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga826f0e2cc72b9a35d2d0a2c4afba9f68" id="r_ga826f0e2cc72b9a35d2d0a2c4afba9f68"><td class="memItemLeft" align="right" valign="top"><a id="ga826f0e2cc72b9a35d2d0a2c4afba9f68" name="ga826f0e2cc72b9a35d2d0a2c4afba9f68"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_CS</b>&#160;&#160;&#160;(GPIO_NUM_12)</td></tr>
+<tr class="separator:ga826f0e2cc72b9a35d2d0a2c4afba9f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70168a6aa86d551e86751f8ad61c9bad" id="r_ga70168a6aa86d551e86751f8ad61c9bad"><td class="memItemLeft" align="right" valign="top"><a id="ga70168a6aa86d551e86751f8ad61c9bad" name="ga70168a6aa86d551e86751f8ad61c9bad"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_MOSI</b>&#160;&#160;&#160;(GPIO_NUM_14)</td></tr>
+<tr class="separator:ga70168a6aa86d551e86751f8ad61c9bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac446b76616f69ff0ca513b3b98108e21" id="r_gac446b76616f69ff0ca513b3b98108e21"><td class="memItemLeft" align="right" valign="top"><a id="gac446b76616f69ff0ca513b3b98108e21" name="gac446b76616f69ff0ca513b3b98108e21"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_CLK</b>&#160;&#160;&#160;(GPIO_NUM_11)</td></tr>
+<tr class="separator:gac446b76616f69ff0ca513b3b98108e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga183706ece1b79bb571cfae1cb5082b39" id="r_ga183706ece1b79bb571cfae1cb5082b39"><td class="memItemLeft" align="right" valign="top"><a id="ga183706ece1b79bb571cfae1cb5082b39" name="ga183706ece1b79bb571cfae1cb5082b39"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SPIFFS_MOUNT_POINT</b>&#160;&#160;&#160;CONFIG_BSP_SPIFFS_MOUNT_POINT</td></tr>
+<tr class="separator:ga183706ece1b79bb571cfae1cb5082b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac25b02b46a9070f161b83dd42ce5e552" id="r_gac25b02b46a9070f161b83dd42ce5e552"><td class="memItemLeft" align="right" valign="top"><a id="gac25b02b46a9070f161b83dd42ce5e552" name="gac25b02b46a9070f161b83dd42ce5e552"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_MOUNT_POINT</b>&#160;&#160;&#160;CONFIG_BSP_SD_MOUNT_POINT</td></tr>
+<tr class="separator:gac25b02b46a9070f161b83dd42ce5e552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e6da2492c270e612d9567510d9b0611" id="r_ga4e6da2492c270e612d9567510d9b0611"><td class="memItemLeft" align="right" valign="top"><a id="ga4e6da2492c270e612d9567510d9b0611" name="ga4e6da2492c270e612d9567510d9b0611"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SDSPI_HOST</b>&#160;&#160;&#160;(SPI2_HOST)</td></tr>
+<tr class="separator:ga4e6da2492c270e612d9567510d9b0611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:gac9a93112f87090d2f5e2e11d24e93232" id="r_gac9a93112f87090d2f5e2e11d24e93232"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gac9a93112f87090d2f5e2e11d24e93232">bsp_spiffs_mount</a> (void)</td></tr>
+<tr class="memdesc:gac9a93112f87090d2f5e2e11d24e93232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount SPIFFS to virtual file system.  <br /></td></tr>
+<tr class="separator:gac9a93112f87090d2f5e2e11d24e93232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c392bdd27b40fb9de95391d9063325c" id="r_ga0c392bdd27b40fb9de95391d9063325c"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga0c392bdd27b40fb9de95391d9063325c">bsp_spiffs_unmount</a> (void)</td></tr>
+<tr class="memdesc:ga0c392bdd27b40fb9de95391d9063325c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unmount SPIFFS from virtual file system.  <br /></td></tr>
+<tr class="separator:ga0c392bdd27b40fb9de95391d9063325c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5560065f8b54fe0756b84b1e899e6377" id="r_ga5560065f8b54fe0756b84b1e899e6377"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga5560065f8b54fe0756b84b1e899e6377">bsp_sdcard_mount</a> (void)</td></tr>
+<tr class="memdesc:ga5560065f8b54fe0756b84b1e899e6377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount microSD card to virtual file system.  <br /></td></tr>
+<tr class="separator:ga5560065f8b54fe0756b84b1e899e6377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab22f98cd53a08f8d0713097bbed2d2c0" id="r_gab22f98cd53a08f8d0713097bbed2d2c0"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gab22f98cd53a08f8d0713097bbed2d2c0">bsp_sdcard_unmount</a> (void)</td></tr>
+<tr class="memdesc:gab22f98cd53a08f8d0713097bbed2d2c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unmount micorSD card from virtual file system.  <br /></td></tr>
+<tr class="separator:gab22f98cd53a08f8d0713097bbed2d2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga544da06689f3934a3235502772a8164c" id="r_ga544da06689f3934a3235502772a8164c"><td class="memItemLeft" align="right" valign="top">sdmmc_card_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga544da06689f3934a3235502772a8164c">bsp_sdcard_get_handle</a> (void)</td></tr>
+<tr class="memdesc:ga544da06689f3934a3235502772a8164c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card handle.  <br /></td></tr>
+<tr class="separator:ga544da06689f3934a3235502772a8164c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23edbd6330f928a6aa428805569c55bd" id="r_ga23edbd6330f928a6aa428805569c55bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga23edbd6330f928a6aa428805569c55bd">bsp_sdcard_get_sdmmc_host</a> (const int slot, sdmmc_host_t *config)</td></tr>
+<tr class="memdesc:ga23edbd6330f928a6aa428805569c55bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card MMC host config.  <br /></td></tr>
+<tr class="separator:ga23edbd6330f928a6aa428805569c55bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5abfdbb971b7836c8741c770917262b1" id="r_ga5abfdbb971b7836c8741c770917262b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga5abfdbb971b7836c8741c770917262b1">bsp_sdcard_get_sdspi_host</a> (const int slot, sdmmc_host_t *config)</td></tr>
+<tr class="memdesc:ga5abfdbb971b7836c8741c770917262b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card SPI host config.  <br /></td></tr>
+<tr class="separator:ga5abfdbb971b7836c8741c770917262b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae633008e9dcfbccd0258578f1d2b317a" id="r_gae633008e9dcfbccd0258578f1d2b317a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gae633008e9dcfbccd0258578f1d2b317a">bsp_sdcard_sdmmc_get_slot</a> (const int slot, sdmmc_slot_config_t *config)</td></tr>
+<tr class="memdesc:gae633008e9dcfbccd0258578f1d2b317a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card MMC slot config.  <br /></td></tr>
+<tr class="separator:gae633008e9dcfbccd0258578f1d2b317a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90a00ff32d12e77b321985c84d358cf6" id="r_ga90a00ff32d12e77b321985c84d358cf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga90a00ff32d12e77b321985c84d358cf6">bsp_sdcard_sdspi_get_slot</a> (const spi_host_device_t spi_host, sdspi_device_config_t *config)</td></tr>
+<tr class="memdesc:ga90a00ff32d12e77b321985c84d358cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card SPI slot config.  <br /></td></tr>
+<tr class="separator:ga90a00ff32d12e77b321985c84d358cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8a01e03e7801c3ba65dfd868c10a52f" id="r_gaa8a01e03e7801c3ba65dfd868c10a52f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gaa8a01e03e7801c3ba65dfd868c10a52f">bsp_sdcard_sdmmc_mount</a> (<a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *cfg)</td></tr>
+<tr class="memdesc:gaa8a01e03e7801c3ba65dfd868c10a52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount microSD card to virtual file system (MMC mode)  <br /></td></tr>
+<tr class="separator:gaa8a01e03e7801c3ba65dfd868c10a52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a0df6fcd3272a1ca89206872d897142" id="r_ga4a0df6fcd3272a1ca89206872d897142"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga4a0df6fcd3272a1ca89206872d897142">bsp_sdcard_sdspi_mount</a> (<a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *cfg)</td></tr>
+<tr class="memdesc:ga4a0df6fcd3272a1ca89206872d897142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount microSD card to virtual file system (SPI mode)  <br /></td></tr>
+<tr class="separator:ga4a0df6fcd3272a1ca89206872d897142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Podroben opis</h2>
+<p>SPIFFS and SD card BSP API. </p>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="ga544da06689f3934a3235502772a8164c" name="ga544da06689f3934a3235502772a8164c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga544da06689f3934a3235502772a8164c">&#9670;&#160;</a></span>bsp_sdcard_get_handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sdmmc_card_t * bsp_sdcard_get_handle </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get SD card handle. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>SD card handle </dd></dl>
+
+</div>
+</div>
+<a id="ga23edbd6330f928a6aa428805569c55bd" name="ga23edbd6330f928a6aa428805569c55bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga23edbd6330f928a6aa428805569c55bd">&#9670;&#160;</a></span>bsp_sdcard_get_sdmmc_host()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bsp_sdcard_get_sdmmc_host </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>slot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sdmmc_host_t *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get SD card MMC host config. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>SD card slot </td></tr>
+    <tr><td class="paramname">config</td><td>Structure which will be filled </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5abfdbb971b7836c8741c770917262b1" name="ga5abfdbb971b7836c8741c770917262b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5abfdbb971b7836c8741c770917262b1">&#9670;&#160;</a></span>bsp_sdcard_get_sdspi_host()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bsp_sdcard_get_sdspi_host </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>slot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sdmmc_host_t *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get SD card SPI host config. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>SD card slot </td></tr>
+    <tr><td class="paramname">config</td><td>Structure which will be filled </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga5560065f8b54fe0756b84b1e899e6377" name="ga5560065f8b54fe0756b84b1e899e6377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5560065f8b54fe0756b84b1e899e6377">&#9670;&#160;</a></span>bsp_sdcard_mount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t bsp_sdcard_mount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mount microSD card to virtual file system. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_STATE if esp_vfs_fat_sdmmc_mount was already called</li>
+<li>ESP_ERR_NO_MEM if memory can not be allocated</li>
+<li>ESP_FAIL if partition can not be mounted</li>
+<li>other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gae633008e9dcfbccd0258578f1d2b317a" name="gae633008e9dcfbccd0258578f1d2b317a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae633008e9dcfbccd0258578f1d2b317a">&#9670;&#160;</a></span>bsp_sdcard_sdmmc_get_slot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bsp_sdcard_sdmmc_get_slot </td>
+          <td>(</td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>slot</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sdmmc_slot_config_t *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get SD card MMC slot config. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">slot</td><td>SD card slot </td></tr>
+    <tr><td class="paramname">config</td><td>Structure which will be filled </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gaa8a01e03e7801c3ba65dfd868c10a52f" name="gaa8a01e03e7801c3ba65dfd868c10a52f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaa8a01e03e7801c3ba65dfd868c10a52f">&#9670;&#160;</a></span>bsp_sdcard_sdmmc_mount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t bsp_sdcard_sdmmc_mount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *&#160;</td>
+          <td class="paramname"><em>cfg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mount microSD card to virtual file system (MMC mode) </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>SD card configuration</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_STATE if esp_vfs_fat_sdmmc_mount was already called</li>
+<li>ESP_ERR_NO_MEM if memory cannot be allocated</li>
+<li>ESP_FAIL if partition cannot be mounted</li>
+<li>other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga90a00ff32d12e77b321985c84d358cf6" name="ga90a00ff32d12e77b321985c84d358cf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga90a00ff32d12e77b321985c84d358cf6">&#9670;&#160;</a></span>bsp_sdcard_sdspi_get_slot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bsp_sdcard_sdspi_get_slot </td>
+          <td>(</td>
+          <td class="paramtype">const spi_host_device_t&#160;</td>
+          <td class="paramname"><em>spi_host</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sdspi_device_config_t *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get SD card SPI slot config. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spi_host</td><td>SPI host ID </td></tr>
+    <tr><td class="paramname">config</td><td>Structure which will be filled </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga4a0df6fcd3272a1ca89206872d897142" name="ga4a0df6fcd3272a1ca89206872d897142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4a0df6fcd3272a1ca89206872d897142">&#9670;&#160;</a></span>bsp_sdcard_sdspi_mount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t bsp_sdcard_sdspi_mount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *&#160;</td>
+          <td class="paramname"><em>cfg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mount microSD card to virtual file system (SPI mode) </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cfg</td><td>SD card configuration</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_STATE if esp_vfs_fat_sdmmc_mount was already called</li>
+<li>ESP_ERR_NO_MEM if memory cannot be allocated</li>
+<li>ESP_FAIL if partition cannot be mounted</li>
+<li>other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gab22f98cd53a08f8d0713097bbed2d2c0" name="gab22f98cd53a08f8d0713097bbed2d2c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab22f98cd53a08f8d0713097bbed2d2c0">&#9670;&#160;</a></span>bsp_sdcard_unmount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t bsp_sdcard_unmount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unmount micorSD card from virtual file system. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_NOT_FOUND if the partition table does not contain FATFS partition with given label</li>
+<li>ESP_ERR_INVALID_STATE if esp_vfs_fat_spiflash_mount was already called</li>
+<li>ESP_ERR_NO_MEM if memory can not be allocated</li>
+<li>ESP_FAIL if partition can not be mounted</li>
+<li>other error codes from wear levelling library, SPI flash driver, or FATFS drivers </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="gac9a93112f87090d2f5e2e11d24e93232" name="gac9a93112f87090d2f5e2e11d24e93232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac9a93112f87090d2f5e2e11d24e93232">&#9670;&#160;</a></span>bsp_spiffs_mount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t bsp_spiffs_mount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mount SPIFFS to virtual file system. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_STATE if esp_vfs_spiffs_register was already called</li>
+<li>ESP_ERR_NO_MEM if memory can not be allocated</li>
+<li>ESP_FAIL if partition can not be mounted</li>
+<li>other error codes </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ga0c392bdd27b40fb9de95391d9063325c" name="ga0c392bdd27b40fb9de95391d9063325c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0c392bdd27b40fb9de95391d9063325c">&#9670;&#160;</a></span>bsp_spiffs_unmount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t bsp_spiffs_unmount </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unmount SPIFFS from virtual file system. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_NOT_FOUND if the partition table does not contain SPIFFS partition with given label</li>
+<li>ESP_ERR_INVALID_STATE if esp_vfs_spiffs_unregister was already called</li>
+<li>ESP_ERR_NO_MEM if memory can not be allocated</li>
+<li>ESP_FAIL if partition can not be mounted</li>
+<li>other error codes </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,647 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/scale/lv\+\_\+scale.c}
+\hypertarget{lv__scale_8c}{}\label{lv__scale_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/scale/lv\_scale.c@{managed\_components/lvgl\_\_lvgl/src/widgets/scale/lv\_scale.c}}
+{\ttfamily \#include "{}lv\+\_\+scale\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+group.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+arc.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+scale.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+scale.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__scale_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__scale_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__scale_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+scale\+\_\+class)
+\item 
+\Hypertarget{lv__scale_8c_afc529529e3a5256f97f9d337fb1e002b}\label{lv__scale_8c_afc529529e3a5256f97f9d337fb1e002b} 
+\#define {\bfseries LV\+\_\+\+SCALE\+\_\+\+LABEL\+\_\+\+TXT\+\_\+\+LEN}~(20U)
+\item 
+\Hypertarget{lv__scale_8c_a8fa10e380978f9da55aa56cb107b7529}\label{lv__scale_8c_a8fa10e380978f9da55aa56cb107b7529} 
+\#define {\bfseries LV\+\_\+\+SCALE\+\_\+\+DEFAULT\+\_\+\+ANGLE\+\_\+\+RANGE}~((uint32\+\_\+t) 270U)
+\item 
+\Hypertarget{lv__scale_8c_a0a059ab2dade8038ff7f4d3ae2d79eaf}\label{lv__scale_8c_a0a059ab2dade8038ff7f4d3ae2d79eaf} 
+\#define {\bfseries LV\+\_\+\+SCALE\+\_\+\+DEFAULT\+\_\+\+ROTATION}~((int32\+\_\+t) 135U)
+\item 
+\Hypertarget{lv__scale_8c_aaa98e14c68e9f1676be0eb45e213b8ea}\label{lv__scale_8c_aaa98e14c68e9f1676be0eb45e213b8ea} 
+\#define {\bfseries LV\+\_\+\+SCALE\+\_\+\+TICK\+\_\+\+IDX\+\_\+\+DEFAULT\+\_\+\+ID}~((uint32\+\_\+t) 255U)
+\item 
+\Hypertarget{lv__scale_8c_a08e559b1c31f9282ddbb43a0d6713da5}\label{lv__scale_8c_a08e559b1c31f9282ddbb43a0d6713da5} 
+\#define {\bfseries LV\+\_\+\+SCALE\+\_\+\+DEFAULT\+\_\+\+LABEL\+\_\+\+GAP}~((uint32\+\_\+t) 15U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__scale_8c_ad417eeb975ea27a47468e019c8b3eb71}{lv\+\_\+scale\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a52d7aac55b34a9386a602ee2dafcc9d6}{lv\+\_\+scale\+\_\+set\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__scale_8h_acdaa38c1677a56722126c755293f3d3d}{lv\+\_\+scale\+\_\+mode\+\_\+t}} mode)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a7c6a3812fc00767036a43199f2df191c}{lv\+\_\+scale\+\_\+set\+\_\+total\+\_\+tick\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t total\+\_\+tick\+\_\+count)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a8d6f8a28b8c231f93af1c254b53a46b6}{lv\+\_\+scale\+\_\+set\+\_\+major\+\_\+tick\+\_\+every}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t major\+\_\+tick\+\_\+every)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a6bea8b1e8cf18aff7ad6345040d46a2e}{lv\+\_\+scale\+\_\+set\+\_\+label\+\_\+show}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool show\+\_\+label)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a1ceed3b44783e08519b2fabf2351bc8a}{lv\+\_\+scale\+\_\+set\+\_\+range}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_aa63a385154cb7e8a4e4e763daa9a7eb1}{lv\+\_\+scale\+\_\+set\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a2b98e333acf3ecc687f947da7676dca6}{lv\+\_\+scale\+\_\+set\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_acc7a4cb528fbdb5ef9bfcacca4bf7421}{lv\+\_\+scale\+\_\+set\+\_\+angle\+\_\+range}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t angle\+\_\+range)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_af80c33356bfdbfedb23495f3850cac19}{lv\+\_\+scale\+\_\+set\+\_\+rotation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t rotation)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_aa1727f0f38679f29a95e3966a995e823}{lv\+\_\+scale\+\_\+set\+\_\+line\+\_\+needle\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}needle\+\_\+line, int32\+\_\+t needle\+\_\+length, int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_ab9bd70c622bb170c28b36483513c00cc}{lv\+\_\+scale\+\_\+set\+\_\+image\+\_\+needle\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}needle\+\_\+img, int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_afe2269bb3442b45ec223541771e1b60b}{lv\+\_\+scale\+\_\+set\+\_\+text\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}txt\+\_\+src\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a464efca286ba19cde5b12023cea73dac}{lv\+\_\+scale\+\_\+set\+\_\+post\+\_\+draw}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a66ebcbd4ae6978d67d4305d41c7e5076}{lv\+\_\+scale\+\_\+set\+\_\+draw\+\_\+ticks\+\_\+on\+\_\+top}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__scale_8c_aa12a6bbeeb69f134edfd616ade3a48cd}{lv\+\_\+scale\+\_\+add\+\_\+section}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a3276971ccbe31ba002a9c21204d2cc30}{lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+range}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}scale, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, int32\+\_\+t min, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a06844a6b61c4bed9c759ab2cb5c02275}{lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}scale, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, int32\+\_\+t min)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a73ba82d1d9e0db2919abdc301af53a93}{lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}scale, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_aa212a987e733104fe8d80d2503b44101}{lv\+\_\+scale\+\_\+section\+\_\+set\+\_\+range}} (\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, int32\+\_\+t min, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a95706ee5c7219a20ca50500701ec6e86}{lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+style\+\_\+main}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}scale, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a20dc58e55bafbe702f1ae7304382d649}{lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+style\+\_\+indicator}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}scale, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_a764243ee6a6536d9d7076f559b75fa03}{lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+style\+\_\+items}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}scale, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style)
+\item 
+void \mbox{\hyperlink{lv__scale_8c_aa6ef2951e7139335ed36ad8b45d058bd}{lv\+\_\+scale\+\_\+section\+\_\+set\+\_\+style}} (\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}} part, \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}section\+\_\+part\+\_\+style)
+\item 
+\mbox{\hyperlink{lv__scale_8h_acdaa38c1677a56722126c755293f3d3d}{lv\+\_\+scale\+\_\+mode\+\_\+t}} \mbox{\hyperlink{lv__scale_8c_a35850dd2202197062220ca79bed298fb}{lv\+\_\+scale\+\_\+get\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__scale_8c_a11c542ae7b253bb756d8e665cea26d96}{lv\+\_\+scale\+\_\+get\+\_\+total\+\_\+tick\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__scale_8c_ae9ca07a0d33a6597190a24c593ec47b3}{lv\+\_\+scale\+\_\+get\+\_\+major\+\_\+tick\+\_\+every}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__scale_8c_ac587b316d835be4c3401209ddcada615}{lv\+\_\+scale\+\_\+get\+\_\+rotation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__scale_8c_a56fd478903bb1923bf3288095202e672}{lv\+\_\+scale\+\_\+get\+\_\+label\+\_\+show}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__scale_8c_ae18d522ef42852ae4ab62d8f5fbccb47}{lv\+\_\+scale\+\_\+get\+\_\+angle\+\_\+range}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__scale_8c_a03bcc2d1076c5ed9b00cdfce379df7ed}{lv\+\_\+scale\+\_\+get\+\_\+range\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__scale_8c_a654894cdecd22c25172017bf0b461839}{lv\+\_\+scale\+\_\+get\+\_\+range\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__scale_8c_ace1d2d6860baa5328751e0d8c491f3e6}{lv\+\_\+scale\+\_\+bind\+\_\+section\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\item 
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__scale_8c_a333ffcd25d7ca9aaf8ec5a2fc0c28db0}{lv\+\_\+scale\+\_\+bind\+\_\+section\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}section, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__scale_8c_ae9b706fc381a35904ea542290c326614}{lv\+\_\+scale\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__scale_8c_aa12a6bbeeb69f134edfd616ade3a48cd}\label{lv__scale_8c_aa12a6bbeeb69f134edfd616ade3a48cd} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_add\_section@{lv\_scale\_add\_section}}
+\index{lv\_scale\_add\_section@{lv\_scale\_add\_section}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_add\_section()}{lv\_scale\_add\_section()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+scale\+\_\+add\+\_\+section (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Add a Section to specified Scale. Section will not be drawn until a valid range is set for it using {\ttfamily \doxylink{lv__scale_8h_a3276971ccbe31ba002a9c21204d2cc30}{lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+range()}}. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to new Section 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_a333ffcd25d7ca9aaf8ec5a2fc0c28db0}\label{lv__scale_8c_a333ffcd25d7ca9aaf8ec5a2fc0c28db0} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_bind\_section\_max\_value@{lv\_scale\_bind\_section\_max\_value}}
+\index{lv\_scale\_bind\_section\_max\_value@{lv\_scale\_bind\_section\_max\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_bind\_section\_max\_value()}{lv\_scale\_bind\_section\_max\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+scale\+\_\+bind\+\_\+section\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+
+Bind an integer subject to a scales section maximum value 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an Scale \\
+\hline
+{\em section} & pointer to a Scale section \\
+\hline
+{\em subject} & pointer to a Subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to newly-\/created Observer 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_ace1d2d6860baa5328751e0d8c491f3e6}\label{lv__scale_8c_ace1d2d6860baa5328751e0d8c491f3e6} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_bind\_section\_min\_value@{lv\_scale\_bind\_section\_min\_value}}
+\index{lv\_scale\_bind\_section\_min\_value@{lv\_scale\_bind\_section\_min\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_bind\_section\_min\_value()}{lv\_scale\_bind\_section\_min\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+scale\+\_\+bind\+\_\+section\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+
+Bind an integer subject to a scales section minimum value 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a Scale \\
+\hline
+{\em section} & pointer to a Scale section \\
+\hline
+{\em subject} & pointer to a Subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to newly-\/created Observer 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_ad417eeb975ea27a47468e019c8b3eb71}\label{lv__scale_8c_ad417eeb975ea27a47468e019c8b3eb71} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_create@{lv\_scale\_create}}
+\index{lv\_scale\_create@{lv\_scale\_create}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_create()}{lv\_scale\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+scale\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create an scale object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new scale \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to created Scale Widget 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_ae18d522ef42852ae4ab62d8f5fbccb47}\label{lv__scale_8c_ae18d522ef42852ae4ab62d8f5fbccb47} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_angle\_range@{lv\_scale\_get\_angle\_range}}
+\index{lv\_scale\_get\_angle\_range@{lv\_scale\_get\_angle\_range}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_angle\_range()}{lv\_scale\_get\_angle\_range()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+scale\+\_\+get\+\_\+angle\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get Scale\textquotesingle{}s range in degrees 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Scale\textquotesingle{}s angle\+\_\+range 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_a56fd478903bb1923bf3288095202e672}\label{lv__scale_8c_a56fd478903bb1923bf3288095202e672} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_label\_show@{lv\_scale\_get\_label\_show}}
+\index{lv\_scale\_get\_label\_show@{lv\_scale\_get\_label\_show}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_label\_show()}{lv\_scale\_get\_label\_show()}}
+{\footnotesize\ttfamily bool lv\+\_\+scale\+\_\+get\+\_\+label\+\_\+show (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Gets label visibility 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true if tick label is enabled, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_ae9ca07a0d33a6597190a24c593ec47b3}\label{lv__scale_8c_ae9ca07a0d33a6597190a24c593ec47b3} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_major\_tick\_every@{lv\_scale\_get\_major\_tick\_every}}
+\index{lv\_scale\_get\_major\_tick\_every@{lv\_scale\_get\_major\_tick\_every}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_major\_tick\_every()}{lv\_scale\_get\_major\_tick\_every()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+scale\+\_\+get\+\_\+major\+\_\+tick\+\_\+every (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get how often the major tick will be drawn 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Scale major tick every count 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_a35850dd2202197062220ca79bed298fb}\label{lv__scale_8c_a35850dd2202197062220ca79bed298fb} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_mode@{lv\_scale\_get\_mode}}
+\index{lv\_scale\_get\_mode@{lv\_scale\_get\_mode}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_mode()}{lv\_scale\_get\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__scale_8h_acdaa38c1677a56722126c755293f3d3d}{lv\+\_\+scale\+\_\+mode\+\_\+t}} lv\+\_\+scale\+\_\+get\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get scale mode. See lv\+\_\+scale\+\_\+mode\+\_\+t 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Scale mode 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_a654894cdecd22c25172017bf0b461839}\label{lv__scale_8c_a654894cdecd22c25172017bf0b461839} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_range\_max\_value@{lv\_scale\_get\_range\_max\_value}}
+\index{lv\_scale\_get\_range\_max\_value@{lv\_scale\_get\_range\_max\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_range\_max\_value()}{lv\_scale\_get\_range\_max\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+scale\+\_\+get\+\_\+range\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get maximum value for Scale 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Scale\textquotesingle{}s maximum value 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_a03bcc2d1076c5ed9b00cdfce379df7ed}\label{lv__scale_8c_a03bcc2d1076c5ed9b00cdfce379df7ed} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_range\_min\_value@{lv\_scale\_get\_range\_min\_value}}
+\index{lv\_scale\_get\_range\_min\_value@{lv\_scale\_get\_range\_min\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_range\_min\_value()}{lv\_scale\_get\_range\_min\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+scale\+\_\+get\+\_\+range\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get minimum value for Scale 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Scale\textquotesingle{}s minimum value 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_ac587b316d835be4c3401209ddcada615}\label{lv__scale_8c_ac587b316d835be4c3401209ddcada615} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_rotation@{lv\_scale\_get\_rotation}}
+\index{lv\_scale\_get\_rotation@{lv\_scale\_get\_rotation}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_rotation()}{lv\_scale\_get\_rotation()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+scale\+\_\+get\+\_\+rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get angular location of low end of Scale. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Scale low end angular location 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_a11c542ae7b253bb756d8e665cea26d96}\label{lv__scale_8c_a11c542ae7b253bb756d8e665cea26d96} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_get\_total\_tick\_count@{lv\_scale\_get\_total\_tick\_count}}
+\index{lv\_scale\_get\_total\_tick\_count@{lv\_scale\_get\_total\_tick\_count}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_get\_total\_tick\_count()}{lv\_scale\_get\_total\_tick\_count()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+scale\+\_\+get\+\_\+total\+\_\+tick\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get scale total tick count (including minor and major ticks) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Scale total tick count 
+\end{DoxyReturn}
+\Hypertarget{lv__scale_8c_aa212a987e733104fe8d80d2503b44101}\label{lv__scale_8c_aa212a987e733104fe8d80d2503b44101} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_section\_set\_range@{lv\_scale\_section\_set\_range}}
+\index{lv\_scale\_section\_set\_range@{lv\_scale\_section\_set\_range}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_section\_set\_range()}{lv\_scale\_section\_set\_range()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+section\+\_\+set\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{int32\+\_\+t}]{min,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+DEPRECATED, use lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+range instead. Set range for specified Scale Section 
+\begin{DoxyParams}{Parametri}
+{\em section} & pointer to Section \\
+\hline
+{\em range\+\_\+min} & Section new minimum value \\
+\hline
+{\em range\+\_\+max} & Section new maximum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_aa6ef2951e7139335ed36ad8b45d058bd}\label{lv__scale_8c_aa6ef2951e7139335ed36ad8b45d058bd} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_section\_set\_style@{lv\_scale\_section\_set\_style}}
+\index{lv\_scale\_section\_set\_style@{lv\_scale\_section\_set\_style}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_section\_set\_style()}{lv\_scale\_section\_set\_style()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+section\+\_\+set\+\_\+style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{\mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}}}]{part,  }\item[{\mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section\+\_\+part\+\_\+style }\end{DoxyParamCaption})}
+
+DEPRECATED, use lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+style\+\_\+main/indicator/items instead. Set style for specified part of Section. 
+\begin{DoxyParams}{Parametri}
+{\em section} & pointer to Section \\
+\hline
+{\em part} & the part of the Scale the style will apply to, e.\+g. LV\+\_\+\+PART\+\_\+\+INDICATOR \\
+\hline
+{\em section\+\_\+part\+\_\+style} & pointer to style to apply \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_acc7a4cb528fbdb5ef9bfcacca4bf7421}\label{lv__scale_8c_acc7a4cb528fbdb5ef9bfcacca4bf7421} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_angle\_range@{lv\_scale\_set\_angle\_range}}
+\index{lv\_scale\_set\_angle\_range@{lv\_scale\_set\_angle\_range}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_angle\_range()}{lv\_scale\_set\_angle\_range()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+angle\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{angle\+\_\+range }\end{DoxyParamCaption})}
+
+Set angle between the low end and the high end of the Scale. (Applies only to round Scales.) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em max\+\_\+angle} & angle in degrees from Scale minimum where top end of Scale will be drawn \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a66ebcbd4ae6978d67d4305d41c7e5076}\label{lv__scale_8c_a66ebcbd4ae6978d67d4305d41c7e5076} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_draw\_ticks\_on\_top@{lv\_scale\_set\_draw\_ticks\_on\_top}}
+\index{lv\_scale\_set\_draw\_ticks\_on\_top@{lv\_scale\_set\_draw\_ticks\_on\_top}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_draw\_ticks\_on\_top()}{lv\_scale\_set\_draw\_ticks\_on\_top()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+draw\+\_\+ticks\+\_\+on\+\_\+top (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Draw Scale ticks on top of all other parts. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em en} & true\+: enable draw ticks on top of all parts \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_ab9bd70c622bb170c28b36483513c00cc}\label{lv__scale_8c_ab9bd70c622bb170c28b36483513c00cc} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_image\_needle\_value@{lv\_scale\_set\_image\_needle\_value}}
+\index{lv\_scale\_set\_image\_needle\_value@{lv\_scale\_set\_image\_needle\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_image\_needle\_value()}{lv\_scale\_set\_image\_needle\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+image\+\_\+needle\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{needle\+\_\+img,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Point image needle to specified value; image must point to the right. E.\+g. -\/O-\/-\/-\/---\texorpdfstring{$>$}{>} 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em needle\+\_\+img} & pointer to needle\textquotesingle{}s Image \\
+\hline
+{\em value} & Scale value needle will point to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a6bea8b1e8cf18aff7ad6345040d46a2e}\label{lv__scale_8c_a6bea8b1e8cf18aff7ad6345040d46a2e} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_label\_show@{lv\_scale\_set\_label\_show}}
+\index{lv\_scale\_set\_label\_show@{lv\_scale\_set\_label\_show}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_label\_show()}{lv\_scale\_set\_label\_show()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+label\+\_\+show (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{show\+\_\+label }\end{DoxyParamCaption})}
+
+Sets label visibility. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em show\+\_\+label} & true/false to enable tick label \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_aa1727f0f38679f29a95e3966a995e823}\label{lv__scale_8c_aa1727f0f38679f29a95e3966a995e823} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_line\_needle\_value@{lv\_scale\_set\_line\_needle\_value}}
+\index{lv\_scale\_set\_line\_needle\_value@{lv\_scale\_set\_line\_needle\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_line\_needle\_value()}{lv\_scale\_set\_line\_needle\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+line\+\_\+needle\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{needle\+\_\+line,  }\item[{int32\+\_\+t}]{needle\+\_\+length,  }\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+Point line needle to specified value. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em needle\+\_\+line} & needle\+\_\+line of the Scale. The line points will be allocated and managed by the Scale unless the line point array was previously set using {\ttfamily lv\+\_\+line\+\_\+set\+\_\+points\+\_\+mutable}. \\
+\hline
+{\em needle\+\_\+length} & length of the needle
+\begin{DoxyItemize}
+\item needle\+\_\+length\texorpdfstring{$>$}{>}0\+: needle\+\_\+length=needle\+\_\+length;
+\item needle\+\_\+length\texorpdfstring{$<$}{<}0\+: needle\+\_\+length=radius-\/\texorpdfstring{$\vert$}{|}needle\+\_\+length\texorpdfstring{$\vert$}{|}; 
+\end{DoxyItemize}\\
+\hline
+{\em value} & Scale value needle will point to \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a8d6f8a28b8c231f93af1c254b53a46b6}\label{lv__scale_8c_a8d6f8a28b8c231f93af1c254b53a46b6} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_major\_tick\_every@{lv\_scale\_set\_major\_tick\_every}}
+\index{lv\_scale\_set\_major\_tick\_every@{lv\_scale\_set\_major\_tick\_every}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_major\_tick\_every()}{lv\_scale\_set\_major\_tick\_every()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+major\+\_\+tick\+\_\+every (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{major\+\_\+tick\+\_\+every }\end{DoxyParamCaption})}
+
+Sets how often major ticks are drawn. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em major\+\_\+tick\+\_\+every} & the new count for major tick drawing \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a2b98e333acf3ecc687f947da7676dca6}\label{lv__scale_8c_a2b98e333acf3ecc687f947da7676dca6} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_max\_value@{lv\_scale\_set\_max\_value}}
+\index{lv\_scale\_set\_max\_value@{lv\_scale\_set\_max\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_max\_value()}{lv\_scale\_set\_max\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set maximum values on Scale. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em min} & minimum value of Scale \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_aa63a385154cb7e8a4e4e763daa9a7eb1}\label{lv__scale_8c_aa63a385154cb7e8a4e4e763daa9a7eb1} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_min\_value@{lv\_scale\_set\_min\_value}}
+\index{lv\_scale\_set\_min\_value@{lv\_scale\_set\_min\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_min\_value()}{lv\_scale\_set\_min\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min }\end{DoxyParamCaption})}
+
+Set minimum values on Scale. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em min} & minimum value of Scale \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a52d7aac55b34a9386a602ee2dafcc9d6}\label{lv__scale_8c_a52d7aac55b34a9386a602ee2dafcc9d6} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_mode@{lv\_scale\_set\_mode}}
+\index{lv\_scale\_set\_mode@{lv\_scale\_set\_mode}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_mode()}{lv\_scale\_set\_mode()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__scale_8h_acdaa38c1677a56722126c755293f3d3d}{lv\+\_\+scale\+\_\+mode\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+Set scale mode. See lv\+\_\+scale\+\_\+mode\+\_\+t. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em mode} & the new scale mode \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a464efca286ba19cde5b12023cea73dac}\label{lv__scale_8c_a464efca286ba19cde5b12023cea73dac} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_post\_draw@{lv\_scale\_set\_post\_draw}}
+\index{lv\_scale\_set\_post\_draw@{lv\_scale\_set\_post\_draw}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_post\_draw()}{lv\_scale\_set\_post\_draw()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+post\+\_\+draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Draw Scale after all its children are drawn. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em en} & true\+: enable post draw \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a1ceed3b44783e08519b2fabf2351bc8a}\label{lv__scale_8c_a1ceed3b44783e08519b2fabf2351bc8a} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_range@{lv\_scale\_set\_range}}
+\index{lv\_scale\_set\_range@{lv\_scale\_set\_range}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_range()}{lv\_scale\_set\_range()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set minimum and maximum values on Scale. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em min} & minimum value of Scale \\
+\hline
+{\em max} & maximum value of Scale \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_af80c33356bfdbfedb23495f3850cac19}\label{lv__scale_8c_af80c33356bfdbfedb23495f3850cac19} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_rotation@{lv\_scale\_set\_rotation}}
+\index{lv\_scale\_set\_rotation@{lv\_scale\_set\_rotation}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_rotation()}{lv\_scale\_set\_rotation()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{rotation }\end{DoxyParamCaption})}
+
+Set angular offset from the 3-\/o\textquotesingle{}clock position of the low end of the Scale. (Applies only to round Scales.) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em rotation} & clockwise angular offset (in degrees) from the 3-\/o\textquotesingle{}clock position of the low end of the scale; negative and \texorpdfstring{$>$}{>}360 values are first normalized to range \mbox{[}0..360\mbox{]}. Examples\+:
+\begin{DoxyItemize}
+\item 0 = 3 o\textquotesingle{}clock (right side)
+\item 30 = 4 o\textquotesingle{}clock
+\item 60 = 5 o\textquotesingle{}clock
+\item 90 = 6 o\textquotesingle{}clock
+\item 135 = midway between 7 and 8 o\textquotesingle{}clock (default)
+\item 180 = 9 o\textquotesingle{}clock
+\item 270 = 12 o\textquotesingle{}clock
+\item 300 = 1 o\textquotesingle{}clock
+\item 330 = 2 o\textquotesingle{}clock
+\item -\/30 = 2 o\textquotesingle{}clock
+\item 390 = 4 o\textquotesingle{}clock 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a73ba82d1d9e0db2919abdc301af53a93}\label{lv__scale_8c_a73ba82d1d9e0db2919abdc301af53a93} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_section\_max\_value@{lv\_scale\_set\_section\_max\_value}}
+\index{lv\_scale\_set\_section\_max\_value@{lv\_scale\_set\_section\_max\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_section\_max\_value()}{lv\_scale\_set\_section\_max\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{scale,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set the maximum value of a scale section 
+\begin{DoxyParams}{Parametri}
+{\em scale} & pointer to scale \\
+\hline
+{\em section} & pointer to section \\
+\hline
+{\em max} & the section\textquotesingle{}s new maximum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a06844a6b61c4bed9c759ab2cb5c02275}\label{lv__scale_8c_a06844a6b61c4bed9c759ab2cb5c02275} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_section\_min\_value@{lv\_scale\_set\_section\_min\_value}}
+\index{lv\_scale\_set\_section\_min\_value@{lv\_scale\_set\_section\_min\_value}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_section\_min\_value()}{lv\_scale\_set\_section\_min\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{scale,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{int32\+\_\+t}]{min }\end{DoxyParamCaption})}
+
+Set the minimum value of a scale section 
+\begin{DoxyParams}{Parametri}
+{\em scale} & pointer to scale \\
+\hline
+{\em section} & pointer to section \\
+\hline
+{\em min} & the section\textquotesingle{}s new minimum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a3276971ccbe31ba002a9c21204d2cc30}\label{lv__scale_8c_a3276971ccbe31ba002a9c21204d2cc30} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_section\_range@{lv\_scale\_set\_section\_range}}
+\index{lv\_scale\_set\_section\_range@{lv\_scale\_set\_section\_range}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_section\_range()}{lv\_scale\_set\_section\_range()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{scale,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{int32\+\_\+t}]{min,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set the range of a scale section 
+\begin{DoxyParams}{Parametri}
+{\em scale} & pointer to scale \\
+\hline
+{\em section} & pointer to section \\
+\hline
+{\em range\+\_\+min} & the section\textquotesingle{}s new minimum value \\
+\hline
+{\em range\+\_\+max} & the section\textquotesingle{}s new maximum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a20dc58e55bafbe702f1ae7304382d649}\label{lv__scale_8c_a20dc58e55bafbe702f1ae7304382d649} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_section\_style\_indicator@{lv\_scale\_set\_section\_style\_indicator}}
+\index{lv\_scale\_set\_section\_style\_indicator@{lv\_scale\_set\_section\_style\_indicator}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_section\_style\_indicator()}{lv\_scale\_set\_section\_style\_indicator()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+style\+\_\+indicator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{scale,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style }\end{DoxyParamCaption})}
+
+Set the style of the major ticks and label on a section. 
+\begin{DoxyParams}{Parametri}
+{\em scale} & pointer to scale \\
+\hline
+{\em section} & pointer to section \\
+\hline
+{\em style} & point to a style \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a764243ee6a6536d9d7076f559b75fa03}\label{lv__scale_8c_a764243ee6a6536d9d7076f559b75fa03} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_section\_style\_items@{lv\_scale\_set\_section\_style\_items}}
+\index{lv\_scale\_set\_section\_style\_items@{lv\_scale\_set\_section\_style\_items}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_section\_style\_items()}{lv\_scale\_set\_section\_style\_items()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+style\+\_\+items (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{scale,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style }\end{DoxyParamCaption})}
+
+Set the style of the minor ticks on a section. 
+\begin{DoxyParams}{Parametri}
+{\em scale} & pointer to scale \\
+\hline
+{\em section} & pointer to section \\
+\hline
+{\em style} & point to a style \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a95706ee5c7219a20ca50500701ec6e86}\label{lv__scale_8c_a95706ee5c7219a20ca50500701ec6e86} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_section\_style\_main@{lv\_scale\_set\_section\_style\_main}}
+\index{lv\_scale\_set\_section\_style\_main@{lv\_scale\_set\_section\_style\_main}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_section\_style\_main()}{lv\_scale\_set\_section\_style\_main()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+section\+\_\+style\+\_\+main (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{scale,  }\item[{\mbox{\hyperlink{struct__lv__scale__section__t}{lv\+\_\+scale\+\_\+section\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{section,  }\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style }\end{DoxyParamCaption})}
+
+Set the style of the line on a section. 
+\begin{DoxyParams}{Parametri}
+{\em scale} & pointer to scale \\
+\hline
+{\em section} & pointer to section \\
+\hline
+{\em style} & point to a style \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_afe2269bb3442b45ec223541771e1b60b}\label{lv__scale_8c_afe2269bb3442b45ec223541771e1b60b} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_text\_src@{lv\_scale\_set\_text\_src}}
+\index{lv\_scale\_set\_text\_src@{lv\_scale\_set\_text\_src}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_text\_src()}{lv\_scale\_set\_text\_src()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+text\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{txt\+\_\+src\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Set custom text source for major ticks labels. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em txt\+\_\+src} & pointer to an array of strings which will be display at major ticks; last element must be a NULL pointer. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__scale_8c_a7c6a3812fc00767036a43199f2df191c}\label{lv__scale_8c_a7c6a3812fc00767036a43199f2df191c} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_set\_total\_tick\_count@{lv\_scale\_set\_total\_tick\_count}}
+\index{lv\_scale\_set\_total\_tick\_count@{lv\_scale\_set\_total\_tick\_count}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_set\_total\_tick\_count()}{lv\_scale\_set\_total\_tick\_count()}}
+{\footnotesize\ttfamily void lv\+\_\+scale\+\_\+set\+\_\+total\+\_\+tick\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{total\+\_\+tick\+\_\+count }\end{DoxyParamCaption})}
+
+Set scale total tick count (including minor and major ticks). 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Scale Widget \\
+\hline
+{\em total\+\_\+tick\+\_\+count} & New total tick count \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__scale_8c_ae9b706fc381a35904ea542290c326614}\label{lv__scale_8c_ae9b706fc381a35904ea542290c326614} 
+\index{lv\_scale.c@{lv\_scale.c}!lv\_scale\_class@{lv\_scale\_class}}
+\index{lv\_scale\_class@{lv\_scale\_class}!lv\_scale.c@{lv\_scale.c}}
+\doxysubsubsection{\texorpdfstring{lv\_scale\_class}{lv\_scale\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+scale\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_scale\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_scale\_destructor,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_scale\_event,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__scale__t}{lv\_scale\_t}}),}
+\DoxyCodeLine{\ \ \ \ .editable\ =\ LV\_OBJ\_CLASS\_EDITABLE\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_scale"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

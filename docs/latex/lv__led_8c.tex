@@ -1,0 +1,172 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/led/lv\+\_\+led.c}
+\hypertarget{lv__led_8c}{}\label{lv__led_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/led/lv\_led.c@{managed\_components/lvgl\_\_lvgl/src/widgets/led/lv\_led.c}}
+{\ttfamily \#include "{}lv\+\_\+led\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../themes/lv\+\_\+theme.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+color.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+led.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+led.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__led_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__led_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__led_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+led\+\_\+class)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__led_8c_a40719c040bfdaf2613800e7fc071f261}{lv\+\_\+led\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__led_8c_a511d49220e6f587d30b89377aac40bc0}{lv\+\_\+led\+\_\+set\+\_\+color}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} color)
+\item 
+void \mbox{\hyperlink{lv__led_8c_a82bd2cae29dc70fdd30b00cb6e2dff4d}{lv\+\_\+led\+\_\+set\+\_\+brightness}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint8\+\_\+t bright)
+\item 
+void \mbox{\hyperlink{lv__led_8c_a29176b376b05945604a98150e91317d8}{lv\+\_\+led\+\_\+on}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}led)
+\item 
+void \mbox{\hyperlink{lv__led_8c_a269e53138fac07c5923a405ea000fe00}{lv\+\_\+led\+\_\+off}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}led)
+\item 
+void \mbox{\hyperlink{lv__led_8c_ac94a3d04e06387408d20c5e0a4478792}{lv\+\_\+led\+\_\+toggle}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{lv__led_8c_a8256e356ea084bd46ae837e9539a9f56}{lv\+\_\+led\+\_\+get\+\_\+brightness}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} \mbox{\hyperlink{lv__led_8c_a63276854419103ae10fc1933c5c7d44c}{lv\+\_\+led\+\_\+get\+\_\+color}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__led_8c_af81fbe8d5dad4f1bc92973842c6e9464}{lv\+\_\+led\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__led_8c_a40719c040bfdaf2613800e7fc071f261}\label{lv__led_8c_a40719c040bfdaf2613800e7fc071f261} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_create@{lv\_led\_create}}
+\index{lv\_led\_create@{lv\_led\_create}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_create()}{lv\_led\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+led\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a led object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new led \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created led 
+\end{DoxyReturn}
+\Hypertarget{lv__led_8c_a8256e356ea084bd46ae837e9539a9f56}\label{lv__led_8c_a8256e356ea084bd46ae837e9539a9f56} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_get\_brightness@{lv\_led\_get\_brightness}}
+\index{lv\_led\_get\_brightness@{lv\_led\_get\_brightness}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_get\_brightness()}{lv\_led\_get\_brightness()}}
+{\footnotesize\ttfamily uint8\+\_\+t lv\+\_\+led\+\_\+get\+\_\+brightness (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the brightness of a LED object 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to LED object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+bright 0 (max. dark) ... 255 (max. light) 
+\end{DoxyReturn}
+\Hypertarget{lv__led_8c_a63276854419103ae10fc1933c5c7d44c}\label{lv__led_8c_a63276854419103ae10fc1933c5c7d44c} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_get\_color@{lv\_led\_get\_color}}
+\index{lv\_led\_get\_color@{lv\_led\_get\_color}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_get\_color()}{lv\_led\_get\_color()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} lv\+\_\+led\+\_\+get\+\_\+color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the color of a LED object 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to LED object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+color color of the LED 
+\end{DoxyReturn}
+\Hypertarget{lv__led_8c_a269e53138fac07c5923a405ea000fe00}\label{lv__led_8c_a269e53138fac07c5923a405ea000fe00} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_off@{lv\_led\_off}}
+\index{lv\_led\_off@{lv\_led\_off}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_off()}{lv\_led\_off()}}
+{\footnotesize\ttfamily void lv\+\_\+led\+\_\+off (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{led }\end{DoxyParamCaption})}
+
+Light off a LED 
+\begin{DoxyParams}{Parametri}
+{\em led} & pointer to a LED object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__led_8c_a29176b376b05945604a98150e91317d8}\label{lv__led_8c_a29176b376b05945604a98150e91317d8} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_on@{lv\_led\_on}}
+\index{lv\_led\_on@{lv\_led\_on}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_on()}{lv\_led\_on()}}
+{\footnotesize\ttfamily void lv\+\_\+led\+\_\+on (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{led }\end{DoxyParamCaption})}
+
+Light on a LED 
+\begin{DoxyParams}{Parametri}
+{\em led} & pointer to a LED object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__led_8c_a82bd2cae29dc70fdd30b00cb6e2dff4d}\label{lv__led_8c_a82bd2cae29dc70fdd30b00cb6e2dff4d} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_set\_brightness@{lv\_led\_set\_brightness}}
+\index{lv\_led\_set\_brightness@{lv\_led\_set\_brightness}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_set\_brightness()}{lv\_led\_set\_brightness()}}
+{\footnotesize\ttfamily void lv\+\_\+led\+\_\+set\+\_\+brightness (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{uint8\+\_\+t}]{bright }\end{DoxyParamCaption})}
+
+Set the brightness of a LED object 
+\begin{DoxyParams}{Parametri}
+{\em led} & pointer to a LED object \\
+\hline
+{\em bright} & LV\+\_\+\+LED\+\_\+\+BRIGHT\+\_\+\+MIN (max. dark) ... LV\+\_\+\+LED\+\_\+\+BRIGHT\+\_\+\+MAX (max. light) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__led_8c_a511d49220e6f587d30b89377aac40bc0}\label{lv__led_8c_a511d49220e6f587d30b89377aac40bc0} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_set\_color@{lv\_led\_set\_color}}
+\index{lv\_led\_set\_color@{lv\_led\_set\_color}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_set\_color()}{lv\_led\_set\_color()}}
+{\footnotesize\ttfamily void lv\+\_\+led\+\_\+set\+\_\+color (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}}]{color }\end{DoxyParamCaption})}
+
+Set the color of the LED 
+\begin{DoxyParams}{Parametri}
+{\em led} & pointer to a LED object \\
+\hline
+{\em color} & the color of the LED \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__led_8c_ac94a3d04e06387408d20c5e0a4478792}\label{lv__led_8c_ac94a3d04e06387408d20c5e0a4478792} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_toggle@{lv\_led\_toggle}}
+\index{lv\_led\_toggle@{lv\_led\_toggle}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_toggle()}{lv\_led\_toggle()}}
+{\footnotesize\ttfamily void lv\+\_\+led\+\_\+toggle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{led }\end{DoxyParamCaption})}
+
+Toggle the state of a LED 
+\begin{DoxyParams}{Parametri}
+{\em led} & pointer to a LED object \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__led_8c_af81fbe8d5dad4f1bc92973842c6e9464}\label{lv__led_8c_af81fbe8d5dad4f1bc92973842c6e9464} 
+\index{lv\_led.c@{lv\_led.c}!lv\_led\_class@{lv\_led\_class}}
+\index{lv\_led\_class@{lv\_led\_class}!lv\_led.c@{lv\_led.c}}
+\doxysubsubsection{\texorpdfstring{lv\_led\_class}{lv\_led\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+led\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{struct__lv__obj__class__t_a79e1c18f63ad06b43b0d6a5dc081015e}{constructor\_cb}}\ =\ lv\_led\_constructor,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ /\ 5,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ /\ 5,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_led\_event,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__led__t}{lv\_led\_t}}),}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_led"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

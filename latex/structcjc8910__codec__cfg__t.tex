@@ -1,0 +1,104 @@
+\doxysection{ Struktura cjc8910\+\_\+codec\+\_\+cfg\+\_\+t}
+\hypertarget{structcjc8910__codec__cfg__t}{}\label{structcjc8910__codec__cfg__t}\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+
+
+CJC8910 codec configuration.  
+
+
+
+
+{\ttfamily \#include $<$cjc8910\+\_\+codec.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structcjc8910__codec__cfg__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structcjc8910__codec__cfg__t_a2a5b25986df267fdcc6b3b2c159997d7}{ctrl\+\_\+if}}
+\item 
+const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structcjc8910__codec__cfg__t_adf931db56dd53e6c0b8d38d7f0f3222c}{gpio\+\_\+if}}
+\item 
+esp\+\_\+codec\+\_\+dec\+\_\+work\+\_\+mode\+\_\+t \mbox{\hyperlink{structcjc8910__codec__cfg__t_a5a3ac0aa24676193c38ae77dbd2e9ef4}{codec\+\_\+mode}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{structcjc8910__codec__cfg__t_a35b1f7f8c4870e219f20baf2f5a52ae2}{pa\+\_\+pin}}
+\item 
+bool \mbox{\hyperlink{structcjc8910__codec__cfg__t_a91ce405acddbe831e3a8c16732cc1bf6}{pa\+\_\+reverted}}
+\item 
+bool \mbox{\hyperlink{structcjc8910__codec__cfg__t_a482dad2632806af9b8015d47c9e9e75a}{invert\+\_\+lr}}
+\item 
+bool \mbox{\hyperlink{structcjc8910__codec__cfg__t_a1d84d73f9ab6e283ac62353e0781c1f4}{invert\+\_\+sclk}}
+\item 
+\mbox{\hyperlink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}} \mbox{\hyperlink{structcjc8910__codec__cfg__t_af4e08966266b507fe77cbf7813ee6d90}{hw\+\_\+gain}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+CJC8910 codec configuration. 
+
+\begin{DoxyNote}{Opomba}
+This driver only supports codec work in slave mode 
+\end{DoxyNote}
+
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structcjc8910__codec__cfg__t_a5a3ac0aa24676193c38ae77dbd2e9ef4}\label{structcjc8910__codec__cfg__t_a5a3ac0aa24676193c38ae77dbd2e9ef4} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!codec\_mode@{codec\_mode}}
+\index{codec\_mode@{codec\_mode}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{codec\_mode}{codec\_mode}}
+{\footnotesize\ttfamily esp\+\_\+codec\+\_\+dec\+\_\+work\+\_\+mode\+\_\+t cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::codec\+\_\+mode}
+
+Codec work mode\+: ADC or DAC \Hypertarget{structcjc8910__codec__cfg__t_a2a5b25986df267fdcc6b3b2c159997d7}\label{structcjc8910__codec__cfg__t_a2a5b25986df267fdcc6b3b2c159997d7} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!ctrl\_if@{ctrl\_if}}
+\index{ctrl\_if@{ctrl\_if}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{ctrl\_if}{ctrl\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::ctrl\+\_\+if}
+
+Codec Control interface \Hypertarget{structcjc8910__codec__cfg__t_adf931db56dd53e6c0b8d38d7f0f3222c}\label{structcjc8910__codec__cfg__t_adf931db56dd53e6c0b8d38d7f0f3222c} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!gpio\_if@{gpio\_if}}
+\index{gpio\_if@{gpio\_if}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{gpio\_if}{gpio\_if}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}}\texorpdfstring{$\ast$}{*} cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::gpio\+\_\+if}
+
+Codec GPIO interface \Hypertarget{structcjc8910__codec__cfg__t_af4e08966266b507fe77cbf7813ee6d90}\label{structcjc8910__codec__cfg__t_af4e08966266b507fe77cbf7813ee6d90} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!hw\_gain@{hw\_gain}}
+\index{hw\_gain@{hw\_gain}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{hw\_gain}{hw\_gain}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}} cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::hw\+\_\+gain}
+
+Hardware gain \Hypertarget{structcjc8910__codec__cfg__t_a482dad2632806af9b8015d47c9e9e75a}\label{structcjc8910__codec__cfg__t_a482dad2632806af9b8015d47c9e9e75a} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!invert\_lr@{invert\_lr}}
+\index{invert\_lr@{invert\_lr}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{invert\_lr}{invert\_lr}}
+{\footnotesize\ttfamily bool cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::invert\+\_\+lr}
+
+Left/\+Right channel inverted or not \Hypertarget{structcjc8910__codec__cfg__t_a1d84d73f9ab6e283ac62353e0781c1f4}\label{structcjc8910__codec__cfg__t_a1d84d73f9ab6e283ac62353e0781c1f4} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!invert\_sclk@{invert\_sclk}}
+\index{invert\_sclk@{invert\_sclk}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{invert\_sclk}{invert\_sclk}}
+{\footnotesize\ttfamily bool cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::invert\+\_\+sclk}
+
+SCLK clock signal inverted or not \Hypertarget{structcjc8910__codec__cfg__t_a35b1f7f8c4870e219f20baf2f5a52ae2}\label{structcjc8910__codec__cfg__t_a35b1f7f8c4870e219f20baf2f5a52ae2} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!pa\_pin@{pa\_pin}}
+\index{pa\_pin@{pa\_pin}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_pin}{pa\_pin}}
+{\footnotesize\ttfamily int16\+\_\+t cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+pin}
+
+PA chip power pin \Hypertarget{structcjc8910__codec__cfg__t_a91ce405acddbe831e3a8c16732cc1bf6}\label{structcjc8910__codec__cfg__t_a91ce405acddbe831e3a8c16732cc1bf6} 
+\index{cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}!pa\_reverted@{pa\_reverted}}
+\index{pa\_reverted@{pa\_reverted}!cjc8910\_codec\_cfg\_t@{cjc8910\_codec\_cfg\_t}}
+\doxysubsubsection{\texorpdfstring{pa\_reverted}{pa\_reverted}}
+{\footnotesize\ttfamily bool cjc8910\+\_\+codec\+\_\+cfg\+\_\+t\+::pa\+\_\+reverted}
+
+false\+: enable PA when pin set to 1, true\+: enable PA when pin set to 0 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/device/include/cjc8910\+\_\+codec.\+h\end{DoxyCompactItemize}

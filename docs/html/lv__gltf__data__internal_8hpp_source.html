@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/src/libs/gltf/gltf_data/lv_gltf_data_internal.hpp izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_048b45341ae6d63bbcc98d0ebf394f8f.html">libs</a></li><li class="navelem"><a class="el" href="dir_633c2b26a12edf610c5538d613510379.html">gltf</a></li><li class="navelem"><a class="el" href="dir_2983d6c22a49dc2a8b8e55b6f3ab78c4.html">gltf_data</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">lv_gltf_data_internal.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef LV_GLTFDATA_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define LV_GLTFDATA_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../../../lv_conf_internal.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#if LV_USE_GLTF</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../gltf_view/lv_gltf.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;lv_gltf_data_internal.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../../../misc/lv_array.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../../../drivers/opengles/lv_opengles_private.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;../../../misc/lv_types.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;../../../misc/lv_ll.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../../../misc/lv_event.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;fastgltf/math.hpp&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;fastgltf/types.hpp&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">// Vector of int32_t&#39;s</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">using </span>UintVector = std::vector&lt;uint32_t&gt;;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">// Vector of int32_t&#39;s</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">using </span>IntVector = std::vector&lt;int32_t&gt;;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">// Vector of int64_t&#39;s</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">using </span>LongVector = std::vector&lt;int64_t&gt;;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// Pointer to fastgltf::Node</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">using </span>NodePtr = fastgltf::Node *;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">// A standard 4x4 transform matrix</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">using </span>Transform = fastgltf::math::fmat4x4;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">// Pair of Node pointer and int32_t</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">using </span>NodeIndexPair = std::pair&lt;NodePtr, size_t&gt;;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Pair of float and Node/Index pair</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">using </span>NodeIndexDistancePair = std::pair&lt;float, NodeIndexPair&gt;;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">// Vector of NodeIndexPair</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">using </span>NodePairVector = std::vector&lt;NodeIndexPair&gt;;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">// Vector of NodeIndexDistancePair</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">using </span>NodeDistanceVector = std::vector&lt;NodeIndexDistancePair&gt;;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">// Map of uint32_t to NodePairVector</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">using </span>MaterialIndexMap = std::map&lt;uint32_t, NodePairVector&gt;;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">// Map of Node Pointers to Transforms</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">using </span>NodeTransformMap = std::map&lt;NodePtr, Transform&gt;;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">// Map of Nodes by string (name)</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">using </span>StringNodeMap = std::map&lt;std::string, NodePtr&gt;;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">// Map of Nodes by string (name)</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">using </span>NodeIntMap = std::map&lt;NodePtr, uint32_t&gt;;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">// Map of Nodes by string (name)</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">using </span>NodeVector = std::vector&lt;NodePtr&gt;;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">// Map of Node Index to Map of Prim Index to CenterXYZ+RadiusW Vec4</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">using </span>NodePrimCenterMap = std::map&lt;uint32_t, std::map&lt;uint32_t, fastgltf::math::fvec4&gt; &gt;;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">#define LV_GLTF_NODE_CHANNEL_X 0</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#define LV_GLTF_NODE_CHANNEL_Y 1</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#define LV_GLTF_NODE_CHANNEL_Z 2</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#define LV_GLTF_NODE_CHANNEL_W 4</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    LV_GLTF_NODE_PROP_POSITION,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    LV_GLTF_NODE_PROP_ROTATION,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    LV_GLTF_NODE_PROP_SCALE,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} lv_gltf_node_prop_t;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    lv_3dpoint_t local_position;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    lv_3dpoint_t world_position;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    lv_3dpoint_t scale;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    lv_3dpoint_t rotation;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>} lv_gltf_model_node_data_t;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    lv_gltf_node_prop_t prop;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    uint8_t channel;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">float</span> value;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>} lv_gltf_write_op_t;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    GLuint drawsBuffer;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::vector&lt;lv_gltf_primitive_t&gt; primitives;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>} lv_gltf_mesh_data_t;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">typedef</span> <span class="keyword">struct  </span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_struct" href="structlv__event__list__t.html">lv_event_list_t</a> event_list;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    lv_gltf_model_node_data_t node_data;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span> read_world_position;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">bool</span> value_changed;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>} lv_gltf_model_node_attr_t;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">struct </span>_lv_gltf_model_node_t {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    lv_gltf_model_t * model;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * numeric_path;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * path;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    fastgltf::Node * fastgltf_node;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    lv_gltf_model_node_attr_t * read_attrs;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_struct" href="struct__lv__array__t.html">lv_array_t</a> write_ops;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>};</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">struct </span>_lv_gltf_model_t {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * filename;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    fastgltf::Asset asset;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_struct" href="struct__lv__array__t.html">lv_array_t</a> nodes;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    NodeVector node_by_light_index;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    NodeTransformMap node_transform_cache;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    MaterialIndexMap opaque_nodes_by_material_index;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    MaterialIndexMap blended_nodes_by_material_index;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    std::vector&lt;size_t&gt; validated_skins;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::vector&lt;GLuint&gt; skin_tex;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    NodePrimCenterMap local_mesh_to_center_points_by_primitive;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    lv_gltf_t * viewer;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    std::vector&lt;lv_gltf_mesh_data_t&gt; meshes;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    std::vector&lt;GLuint&gt; textures;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_struct" href="struct__lv__array__t.html">lv_array_t</a> compiled_shaders;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    std::map&lt;fastgltf::Node *, std::vector&lt;uint32_t&gt; &gt; channel_set_cache;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    fastgltf::math::fmat4x4 view_mat;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    fastgltf::math::fvec3 view_pos;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    fastgltf::math::fvec3 vertex_max;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    fastgltf::math::fvec3 vertex_min;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    fastgltf::math::fvec3 vertex_cen;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_struct" href="struct__lv__timer__t.html">lv_timer_t</a> * animation_update_timer;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">size_t</span> current_animation;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">size_t</span> last_material_index;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    uint32_t last_camera_index;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    int32_t last_anim_num;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">float</span> bound_radius;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    uint32_t current_animation_max_time;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    uint32_t local_timestamp;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    uint32_t last_tick;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    uint32_t camera;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordtype">bool</span> is_animation_enabled;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">bool</span> last_pass_was_transmission;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordtype">bool</span> last_frame_was_antialiased;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordtype">bool</span> last_frame_no_motion;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordtype">bool</span> _last_frame_no_motion;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordtype">bool</span> write_ops_pending;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordtype">bool</span> write_ops_flushed;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">struct </span>_lv_gltf_model_t * linked_view_source;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>};</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>GLuint lv_gltf_data_get_texture(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>fastgltf::math::fvec3 lv_gltf_data_get_bounds_min(<span class="keyword">const</span> lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>fastgltf::math::fvec3 lv_gltf_data_get_bounds_max(<span class="keyword">const</span> lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>fastgltf::math::fvec3 lv_gltf_data_get_center(<span class="keyword">const</span> lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="keyword">const</span> <span class="keywordtype">char</span> * lv_gltf_get_filename(<span class="keyword">const</span> lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keywordtype">bool</span> lv_gltf_data_centerpoint_cache_contains(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index, int32_t element);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>lv_gltf_primitive_t * lv_gltf_data_get_primitive_from_mesh(lv_gltf_mesh_data_t * M, <span class="keywordtype">size_t</span> I);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>fastgltf::Asset * lv_gltf_data_get_asset(lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>lv_gltf_mesh_data_t * lv_gltf_data_get_mesh(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>GLuint lv_gltf_data_get_skin_texture_at(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="keywordtype">bool</span> lv_gltf_data_validated_skins_contains(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="keywordtype">void</span> lv_gltf_data_validate_skin(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="keywordtype">void</span> lv_gltf_data_add_opaque_node_primitive(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index, fastgltf::Node * node,</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                                            <span class="keywordtype">size_t</span> primitive_index);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="keywordtype">void</span> lv_gltf_data_add_blended_node_primitive(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> mesh_index, fastgltf::Node * node,</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                                             <span class="keywordtype">size_t</span> primitive_index);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="keywordtype">void</span> lv_gltf_data_set_cached_transform(lv_gltf_model_t * data, fastgltf::Node * node, fastgltf::math::fmat4x4 M);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="keywordtype">void</span> lv_gltf_data_clear_transform_cache(lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>fastgltf::math::fmat4x4 lv_gltf_data_get_cached_transform(lv_gltf_model_t * data, fastgltf::Node * node);</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="keywordtype">bool</span> lv_gltf_data_has_cached_transform(lv_gltf_model_t * data, fastgltf::Node * node);</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="keywordtype">bool</span> lv_gltf_data_transform_cache_is_empty(lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="keywordtype">size_t</span> lv_gltf_data_get_skins_size(lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="keywordtype">size_t</span> lv_gltf_data_get_skin(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index);</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="keywordtype">void</span> lv_gltf_data_injest_discover_defines(lv_gltf_model_t * data, fastgltf::Node * node, fastgltf::Primitive * prim);</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>fastgltf::math::fvec3 lv_gltf_data_get_centerpoint(lv_gltf_model_t * gltf_data, fastgltf::math::fmat4x4 matrix,</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>                                                   <span class="keywordtype">size_t</span> mesh_index,</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>                                                   int32_t elem);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>lv_gltf_mesh_data_t * lv_gltf_get_new_meshdata(lv_gltf_model_t * _data);</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>lv_gltf_model_t * lv_gltf_data_create_internal(<span class="keyword">const</span> <span class="keywordtype">char</span> * gltf_path, fastgltf::Asset);</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>lv_gltf_model_t * lv_gltf_data_load_internal(<span class="keyword">const</span> <span class="keywordtype">void</span> * data_source, <span class="keywordtype">size_t</span> data_size,</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>                                             lv_opengl_shader_manager_t * shaders);</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>fastgltf::math::fvec4 lv_gltf_get_primitive_centerpoint(lv_gltf_model_t * data, fastgltf::Mesh &amp; mesh,</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>                                                        uint32_t prim_num);</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>fastgltf::math::fvec3 get_cached_centerpoint(lv_gltf_model_t * data, <span class="keywordtype">size_t</span> index, int32_t element,</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                                             fastgltf::math::fmat4x4 matrix);</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="keywordtype">void</span> lv_gltf_data_delete_textures(lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>GLuint lv_gltf_data_create_texture(lv_gltf_model_t * data);</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="keywordtype">void</span> lv_gltf_model_node_init(lv_gltf_model_t * model, lv_gltf_model_node_t * node, fastgltf::Node * fastgltf_node,</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>                             <span class="keyword">const</span> <span class="keywordtype">char</span> * path,</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>                             <span class="keyword">const</span> <span class="keywordtype">char</span> * num_path);</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="keywordtype">void</span> lv_gltf_model_node_deinit(lv_gltf_model_node_t * node);</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span><span class="keywordtype">bool</span> lv_gltf_data_get_texture_pixels(<span class="keywordtype">void</span> * pixels, lv_gltf_model_t * data_obj, uint32_t model_texture_index,</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>                                     uint32_t mipmapnum,</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>                                     uint32_t width, uint32_t height, <span class="keywordtype">bool</span> has_alpha);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>uint32_t lv_gltf_data_get_animation_total_time(lv_gltf_model_t * data, uint32_t index);</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>std::vector&lt;uint32_t&gt; * lv_gltf_data_animation_get_channel_set(std::size_t anim_num, lv_gltf_model_t * data,</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>                                                               fastgltf::Node * node);</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="keywordtype">void</span> lv_gltf_data_animation_matrix_apply(<span class="keywordtype">float</span> timestamp, std::size_t anim_num, lv_gltf_model_t * gltf_data,</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>                                         fastgltf::Node * node,</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>                                         fastgltf::math::fmat4x4 &amp; matrix);</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>lv_gltf_model_node_t * lv_gltf_model_node_get_by_internal_node(lv_gltf_model_t * model,</div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>                                                               <span class="keyword">const</span> fastgltf::Node * fastgltf_node);</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span><span class="keywordtype">void</span> lv_gltf_model_send_new_values(lv_gltf_model_t * model);</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span><span class="preprocessor">#endif </span><span class="comment">/*LV_USE_GLTF*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="preprocessor">#endif </span><span class="comment">/*LV_GLTFVIEW_H*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="astruct__lv__array__t_html"><div class="ttname"><a href="struct__lv__array__t.html">_lv_array_t</a></div><div class="ttdef"><b>Definition</b> lv_array.h:35</div></div>
+<div class="ttc" id="astruct__lv__timer__t_html"><div class="ttname"><a href="struct__lv__timer__t.html">_lv_timer_t</a></div><div class="ttdef"><b>Definition</b> lv_timer_private.h:31</div></div>
+<div class="ttc" id="astructlv__event__list__t_html"><div class="ttname"><a href="structlv__event__list__t.html">lv_event_list_t</a></div><div class="ttdef"><b>Definition</b> lv_event.h:130</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

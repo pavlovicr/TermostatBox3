@@ -1,0 +1,71 @@
+\doxysection{ Struktura lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+t}
+\hypertarget{structlv__font__fmt__txt__cmap__t}{}\label{structlv__font__fmt__txt__cmap__t}\index{lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+font\+\_\+fmt\+\_\+txt.\+h$>$}
+
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_a6e07da091a4aa509c10fcedafe423868}{range\+\_\+start}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_a27fc43146e0f7c451a2396e738238d09}{range\+\_\+length}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_a86e5835332a5ae348024d372f233a032}{glyph\+\_\+id\+\_\+start}}
+\item 
+\Hypertarget{structlv__font__fmt__txt__cmap__t_a3588d69c64abccb5933b1038b051a4da}\label{structlv__font__fmt__txt__cmap__t_a3588d69c64abccb5933b1038b051a4da} 
+const uint16\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries unicode\+\_\+list}
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_aaca496a8e79bea1bed763143af8fa79a}{glyph\+\_\+id\+\_\+ofs\+\_\+list}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_afd6421799da4717cfc9082220c9b1110}{list\+\_\+length}}
+\item 
+\mbox{\hyperlink{lv__font__fmt__txt_8h_a124895b1853f8f1b2e975871d3f39d3f}{lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+type\+\_\+t}} \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_aff6823f2731c5559e030bd7a3bd25fdc}{type}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Map codepoints to a {\ttfamily glyph\+\_\+dsc}s Several formats are supported to optimize memory usage See \href{https://github.com/lvgl/lv_font_conv/blob/master/doc/font_spec.md}{\texttt{ https\+://github.\+com/lvgl/lv\+\_\+font\+\_\+conv/blob/master/doc/font\+\_\+spec.\+md}} 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structlv__font__fmt__txt__cmap__t_aaca496a8e79bea1bed763143af8fa79a}\label{structlv__font__fmt__txt__cmap__t_aaca496a8e79bea1bed763143af8fa79a} 
+\index{lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}!glyph\_id\_ofs\_list@{glyph\_id\_ofs\_list}}
+\index{glyph\_id\_ofs\_list@{glyph\_id\_ofs\_list}!lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}}
+\doxysubsubsection{\texorpdfstring{glyph\_id\_ofs\_list}{glyph\_id\_ofs\_list}}
+{\footnotesize\ttfamily const void\texorpdfstring{$\ast$}{*} lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+t\+::glyph\+\_\+id\+\_\+ofs\+\_\+list}
+
+if(type == LV\+\_\+\+FONT\+\_\+\+FMT\+\_\+\+TXT\+\_\+\+CMAP\+\_\+\+FORMAT0\+\_\+...) it\textquotesingle{}s {\ttfamily uint8\+\_\+t \texorpdfstring{$\ast$}{*}} if(type == LV\+\_\+\+FONT\+\_\+\+FMT\+\_\+\+TXT\+\_\+\+CMAP\+\_\+\+SPARSE\+\_\+...) it\textquotesingle{}s {\ttfamily uint16\+\_\+t \texorpdfstring{$\ast$}{*}} \Hypertarget{structlv__font__fmt__txt__cmap__t_a86e5835332a5ae348024d372f233a032}\label{structlv__font__fmt__txt__cmap__t_a86e5835332a5ae348024d372f233a032} 
+\index{lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}!glyph\_id\_start@{glyph\_id\_start}}
+\index{glyph\_id\_start@{glyph\_id\_start}!lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}}
+\doxysubsubsection{\texorpdfstring{glyph\_id\_start}{glyph\_id\_start}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+t\+::glyph\+\_\+id\+\_\+start}
+
+First glyph ID (array index of {\ttfamily glyph\+\_\+dsc}) for this range \Hypertarget{structlv__font__fmt__txt__cmap__t_afd6421799da4717cfc9082220c9b1110}\label{structlv__font__fmt__txt__cmap__t_afd6421799da4717cfc9082220c9b1110} 
+\index{lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}!list\_length@{list\_length}}
+\index{list\_length@{list\_length}!lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}}
+\doxysubsubsection{\texorpdfstring{list\_length}{list\_length}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+t\+::list\+\_\+length}
+
+Length of {\ttfamily unicode\+\_\+list} and/or {\ttfamily glyph\+\_\+id\+\_\+ofs\+\_\+list} \Hypertarget{structlv__font__fmt__txt__cmap__t_a27fc43146e0f7c451a2396e738238d09}\label{structlv__font__fmt__txt__cmap__t_a27fc43146e0f7c451a2396e738238d09} 
+\index{lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}!range\_length@{range\_length}}
+\index{range\_length@{range\_length}!lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}}
+\doxysubsubsection{\texorpdfstring{range\_length}{range\_length}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+t\+::range\+\_\+length}
+
+Number of Unicode characters related to this range. Last Unicode character = range\+\_\+start + range\+\_\+length -\/ 1 \Hypertarget{structlv__font__fmt__txt__cmap__t_a6e07da091a4aa509c10fcedafe423868}\label{structlv__font__fmt__txt__cmap__t_a6e07da091a4aa509c10fcedafe423868} 
+\index{lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}!range\_start@{range\_start}}
+\index{range\_start@{range\_start}!lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}}
+\doxysubsubsection{\texorpdfstring{range\_start}{range\_start}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+t\+::range\+\_\+start}
+
+First Unicode character for this range \Hypertarget{structlv__font__fmt__txt__cmap__t_aff6823f2731c5559e030bd7a3bd25fdc}\label{structlv__font__fmt__txt__cmap__t_aff6823f2731c5559e030bd7a3bd25fdc} 
+\index{lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}!type@{type}}
+\index{type@{type}!lv\_font\_fmt\_txt\_cmap\_t@{lv\_font\_fmt\_txt\_cmap\_t}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__font__fmt__txt_8h_a124895b1853f8f1b2e975871d3f39d3f}{lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+type\+\_\+t}} lv\+\_\+font\+\_\+fmt\+\_\+txt\+\_\+cmap\+\_\+t\+::type}
+
+Type of this character map 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/font/fmt\+\_\+txt/\mbox{\hyperlink{lv__font__fmt__txt_8h}{lv\+\_\+font\+\_\+fmt\+\_\+txt.\+h}}\end{DoxyCompactItemize}

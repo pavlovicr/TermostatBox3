@@ -1,0 +1,310 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/bar/lv\+\_\+bar.h}
+\hypertarget{lv__bar_8h}{}\label{lv__bar_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/bar/lv\_bar.h@{managed\_components/lvgl\_\_lvgl/src/widgets/bar/lv\_bar.h}}
+{\ttfamily \#include "{}../../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+anim.\+h"{}}\newline
+{\ttfamily \#include "{}../label/lv\+\_\+label.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+observer.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+bar.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+bar.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__bar_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__bar_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__bar_8h_ab0f4799117e09b8c93a851fd4f36956f}\label{lv__bar_8h_ab0f4799117e09b8c93a851fd4f36956f} 
+enum {\bfseries lv\+\_\+bar\+\_\+mode\+\_\+t} \{ {\bfseries LV\+\_\+\+BAR\+\_\+\+MODE\+\_\+\+NORMAL}
+, {\bfseries LV\+\_\+\+BAR\+\_\+\+MODE\+\_\+\+SYMMETRICAL}
+, {\bfseries LV\+\_\+\+BAR\+\_\+\+MODE\+\_\+\+RANGE}
+ \}
+\item 
+\Hypertarget{lv__bar_8h_a903c19005dc9aafc8617e92258a90881}\label{lv__bar_8h_a903c19005dc9aafc8617e92258a90881} 
+enum {\bfseries lv\+\_\+bar\+\_\+orientation\+\_\+t} \{ {\bfseries LV\+\_\+\+BAR\+\_\+\+ORIENTATION\+\_\+\+AUTO}
+, {\bfseries LV\+\_\+\+BAR\+\_\+\+ORIENTATION\+\_\+\+HORIZONTAL}
+, {\bfseries LV\+\_\+\+BAR\+\_\+\+ORIENTATION\+\_\+\+VERTICAL}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__bar_8h_a5d0819a9a2bc510c0c5f995e70dc0df4}{lv\+\_\+bar\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__bar_8h_a34b028e8302a9ea27b4fbe24cb300b7a}{lv\+\_\+bar\+\_\+set\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t value, lv\+\_\+anim\+\_\+enable\+\_\+t anim)
+\item 
+void \mbox{\hyperlink{lv__bar_8h_a215d8f20675a424a32db3f4bce3067a4}{lv\+\_\+bar\+\_\+set\+\_\+start\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t start\+\_\+value, lv\+\_\+anim\+\_\+enable\+\_\+t anim)
+\item 
+void \mbox{\hyperlink{lv__bar_8h_a9bb7d26ed4bb68a4db615b45e5ac92ef}{lv\+\_\+bar\+\_\+set\+\_\+range}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__bar_8h_a51c613805c14b54e7428a7c338fa2b42}{lv\+\_\+bar\+\_\+set\+\_\+min\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t min)
+\item 
+void \mbox{\hyperlink{lv__bar_8h_af6c7216c4d9e400ef6b61492ce25e3aa}{lv\+\_\+bar\+\_\+set\+\_\+max\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t max)
+\item 
+void \mbox{\hyperlink{lv__bar_8h_a57f1dfc479b7283ef71ca5cef6cb992d}{lv\+\_\+bar\+\_\+set\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+bar\+\_\+mode\+\_\+t mode)
+\item 
+void \mbox{\hyperlink{lv__bar_8h_a6e7505053188d3f38c3486da07c11210}{lv\+\_\+bar\+\_\+set\+\_\+orientation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+bar\+\_\+orientation\+\_\+t orientation)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__bar_8h_a48cb49480b5ac3cf20595d036a192942}{lv\+\_\+bar\+\_\+get\+\_\+value}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__bar_8h_a7989f5f102fe9a960a53aa7cf91a367b}{lv\+\_\+bar\+\_\+get\+\_\+start\+\_\+value}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__bar_8h_adcb65469a8b967ee8c985972d9bf34f0}{lv\+\_\+bar\+\_\+get\+\_\+min\+\_\+value}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__bar_8h_a3a687fafdd9d61fe69e3210ef3f04ee6}{lv\+\_\+bar\+\_\+get\+\_\+max\+\_\+value}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+bar\+\_\+mode\+\_\+t \mbox{\hyperlink{lv__bar_8h_a1cba90e71e06291f65286e57c916754b}{lv\+\_\+bar\+\_\+get\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+bar\+\_\+orientation\+\_\+t \mbox{\hyperlink{lv__bar_8h_aa726df50d1e171c80786228f9fa1f80b}{lv\+\_\+bar\+\_\+get\+\_\+orientation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__bar_8h_ae18c8c3c01c4b218347a6e60e6a0b579}{lv\+\_\+bar\+\_\+is\+\_\+symmetrical}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__bar_8h_afc6a6bf6eeb4e1b7bf68616ed27a29e6}{lv\+\_\+bar\+\_\+bind\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__bar_8h_a459ca76eb38d91c740a527639ebe92e9}\label{lv__bar_8h_a459ca76eb38d91c740a527639ebe92e9} 
+\mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\+\_\+\+ATTRIBUTE\+\_\+\+EXTERN\+\_\+\+DATA}} const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+bar\+\_\+class}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__bar_8h_afc6a6bf6eeb4e1b7bf68616ed27a29e6}\label{lv__bar_8h_afc6a6bf6eeb4e1b7bf68616ed27a29e6} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_bind\_value@{lv\_bar\_bind\_value}}
+\index{lv\_bar\_bind\_value@{lv\_bar\_bind\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_bind\_value()}{lv\_bar\_bind\_value()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+bar\+\_\+bind\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+
+Bind an integer or float Subject to a Bar\textquotesingle{}s value. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Bar \\
+\hline
+{\em subject} & pointer to Subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to newly-\/created Observer 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_a5d0819a9a2bc510c0c5f995e70dc0df4}\label{lv__bar_8h_a5d0819a9a2bc510c0c5f995e70dc0df4} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_create@{lv\_bar\_create}}
+\index{lv\_bar\_create@{lv\_bar\_create}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_create()}{lv\_bar\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+bar\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a bar object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new bar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created bar 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_a3a687fafdd9d61fe69e3210ef3f04ee6}\label{lv__bar_8h_a3a687fafdd9d61fe69e3210ef3f04ee6} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_get\_max\_value@{lv\_bar\_get\_max\_value}}
+\index{lv\_bar\_get\_max\_value@{lv\_bar\_get\_max\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_get\_max\_value()}{lv\_bar\_get\_max\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+bar\+\_\+get\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the maximum value of a bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a bar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the maximum value of the bar 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_adcb65469a8b967ee8c985972d9bf34f0}\label{lv__bar_8h_adcb65469a8b967ee8c985972d9bf34f0} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_get\_min\_value@{lv\_bar\_get\_min\_value}}
+\index{lv\_bar\_get\_min\_value@{lv\_bar\_get\_min\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_get\_min\_value()}{lv\_bar\_get\_min\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+bar\+\_\+get\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the minimum value of a bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a bar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the minimum value of the bar 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_a1cba90e71e06291f65286e57c916754b}\label{lv__bar_8h_a1cba90e71e06291f65286e57c916754b} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_get\_mode@{lv\_bar\_get\_mode}}
+\index{lv\_bar\_get\_mode@{lv\_bar\_get\_mode}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_get\_mode()}{lv\_bar\_get\_mode()}}
+{\footnotesize\ttfamily lv\+\_\+bar\+\_\+mode\+\_\+t lv\+\_\+bar\+\_\+get\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the type of bar. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to bar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+bar type from {\ttfamily lv\+\_\+bar\+\_\+mode\+\_\+t} 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_aa726df50d1e171c80786228f9fa1f80b}\label{lv__bar_8h_aa726df50d1e171c80786228f9fa1f80b} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_get\_orientation@{lv\_bar\_get\_orientation}}
+\index{lv\_bar\_get\_orientation@{lv\_bar\_get\_orientation}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_get\_orientation()}{lv\_bar\_get\_orientation()}}
+{\footnotesize\ttfamily lv\+\_\+bar\+\_\+orientation\+\_\+t lv\+\_\+bar\+\_\+get\+\_\+orientation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the orientation of bar. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to bar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+bar orientation from {\ttfamily lv\+\_\+bar\+\_\+orientation\+\_\+t} 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_a7989f5f102fe9a960a53aa7cf91a367b}\label{lv__bar_8h_a7989f5f102fe9a960a53aa7cf91a367b} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_get\_start\_value@{lv\_bar\_get\_start\_value}}
+\index{lv\_bar\_get\_start\_value@{lv\_bar\_get\_start\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_get\_start\_value()}{lv\_bar\_get\_start\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+bar\+\_\+get\+\_\+start\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the start value of a bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a bar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the start value of the bar 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_a48cb49480b5ac3cf20595d036a192942}\label{lv__bar_8h_a48cb49480b5ac3cf20595d036a192942} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_get\_value@{lv\_bar\_get\_value}}
+\index{lv\_bar\_get\_value@{lv\_bar\_get\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_get\_value()}{lv\_bar\_get\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+bar\+\_\+get\+\_\+value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the value of a bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a bar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the value of the bar 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_ae18c8c3c01c4b218347a6e60e6a0b579}\label{lv__bar_8h_ae18c8c3c01c4b218347a6e60e6a0b579} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_is\_symmetrical@{lv\_bar\_is\_symmetrical}}
+\index{lv\_bar\_is\_symmetrical@{lv\_bar\_is\_symmetrical}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_is\_symmetrical()}{lv\_bar\_is\_symmetrical()}}
+{\footnotesize\ttfamily bool lv\+\_\+bar\+\_\+is\+\_\+symmetrical (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Give the bar is in symmetrical mode or not 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to bar object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: in symmetrical mode false \+: not in 
+\end{DoxyReturn}
+\Hypertarget{lv__bar_8h_af6c7216c4d9e400ef6b61492ce25e3aa}\label{lv__bar_8h_af6c7216c4d9e400ef6b61492ce25e3aa} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_set\_max\_value@{lv\_bar\_set\_max\_value}}
+\index{lv\_bar\_set\_max\_value@{lv\_bar\_set\_max\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_set\_max\_value()}{lv\_bar\_set\_max\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+bar\+\_\+set\+\_\+max\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set maximum value of a bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the bar object \\
+\hline
+{\em max} & maximum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__bar_8h_a51c613805c14b54e7428a7c338fa2b42}\label{lv__bar_8h_a51c613805c14b54e7428a7c338fa2b42} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_set\_min\_value@{lv\_bar\_set\_min\_value}}
+\index{lv\_bar\_set\_min\_value@{lv\_bar\_set\_min\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_set\_min\_value()}{lv\_bar\_set\_min\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+bar\+\_\+set\+\_\+min\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min }\end{DoxyParamCaption})}
+
+Set minimum value of a bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the bar object \\
+\hline
+{\em min} & minimum value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__bar_8h_a57f1dfc479b7283ef71ca5cef6cb992d}\label{lv__bar_8h_a57f1dfc479b7283ef71ca5cef6cb992d} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_set\_mode@{lv\_bar\_set\_mode}}
+\index{lv\_bar\_set\_mode@{lv\_bar\_set\_mode}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_set\_mode()}{lv\_bar\_set\_mode()}}
+{\footnotesize\ttfamily void lv\+\_\+bar\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+bar\+\_\+mode\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+Set the type of bar. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to bar object \\
+\hline
+{\em mode} & bar type from {\ttfamily lv\+\_\+bar\+\_\+mode\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__bar_8h_a6e7505053188d3f38c3486da07c11210}\label{lv__bar_8h_a6e7505053188d3f38c3486da07c11210} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_set\_orientation@{lv\_bar\_set\_orientation}}
+\index{lv\_bar\_set\_orientation@{lv\_bar\_set\_orientation}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_set\_orientation()}{lv\_bar\_set\_orientation()}}
+{\footnotesize\ttfamily void lv\+\_\+bar\+\_\+set\+\_\+orientation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+bar\+\_\+orientation\+\_\+t}]{orientation }\end{DoxyParamCaption})}
+
+Set the orientation of bar. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to bar object \\
+\hline
+{\em orientation} & bar orientation from {\ttfamily lv\+\_\+bar\+\_\+orientation\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__bar_8h_a9bb7d26ed4bb68a4db615b45e5ac92ef}\label{lv__bar_8h_a9bb7d26ed4bb68a4db615b45e5ac92ef} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_set\_range@{lv\_bar\_set\_range}}
+\index{lv\_bar\_set\_range@{lv\_bar\_set\_range}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_set\_range()}{lv\_bar\_set\_range()}}
+{\footnotesize\ttfamily void lv\+\_\+bar\+\_\+set\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{min,  }\item[{int32\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+Set minimum and the maximum values of a bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the bar object \\
+\hline
+{\em min} & minimum value \\
+\hline
+{\em max} & maximum value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+If min is greater than max, the drawing direction becomes to the opposite direction. 
+\end{DoxyNote}
+\Hypertarget{lv__bar_8h_a215d8f20675a424a32db3f4bce3067a4}\label{lv__bar_8h_a215d8f20675a424a32db3f4bce3067a4} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_set\_start\_value@{lv\_bar\_set\_start\_value}}
+\index{lv\_bar\_set\_start\_value@{lv\_bar\_set\_start\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_set\_start\_value()}{lv\_bar\_set\_start\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+bar\+\_\+set\+\_\+start\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{start\+\_\+value,  }\item[{lv\+\_\+anim\+\_\+enable\+\_\+t}]{anim }\end{DoxyParamCaption})}
+
+Set a new start value on the bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a bar object \\
+\hline
+{\em start\+\_\+value} & new start value \\
+\hline
+{\em anim} & LV\+\_\+\+ANIM\+\_\+\+ON\+: set the value with an animation; LV\+\_\+\+ANIM\+\_\+\+OFF\+: change the value immediately \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__bar_8h_a34b028e8302a9ea27b4fbe24cb300b7a}\label{lv__bar_8h_a34b028e8302a9ea27b4fbe24cb300b7a} 
+\index{lv\_bar.h@{lv\_bar.h}!lv\_bar\_set\_value@{lv\_bar\_set\_value}}
+\index{lv\_bar\_set\_value@{lv\_bar\_set\_value}!lv\_bar.h@{lv\_bar.h}}
+\doxysubsubsection{\texorpdfstring{lv\_bar\_set\_value()}{lv\_bar\_set\_value()}}
+{\footnotesize\ttfamily void lv\+\_\+bar\+\_\+set\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{value,  }\item[{lv\+\_\+anim\+\_\+enable\+\_\+t}]{anim }\end{DoxyParamCaption})}
+
+Set a new value on the bar 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a bar object \\
+\hline
+{\em value} & new value \\
+\hline
+{\em anim} & LV\+\_\+\+ANIM\+\_\+\+ON\+: set the value with an animation; LV\+\_\+\+ANIM\+\_\+\+OFF\+: change the value immediately \\
+\hline
+\end{DoxyParams}

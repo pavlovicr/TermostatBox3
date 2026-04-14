@@ -1,0 +1,371 @@
+\chapter{README\+\_\+zh}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh}{}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh}\index{README\_zh@{README\_zh}}
+\href{https://github.com/sponsors/lvgl}{\texttt{ }}
+
+
+
+\href{../README.md}{\texttt{ English}} \texorpdfstring{$\vert$}{|} {\bfseries{中文}} \texorpdfstring{$\vert$}{|} \href{./README_pt_BR.md}{\texttt{ Português do Brasil}} \texorpdfstring{$\vert$}{|} \href{./README_jp.md}{\texttt{ 日本語}} \texorpdfstring{$\vert$}{|} \href{./README_he.md}{\texttt{ עברית}} 
+
+~\newline
+
+
+
+
+ 
+
+\doxysection*{Light and Versatile Graphics Library }
+
+\doxysection*{轻量级通用型图形库 }
+
+  ~  
+
+~\newline
+
+
+
+
+\href{https://lvgl.io}{\texttt{ 网站}} \texorpdfstring{$\vert$}{|} \href{https://pro.lvgl.io}{\texttt{ LVGL Pro 编辑器}} \texorpdfstring{$\vert$}{|} \href{https://docs.lvgl.io/}{\texttt{ 文档}} \texorpdfstring{$\vert$}{|} \href{https://forum.lvgl.io}{\texttt{ 论坛}} \texorpdfstring{$\vert$}{|} \href{https://lvgl.io/demos}{\texttt{ 演示}} \texorpdfstring{$\vert$}{|} \href{https://lvgl.io/services}{\texttt{ 服务}} 
+
+~\newline
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md538}{}\doxysubsection{\texorpdfstring{📒 概述}{📒 概述}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md538}
+{\bfseries{LVGL}} 是一个免费、开源的 UI 库，可用于为来自任何厂商、任何平台的 MCU 或 MPU 创建图形用户界面。
+
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}要求\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：\+LVGL 无需外部依赖，因此可以轻松编译到任何现代平台上，从小型 MCU 到支持 3D 的多核 Linux MPU。简单 UI 仅需约 100kB RAM、200–300kB Flash，以及 1/10 屏幕大小的渲染缓冲区。
+
+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}开始使用\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：选择一个可直接使用的 VSCode、\+Eclipse 或其他项目，在 PC 上尝试 LVGL。\+LVGL 的 UI 代码完全平台无关，因此也可直接用于嵌入式设备。
+
+{\bfseries{LVGL Pro}} 是一套完整的工具包，可让你更快地构建、测试、共享和发布 UI。它附带一个 XML 编辑器，你可以在其中快速创建和测试可重用组件，导出 C 代码，或在运行时加载 XML。了解更多信息请点击这里。\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md539}{}\doxysubsection{\texorpdfstring{💡 特性}{💡 特性}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md539}
+{\bfseries{免费与可移植性}}
+\begin{DoxyItemize}
+\item 纯 C（兼容 C++）库，无外部依赖。
+\item 可为任意 MCU 或 MPU 编译，支持任何 (RT)OS。支持 Make、\+CMake 和简单文件匹配。
+\item 支持单色、电子墨水、\+OLED、\+TFT 显示器，甚至是 PC 显示器。详见 \href{https://docs.lvgl.io/master/main-modules/display/index.html}{\texttt{ 显示模块}}
+\item 采用 MIT 许可证，可自由用于商业项目。
+\item 仅需 32kB RAM、128kB Flash、一个帧缓冲区，以及至少 1/10 屏幕大小的渲染缓冲。
+\item 支持但不强制要求使用操作系统、外部存储或 GPU。
+\end{DoxyItemize}
+
+{\bfseries{控件、样式、布局等}}
+\begin{DoxyItemize}
+\item 超过 30 个内置 \href{https://docs.lvgl.io/master/widgets/index.html}{\texttt{ 控件}}：按钮、标签、滑块、图表、键盘、仪表、弧形、表格等。
+\item 灵活的 \href{https://docs.lvgl.io/master/common-widget-features/styles/index.html}{\texttt{ 样式系统}}，提供约 100 种属性，可自定义控件任意部分与状态。
+\item \href{https://docs.lvgl.io/master/common-widget-features/layouts/flex.html}{\texttt{ Flexbox}} 和 \href{https://docs.lvgl.io/master/common-widget-features/layouts/grid.html}{\texttt{ Grid}} 布局引擎可实现自适应布局。
+\item 文本支持 UTF-\/8 编码，兼容中日韩、泰语、印地语、阿拉伯语、波斯语等。
+\item \href{https://docs.lvgl.io/master/main-modules/observer/index.html}{\texttt{ 数据绑定}} 模块轻松连接 UI 与应用逻辑。
+\item 渲染引擎支持动画、抗锯齿、不透明度、平滑滚动、阴影、图像变换等。
+\item \href{https://docs.lvgl.io/master/libs/gltf.html}{\texttt{ 强大的 3D 渲染引擎}}，可使用 Open\+GL 显示 \href{https://sketchfab.com/}{\texttt{ gl\+TF 模型}}。
+\item 支持鼠标、触摸板、按键、键盘、外部按钮、编码器等 \href{https://docs.lvgl.io/master/main-modules/indev.html}{\texttt{ 输入设备}}。
+\item 支持 \href{https://docs.lvgl.io/master/main-modules/display/overview.html\#how-many-displays-can-lvgl-use}{\texttt{ 多显示屏}}。
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md540}{}\doxysubsection{\texorpdfstring{📦️ 平台支持}{📦️ 平台支持}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md540}
+LVGL 无外部依赖，因此可轻松编译到任何设备，并已被多个包管理器与 RTOS 集成：
+
+
+\begin{DoxyItemize}
+\item \href{https://docs.lvgl.io/master/integration/framework/arduino.html}{\texttt{ Arduino 库}}
+\item \href{https://registry.platformio.org/libraries/lvgl/lvgl}{\texttt{ Platform\+IO 包}}
+\item \href{https://docs.lvgl.io/master/integration/os/zephyr.html}{\texttt{ Zephyr 库}}
+\item \href{https://components.espressif.com/components/lvgl/lvgl}{\texttt{ ESP-\/\+IDF (ESP32) 组件}}
+\item \href{https://www.nxp.com/design/software/embedded-software/lvgl-open-source-graphics-library:LITTLEVGL-OPEN-SOURCE-GRAPHICS-LIBRARY}{\texttt{ NXP MCUXpresso 组件}}
+\item \href{https://docs.lvgl.io/master/integration/os/nuttx.html}{\texttt{ NuttX 库}}
+\item \href{https://docs.lvgl.io/master/integration/os/rt-thread.html}{\texttt{ RT-\/\+Thread RTOS}}
+\item CMSIS-\/\+Pack
+\item \href{https://doc.riot-os.org/group__pkg__lvgl.html\#details}{\texttt{ RIOT OS 包}}
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md541}{}\doxysubsection{\texorpdfstring{🚀 LVGL Pro 编辑器}{🚀 LVGL Pro 编辑器}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md541}
+LVGL Pro 是一套完整的工具，用于高效构建、测试、共享和交付嵌入式 UI。
+
+它包含四个紧密集成的工具：
+
+
+\begin{DoxyEnumerate}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+XML 编辑器\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：\+LVGL Pro 的核心。桌面应用，用于通过 XML 构建组件与界面，管理数据绑定、翻译、动画、测试等。了解更多 \href{https://docs.lvgl.io/master/xml/xml/index.html}{\texttt{ XML 格式}} 和 \href{https://docs.lvgl.io/master/xml/editor/index.html}{\texttt{ 编辑器}}。
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}在线预览器\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：在浏览器中运行编辑器，打开 Git\+Hub 项目，无需搭建开发环境即可共享。访问 \href{https://viewer.lvgl.io}{\texttt{ https\+://viewer.\+lvgl.\+io}}。
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+CLI 工具\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：在 CI/\+CD 中生成 C 代码并运行测试。详见 \href{https://docs.lvgl.io/master/xml/tools/cli.html}{\texttt{ 此处}}。
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+Figma 插件\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：直接从 Figma 同步和提取样式。了解更多 \href{https://docs.lvgl.io/master/xml/tools/figma.html}{\texttt{ 这里}}。
+\end{DoxyEnumerate}
+
+这些工具结合在一起，帮助开发者高效构建 UI、可靠测试，并便于团队协作。
+
+了解更多：https\+://pro.lvgl.\+io\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md542}{}\doxysubsection{\texorpdfstring{🤝 商业服务}{🤝 商业服务}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md542}
+LVGL LLC 提供多种商业服务，助力 UI 开发。凭借超过 15 年的用户界面与图形经验，我们能将你的产品 UI 提升到更高水平。
+
+
+\begin{DoxyItemize}
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}图形设计\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：我们的内部设计师擅长打造美观现代的设计，兼顾产品特性与硬件能力。
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+UI 实现\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：我们可以基于你提供或我们设计的 UI 进行实现，充分发挥硬件与 LVGL 的潜力。如缺少特定功能或控件，我们也可为你开发。
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}咨询与支持\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：提供 UI 开发咨询，帮助你避免代价高昂、耗时的错误。
+\item \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}开发板认证\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}：为提供开发板或量产套件的企业提供认证服务，展示该板卡的 LVGL 运行能力。
+\end{DoxyItemize}
+
+查看我们的 \href{https://lvgl.io/demos}{\texttt{ 演示}} 以了解示例。更多信息请访问 \href{https://lvgl.io/services}{\texttt{ 服务页面}}。
+
+\href{https://lvgl.io/\#contact}{\texttt{ 联系我们}}，告诉我们如何帮助你。\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md543}{}\doxysubsection{\texorpdfstring{🧑‍💻 集成 LVGL}{🧑‍💻 集成 LVGL}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md543}
+集成 LVGL 非常简单。将其添加到项目中并像其他源文件一样编译即可。 配置时复制 {\ttfamily \doxylink{lv__conf__template_8h_source}{lv\+\_\+conf\+\_\+template.\+h}} 为 {\ttfamily lv\+\_\+conf.\+h}，启用第一个 {\ttfamily \#if 0} 并按需修改配置。 （默认配置通常已足够。）\+LVGL 也支持通过 Kconfig 配置。
+
+项目中可按以下方式初始化 LVGL 并创建显示和输入设备：
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}lvgl/lvgl.h"{}}\ \textcolor{comment}{/*定义\ LV\_LVGL\_H\_INCLUDE\_SIMPLE\ 可直接使用\ "{}lvgl.h"{}*/}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ TFT\_HOR\_RES\ 320}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ TFT\_VER\_RES\ 240}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static}\ uint32\_t\ my\_tick\_cb(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ my\_get\_millisec();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ my\_flush\_cb(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area,\ uint8\_t\ *\ px\_map)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*将\ px\_map\ 写入帧缓冲或显示控制器对应区域*/}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ my\_touch\_read\_cb(\mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ indev,\ \mbox{\hyperlink{structlv__indev__data__t}{lv\_indev\_data\_t}}\ *\ data)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \textcolor{keywordflow}{if}(my\_touch\_is\_pressed())\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ data-\/>point.x\ =\ touchpad\_x;}
+\DoxyCodeLine{\ \ \ \ \ \ \ data-\/>point.y\ =\ touchpad\_y;}
+\DoxyCodeLine{\ \ \ \ \ \ \ data-\/>state\ =\ LV\_INDEV\_STATE\_PRESSED;}
+\DoxyCodeLine{\ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ data-\/>state\ =\ LV\_INDEV\_STATE\_RELEASED;}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ main(\textcolor{keywordtype}{void})}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ my\_hardware\_init();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*初始化\ LVGL*/}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__init_8c_a666fa58edac1e61856b2a00fe60308a0}{lv\_init}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*设置毫秒级时钟回调，用于\ LVGL\ 计时*/}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__tick_8c_a846b334f5e2132a974468cb9f8bb1b74}{lv\_tick\_set\_cb}}(my\_tick\_cb);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*创建显示对象，用于添加屏幕和控件*/}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ display\ =\ \mbox{\hyperlink{lv__display_8c_a1a3de5e03d1a60b60cd41a89e28f03a2}{lv\_display\_create}}(TFT\_HOR\_RES,\ TFT\_VER\_RES);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*添加渲染缓冲，这里假设使用\ 16\ 位\ RGB565\ 格式*/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{static}\ uint8\_t\ buf[TFT\_HOR\_RES\ *\ TFT\_VER\_RES\ /\ 10\ *\ 2];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__display_8c_acd362b0ea0b9d9795df2be1624e5b9b3}{lv\_display\_set\_buffers}}(display,\ buf,\ NULL,\ \textcolor{keyword}{sizeof}(buf),\ \mbox{\hyperlink{lv__display_8h_a5132aad8662c8544749cbb74dd7e1753a39326a80c1edf7fd9ceddba1b465446c}{LV\_DISPLAY\_RENDER\_MODE\_PARTIAL}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*设置刷新回调，将缓冲内容写入显示设备*/}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__display_8c_a159074a30fa769f4f243ebd85a519294}{lv\_display\_set\_flush\_cb}}(display,\ my\_flush\_cb);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*创建输入设备用于触摸处理*/}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ indev\ =\ \mbox{\hyperlink{lv__indev_8c_a9e8fac2a3892deca39d80d90afdac1b3}{lv\_indev\_create}}();}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__indev_8c_ad621c9f885cb2304809e295ba0b71b76}{lv\_indev\_set\_type}}(indev,\ \mbox{\hyperlink{lv__indev_8h_a11213c9864502e382d5f19b9e6b2de5ba266ddfccb1f31d538489eea5667ebebf}{LV\_INDEV\_TYPE\_POINTER}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__indev_8c_ac8bc2642f0f2440e76e9d39b6891eb52}{lv\_indev\_set\_read\_cb}}(indev,\ my\_touch\_read\_cb);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*驱动已就绪，创建\ UI*/}}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ label\ =\ \mbox{\hyperlink{lv__label_8c_a9b7eac4c1840d44582995efda39ef466}{lv\_label\_create}}(\mbox{\hyperlink{lv__display_8c_ae5c93629ebabaee2d7cd4461f4ccd128}{lv\_screen\_active}}());}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__label_8c_ac0a3691e31b2defebc1eab701a35d63b}{lv\_label\_set\_text}}(label,\ \textcolor{stringliteral}{"{}Hello\ world"{}});}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__obj__pos_8c_a21d7569df12139c33619786d4ff63dcf}{lv\_obj\_center}}(label);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*循环执行\ LVGL\ 任务*/}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}(1)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__timer_8c_adb5cfb35b8a8ffe081b95c92b29c7c8c}{lv\_timer\_handler}}();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ my\_sleep\_ms(5);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md544}{}\doxysubsection{\texorpdfstring{🤖 示例}{🤖 示例}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md544}
+可在 \href{https://docs.lvgl.io/master/examples.html}{\texttt{ https\+://docs.\+lvgl.\+io/master/examples.\+html}} 查看 100+ 示例。
+
+在线预览器 \href{https://viewer.lvgl.io/}{\texttt{ https\+://viewer.\+lvgl.\+io/}} 也提供了易学的 XML 教程。\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md545}{}\doxysubsubsection{\texorpdfstring{Hello World 按钮事件示例}{Hello World 按钮事件示例}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md545}
+
+
+
+
+{\bfseries{C 代码}}\begin{adjustwidth}{1em}{0em}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ button\_clicked\_cb(\mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ e)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Clicked\(\backslash\)n"{}});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{[...]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ button\ =\ \mbox{\hyperlink{lv__button_8c_affdb3d6c47442a738f42b8e5ff720868}{lv\_button\_create}}(\mbox{\hyperlink{lv__display_8c_ae5c93629ebabaee2d7cd4461f4ccd128}{lv\_screen\_active}}());}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{lv__obj__pos_8c_a21d7569df12139c33619786d4ff63dcf}{lv\_obj\_center}}(button);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{lv__obj__event_8c_a13335793b24322d550c8faa8e3dda247}{lv\_obj\_add\_event\_cb}}(button,\ button\_clicked\_cb,\ \mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771aa02bc86fc8e7a7edab3634a816c19ab6}{LV\_EVENT\_CLICKED}},\ NULL);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ label\ =\ \mbox{\hyperlink{lv__label_8c_a9b7eac4c1840d44582995efda39ef466}{lv\_label\_create}}(button);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{lv__label_8c_ac0a3691e31b2defebc1eab701a35d63b}{lv\_label\_set\_text}}(label,\ \textcolor{stringliteral}{"{}Hello\ from\ LVGL!"{}});}
+
+\end{DoxyCode}
+ \end{adjustwidth}
+
+
+
+
+{\bfseries{使用 LVGL Pro 的 XML}}\begin{adjustwidth}{1em}{0em}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{screen}>}
+\DoxyCodeLine{\ \ \ \ <\textcolor{keywordtype}{view}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_button}\ \textcolor{keyword}{align}=\textcolor{stringliteral}{"{}center"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <\textcolor{keywordtype}{event\_cb}\ \textcolor{keyword}{callback}=\textcolor{stringliteral}{"{}button\_clicked\_cb"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_label}\ \textcolor{keyword}{text}=\textcolor{stringliteral}{"{}Hello\ from\ LVGL!"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ </\textcolor{keywordtype}{lv\_button}>}
+\DoxyCodeLine{\ \ \ \ </\textcolor{keywordtype}{view}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{screen}>}
+
+\end{DoxyCode}
+
+
+\end{adjustwidth}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md546}{}\doxysubsubsection{\texorpdfstring{带数据绑定的滑块}{带数据绑定的滑块}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md546}
+
+
+
+
+{\bfseries{C 代码}}\begin{adjustwidth}{1em}{0em}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ my\_observer\_cb(\mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ observer,\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ *\ subject)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Slider\ value:\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{lv__observer_8c_ac1aa82930b9f6a7a8e732491267c9b4a}{lv\_subject\_get\_int}}(subject));}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{[...]}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ subject\_value;}
+\DoxyCodeLine{\mbox{\hyperlink{lv__observer_8c_aa33dde3e61e5511b138ff16fe879424e}{lv\_subject\_init\_int}}(\&subject\_value,\ 35);}
+\DoxyCodeLine{\mbox{\hyperlink{lv__observer_8c_a94b37d504317a6375c1a5bd0d808412d}{lv\_subject\_add\_observer}}(\&subject\_value,\ my\_observer\_cb,\ NULL);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structlv__style__t}{lv\_style\_t}}\ style\_base;}
+\DoxyCodeLine{\mbox{\hyperlink{lv__style_8c_a327db2c3050bd2d1a1693aa6981205dd}{lv\_style\_init}}(\&style\_base);}
+\DoxyCodeLine{lv\_style\_set\_bg\_color(\&style\_base,\ \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color_8c_a683fc45072eabc9c74257af7fc36345f}{lv\_color\_hex}}(0xff8800));}
+\DoxyCodeLine{lv\_style\_set\_bg\_opa(\&style\_base,\ 255);}
+\DoxyCodeLine{lv\_style\_set\_radius(\&style\_base,\ 4);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ slider\ =\ \mbox{\hyperlink{lv__slider_8c_a51d095746dcbd4858c9079990603b2eb}{lv\_slider\_create}}(\mbox{\hyperlink{lv__display_8c_ae5c93629ebabaee2d7cd4461f4ccd128}{lv\_screen\_active}}());}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj__pos_8c_a21d7569df12139c33619786d4ff63dcf}{lv\_obj\_center}}(slider);}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj__pos_8c_acf9074095fa19743516426d51c1197a6}{lv\_obj\_set\_size}}(slider,\ \mbox{\hyperlink{lv__area_8c_aaab45f4752db2db4f70fd48a8d8d50d0}{lv\_pct}}(80),\ 16);}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj__style_8c_a3697842a0a9f7cfa1933bc92ab85dc6b}{lv\_obj\_add\_style}}(slider,\ \&style\_base,\ \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74ae1fb6dda668a19264aef30e0bfb0930d}{LV\_PART\_INDICATOR}});}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj__style_8c_a3697842a0a9f7cfa1933bc92ab85dc6b}{lv\_obj\_add\_style}}(slider,\ \&style\_base,\ \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74ac6ba6af416d9846b75ddc8b6be6192a5}{LV\_PART\_KNOB}});}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj__style_8c_a3697842a0a9f7cfa1933bc92ab85dc6b}{lv\_obj\_add\_style}}(slider,\ \&style\_base,\ 0);}
+\DoxyCodeLine{lv\_obj\_set\_style\_bg\_opa(slider,\ LV\_OPA\_50,\ 0);}
+\DoxyCodeLine{lv\_obj\_set\_style\_border\_width(slider,\ 3,\ \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74ac6ba6af416d9846b75ddc8b6be6192a5}{LV\_PART\_KNOB}});}
+\DoxyCodeLine{lv\_obj\_set\_style\_border\_color(slider,\ \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color_8c_abf80bdeb86b9f12a497f4a43e1df2b4c}{lv\_color\_hex3}}(0xfff),\ \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74ac6ba6af416d9846b75ddc8b6be6192a5}{LV\_PART\_KNOB}});}
+\DoxyCodeLine{\mbox{\hyperlink{lv__slider_8c_afd9e50356c8de2ab284bb7e2548d4cf9}{lv\_slider\_bind\_value}}(slider,\ \&subject\_value);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ label\ =\ \mbox{\hyperlink{lv__label_8c_a9b7eac4c1840d44582995efda39ef466}{lv\_label\_create}}(\mbox{\hyperlink{lv__display_8c_ae5c93629ebabaee2d7cd4461f4ccd128}{lv\_screen\_active}}());}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj__pos_8c_acbda1c47d058b7179babd9893ef9ab7b}{lv\_obj\_align}}(label,\ LV\_ALIGN\_CENTER,\ 0,\ -\/30);}
+\DoxyCodeLine{\mbox{\hyperlink{lv__label_8c_a0083a2be4caa424e5b4d686e65129ecb}{lv\_label\_bind\_text}}(label,\ \&subject\_value,\ \textcolor{stringliteral}{"{}Temperature:\ \%d\ °C"{}});}
+
+\end{DoxyCode}
+
+
+\end{adjustwidth}
+
+
+
+
+{\bfseries{使用 LVGL Pro 的 XML}}\begin{adjustwidth}{1em}{0em}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{screen}>}
+\DoxyCodeLine{\ \ \ \ <\textcolor{keywordtype}{styles}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{style}\ \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}style\_base"{}}\ \textcolor{keyword}{bg\_opa}=\textcolor{stringliteral}{"{}100\%"{}}\ \textcolor{keyword}{bg\_color}=\textcolor{stringliteral}{"{}0xff8800"{}}\ \textcolor{keyword}{radius}=\textcolor{stringliteral}{"{}4"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{style}\ \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}style\_border"{}}\ \textcolor{keyword}{border\_color}=\textcolor{stringliteral}{"{}0xfff"{}}\ \textcolor{keyword}{border\_width}=\textcolor{stringliteral}{"{}3"{}}\ />}
+\DoxyCodeLine{\ \ \ \ </\textcolor{keywordtype}{styles}>}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ <\textcolor{keywordtype}{view}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_label}\ \textcolor{keyword}{bind\_text}=\textcolor{stringliteral}{"{}value"{}}\ \textcolor{keyword}{bind\_text-\/fmt}=\textcolor{stringliteral}{"{}Temperature:\ \%d\ °C"{}}\ \textcolor{keyword}{align}=\textcolor{stringliteral}{"{}center"{}}\ \textcolor{keyword}{y}=\textcolor{stringliteral}{"{}-\/30"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_slider}\ \textcolor{keyword}{align}=\textcolor{stringliteral}{"{}center"{}}\ \textcolor{keyword}{bind\_value}=\textcolor{stringliteral}{"{}value"{}}\ \textcolor{keyword}{style\_bg\_opa}=\textcolor{stringliteral}{"{}30\%"{}}>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <\textcolor{keywordtype}{style}\ \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}style\_base"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <\textcolor{keywordtype}{style}\ \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}style\_base"{}}\ \textcolor{keyword}{selector}=\textcolor{stringliteral}{"{}knob"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <\textcolor{keywordtype}{style}\ \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}style\_base"{}}\ \textcolor{keyword}{selector}=\textcolor{stringliteral}{"{}indicator"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ <\textcolor{keywordtype}{style}\ \textcolor{keyword}{name}=\textcolor{stringliteral}{"{}style\_border"{}}\ \textcolor{keyword}{selector}=\textcolor{stringliteral}{"{}knob"{}}\ />}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ </\textcolor{keywordtype}{lv\_slider}>}
+\DoxyCodeLine{\ \ \ \ </\textcolor{keywordtype}{view}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{screen}>}
+
+\end{DoxyCode}
+
+
+\end{adjustwidth}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md547}{}\doxysubsubsection{\texorpdfstring{布局中的复选框}{布局中的复选框}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md547}
+
+
+
+
+{\bfseries{C 代码}}\begin{adjustwidth}{1em}{0em}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{/*创建新屏幕并加载*/}}
+\DoxyCodeLine{\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ scr\ =\ \mbox{\hyperlink{lv__obj_8c_acf57dc362a43990cbad93921da833b5d}{lv\_obj\_create}}(NULL);}
+\DoxyCodeLine{\mbox{\hyperlink{lv__display_8c_ada0228eb33c364a2462fa4ca4962c9ff}{lv\_screen\_load}}(scr);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*设置列布局*/}}
+\DoxyCodeLine{\mbox{\hyperlink{lv__flex_8c_afe0e90502eefb9f215b641a818bceb50}{lv\_obj\_set\_flex\_flow}}(scr,\ LV\_FLEX\_FLOW\_COLUMN);}
+\DoxyCodeLine{\mbox{\hyperlink{lv__flex_8c_a6065b5f7d677ff023d382e95039012bf}{lv\_obj\_set\_flex\_align}}(scr,\ LV\_FLEX\_ALIGN\_SPACE\_EVENLY,\ \textcolor{comment}{/*垂直对齐*/}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_FLEX\_ALIGN\_START,\ \ \ \ \ \ \ \ \textcolor{comment}{/*主轴方向对齐*/}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_FLEX\_ALIGN\_CENTER);\ \ \ \ \ \ \textcolor{comment}{/*交叉轴方向对齐*/}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*创建\ 5\ 个复选框*/}}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ texts[5]\ =\ \{\textcolor{stringliteral}{"{}Input\ 1"{}},\ \textcolor{stringliteral}{"{}Input\ 2"{}},\ \textcolor{stringliteral}{"{}Input\ 3"{}},\ \textcolor{stringliteral}{"{}Output\ 1"{}},\ \textcolor{stringliteral}{"{}Output\ 2"{}}\};}
+\DoxyCodeLine{\textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 5;\ i++)\ \{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ cb\ =\ \mbox{\hyperlink{lv__checkbox_8c_a5c5039374c05ef2d4a1fa0e7b1de2dc2}{lv\_checkbox\_create}}(scr);}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{lv__checkbox_8c_a4c4f7185c4595f43c63f316c275212e4}{lv\_checkbox\_set\_text}}(cb,\ texts[i]);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*更改状态*/}}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj_8c_adbd258635d3d653e5446336764044db1}{lv\_obj\_add\_state}}(\mbox{\hyperlink{lv__obj__tree_8c_a3e24ca3582751e4755957221ea5fdca5}{lv\_obj\_get\_child}}(scr,\ 1),\ LV\_STATE\_CHECKED);}
+\DoxyCodeLine{\mbox{\hyperlink{lv__obj_8c_adbd258635d3d653e5446336764044db1}{lv\_obj\_add\_state}}(\mbox{\hyperlink{lv__obj__tree_8c_a3e24ca3582751e4755957221ea5fdca5}{lv\_obj\_get\_child}}(scr,\ 3),\ LV\_STATE\_DISABLED);}
+
+\end{DoxyCode}
+
+
+\end{adjustwidth}
+
+
+
+
+{\bfseries{使用 LVGL Pro 的 XML}}\begin{adjustwidth}{1em}{0em}
+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{<\textcolor{keywordtype}{screen}>}
+\DoxyCodeLine{\ \ \ \ <\textcolor{keywordtype}{view}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{flex\_flow}=\textcolor{stringliteral}{"{}column"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{style\_flex\_main\_place}=\textcolor{stringliteral}{"{}space\_evenly"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{style\_flex\_cross\_place}=\textcolor{stringliteral}{"{}start"{}}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{style\_flex\_track\_place}=\textcolor{stringliteral}{"{}center"{}}}
+\DoxyCodeLine{\ \ \ \ >}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_checkbox}\ \textcolor{keyword}{text}=\textcolor{stringliteral}{"{}Input\ 1"{}}/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_checkbox}\ \textcolor{keyword}{text}=\textcolor{stringliteral}{"{}Input\ 2"{}}/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_checkbox}\ \textcolor{keyword}{text}=\textcolor{stringliteral}{"{}Input\ 3"{}}\ \textcolor{keyword}{checked}=\textcolor{stringliteral}{"{}true"{}}/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_checkbox}\ \textcolor{keyword}{text}=\textcolor{stringliteral}{"{}Output\ 1"{}}/>}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ <\textcolor{keywordtype}{lv\_checkbox}\ \textcolor{keyword}{text}=\textcolor{stringliteral}{"{}Output\ 2"{}}\ \textcolor{keyword}{disabled}=\textcolor{stringliteral}{"{}true"{}}/>}
+\DoxyCodeLine{\ \ \ </\textcolor{keywordtype}{view}>}
+\DoxyCodeLine{</\textcolor{keywordtype}{screen}>}
+
+\end{DoxyCode}
+
+
+\end{adjustwidth}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md548}{}\doxysubsection{\texorpdfstring{🌟 贡献}{🌟 贡献}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__zh_autotoc_md548}
+LVGL 是一个开放项目，欢迎任何形式的贡献。无论是分享你的项目、编写示例、改进文档、修复错误，还是将项目托管到 LVGL 组织下，都非常欢迎。
+
+更多贡献方式详见 \href{https://docs.lvgl.io/master/contributing/index.html}{\texttt{ 贡献文档}}。
+
+已有超过 600 位开发者为 LVGL 留下足迹。加入我们吧！🙂
+
+\href{https://github.com/lvgl/lvgl/graphs/contributors}{\texttt{  }}
+
+……还有更多人。 

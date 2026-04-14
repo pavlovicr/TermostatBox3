@@ -1,0 +1,222 @@
+\doxysection{lv\+\_\+gltf\+\_\+data\+\_\+internal.\+h}
+\hypertarget{lv__gltf__data__internal_8h_source}{}\label{lv__gltf__data__internal_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/gltf/gltf\_data/lv\_gltf\_data\_internal.h@{managed\_components/lvgl\_\_lvgl/src/libs/gltf/gltf\_data/lv\_gltf\_data\_internal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ LV\_GLTFDATA\_PRIVATE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ LV\_GLTFDATA\_PRIVATE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}../../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00007\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#if\ LV\_USE\_GLTF}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../../../drivers/opengles/opengl\_shader/lv\_opengl\_shader\_internal.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../../../draw/lv\_image\_dsc.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../../../misc/lv\_types.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../../../misc/lv\_array.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00018\ \ \ \ \ GLuint\ count;}
+\DoxyCodeLine{00019\ \ \ \ \ GLuint\ instanceCount;}
+\DoxyCodeLine{00020\ \ \ \ \ GLuint\ firstIndex;}
+\DoxyCodeLine{00021\ \ \ \ \ GLint\ baseVertex;}
+\DoxyCodeLine{00022\ \ \ \ \ GLuint\ baseInstance;}
+\DoxyCodeLine{00023\ \}\ IndirectDrawCommand;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ IndirectDrawCommand\ draw;}
+\DoxyCodeLine{00027\ \ \ \ \ GLenum\ primitiveType;}
+\DoxyCodeLine{00028\ \ \ \ \ GLenum\ indexType;}
+\DoxyCodeLine{00029\ \ \ \ \ GLuint\ vertexArray;}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ GLuint\ vertexBuffer;}
+\DoxyCodeLine{00032\ \ \ \ \ GLuint\ indexBuffer;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ GLuint\ materialUniformsIndex;}
+\DoxyCodeLine{00035\ \ \ \ \ GLuint\ albedoTexture;}
+\DoxyCodeLine{00036\ \ \ \ \ GLuint\ emissiveTexture;}
+\DoxyCodeLine{00037\ \ \ \ \ GLuint\ metalRoughTexture;}
+\DoxyCodeLine{00038\ \ \ \ \ GLuint\ occlusionTexture;}
+\DoxyCodeLine{00039\ \ \ \ \ GLuint\ normalTexture;}
+\DoxyCodeLine{00040\ \ \ \ \ GLuint\ diffuseTransmissionTexture;}
+\DoxyCodeLine{00041\ \ \ \ \ GLuint\ diffuseTransmissionColorTexture;}
+\DoxyCodeLine{00042\ \ \ \ \ GLuint\ transmissionTexture;}
+\DoxyCodeLine{00043\ \ \ \ \ GLuint\ transmissionTexcoordIndex;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ GLint\ baseColorTexcoordIndex;}
+\DoxyCodeLine{00046\ \ \ \ \ GLint\ emissiveTexcoordIndex;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ GLint\ metallicRoughnessTexcoordIndex;}
+\DoxyCodeLine{00049\ \ \ \ \ GLint\ occlusionTexcoordIndex;}
+\DoxyCodeLine{00050\ \ \ \ \ GLint\ normalTexcoordIndex;}
+\DoxyCodeLine{00051\ \ \ \ \ GLint\ diffuseTransmissionTexcoordIndex;}
+\DoxyCodeLine{00052\ \ \ \ \ GLint\ diffuseTransmissionColorTexcoordIndex;}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ GLint\ clearcoatTexture;}
+\DoxyCodeLine{00055\ \ \ \ \ GLint\ clearcoatRoughnessTexture;}
+\DoxyCodeLine{00056\ \ \ \ \ GLint\ clearcoatNormalTexture;}
+\DoxyCodeLine{00057\ \ \ \ \ GLint\ clearcoatTexcoordIndex;}
+\DoxyCodeLine{00058\ \ \ \ \ GLint\ clearcoatRoughnessTexcoordIndex;}
+\DoxyCodeLine{00059\ \ \ \ \ GLint\ clearcoatNormalTexcoordIndex;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ GLuint\ thicknessTexture;}
+\DoxyCodeLine{00062\ \ \ \ \ GLint\ thicknessTexcoordIndex;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ GLuint\ diffuseTexture;}
+\DoxyCodeLine{00065\ \ \ \ \ GLint\ diffuseTexcoordIndex;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ GLuint\ specularGlossinessTexture;}
+\DoxyCodeLine{00068\ \ \ \ \ GLint\ specularGlossinessTexcoordIndex;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \}\ lv\_gltf\_primitive\_t;}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00073\ \ \ \ \ GLint\ camera;}
+\DoxyCodeLine{00074\ \ \ \ \ GLint\ view\_projection\_matrix;}
+\DoxyCodeLine{00075\ \ \ \ \ GLint\ model\_matrix;}
+\DoxyCodeLine{00076\ \ \ \ \ GLint\ view\_matrix;}
+\DoxyCodeLine{00077\ \ \ \ \ GLint\ projection\_matrix;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ GLint\ env\_intensity;}
+\DoxyCodeLine{00080\ \ \ \ \ GLint\ env\_diffuse\_sampler;}
+\DoxyCodeLine{00081\ \ \ \ \ GLint\ env\_specular\_sampler;}
+\DoxyCodeLine{00082\ \ \ \ \ GLint\ env\_sheen\_sampler;}
+\DoxyCodeLine{00083\ \ \ \ \ GLint\ env\_ggx\_lut\_sampler;}
+\DoxyCodeLine{00084\ \ \ \ \ GLint\ env\_charlie\_lut\_sampler;}
+\DoxyCodeLine{00085\ \ \ \ \ GLint\ env\_mip\_count;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ GLint\ exposure;}
+\DoxyCodeLine{00088\ \ \ \ \ GLint\ roughness\_factor;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ GLint\ base\_color\_factor;}
+\DoxyCodeLine{00091\ \ \ \ \ GLint\ base\_color\_sampler;}
+\DoxyCodeLine{00092\ \ \ \ \ GLint\ base\_color\_uv\_set;}
+\DoxyCodeLine{00093\ \ \ \ \ GLint\ base\_color\_uv\_transform;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ GLint\ emissive\_factor;}
+\DoxyCodeLine{00096\ \ \ \ \ GLint\ emissive\_sampler;}
+\DoxyCodeLine{00097\ \ \ \ \ GLint\ emissive\_uv\_set;}
+\DoxyCodeLine{00098\ \ \ \ \ GLint\ emissive\_uv\_transform;}
+\DoxyCodeLine{00099\ \ \ \ \ GLint\ emissive\_strength;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ GLint\ metallic\_factor;}
+\DoxyCodeLine{00102\ \ \ \ \ GLint\ metallic\_roughness\_sampler;}
+\DoxyCodeLine{00103\ \ \ \ \ GLint\ metallic\_roughness\_uv\_set;}
+\DoxyCodeLine{00104\ \ \ \ \ GLint\ metallic\_roughness\_uv\_transform;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ GLint\ occlusion\_strength;}
+\DoxyCodeLine{00107\ \ \ \ \ GLint\ occlusion\_sampler;}
+\DoxyCodeLine{00108\ \ \ \ \ GLint\ occlusion\_uv\_set;}
+\DoxyCodeLine{00109\ \ \ \ \ GLint\ occlusion\_uv\_transform;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ GLint\ normal\_scale;}
+\DoxyCodeLine{00112\ \ \ \ \ GLint\ normal\_sampler;}
+\DoxyCodeLine{00113\ \ \ \ \ GLint\ normal\_uv\_set;}
+\DoxyCodeLine{00114\ \ \ \ \ GLint\ normal\_uv\_transform;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ GLint\ clearcoat\_factor;}
+\DoxyCodeLine{00117\ \ \ \ \ GLint\ clearcoat\_roughness\_factor;}
+\DoxyCodeLine{00118\ \ \ \ \ GLint\ clearcoat\_sampler;}
+\DoxyCodeLine{00119\ \ \ \ \ GLint\ clearcoat\_uv\_set;}
+\DoxyCodeLine{00120\ \ \ \ \ GLint\ clearcoat\_uv\_transform;}
+\DoxyCodeLine{00121\ \ \ \ \ GLint\ clearcoat\_roughness\_sampler;}
+\DoxyCodeLine{00122\ \ \ \ \ GLint\ clearcoat\_roughness\_uv\_set;}
+\DoxyCodeLine{00123\ \ \ \ \ GLint\ clearcoat\_roughness\_uv\_transform;}
+\DoxyCodeLine{00124\ \ \ \ \ GLint\ clearcoat\_normal\_scale;}
+\DoxyCodeLine{00125\ \ \ \ \ GLint\ clearcoat\_normal\_sampler;}
+\DoxyCodeLine{00126\ \ \ \ \ GLint\ clearcoat\_normal\_uv\_set;}
+\DoxyCodeLine{00127\ \ \ \ \ GLint\ clearcoat\_normal\_uv\_transform;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ GLint\ thickness;}
+\DoxyCodeLine{00130\ \ \ \ \ GLint\ thickness\_sampler;}
+\DoxyCodeLine{00131\ \ \ \ \ GLint\ thickness\_uv\_set;}
+\DoxyCodeLine{00132\ \ \ \ \ GLint\ thickness\_uv\_transform;}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ GLint\ diffuse\_transmission\_sampler;}
+\DoxyCodeLine{00135\ \ \ \ \ GLint\ diffuse\_transmission\_uv\_set;}
+\DoxyCodeLine{00136\ \ \ \ \ GLint\ diffuse\_transmission\_uv\_transform;}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ GLint\ diffuse\_transmission\_color\_sampler;}
+\DoxyCodeLine{00139\ \ \ \ \ GLint\ diffuse\_transmission\_color\_uv\_set;}
+\DoxyCodeLine{00140\ \ \ \ \ GLint\ diffuse\_transmission\_color\_uv\_transform;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ GLint\ sheen\_color\_factor;}
+\DoxyCodeLine{00143\ \ \ \ \ GLint\ sheen\_roughness\_factor;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ GLint\ specular\_color\_factor;}
+\DoxyCodeLine{00146\ \ \ \ \ GLint\ specular\_factor;}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ GLint\ diffuse\_transmission\_color\_factor;}
+\DoxyCodeLine{00149\ \ \ \ \ GLint\ diffuse\_transmission\_factor;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ GLint\ ior;}
+\DoxyCodeLine{00152\ \ \ \ \ GLint\ alpha\_cutoff;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ GLint\ dispersion;}
+\DoxyCodeLine{00155\ \ \ \ \ GLint\ screen\_size;}
+\DoxyCodeLine{00156\ \ \ \ \ GLint\ transmission\_factor;}
+\DoxyCodeLine{00157\ \ \ \ \ GLint\ transmission\_sampler;}
+\DoxyCodeLine{00158\ \ \ \ \ GLint\ transmission\_uv\_set;}
+\DoxyCodeLine{00159\ \ \ \ \ GLint\ transmission\_uv\_transform;}
+\DoxyCodeLine{00160\ \ \ \ \ GLint\ transmission\_framebuffer\_sampler;}
+\DoxyCodeLine{00161\ \ \ \ \ GLint\ transmission\_framebuffer\_size;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ GLint\ attenuation\_distance;}
+\DoxyCodeLine{00164\ \ \ \ \ GLint\ attenuation\_color;}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ GLint\ joints\_sampler;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ GLint\ diffuse\_factor;}
+\DoxyCodeLine{00169\ \ \ \ \ GLint\ glossiness\_factor;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ GLint\ diffuse\_sampler;}
+\DoxyCodeLine{00172\ \ \ \ \ GLint\ diffuse\_uv\_set;}
+\DoxyCodeLine{00173\ \ \ \ \ GLint\ diffuse\_uv\_transform;}
+\DoxyCodeLine{00174\ \ \ \ \ GLint\ specular\_glossiness\_sampler;}
+\DoxyCodeLine{00175\ \ \ \ \ GLint\ specular\_glossiness\_uv\_set;}
+\DoxyCodeLine{00176\ \ \ \ \ GLint\ specular\_glossiness\_uv\_transform;}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \}\ lv\_gltf\_uniform\_locations\_t;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ lv\_gltf\_uniform\_locations\_t\ lv\_gltf\_uniform\_locations\_create(GLuint\ program);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00183\ \ \ \ \ lv\_gltf\_uniform\_locations\_t\ uniforms;}
+\DoxyCodeLine{00184\ \ \ \ \ GLuint\ program;}
+\DoxyCodeLine{00185\ \}\ lv\_gltf\_compiled\_shader\_t;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keywordtype}{void}\ lv\_gltf\_store\_compiled\_shader(lv\_gltf\_model\_t\ *\ data,\ \textcolor{keywordtype}{size\_t}\ identifier,\ lv\_gltf\_compiled\_shader\_t\ *\ shader);}
+\DoxyCodeLine{00188\ lv\_gltf\_compiled\_shader\_t\ *\ lv\_gltf\_get\_compiled\_shader(lv\_gltf\_model\_t\ *\ data,\ \textcolor{keywordtype}{size\_t}\ identifier);}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00197\ lv\_gltf\_model\_t\ *}
+\DoxyCodeLine{00198\ lv\_gltf\_data\_load\_from\_file(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ file\_path,}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_opengl\_shader\_manager\_t\ *\ shader\_manager);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00210\ lv\_gltf\_model\_t\ *}
+\DoxyCodeLine{00211\ lv\_gltf\_data\_load\_from\_bytes(\textcolor{keyword}{const}\ uint8\_t\ *\ data,\ \textcolor{keywordtype}{size\_t}\ data\_size,}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_opengl\_shader\_manager\_t\ *\ shader\_manager);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{double}\ lv\_gltf\_data\_get\_radius(\textcolor{keyword}{const}\ lv\_gltf\_model\_t\ *\ model);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00229\ \textcolor{keywordtype}{void}\ lv\_gltf\_data\_delete(lv\_gltf\_model\_t\ *\ \_data);}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00237\ \textcolor{keywordtype}{void}\ lv\_gltf\_data\_copy\_bounds\_info(lv\_gltf\_model\_t\ *\ to,\ lv\_gltf\_model\_t\ *\ from);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00246\ \textcolor{keywordtype}{void}\ lv\_gltf\_data\_rgb\_to\_bgr(uint8\_t\ *\ pixel\_buffer,}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ byte\_total\_count,}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ has\_alpha);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GLTF*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00253\ \}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_GLTFDATA\_PRIVATE\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

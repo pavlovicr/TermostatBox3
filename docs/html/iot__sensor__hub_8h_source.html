@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/espressif__sensor_hub/include/iot_sensor_hub.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_fbfe55d555334583eb77a653efdd9f0f.html">espressif__sensor_hub</a></li><li class="navelem"><a class="el" href="dir_0540f63c4966c7ccb2f41dcebf5bb901.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">iot_sensor_hub.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * SPDX-FileCopyrightText: 2022-2025 Espressif Systems (Shanghai) CO LTD</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef _IOT_SENSOR_HUB_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define _IOT_SENSOR_HUB_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;esp_err.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifdef CONFIG_SENSOR_INCLUDED_IMU</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;hal/imu_hal.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#ifdef CONFIG_SENSOR_INCLUDED_LIGHT</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;hal/light_sensor_hal.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifdef CONFIG_SENSOR_INCLUDED_HUMITURE</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;hal/humiture_hal.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;sensor_event.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;sensor_type.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *sensor_handle_t;                                                                                                        </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *sensor_event_handler_instance_t;                                                                                        </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *sensor_event_base_t;                                                                                              </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">typedef</span> void (*sensor_event_handler_t)(<span class="keywordtype">void</span> *event_handler_arg, sensor_event_base_t event_base, int32_t event_id, <span class="keywordtype">void</span> *event_data);  </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *SENSOR_TYPE_STRING[];</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *SENSOR_MODE_STRING[];</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structsensor__info__t.html">   40</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structsensor__info__t.html#a491f26a6cf9f65954b4b79571401edd3">   41</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_variable" href="structsensor__info__t.html#a491f26a6cf9f65954b4b79571401edd3">name</a>;          </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structsensor__info__t.html#af5aaf7419becc25e84138bdd3955a37d">   42</a></span>    sensor_type_t <a class="code hl_variable" href="structsensor__info__t.html#af5aaf7419becc25e84138bdd3955a37d">sensor_type</a>; </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <a class="code hl_struct" href="structsensor__info__t.html">sensor_info_t</a>;</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structsensor__config__t.html">   49</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#ada3810c195b3b0b5f95ca13a8e5e57ed">   50</a></span>    bus_handle_t <a class="code hl_variable" href="structsensor__config__t.html#ada3810c195b3b0b5f95ca13a8e5e57ed">bus</a>;     </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#a837c3f53c1894c8dbad9dce68e3e3554">   51</a></span>    uint8_t <a class="code hl_variable" href="structsensor__config__t.html#a837c3f53c1894c8dbad9dce68e3e3554">addr</a>;         </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#adcb51c56552260835089462d0674b0e9">   52</a></span>    sensor_type_t <a class="code hl_variable" href="structsensor__config__t.html#adcb51c56552260835089462d0674b0e9">type</a>;   </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#a24535a7fcb9fea056bce8751e5356296">   53</a></span>    sensor_mode_t <a class="code hl_variable" href="structsensor__config__t.html#a24535a7fcb9fea056bce8751e5356296">mode</a>;   </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#aa5704dc7220dd5be4e6b9dc789ac9b3d">   54</a></span>    sensor_range_t <a class="code hl_variable" href="structsensor__config__t.html#aa5704dc7220dd5be4e6b9dc789ac9b3d">range</a>; </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#a787cc8327e475961c7a24014c4db440d">   55</a></span>    uint32_t <a class="code hl_variable" href="structsensor__config__t.html#a787cc8327e475961c7a24014c4db440d">min_delay</a>;   </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#ac576c7b965ff12b28e691ba7f82953b9">   56</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structsensor__config__t.html#ac576c7b965ff12b28e691ba7f82953b9">intr_pin</a>;         </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structsensor__config__t.html#a8554e40fe523a3940644525ea4485ee5">   57</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structsensor__config__t.html#a8554e40fe523a3940644525ea4485ee5">intr_type</a>;        </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <a class="code hl_struct" href="structsensor__config__t.html">sensor_config_t</a>;</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="};">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structsensor__hub__detect__fn__t.html">   63</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="structsensor__hub__detect__fn__t.html#ac270866c834ea4c6d7380a7b0ba6944c">   72</a></span>    <span class="keywordtype">void</span>* (*fn)(<a class="code hl_struct" href="structsensor__info__t.html">sensor_info_t</a> *sensor_info);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>} <a class="code hl_struct" href="structsensor__hub__detect__fn__t.html">sensor_hub_detect_fn_t</a>;</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#define SENSOR_HUB_DETECT_FN(type_id, name_id, impl) \</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">    static void*  __sensor_hub_detect_fn_##name_id(sensor_info_t *sensor_info); \</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">    __attribute__((used)) _SECTION_ATTR_IMPL(&quot;.sensor_hub_detect_fn&quot;, __COUNTER__) \</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">        sensor_hub_detect_fn_t sensor_hub_detect_fn_##name_id = { \</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">            .fn = __sensor_hub_detect_fn_##name_id, \</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">        }; \</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">    static void* __sensor_hub_detect_fn_##name_id(sensor_info_t *sensor_info) { \</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">        sensor_info-&gt;name = #name_id; \</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">        sensor_info-&gt;sensor_type = type_id; \</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">        return impl; \</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">    }</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">extern</span> <a class="code hl_struct" href="structsensor__hub__detect__fn__t.html">sensor_hub_detect_fn_t</a> __sensor_hub_detect_fn_array_start;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">extern</span> <a class="code hl_struct" href="structsensor__hub__detect__fn__t.html">sensor_hub_detect_fn_t</a> __sensor_hub_detect_fn_array_end;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>{</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>esp_err_t iot_sensor_create(<span class="keyword">const</span> <span class="keywordtype">char</span> *sensor_name, <span class="keyword">const</span> <a class="code hl_struct" href="structsensor__config__t.html">sensor_config_t</a> *config, sensor_handle_t *p_sensor_handle);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>esp_err_t iot_sensor_start(sensor_handle_t sensor_handle);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>esp_err_t iot_sensor_stop(sensor_handle_t sensor_handle);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>esp_err_t iot_sensor_delete(sensor_handle_t p_sensor_handle);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="keywordtype">int</span> iot_sensor_scan();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>esp_err_t iot_sensor_handler_register(sensor_handle_t sensor_handle, sensor_event_handler_t handler, sensor_event_handler_instance_t *context);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>esp_err_t iot_sensor_handler_unregister(sensor_handle_t sensor_handle, sensor_event_handler_instance_t context);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>esp_err_t iot_sensor_handler_register_with_type(sensor_type_t sensor_type, int32_t event_id, sensor_event_handler_t handler, sensor_event_handler_instance_t *context);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>esp_err_t iot_sensor_handler_unregister_with_type(sensor_type_t sensor_type, int32_t event_id, sensor_event_handler_instance_t context);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>}</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructsensor__config__t_html"><div class="ttname"><a href="structsensor__config__t.html">sensor_config_t</a></div><div class="ttdoc">sensor initialization parameter</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:49</div></div>
+<div class="ttc" id="astructsensor__config__t_html_a24535a7fcb9fea056bce8751e5356296"><div class="ttname"><a href="structsensor__config__t.html#a24535a7fcb9fea056bce8751e5356296">sensor_config_t::mode</a></div><div class="ttdeci">sensor_mode_t mode</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:53</div></div>
+<div class="ttc" id="astructsensor__config__t_html_a787cc8327e475961c7a24014c4db440d"><div class="ttname"><a href="structsensor__config__t.html#a787cc8327e475961c7a24014c4db440d">sensor_config_t::min_delay</a></div><div class="ttdeci">uint32_t min_delay</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:55</div></div>
+<div class="ttc" id="astructsensor__config__t_html_a837c3f53c1894c8dbad9dce68e3e3554"><div class="ttname"><a href="structsensor__config__t.html#a837c3f53c1894c8dbad9dce68e3e3554">sensor_config_t::addr</a></div><div class="ttdeci">uint8_t addr</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:51</div></div>
+<div class="ttc" id="astructsensor__config__t_html_a8554e40fe523a3940644525ea4485ee5"><div class="ttname"><a href="structsensor__config__t.html#a8554e40fe523a3940644525ea4485ee5">sensor_config_t::intr_type</a></div><div class="ttdeci">int intr_type</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:57</div></div>
+<div class="ttc" id="astructsensor__config__t_html_aa5704dc7220dd5be4e6b9dc789ac9b3d"><div class="ttname"><a href="structsensor__config__t.html#aa5704dc7220dd5be4e6b9dc789ac9b3d">sensor_config_t::range</a></div><div class="ttdeci">sensor_range_t range</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:54</div></div>
+<div class="ttc" id="astructsensor__config__t_html_ac576c7b965ff12b28e691ba7f82953b9"><div class="ttname"><a href="structsensor__config__t.html#ac576c7b965ff12b28e691ba7f82953b9">sensor_config_t::intr_pin</a></div><div class="ttdeci">int intr_pin</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:56</div></div>
+<div class="ttc" id="astructsensor__config__t_html_ada3810c195b3b0b5f95ca13a8e5e57ed"><div class="ttname"><a href="structsensor__config__t.html#ada3810c195b3b0b5f95ca13a8e5e57ed">sensor_config_t::bus</a></div><div class="ttdeci">bus_handle_t bus</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:50</div></div>
+<div class="ttc" id="astructsensor__config__t_html_adcb51c56552260835089462d0674b0e9"><div class="ttname"><a href="structsensor__config__t.html#adcb51c56552260835089462d0674b0e9">sensor_config_t::type</a></div><div class="ttdeci">sensor_type_t type</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:52</div></div>
+<div class="ttc" id="astructsensor__hub__detect__fn__t_html"><div class="ttname"><a href="structsensor__hub__detect__fn__t.html">sensor_hub_detect_fn_t</a></div><div class="ttdoc">Detection function interface for sensors.</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:63</div></div>
+<div class="ttc" id="astructsensor__info__t_html"><div class="ttname"><a href="structsensor__info__t.html">sensor_info_t</a></div><div class="ttdoc">sensor information, written by the driver developer.</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:40</div></div>
+<div class="ttc" id="astructsensor__info__t_html_a491f26a6cf9f65954b4b79571401edd3"><div class="ttname"><a href="structsensor__info__t.html#a491f26a6cf9f65954b4b79571401edd3">sensor_info_t::name</a></div><div class="ttdeci">const char * name</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:41</div></div>
+<div class="ttc" id="astructsensor__info__t_html_af5aaf7419becc25e84138bdd3955a37d"><div class="ttname"><a href="structsensor__info__t.html#af5aaf7419becc25e84138bdd3955a37d">sensor_info_t::sensor_type</a></div><div class="ttdeci">sensor_type_t sensor_type</div><div class="ttdef"><b>Definition</b> iot_sensor_hub.h:42</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

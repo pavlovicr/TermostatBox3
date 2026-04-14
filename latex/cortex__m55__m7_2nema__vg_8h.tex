@@ -1,0 +1,430 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/libs/nema\+\_\+gfx/include/cortex\+\_\+m55\+\_\+m7/nema\+\_\+vg.h}
+\hypertarget{cortex__m55__m7_2nema__vg_8h}{}\label{cortex__m55__m7_2nema__vg_8h}\index{managed\_components/lvgl\_\_lvgl/libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg.h@{managed\_components/lvgl\_\_lvgl/libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg.h}}
+
+
+Core Nema\+VG API drawing and initialization functions.  
+
+
+{\ttfamily \#include "{}nema\+\_\+core.\+h"{}}\newline
+{\ttfamily \#include "{}nema\+\_\+sys\+\_\+defs.\+h"{}}\newline
+{\ttfamily \#include "{}nema\+\_\+vg\+\_\+path.\+h"{}}\newline
+{\ttfamily \#include "{}nema\+\_\+vg\+\_\+paint.\+h"{}}\newline
+{\ttfamily \#include "{}nema\+\_\+vg\+\_\+context.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}nema\+\_\+vg.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko nema\+\_\+vg.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cortex__m55__m7_2nema__vg_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{cortex__m55__m7_2nema__vg_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_a2bad1ab4f7550c4983fce543cb06d2e6}{nema\+\_\+vg\+\_\+init}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em Initializes Nema\+VG library and allocates the stencil buffer to the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB) Call either this or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool to allocate the stencil buffer to a different memory pool or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+prealloc to provide the stencil buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_ada33bbaaf058b6eb83c4484a5c31f6e2}{nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool}} (int width, int height, int pool)
+\begin{DoxyCompactList}\small\item\em Initializes Nema\+VG library and allocate the stencil buffer in a specific memory pool. Call either this or nema\+\_\+vg\+\_\+init to allocate the stencil buffer to the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB) or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+prealloc to provide the stencil buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_a1f35bdb1a63be530941d4907d070f50d}{nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+prealloc}} (int width, int height, \mbox{\hyperlink{structnema__buffer__t__}{nema\+\_\+buffer\+\_\+t}} stencil\+\_\+bo)
+\begin{DoxyCompactList}\small\item\em Initializes Nema\+VG library without allocating the stencil buffer which is provided by the user. Call either this or nema\+\_\+vg\+\_\+init to allocate the stencil buffer to the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB) or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool to allocate the stencil buffer to a different memory pool. \end{DoxyCompactList}\item 
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_ad637fd8ec4d08f76f6737e984467e23d}\label{cortex__m55__m7_2nema__vg_8h_ad637fd8ec4d08f76f6737e984467e23d} 
+void {\bfseries nema\+\_\+vg\+\_\+reinit} (void)
+\begin{DoxyCompactList}\small\item\em Reinitialize Nema\+VG library after a gpu powerofff. \end{DoxyCompactList}\item 
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a3db02f8880646051a04e8177d3e23add}\label{cortex__m55__m7_2nema__vg_8h_a3db02f8880646051a04e8177d3e23add} 
+void {\bfseries nema\+\_\+vg\+\_\+deinit} (void)
+\begin{DoxyCompactList}\small\item\em Deinitialize Nema\+VG library. Free memory from implicitly allocated objects (stencil buffer if created inside the library, lut buffer and tsvgs\textquotesingle{} path, paint and gradient buffers) \end{DoxyCompactList}\item 
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a94d007416145c4214778a369d9f083e9}\label{cortex__m55__m7_2nema__vg_8h_a94d007416145c4214778a369d9f083e9} 
+void {\bfseries nema\+\_\+vg\+\_\+thread\+\_\+init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize Nema\+VG library for a new thread. Must be called for every new thread that is used. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_afcb1453e1009fbe2eb4f04087abe925d}{nema\+\_\+vg\+\_\+bind\+\_\+stencil}} (int width, int height)
+\begin{DoxyCompactList}\small\item\em Binds and allocate the stencil buffer in the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB). Use this if the framebuffer size changes during the application and different stencil is needed. If the previous stencil was allocated by the library by calling nema\+\_\+vg\+\_\+init or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool it will be destroyed at this call. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_aa17edbd4d798e9bddb7db20d6238c5c4}{nema\+\_\+vg\+\_\+bind\+\_\+stencil\+\_\+pool}} (int width, int height, int pool)
+\begin{DoxyCompactList}\small\item\em Binds and allocate the stencil buffer in a specific memory pool. Use this if the framebuffer size changes during the application and different stencil is needed. If the previous stencil was allocated by the library by calling nema\+\_\+vg\+\_\+init or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool it will be destroyed at this call. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_aa190cd61539a02fa4c21f5fb9ac7fef9}{nema\+\_\+vg\+\_\+bind\+\_\+stencil\+\_\+prealloc}} (int width, int height, \mbox{\hyperlink{structnema__buffer__t__}{nema\+\_\+buffer\+\_\+t}} stencil\+\_\+bo)
+\begin{DoxyCompactList}\small\item\em Binds the stencil buffer which is provided by the user. Use this if the framebuffer size changes during the application and different stencil is needed. If the previous stencil was allocated by the library by calling nema\+\_\+vg\+\_\+init or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool it will be destroyed at this call. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_a91a5e8a806cc7f9f310519fc7351e8b9}{nema\+\_\+vg\+\_\+draw\+\_\+path}} (\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_ab32bedbff2451be3b83632ddfc604e9c}{NEMA\+\_\+\+VG\+\_\+\+PATH\+\_\+\+HANDLE}} path, \mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}} paint)
+\begin{DoxyCompactList}\small\item\em Draw a path using a specified paint object. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_abaf700471d9a45acad2b4f31dc716224}{nema\+\_\+vg\+\_\+draw\+\_\+line}} (float x1, float y1, float x2, float y2, nema\+\_\+matrix3x3\+\_\+t m, \mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}} paint)
+\begin{DoxyCompactList}\small\item\em Draw a line shape. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_a0b94d407ec39ee26a362ee5f137a2076}{nema\+\_\+vg\+\_\+draw\+\_\+rect}} (float x, float y, float width, float height, nema\+\_\+matrix3x3\+\_\+t m, \mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}} paint)
+\begin{DoxyCompactList}\small\item\em Draw a rectangle shape. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_ab065724f4677ffaab02cc2fe81284d9c}{nema\+\_\+vg\+\_\+draw\+\_\+rounded\+\_\+rect}} (float x, float y, float width, float height, float rx, float ry, nema\+\_\+matrix3x3\+\_\+t m, \mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}} paint)
+\begin{DoxyCompactList}\small\item\em Draw a rounded rectangle shape. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_aa7c911e5bbae9846fd92cca6fa2013e7}{nema\+\_\+vg\+\_\+draw\+\_\+ellipse}} (float cx, float cy, float rx, float ry, nema\+\_\+matrix3x3\+\_\+t m, \mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}} paint)
+\begin{DoxyCompactList}\small\item\em Draw a ellipse shape. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_aeca3fc283125d7a0e59d079fa0647ea3}{nema\+\_\+vg\+\_\+draw\+\_\+circle}} (float cx, float cy, float r, nema\+\_\+matrix3x3\+\_\+t m, \mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}} paint)
+\begin{DoxyCompactList}\small\item\em Draw a circle shape. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_afaf54c0ab1f149ef1cdd14dbad4ed8e4}{nema\+\_\+vg\+\_\+draw\+\_\+ring}} (float cx, float cy, float ring\+\_\+radius, float angle\+\_\+start, float angle\+\_\+end, \mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}} paint)
+\begin{DoxyCompactList}\small\item\em Draw a filled ring shape. The caps follow what cap style is set in nema\+\_\+vg\+\_\+set\+\_\+cap\+\_\+style. In case of a conical gradient paint type, the conical gradient center should be at the center of the ring(cx, cy). In other case, where the two centers do not match, the ring should be drawn with NEMA\+\_\+\+VG\+\_\+\+QUALITY\+\_\+\+MAXIMUM. The ring width can be set with the paint\textquotesingle{}s stroke\+\_\+width. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_a334c13603e626883436acb4aa5ba149b}{nema\+\_\+vg\+\_\+get\+\_\+coord\+\_\+limits}} (float \texorpdfstring{$\ast$}{*}min\+\_\+coord, float \texorpdfstring{$\ast$}{*}max\+\_\+coord)
+\begin{DoxyCompactList}\small\item\em Returns the minimum and maximum values for the coordinates after applying the transformation(if any) that can be handled by the underlying hardware. Note that the values before transformation must be within range (-\/32,767, 32.\+676) for the hardware to be able to process them. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_a5d75848b5258d0bc1acace043a0da707}{nema\+\_\+vg\+\_\+tsvg\+\_\+disable\+\_\+feature}} (uint32\+\_\+t feature)
+\begin{DoxyCompactList}\small\item\em Disables tsvg features from rendering. Should be set before \doxylink{cortex__m33_2nema__vg__tsvg_8h_a2e6d49adc4a42303e499a551c558f99b}{nema\+\_\+vg\+\_\+draw\+\_\+tsvg()} \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{cortex__m55__m7_2nema__vg_8h_a6a8767f97154f6f23ab4bbc3afc6dcda}{nema\+\_\+vg\+\_\+verify\+\_\+path}} (\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_ab32bedbff2451be3b83632ddfc604e9c}{NEMA\+\_\+\+VG\+\_\+\+PATH\+\_\+\+HANDLE}} path)
+\begin{DoxyCompactList}\small\item\em Verify if path\textquotesingle{}s coordinates contain NaN coordinates. It uses the property of NaN numbers that f != f. Note that when compiling with optimization flags such as -\/ffast-\/math, the compiler might optimize the above condition and thus this function will not report NaN coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Core Nema\+VG API drawing and initialization functions. 
+
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_afcb1453e1009fbe2eb4f04087abe925d}\label{cortex__m55__m7_2nema__vg_8h_afcb1453e1009fbe2eb4f04087abe925d} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_bind\_stencil@{nema\_vg\_bind\_stencil}}
+\index{nema\_vg\_bind\_stencil@{nema\_vg\_bind\_stencil}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_bind\_stencil()}{nema\_vg\_bind\_stencil()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+bind\+\_\+stencil (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Binds and allocate the stencil buffer in the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB). Use this if the framebuffer size changes during the application and different stencil is needed. If the previous stencil was allocated by the library by calling nema\+\_\+vg\+\_\+init or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool it will be destroyed at this call. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em width} & Stencil buffer width -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer width \\
+\hline
+{\em height} & Stencil buffer height -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer height \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_aa17edbd4d798e9bddb7db20d6238c5c4}\label{cortex__m55__m7_2nema__vg_8h_aa17edbd4d798e9bddb7db20d6238c5c4} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_bind\_stencil\_pool@{nema\_vg\_bind\_stencil\_pool}}
+\index{nema\_vg\_bind\_stencil\_pool@{nema\_vg\_bind\_stencil\_pool}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_bind\_stencil\_pool()}{nema\_vg\_bind\_stencil\_pool()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+bind\+\_\+stencil\+\_\+pool (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{pool }\end{DoxyParamCaption})}
+
+
+
+Binds and allocate the stencil buffer in a specific memory pool. Use this if the framebuffer size changes during the application and different stencil is needed. If the previous stencil was allocated by the library by calling nema\+\_\+vg\+\_\+init or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool it will be destroyed at this call. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em width} & Stencil buffer width -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer width \\
+\hline
+{\em height} & Stencil buffer height -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer height \\
+\hline
+{\em pool} & Memory pool for allocating the stencil buffer (memory pools are platform specific and defined in nema\+\_\+sys\+\_\+defs.\+h file) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_aa190cd61539a02fa4c21f5fb9ac7fef9}\label{cortex__m55__m7_2nema__vg_8h_aa190cd61539a02fa4c21f5fb9ac7fef9} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_bind\_stencil\_prealloc@{nema\_vg\_bind\_stencil\_prealloc}}
+\index{nema\_vg\_bind\_stencil\_prealloc@{nema\_vg\_bind\_stencil\_prealloc}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_bind\_stencil\_prealloc()}{nema\_vg\_bind\_stencil\_prealloc()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+bind\+\_\+stencil\+\_\+prealloc (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{structnema__buffer__t__}{nema\+\_\+buffer\+\_\+t}}}]{stencil\+\_\+bo }\end{DoxyParamCaption})}
+
+
+
+Binds the stencil buffer which is provided by the user. Use this if the framebuffer size changes during the application and different stencil is needed. If the previous stencil was allocated by the library by calling nema\+\_\+vg\+\_\+init or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool it will be destroyed at this call. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em width} & Stencil buffer width -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer width \\
+\hline
+{\em height} & Stencil buffer height -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer height \\
+\hline
+{\em stencil\+\_\+bo} & stencil buffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_aeca3fc283125d7a0e59d079fa0647ea3}\label{cortex__m55__m7_2nema__vg_8h_aeca3fc283125d7a0e59d079fa0647ea3} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_draw\_circle@{nema\_vg\_draw\_circle}}
+\index{nema\_vg\_draw\_circle@{nema\_vg\_draw\_circle}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_draw\_circle()}{nema\_vg\_draw\_circle()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+draw\+\_\+circle (\begin{DoxyParamCaption}\item[{float}]{cx,  }\item[{float}]{cy,  }\item[{float}]{r,  }\item[{nema\+\_\+matrix3x3\+\_\+t}]{m,  }\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}}}]{paint }\end{DoxyParamCaption})}
+
+
+
+Draw a circle shape. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em cx} & The x center of the circle \\
+\hline
+{\em cy} & The y center of the circle \\
+\hline
+{\em r} & Radius of the circle \\
+\hline
+{\em m} & 3x3 affine transformation matrix \\
+\hline
+{\em paint} & The paint to draw\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Error code. See NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\texorpdfstring{$\ast$}{*} defines in "{}nema\+\_\+vg\+\_\+context.\+h"{} header file for the error codes. 
+\end{DoxyReturn}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_aa7c911e5bbae9846fd92cca6fa2013e7}\label{cortex__m55__m7_2nema__vg_8h_aa7c911e5bbae9846fd92cca6fa2013e7} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_draw\_ellipse@{nema\_vg\_draw\_ellipse}}
+\index{nema\_vg\_draw\_ellipse@{nema\_vg\_draw\_ellipse}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_draw\_ellipse()}{nema\_vg\_draw\_ellipse()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+draw\+\_\+ellipse (\begin{DoxyParamCaption}\item[{float}]{cx,  }\item[{float}]{cy,  }\item[{float}]{rx,  }\item[{float}]{ry,  }\item[{nema\+\_\+matrix3x3\+\_\+t}]{m,  }\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}}}]{paint }\end{DoxyParamCaption})}
+
+
+
+Draw a ellipse shape. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em cx} & The x position of the ellipse \\
+\hline
+{\em cy} & The y position of the ellipse \\
+\hline
+{\em rx} & Radius on the x axis \\
+\hline
+{\em ry} & Radius on the y axis \\
+\hline
+{\em m} & 3x3 affine transformation matrix \\
+\hline
+{\em paint} & The paint to draw\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Error code. See NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\texorpdfstring{$\ast$}{*} defines in "{}nema\+\_\+vg\+\_\+context.\+h"{} header file for the error codes. 
+\end{DoxyReturn}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_abaf700471d9a45acad2b4f31dc716224}\label{cortex__m55__m7_2nema__vg_8h_abaf700471d9a45acad2b4f31dc716224} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_draw\_line@{nema\_vg\_draw\_line}}
+\index{nema\_vg\_draw\_line@{nema\_vg\_draw\_line}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_draw\_line()}{nema\_vg\_draw\_line()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+draw\+\_\+line (\begin{DoxyParamCaption}\item[{float}]{x1,  }\item[{float}]{y1,  }\item[{float}]{x2,  }\item[{float}]{y2,  }\item[{nema\+\_\+matrix3x3\+\_\+t}]{m,  }\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}}}]{paint }\end{DoxyParamCaption})}
+
+
+
+Draw a line shape. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em x1} & Upper left x coordinate \\
+\hline
+{\em y1} & Upper left y coordinate \\
+\hline
+{\em x2} & The width \\
+\hline
+{\em y2} & The height \\
+\hline
+{\em m} & 3x3 affine transformation matrix \\
+\hline
+{\em paint} & The paint to draw\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Error code. See NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\texorpdfstring{$\ast$}{*} defines in "{}nema\+\_\+vg\+\_\+context.\+h"{} header file for the error codes. 
+\end{DoxyReturn}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a91a5e8a806cc7f9f310519fc7351e8b9}\label{cortex__m55__m7_2nema__vg_8h_a91a5e8a806cc7f9f310519fc7351e8b9} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_draw\_path@{nema\_vg\_draw\_path}}
+\index{nema\_vg\_draw\_path@{nema\_vg\_draw\_path}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_draw\_path()}{nema\_vg\_draw\_path()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+draw\+\_\+path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_ab32bedbff2451be3b83632ddfc604e9c}{NEMA\+\_\+\+VG\+\_\+\+PATH\+\_\+\+HANDLE}}}]{path,  }\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}}}]{paint }\end{DoxyParamCaption})}
+
+
+
+Draw a path using a specified paint object. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em path} & Pointer (handle) to the path that will be drawn \\
+\hline
+{\em paint} & Pointer (handle) to the paint object that wil be used for drawing\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Error code. See NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\texorpdfstring{$\ast$}{*} defines in "{}nema\+\_\+vg\+\_\+context.\+h"{} header file for the error codes. 
+\end{DoxyReturn}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a0b94d407ec39ee26a362ee5f137a2076}\label{cortex__m55__m7_2nema__vg_8h_a0b94d407ec39ee26a362ee5f137a2076} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_draw\_rect@{nema\_vg\_draw\_rect}}
+\index{nema\_vg\_draw\_rect@{nema\_vg\_draw\_rect}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_draw\_rect()}{nema\_vg\_draw\_rect()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+draw\+\_\+rect (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{nema\+\_\+matrix3x3\+\_\+t}]{m,  }\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}}}]{paint }\end{DoxyParamCaption})}
+
+
+
+Draw a rectangle shape. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em x} & Upper left x coordinate \\
+\hline
+{\em y} & Upper left y coordinate \\
+\hline
+{\em width} & The width \\
+\hline
+{\em height} & The height \\
+\hline
+{\em m} & 3x3 affine transformation matrix \\
+\hline
+{\em paint} & The paint to draw\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Error code 
+\end{DoxyReturn}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_afaf54c0ab1f149ef1cdd14dbad4ed8e4}\label{cortex__m55__m7_2nema__vg_8h_afaf54c0ab1f149ef1cdd14dbad4ed8e4} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_draw\_ring@{nema\_vg\_draw\_ring}}
+\index{nema\_vg\_draw\_ring@{nema\_vg\_draw\_ring}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_draw\_ring()}{nema\_vg\_draw\_ring()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+draw\+\_\+ring (\begin{DoxyParamCaption}\item[{float}]{cx,  }\item[{float}]{cy,  }\item[{float}]{ring\+\_\+radius,  }\item[{float}]{angle\+\_\+start,  }\item[{float}]{angle\+\_\+end,  }\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}}}]{paint }\end{DoxyParamCaption})}
+
+
+
+Draw a filled ring shape. The caps follow what cap style is set in nema\+\_\+vg\+\_\+set\+\_\+cap\+\_\+style. In case of a conical gradient paint type, the conical gradient center should be at the center of the ring(cx, cy). In other case, where the two centers do not match, the ring should be drawn with NEMA\+\_\+\+VG\+\_\+\+QUALITY\+\_\+\+MAXIMUM. The ring width can be set with the paint\textquotesingle{}s stroke\+\_\+width. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em cx} & The center x coordinate of the ring \\
+\hline
+{\em cy} & The center y coordinate of the ring \\
+\hline
+{\em ring\+\_\+radius} & The radius of the ring \\
+\hline
+{\em angle\+\_\+start} & The angle in degrees of the ring \\
+\hline
+{\em angle\+\_\+end} & The angle in degrees that ends this ring \\
+\hline
+{\em paint} & The paint to draw\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Error code. See NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\texorpdfstring{$\ast$}{*} defines in "{}nema\+\_\+vg\+\_\+context.\+h"{} header file for the error codes. 
+\end{DoxyReturn}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_ab065724f4677ffaab02cc2fe81284d9c}\label{cortex__m55__m7_2nema__vg_8h_ab065724f4677ffaab02cc2fe81284d9c} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_draw\_rounded\_rect@{nema\_vg\_draw\_rounded\_rect}}
+\index{nema\_vg\_draw\_rounded\_rect@{nema\_vg\_draw\_rounded\_rect}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_draw\_rounded\_rect()}{nema\_vg\_draw\_rounded\_rect()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+draw\+\_\+rounded\+\_\+rect (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{float}]{rx,  }\item[{float}]{ry,  }\item[{nema\+\_\+matrix3x3\+\_\+t}]{m,  }\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a8a9930a16f0ba90785b804cc7df9d0bd}{NEMA\+\_\+\+VG\+\_\+\+PAINT\+\_\+\+HANDLE}}}]{paint }\end{DoxyParamCaption})}
+
+
+
+Draw a rounded rectangle shape. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em x} & Upper left x coordinate \\
+\hline
+{\em y} & Upper left y coordinate \\
+\hline
+{\em width} & The width \\
+\hline
+{\em height} & The height \\
+\hline
+{\em rx} & Horizontal cornel radius \\
+\hline
+{\em ry} & Vertical cornel radius \\
+\hline
+{\em m} & 3x3 affine transformation matrix \\
+\hline
+{\em paint} & The paint to draw\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Error code. See NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\texorpdfstring{$\ast$}{*} defines in "{}nema\+\_\+vg\+\_\+context.\+h"{} header file for the error codes. 
+\end{DoxyReturn}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a334c13603e626883436acb4aa5ba149b}\label{cortex__m55__m7_2nema__vg_8h_a334c13603e626883436acb4aa5ba149b} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_get\_coord\_limits@{nema\_vg\_get\_coord\_limits}}
+\index{nema\_vg\_get\_coord\_limits@{nema\_vg\_get\_coord\_limits}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_get\_coord\_limits()}{nema\_vg\_get\_coord\_limits()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+get\+\_\+coord\+\_\+limits (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{min\+\_\+coord,  }\item[{float \texorpdfstring{$\ast$}{*}}]{max\+\_\+coord }\end{DoxyParamCaption})}
+
+
+
+Returns the minimum and maximum values for the coordinates after applying the transformation(if any) that can be handled by the underlying hardware. Note that the values before transformation must be within range (-\/32,767, 32.\+676) for the hardware to be able to process them. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em min\+\_\+coord} & Minimum coordinate (x or y) value (pointer) \\
+\hline
+{\em max\+\_\+coord} & Maximum coordinate (x or y) value (pointer) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a2bad1ab4f7550c4983fce543cb06d2e6}\label{cortex__m55__m7_2nema__vg_8h_a2bad1ab4f7550c4983fce543cb06d2e6} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_init@{nema\_vg\_init}}
+\index{nema\_vg\_init@{nema\_vg\_init}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_init()}{nema\_vg\_init()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+Initializes Nema\+VG library and allocates the stencil buffer to the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB) Call either this or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool to allocate the stencil buffer to a different memory pool or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+prealloc to provide the stencil buffer. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em width} & Stencil buffer width -\/ Must be the first mupliple of 4 that is equal to or greater than framebuffer width \\
+\hline
+{\em height} & Stencil buffer height -\/ Must be the first mupliple of 4 that is equal to or greater than framebuffer height \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_ada33bbaaf058b6eb83c4484a5c31f6e2}\label{cortex__m55__m7_2nema__vg_8h_ada33bbaaf058b6eb83c4484a5c31f6e2} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_init\_stencil\_pool@{nema\_vg\_init\_stencil\_pool}}
+\index{nema\_vg\_init\_stencil\_pool@{nema\_vg\_init\_stencil\_pool}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_init\_stencil\_pool()}{nema\_vg\_init\_stencil\_pool()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{pool }\end{DoxyParamCaption})}
+
+
+
+Initializes Nema\+VG library and allocate the stencil buffer in a specific memory pool. Call either this or nema\+\_\+vg\+\_\+init to allocate the stencil buffer to the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB) or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+prealloc to provide the stencil buffer. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em width} & Stencil buffer width -\/ Must be the first mupliple of 4 that is equal to or greater than framebuffer width \\
+\hline
+{\em height} & Stencil buffer height -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer height \\
+\hline
+{\em pool} & Memory pool for allocating the stencil buffer (memory pools are platform specific and defined in nema\+\_\+sys\+\_\+defs.\+h file) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a1f35bdb1a63be530941d4907d070f50d}\label{cortex__m55__m7_2nema__vg_8h_a1f35bdb1a63be530941d4907d070f50d} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_init\_stencil\_prealloc@{nema\_vg\_init\_stencil\_prealloc}}
+\index{nema\_vg\_init\_stencil\_prealloc@{nema\_vg\_init\_stencil\_prealloc}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_init\_stencil\_prealloc()}{nema\_vg\_init\_stencil\_prealloc()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+prealloc (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{\mbox{\hyperlink{structnema__buffer__t__}{nema\+\_\+buffer\+\_\+t}}}]{stencil\+\_\+bo }\end{DoxyParamCaption})}
+
+
+
+Initializes Nema\+VG library without allocating the stencil buffer which is provided by the user. Call either this or nema\+\_\+vg\+\_\+init to allocate the stencil buffer to the default memory pool (NEMA\+\_\+\+MEM\+\_\+\+POOL\+\_\+\+FB) or nema\+\_\+vg\+\_\+init\+\_\+stencil\+\_\+pool to allocate the stencil buffer to a different memory pool. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em width} & Stencil buffer width -\/ Must be the first mupliple of 4 that is equal to or greater than framebuffer width \\
+\hline
+{\em height} & Stencil buffer height -\/ Must be the first multiple of 4 othat is equal to or greater than framebuffer height \\
+\hline
+{\em stencil\+\_\+bo} & stencil buffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a5d75848b5258d0bc1acace043a0da707}\label{cortex__m55__m7_2nema__vg_8h_a5d75848b5258d0bc1acace043a0da707} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_tsvg\_disable\_feature@{nema\_vg\_tsvg\_disable\_feature}}
+\index{nema\_vg\_tsvg\_disable\_feature@{nema\_vg\_tsvg\_disable\_feature}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_tsvg\_disable\_feature()}{nema\_vg\_tsvg\_disable\_feature()}}
+{\footnotesize\ttfamily void nema\+\_\+vg\+\_\+tsvg\+\_\+disable\+\_\+feature (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{feature }\end{DoxyParamCaption})}
+
+
+
+Disables tsvg features from rendering. Should be set before \doxylink{cortex__m33_2nema__vg__tsvg_8h_a2e6d49adc4a42303e499a551c558f99b}{nema\+\_\+vg\+\_\+draw\+\_\+tsvg()} 
+
+
+\begin{DoxyParams}{Parametri}
+{\em feature} & feature to be disabled \\
+\hline
+\end{DoxyParams}
+\Hypertarget{cortex__m55__m7_2nema__vg_8h_a6a8767f97154f6f23ab4bbc3afc6dcda}\label{cortex__m55__m7_2nema__vg_8h_a6a8767f97154f6f23ab4bbc3afc6dcda} 
+\index{nema\_vg.h@{nema\_vg.h}!nema\_vg\_verify\_path@{nema\_vg\_verify\_path}}
+\index{nema\_vg\_verify\_path@{nema\_vg\_verify\_path}!nema\_vg.h@{nema\_vg.h}}
+\doxysubsubsection{\texorpdfstring{nema\_vg\_verify\_path()}{nema\_vg\_verify\_path()}}
+{\footnotesize\ttfamily uint32\+\_\+t nema\+\_\+vg\+\_\+verify\+\_\+path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_ab32bedbff2451be3b83632ddfc604e9c}{NEMA\+\_\+\+VG\+\_\+\+PATH\+\_\+\+HANDLE}}}]{path }\end{DoxyParamCaption})}
+
+
+
+Verify if path\textquotesingle{}s coordinates contain NaN coordinates. It uses the property of NaN numbers that f != f. Note that when compiling with optimization flags such as -\/ffast-\/math, the compiler might optimize the above condition and thus this function will not report NaN coordinates. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em path} & Pointer (handle) to the path\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+ARGUMENTS if any of the coordinates is NaN otherwise returns NEMA\+\_\+\+VG\+\_\+\+ERR\+\_\+\+NO\+\_\+\+ERROR. 
+\end{DoxyReturn}

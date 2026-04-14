@@ -1,0 +1,80 @@
+\doxysection{esp\+\_\+codec\+\_\+dev\+\_\+vol.\+h}
+\hypertarget{esp__codec__dev__vol_8h_source}{}\label{esp__codec__dev__vol_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/include/esp\_codec\_dev\_vol.h@{managed\_components/espressif\_\_esp\_codec\_dev/include/esp\_codec\_dev\_vol.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2023\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_ESP\_CODEC\_DEV\_VOL\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_ESP\_CODEC\_DEV\_VOL\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}esp\_codec\_dev\_types.h"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{structesp__codec__dev__vol__map__t_a8754d37dca31dc9f199632131904985d}{vol}};\ \ \ \ \ \ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structesp__codec__dev__vol__map__t_a3316221124668010dbc73e1e54f2b84d}{db\_value}};\ }
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{structesp__codec__dev__vol__map__t}{esp\_codec\_dev\_vol\_map\_t}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structesp__codec__dev__vol__map__t}{esp\_codec\_dev\_vol\_map\_t}}\ \mbox{\hyperlink{structesp__codec__dev__vol__range__t_a072d52ed1c996aa0981f5ff6b9fd5971}{min\_vol}};\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{structesp__codec__dev__vol__map__t}{esp\_codec\_dev\_vol\_map\_t}}\ \mbox{\hyperlink{structesp__codec__dev__vol__range__t_a571b9e6b673e968cffd86089218c2113}{max\_vol}};\ }
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{structesp__codec__dev__vol__range__t}{esp\_codec\_dev\_vol\_range\_t}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{structesp__codec__dev__vol__map__t}{esp\_codec\_dev\_vol\_map\_t}}\ *\mbox{\hyperlink{structesp__codec__dev__vol__curve__t_ab8f896e126985bef66b358dd55c764d6}{vol\_map}};\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structesp__codec__dev__vol__curve__t_abf8b1bafcb8a36cebeed30100bcecd43}{count}};\ \ \ }
+\DoxyCodeLine{00037\ \}\ \mbox{\hyperlink{structesp__codec__dev__vol__curve__t}{esp\_codec\_dev\_vol\_curve\_t}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ Audio\ gain\ overview:}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Software\ Gain-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|-\/-\/Hardware\ Gain-\/-\/|}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ \ |\ Digital\ Audio\ Data\ |-\/-\/>|\ Audio\ Process\ Gain\ |-\/-\/>|\ Codec\ DAC\ Volume\ |-\/-\/>|\ PA\ Gain\ |-\/-\/>|\ Speaker\ Output\ |}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/|\ \ \ |-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/|}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ Final\ speaker\ loudness\ is\ affected\ by\ both\ Software\ Gain\ and\ Hardware\ Gain.}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ Software\ Gain\ (Adjustable):}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ \ \ Audio\ Process\ Gain:\ Gain\ by\ audio\ post\ processor,\ such\ as\ ALC,\ AGC,\ DRC\ target\ MAX\ Gain.}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ \ \ Codec\ DAC\ Volume:\ The\ audio\ codec\ DAC\ volume\ control,\ such\ as\ ES8311\ DAC\_Volume\ control\ register.}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ Hardware\ Gain\ (Fixed):}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ \ \ PA\ Gain:\ The\ speaker\ power\ amplifier\ Gain,\ which\ is\ determined\ by\ the\ hardware\ circuit.}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ The\ speaker\ playback\ route\ gain\ (Audio\ Process\ Gain\ +\ Codec\ DAC\ Volume\ +\ PA\ Gain)\ needs\ to\ ensure\ that\ the}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ *\ speaker\ PA\ output\ is\ not\ saturated\ and\ exceeds\ the\ speaker\ rated\ power.\ We\ define\ the\ maximum\ route\ gain}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ as\ MAX\_GAIN.\ To\ ensure\ the\ speaker\ PA\ output\ is\ not\ saturated,\ MAX\_GAIN\ can\ be\ calculated\ simply\ by\ the\ formula.}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ \ \ \ MAX\_GAIN\ =\ 20\ *\ log(Vpa/Vdac)}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ \ \ \ Vpa:\ PA\ power\ supply}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *\ \ \ \ Vdac:\ Codec\ DAC\ power\ supply}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ e.g.,\ Vpa\ =\ 5V,\ Vdac\ =\ 3.3V,\ then\ MAX\_GAIN\ =\ 20\ *\ log(5/3.3)\ =\ 3.6\ dB.}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ If\ the\ speaker\ rated\ power\ is\ lower\ than\ the\ speaker\ PA\ MAX\ power,\ MAX\_GAIN\ should\ be\ defined\ according\ to}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ the\ speaker\ rated\ power.}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structesp__codec__dev__hw__gain__t_a097201c35a4cf01ba4e493fd198b9da2}{pa\_voltage}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structesp__codec__dev__hw__gain__t_a33b6e4d687b2f45c5b355904e1d1c9a0}{codec\_dac\_voltage}};\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structesp__codec__dev__hw__gain__t_ae9108b9bc1c43923289164d6bd258d62}{pa\_gain}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00077\ \}\ \mbox{\hyperlink{structesp__codec__dev__hw__gain__t}{esp\_codec\_dev\_hw\_gain\_t}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{int}\ esp\_codec\_dev\_vol\_calc\_reg(\textcolor{keyword}{const}\ \mbox{\hyperlink{structesp__codec__dev__vol__range__t}{esp\_codec\_dev\_vol\_range\_t}}\ *vol\_range,\ \textcolor{keywordtype}{float}\ db);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{float}\ esp\_codec\_dev\_vol\_calc\_db(\textcolor{keyword}{const}\ \mbox{\hyperlink{structesp__codec__dev__vol__range__t}{esp\_codec\_dev\_vol\_range\_t}}\ *vol\_range,\ \textcolor{keywordtype}{int}\ vol);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{float}\ esp\_codec\_dev\_col\_calc\_hw\_gain(\mbox{\hyperlink{structesp__codec__dev__hw__gain__t}{esp\_codec\_dev\_hw\_gain\_t}}*\ hw\_gain);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

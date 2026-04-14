@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/espressif__esp_lcd_ili9341/include/esp_lcd_ili9341.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_4f979c3ab5fa26983cde215e841fced3.html">espressif__esp_lcd_ili9341</a></li><li class="navelem"><a class="el" href="dir_90ba0d1b3022b25d449772e3413ce6b2.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">esp_lcd_ili9341.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="esp__lcd__ili9341_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * SPDX-FileCopyrightText: 2022-2023 Espressif Systems (Shanghai) CO LTD</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;esp_lcd_panel_vendor.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structili9341__lcd__init__cmd__t.html">   23</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">int</span> cmd;                <span class="comment">/*&lt;! The specific LCD command */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">const</span> <span class="keywordtype">void</span> *data;       <span class="comment">/*&lt;! Buffer that holds the command specific data */</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">size_t</span> data_bytes;      <span class="comment">/*&lt;! Size of `data` in memory, in bytes */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> delay_ms;  <span class="comment">/*&lt;! Delay in milliseconds after this command */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>} <a class="code hl_struct" href="structili9341__lcd__init__cmd__t.html">ili9341_lcd_init_cmd_t</a>;</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structili9341__vendor__config__t.html">   36</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structili9341__vendor__config__t.html#a39937f042bf77fb7523d7207c87dab2c">   37</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structili9341__lcd__init__cmd__t.html">ili9341_lcd_init_cmd_t</a> *<a class="code hl_variable" href="structili9341__vendor__config__t.html#a39937f042bf77fb7523d7207c87dab2c">init_cmds</a>;     </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    uint16_t init_cmds_size;                    <span class="comment">/*&lt;! Number of commands in above array */</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>} <a class="code hl_struct" href="structili9341__vendor__config__t.html">ili9341_vendor_config_t</a>;</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>esp_err_t <a class="code hl_function" href="esp__lcd__ili9341_8h.html#abcad57bda992950b1bb3d7422d49a45d">esp_lcd_new_panel_ili9341</a>(<span class="keyword">const</span> esp_lcd_panel_io_handle_t io, <span class="keyword">const</span> esp_lcd_panel_dev_config_t *panel_dev_config, esp_lcd_panel_handle_t *ret_panel);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="" data-end="">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="esp__lcd__ili9341_8h.html#a2d59d1fcccefb9635fd1c3909ab4a403">   67</a></span><span class="preprocessor">#define ILI9341_PANEL_BUS_SPI_CONFIG(sclk, mosi, max_trans_sz)  \</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">    {                                                           \</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">        .sclk_io_num = sclk,                                    \</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">        .mosi_io_num = mosi,                                    \</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">        .miso_io_num = -1,                                      \</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">        .quadhd_io_num = -1,                                    \</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">        .quadwp_io_num = -1,                                    \</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">        .max_transfer_sz = max_trans_sz,                        \</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">    }</span></div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00086" data-start="" data-end="">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="esp__lcd__ili9341_8h.html#a5057231436891c995830c7d8de38568d">   86</a></span><span class="preprocessor">#define ILI9341_PANEL_IO_SPI_CONFIG(cs, dc, callback, callback_ctx) \</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">    {                                                               \</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">        .cs_gpio_num = cs,                                          \</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">        .dc_gpio_num = dc,                                          \</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">        .spi_mode = 0,                                              \</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">        .pclk_hz = 40 * 1000 * 1000,                                \</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">        .trans_queue_depth = 10,                                    \</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">        .on_color_trans_done = callback,                            \</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">        .user_ctx = callback_ctx,                                   \</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">        .lcd_cmd_bits = 8,                                          \</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="preprocessor">        .lcd_param_bits = 8,                                        \</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">    }</span></div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aesp__lcd__ili9341_8h_html_abcad57bda992950b1bb3d7422d49a45d"><div class="ttname"><a href="esp__lcd__ili9341_8h.html#abcad57bda992950b1bb3d7422d49a45d">esp_lcd_new_panel_ili9341</a></div><div class="ttdeci">esp_err_t esp_lcd_new_panel_ili9341(const esp_lcd_panel_io_handle_t io, const esp_lcd_panel_dev_config_t *panel_dev_config, esp_lcd_panel_handle_t *ret_panel)</div><div class="ttdoc">Create LCD panel for model ILI9341.</div><div class="ttdef"><b>Definition</b> esp_lcd_ili9341.c:48</div></div>
+<div class="ttc" id="astructili9341__lcd__init__cmd__t_html"><div class="ttname"><a href="structili9341__lcd__init__cmd__t.html">ili9341_lcd_init_cmd_t</a></div><div class="ttdoc">LCD panel initialization commands.</div><div class="ttdef"><b>Definition</b> esp_lcd_ili9341.h:23</div></div>
+<div class="ttc" id="astructili9341__vendor__config__t_html"><div class="ttname"><a href="structili9341__vendor__config__t.html">ili9341_vendor_config_t</a></div><div class="ttdoc">LCD panel vendor configuration.</div><div class="ttdef"><b>Definition</b> esp_lcd_ili9341.h:36</div></div>
+<div class="ttc" id="astructili9341__vendor__config__t_html_a39937f042bf77fb7523d7207c87dab2c"><div class="ttname"><a href="structili9341__vendor__config__t.html#a39937f042bf77fb7523d7207c87dab2c">ili9341_vendor_config_t::init_cmds</a></div><div class="ttdeci">const ili9341_lcd_init_cmd_t * init_cmds</div><div class="ttdef"><b>Definition</b> esp_lcd_ili9341.h:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

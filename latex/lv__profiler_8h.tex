@@ -1,0 +1,166 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+profiler.h}
+\hypertarget{lv__profiler_8h}{}\label{lv__profiler_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_profiler.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_profiler.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+profiler.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+profiler.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lv__profiler_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__profiler_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__profiler_8h_aa866b124a8dc5c83eacd43d432179a7b}\label{lv__profiler_8h_aa866b124a8dc5c83eacd43d432179a7b} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a82d749a074ad97e5ac517b6c7d119892}\label{lv__profiler_8h_a82d749a074ad97e5ac517b6c7d119892} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a1722b9a9ce00280cdbe1c8acfb6d0eb1}\label{lv__profiler_8h_a1722b9a9ce00280cdbe1c8acfb6d0eb1} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+BEGIN\+\_\+\+TAG}(tag)~LV\+\_\+\+UNUSED(tag)
+\item 
+\Hypertarget{lv__profiler_8h_ac21095525a509f93927c46e8d88ade97}\label{lv__profiler_8h_ac21095525a509f93927c46e8d88ade97} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+END\+\_\+\+TAG}(tag)~LV\+\_\+\+UNUSED(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a1a34b2224fba443ebe7acc3cbab5fa62}\label{lv__profiler_8h_a1a34b2224fba443ebe7acc3cbab5fa62} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+LAYOUT\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a24f1f424925f65c2b3b4461fbe2e718a}\label{lv__profiler_8h_a24f1f424925f65c2b3b4461fbe2e718a} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+LAYOUT\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_af0d51b71515503bea75b3a0bacd2a73a}\label{lv__profiler_8h_af0d51b71515503bea75b3a0bacd2a73a} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+LAYOUT\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a2a12a8de30c0fab91eb898cc42191a19}\label{lv__profiler_8h_a2a12a8de30c0fab91eb898cc42191a19} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+LAYOUT\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_ab8768e4502aa4b903edcd3e108d45d45}\label{lv__profiler_8h_ab8768e4502aa4b903edcd3e108d45d45} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+STYLE\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_ae67d116f5acbb27c1badf1fd990b11d7}\label{lv__profiler_8h_ae67d116f5acbb27c1badf1fd990b11d7} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+STYLE\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a1a384074c0e78cabe20e5563704fa833}\label{lv__profiler_8h_a1a384074c0e78cabe20e5563704fa833} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+STYLE\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a79d48d7b6c2ad282e5029159563dff60}\label{lv__profiler_8h_a79d48d7b6c2ad282e5029159563dff60} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+STYLE\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a59b991bc41afb7efbaa3c64616b613c1}\label{lv__profiler_8h_a59b991bc41afb7efbaa3c64616b613c1} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DRAW\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_ab5acc21507332ae950d8c8bb9e79056c}\label{lv__profiler_8h_ab5acc21507332ae950d8c8bb9e79056c} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DRAW\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_aa3f446ae6dd095560927d8df7166eb77}\label{lv__profiler_8h_aa3f446ae6dd095560927d8df7166eb77} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DRAW\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a62f7710a18dccef911d8ced39481748c}\label{lv__profiler_8h_a62f7710a18dccef911d8ced39481748c} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DRAW\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a2909d7b4664ff2ba3f46732648ebd96d}\label{lv__profiler_8h_a2909d7b4664ff2ba3f46732648ebd96d} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DECODER\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a611e0e19a37bbe251132362d134bd634}\label{lv__profiler_8h_a611e0e19a37bbe251132362d134bd634} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DECODER\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a5c42d4a1c3da8e73642cbdec3c347647}\label{lv__profiler_8h_a5c42d4a1c3da8e73642cbdec3c347647} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DECODER\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_ab36ec74c39000b264c8c6e8713527438}\label{lv__profiler_8h_ab36ec74c39000b264c8c6e8713527438} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+DECODER\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_acaf07318b9f8dc5d12d687a508119b08}\label{lv__profiler_8h_acaf07318b9f8dc5d12d687a508119b08} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+REFR\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a6817b0b659f00b6695271482b491105f}\label{lv__profiler_8h_a6817b0b659f00b6695271482b491105f} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+REFR\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a429609695140d5f7836ffd189fb271b4}\label{lv__profiler_8h_a429609695140d5f7836ffd189fb271b4} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+REFR\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_ac6f0626516878dc927e6b67158c7adeb}\label{lv__profiler_8h_ac6f0626516878dc927e6b67158c7adeb} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+REFR\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_acf1ffa2f2b586a5e0d5f6b0f0a3a3274}\label{lv__profiler_8h_acf1ffa2f2b586a5e0d5f6b0f0a3a3274} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+INDEV\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_ad596307aa2243403dab24974adccc145}\label{lv__profiler_8h_ad596307aa2243403dab24974adccc145} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+INDEV\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a06eb4b0ba698ea3d0dacae29ec6ca708}\label{lv__profiler_8h_a06eb4b0ba698ea3d0dacae29ec6ca708} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+INDEV\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a60e1e70be0fcb902d722b9873aaec263}\label{lv__profiler_8h_a60e1e70be0fcb902d722b9873aaec263} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+INDEV\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_abd89ad0b1f78eb472cccf313f3f75eca}\label{lv__profiler_8h_abd89ad0b1f78eb472cccf313f3f75eca} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FONT\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a1b1d528a10e7e830417aadc6937f75c9}\label{lv__profiler_8h_a1b1d528a10e7e830417aadc6937f75c9} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FONT\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a1092e613ea579d9502ca9a703d73bc5d}\label{lv__profiler_8h_a1092e613ea579d9502ca9a703d73bc5d} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FONT\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a94e1b54aa579f85f78925d825572bf81}\label{lv__profiler_8h_a94e1b54aa579f85f78925d825572bf81} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FONT\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a4f898006dba3e1b929a208a31366cac6}\label{lv__profiler_8h_a4f898006dba3e1b929a208a31366cac6} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+CACHE\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a1c9b78becc2efbe7bae13867e7b485dc}\label{lv__profiler_8h_a1c9b78becc2efbe7bae13867e7b485dc} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+CACHE\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a3970878b147dd82a84487a105d4ac2da}\label{lv__profiler_8h_a3970878b147dd82a84487a105d4ac2da} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+CACHE\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a40d59364f7ac5bc4d8e4530d9eed4d5c}\label{lv__profiler_8h_a40d59364f7ac5bc4d8e4530d9eed4d5c} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+CACHE\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a7269a714d7e088b76e904d10ac4ed6e0}\label{lv__profiler_8h_a7269a714d7e088b76e904d10ac4ed6e0} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FS\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a2be361f72c8a1c044a65ceb0065682b7}\label{lv__profiler_8h_a2be361f72c8a1c044a65ceb0065682b7} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FS\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_ae718641ee8650df2647460116ca176aa}\label{lv__profiler_8h_ae718641ee8650df2647460116ca176aa} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FS\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_afc41b940b726f4dbb6ab6baf0282947d}\label{lv__profiler_8h_afc41b940b726f4dbb6ab6baf0282947d} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+FS\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_ab379555bd991687632e181f9f25feffd}\label{lv__profiler_8h_ab379555bd991687632e181f9f25feffd} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+TIMER\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a83917c47210bd87b94ceab07eae27e94}\label{lv__profiler_8h_a83917c47210bd87b94ceab07eae27e94} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+TIMER\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a86a6c9abdfab53f10a6594be5ba7df18}\label{lv__profiler_8h_a86a6c9abdfab53f10a6594be5ba7df18} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+TIMER\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a77bb2e38176596feb446a126ef8c22c2}\label{lv__profiler_8h_a77bb2e38176596feb446a126ef8c22c2} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+TIMER\+\_\+\+END\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_afbcde0e460521edd0b2c73f8bc41f0be}\label{lv__profiler_8h_afbcde0e460521edd0b2c73f8bc41f0be} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+EVENT\+\_\+\+BEGIN}
+\item 
+\Hypertarget{lv__profiler_8h_a6840e21a2ea42a2401c92027c1429b5e}\label{lv__profiler_8h_a6840e21a2ea42a2401c92027c1429b5e} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+EVENT\+\_\+\+END}
+\item 
+\Hypertarget{lv__profiler_8h_a4c61e37f082800f773fce51b2b17ebc0}\label{lv__profiler_8h_a4c61e37f082800f773fce51b2b17ebc0} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+EVENT\+\_\+\+BEGIN\+\_\+\+TAG}(tag)
+\item 
+\Hypertarget{lv__profiler_8h_a619c1b894e8fd0025d72baeec967edbc}\label{lv__profiler_8h_a619c1b894e8fd0025d72baeec967edbc} 
+\#define {\bfseries LV\+\_\+\+PROFILER\+\_\+\+EVENT\+\_\+\+END\+\_\+\+TAG}(tag)
+\end{DoxyCompactItemize}

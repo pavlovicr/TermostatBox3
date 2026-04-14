@@ -1,0 +1,139 @@
+\doxysection{Datoteka managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+lvgl\+\_\+port/src/common/ppa/lcd\+\_\+ppa.h}
+\hypertarget{lcd__ppa_8h}{}\label{lcd__ppa_8h}\index{managed\_components/espressif\_\_esp\_lvgl\_port/src/common/ppa/lcd\_ppa.h@{managed\_components/espressif\_\_esp\_lvgl\_port/src/common/ppa/lcd\_ppa.h}}
+
+
+LCD PPA.  
+
+
+{\ttfamily \#include "{}driver/ppa.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lcd\+\_\+ppa.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lcd\+\_\+ppa.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{lcd__ppa_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlvgl__port__ppa__cfg__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Init configuration structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlvgl__port__ppa__disp__area__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+disp\+\_\+area\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Display area structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlvgl__port__ppa__disp__size__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+disp\+\_\+size\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Display size structure. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+disp\+\_\+rotate\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em Rotation configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lcd__ppa_8h_ac2f8b6fc2eae8efb27c29df3563efef5}\label{lcd__ppa_8h_ac2f8b6fc2eae8efb27c29df3563efef5} 
+typedef struct lvgl\+\_\+port\+\_\+ppa\+\_\+t {\bfseries lvgl\+\_\+port\+\_\+ppa\+\_\+t}
+\item 
+\Hypertarget{lcd__ppa_8h_a443cc010ef400b7529b04f861d6912a6}\label{lcd__ppa_8h_a443cc010ef400b7529b04f861d6912a6} 
+typedef lvgl\+\_\+port\+\_\+ppa\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t \mbox{\hyperlink{lcd__ppa_8h_a7028178efe979e15b129bdf2aebe3308}{lvgl\+\_\+port\+\_\+ppa\+\_\+create}} (const \mbox{\hyperlink{structlvgl__port__ppa__cfg__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+cfg\+\_\+t}} \texorpdfstring{$\ast$}{*}cfg)
+\begin{DoxyCompactList}\small\item\em Initialize PPA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lcd__ppa_8h_a0e7a04ba0f86bda9723584efa401b8df}{lvgl\+\_\+port\+\_\+ppa\+\_\+delete}} (lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t handle)
+\begin{DoxyCompactList}\small\item\em Remove PPA. \end{DoxyCompactList}\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lcd__ppa_8h_a2c41c10478959927c1c3db1178324da6}{lvgl\+\_\+port\+\_\+ppa\+\_\+get\+\_\+output\+\_\+buffer}} (lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t handle)
+\begin{DoxyCompactList}\small\item\em Get output buffer. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{lcd__ppa_8h_acc336969093f76e392dd0285a506fd97}{lvgl\+\_\+port\+\_\+ppa\+\_\+rotate}} (lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t handle, \mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+disp\+\_\+rotate\+\_\+t}} \texorpdfstring{$\ast$}{*}rotate\+\_\+cfg)
+\begin{DoxyCompactList}\small\item\em Do rotation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+LCD PPA. 
+
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lcd__ppa_8h_a7028178efe979e15b129bdf2aebe3308}\label{lcd__ppa_8h_a7028178efe979e15b129bdf2aebe3308} 
+\index{lcd\_ppa.h@{lcd\_ppa.h}!lvgl\_port\_ppa\_create@{lvgl\_port\_ppa\_create}}
+\index{lvgl\_port\_ppa\_create@{lvgl\_port\_ppa\_create}!lcd\_ppa.h@{lcd\_ppa.h}}
+\doxysubsubsection{\texorpdfstring{lvgl\_port\_ppa\_create()}{lvgl\_port\_ppa\_create()}}
+{\footnotesize\ttfamily lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t lvgl\+\_\+port\+\_\+ppa\+\_\+create (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlvgl__port__ppa__cfg__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+cfg\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Initialize PPA. 
+
+\begin{DoxyNote}{Opomba}
+This function initialize PPA SRM Client and create buffer for process.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parametri}
+{\em cfg} & Configuration structure\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item PPA LCD handle 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{lcd__ppa_8h_a0e7a04ba0f86bda9723584efa401b8df}\label{lcd__ppa_8h_a0e7a04ba0f86bda9723584efa401b8df} 
+\index{lcd\_ppa.h@{lcd\_ppa.h}!lvgl\_port\_ppa\_delete@{lvgl\_port\_ppa\_delete}}
+\index{lvgl\_port\_ppa\_delete@{lvgl\_port\_ppa\_delete}!lcd\_ppa.h@{lcd\_ppa.h}}
+\doxysubsubsection{\texorpdfstring{lvgl\_port\_ppa\_delete()}{lvgl\_port\_ppa\_delete()}}
+{\footnotesize\ttfamily void lvgl\+\_\+port\+\_\+ppa\+\_\+delete (\begin{DoxyParamCaption}\item[{lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t}]{handle }\end{DoxyParamCaption})}
+
+
+
+Remove PPA. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em handle} & PPA LCD handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+This function free buffer and deinitialize PPA. 
+\end{DoxyNote}
+\Hypertarget{lcd__ppa_8h_a2c41c10478959927c1c3db1178324da6}\label{lcd__ppa_8h_a2c41c10478959927c1c3db1178324da6} 
+\index{lcd\_ppa.h@{lcd\_ppa.h}!lvgl\_port\_ppa\_get\_output\_buffer@{lvgl\_port\_ppa\_get\_output\_buffer}}
+\index{lvgl\_port\_ppa\_get\_output\_buffer@{lvgl\_port\_ppa\_get\_output\_buffer}!lcd\_ppa.h@{lcd\_ppa.h}}
+\doxysubsubsection{\texorpdfstring{lvgl\_port\_ppa\_get\_output\_buffer()}{lvgl\_port\_ppa\_get\_output\_buffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t \texorpdfstring{$\ast$}{*} lvgl\+\_\+port\+\_\+ppa\+\_\+get\+\_\+output\+\_\+buffer (\begin{DoxyParamCaption}\item[{lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t}]{handle }\end{DoxyParamCaption})}
+
+
+
+Get output buffer. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em handle} & PPA LCD handle\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+This function get allocated buffer for output of PPA operation. 
+\end{DoxyNote}
+\Hypertarget{lcd__ppa_8h_acc336969093f76e392dd0285a506fd97}\label{lcd__ppa_8h_acc336969093f76e392dd0285a506fd97} 
+\index{lcd\_ppa.h@{lcd\_ppa.h}!lvgl\_port\_ppa\_rotate@{lvgl\_port\_ppa\_rotate}}
+\index{lvgl\_port\_ppa\_rotate@{lvgl\_port\_ppa\_rotate}!lcd\_ppa.h@{lcd\_ppa.h}}
+\doxysubsubsection{\texorpdfstring{lvgl\_port\_ppa\_rotate()}{lvgl\_port\_ppa\_rotate()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t lvgl\+\_\+port\+\_\+ppa\+\_\+rotate (\begin{DoxyParamCaption}\item[{lvgl\+\_\+port\+\_\+ppa\+\_\+handle\+\_\+t}]{handle,  }\item[{\mbox{\hyperlink{structlvgl__port__ppa__disp__rotate__t}{lvgl\+\_\+port\+\_\+ppa\+\_\+disp\+\_\+rotate\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rotate\+\_\+cfg }\end{DoxyParamCaption})}
+
+
+
+Do rotation. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em handle} & PPA LCD handle \\
+\hline
+{\em rotate\+\_\+cfg} & Rotation settings\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if memory allocation fails 
+\end{DoxyItemize}
+\end{DoxyReturn}

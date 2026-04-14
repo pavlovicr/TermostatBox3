@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: LCD &amp; LVGL Performance</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">LCD &amp; LVGL Performance</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md354"></a> This document provides steps, how to set up your LCD and LVGL port for the best performance and comparison of different settings. All settings and measurements are valid for Espressif's chips. Examples in <a href="https://github.com/espressif/esp-bsp">ESP-BSP</a> are ready to use with the best performance.</p>
+<h1><a class="anchor" id="autotoc_md355"></a>
+Performance metrics</h1>
+<p>In this document we will use following metrics for performance evaluation:</p>
+<ol type="1">
+<li>Measure time needed for refreshing the whole screen.</li>
+<li>Use LVGL's <a href="https://github.com/lvgl/lvgl/tree/v8.3.6/demos/benchmark">lv_demo_benchmark()</a> -test suite- to measure Frames per second (weighted FPS).</li>
+<li>Use LVGL's <a href="https://github.com/lvgl/lvgl/tree/v8.3.6/demos/music">lv_demo_music()</a> -demo application- to measure Frames per second (average FPS).</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md356"></a>
+Settings on ESP32 chips which have impact on LCD and LVGL performance</h1>
+<p>Following options and settings have impact on LCD performance (FPS). Some options yield only small difference in FPS (e.g. ~1 FPS), and some of them are more significant. Usually it depends on complexity of the graphical application (number of widgets...), resources (CPU time, RAM available...) and size of screen (definition and color depth).</p>
+<p>Another set of key parametes are hardware related (graphical IO, frame buffer location), which are not yet covered in this document.</p>
+<h2><a class="anchor" id="autotoc_md357"></a>
+LVGL Buffer configuration</h2>
+<p><b>This is by far the most significant setting.</b> Users are encouraged to focus on correct frame buffer configuration before moving ahead with other optimizations.</p>
+<p>On the other hand, the frame buffer(s) will consume significant portion of your RAM. In the graph below, you can see different frame buffer settings and resulting FPS:</p>
+<p><img src="frame_buffer_settings.png" alt="FPS vs Frame buffer size" class="inline"/></p>
+<p>Main takeaways from the graph are:</p>
+<ul>
+<li>The size of <b>LVGL buffer</b> and <b>double buffering</b> feature has big impact on performance.</li>
+<li>Frame buffer size &gt;25% of the screen does not bring relevant performance boost</li>
+<li>Frame buffer size &lt;10% will have severe negative effect on performance</li>
+</ul>
+<p><em>Note:</em> The measurements are valid for frame buffer in internal SRAM. Placing the frame buffer into external PSRAM will yield worse results.</p>
+<h2><a class="anchor" id="autotoc_md358"></a>
+Compiler optimization level</h2>
+<p>Recommended level is "Performance" for good results. The "Performance" setting causes the compiled code to be larger and faster.</p>
+<ul>
+<li><code>CONFIG_COMPILER_OPTIMIZATION_PERF=y</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md359"></a>
+CPU frequency</h2>
+<p>The CPU frequency has a big impact on LCD performance. The recommended value is maximum -&gt; 240 MHz.</p>
+<ul>
+<li><code>CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md360"></a>
+Flash frequency and mode</h2>
+<p>The flash clock frequency and mode (bus width) has a big impact on LCD performance. Your choices will be limited by your hardware flash configuration. The higher the frequency and bus width, the better.</p>
+<ul>
+<li><code>CONFIG_ESPTOOLPY_FLASHFREQ_120M=y</code></li>
+<li><code>CONFIG_ESPTOOLPY_FLASHMODE_QIO=y</code> or <code>CONFIG_ESPTOOLPY_OCT_FLASH</code> on supported chips</li>
+</ul>
+<p>More information about SPI Flash configuration can be found in <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/flash_psram_config.html">ESP-IDF Programming Guide</a>.</p>
+<h2><a class="anchor" id="autotoc_md361"></a>
+Fast LVGL memory</h2>
+<p>This option puts the most frequently used LVGL functions into IRAM for execution speed up.</p>
+<ul>
+<li><code>CONFIG_LV_ATTRIBUTE_FAST_MEM_USE_IRAM=y</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md362"></a>
+Affinity main task to second core</h2>
+<p>The main LVGL task can be processed on the second core of the CPU. It can increase performance. (It is available only on dual-core chips)</p>
+<ul>
+<li><code>CONFIG_ESP_MAIN_TASK_AFFINITY_CPU1=y</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md363"></a>
+Using esp-idf &lt;tt&gt;memcpy&lt;/tt&gt; and &lt;tt&gt;memset&lt;/tt&gt; instead LVGL's configuration</h2>
+<p>Native esp-idf implementation are a little (~1-3 FPS) faster (only for LVGL8).</p>
+<ul>
+<li><code>CONFIG_LV_MEMCPY_MEMSET_STD=y</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md364"></a>
+Default LVGL display refresh period</h2>
+<p>This setting can improve subjective performance during screen transitions (scrolling, etc.).</p>
+<p>LVGL8</p><ul>
+<li><code>CONFIG_LV_DISP_DEF_REFR_PERIOD=10</code></li>
+</ul>
+<p>LVGL9</p><ul>
+<li><code>CONFIG_LV_DEF_REFR_PERIOD=10</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md365"></a>
+Example FPS improvement vs graphical settings</h1>
+<p>The LVGL9 benchmark demo uses a different algorithm for measuring FPS. In this case, we used the same algorithm for measurement in LVGL8 for comparison.</p>
+<h2><a class="anchor" id="autotoc_md366"></a>
+RGB LCD, PSRAM (octal) with GDMA - ESP32-S3-LCD-EV-BOARD</h2>
+<p><img src="https://github.com/espressif/esp-bsp/blob/master/docu/pics/esp32-s3-lcd-ev-board_800x480.png?raw=true" alt="" align="right" width="300px" class="inline"/></p>
+<p>Default settings:</p><ul>
+<li>BSP example <code>display_lvgl_demos</code></li>
+<li>LCD: 4.3" 800x480
+* Interface: RGB
+* LVGL buffer size: 800 x 480
+* LVGL buffer mode: Direct (avoid-tearing)
+* LVGL double buffer: NO
+* Optimization: Debug
+* CPU frequency: 160 MHz
+* Flash frequency: 80 MHz
+* PSRAM frequency: 80 MHz
+* Flash mode: DIO
+* LVGL display refresh period: 30 ms
+
+&lt;table class="markdownTable"&gt;
+  &lt;tr class="markdownTableHead"&gt;    &lt;th class="markdownTableHeadCenter"&gt; Average FPS (LVGL8)   </li>
+</ul>
+<p>Average FPS (LVGL 9.2)   </p>
+<p>Changed settings    </p>
+<p>12   </p>
+<p>9   </p>
+<p>Default    </p>
+<p>13   </p>
+<p>9   </p>
+<p>+ Optimization: Performance (<code>CONFIG_COMPILER_OPTIMIZATION_PERF=y</code>)    </p>
+<p>14   </p>
+<p>11   </p>
+<p>+ CPU frequency: 240 MHz (<code>CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y</code>)    </p>
+<p>14   </p>
+<p>11   </p>
+<p>+ Flash mode: QIO (<code>CONFIG_ESPTOOLPY_FLASHMODE_QIO=y</code>)    </p>
+<p>15   </p>
+<p>11   </p>
+<p>+ LVGL fast memory enabled (<code>CONFIG_LV_ATTRIBUTE_FAST_MEM_USE_IRAM=y</code>)    </p>
+<p>16   </p>
+<p>11   </p>
+<p>+ (<code>CONFIG_LV_DISP_DEF_REFR_PERIOD=10</code> / <code>CONFIG_LV_DEF_REFR_PERIOD=10</code>)   </p>
+<h2><a class="anchor" id="autotoc_md367"></a>
+Parallel 8080 LCD (only for LVGL8)</h2>
+<p><img src="https://github.com/espressif/esp-bsp/blob/master/docu/pics/7inch-Capacitive-Touch-LCD-C_l.jpg?raw=true" alt="" align="right" width="300px" class="inline"/></p>
+<p>Default settings:</p><ul>
+<li>BSP example <code>display_lvgl_demos</code> with <code>ws_7inch</code> component</li>
+<li>LCD: 7" 800x480
+* Intarface: 16bit parallel Intel 8080
+* LCD IO clock: 20 MHz
+* LVGL buffer size: 800 x 50
+* LVGL double buffer: YES
+* Optimization: Debug
+* CPU frequency: 160 MHz
+* Flash frequency: 80 MHz
+* Flash mode: DIO
+* LVGL display refresh period: 30 ms
+
+@subsubsection autotoc_md368 Internal RAM with DMA
+
+&lt;table class="markdownTable"&gt;
+  &lt;tr class="markdownTableHead"&gt;    &lt;th class="markdownTableHeadCenter"&gt; Average FPS   </li>
+</ul>
+<p>Weighted FPS   </p>
+<p>Changed settings    </p>
+<p>17   </p>
+<p>32   </p>
+<p>Default    </p>
+<p>18   </p>
+<p>36   </p>
+<p>+ Optimization: Performance (<code>CONFIG_COMPILER_OPTIMIZATION_PERF=y</code>)    </p>
+<p>21   </p>
+<p>46   </p>
+<p>+ CPU frequency: 240 MHz (<code>CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y</code>)    </p>
+<p>26   </p>
+<p>56   </p>
+<p>+ Flash frequency: 120 MHz, Flash mode: QIO (<code>CONFIG_ESPTOOLPY_FLASHFREQ_120M=y</code> + <code>CONFIG_ESPTOOLPY_FLASHMODE_QIO=y</code>)    </p>
+<p>28   </p>
+<p><b>60</b>   </p>
+<p>+ LVGL fast memory enabled (<code>CONFIG_LV_ATTRIBUTE_FAST_MEM_USE_IRAM=y</code>)    </p>
+<p>41   </p>
+<p>55   </p>
+<p>+ (<code>CONFIG_LV_DISP_DEF_REFR_PERIOD=10</code>)   </p>
+<h3><a class="anchor" id="autotoc_md369"></a>
+PSRAM (QUAD) without DMA</h3>
+<p>Default changes:</p><ul>
+<li>LCD IO clock: 2 MHz</li>
+<li>PSRAM frequency: 80 MHz</li>
+</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Average FPS   </th><th class="markdownTableHeadCenter">Weighted FPS   </th><th class="markdownTableHeadNone">Changed settings    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">11   </td><td class="markdownTableBodyCenter">7   </td><td class="markdownTableBodyNone">Default    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">11   </td><td class="markdownTableBodyCenter">7   </td><td class="markdownTableBodyNone">+ Optimization: Performance (<code>CONFIG_COMPILER_OPTIMIZATION_PERF=y</code>)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">12   </td><td class="markdownTableBodyCenter">8   </td><td class="markdownTableBodyNone">+ CPU frequency: 240 MHz (<code>CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y</code>)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">12   </td><td class="markdownTableBodyCenter">9   </td><td class="markdownTableBodyNone">+ Flash frequency: 120 MHz, PSRAM frequency: 120 MHz, Flash mode: QIO (<code>CONFIG_ESPTOOLPY_FLASHFREQ_120M=y</code> + <code>CONFIG_SPIRAM_SPEED_120M=y</code> + <code>CONFIG_ESPTOOLPY_FLASHMODE_QIO=y</code>)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">12   </td><td class="markdownTableBodyCenter">9   </td><td class="markdownTableBodyNone">+ LVGL fast memory enabled (<code>CONFIG_LV_ATTRIBUTE_FAST_MEM_USE_IRAM=y</code>)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">12   </td><td class="markdownTableBodyCenter">8   </td><td class="markdownTableBodyNone">+ LVGL buffer size: 800 x 480    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">26   </td><td class="markdownTableBodyCenter">8   </td><td class="markdownTableBodyNone">+ (<code>CONFIG_LV_DISP_DEF_REFR_PERIOD=10</code>)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">31   </td><td class="markdownTableBodyCenter">23   </td><td class="markdownTableBodyNone">+ LCD clock: 10 MHz [^1]   </td></tr>
+</table>
+<p>[^1]: This is not working in default and sometimes in fast changes on screen is not working properly.</p>
+<h1><a class="anchor" id="autotoc_md370"></a>
+Conclusion</h1>
+<p>The graphical performance depends on a lot of things and settings, many of which affect the whole system (Compiler, Flash, CPU, PSRAM configuration...). The user should primarily focus on trade-off between frame-buffer(s) size and RAM consumption of the buffer, before optimizing the design further.</p>
+<p>Other configuration options not covered in this document are:</p><ul>
+<li>Hardware interfaces, color depth, screen definition (size), clocks, LCD controller and more.</li>
+<li>Complexity of the graphical application (number of LVGL objects and their styles). </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

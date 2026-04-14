@@ -1,0 +1,118 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/win/lv\+\_\+win.h}
+\hypertarget{lv__win_8h}{}\label{lv__win_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/win/lv\_win.h@{managed\_components/lvgl\_\_lvgl/src/widgets/win/lv\_win.h}}
+{\ttfamily \#include "{}../../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+win.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+win.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__win_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__win_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__win_8h_a8b7202ec7f701270635aa3eb012ab2d6}{lv\+\_\+win\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__win_8h_a720fa8d5c63378343374f5a3953c9c7f}{lv\+\_\+win\+\_\+add\+\_\+title}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}win, const char \texorpdfstring{$\ast$}{*}txt)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__win_8h_ab8797d5ac29cc857bd1b127328530ed2}{lv\+\_\+win\+\_\+add\+\_\+button}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}win, const void \texorpdfstring{$\ast$}{*}icon, int32\+\_\+t btn\+\_\+w)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__win_8h_ac3637249d0bcbd217b1401659dab7f1b}{lv\+\_\+win\+\_\+get\+\_\+header}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}win)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__win_8h_ae982b85d16df445db9a399d32b5ab4ea}{lv\+\_\+win\+\_\+get\+\_\+content}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}win)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__win_8h_aab609204fca6a1c6d72232a0ad83043a}\label{lv__win_8h_aab609204fca6a1c6d72232a0ad83043a} 
+\mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\+\_\+\+ATTRIBUTE\+\_\+\+EXTERN\+\_\+\+DATA}} const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+win\+\_\+class}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__win_8h_ab8797d5ac29cc857bd1b127328530ed2}\label{lv__win_8h_ab8797d5ac29cc857bd1b127328530ed2} 
+\index{lv\_win.h@{lv\_win.h}!lv\_win\_add\_button@{lv\_win\_add\_button}}
+\index{lv\_win\_add\_button@{lv\_win\_add\_button}!lv\_win.h@{lv\_win.h}}
+\doxysubsubsection{\texorpdfstring{lv\_win\_add\_button()}{lv\_win\_add\_button()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+win\+\_\+add\+\_\+button (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{icon,  }\item[{int32\+\_\+t}]{btn\+\_\+w }\end{DoxyParamCaption})}
+
+Add a button to the window 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a window widget \\
+\hline
+{\em icon} & an icon to be displayed on the button \\
+\hline
+{\em btn\+\_\+w} & width of the button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the widget where the content of the button can be created 
+\end{DoxyReturn}
+\Hypertarget{lv__win_8h_a720fa8d5c63378343374f5a3953c9c7f}\label{lv__win_8h_a720fa8d5c63378343374f5a3953c9c7f} 
+\index{lv\_win.h@{lv\_win.h}!lv\_win\_add\_title@{lv\_win\_add\_title}}
+\index{lv\_win\_add\_title@{lv\_win\_add\_title}!lv\_win.h@{lv\_win.h}}
+\doxysubsubsection{\texorpdfstring{lv\_win\_add\_title()}{lv\_win\_add\_title()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+win\+\_\+add\+\_\+title (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{win,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{txt }\end{DoxyParamCaption})}
+
+Add a title to the window 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a window widget \\
+\hline
+{\em txt} & the text of the title \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the widget where the content of the title can be created 
+\end{DoxyReturn}
+\Hypertarget{lv__win_8h_a8b7202ec7f701270635aa3eb012ab2d6}\label{lv__win_8h_a8b7202ec7f701270635aa3eb012ab2d6} 
+\index{lv\_win.h@{lv\_win.h}!lv\_win\_create@{lv\_win\_create}}
+\index{lv\_win\_create@{lv\_win\_create}!lv\_win.h@{lv\_win.h}}
+\doxysubsubsection{\texorpdfstring{lv\_win\_create()}{lv\_win\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+win\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a window widget 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to a parent widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the created window 
+\end{DoxyReturn}
+\Hypertarget{lv__win_8h_ae982b85d16df445db9a399d32b5ab4ea}\label{lv__win_8h_ae982b85d16df445db9a399d32b5ab4ea} 
+\index{lv\_win.h@{lv\_win.h}!lv\_win\_get\_content@{lv\_win\_get\_content}}
+\index{lv\_win\_get\_content@{lv\_win\_get\_content}!lv\_win.h@{lv\_win.h}}
+\doxysubsubsection{\texorpdfstring{lv\_win\_get\_content()}{lv\_win\_get\_content()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+win\+\_\+get\+\_\+content (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+Get the content of the window 
+\begin{DoxyParams}{Parametri}
+{\em win} & pointer to a window widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the content of the window 
+\end{DoxyReturn}
+\Hypertarget{lv__win_8h_ac3637249d0bcbd217b1401659dab7f1b}\label{lv__win_8h_ac3637249d0bcbd217b1401659dab7f1b} 
+\index{lv\_win.h@{lv\_win.h}!lv\_win\_get\_header@{lv\_win\_get\_header}}
+\index{lv\_win\_get\_header@{lv\_win\_get\_header}!lv\_win.h@{lv\_win.h}}
+\doxysubsubsection{\texorpdfstring{lv\_win\_get\_header()}{lv\_win\_get\_header()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+win\+\_\+get\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{win }\end{DoxyParamCaption})}
+
+Get the header of the window 
+\begin{DoxyParams}{Parametri}
+{\em win} & pointer to a window widget \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the header of the window 
+\end{DoxyReturn}

@@ -1,0 +1,366 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+text.c}
+\hypertarget{lv__text_8c}{}\label{lv__text_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_text.c@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_text.c}}
+{\ttfamily \#include "{}lv\+\_\+text\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+text\+\_\+ap.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+mem.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+text.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+text.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__text_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__text_8c_ac490fc3d5f5dddb984086a42fd21fe01}\label{lv__text_8c_ac490fc3d5f5dddb984086a42fd21fe01} 
+\#define {\bfseries NO\+\_\+\+BREAK\+\_\+\+FOUND}~UINT32\+\_\+\+MAX
+\item 
+\Hypertarget{lv__text_8c_a89167f9a4b2cad9c7de181d12ae57dfe}\label{lv__text_8c_a89167f9a4b2cad9c7de181d12ae57dfe} 
+\#define {\bfseries LV\+\_\+\+IS\+\_\+\+ASCII}(value)~((value \& 0x80U) == 0x00U)
+\item 
+\Hypertarget{lv__text_8c_ad1567732b2c6f4d83b9ae9cef608cd6a}\label{lv__text_8c_ad1567732b2c6f4d83b9ae9cef608cd6a} 
+\#define {\bfseries LV\+\_\+\+IS\+\_\+2\+BYTES\+\_\+\+UTF8\+\_\+\+CODE}(value)~((value \& 0x\+E0U) == 0x\+C0U)
+\item 
+\Hypertarget{lv__text_8c_a7f33ee8f30f5b98aff5ee8bc10f8b9e5}\label{lv__text_8c_a7f33ee8f30f5b98aff5ee8bc10f8b9e5} 
+\#define {\bfseries LV\+\_\+\+IS\+\_\+3\+BYTES\+\_\+\+UTF8\+\_\+\+CODE}(value)~((value \& 0x\+F0U) == 0x\+E0U)
+\item 
+\Hypertarget{lv__text_8c_ac9dd62638896ed7982613307fdf5925a}\label{lv__text_8c_ac9dd62638896ed7982613307fdf5925a} 
+\#define {\bfseries LV\+\_\+\+IS\+\_\+4\+BYTES\+\_\+\+UTF8\+\_\+\+CODE}(value)~((value \& 0x\+F8U) == 0x\+F0U)
+\item 
+\Hypertarget{lv__text_8c_a94345fa770da58db11719acbb87d87d9}\label{lv__text_8c_a94345fa770da58db11719acbb87d87d9} 
+\#define {\bfseries LV\+\_\+\+IS\+\_\+\+INVALID\+\_\+\+UTF8\+\_\+\+CODE}(value)~((value \& 0x\+C0U) != 0x80U)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__text_8c_a19ff98a84d2533c79ba59b08198526b9}{lv\+\_\+text\+\_\+attributes\+\_\+init}} (\mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}attributes)
+\item 
+void \mbox{\hyperlink{lv__text_8c_a43c2cb5e007d67700ce5a0d1e1788602}{lv\+\_\+text\+\_\+get\+\_\+size}} (\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}size\+\_\+res, const char \texorpdfstring{$\ast$}{*}text, const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, int32\+\_\+t letter\+\_\+space, int32\+\_\+t line\+\_\+space, int32\+\_\+t max\+\_\+width, \mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t}} flag)
+\item 
+void \mbox{\hyperlink{lv__text_8c_a317ebd3748f8ff82f1dc043ebb5d6552}{lv\+\_\+text\+\_\+get\+\_\+size\+\_\+attributes}} (\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}size\+\_\+res, const char \texorpdfstring{$\ast$}{*}text, const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, \mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}attributes)
+\item 
+bool \mbox{\hyperlink{lv__text_8c_a74590800e4c1678cb32543a69f647db4}{lv\+\_\+text\+\_\+is\+\_\+cmd}} (\mbox{\hyperlink{lv__text__private_8h_af691e4d0a6e6089202b5031650d8114d}{lv\+\_\+text\+\_\+cmd\+\_\+state\+\_\+t}} \texorpdfstring{$\ast$}{*}state, uint32\+\_\+t c)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__text_8c_a1b7abc0c06adb642ac2d5e15340c2644}{lv\+\_\+text\+\_\+get\+\_\+next\+\_\+line}} (const char \texorpdfstring{$\ast$}{*}txt, uint32\+\_\+t len, const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, int32\+\_\+t \texorpdfstring{$\ast$}{*}used\+\_\+width, \mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}attributes)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__text_8c_ad8be22124adc0fed3dfe21c00c91e2be}{lv\+\_\+text\+\_\+get\+\_\+width}} (const char \texorpdfstring{$\ast$}{*}txt, uint32\+\_\+t length, const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font, const \mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}attributes)
+\item 
+void \mbox{\hyperlink{lv__text_8c_a4f370388e0e148c60bc8d294e66ca6ec}{lv\+\_\+text\+\_\+ins}} (char \texorpdfstring{$\ast$}{*}txt\+\_\+buf, uint32\+\_\+t pos, const char \texorpdfstring{$\ast$}{*}ins\+\_\+txt)
+\item 
+void \mbox{\hyperlink{lv__text_8c_a3d51fce3d7af4515b6fead0cb2b8117e}{lv\+\_\+text\+\_\+cut}} (char \texorpdfstring{$\ast$}{*}txt, uint32\+\_\+t pos, uint32\+\_\+t len)
+\item 
+\Hypertarget{lv__text_8c_a4a0adb9e78a35a8274f3b9db3638f123}\label{lv__text_8c_a4a0adb9e78a35a8274f3b9db3638f123} 
+char \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+text\+\_\+set\+\_\+text\+\_\+vfmt} (const char \texorpdfstring{$\ast$}{*}fmt, va\+\_\+list ap)
+\item 
+void \mbox{\hyperlink{lv__text_8c_a1359d256e9192088cd30eca1356c0065}{lv\+\_\+text\+\_\+encoded\+\_\+letter\+\_\+next\+\_\+2}} (const char \texorpdfstring{$\ast$}{*}txt, uint32\+\_\+t \texorpdfstring{$\ast$}{*}letter, uint32\+\_\+t \texorpdfstring{$\ast$}{*}letter\+\_\+next, uint32\+\_\+t \texorpdfstring{$\ast$}{*}ofs)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_a822e32db44b7fde4595d0060b57775c5}{lv\+\_\+text\+\_\+encoded\+\_\+size}} )(const char \texorpdfstring{$\ast$}{*}) = lv\+\_\+text\+\_\+utf8\+\_\+size
+\item 
+uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_a2ce41e55c89270a5ee2366d3b467a76e}{lv\+\_\+text\+\_\+unicode\+\_\+to\+\_\+encoded}} )(uint32\+\_\+t) = lv\+\_\+text\+\_\+unicode\+\_\+to\+\_\+utf8
+\item 
+uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_a1d67bb7b9ef786868af614d6fd93932e}{lv\+\_\+text\+\_\+encoded\+\_\+conv\+\_\+wc}} )(uint32\+\_\+t) = lv\+\_\+text\+\_\+utf8\+\_\+conv\+\_\+wc
+\item 
+uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_ac6c9e317a0d51ed17ce79f70108917c8}{lv\+\_\+text\+\_\+encoded\+\_\+next}} )(const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t \texorpdfstring{$\ast$}{*}) = lv\+\_\+text\+\_\+utf8\+\_\+next
+\item 
+uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_a3d36d90116c497eb8dafe3f62df89340}{lv\+\_\+text\+\_\+encoded\+\_\+prev}} )(const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t \texorpdfstring{$\ast$}{*}) = lv\+\_\+text\+\_\+utf8\+\_\+prev
+\item 
+uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_a10c6af2d3b1f6370a6dfd68bfdd16d4d}{lv\+\_\+text\+\_\+encoded\+\_\+get\+\_\+byte\+\_\+id}} )(const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t) = lv\+\_\+text\+\_\+utf8\+\_\+get\+\_\+byte\+\_\+id
+\item 
+uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_a44351cc27a91d493d1134be99b991c3c}{lv\+\_\+text\+\_\+encoded\+\_\+get\+\_\+char\+\_\+id}} )(const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t) = lv\+\_\+text\+\_\+utf8\+\_\+get\+\_\+char\+\_\+id
+\item 
+uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{lv__text_8c_aea0560d7b91ca907e2d1737eec6d3f9a}{lv\+\_\+text\+\_\+get\+\_\+encoded\+\_\+length}} )(const char \texorpdfstring{$\ast$}{*}) = lv\+\_\+text\+\_\+utf8\+\_\+get\+\_\+length
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__text_8c_a19ff98a84d2533c79ba59b08198526b9}\label{lv__text_8c_a19ff98a84d2533c79ba59b08198526b9} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_attributes\_init@{lv\_text\_attributes\_init}}
+\index{lv\_text\_attributes\_init@{lv\_text\_attributes\_init}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_attributes\_init()}{lv\_text\_attributes\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+text\+\_\+attributes\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attributes }\end{DoxyParamCaption})}
+
+Initialize the text attributes descriptor 
+\begin{DoxyParams}{Parametri}
+{\em attributes} & the text attributes descriptor to initialize \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__text_8c_a3d51fce3d7af4515b6fead0cb2b8117e}\label{lv__text_8c_a3d51fce3d7af4515b6fead0cb2b8117e} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_cut@{lv\_text\_cut}}
+\index{lv\_text\_cut@{lv\_text\_cut}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_cut()}{lv\_text\_cut()}}
+{\footnotesize\ttfamily void lv\+\_\+text\+\_\+cut (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t}]{pos,  }\item[{uint32\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+Delete a part of a string 
+\begin{DoxyParams}{Parametri}
+{\em txt} & string to modify, must be \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated and should point to a heap or stack frame, not read-\/only memory. \\
+\hline
+{\em pos} & position where to start the deleting (0\+: before the first char, 1\+: after the first char etc.) \\
+\hline
+{\em len} & number of characters to delete \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__text_8c_a1359d256e9192088cd30eca1356c0065}\label{lv__text_8c_a1359d256e9192088cd30eca1356c0065} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_encoded\_letter\_next\_2@{lv\_text\_encoded\_letter\_next\_2}}
+\index{lv\_text\_encoded\_letter\_next\_2@{lv\_text\_encoded\_letter\_next\_2}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_encoded\_letter\_next\_2()}{lv\_text\_encoded\_letter\_next\_2()}}
+{\footnotesize\ttfamily void lv\+\_\+text\+\_\+encoded\+\_\+letter\+\_\+next\+\_\+2 (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{letter,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{letter\+\_\+next,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{ofs }\end{DoxyParamCaption})}
+
+Decode two encoded character from a string. 
+\begin{DoxyParams}{Parametri}
+{\em txt} & pointer to \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated string \\
+\hline
+{\em letter} & the first decoded Unicode character or 0 on invalid data code \\
+\hline
+{\em letter\+\_\+next} & the second decoded Unicode character or 0 on invalid data code \\
+\hline
+{\em ofs} & start index in \textquotesingle{}txt\textquotesingle{} where to start. After the call it will point to the next encoded char in \textquotesingle{}txt\textquotesingle{}. NULL to use txt\mbox{[}0\mbox{]} as index \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__text_8c_a1b7abc0c06adb642ac2d5e15340c2644}\label{lv__text_8c_a1b7abc0c06adb642ac2d5e15340c2644} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_get\_next\_line@{lv\_text\_get\_next\_line}}
+\index{lv\_text\_get\_next\_line@{lv\_text\_get\_next\_line}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_get\_next\_line()}{lv\_text\_get\_next\_line()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+text\+\_\+get\+\_\+next\+\_\+line (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t}]{len,  }\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int32\+\_\+t \texorpdfstring{$\ast$}{*}}]{used\+\_\+width,  }\item[{\mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attributes }\end{DoxyParamCaption})}
+
+Get the next line of text. Check line length and break chars too. 
+\begin{DoxyParams}{Parametri}
+{\em txt} & a \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated string \\
+\hline
+{\em len} & length of \textquotesingle{}txt\textquotesingle{} in bytes \\
+\hline
+{\em font} & pointer to a font \\
+\hline
+{\em used\+\_\+width} & When used\+\_\+width != NULL, save the width of this line if flag == LV\+\_\+\+TEXT\+\_\+\+FLAG\+\_\+\+NONE, otherwise save -\/1. \\
+\hline
+{\em attributes} & text attributes, flags to control line break behaviour, spacing etc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the index of the first char of the new line (in byte index not letter index. With UTF-\/8 they are different) 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_a43c2cb5e007d67700ce5a0d1e1788602}\label{lv__text_8c_a43c2cb5e007d67700ce5a0d1e1788602} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_get\_size@{lv\_text\_get\_size}}
+\index{lv\_text\_get\_size@{lv\_text\_get\_size}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_get\_size()}{lv\_text\_get\_size()}}
+{\footnotesize\ttfamily void lv\+\_\+text\+\_\+get\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{size\+\_\+res,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int32\+\_\+t}]{letter\+\_\+space,  }\item[{int32\+\_\+t}]{line\+\_\+space,  }\item[{int32\+\_\+t}]{max\+\_\+width,  }\item[{\mbox{\hyperlink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t}}}]{flag }\end{DoxyParamCaption})}
+
+Get size of a text 
+\begin{DoxyParams}{Parametri}
+{\em size\+\_\+res} & pointer to a \textquotesingle{}point\+\_\+t\textquotesingle{} variable to store the result \\
+\hline
+{\em text} & pointer to a text \\
+\hline
+{\em font} & pointer to font of the text \\
+\hline
+{\em letter\+\_\+space} & letter space of the text \\
+\hline
+{\em line\+\_\+space} & line space of the text \\
+\hline
+{\em max\+\_\+width} & max width of the text (break the lines to fit this size). Set COORD\+\_\+\+MAX to avoid \\
+\hline
+{\em flag} & settings for the text from \doxylink{lv__text_8h_a9fe3eca2e243f5215e4f53eabd35cecb}{lv\+\_\+text\+\_\+flag\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__text_8c_a317ebd3748f8ff82f1dc043ebb5d6552}\label{lv__text_8c_a317ebd3748f8ff82f1dc043ebb5d6552} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_get\_size\_attributes@{lv\_text\_get\_size\_attributes}}
+\index{lv\_text\_get\_size\_attributes@{lv\_text\_get\_size\_attributes}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_get\_size\_attributes()}{lv\_text\_get\_size\_attributes()}}
+{\footnotesize\ttfamily void lv\+\_\+text\+\_\+get\+\_\+size\+\_\+attributes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{size\+\_\+res,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text,  }\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{\mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attributes }\end{DoxyParamCaption})}
+
+Get size of a text 
+\begin{DoxyParams}{Parametri}
+{\em size\+\_\+res} & pointer to a \textquotesingle{}point\+\_\+t\textquotesingle{} variable to store the result \\
+\hline
+{\em text} & pointer to a text \\
+\hline
+{\em font} & pointer to font of the text \\
+\hline
+{\em attributes} & the text attributes, flags for line break behaviour, spacing etc \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__text_8c_ad8be22124adc0fed3dfe21c00c91e2be}\label{lv__text_8c_ad8be22124adc0fed3dfe21c00c91e2be} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_get\_width@{lv\_text\_get\_width}}
+\index{lv\_text\_get\_width@{lv\_text\_get\_width}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_get\_width()}{lv\_text\_get\_width()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+text\+\_\+get\+\_\+width (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t}]{length,  }\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font,  }\item[{const \mbox{\hyperlink{structlv__text__attributes__t}{lv\+\_\+text\+\_\+attributes\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{attributes }\end{DoxyParamCaption})}
+
+Give the length of a text with a given font with text flags 
+\begin{DoxyParams}{Parametri}
+{\em txt} & a \textquotesingle{}\textbackslash{}0\textquotesingle{} terminate string \\
+\hline
+{\em length} & length of \textquotesingle{}txt\textquotesingle{} in byte count and not characters (Á is 1 character but 2 bytes in UTF-\/8) \\
+\hline
+{\em font} & pointer to font of the text \\
+\hline
+{\em attributes} & the text attributes, flags for line break behaviour, spacing etc \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+length of a char\+\_\+num long text 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_a4f370388e0e148c60bc8d294e66ca6ec}\label{lv__text_8c_a4f370388e0e148c60bc8d294e66ca6ec} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_ins@{lv\_text\_ins}}
+\index{lv\_text\_ins@{lv\_text\_ins}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_ins()}{lv\_text\_ins()}}
+{\footnotesize\ttfamily void lv\+\_\+text\+\_\+ins (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{txt\+\_\+buf,  }\item[{uint32\+\_\+t}]{pos,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{ins\+\_\+txt }\end{DoxyParamCaption})}
+
+Insert a string into another 
+\begin{DoxyParams}{Parametri}
+{\em txt\+\_\+buf} & the original text (must be big enough for the result text and NULL terminated) \\
+\hline
+{\em pos} & position to insert (0\+: before the original text, 1\+: after the first char etc.) \\
+\hline
+{\em ins\+\_\+txt} & text to insert, must be \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__text_8c_a74590800e4c1678cb32543a69f647db4}\label{lv__text_8c_a74590800e4c1678cb32543a69f647db4} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_is\_cmd@{lv\_text\_is\_cmd}}
+\index{lv\_text\_is\_cmd@{lv\_text\_is\_cmd}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_is\_cmd()}{lv\_text\_is\_cmd()}}
+{\footnotesize\ttfamily bool lv\+\_\+text\+\_\+is\+\_\+cmd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lv__text__private_8h_af691e4d0a6e6089202b5031650d8114d}{lv\+\_\+text\+\_\+cmd\+\_\+state\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{state,  }\item[{uint32\+\_\+t}]{c }\end{DoxyParamCaption})}
+
+Check if c is command state 
+\begin{DoxyParams}{Parametri}
+{\em state} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+True if c is state 
+\end{DoxyReturn}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__text_8c_a1d67bb7b9ef786868af614d6fd93932e}\label{lv__text_8c_a1d67bb7b9ef786868af614d6fd93932e} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_encoded\_conv\_wc@{lv\_text\_encoded\_conv\_wc}}
+\index{lv\_text\_encoded\_conv\_wc@{lv\_text\_encoded\_conv\_wc}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_encoded\_conv\_wc}{lv\_text\_encoded\_conv\_wc}}
+{\footnotesize\ttfamily uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+encoded\+\_\+conv\+\_\+wc) (uint32\+\_\+t) (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{c }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+utf8\+\_\+conv\+\_\+wc}
+
+Convert a wide character, e.\+g. \textquotesingle{}Á\textquotesingle{} little endian to be compatible with the encoded format. 
+\begin{DoxyParams}{Parametri}
+{\em c} & a wide character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+{\ttfamily c} in the encoded format 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_a10c6af2d3b1f6370a6dfd68bfdd16d4d}\label{lv__text_8c_a10c6af2d3b1f6370a6dfd68bfdd16d4d} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_encoded\_get\_byte\_id@{lv\_text\_encoded\_get\_byte\_id}}
+\index{lv\_text\_encoded\_get\_byte\_id@{lv\_text\_encoded\_get\_byte\_id}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_encoded\_get\_byte\_id}{lv\_text\_encoded\_get\_byte\_id}}
+{\footnotesize\ttfamily uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+encoded\+\_\+get\+\_\+byte\+\_\+id) (const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t) (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t}]{utf8\+\_\+id }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+utf8\+\_\+get\+\_\+byte\+\_\+id}
+
+Convert a letter index (in the encoded text) to byte index. E.\+g. in UTF-\/8 "{}\+AÁ\+RT"{} index of \textquotesingle{}R\textquotesingle{} is 2 but start at byte 3 because \textquotesingle{}Á\textquotesingle{} is 2 bytes long 
+\begin{DoxyParams}{Parametri}
+{\em txt} & a \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated UTF-\/8 string \\
+\hline
+{\em utf8\+\_\+id} & character index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+byte index of the \textquotesingle{}enc\+\_\+id\textquotesingle{}th letter 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_a44351cc27a91d493d1134be99b991c3c}\label{lv__text_8c_a44351cc27a91d493d1134be99b991c3c} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_encoded\_get\_char\_id@{lv\_text\_encoded\_get\_char\_id}}
+\index{lv\_text\_encoded\_get\_char\_id@{lv\_text\_encoded\_get\_char\_id}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_encoded\_get\_char\_id}{lv\_text\_encoded\_get\_char\_id}}
+{\footnotesize\ttfamily uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+encoded\+\_\+get\+\_\+char\+\_\+id) (const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t) (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t}]{byte\+\_\+id }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+utf8\+\_\+get\+\_\+char\+\_\+id}
+
+Convert a byte index (in an encoded text) to character index. E.\+g. in UTF-\/8 "{}\+AÁ\+RT"{} index of \textquotesingle{}R\textquotesingle{} is 2 but start at byte 3 because \textquotesingle{}Á\textquotesingle{} is 2 bytes long 
+\begin{DoxyParams}{Parametri}
+{\em txt} & a \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated UTF-\/8 string \\
+\hline
+{\em byte\+\_\+id} & byte index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+character index of the letter at \textquotesingle{}byte\+\_\+id\textquotesingle{}th position 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_ac6c9e317a0d51ed17ce79f70108917c8}\label{lv__text_8c_ac6c9e317a0d51ed17ce79f70108917c8} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_encoded\_next@{lv\_text\_encoded\_next}}
+\index{lv\_text\_encoded\_next@{lv\_text\_encoded\_next}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_encoded\_next}{lv\_text\_encoded\_next}}
+{\footnotesize\ttfamily uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+encoded\+\_\+next) (const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{i\+\_\+start }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+utf8\+\_\+next}
+
+Decode the next encoded character from a string. 
+\begin{DoxyParams}{Parametri}
+{\em txt} & pointer to \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated string \\
+\hline
+{\em i\+\_\+start} & start index in \textquotesingle{}txt\textquotesingle{} where to start. After the call it will point to the next encoded char in \textquotesingle{}txt\textquotesingle{}. NULL to use txt\mbox{[}0\mbox{]} as index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the decoded Unicode character or 0 on invalid data code 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_a3d36d90116c497eb8dafe3f62df89340}\label{lv__text_8c_a3d36d90116c497eb8dafe3f62df89340} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_encoded\_prev@{lv\_text\_encoded\_prev}}
+\index{lv\_text\_encoded\_prev@{lv\_text\_encoded\_prev}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_encoded\_prev}{lv\_text\_encoded\_prev}}
+{\footnotesize\ttfamily uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+encoded\+\_\+prev) (const char \texorpdfstring{$\ast$}{*}, uint32\+\_\+t \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{i\+\_\+start }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+utf8\+\_\+prev}
+
+Get the previous encoded character form a string.
+
+
+\begin{DoxyParams}{Parametri}
+{\em txt} & pointer to \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated string \\
+\hline
+{\em i\+\_\+start} & index in \textquotesingle{}txt\textquotesingle{} where to start. After the call it will point to the previous encoded char in \textquotesingle{}txt\textquotesingle{}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the decoded Unicode character or 0 on invalid data 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_a822e32db44b7fde4595d0060b57775c5}\label{lv__text_8c_a822e32db44b7fde4595d0060b57775c5} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_encoded\_size@{lv\_text\_encoded\_size}}
+\index{lv\_text\_encoded\_size@{lv\_text\_encoded\_size}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_encoded\_size}{lv\_text\_encoded\_size}}
+{\footnotesize\ttfamily uint8\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+encoded\+\_\+size) (const char \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+utf8\+\_\+size}
+
+Give the size of an encoded character 
+\begin{DoxyParams}{Parametri}
+{\em txt} & pointer to a character in a string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+length of the encoded character (1,2,3 ...). O in invalid 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_aea0560d7b91ca907e2d1737eec6d3f9a}\label{lv__text_8c_aea0560d7b91ca907e2d1737eec6d3f9a} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_get\_encoded\_length@{lv\_text\_get\_encoded\_length}}
+\index{lv\_text\_get\_encoded\_length@{lv\_text\_get\_encoded\_length}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_get\_encoded\_length}{lv\_text\_get\_encoded\_length}}
+{\footnotesize\ttfamily uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+get\+\_\+encoded\+\_\+length) (const char \texorpdfstring{$\ast$}{*}) (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{txt }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+utf8\+\_\+get\+\_\+length}
+
+Get the number of characters (and NOT bytes) in a string. E.\+g. in UTF-\/8 "{}Á\+BC"{} is 3 characters (but 4 bytes) 
+\begin{DoxyParams}{Parametri}
+{\em txt} & a \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated char string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+number of characters 
+\end{DoxyReturn}
+\Hypertarget{lv__text_8c_a2ce41e55c89270a5ee2366d3b467a76e}\label{lv__text_8c_a2ce41e55c89270a5ee2366d3b467a76e} 
+\index{lv\_text.c@{lv\_text.c}!lv\_text\_unicode\_to\_encoded@{lv\_text\_unicode\_to\_encoded}}
+\index{lv\_text\_unicode\_to\_encoded@{lv\_text\_unicode\_to\_encoded}!lv\_text.c@{lv\_text.c}}
+\doxysubsubsection{\texorpdfstring{lv\_text\_unicode\_to\_encoded}{lv\_text\_unicode\_to\_encoded}}
+{\footnotesize\ttfamily uint32\+\_\+t(\texorpdfstring{$\ast$}{*}const lv\+\_\+text\+\_\+unicode\+\_\+to\+\_\+encoded) (uint32\+\_\+t) (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{letter\+\_\+uni }\end{DoxyParamCaption}) = lv\+\_\+text\+\_\+unicode\+\_\+to\+\_\+utf8}
+
+Convert a Unicode letter to encoded 
+\begin{DoxyParams}{Parametri}
+{\em letter\+\_\+uni} & a Unicode letter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+Encoded character in Little Endian to be compatible with C chars (e.\+g. \textquotesingle{}Á\textquotesingle{}, \textquotesingle{}Ü\textquotesingle{}) 
+\end{DoxyReturn}

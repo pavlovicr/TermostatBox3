@@ -1,0 +1,88 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/layouts/lv\+\_\+layout.h}
+\hypertarget{lv__layout_8h}{}\label{lv__layout_8h}\index{managed\_components/lvgl\_\_lvgl/src/layouts/lv\_layout.h@{managed\_components/lvgl\_\_lvgl/src/layouts/lv\_layout.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}../misc/lv\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}flex/lv\+\_\+flex.\+h"{}}\newline
+{\ttfamily \#include "{}grid/lv\+\_\+grid.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+layout.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+layout.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__layout_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__layout_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structlv__layout__callbacks__t}{lv\+\_\+layout\+\_\+callbacks\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__layout_8h_a11a523b59fad0ed0692217fa5168106b}\label{lv__layout_8h_a11a523b59fad0ed0692217fa5168106b} 
+typedef void(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+layout\+\_\+update\+\_\+cb\+\_\+t}) (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+\Hypertarget{lv__layout_8h_aaa6bab25c9b632fa499defc1e08400a9}\label{lv__layout_8h_aaa6bab25c9b632fa499defc1e08400a9} 
+typedef bool(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+layout\+\_\+get\+\_\+min\+\_\+size\+\_\+cb\+\_\+t}) (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}, int32\+\_\+t \texorpdfstring{$\ast$}{*}req\+\_\+size, bool width, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__layout_8h_a6d770da9c00de3b433878ab0b63c9990}\label{lv__layout_8h_a6d770da9c00de3b433878ab0b63c9990} 
+enum {\bfseries lv\+\_\+layout\+\_\+t} \{ {\bfseries LV\+\_\+\+LAYOUT\+\_\+\+NONE} = 0
+, {\bfseries LV\+\_\+\+LAYOUT\+\_\+\+FLEX}
+, {\bfseries LV\+\_\+\+LAYOUT\+\_\+\+GRID}
+, {\bfseries LV\+\_\+\+LAYOUT\+\_\+\+LAST}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__layout_8h_a7b32d28867a552ee2861a0b01f33a451}{lv\+\_\+layout\+\_\+create}} (\mbox{\hyperlink{structlv__layout__callbacks__t}{lv\+\_\+layout\+\_\+callbacks\+\_\+t}} callbacks, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__layout_8h_af06b67c5d6f402cc311a092cda4ee079}{lv\+\_\+layout\+\_\+register}} (lv\+\_\+layout\+\_\+update\+\_\+cb\+\_\+t cb, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__layout_8h_a7b32d28867a552ee2861a0b01f33a451}\label{lv__layout_8h_a7b32d28867a552ee2861a0b01f33a451} 
+\index{lv\_layout.h@{lv\_layout.h}!lv\_layout\_create@{lv\_layout\_create}}
+\index{lv\_layout\_create@{lv\_layout\_create}!lv\_layout.h@{lv\_layout.h}}
+\doxysubsubsection{\texorpdfstring{lv\_layout\_create()}{lv\_layout\_create()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+layout\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__layout__callbacks__t}{lv\+\_\+layout\+\_\+callbacks\+\_\+t}}}]{callbacks,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Create a new layout 
+\begin{DoxyParams}{Parametri}
+{\em callbacks} & the layout callbacks \\
+\hline
+{\em user\+\_\+data} & custom data that will be passed when a callback is invoked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the ID of the new layout 
+\end{DoxyReturn}
+\Hypertarget{lv__layout_8h_af06b67c5d6f402cc311a092cda4ee079}\label{lv__layout_8h_af06b67c5d6f402cc311a092cda4ee079} 
+\index{lv\_layout.h@{lv\_layout.h}!lv\_layout\_register@{lv\_layout\_register}}
+\index{lv\_layout\_register@{lv\_layout\_register}!lv\_layout.h@{lv\_layout.h}}
+\doxysubsubsection{\texorpdfstring{lv\_layout\_register()}{lv\_layout\_register()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+layout\+\_\+register (\begin{DoxyParamCaption}\item[{lv\+\_\+layout\+\_\+update\+\_\+cb\+\_\+t}]{cb,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+DEPRECATED\+: {\ttfamily lv\+\_\+layout\+\_\+register} is deprecated. {\ttfamily lv\+\_\+layout\+\_\+create} should be used instead.
+
+Register a new layout 
+\begin{DoxyParams}{Parametri}
+{\em cb} & the layout update callback \\
+\hline
+{\em user\+\_\+data} & custom data that will be passed to {\ttfamily cb} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the ID of the new layout 
+\end{DoxyReturn}

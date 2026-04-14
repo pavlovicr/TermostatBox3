@@ -1,0 +1,455 @@
+\doxysection{lv\+\_\+types.\+h}
+\hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_source}{}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_types.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_types.h}}
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_TYPES\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_TYPES\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ \_\_ASSEMBLY\_\_}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ LV\_STDINT\_INCLUDE}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ LV\_STDDEF\_INCLUDE}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ LV\_STDBOOL\_INCLUDE}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ LV\_INTTYPES\_INCLUDE}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ LV\_LIMITS\_INCLUDE}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ LV\_STDARG\_INCLUDE}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/*If\ \_\_UINTPTR\_MAX\_\_\ or\ UINTPTR\_MAX\ are\ available,\ use\ them\ to\ determine\ arch\ size*/}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#if\ defined(\_\_UINTPTR\_MAX\_\_)\ \&\&\ \_\_UINTPTR\_MAX\_\_\ >\ 0xFFFFFFFF}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ LV\_ARCH\_64}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#elif\ defined(UINTPTR\_MAX)\ \&\&\ UINTPTR\_MAX\ >\ 0xFFFFFFFF}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LV\_ARCH\_64}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{/*Otherwise\ use\ compiler-\/dependent\ means\ to\ determine\ arch\ size*/}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#elif\ defined(\_WIN64)\ ||\ defined(\_\_x86\_64\_\_)\ ||\ defined(\_\_ppc64\_\_)\ ||\ defined\ (\_\_aarch64\_\_)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LV\_ARCH\_64}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#if\ LV\_USE\_3DTEXTURE}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#if\ LV\_USE\_OPENGLES}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ LV\_3DTEXTURE\_ID\_NULL\ 0u}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#ifndef\ LV\_3DTEXTURE\_ID\_NULL}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#error\ enable\ LV\_USE\_OPENGLES\ to\ use\ LV\_USE\_3DTEXTURE}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_3DTEXTURE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{comment}{/*\ Exclude\ C\ enum\ and\ struct\ definitions\ when\ included\ by\ assembly\ code\ */}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifndef\ \_\_ASSEMBLY\_\_}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ LV\_RESULT\_INVALID\ =\ 0,\ \textcolor{comment}{/*Typically\ indicates\ that\ the\ object\ is\ deleted\ (become\ invalid)\ in\ the\ action}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ function\ or\ an\ operation\ was\ failed*/}}
+\DoxyCodeLine{00067\ \ \ \ \ LV\_RESULT\_OK,\ \ \ \ \ \ \textcolor{comment}{/*The\ object\ is\ valid\ (no\ deleted)\ after\ the\ action*/}}
+\DoxyCodeLine{00068\ \}\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#if\ defined(\_\_cplusplus)\ ||\ \_\_STDC\_VERSION\_\_\ >=\ 199901L}}
+\DoxyCodeLine{00071\ \textcolor{comment}{/*If\ c99\ or\ newer,\ \ use\ the\ definition\ of\ uintptr\_t\ directly\ from\ <stdint.h>*/}}
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ uintptr\_t\ lv\_uintptr\_t;}
+\DoxyCodeLine{00073\ \textcolor{keyword}{typedef}\ intptr\_t\ lv\_intptr\_t;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{comment}{/*Otherwise,\ use\ the\ arch\ size\ determination*/}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifdef\ LV\_ARCH\_64}}
+\DoxyCodeLine{00079\ \textcolor{keyword}{typedef}\ uint64\_t\ lv\_uintptr\_t;}
+\DoxyCodeLine{00080\ \textcolor{keyword}{typedef}\ int64\_t\ lv\_intptr\_t;}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ uint32\_t\ lv\_uintptr\_t;}
+\DoxyCodeLine{00083\ \textcolor{keyword}{typedef}\ int32\_t\ lv\_intptr\_t;}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#if\ LV\_USE\_FLOAT}}
+\DoxyCodeLine{00089\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{float}\ lv\_value\_precise\_t;}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ int32\_t\ lv\_value\_precise\_t;}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#if\ LV\_USE\_3DTEXTURE}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#if\ LV\_USE\_OPENGLES}}
+\DoxyCodeLine{00096\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ lv\_3dtexture\_id\_t;}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00105\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__obj__t}{\_lv\_obj\_t}}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ (*lv\_screen\_create\_cb\_t)(void);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{typedef}\ uint8\_t\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\_opa\_t}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{typedef}\ uint8\_t\ lv\_style\_prop\_t;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__obj__class__t}{\_lv\_obj\_class\_t}}\ \mbox{\hyperlink{struct__lv__obj__class__t}{lv\_obj\_class\_t}};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__group__t}{\_lv\_group\_t}}\ \mbox{\hyperlink{struct__lv__group__t}{lv\_group\_t}};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__display__t}{\_lv\_display\_t}}\ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__layer__t}{\_lv\_layer\_t}}\ \mbox{\hyperlink{struct__lv__layer__t}{lv\_layer\_t}};}
+\DoxyCodeLine{00120\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__unit__t}{\_lv\_draw\_unit\_t}}\ \mbox{\hyperlink{struct__lv__draw__unit__t}{lv\_draw\_unit\_t}};}
+\DoxyCodeLine{00121\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__task__t}{\_lv\_draw\_task\_t}}\ \mbox{\hyperlink{struct__lv__draw__task__t}{lv\_draw\_task\_t}};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__indev__t}{\_lv\_indev\_t}}\ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__event__t}{\_lv\_event\_t}}\ \mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}};}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__timer__t}{\_lv\_timer\_t}}\ \mbox{\hyperlink{struct__lv__timer__t}{lv\_timer\_t}};}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__theme__t}{\_lv\_theme\_t}}\ \mbox{\hyperlink{struct__lv__theme__t}{lv\_theme\_t}};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__anim__t}{\_lv\_anim\_t}}\ \mbox{\hyperlink{struct__lv__anim__t}{lv\_anim\_t}};}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__anim__timeline__t}{\_lv\_anim\_timeline\_t}}\ \mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\_anim\_timeline\_t}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__font__t}{\_lv\_font\_t}}\ \mbox{\hyperlink{struct__lv__font__t}{lv\_font\_t}};}
+\DoxyCodeLine{00136\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__font__class__t}{\_lv\_font\_class\_t}}\ \mbox{\hyperlink{struct__lv__font__class__t}{lv\_font\_class\_t}};}
+\DoxyCodeLine{00137\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__font__info__t}{\_lv\_font\_info\_t}}\ \mbox{\hyperlink{struct__lv__font__info__t}{lv\_font\_info\_t}};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_font\_manager\_t\ lv\_font\_manager\_t;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__image__decoder__t}{\_lv\_image\_decoder\_t}}\ \mbox{\hyperlink{struct__lv__image__decoder__t}{lv\_image\_decoder\_t}};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{\_lv\_image\_decoder\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{lv\_image\_decoder\_dsc\_t}};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__image__dsc__t}{\_lv\_draw\_image\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__draw__image__dsc__t}{lv\_draw\_image\_dsc\_t}};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_fragment\_t\ lv\_fragment\_t;}
+\DoxyCodeLine{00148\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_fragment\_class\_t\ lv\_fragment\_class\_t;}
+\DoxyCodeLine{00149\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_fragment\_managed\_states\_t\ lv\_fragment\_managed\_states\_t;}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_profiler\_builtin\_config\_t\ lv\_profiler\_builtin\_config\_t;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__rb__node__t}{\_lv\_rb\_node\_t}}\ \mbox{\hyperlink{struct__lv__rb__node__t}{lv\_rb\_node\_t}};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__rb__t}{\_lv\_rb\_t}}\ \mbox{\hyperlink{struct__lv__rb__t}{lv\_rb\_t}};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__color__filter__dsc__t}{\_lv\_color\_filter\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__color__filter__dsc__t}{lv\_color\_filter\_dsc\_t}};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__event__dsc__t}{\_lv\_event\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__event__dsc__t}{lv\_event\_dsc\_t}};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__cache__t}{\_lv\_cache\_t}}\ \mbox{\hyperlink{struct__lv__cache__t}{lv\_cache\_t}};}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__cache__entry__t}{\_lv\_cache\_entry\_t}}\ \mbox{\hyperlink{struct__lv__cache__entry__t}{lv\_cache\_entry\_t}};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__fs__file__cache__t}{\_lv\_fs\_file\_cache\_t}}\ \mbox{\hyperlink{struct__lv__fs__file__cache__t}{lv\_fs\_file\_cache\_t}};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__image__decoder__args__t}{\_lv\_image\_decoder\_args\_t}}\ \mbox{\hyperlink{struct__lv__image__decoder__args__t}{lv\_image\_decoder\_args\_t}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__image__cache__data__t}{\_lv\_image\_cache\_data\_t}}\ \mbox{\hyperlink{struct__lv__image__cache__data__t}{lv\_image\_cache\_data\_t}};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__image__header__cache__data__t}{\_lv\_image\_header\_cache\_data\_t}}\ \mbox{\hyperlink{struct__lv__image__header__cache__data__t}{lv\_image\_header\_cache\_data\_t}};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__mask__t}{\_lv\_draw\_mask\_t}}\ \mbox{\hyperlink{struct__lv__draw__mask__t}{lv\_draw\_mask\_t}};}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__label__hint__t}{\_lv\_draw\_label\_hint\_t}}\ \mbox{\hyperlink{struct__lv__draw__label__hint__t}{lv\_draw\_label\_hint\_t}};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{\_lv\_draw\_glyph\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{lv\_draw\_glyph\_dsc\_t}};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__image__sup__t}{\_lv\_draw\_image\_sup\_t}}\ \mbox{\hyperlink{struct__lv__draw__image__sup__t}{lv\_draw\_image\_sup\_t}};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__mask__rect__dsc__t}{\_lv\_draw\_mask\_rect\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__draw__mask__rect__dsc__t}{lv\_draw\_mask\_rect\_dsc\_t}};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__obj__style__t}{\_lv\_obj\_style\_t}}\ \mbox{\hyperlink{struct__lv__obj__style__t}{lv\_obj\_style\_t}};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__obj__style__transition__dsc__t}{\_lv\_obj\_style\_transition\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__obj__style__transition__dsc__t}{lv\_obj\_style\_transition\_dsc\_t}};}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__hit__test__info__t}{\_lv\_hit\_test\_info\_t}}\ \mbox{\hyperlink{struct__lv__hit__test__info__t}{lv\_hit\_test\_info\_t}};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__cover__check__info__t}{\_lv\_cover\_check\_info\_t}}\ \mbox{\hyperlink{struct__lv__cover__check__info__t}{lv\_cover\_check\_info\_t}};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__obj__spec__attr__t}{\_lv\_obj\_spec\_attr\_t}}\ \mbox{\hyperlink{struct__lv__obj__spec__attr__t}{lv\_obj\_spec\_attr\_t}};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__image__t}{\_lv\_image\_t}}\ \mbox{\hyperlink{struct__lv__image__t}{lv\_image\_t}};}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__animimg__t}{\_lv\_animimg\_t}}\ \mbox{\hyperlink{struct__lv__animimg__t}{lv\_animimg\_t}};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__arc__t}{\_lv\_arc\_t}}\ \mbox{\hyperlink{struct__lv__arc__t}{lv\_arc\_t}};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__arclabel__t}{\_lv\_arclabel\_t}}\ \mbox{\hyperlink{struct__lv__arclabel__t}{lv\_arclabel\_t}};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__label__t}{\_lv\_label\_t}}\ \mbox{\hyperlink{struct__lv__label__t}{lv\_label\_t}};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__bar__anim__t}{\_lv\_bar\_anim\_t}}\ \mbox{\hyperlink{struct__lv__bar__anim__t}{lv\_bar\_anim\_t}};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__bar__t}{\_lv\_bar\_t}}\ \mbox{\hyperlink{struct__lv__bar__t}{lv\_bar\_t}};}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__button__t}{\_lv\_button\_t}}\ \mbox{\hyperlink{struct__lv__button__t}{lv\_button\_t}};}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__buttonmatrix__t}{\_lv\_buttonmatrix\_t}}\ \mbox{\hyperlink{struct__lv__buttonmatrix__t}{lv\_buttonmatrix\_t}};}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__calendar__t}{\_lv\_calendar\_t}}\ \mbox{\hyperlink{struct__lv__calendar__t}{lv\_calendar\_t}};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__canvas__t}{\_lv\_canvas\_t}}\ \mbox{\hyperlink{struct__lv__canvas__t}{lv\_canvas\_t}};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__chart__series__t}{\_lv\_chart\_series\_t}}\ \mbox{\hyperlink{struct__lv__chart__series__t}{lv\_chart\_series\_t}};}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00217\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__chart__cursor__t}{\_lv\_chart\_cursor\_t}}\ \mbox{\hyperlink{struct__lv__chart__cursor__t}{lv\_chart\_cursor\_t}};}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__chart__t}{\_lv\_chart\_t}}\ \mbox{\hyperlink{struct__lv__chart__t}{lv\_chart\_t}};}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__checkbox__t}{\_lv\_checkbox\_t}}\ \mbox{\hyperlink{struct__lv__checkbox__t}{lv\_checkbox\_t}};}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__dropdown__t}{\_lv\_dropdown\_t}}\ \mbox{\hyperlink{struct__lv__dropdown__t}{lv\_dropdown\_t}};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__dropdown__list__t}{\_lv\_dropdown\_list\_t}}\ \mbox{\hyperlink{struct__lv__dropdown__list__t}{lv\_dropdown\_list\_t}};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__imagebutton__src__info__t}{\_lv\_imagebutton\_src\_info\_t}}\ \mbox{\hyperlink{struct__lv__imagebutton__src__info__t}{lv\_imagebutton\_src\_info\_t}};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__imagebutton__t}{\_lv\_imagebutton\_t}}\ \mbox{\hyperlink{struct__lv__imagebutton__t}{lv\_imagebutton\_t}};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__keyboard__t}{\_lv\_keyboard\_t}}\ \mbox{\hyperlink{struct__lv__keyboard__t}{lv\_keyboard\_t}};}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__led__t}{\_lv\_led\_t}}\ \mbox{\hyperlink{struct__lv__led__t}{lv\_led\_t}};}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__line__t}{\_lv\_line\_t}}\ \mbox{\hyperlink{struct__lv__line__t}{lv\_line\_t}};}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__menu__load__page__event__data__t}{\_lv\_menu\_load\_page\_event\_data\_t}}\ \mbox{\hyperlink{struct__lv__menu__load__page__event__data__t}{lv\_menu\_load\_page\_event\_data\_t}};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__menu__history__t}{\_lv\_menu\_history\_t}}\ \mbox{\hyperlink{struct__lv__menu__history__t}{lv\_menu\_history\_t}};}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__menu__t}{\_lv\_menu\_t}}\ \mbox{\hyperlink{struct__lv__menu__t}{lv\_menu\_t}};}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__menu__page__t}{\_lv\_menu\_page\_t}}\ \mbox{\hyperlink{struct__lv__menu__page__t}{lv\_menu\_page\_t}};}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__msgbox__t}{\_lv\_msgbox\_t}}\ \mbox{\hyperlink{struct__lv__msgbox__t}{lv\_msgbox\_t}};}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__roller__t}{\_lv\_roller\_t}}\ \mbox{\hyperlink{struct__lv__roller__t}{lv\_roller\_t}};}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__scale__section__t}{\_lv\_scale\_section\_t}}\ \mbox{\hyperlink{struct__lv__scale__section__t}{lv\_scale\_section\_t}};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__scale__t}{\_lv\_scale\_t}}\ \mbox{\hyperlink{struct__lv__scale__t}{lv\_scale\_t}};}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__slider__t}{\_lv\_slider\_t}}\ \mbox{\hyperlink{struct__lv__slider__t}{lv\_slider\_t}};}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__span__t}{\_lv\_span\_t}}\ \mbox{\hyperlink{struct__lv__span__t}{lv\_span\_t}};}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__spangroup__t}{\_lv\_spangroup\_t}}\ \mbox{\hyperlink{struct__lv__spangroup__t}{lv\_spangroup\_t}};}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__textarea__t}{\_lv\_textarea\_t}}\ \mbox{\hyperlink{struct__lv__textarea__t}{lv\_textarea\_t}};}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__spinbox__t}{\_lv\_spinbox\_t}}\ \mbox{\hyperlink{struct__lv__spinbox__t}{lv\_spinbox\_t}};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__switch__t}{\_lv\_switch\_t}}\ \mbox{\hyperlink{struct__lv__switch__t}{lv\_switch\_t}};}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00265\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__table__cell__t}{\_lv\_table\_cell\_t}}\ \mbox{\hyperlink{struct__lv__table__cell__t}{lv\_table\_cell\_t}};}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__table__t}{\_lv\_table\_t}}\ \mbox{\hyperlink{struct__lv__table__t}{lv\_table\_t}};}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__tabview__t}{\_lv\_tabview\_t}}\ \mbox{\hyperlink{struct__lv__tabview__t}{lv\_tabview\_t}};}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__tileview__t}{\_lv\_tileview\_t}}\ \mbox{\hyperlink{struct__lv__tileview__t}{lv\_tileview\_t}};}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__tileview__tile__t}{\_lv\_tileview\_tile\_t}}\ \mbox{\hyperlink{struct__lv__tileview__tile__t}{lv\_tileview\_tile\_t}};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__win__t}{\_lv\_win\_t}}\ \mbox{\hyperlink{struct__lv__win__t}{lv\_win\_t}};}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__spinner__t}{\_lv\_spinner\_t}}\ \mbox{\hyperlink{struct__lv__spinner__t}{lv\_spinner\_t}};}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_3dtexture\_t\ lv\_3dtexture\_t;}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_gltf\_t\ lv\_gltf\_t;}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_gltf\_model\_t\ lv\_gltf\_model\_t;}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_gltf\_model\_node\_t\ lv\_gltf\_model\_node\_t;}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_gltf\_environment\ lv\_gltf\_environment\_t;}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_gltf\_ibl\_sampler\ lv\_gltf\_ibl\_sampler\_t;}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__subject__t}{\_lv\_subject\_t}}\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__observer__t}{\_lv\_observer\_t}}\ \mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}};}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__subject__increment__dsc__t}{\_lv\_subject\_increment\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__subject__increment__dsc__t}{lv\_subject\_increment\_dsc\_t}};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_monkey\_config\_t\ lv\_monkey\_config\_t;}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_ime\_pinyin\_t\ lv\_ime\_pinyin\_t;}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_file\_explorer\_t\ lv\_file\_explorer\_t;}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_barcode\_t\ lv\_barcode\_t;}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_qrcode\_t\ lv\_qrcode\_t;}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_freetype\_outline\_vector\_t\ lv\_freetype\_outline\_vector\_t;}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_freetype\_outline\_event\_param\_t\ lv\_freetype\_outline\_event\_param\_t;}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_fpoint\_t\ lv\_fpoint\_t;}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00313\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_matrix\_t\ lv\_matrix\_t;}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_vector\_path\_t\ lv\_vector\_path\_t;}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_vector\_gradient\_t\ lv\_vector\_gradient\_t;}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00319\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_vector\_fill\_dsc\_t\ lv\_vector\_fill\_dsc\_t;}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_vector\_stroke\_dsc\_t\ lv\_vector\_stroke\_dsc\_t;}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_vector\_path\_ctx\_t\ lv\_vector\_path\_ctx\_t;}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_draw\_vector\_dsc\_t\ lv\_draw\_vector\_dsc\_t;}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_xkb\_t\ lv\_xkb\_t;}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_libinput\_event\_t\ lv\_libinput\_event\_t;}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_libinput\_t\ lv\_libinput\_t;}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__unit__t}{\_lv\_draw\_sw\_unit\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__unit__t}{lv\_draw\_sw\_unit\_t}};}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__mask__common__dsc__t}{\_lv\_draw\_sw\_mask\_common\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__mask__common__dsc__t}{lv\_draw\_sw\_mask\_common\_dsc\_t}};}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00337\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__mask__line__param__t}{\_lv\_draw\_sw\_mask\_line\_param\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__mask__line__param__t}{lv\_draw\_sw\_mask\_line\_param\_t}};}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__mask__angle__param__t}{\_lv\_draw\_sw\_mask\_angle\_param\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__mask__angle__param__t}{lv\_draw\_sw\_mask\_angle\_param\_t}};}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__mask__radius__param__t}{\_lv\_draw\_sw\_mask\_radius\_param\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__mask__radius__param__t}{lv\_draw\_sw\_mask\_radius\_param\_t}};}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__mask__fade__param__t}{\_lv\_draw\_sw\_mask\_fade\_param\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__mask__fade__param__t}{lv\_draw\_sw\_mask\_fade\_param\_t}};}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__mask__map__param__t}{\_lv\_draw\_sw\_mask\_map\_param\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__mask__map__param__t}{lv\_draw\_sw\_mask\_map\_param\_t}};}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__blend__dsc__t}{\_lv\_draw\_sw\_blend\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__blend__dsc__t}{lv\_draw\_sw\_blend\_dsc\_t}};}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{\_lv\_draw\_sw\_blend\_fill\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{lv\_draw\_sw\_blend\_fill\_dsc\_t}};}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{\_lv\_draw\_sw\_blend\_image\_dsc\_t}}\ \mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{lv\_draw\_sw\_blend\_image\_dsc\_t}};}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{\_lv\_draw\_buf\_handlers\_t}}\ \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{lv\_draw\_buf\_handlers\_t}};}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_rlottie\_t\ lv\_rlottie\_t;}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00357\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_ffmpeg\_player\_t\ lv\_ffmpeg\_player\_t;}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_opengles\_window\_t\ lv\_opengles\_window\_t;}
+\DoxyCodeLine{00360\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_opengles\_window\_texture\_t\ lv\_opengles\_window\_texture\_t;}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \textcolor{keyword}{typedef}\ uint32\_t\ lv\_prop\_id\_t;}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__array__t}{\_lv\_array\_t}}\ \mbox{\hyperlink{struct__lv__array__t}{lv\_array\_t}};}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__iter__t}{\_lv\_iter\_t}}\ \mbox{\hyperlink{struct__lv__iter__t}{lv\_iter\_t}};}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__circle__buf__t}{\_lv\_circle\_buf\_t}}\ \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\_circle\_buf\_t}};}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__draw__buf__t}{\_lv\_draw\_buf\_t}}\ \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\_draw\_buf\_t}};}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBJ\_PROPERTY}}
+\DoxyCodeLine{00373\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_property\_name\_t\ lv\_property\_name\_t;}
+\DoxyCodeLine{00374\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \textcolor{preprocessor}{\#if\ LV\_USE\_SYSMON}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_sysmon\_backend\_data\_t\ lv\_sysmon\_backend\_data\_t;}
+\DoxyCodeLine{00379\ }
+\DoxyCodeLine{00380\ \textcolor{preprocessor}{\#if\ LV\_USE\_PERF\_MONITOR}}
+\DoxyCodeLine{00381\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_sysmon\_perf\_info\_t\ lv\_sysmon\_perf\_info\_t;}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_PERF\_MONITOR*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_SYSMON*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \textcolor{preprocessor}{\#if\ LV\_USE\_EVDEV}}
+\DoxyCodeLine{00388\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_evdev\_discovery\_t\ lv\_evdev\_discovery\_t;}
+\DoxyCodeLine{00389\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \textcolor{preprocessor}{\#if\ LV\_USE\_TRANSLATION}}
+\DoxyCodeLine{00392\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_translation\_tag\_dsc\_t\ lv\_translation\_tag\_dsc\_t;}
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00394\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_translation\_pack\_t\ lv\_translation\_pack\_t;}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_EVE}}
+\DoxyCodeLine{00398\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_draw\_eve\_unit\_t\ lv\_draw\_eve\_unit\_t;}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\_\_ASSEMBLY\_\_*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00404\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00405\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00407\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00408\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00409\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00410\ }
+\DoxyCodeLine{00411\ \textcolor{preprocessor}{\#define\ LV\_UNUSED(x)\ ((void)x)}}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \textcolor{preprocessor}{\#define\ \_LV\_CONCAT(x,\ y)\ x\ \#\#\ y}}
+\DoxyCodeLine{00414\ \textcolor{preprocessor}{\#define\ LV\_CONCAT(x,\ y)\ \_LV\_CONCAT(x,\ y)}}
+\DoxyCodeLine{00415\ \textcolor{preprocessor}{\#undef\ \_LV\_CONCAT}}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00417\ \textcolor{preprocessor}{\#define\ \_LV\_CONCAT3(x,\ y,\ z)\ x\ \#\#\ y\ \#\#\ z}}
+\DoxyCodeLine{00418\ \textcolor{preprocessor}{\#define\ LV\_CONCAT3(x,\ y,\ z)\ \_LV\_CONCAT3(x,\ y,\ z)}}
+\DoxyCodeLine{00419\ \textcolor{preprocessor}{\#undef\ \_LV\_CONCAT3}}
+\DoxyCodeLine{00420\ }
+\DoxyCodeLine{00421\ \textcolor{preprocessor}{\#if\ defined(PYCPARSER)\ ||\ defined(\_\_CC\_ARM)}}
+\DoxyCodeLine{00422\ \textcolor{preprocessor}{\#define\ LV\_FORMAT\_ATTRIBUTE(fmtstr,\ vararg)}}
+\DoxyCodeLine{00423\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)\ \&\&\ ((\_\_GNUC\_\_\ ==\ 4\ \&\&\ \_\_GNUC\_MINOR\_\_\ >=\ 4)\ ||\ \_\_GNUC\_\_\ >\ 4)}}
+\DoxyCodeLine{00424\ \textcolor{preprocessor}{\#define\ LV\_FORMAT\_ATTRIBUTE(fmtstr,\ vararg)\ \_\_attribute\_\_((format(gnu\_printf,\ fmtstr,\ vararg)))}}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#elif\ (defined(\_\_clang\_\_)\ ||\ defined(\_\_GNUC\_\_)\ ||\ defined(\_\_GNUG\_\_)\ ||\ defined(\_\_IAR\_SYSTEMS\_ICC\_\_))}}
+\DoxyCodeLine{00426\ \textcolor{preprocessor}{\#define\ LV\_FORMAT\_ATTRIBUTE(fmtstr,\ vararg)\ \_\_attribute\_\_((format(printf,\ fmtstr,\ vararg)))}}
+\DoxyCodeLine{00427\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00428\ \textcolor{preprocessor}{\#define\ LV\_FORMAT\_ATTRIBUTE(fmtstr,\ vararg)}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00430\ }
+\DoxyCodeLine{00431\ \textcolor{preprocessor}{\#ifndef\ LV\_NORETURN}}
+\DoxyCodeLine{00432\ \textcolor{preprocessor}{\#if\ defined(PYCPARSER)}}
+\DoxyCodeLine{00433\ \textcolor{preprocessor}{\#define\ LV\_NORETURN}}
+\DoxyCodeLine{00434\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00435\ \textcolor{preprocessor}{\#define\ LV\_NORETURN\ \_\_attribute\_\_((noreturn))}}
+\DoxyCodeLine{00436\ \textcolor{preprocessor}{\#elif\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00437\ \textcolor{preprocessor}{\#define\ LV\_NORETURN\ \_\_declspec(noreturn)}}
+\DoxyCodeLine{00438\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00439\ \textcolor{preprocessor}{\#define\ LV\_NORETURN}}
+\DoxyCodeLine{00440\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00441\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_NORETURN\ not\ defined\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00443\ \textcolor{preprocessor}{\#ifndef\ LV\_UNREACHABLE}}
+\DoxyCodeLine{00444\ \textcolor{preprocessor}{\#if\ defined(\_\_GNUC\_\_)}}
+\DoxyCodeLine{00445\ \textcolor{preprocessor}{\#define\ LV\_UNREACHABLE()\ \_\_builtin\_unreachable()}}
+\DoxyCodeLine{00446\ \textcolor{preprocessor}{\#elif\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00447\ \textcolor{preprocessor}{\#define\ LV\_UNREACHABLE()\ \_\_assume(0)}}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00449\ \textcolor{preprocessor}{\#define\ LV\_UNREACHABLE()\ while(1)}}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00451\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_UNREACHABLE\ not\ defined\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \textcolor{preprocessor}{\#ifndef\ LV\_ARRAYLEN}}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#define\ LV\_ARRAYLEN(a)\ (sizeof(a)/sizeof((a)[0]))}}
+\DoxyCodeLine{00455\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_ARRAYLEN*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00456\ }
+\DoxyCodeLine{00457\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00458\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00459\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_TYPES\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

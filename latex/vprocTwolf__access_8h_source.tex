@@ -1,0 +1,80 @@
+\doxysection{vproc\+Twolf\+\_\+access.\+h}
+\hypertarget{vprocTwolf__access_8h_source}{}\label{vprocTwolf__access_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/device/zl38063/api\_lib/vprocTwolf\_access.h@{managed\_components/espressif\_\_esp\_codec\_dev/device/zl38063/api\_lib/vprocTwolf\_access.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/****************************************************************************}}
+\DoxyCodeLine{00002\ \textcolor{comment}{*}}
+\DoxyCodeLine{00003\ \textcolor{comment}{*\ vprocTwolf\_access.h\ -\/\ Voice\ Processor\ devices\ high\ level\ access\ module\ function}}
+\DoxyCodeLine{00004\ \textcolor{comment}{*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prototypes,\ variables}}
+\DoxyCodeLine{00005\ \textcolor{comment}{*}}
+\DoxyCodeLine{00006\ \textcolor{comment}{****************************************************************************}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*\ Copyright\ Microsemi\ Inc,\ 2018.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ Licensed\ under\ the\ MIT\ License.\ See\ LICENSE.txt\ in\ the\ project}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ root\ for\ license\ information.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*}}
+\DoxyCodeLine{00011\ \textcolor{comment}{***************************************************************************/}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ VPROC\_TWOLFACCESS\_H}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ VPROC\_TWOLFACCESS\_H}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}vproc\_common.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ TWOLF\_MAILBOX\_SPINWAIT\ 1000\ }\textcolor{comment}{/*at\ least\ a\ 1000\ to\ avoid\ mailbox\ busy\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*device\ HBI\ command\ structure*/}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structhbiCmdInfo}{hbiCmdInfo}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ page;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ offset;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ numwords;}
+\DoxyCodeLine{00029\ \}\ \mbox{\hyperlink{structhbiCmdInfo}{hbiCmdInfo}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/*\ external\ function\ prototypes\ */}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ VprocStatusType\ VprocTwolfHbiInit(\textcolor{keywordtype}{void});\ \textcolor{comment}{/*Use\ this\ function\ to\ initialize\ the\ HBI\ bus*/}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ VprocStatusType\ VprocTwolfHbiRead(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ cmd,\ \ \ \ \ \textcolor{comment}{/*the\ 16-\/bit\ register\ to\ read\ from*/}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ numwords,\ \textcolor{comment}{/*\ The\ number\ of\ 16-\/bit\ words\ to\ read*/}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ *pData);\ \textcolor{comment}{/*\ Pointer\ to\ the\ read\ data\ buffer*/}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ VprocStatusType\ VprocTwolfHbiWrite(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ cmd,\ \ \ \ \ \textcolor{comment}{/*the\ 16-\/bit\ register\ to\ write\ to*/}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ numwords,\ \textcolor{comment}{/*\ The\ number\ of\ 16-\/bit\ words\ to\ write*/}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ *pData);\ \textcolor{comment}{/*the\ words\ (0-\/255)\ to\ write*/}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ VprocStatusType\ TwolfHbiNoOp(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*send\ no-\/op\ command\ to\ the\ device*/}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ numWords);\ \textcolor{comment}{/*\ The\ number\ of\ no-\/op\ (0-\/255)\ to\ write*/}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*An\ alternative\ method\ to\ loading\ the\ firmware\ into\ the\ device}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ USe\ this\ method\ if\ you\ have\ used\ the\ provided\ tool\ to\ convert\ the\ *.s3\ into}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ c\ code\ that\ can\ be\ compiled\ with\ the\ application}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00050\ VprocStatusType}
+\DoxyCodeLine{00051\ VprocTwolfHbiBoot\_alt(\textcolor{comment}{/*use\ this\ function\ to\ boot\ load\ the\ firmware\ (*.c)\ from\ the\ host\ to\ the\ device\ RAM*/}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structtwFirmware}{twFirmware}}\ *st\_firmware);\ \textcolor{comment}{/*Pointer\ to\ the\ firmware\ image\ in\ host\ RAM*/}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ VprocStatusType\ VprocTwolfLoadConfig(\mbox{\hyperlink{structdataArr}{dataArr}}\ *pCr2Buf,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ numElements);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ VprocStatusType\ VprocTwolfHbiCleanup(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00057\ VprocStatusType\ VprocTwolfHbiBootPrepare(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00058\ VprocStatusType\ VprocTwolfHbiBootMoreData(\textcolor{keywordtype}{char}\ *dataBlock);}
+\DoxyCodeLine{00059\ VprocStatusType\ VprocTwolfHbiBootConclude(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00060\ VprocStatusType\ VprocTwolfFirmwareStop(\textcolor{keywordtype}{void});\ \ \ \textcolor{comment}{/*Use\ this\ function\ to\ halt\ the\ currently\ running\ firmware*/}}
+\DoxyCodeLine{00061\ VprocStatusType\ VprocTwolfFirmwareStart(\textcolor{keywordtype}{void});\ \ \textcolor{comment}{/*Use\ this\ function\ to\ start/restart\ the\ firmware\ currently\ in\ RAM*/}}
+\DoxyCodeLine{00062\ VprocStatusType\ VprocTwolfSaveImgToFlash(\textcolor{keywordtype}{void});\ \textcolor{comment}{/*Save\ current\ loaded\ firmware\ from\ device\ RAM\ to\ FLASH*/}}
+\DoxyCodeLine{00063\ VprocStatusType\ VprocTwolfSaveCfgToFlash(\textcolor{keywordtype}{void});\ \textcolor{comment}{/*Save\ current\ device\ config\ from\ device\ RAM\ to\ FLASH*/}}
+\DoxyCodeLine{00064\ VprocStatusType\ VprocTwolfReset(VprocResetMode\ mode);}
+\DoxyCodeLine{00065\ VprocStatusType\ VprocTwolfEraseFlash(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00066\ VprocStatusType\ VprocTwolfLoadFwrCfgFromFlash(uint16\ image\_number);}
+\DoxyCodeLine{00067\ VprocStatusType\ VprocTwolfSetVolume(uint8\ vol);}
+\DoxyCodeLine{00068\ VprocStatusType\ VprocTwolfGetVolume(int8\_t\ *vol);}
+\DoxyCodeLine{00069\ VprocStatusType\ VprocTwolfGetAppStatus(uint16\ *status);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00072\ \}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VPROCTWOLFACCESS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

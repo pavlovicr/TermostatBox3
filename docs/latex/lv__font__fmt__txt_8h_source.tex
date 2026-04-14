@@ -1,0 +1,183 @@
+\doxysection{lv\+\_\+font\+\_\+fmt\+\_\+txt.\+h}
+\hypertarget{lv__font__fmt__txt_8h_source}{}\label{lv__font__fmt__txt_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/font/fmt\_txt/lv\_font\_fmt\_txt.h@{managed\_components/lvgl\_\_lvgl/src/font/fmt\_txt/lv\_font\_fmt\_txt.h}}
+\mbox{\hyperlink{lv__font__fmt__txt_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_FONT\_FMT\_TXT\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_FONT\_FMT\_TXT\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../lv\_font.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_types.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#if\ LV\_FONT\_FMT\_TXT\_LARGE\ ==\ 0}}
+\DoxyCodeLine{00030\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t_aa97c9efbff255f0f86ca12ecea8bdab1}{bitmap\_index}}\ :\ 20;\ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t_ac98ffed9a7ee43bf20202a2f1c5651fc}{adv\_w}}\ :\ 12;\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t_adaf0864bd7cf0e5b344a8ef5e3857d0c}{box\_w}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t_a793149a8472c3c37c16be9b16cbf153e}{box\_h}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ int8\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t_a87c0bac3e7ceb27ffbdb63d791676f62}{ofs\_x}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ int8\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t_ab7591cee2288c41c0aaec190232bf028}{ofs\_y}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00037\ \ \ \ \ uint32\_t\ bitmap\_index;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ uint32\_t\ adv\_w;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ uint16\_t\ box\_w;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ uint16\_t\ box\_h;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ int16\_t\ ofs\_x;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ int16\_t\ ofs\_y;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00044\ \}\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t}{lv\_font\_fmt\_txt\_glyph\_dsc\_t}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ LV\_FONT\_FMT\_TXT\_CMAP\_FORMAT0\_FULL,}
+\DoxyCodeLine{00049\ \ \ \ \ LV\_FONT\_FMT\_TXT\_CMAP\_SPARSE\_FULL,}
+\DoxyCodeLine{00050\ \ \ \ \ LV\_FONT\_FMT\_TXT\_CMAP\_FORMAT0\_TINY,}
+\DoxyCodeLine{00051\ \ \ \ \ LV\_FONT\_FMT\_TXT\_CMAP\_SPARSE\_TINY,}
+\DoxyCodeLine{00052\ \}\ \mbox{\hyperlink{lv__font__fmt__txt_8h_a124895b1853f8f1b2e975871d3f39d3f}{lv\_font\_fmt\_txt\_cmap\_type\_t}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00061\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_a6e07da091a4aa509c10fcedafe423868}{range\_start}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00065\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_a27fc43146e0f7c451a2396e738238d09}{range\_length}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_a86e5835332a5ae348024d372f233a032}{glyph\_id\_start}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ According\ the\ specification\ there\ are\ 4\ formats:}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ https://github.com/lvgl/lv\_font\_conv/blob/master/doc/font\_spec.md}}
+\DoxyCodeLine{00073\ \textcolor{comment}{}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ For\ simplicity\ introduce\ "{}relative\ code\ point"{}:}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ \ \ \ \ rcp\ =\ codepoint\ -\/\ range\_start}}
+\DoxyCodeLine{00076\ \textcolor{comment}{}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ and\ a\ search\ function:}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ search\ a\ "{}value"{}\ in\ an\ "{}array"{}\ and\ returns\ the\ index\ of\ "{}value"{}.}}
+\DoxyCodeLine{00079\ \textcolor{comment}{}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ Format\ 0\ tiny}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ unicode\_list\ ==\ NULL\ \&\&\ glyph\_id\_ofs\_list\ ==\ NULL}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ glyph\_id\ =\ glyph\_id\_start\ +\ rcp}}
+\DoxyCodeLine{00083\ \textcolor{comment}{}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ Format\ 0\ full}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ \ \ \ \ unicode\_list\ ==\ NULL\ \&\&\ glyph\_id\_ofs\_list\ !=\ NULL}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ \ \ \ \ glyph\_id\ =\ glyph\_id\_start\ +\ glyph\_id\_ofs\_list[rcp]}}
+\DoxyCodeLine{00087\ \textcolor{comment}{}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ \ \ \ Sparse\ tiny}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ \ \ \ \ unicode\_list\ !=\ NULL\ \&\&\ glyph\_id\_ofs\_list\ ==\ NULL}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ \ \ \ \ \ \ \ glyph\_id\ =\ glyph\_id\_start\ +\ search(unicode\_list,\ rcp)}}
+\DoxyCodeLine{00091\ \textcolor{comment}{}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ Sparse\ full}}
+\DoxyCodeLine{00093\ \textcolor{comment}{\ \ \ \ \ \ \ \ unicode\_list\ !=\ NULL\ \&\&\ glyph\_id\_ofs\_list\ !=\ NULL}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ glyph\_id\ =\ glyph\_id\_start\ +\ glyph\_id\_ofs\_list[search(unicode\_list,\ rcp)]}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{const}\ uint16\_t\ *\ unicode\_list;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_aaca496a8e79bea1bed763143af8fa79a}{glyph\_id\_ofs\_list}};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00105\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_afd6421799da4717cfc9082220c9b1110}{list\_length}};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{lv__font__fmt__txt_8h_a124895b1853f8f1b2e975871d3f39d3f}{lv\_font\_fmt\_txt\_cmap\_type\_t}}\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t_aff6823f2731c5559e030bd7a3bd25fdc}{type}};}
+\DoxyCodeLine{00109\ \}\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t}{lv\_font\_fmt\_txt\_cmap\_t}};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00112\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{/*To\ get\ a\ kern\ value\ of\ two\ code\ points:}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ \ \ \ \ \ \ 1.\ Get\ the\ \`{}glyph\_id\_left`\ and\ \`{}glyph\_id\_right`\ from\ \`{}lv\_font\_fmt\_txt\_cmap\_t}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ \ \ \ \ \ \ 2.\ for(i\ =\ 0;\ i\ <\ pair\_cnt\ *\ 2;\ i\ +=\ 2)}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ if(glyph\_ids[i]\ ==\ glyph\_id\_left\ \&\&}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glyph\_ids[i+1]\ ==\ glyph\_id\_right)}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ values[i\ /\ 2];}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ glyph\_ids;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *\ values;}
+\DoxyCodeLine{00122\ \ \ \ \ uint32\_t\ pair\_cnt\ \ \ :\ 30;}
+\DoxyCodeLine{00123\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__kern__pair__t_a86976db1791f3300d81365f8ce296614}{glyph\_ids\_size}}\ :\ 2;\ \ \ \ }
+\DoxyCodeLine{00124\ \}\ \mbox{\hyperlink{structlv__font__fmt__txt__kern__pair__t}{lv\_font\_fmt\_txt\_kern\_pair\_t}};}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00127\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{comment}{/*To\ get\ a\ kern\ value\ of\ two\ code\ points:}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ 1.\ Get\ the\ \`{}glyph\_id\_left`\ and\ \`{}glyph\_id\_right`\ from\ \`{}lv\_font\_fmt\_txt\_cmap\_t}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ 2.\ Get\ the\ class\ of\ the\ left\ and\ right\ glyphs\ as\ \`{}left\_class`\ and\ \`{}right\_class`}}
+\DoxyCodeLine{00131\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ left\_class\ =\ left\_class\_mapping[glyph\_id\_left];}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ right\_class\ =\ right\_class\_mapping[glyph\_id\_right];}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ 3.\ value\ =\ class\_pair\_values[(left\_class-\/1)*right\_class\_cnt\ +\ (right\_class-\/1)]}}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{const}\ int8\_t\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__kern__classes__t_ae81076a2875aea5b0df39c22b4c2ccfb}{class\_pair\_values}};\ \ \ \ \ }
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__kern__classes__t_a207fb64790d8cbcd87d1603a8fe23c14}{left\_class\_mapping}};\ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__kern__classes__t_a13baa912e5720e31ae7761a845ab94f3}{right\_class\_mapping}};\ \ }
+\DoxyCodeLine{00139\ \ \ \ \ uint8\_t\ left\_class\_cnt;}
+\DoxyCodeLine{00140\ \ \ \ \ uint8\_t\ right\_class\_cnt;}
+\DoxyCodeLine{00141\ \}\ \mbox{\hyperlink{structlv__font__fmt__txt__kern__classes__t}{lv\_font\_fmt\_txt\_kern\_classes\_t}};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ LV\_FONT\_FMT\_TXT\_PLAIN\ \ \ \ \ \ =\ 0,}
+\DoxyCodeLine{00146\ \ \ \ \ LV\_FONT\_FMT\_TXT\_COMPRESSED\ =\ 1,}
+\DoxyCodeLine{00147\ \ \ \ \ LV\_FONT\_FMT\_TXT\_COMPRESSED\_NO\_PREFILTER\ =\ 2,}
+\DoxyCodeLine{00148\ \}\ \mbox{\hyperlink{lv__font__fmt__txt_8h_a76209871fa3571e5ca4f968ae5795b86}{lv\_font\_fmt\_txt\_bitmap\_format\_t}};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00151\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_ae41fdc5fd272a201e233220ca63e3ae5}{glyph\_bitmap}};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__font__fmt__txt__glyph__dsc__t}{lv\_font\_fmt\_txt\_glyph\_dsc\_t}}\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_a4b25946088a7b3db95cbac3ce05d31d4}{glyph\_dsc}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__font__fmt__txt__cmap__t}{lv\_font\_fmt\_txt\_cmap\_t}}\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_a2673563209b2090ef0f27a5755b8f846}{cmaps}};}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_a5fe9159017e5e4aaf858a2a4cbfe22a7}{kern\_dsc}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00170\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_a90a8059b2a1e445b4e5a5972314ea549}{kern\_scale}};}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00173\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_ab807f5078f12759fd740d37413ad7516}{cmap\_num}}\ \ \ \ \ \ \ :\ 9;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00176\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_ae2fb6b84b48ae89984dd377fbb713448}{bpp}}\ \ \ \ \ \ \ \ \ \ \ \ :\ 4;}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00179\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_a163a6ee3dcd4ef2db799ef6beabaaf17}{kern\_classes}}\ \ \ :\ 1;}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00185\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_a7eec57a374de4f8824ac3d3937d76dce}{bitmap\_format}}\ \ :\ 2;}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00193\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t_a90f8cb45c7a8cc01633bf329536b5e41}{stride}};}
+\DoxyCodeLine{00194\ \}\ \mbox{\hyperlink{structlv__font__fmt__txt__dsc__t}{lv\_font\_fmt\_txt\_dsc\_t}};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__font__t}{lv\_font\_t}}\ *\ \mbox{\hyperlink{structlv__builtin__font__src__t_a5bbc37cafb753252078eab3f0ddf4d9c}{font\_p}};\ }
+\DoxyCodeLine{00198\ \ \ \ \ uint32\_t\ size;\ }
+\DoxyCodeLine{00199\ \}\ \mbox{\hyperlink{structlv__builtin__font__src__t}{lv\_builtin\_font\_src\_t}};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__font__class__t}{lv\_font\_class\_t}}\ lv\_builtin\_font\_class;}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00204\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00205\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{lv__font__fmt__txt_8h_adc9f0f192051764250223f6764f46637}{lv\_font\_get\_bitmap\_fmt\_txt}}(\mbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\_font\_glyph\_dsc\_t}}\ *\ g\_dsc,\ \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\_draw\_buf\_t}}\ *\ draw\_buf);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00224\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lv__font__fmt__txt_8h_a3d3da99be985754e7ece9aec210bff97}{lv\_font\_get\_glyph\_dsc\_fmt\_txt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__font__t}{lv\_font\_t}}\ *\ font,\ \mbox{\hyperlink{structlv__font__glyph__dsc__t}{lv\_font\_glyph\_dsc\_t}}\ *\ dsc\_out,\ uint32\_t\ unicode\_letter,}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ unicode\_letter\_next);}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00228\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00229\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00232\ \textcolor{comment}{\ *\ ADD\ BUILT\ IN\ FONTS}}
+\DoxyCodeLine{00233\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00236\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_FONT\_FMT\_TXT\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

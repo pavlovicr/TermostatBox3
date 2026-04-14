@@ -1,0 +1,79 @@
+\doxysection{Imenski prostor serialize\+\_\+results}
+\hypertarget{namespaceserialize__results}{}\label{namespaceserialize__results}\index{serialize\_results@{serialize\_results}}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{namespaceserialize__results_a73cde6b0b466fe0e4ceb8a80d94d22e0}\label{namespaceserialize__results_a73cde6b0b466fe0e4ceb8a80d94d22e0} 
+{\bfseries save\+\_\+mpk} (mpk\+\_\+path, mpk\+\_\+data)
+\item 
+\Hypertarget{namespaceserialize__results_abc1db99bfc6207308848d9d47a7539a2}\label{namespaceserialize__results_abc1db99bfc6207308848d9d47a7539a2} 
+{\bfseries generate\+\_\+new\+\_\+mpk} (json\+\_\+path, output\+\_\+path, commit\+\_\+hash)
+\item 
+\Hypertarget{namespaceserialize__results_a088732238677b55d2b907777f92632b3}\label{namespaceserialize__results_a088732238677b55d2b907777f92632b3} 
+{\bfseries append\+\_\+json\+\_\+to\+\_\+mpk} (mpk\+\_\+path, json\+\_\+path, output\+\_\+path, commit\+\_\+hash)
+\item 
+\Hypertarget{namespaceserialize__results_a538162c7496b338b846c7c505351a6cc}\label{namespaceserialize__results_a538162c7496b338b846c7c505351a6cc} 
+{\bfseries path} (folder, filename)
+\item 
+\Hypertarget{namespaceserialize__results_a1c8069f2cbec6724bf1cce5e73b043b5}\label{namespaceserialize__results_a1c8069f2cbec6724bf1cce5e73b043b5} 
+{\bfseries main} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\begin{DoxyVerb}This script takes json and mpk input files and combines them
+
+An mpk (msgpack) file contains the benchmark result history for a specific config.
+Unpacked, this file will have the following format:
+```json
+[
+    {
+        "commit_hash": "<commit_hash>"
+        "scenes": [
+            {
+                "scene_name": "",
+                "avg_cpu": 0,
+                "avg_fps": 0,
+                "avg_time": 0,
+                "render_time": 0,
+                "flush_time": 0,
+            }
+            ...
+        ] 
+    },
+    ...
+]
+```
+
+A json file contains the benchmark result for a specific commit:
+
+```json
+[
+    {
+        "scene_name": "",
+        "avg_cpu": 0,
+        "avg_fps": 0,
+        "avg_time": 0,
+        "render_time": 0,
+        "flush_time": 0,
+    }
+    ...
+]
+```
+
+This script combines the json files with the mpk files and outputs new mpk files
+
+The files are expected to follow the format 'results-<image_type>-<config_name>.[mpk|json]'
+
+There are 3 possibilities when handling these files
+
+1. The pair (`file1.mpk` `file1.json`) exists: Normal operation, we have a history file and some new results.
+    In this case we take the information inside the `file1.json` and append it to the `file1.mpk` before exporting it
+
+2. `file1.json` exists but `file1.mpk` doesn't: Happens when a new config and/or image type are added and there's no history yet
+    In this case we create a new `file1.mpk` with a single history entry.
+
+3. `file1.mpk` exists but `file1.json` doesn't: Happens when an old config isn't tested anymore for any reason.
+    In this case we simpyl copy the old `file1.mpk`
+\end{DoxyVerb}
+ 

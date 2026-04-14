@@ -1,0 +1,73 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/osal/lv\+\_\+os.c}
+\hypertarget{lv__os_8c}{}\label{lv__os_8c}\index{managed\_components/lvgl\_\_lvgl/src/osal/lv\_os.c@{managed\_components/lvgl\_\_lvgl/src/osal/lv\_os.c}}
+{\ttfamily \#include "{}lv\+\_\+os\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../core/lv\+\_\+global.\+h"{}}\newline
+{\ttfamily \#include "{}../tick/lv\+\_\+tick.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+os.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+os.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__os_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__os_8c_a5b7f6ceae9244c02265a9701ff9d4240}\label{lv__os_8c_a5b7f6ceae9244c02265a9701ff9d4240} 
+\#define {\bfseries lv\+\_\+general\+\_\+mutex}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$lv\+\_\+general\+\_\+mutex
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__os_8c_a67039a925146714429566535f4b93d7f}{lv\+\_\+os\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{lv__os_8c_a7be8a801ff48ed2770bccbf04f785b40}{lv\+\_\+lock}} (void)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__os_8c_a05d9e8a849799aafb2abf3007cd71283}{lv\+\_\+lock\+\_\+isr}} (void)
+\item 
+void \mbox{\hyperlink{lv__os_8c_aa45503c01c06b84283dd9444c5d7a7db}{lv\+\_\+unlock}} (void)
+\item 
+void \mbox{\hyperlink{lv__os_8c_ad8da58be069cda9db853a22602379414}{lv\+\_\+sleep\+\_\+ms}} (uint32\+\_\+t ms)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__os_8c_a7be8a801ff48ed2770bccbf04f785b40}\label{lv__os_8c_a7be8a801ff48ed2770bccbf04f785b40} 
+\index{lv\_os.c@{lv\_os.c}!lv\_lock@{lv\_lock}}
+\index{lv\_lock@{lv\_lock}!lv\_os.c@{lv\_os.c}}
+\doxysubsubsection{\texorpdfstring{lv\_lock()}{lv\_lock()}}
+{\footnotesize\ttfamily void lv\+\_\+lock (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Lock LVGL\textquotesingle{}s general mutex. LVGL is not thread safe, so a mutex is used to avoid executing multiple LVGL functions at the same time from different threads. It shall be called when calling LVGL functions from threads different than lv\+\_\+timer\+\_\+handler\textquotesingle{}s thread. It doesn\textquotesingle{}t need to be called in LVGL events because they are called from \doxylink{lv__timer_8c_adb5cfb35b8a8ffe081b95c92b29c7c8c}{lv\+\_\+timer\+\_\+handler()}. It is called internally in \doxylink{lv__timer_8c_adb5cfb35b8a8ffe081b95c92b29c7c8c}{lv\+\_\+timer\+\_\+handler()}. \Hypertarget{lv__os_8c_a05d9e8a849799aafb2abf3007cd71283}\label{lv__os_8c_a05d9e8a849799aafb2abf3007cd71283} 
+\index{lv\_os.c@{lv\_os.c}!lv\_lock\_isr@{lv\_lock\_isr}}
+\index{lv\_lock\_isr@{lv\_lock\_isr}!lv\_os.c@{lv\_os.c}}
+\doxysubsubsection{\texorpdfstring{lv\_lock\_isr()}{lv\_lock\_isr()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+lock\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Same as {\ttfamily \doxylink{lv__os_8h_a7be8a801ff48ed2770bccbf04f785b40}{lv\+\_\+lock()}} but can be called from an interrupt. \begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: success; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: failure 
+\end{DoxyReturn}
+\Hypertarget{lv__os_8c_a67039a925146714429566535f4b93d7f}\label{lv__os_8c_a67039a925146714429566535f4b93d7f} 
+\index{lv\_os.c@{lv\_os.c}!lv\_os\_init@{lv\_os\_init}}
+\index{lv\_os\_init@{lv\_os\_init}!lv\_os.c@{lv\_os.c}}
+\doxysubsubsection{\texorpdfstring{lv\_os\_init()}{lv\_os\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+os\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the OS layer \Hypertarget{lv__os_8c_ad8da58be069cda9db853a22602379414}\label{lv__os_8c_ad8da58be069cda9db853a22602379414} 
+\index{lv\_os.c@{lv\_os.c}!lv\_sleep\_ms@{lv\_sleep\_ms}}
+\index{lv\_sleep\_ms@{lv\_sleep\_ms}!lv\_os.c@{lv\_os.c}}
+\doxysubsubsection{\texorpdfstring{lv\_sleep\_ms()}{lv\_sleep\_ms()}}
+{\footnotesize\ttfamily void lv\+\_\+sleep\+\_\+ms (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ms }\end{DoxyParamCaption})}
+
+Sleeps the current thread by an amount of milliseconds. 
+\begin{DoxyParams}{Parametri}
+{\em ms} & amount of milliseconds to sleep the current thread. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__os_8c_aa45503c01c06b84283dd9444c5d7a7db}\label{lv__os_8c_aa45503c01c06b84283dd9444c5d7a7db} 
+\index{lv\_os.c@{lv\_os.c}!lv\_unlock@{lv\_unlock}}
+\index{lv\_unlock@{lv\_unlock}!lv\_os.c@{lv\_os.c}}
+\doxysubsubsection{\texorpdfstring{lv\_unlock()}{lv\_unlock()}}
+{\footnotesize\ttfamily void lv\+\_\+unlock (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+The pair of {\ttfamily \doxylink{lv__os_8h_a7be8a801ff48ed2770bccbf04f785b40}{lv\+\_\+lock()}} and {\ttfamily \doxylink{lv__os_8h_a05d9e8a849799aafb2abf3007cd71283}{lv\+\_\+lock\+\_\+isr()}}. It unlocks LVGL general mutex. It is called internally in \doxylink{lv__timer_8c_adb5cfb35b8a8ffe081b95c92b29c7c8c}{lv\+\_\+timer\+\_\+handler()}. 

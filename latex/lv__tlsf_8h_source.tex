@@ -1,0 +1,102 @@
+\doxysection{lv\+\_\+tlsf.\+h}
+\hypertarget{lv__tlsf_8h_source}{}\label{lv__tlsf_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/stdlib/builtin/lv\_tlsf.h@{managed\_components/lvgl\_\_lvgl/src/stdlib/builtin/lv\_tlsf.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#if\ LV\_USE\_STDLIB\_MALLOC\ ==\ LV\_STDLIB\_BUILTIN}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#ifndef\ LV\_TLSF\_H}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ LV\_TLSF\_H}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{**\ Two\ Level\ Segregated\ Fit\ memory\ allocator,\ version\ 3.1.}}
+\DoxyCodeLine{00009\ \textcolor{comment}{**\ Written\ by\ Matthew\ Conte}}
+\DoxyCodeLine{00010\ \textcolor{comment}{**\ \ http://tlsf.baisoku.org}}
+\DoxyCodeLine{00011\ \textcolor{comment}{**}}
+\DoxyCodeLine{00012\ \textcolor{comment}{**\ Based\ on\ the\ original\ documentation\ by\ Miguel\ Masmano:}}
+\DoxyCodeLine{00013\ \textcolor{comment}{**\ \ http://www.gii.upv.es/tlsf/main/docs}}
+\DoxyCodeLine{00014\ \textcolor{comment}{**}}
+\DoxyCodeLine{00015\ \textcolor{comment}{**\ This\ implementation\ was\ written\ to\ the\ specification}}
+\DoxyCodeLine{00016\ \textcolor{comment}{**\ of\ the\ document,\ therefore\ no\ GPL\ restrictions\ apply.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{**}}
+\DoxyCodeLine{00018\ \textcolor{comment}{**\ Copyright\ (c)\ 2006-\/2016,\ Matthew\ Conte}}
+\DoxyCodeLine{00019\ \textcolor{comment}{**\ All\ rights\ reserved.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{**}}
+\DoxyCodeLine{00021\ \textcolor{comment}{**\ Redistribution\ and\ use\ in\ source\ and\ binary\ forms,\ with\ or\ without}}
+\DoxyCodeLine{00022\ \textcolor{comment}{**\ modification,\ are\ permitted\ provided\ that\ the\ following\ conditions\ are\ met:}}
+\DoxyCodeLine{00023\ \textcolor{comment}{**\ \ \ \ \ *\ Redistributions\ of\ source\ code\ must\ retain\ the\ above\ copyright}}
+\DoxyCodeLine{00024\ \textcolor{comment}{**\ \ \ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{**\ \ \ \ \ *\ Redistributions\ in\ binary\ form\ must\ reproduce\ the\ above\ copyright}}
+\DoxyCodeLine{00026\ \textcolor{comment}{**\ \ \ \ \ \ \ notice,\ this\ list\ of\ conditions\ and\ the\ following\ disclaimer\ in\ the}}
+\DoxyCodeLine{00027\ \textcolor{comment}{**\ \ \ \ \ \ \ documentation\ and/or\ other\ materials\ provided\ with\ the\ distribution.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{**\ \ \ \ \ *\ Neither\ the\ name\ of\ the\ copyright\ holder\ nor\ the}}
+\DoxyCodeLine{00029\ \textcolor{comment}{**\ \ \ \ \ \ \ names\ of\ its\ contributors\ may\ be\ used\ to\ endorse\ or\ promote\ products}}
+\DoxyCodeLine{00030\ \textcolor{comment}{**\ \ \ \ \ \ \ derived\ from\ this\ software\ without\ specific\ prior\ written\ permission.}}
+\DoxyCodeLine{00031\ \textcolor{comment}{**}}
+\DoxyCodeLine{00032\ \textcolor{comment}{**\ THIS\ SOFTWARE\ IS\ PROVIDED\ BY\ THE\ COPYRIGHT\ HOLDERS\ AND\ CONTRIBUTORS\ "{}AS\ IS"{}\ AND}}
+\DoxyCodeLine{00033\ \textcolor{comment}{**\ ANY\ EXPRESS\ OR\ IMPLIED\ WARRANTIES,\ INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ THE\ IMPLIED}}
+\DoxyCodeLine{00034\ \textcolor{comment}{**\ WARRANTIES\ OF\ MERCHANTABILITY\ AND\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE\ ARE}}
+\DoxyCodeLine{00035\ \textcolor{comment}{**\ DISCLAIMED.\ IN\ NO\ EVENT\ SHALL\ MATTHEW\ CONTE\ BE\ LIABLE\ FOR\ ANY}}
+\DoxyCodeLine{00036\ \textcolor{comment}{**\ DIRECT,\ INDIRECT,\ INCIDENTAL,\ SPECIAL,\ EXEMPLARY,\ OR\ CONSEQUENTIAL\ DAMAGES}}
+\DoxyCodeLine{00037\ \textcolor{comment}{**\ (INCLUDING,\ BUT\ NOT\ LIMITED\ TO,\ PROCUREMENT\ OF\ SUBSTITUTE\ GOODS\ OR\ SERVICES;}}
+\DoxyCodeLine{00038\ \textcolor{comment}{**\ LOSS\ OF\ USE,\ DATA,\ OR\ PROFITS;\ OR\ BUSINESS\ INTERRUPTION)\ HOWEVER\ CAUSED\ AND}}
+\DoxyCodeLine{00039\ \textcolor{comment}{**\ ON\ ANY\ THEORY\ OF\ LIABILITY,\ WHETHER\ IN\ CONTRACT,\ STRICT\ LIABILITY,\ OR\ TORT}}
+\DoxyCodeLine{00040\ \textcolor{comment}{**\ (INCLUDING\ NEGLIGENCE\ OR\ OTHERWISE)\ ARISING\ IN\ ANY\ WAY\ OUT\ OF\ THE\ USE\ OF\ THIS}}
+\DoxyCodeLine{00041\ \textcolor{comment}{**\ SOFTWARE,\ EVEN\ IF\ ADVISED\ OF\ THE\ POSSIBILITY\ OF\ SUCH\ DAMAGE.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_ll.h"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_types.h"{}}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#if\ defined(\_\_cplusplus)}}
+\DoxyCodeLine{00048\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{/*\ lv\_tlsf\_t:\ a\ TLSF\ structure.\ Can\ contain\ 1\ to\ N\ pools.\ */}}
+\DoxyCodeLine{00052\ \textcolor{comment}{/*\ lv\_pool\_t:\ a\ block\ of\ memory\ that\ TLSF\ can\ manage.\ */}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *\ lv\_tlsf\_t;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *\ lv\_pool\_t;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/*\ Create/destroy\ a\ memory\ pool.\ */}}
+\DoxyCodeLine{00057\ lv\_tlsf\_t\ lv\_tlsf\_create(\textcolor{keywordtype}{void}\ *\ mem);}
+\DoxyCodeLine{00058\ lv\_tlsf\_t\ lv\_tlsf\_create\_with\_pool(\textcolor{keywordtype}{void}\ *\ mem,\ \textcolor{keywordtype}{size\_t}\ bytes);}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ lv\_tlsf\_destroy(lv\_tlsf\_t\ tlsf);}
+\DoxyCodeLine{00060\ lv\_pool\_t\ lv\_tlsf\_get\_pool(lv\_tlsf\_t\ tlsf);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{/*\ Add/remove\ memory\ pools.\ */}}
+\DoxyCodeLine{00063\ lv\_pool\_t\ lv\_tlsf\_add\_pool(lv\_tlsf\_t\ tlsf,\ \textcolor{keywordtype}{void}\ *\ mem,\ \textcolor{keywordtype}{size\_t}\ bytes);}
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ lv\_tlsf\_remove\_pool(lv\_tlsf\_t\ tlsf,\ lv\_pool\_t\ pool);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{/*\ malloc/memalign/realloc/free\ replacements.\ */}}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ *\ lv\_tlsf\_malloc(lv\_tlsf\_t\ tlsf,\ \textcolor{keywordtype}{size\_t}\ bytes);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ *\ lv\_tlsf\_memalign(lv\_tlsf\_t\ tlsf,\ \textcolor{keywordtype}{size\_t}\ align,\ \textcolor{keywordtype}{size\_t}\ bytes);}
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ *\ lv\_tlsf\_realloc(lv\_tlsf\_t\ tlsf,\ \textcolor{keywordtype}{void}\ *\ ptr,\ \textcolor{keywordtype}{size\_t}\ size);}
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_free(lv\_tlsf\_t\ tlsf,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ ptr);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{/*\ Returns\ internal\ block\ size,\ not\ original\ request\ size\ */}}
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_block\_size(\textcolor{keywordtype}{void}\ *\ ptr);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{/*\ Overheads/limits\ of\ internal\ structures.\ */}}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_size(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_align\_size(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_block\_size\_min(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_block\_size\_max(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_pool\_overhead(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{size\_t}\ lv\_tlsf\_alloc\_overhead(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*\ Debugging.\ */}}
+\DoxyCodeLine{00084\ \textcolor{keyword}{typedef}\ void\ (*lv\_tlsf\_walker)(\textcolor{keywordtype}{void}\ *\ ptr,\ \textcolor{keywordtype}{size\_t}\ size,\ \textcolor{keywordtype}{int}\ used,\ \textcolor{keywordtype}{void}\ *\ user);}
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ lv\_tlsf\_walk\_pool(lv\_pool\_t\ pool,\ lv\_tlsf\_walker\ walker,\ \textcolor{keywordtype}{void}\ *\ user);}
+\DoxyCodeLine{00086\ \textcolor{comment}{/*\ Returns\ nonzero\ if\ any\ internal\ consistency\ check\ fails.\ */}}
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{int}\ lv\_tlsf\_check(lv\_tlsf\_t\ tlsf);}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{int}\ lv\_tlsf\_check\_pool(lv\_pool\_t\ pool);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#if\ defined(\_\_cplusplus)}}
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_TLSF\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_STDLIB\_BUILTIN*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

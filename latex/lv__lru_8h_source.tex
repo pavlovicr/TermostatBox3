@@ -1,0 +1,80 @@
+\doxysection{lv\+\_\+lru.\+h}
+\hypertarget{lv__lru_8h_source}{}\label{lv__lru_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_lru.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_lru.h}}
+\mbox{\hyperlink{lv__lru_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_LRU\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_LRU\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h}{lv\_types.h}}"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ LV\_LRU\_OK\ =\ 0,}
+\DoxyCodeLine{00031\ \ \ \ \ LV\_LRU\_MISSING\_CACHE,}
+\DoxyCodeLine{00032\ \ \ \ \ LV\_LRU\_MISSING\_KEY,}
+\DoxyCodeLine{00033\ \ \ \ \ LV\_LRU\_MISSING\_VALUE,}
+\DoxyCodeLine{00034\ \ \ \ \ LV\_LRU\_LOCK\_ERROR,}
+\DoxyCodeLine{00035\ \ \ \ \ LV\_LRU\_VALUE\_TOO\_LARGE}
+\DoxyCodeLine{00036\ \}\ lv\_lru\_res\_t;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ void\ (*lv\_lru\_free\_cb\_t)(\textcolor{keywordtype}{void}\ *\ v);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__lru__item__t}{\_lv\_lru\_item\_t}}\ \mbox{\hyperlink{struct__lv__lru__item__t}{lv\_lru\_item\_t}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__lru__t}{\_lv\_lru\_t}}\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{struct__lv__lru__item__t}{lv\_lru\_item\_t}}\ **\ items;}
+\DoxyCodeLine{00044\ \ \ \ \ uint64\_t\ access\_count;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ free\_memory;}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ total\_memory;}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ average\_item\_length;}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ hash\_table\_size;}
+\DoxyCodeLine{00049\ \ \ \ \ uint32\_t\ seed;}
+\DoxyCodeLine{00050\ \ \ \ \ lv\_lru\_free\_cb\_t\ value\_free;}
+\DoxyCodeLine{00051\ \ \ \ \ lv\_lru\_free\_cb\_t\ key\_free;}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{struct__lv__lru__item__t}{lv\_lru\_item\_t}}\ *\ free\_items;}
+\DoxyCodeLine{00053\ \}\ \mbox{\hyperlink{struct__lv__lru__t}{lv\_lru\_t}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \mbox{\hyperlink{struct__lv__lru__t}{lv\_lru\_t}}\ *\ lv\_lru\_create(\textcolor{keywordtype}{size\_t}\ cache\_size,\ \textcolor{keywordtype}{size\_t}\ average\_length,\ lv\_lru\_free\_cb\_t\ value\_free,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_lru\_free\_cb\_t\ key\_free);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ lv\_lru\_delete(\mbox{\hyperlink{struct__lv__lru__t}{lv\_lru\_t}}\ *\ cache);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ lv\_lru\_res\_t\ lv\_lru\_set(\mbox{\hyperlink{struct__lv__lru__t}{lv\_lru\_t}}\ *\ cache,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ key,\ \textcolor{keywordtype}{size\_t}\ key\_length,\ \textcolor{keywordtype}{void}\ *\ value,\ \textcolor{keywordtype}{size\_t}\ value\_length);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ lv\_lru\_res\_t\ lv\_lru\_get(\mbox{\hyperlink{struct__lv__lru__t}{lv\_lru\_t}}\ *\ cache,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ key,\ \textcolor{keywordtype}{size\_t}\ key\_size,\ \textcolor{keywordtype}{void}\ **\ value);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ lv\_lru\_res\_t\ lv\_lru\_remove(\mbox{\hyperlink{struct__lv__lru__t}{lv\_lru\_t}}\ *\ cache,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ key,\ \textcolor{keywordtype}{size\_t}\ key\_size);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__lru_8h_a9075eea287cbb4c74aefa191dba2f2b3}{lv\_lru\_remove\_lru\_item}}(\mbox{\hyperlink{struct__lv__lru__t}{lv\_lru\_t}}\ *\ cache);}
+\DoxyCodeLine{00076\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00080\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_LRU\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

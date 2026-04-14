@@ -1,0 +1,219 @@
+\chapter{LVGL GDB Scripts -\/ Misc Module Extensions}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README}{}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README}\index{LVGL GDB Scripts -\/ Misc Module Extensions@{LVGL GDB Scripts -\/ Misc Module Extensions}}
+\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md576}%
+\Hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md576}%
+ This directory contains GDB debugging scripts for LVGL\textquotesingle{}s miscellaneous data structures, including red-\/black trees and cache systems.\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md577}{}\doxysection{\texorpdfstring{Objects}{Objects}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md577}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md578}{}\doxysubsection{\texorpdfstring{1. lv\+\_\+rb.\+py -\/ Red-\/\+Black Tree Support}{1. lv\_rb.py - Red-Black Tree Support}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md578}
+Provides debugging support for LVGL\textquotesingle{}s red-\/black tree ({\ttfamily lv\+\_\+rb\+\_\+t}) implementation.
+
+{\bfseries{Classes\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily LVRed\+Black\+Tree} -\/ Iterator for red-\/black tree nodes
+\end{DoxyItemize}
+
+{\bfseries{Functions\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily dump\+\_\+rb\+\_\+info(rb, datatype)} -\/ Dump basic red-\/black tree information
+\end{DoxyItemize}
+
+{\bfseries{Usage\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ In\ GDB:}
+\DoxyCodeLine{python\ tree\ =\ LVRedBlackTree(some\_rb\_tree)}
+\DoxyCodeLine{python\ for\ data\ in\ tree:\ print(data)}
+\DoxyCodeLine{python\ dump\_rb\_info(some\_rb\_tree,\ datatype)}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md579}{}\doxysubsection{\texorpdfstring{2. lv\+\_\+cache.\+py -\/ Cache System Support}{2. lv\_cache.py - Cache System Support}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md579}
+Provides debugging support for LVGL\textquotesingle{}s cache system ({\ttfamily lv\+\_\+cache\+\_\+t}).
+
+{\bfseries{Classes\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily LVCache} -\/ Wrapper for cache objects
+\end{DoxyItemize}
+
+{\bfseries{Functions\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily dump\+\_\+cache\+\_\+info(cache, datatype)} -\/ Dump cache information
+\end{DoxyItemize}
+
+{\bfseries{Usage\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ In\ GDB:}
+\DoxyCodeLine{python\ cache\ =\ LVCache(some\_cache)}
+\DoxyCodeLine{python\ print(f"{}Cache\ usage:\ \{cache.get\_usage\_percentage()\}\%"{})}
+\DoxyCodeLine{python\ dump\_cache\_info(some\_cache,\ datatype)}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md580}{}\doxysubsection{\texorpdfstring{3. lv\+\_\+cache\+\_\+entry.\+py -\/ Cache Entry Support}{3. lv\_cache\_entry.py - Cache Entry Support}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md580}
+Provides debugging support for cache entries ({\ttfamily lv\+\_\+cache\+\_\+entry\+\_\+t}).
+
+{\bfseries{Classes\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily LVCache\+Entry} -\/ Wrapper for cache entries
+\end{DoxyItemize}
+
+{\bfseries{Functions\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily dump\+\_\+cache\+\_\+entry\+\_\+info(entry, datatype)} -\/ Dump cache entry information
+\end{DoxyItemize}
+
+{\bfseries{Usage\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ In\ GDB:}
+\DoxyCodeLine{python\ entry\ =\ LVCacheEntry(some\_entry)}
+\DoxyCodeLine{python\ print(f"{}Ref\ count:\ \{entry.get\_ref\_count()\}"{})}
+\DoxyCodeLine{python\ dump\_cache\_entry\_info(some\_entry,\ datatype)}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md581}{}\doxysubsection{\texorpdfstring{4. lv\+\_\+cache\+\_\+lru\+\_\+rb.\+py -\/ LRU Cache with RB Tree Support}{4. lv\_cache\_lru\_rb.py - LRU Cache with RB Tree Support}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md581}
+Specialized support for LRU-\/based caches using red-\/black trees.
+
+{\bfseries{Classes\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily LVCache\+LRURB} -\/ Specialized cache wrapper for LRU RB implementations
+\end{DoxyItemize}
+
+{\bfseries{Functions\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily dump\+\_\+lru\+\_\+rb\+\_\+cache\+\_\+info(cache)} -\/ Dump LRU RB cache information
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md582}{}\doxysubsection{\texorpdfstring{5. lv\+\_\+image\+\_\+cache.\+py and lv\+\_\+image\+\_\+header\+\_\+cache.\+py -\/ Image Cache Support}{5. lv\_image\_cache.py and lv\_image\_header\_cache.py - Image Cache Support}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md582}
+Provides debugging support for LVGL\textquotesingle{}s image cache ({\ttfamily lv\+\_\+image\+\_\+cache\+\_\+t}).
+
+{\bfseries{Classes\+:}}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily LVImage\+Cache} -\/ Wrapper for image cache objects
+\end{DoxyItemize}
+
+{\bfseries{Usage\+:}}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ In\ GDB:}
+\DoxyCodeLine{python\ curr\_inst().image\_cache().print\_info()}
+\DoxyCodeLine{python\ curr\_inst().image\_cache().print\_entries()}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md583}{}\doxysection{\texorpdfstring{Integration}{Integration}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md583}
+All these modules are automatically imported and available when using the LVGL GDB scripts. You can access them through the main {\ttfamily lvgl} module\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ In\ GDB:}
+\DoxyCodeLine{python\ from\ lvglgdb\ import\ LVRedBlackTree,\ LVCache,\ dump\_rb\_info,\ dump\_cache\_info}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md584}{}\doxysection{\texorpdfstring{Type Conversion Support}{Type Conversion Support}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md584}
+All wrapper classes support multiple input types\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily gdb.\+Value} objects (from GDB expressions)
+\item {\ttfamily Value} objects (from lvglgdb.\+value module)
+\item Raw pointers as integers (e.\+g., {\ttfamily 0x12345678})
+\end{DoxyItemize}
+
+This allows flexible usage patterns\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ From\ GDB\ variable}
+\DoxyCodeLine{entry\ =\ LVCacheEntry(my\_entry)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ From\ raw\ memory\ address}
+\DoxyCodeLine{entry\ =\ LVCacheEntry(0x7fff12345678)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ From\ GDB\ expression\ result}
+\DoxyCodeLine{entry\ =\ LVCacheEntry(gdb.parse\_and\_eval("{}*(lv\_cache\_entry\_t*)0x7fff12345678"{}))}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md585}{}\doxysection{\texorpdfstring{Examples}{Examples}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md585}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md586}{}\doxysubsection{\texorpdfstring{Debugging a Red-\/\+Black Tree}{Debugging a Red-Black Tree}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md586}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Create\ tree\ iterator\ from\ variable}
+\DoxyCodeLine{tree\ =\ LVRedBlackTree(some\_rb\_variable)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Create\ from\ raw\ pointer\ (0x12345678)}
+\DoxyCodeLine{tree\ =\ LVRedBlackTree(0x12345678)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Iterate\ through\ all\ nodes}
+\DoxyCodeLine{for\ data\_ptr\ in\ tree:}
+\DoxyCodeLine{\ \ \ \ print(f"{}Data\ pointer:\ \{data\_ptr\}"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Get\ tree\ info}
+\DoxyCodeLine{print(f"{}Tree\ has\ \{len(tree)\}\ nodes"{})}
+\DoxyCodeLine{tree.print\_info()}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md587}{}\doxysubsection{\texorpdfstring{Debugging a Cache}{Debugging a Cache}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md587}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Create\ cache\ wrapper\ from\ variable}
+\DoxyCodeLine{cache\ =\ LVCache(some\_cache\_variable)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Create\ from\ raw\ pointer\ (0x12345678)}
+\DoxyCodeLine{cache\ =\ LVCache(0x12345678)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ cache\ status}
+\DoxyCodeLine{print(f"{}Cache\ usage:\ \{cache.get\_usage\_percentage():.1f\}\%"{})}
+\DoxyCodeLine{print(f"{}Cache\ enabled:\ \{cache.is\_enabled()\}"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Dump\ full\ info}
+\DoxyCodeLine{cache.print\_info()}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md588}{}\doxysubsection{\texorpdfstring{Debugging Cache Entries}{Debugging Cache Entries}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md588}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Create\ entry\ wrapper\ from\ variable}
+\DoxyCodeLine{entry\ =\ LVCacheEntry(some\_entry\_variable)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Create\ from\ raw\ pointer\ (0x12345678)}
+\DoxyCodeLine{entry\ =\ LVCacheEntry(0x12345678)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Check\ entry\ status}
+\DoxyCodeLine{print(f"{}Ref\ count:\ \{entry.get\_ref\_count()\}"{})}
+\DoxyCodeLine{print(f"{}Invalid:\ \{entry.is\_invalid()\}"{})}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Dump\ full\ info}
+\DoxyCodeLine{entry.print\_info()}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md589}{}\doxysection{\texorpdfstring{File Structure}{File Structure}}\label{md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README_autotoc_md589}
+
+\begin{DoxyItemize}
+\item {\ttfamily lv\+\_\+rb.\+py} -\/ Red-\/black tree debugging support
+\item {\ttfamily lv\+\_\+cache.\+py} -\/ General cache debugging support
+\item {\ttfamily lv\+\_\+cache\+\_\+entry.\+py} -\/ Cache entry debugging support
+\item {\ttfamily lv\+\_\+cache\+\_\+lru\+\_\+rb.\+py} -\/ LRU RB cache specialized support
+\item {\ttfamily lv\+\_\+image\+\_\+cache.\+py} -\/ Image cache debugging support
+\item {\ttfamily lv\+\_\+image\+\_\+header\+\_\+cache.\+py} -\/ Image header cache debugging support
+\item {\ttfamily lv\+\_\+cache\+\_\+iter\+\_\+base.\+py} -\/ Cache iterator base class
+\item {\ttfamily lv\+\_\+cache\+\_\+iter\+\_\+factory.\+py} -\/ Cache iterator factory functions
+\item {\ttfamily \+\_\+\+\_\+init\+\_\+\+\_\+.\+py} -\/ Module exports and initialization 
+\end{DoxyItemize}

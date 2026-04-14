@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Tests for LVGL</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Tests for LVGL</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md637"></a> </p>
+<h1><a class="anchor" id="autotoc_md638"></a>
+Test types available</h1>
+<ul>
+<li><b>Unit Tests</b>: Standard functional tests in <code>src/test_cases/</code> with screenshot comparison capabilities</li>
+<li><b>Performance Tests</b>: ARM-emulated benchmarks in <code>src/test_cases_perf/</code> running on QEMU/SO3 environment</li>
+<li><b>Emulated Benchmarks</b>: Automated <code>lv_demo_benchmark</code> runs in ARM emulation to prevent performance regressions</li>
+</ul>
+<p>All of the tests are automatically ran in LVGL's CI.</p>
+<h1><a class="anchor" id="autotoc_md639"></a>
+Quick start</h1>
+<ul>
+<li><b>Local Testing</b>: Run <code>./tests/main.py test</code> (after <code>scripts/install-prerequisites.sh</code>)</li>
+<li><b>Docker Testing</b>: Build with <code>docker build . -f tests/Dockerfile -t lvgl_test_env</code> then run</li>
+<li><b>Performance Testing</b>: Use <code>./tests/perf.py test</code> (requires Docker + Linux)</li>
+<li><b>Benchmark Testing</b>: Use <code>./tests/benchmark_emu.py run</code> for emulated performance benchmarks (requires Docker + Linux)</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md641"></a>
+Running locally</h1>
+<h2><a class="anchor" id="autotoc_md642"></a>
+Local</h2>
+<ol type="1">
+<li>Install requirements by:</li>
+</ol>
+<div class="fragment"><div class="line">scripts/install-prerequisites.sh</div>
+</div><!-- fragment --><ol type="1">
+<li>Run all executable tests with <code>./tests/main.py test</code>.</li>
+<li>Build all build-only tests with <code>./tests/main.py build</code>.</li>
+<li>Clean prior test build, build all build-only tests, run executable tests, and generate code coverage report <code>./tests/main.py --clean --report build test</code>.</li>
+<li>You can re-generate the test images by adding option <code>--update-image</code>. It relies on scripts/LVGLImage.py, which requires pngquant and pypng. You can run below command firstly and follow instructions in logs to install them. <code>./tests/main.py --update-image test</code> Note that different version of pngquant may generate different images. As of now the generated image on CI uses pngquant 2.13.1-1.</li>
+</ol>
+<p>For full information on running tests run: <code>./tests/main.py --help</code>.</p>
+<h2><a class="anchor" id="autotoc_md643"></a>
+Docker</h2>
+<p>To run the tests in an environment matching the CI setup:</p>
+<ol type="1">
+<li>Build it</li>
+</ol>
+<div class="fragment"><div class="line">docker build . -f tests/Dockerfile -t lvgl_test_env</div>
+</div><!-- fragment --><ol type="1">
+<li>Run the tests</li>
+</ol>
+<div class="fragment"><div class="line">docker run --rm -it -v $(pwd):/work lvgl_test_env &quot;./tests/main.py&quot;</div>
+</div><!-- fragment --><p>This ensures you are testing in a consistent environment with the same dependencies as the CI pipeline.</p>
+<h1><a class="anchor" id="autotoc_md644"></a>
+Running automatically</h1>
+<p>GitHub's CI automatically runs these tests on pushes and pull requests to <code>master</code> and <code>release/v8.*</code> branches.</p>
+<h1><a class="anchor" id="autotoc_md645"></a>
+Directory structure</h1>
+<ul>
+<li><code>src</code> Source files of the tests<ul>
+<li><code>test_cases</code> The written tests,</li>
+<li><code>test_cases_perf</code> The performance tests,</li>
+<li><code>test_runners</code> Generated automatically from the files in <code>test_cases</code>.</li>
+<li>other miscellaneous files and folders</li>
+</ul>
+</li>
+<li><code>ref_imgs</code> - Reference images for screenshot compare</li>
+<li><code>report</code> - Coverage report. Generated if the <code>report</code> flag was passed to <code>./main.py</code></li>
+<li><code>unity</code> Source files of the test engine</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md646"></a>
+Add new tests</h1>
+<h2><a class="anchor" id="autotoc_md647"></a>
+Create new test file</h2>
+<p>New test needs to be added into the <code>src/test_cases</code> folder. The name of the files should look like <code>test_&lt;name&gt;.c</code>. The basic skeleton of a test file copy <code>_test_template.c</code>.</p>
+<h2><a class="anchor" id="autotoc_md648"></a>
+Asserts</h2>
+<p>See the list of asserts <a href="https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityAssertionsReference.md">here</a>.</p>
+<p>There are some custom, LVGL specific asserts:</p><ul>
+<li><code>TEST_ASSERT_EQUAL_SCREENSHOT("image1.png")</code> Render the active screen and compare its content with an image in the <code>ref_imgs</code> folder.<ul>
+<li>If the reference image is not found it will be created automatically from the rendered screen.</li>
+<li>If the compare fails an <code>&lt;image_name&gt;_err.png</code> file will be created with the rendered content next to the reference image.</li>
+</ul>
+</li>
+<li><code>TEST_ASSERT_EQUAL_COLOR(color1, color2)</code> Compare two colors.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md649"></a>
+Performance Tests</h1>
+<h2><a class="anchor" id="autotoc_md650"></a>
+Requirements</h2>
+<ul>
+<li><b>Docker</b></li>
+<li><b>Linux host machine</b> (WSL <em>may</em> work but is untested)</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md651"></a>
+Running Tests</h2>
+<p>The performance tests are run inside a Docker container that launches an ARM emulated environment using QEMU to ensure consistent timing across machines. Each test runs on a lightweight ARM-based OS (<a href="https://github.com/smartobjectoriented/so3">SO3</a>) within this emulated environment.</p>
+<p>To run the tests:</p>
+<div class="fragment"><div class="line">./perf.py [--clean] [--auto-clean] [--test-suite &lt;suite&gt;] [--build-options &lt;option&gt;] [build|generate|test]</div>
+</div><!-- fragment --><ul>
+<li><code>build</code> and <code>generate</code>: generates all necessary build and configuration files</li>
+<li><code>test</code>: launches Docker with the appropriate volume mounts and runs the tests inside the container</li>
+</ul>
+<blockquote class="doxtable">
+<p>&zwj;[!NOTE] Building doesn't actually build the source files because the current docker image doesn't separate the building and running. Instead, it does both </p>
+</blockquote>
+<p>You can specify different build configurations via <code>--build-options</code>, and optionally filter tests using <code>--test-suite</code>.</p>
+<p>For full usage options, run:</p>
+<div class="fragment"><div class="line">./perf.py --help</div>
+</div><!-- fragment --><p>You can also run this script by passing a performance test config to the <code>main.py</code> script. The performance tests configs can be found inside the <a href="./perf.py"><code>perf.py</code></a> file</p>
+<h1><a class="anchor" id="autotoc_md652"></a>
+Emulated benchmarks</h1>
+<p>In addition to unit and performance tests, LVGL automatically runs the <code>lv_demo_benchmark</code> inside the same ARM emulated environment mentionned in the previous section through CI to prevent unintentional slowdowns.</p>
+<h2><a class="anchor" id="autotoc_md653"></a>
+Requirements</h2>
+<ul>
+<li><b>Docker</b></li>
+<li><b>Linux host machine</b> (WSL <em>may</em> work but is untested)</li>
+</ul>
+<p>To run the these benchmarks in the emulated setup described above, you can use the provided python script:</p>
+<div class="fragment"><div class="line">./benchmark_emu.py [-h] [--config {perf32b,perf64b}] [--pull] [--clean] [--auto-clean]</div>
+<div class="line">                        [{generate,run} ...]</div>
+</div><!-- fragment --><p>The following command runs all available configurations:</p>
+<div class="fragment"><div class="line">./benchmark_emu.py run </div>
+</div><!-- fragment --><p>You can also request a specific configuration:</p>
+<div class="fragment"><div class="line">./benchmark_emu.py --config perf32b run </div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

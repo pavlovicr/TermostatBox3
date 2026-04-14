@@ -1,0 +1,277 @@
+\chapter{ESP Codec Device}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README}{}\label{md_managed__components_2espressif____esp__codec__dev_2README}\index{ESP Codec Device@{ESP Codec Device}}
+\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md266}%
+\Hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md266}%
+
+\begin{DoxyItemize}
+\item \href{https://components.espressif.com/components/espressif/esp_codec_dev}{\texttt{ }}
+\item \doxysectlink{md_managed__components_2espressif____esp__codec__dev_2README__CN}{中文版本}{0}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md267}{}\doxysection{\texorpdfstring{General Information}{General Information}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md267}
+{\ttfamily esp\+\_\+codec\+\_\+dev} is a driver component for audio codec devices. Following features are supported currently\+:
+\begin{DoxyItemize}
+\item Support driver for common audio codec devices
+\item Support multiple instance of codec devices (including device of same type)
+\item Add unified abstract interface to operate on codec device
+\item Support customized codec realization based on provided interface
+\item Easy-\/to-\/use high-\/level API for playback and recording
+\item Support ADC microphone capture through internal ADC data interface ({\ttfamily audio\+\_\+codec\+\_\+new\+\_\+adc\+\_\+data})
+\item Support dummy codec for PA-\/only speaker designs ({\ttfamily dummy\+\_\+codec\+\_\+new}), enabling automatic PA control via {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+open/close}
+\item Support for volume adjustment in software when it is not supported in hardware
+\item Support customized volume curve and customized volume control
+\item Easy to port to other platform after replacing codes under \href{./platform}{\texttt{ platform}}
+\end{DoxyItemize}
+
+The currently supported codec devices are listed as below\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ }&\cellcolor{\tableheadbgcolor}\textbf{ Playback   }&\cellcolor{\tableheadbgcolor}\textbf{ Record    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ }&\cellcolor{\tableheadbgcolor}\textbf{ Playback   }&\cellcolor{\tableheadbgcolor}\textbf{ Record    }\\\cline{1-3}
+\endhead
+ES8311   &Y   &Y    \\\cline{1-3}
+ES8388   &Y   &Y    \\\cline{1-3}
+ES8374   &Y   &Y    \\\cline{1-3}
+ZL38063   &Y   &Y    \\\cline{1-3}
+TAS6805M   &Y   &N    \\\cline{1-3}
+AW88298   &Y   &N    \\\cline{1-3}
+ES8389   &Y   &Y    \\\cline{1-3}
+ES7210   &N   &Y    \\\cline{1-3}
+ES7243   &N   &Y    \\\cline{1-3}
+ES7243E   &N   &Y    \\\cline{1-3}
+ES8156   &N   &Y    \\\cline{1-3}
+CJC8910   &Y   &Y   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md268}{}\doxysection{\texorpdfstring{Architecture overview}{Architecture overview}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md268}
+Hardware connection and software architecture are introduced respectively by taking the codec device (ES8311) as an example. ~\newline
+ The hardware connection diagram between the codec device (ES8311) and the main IC (ESP32-\/\+S3) is as below\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{graph\ LR;}
+\DoxyCodeLine{\ \ \ \ subgraph\ Mic}
+\DoxyCodeLine{\ \ \ \ \ \ \ Microphone}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ ESP32-\/S3}
+\DoxyCodeLine{\ \ \ \ \ \ \ I2C\_Bus}
+\DoxyCodeLine{\ \ \ \ \ \ \ I2S\_Bus}
+\DoxyCodeLine{\ \ \ \ \ \ \ PA\_GPIO}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ ES8311}
+\DoxyCodeLine{\ \ \ \ \ \ ADC}
+\DoxyCodeLine{\ \ \ \ \ \ DAC}
+\DoxyCodeLine{\ \ \ \ \ \ I2C\_Port}
+\DoxyCodeLine{\ \ \ \ \ \ I2S\_Port}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ NS4150}
+\DoxyCodeLine{\ \ \ \ \ \ IN}
+\DoxyCodeLine{\ \ \ \ \ \ CTRL}
+\DoxyCodeLine{\ \ \ \ \ \ OUT}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ "{}Left\ Speaker"{}}
+\DoxyCodeLine{\ \ \ \ \ \ Speaker}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ I2C\_Bus\ -\/-\/>\ I2C\_Port}
+\DoxyCodeLine{\ \ \ \ I2S\_Bus\ -\/-\/>\ I2S\_Port}
+\DoxyCodeLine{\ \ \ \ DAC\ -\/-\/>\ IN}
+\DoxyCodeLine{\ \ \ \ OUT\ -\/-\/>\ Speaker}
+\DoxyCodeLine{\ \ \ \ PA\_GPIO\ -\/-\/>\ CTRL}
+\DoxyCodeLine{\ \ \ \ Microphone\ -\/-\/>\ ADC}
+
+\end{DoxyCode}
+
+
+ESP32-\/\+S3 sends control data to ES8311 through I2C bus and exchanges audio data through I2S bus. During playing, ES8311 receives digital audio data from I2S bus and performs DAC operation, then the analog signal is amplified by PA chip (NS4150) and finally is output through the speaker. During recording, ES8311 gets the analog signal from the microphone, amplifies it, and performs ADC operation, then digital audio data can be obtained from ESP32-\/\+S3.
+
+Communication between ESP32-\/\+S3 and ES8311 mainly occurs on two paths\+:
+\begin{DoxyItemize}
+\item Control path\+: Set up the codec chip (using I2C bus)
+\item Data path\+: Exchange audio data (using I2S bus)
+\end{DoxyItemize}
+
+In software architecture, the above hardware behavior is abstracted as\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{classDiagram}
+\DoxyCodeLine{direction\ LR;}
+\DoxyCodeLine{class\ audio\_codec\_ctrl\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ open()}
+\DoxyCodeLine{\ \ \ \ read\_reg()}
+\DoxyCodeLine{\ \ \ \ write\_reg()}
+\DoxyCodeLine{\ \ \ \ close()\ \ \ \ }
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ audio\_codec\_gpio\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ setup()}
+\DoxyCodeLine{\ \ \ \ set()}
+\DoxyCodeLine{\ \ \ \ get()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ es8311\_codec\_cfg\_t\ \{}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_ctrl\_if\_t\ *ctrl\_if}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_gpio\_if\_t\ *gpio\_if}
+\DoxyCodeLine{\ \ \ \ int16\_t\ pa\_pin}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_hw\_gain\_t\ hw\_gain}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ audio\_codec\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_ctrl\_if\_t*\ ctrl\_if}
+\DoxyCodeLine{\ \ \ \ open()}
+\DoxyCodeLine{\ \ \ \ enable()}
+\DoxyCodeLine{\ \ \ \ set\_fs()}
+\DoxyCodeLine{\ \ \ \ set\_vol()}
+\DoxyCodeLine{\ \ \ \ set\_mic\_gain()}
+\DoxyCodeLine{\ \ \ \ close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ audio\_codec\_data\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ open()}
+\DoxyCodeLine{\ \ \ \ set\_fmt()}
+\DoxyCodeLine{\ \ \ \ read()}
+\DoxyCodeLine{\ \ \ \ write()}
+\DoxyCodeLine{\ \ \ \ close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ esp\_codec\_dev\ \{}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_data\_if\_t*\ data\_if}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_if\_t*\ codec\_if}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_new()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_open()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_read()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_write()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_out\_vol()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_in\_gain()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_vol\_curve()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_vol\_handler()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{audio\_codec\_ctrl\_if\_t\ ..>\ es8311\_codec\_cfg\_t}
+\DoxyCodeLine{audio\_codec\_gpio\_if\_t\ ..>\ es8311\_codec\_cfg\_t}
+\DoxyCodeLine{es8311\_codec\_cfg\_t\ ..>\ audio\_codec\_if\_t}
+\DoxyCodeLine{audio\_codec\_if\_t\ ..>\ esp\_codec\_dev}
+\DoxyCodeLine{audio\_codec\_data\_if\_t\ ..>\ esp\_codec\_dev}
+
+\end{DoxyCode}
+
+
+{\ttfamily esp\+\_\+codec\+\_\+dev} abstracts the above communication path into two interfaces\+: ~\newline
+
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} for the control path\+: ~\newline
+ The control interface mainly offers {\ttfamily read\+\_\+reg} and {\ttfamily write\+\_\+reg} APIs to do codec setup ~\newline
+ Commonly used control channels include I2C, SPI, etc
+\item {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} for data path\+: ~\newline
+ The data interface mainly offers {\ttfamily read} and {\ttfamily write} APIs to exchange audio data ~\newline
+ Commonly used data channels include I2S, SPI, etc
+\end{DoxyItemize}
+
+{\ttfamily esp\+\_\+codec\+\_\+dev} provides users with convenient high-\/level API to implement playback and recording functions. It is composed of {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}}. {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} abstracts codec control operations and constructed by specified codec configuration (configured by {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} through {\ttfamily \doxylink{structes8311__codec__cfg__t}{es8311\+\_\+codec\+\_\+cfg\+\_\+t}}). {\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} abstracts the IO control to adapt to the main control IO or the expansion chip IO, and called inside the codec to match the unique set timing.\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md269}{}\doxysection{\texorpdfstring{DAC Volume setting}{DAC Volume setting}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md269}
+Volume setting is realized by common API\+: {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+out\+\_\+vol}. ~\newline
+ {\ttfamily esp\+\_\+codec\+\_\+dev} supports the following volume setup methods\+:
+\begin{DoxyEnumerate}
+\item Use codec register to adjust the volume
+\item Use built-\/in software volume {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+sw\+\_\+vol} when codec hardware does not support volume adjustment
+\item Use customized software volume interface through {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+vol\+\_\+handler}
+\end{DoxyEnumerate}
+
+The default volume range is 0 -\/ 100. Volume \mbox{[}1\+:100\mbox{]} is mapped to \mbox{[}-\/49.\+5 dB\+:0 dB\mbox{]} with the scale being 0.\+5 dB. Volume 0 is mapped to -\/96 dB. To change this mapping, you can define your own volume curve through API {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+vol\+\_\+curve}. The volume curve is an array of {\ttfamily \doxylink{structesp__codec__dev__vol__map__t}{esp\+\_\+codec\+\_\+dev\+\_\+vol\+\_\+map\+\_\+t}} which uses linear interpolation to calculate the decibel value at a certain volume point internally (please sort volume maps in advance). ~\newline
+ To balance the speaker\textquotesingle{}s loudness across different platforms when playing the same content, you need to know some mechanism of the audio gain. In short, audio gain consists of two parts\+: software gain (adjustable) and hardware gain (fixed). Software gain can be adjusted by changing the input PCM data level or setting the codec volume register. The hardware gain is affected by the peripheral circuit, mainly by the amplification efficiency of the analog signal. The typical impact parameter of hardware gain is extracted into {\ttfamily \doxylink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}}, which can be configured to codec devices to ensure loudness consistency. For more details, please refer to the comments in \href{include/esp_codec_dev_vol.h}{\texttt{ esp\+\_\+codec\+\_\+dev\+\_\+vol.\+h}}.\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md270}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md270}
+The steps below take the ES8311 codec as an example to illustrate how to play and record audio.
+\begin{DoxyEnumerate}
+\item Install the driver for codec control and data bus referring to \href{test_apps/codec_dev_test/main/test_board.c}{\texttt{ test\+\_\+board.\+c}} ~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ut\_i2c\_init(0);}
+\DoxyCodeLine{ut\_i2s\_init(0);}
+
+\end{DoxyCode}
+
+\item Create the control and data interfaces for the codec using the interface provided by default ~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structaudio__codec__i2s__cfg__t}{audio\_codec\_i2s\_cfg\_t}}\ i2s\_cfg\ =\ \{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#if\ ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 0,\ 0)}}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{structaudio__codec__i2s__cfg__t_ad3c05b2d576039a5430ba5e85f6ff5e8}{rx\_handle}}\ =\ i2s\_keep[0]-\/>rx\_handle,}
+\DoxyCodeLine{\ \ \ \ .tx\_handle\ =\ i2s\_keep[0]-\/>tx\_handle,}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *data\_if\ =\ audio\_codec\_new\_i2s\_data(\&i2s\_cfg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structaudio__codec__i2c__cfg__t}{audio\_codec\_i2c\_cfg\_t}}\ i2c\_cfg\ =\ \{.\mbox{\hyperlink{structaudio__codec__i2c__cfg__t_a9d87b479bdb9d284a4917bf025ba0293}{addr}}\ =\ ES8311\_CODEC\_DEFAULT\_ADDR\};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\_codec\_ctrl\_if\_t}}\ *out\_ctrl\_if\ =\ audio\_codec\_new\_i2c\_ctrl(\&i2c\_cfg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}}\ *gpio\_if\ =\ audio\_codec\_new\_gpio();}
+
+\end{DoxyCode}
+
+\item Create the codec interface based on control interface and codec-\/specified configuration ~\newline
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structes8311__codec__cfg__t}{es8311\_codec\_cfg\_t}}\ es8311\_cfg\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{structes8311__codec__cfg__t_a1eee056f7211c85f7e54f40e05af8540}{codec\_mode}}\ =\ ESP\_CODEC\_DEV\_WORK\_MODE\_BOTH,}
+\DoxyCodeLine{\ \ \ \ .ctrl\_if\ =\ out\_ctrl\_if,}
+\DoxyCodeLine{\ \ \ \ .gpio\_if\ =\ gpio\_if,}
+\DoxyCodeLine{\ \ \ \ .pa\_pin\ =\ YOUR\_PA\_GPIO,}
+\DoxyCodeLine{\ \ \ \ .use\_mclk\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__if__t}{audio\_codec\_if\_t}}\ *out\_codec\_if\ =\ es8311\_codec\_new(\&es8311\_cfg);}
+
+\end{DoxyCode}
+
+\item Get {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+handle\+\_\+t} through {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+new} ~\newline
+ Now you can use the handle for further playback and recording as follows\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structesp__codec__dev__cfg__t}{esp\_codec\_dev\_cfg\_t}}\ dev\_cfg\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{structesp__codec__dev__cfg__t_ac56b4a00089745d0c8cbed2585c6e6b4}{codec\_if}}\ =\ out\_codec\_if;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ codec\ interface\ from\ es8311\_codec\_new}}
+\DoxyCodeLine{\ \ \ \ .data\_if\ =\ data\_if;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ data\ interface\ from\ audio\_codec\_new\_i2s\_data}}
+\DoxyCodeLine{\ \ \ \ .dev\_type\ =\ ESP\_CODEC\_DEV\_TYPE\_IN\_OUT;\ \textcolor{comment}{//\ codec\ support\ both\ playback\ and\ record}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{esp\_codec\_dev\_handle\_t\ codec\_dev\ =\ esp\_codec\_dev\_new(\&dev\_cfg);}
+\DoxyCodeLine{\textcolor{comment}{//\ Below\ code\ shows\ how\ to\ play}}
+\DoxyCodeLine{esp\_codec\_dev\_set\_out\_vol(codec\_dev,\ 60.0);}
+\DoxyCodeLine{\mbox{\hyperlink{structesp__codec__dev__sample__info__t}{esp\_codec\_dev\_sample\_info\_t}}\ fs\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .sample\_rate\ =\ 48000,}
+\DoxyCodeLine{\ \ \ \ .channel\ =\ 2,}
+\DoxyCodeLine{\ \ \ \ .bits\_per\_sample\ =\ 16,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{esp\_codec\_dev\_open(codec\_dev,\ \&fs);}
+\DoxyCodeLine{uint8\_t\ data[256];}
+\DoxyCodeLine{esp\_codec\_dev\_write(codec\_dev,\ data,\ \textcolor{keyword}{sizeof}(data));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Below\ code\ shows\ how\ to\ record}}
+\DoxyCodeLine{esp\_codec\_dev\_set\_in\_gain(codec\_dev,\ 30.0);}
+\DoxyCodeLine{esp\_codec\_dev\_read(codec\_dev,\ data,\ \textcolor{keyword}{sizeof}(data));}
+\DoxyCodeLine{esp\_codec\_dev\_close(codec\_dev);}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md271}{}\doxysubsection{\texorpdfstring{Use ADC mic and dummy codec (no external codec chip)}{Use ADC mic and dummy codec (no external codec chip)}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md271}
+For boards that use an internal ADC microphone and a speaker PA without an external codec chip\+:
+
+
+\begin{DoxyItemize}
+\item Use {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+adc\+\_\+data} as the input data interface for ADC capture.
+\item Use {\ttfamily dummy\+\_\+codec\+\_\+new} with {\ttfamily pa\+\_\+pin} configured to bind PA power control to codec lifecycle.
+\item Then {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+open()} / {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+close()} can still automatically enable/disable PA.
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md272}{}\doxysection{\texorpdfstring{How to customize for new codec device}{How to customize for new codec device}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md272}
+
+\begin{DoxyEnumerate}
+\item Implement {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} ~\newline
+ If you are using I2C bus for control and I2S bus for data, you can use the implementation provided by default\+: ~\newline
+ {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+i2c\+\_\+ctrl} and {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+i2s\+\_\+data}
+\item Implement {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} based on the interface built in step 1 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\_codec\_ctrl\_if\_t}}\ *ctrl\_if;\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}}\ *gpio\_if;\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//...................................\ \ \ \ \ Other\ settings}}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{structmy__codec__cfg__t}{my\_codec\_cfg\_t}};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__if__t}{audio\_codec\_if\_t}}\ *my\_codec\_new(\mbox{\hyperlink{structmy__codec__cfg__t}{my\_codec\_cfg\_t}}\ *codec\_cfg);}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+For details, refer to the sample code \href{test_apps/codec_dev_test/main/my_codec.c}{\texttt{ my\+\_\+codec.\+c}}. 

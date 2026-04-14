@@ -1,0 +1,71 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+line\+\_\+t}
+\hypertarget{struct__lv__line__t}{}\label{struct__lv__line__t}\index{\_lv\_line\_t@{\_lv\_line\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+line\+\_\+private.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda \+\_\+lv\+\_\+line\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{struct__lv__line__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct__lv__line__t_ab30e9ac4ef82a42c388cd9057d94455d}\label{struct__lv__line__t_ab30e9ac4ef82a42c388cd9057d94455d} 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} {\bfseries obj}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>const \mbox{\hyperlink{structlv__point__precise__t}{lv\_point\_precise\_t}} \texorpdfstring{$\ast$}{*} {\bfseries constant}\\
+\>\mbox{\hyperlink{structlv__point__precise__t}{lv\_point\_precise\_t}} \texorpdfstring{$\ast$}{*} {\bfseries mut}\\
+\} \mbox{\hyperlink{struct__lv__line__t_a4f28bd31041bf8c2c9a1e232448e55c0}{point\_array}}\\
+
+\end{tabbing}\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__line__t_a2899ee3f2d9002b36a11def792c896ab}{point\+\_\+num}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__line__t_ac9846f67bf9b803521a4b5d6154539f4}{y\+\_\+inv}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__line__t_a6658947280bf0347b881ea470d00ce4c}{point\+\_\+array\+\_\+is\+\_\+mutable}}\+: 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Data of line 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__line__t_a4f28bd31041bf8c2c9a1e232448e55c0}\label{struct__lv__line__t_a4f28bd31041bf8c2c9a1e232448e55c0} 
+\index{\_lv\_line\_t@{\_lv\_line\_t}!point\_array@{point\_array}}
+\index{point\_array@{point\_array}!\_lv\_line\_t@{\_lv\_line\_t}}
+\doxysubsubsection{\texorpdfstring{[union]}{[union]}}
+{\footnotesize\ttfamily union  \{ ... \}  \+\_\+lv\+\_\+line\+\_\+t\+::point\+\_\+array}
+
+Pointer to an array with the points of the line \Hypertarget{struct__lv__line__t_a6658947280bf0347b881ea470d00ce4c}\label{struct__lv__line__t_a6658947280bf0347b881ea470d00ce4c} 
+\index{\_lv\_line\_t@{\_lv\_line\_t}!point\_array\_is\_mutable@{point\_array\_is\_mutable}}
+\index{point\_array\_is\_mutable@{point\_array\_is\_mutable}!\_lv\_line\_t@{\_lv\_line\_t}}
+\doxysubsubsection{\texorpdfstring{point\_array\_is\_mutable}{point\_array\_is\_mutable}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+line\+\_\+t\+::point\+\_\+array\+\_\+is\+\_\+mutable}
+
+whether the point array is const or mutable \Hypertarget{struct__lv__line__t_a2899ee3f2d9002b36a11def792c896ab}\label{struct__lv__line__t_a2899ee3f2d9002b36a11def792c896ab} 
+\index{\_lv\_line\_t@{\_lv\_line\_t}!point\_num@{point\_num}}
+\index{point\_num@{point\_num}!\_lv\_line\_t@{\_lv\_line\_t}}
+\doxysubsubsection{\texorpdfstring{point\_num}{point\_num}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+line\+\_\+t\+::point\+\_\+num}
+
+Number of points in \textquotesingle{}point\+\_\+array\textquotesingle{} \Hypertarget{struct__lv__line__t_ac9846f67bf9b803521a4b5d6154539f4}\label{struct__lv__line__t_ac9846f67bf9b803521a4b5d6154539f4} 
+\index{\_lv\_line\_t@{\_lv\_line\_t}!y\_inv@{y\_inv}}
+\index{y\_inv@{y\_inv}!\_lv\_line\_t@{\_lv\_line\_t}}
+\doxysubsubsection{\texorpdfstring{y\_inv}{y\_inv}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+line\+\_\+t\+::y\+\_\+inv}
+
+1\+: y == 0 will be on the bottom 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/line/\mbox{\hyperlink{lv__line__private_8h}{lv\+\_\+line\+\_\+private.\+h}}\end{DoxyCompactItemize}

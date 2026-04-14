@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/espressif__esp_lcd_touch/include/esp_lcd_touch.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_e18be91feb753bbb0d8224de8b671f78.html">espressif__esp_lcd_touch</a></li><li class="navelem"><a class="el" href="dir_76d829a2275c90b690e3c3cad43598e8.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Strukture</a> &#124;
+<a href="#typedef-members">Uporabniško definirani tipi</a> &#124;
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka esp_lcd_touch.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>ESP LCD touch.  
+<a href="#details">...</a></p>
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;sdkconfig.h&quot;</code><br />
+<code>#include &quot;esp_err.h&quot;</code><br />
+<code>#include &quot;driver/gpio.h&quot;</code><br />
+<code>#include &quot;esp_lcd_panel_io.h&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/semphr.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "esp_lcd_touch.h" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko esp_lcd_touch.h. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="esp__lcd__touch_8h__incl.png" border="0" usemap="#amanaged__components_2espressif____esp__lcd__touch_2include_2esp__lcd__touch_8h" alt=""/></div>
+<map name="amanaged__components_2espressif____esp__lcd__touch_2include_2esp__lcd__touch_8h" id="amanaged__components_2espressif____esp__lcd__touch_2include_2esp__lcd__touch_8h">
+<area shape="rect" title="ESP LCD touch." alt="" coords="305,5,476,75"/>
+<area shape="rect" title=" " alt="" coords="5,123,88,148"/>
+<area shape="poly" title=" " alt="" coords="306,67,102,122,101,117,304,62"/>
+<area shape="rect" title=" " alt="" coords="112,123,208,148"/>
+<area shape="poly" title=" " alt="" coords="308,77,202,120,200,115,306,72"/>
+<area shape="rect" title=" " alt="" coords="233,123,314,148"/>
+<area shape="poly" title=" " alt="" coords="350,77,300,116,297,112,347,73"/>
+<area shape="rect" title=" " alt="" coords="339,123,443,148"/>
+<area shape="poly" title=" " alt="" coords="393,75,393,109,388,109,388,75"/>
+<area shape="rect" title=" " alt="" coords="467,123,613,148"/>
+<area shape="poly" title=" " alt="" coords="446,73,511,113,509,118,443,77"/>
+<area shape="rect" title=" " alt="" coords="637,123,787,148"/>
+<area shape="poly" title=" " alt="" coords="477,63,660,116,658,121,476,69"/>
+<area shape="rect" title=" " alt="" coords="811,123,949,148"/>
+<area shape="poly" title=" " alt="" coords="477,55,808,118,807,123,476,60"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-&gt;B definira relacijo "A vključuje B". Vse datoteke, ki torej mejijo na tekočo (t.j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. </div>
+<div class="dyncontent">
+<div class="center"><img src="esp__lcd__touch_8h__dep__incl.png" border="0" usemap="#amanaged__components_2espressif____esp__lcd__touch_2include_2esp__lcd__touch_8hdep" alt=""/></div>
+<map name="amanaged__components_2espressif____esp__lcd__touch_2include_2esp__lcd__touch_8hdep" id="amanaged__components_2espressif____esp__lcd__touch_2include_2esp__lcd__touch_8hdep">
+<area shape="rect" title="ESP LCD touch." alt="" coords="203,5,373,75"/>
+<area shape="rect" href="touch_8h.html" title="BSP Touchscreen." alt="" coords="5,130,176,185"/>
+<area shape="poly" title=" " alt="" coords="220,84,137,132,134,128,217,79"/>
+<area shape="rect" href="esp__lcd__touch__gt911_8h.html" title="ESP LCD touch: GT911." alt="" coords="201,123,375,192"/>
+<area shape="poly" title=" " alt="" coords="291,89,291,122,285,122,285,89"/>
+<area shape="rect" href="esp__lcd__touch__tt21100_8h.html" title="ESP LCD touch: TT21100." alt="" coords="400,123,587,192"/>
+<area shape="poly" title=" " alt="" coords="361,79,435,120,432,125,359,84"/>
+</map>
+</div>
+</div>
+<p><a href="esp__lcd__touch_8h_source.html">izvorna koda</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Strukture</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__lcd__touch__config__t.html">esp_lcd_touch_config_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Touch Configuration Type.  <a href="structesp__lcd__touch__config__t.html#details">...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__lcd__touch__point__data__t.html">esp_lcd_touch_point_data_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__lcd__touch__data__t.html">esp_lcd_touch_data_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_s</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Declare of Touch Type.  <a href="structesp__lcd__touch__s.html#details">...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Uporabniško definirani tipi</h2></td></tr>
+<tr class="memitem:a19e7097d71ad79847e86233ecaa4b88f" id="r_a19e7097d71ad79847e86233ecaa4b88f"><td class="memItemLeft" align="right" valign="top"><a id="a19e7097d71ad79847e86233ecaa4b88f" name="a19e7097d71ad79847e86233ecaa4b88f"></a>
+typedef struct <a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_s</a>&#160;</td><td class="memItemRight" valign="bottom"><b>esp_lcd_touch_t</b></td></tr>
+<tr class="memdesc:a19e7097d71ad79847e86233ecaa4b88f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Touch controller type. <br /></td></tr>
+<tr class="separator:a19e7097d71ad79847e86233ecaa4b88f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49dec3d10ef4bf14720c4c59924e7654" id="r_a49dec3d10ef4bf14720c4c59924e7654"><td class="memItemLeft" align="right" valign="top"><a id="a49dec3d10ef4bf14720c4c59924e7654" name="a49dec3d10ef4bf14720c4c59924e7654"></a>
+typedef <a class="el" href="esp__lcd__touch_8h.html#a19e7097d71ad79847e86233ecaa4b88f">esp_lcd_touch_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>esp_lcd_touch_handle_t</b></td></tr>
+<tr class="separator:a49dec3d10ef4bf14720c4c59924e7654"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed924a11f5b98e00fe8fa37b239f636d" id="r_aed924a11f5b98e00fe8fa37b239f636d"><td class="memItemLeft" align="right" valign="top"><a id="aed924a11f5b98e00fe8fa37b239f636d" name="aed924a11f5b98e00fe8fa37b239f636d"></a>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>esp_lcd_touch_interrupt_callback_t</b>) (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp)</td></tr>
+<tr class="memdesc:aed924a11f5b98e00fe8fa37b239f636d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Touch controller interrupt callback type. <br /></td></tr>
+<tr class="separator:aed924a11f5b98e00fe8fa37b239f636d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:acdce04195b09e422ce45dfc9d59cbdb4" id="r_acdce04195b09e422ce45dfc9d59cbdb4"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#acdce04195b09e422ce45dfc9d59cbdb4">esp_lcd_touch_read_data</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp)</td></tr>
+<tr class="memdesc:acdce04195b09e422ce45dfc9d59cbdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data from touch controller.  <br /></td></tr>
+<tr class="separator:acdce04195b09e422ce45dfc9d59cbdb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a894e5c22d47d5a8e89b8b472a06a5a06" id="r_a894e5c22d47d5a8e89b8b472a06a5a06"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a894e5c22d47d5a8e89b8b472a06a5a06">esp_lcd_touch_get_data</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, <a class="el" href="structesp__lcd__touch__point__data__t.html">esp_lcd_touch_point_data_t</a> *data, uint8_t *point_cnt, uint8_t max_point_cnt)</td></tr>
+<tr class="memdesc:a894e5c22d47d5a8e89b8b472a06a5a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get each touch point data from touch controller.  <br /></td></tr>
+<tr class="separator:a894e5c22d47d5a8e89b8b472a06a5a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e924cbb14601c86fc2fe5b7c8a27aef" id="r_a2e924cbb14601c86fc2fe5b7c8a27aef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a2e924cbb14601c86fc2fe5b7c8a27aef">esp_lcd_touch_get_coordinates</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, uint16_t *x, uint16_t *y, uint16_t *strength, uint8_t *point_num, uint8_t max_point_num)</td></tr>
+<tr class="memdesc:a2e924cbb14601c86fc2fe5b7c8a27aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read coordinates from touch controller.  <br /></td></tr>
+<tr class="separator:a2e924cbb14601c86fc2fe5b7c8a27aef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab501eb38c94e082ae9530114110978a1" id="r_ab501eb38c94e082ae9530114110978a1"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#ab501eb38c94e082ae9530114110978a1">esp_lcd_touch_set_swap_xy</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, bool swap)</td></tr>
+<tr class="memdesc:ab501eb38c94e082ae9530114110978a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap X and Y after read coordinates.  <br /></td></tr>
+<tr class="separator:ab501eb38c94e082ae9530114110978a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fbd9e53e4dca1022ff417f3d1d4277f" id="r_a3fbd9e53e4dca1022ff417f3d1d4277f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a3fbd9e53e4dca1022ff417f3d1d4277f">esp_lcd_touch_get_swap_xy</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, bool *swap)</td></tr>
+<tr class="memdesc:a3fbd9e53e4dca1022ff417f3d1d4277f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Are X and Y coordinates swapped.  <br /></td></tr>
+<tr class="separator:a3fbd9e53e4dca1022ff417f3d1d4277f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ce613d11d9731ad0cb9747753ab505b" id="r_a8ce613d11d9731ad0cb9747753ab505b"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a8ce613d11d9731ad0cb9747753ab505b">esp_lcd_touch_set_mirror_x</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, bool mirror)</td></tr>
+<tr class="memdesc:a8ce613d11d9731ad0cb9747753ab505b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mirror X after read coordinates.  <br /></td></tr>
+<tr class="separator:a8ce613d11d9731ad0cb9747753ab505b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3763afc1107b6d8a3a36619c298e08a" id="r_aa3763afc1107b6d8a3a36619c298e08a"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#aa3763afc1107b6d8a3a36619c298e08a">esp_lcd_touch_get_mirror_x</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, bool *mirror)</td></tr>
+<tr class="memdesc:aa3763afc1107b6d8a3a36619c298e08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is mirrored X.  <br /></td></tr>
+<tr class="separator:aa3763afc1107b6d8a3a36619c298e08a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a178eaadaa0171d41ffe88175cf2c7736" id="r_a178eaadaa0171d41ffe88175cf2c7736"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a178eaadaa0171d41ffe88175cf2c7736">esp_lcd_touch_set_mirror_y</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, bool mirror)</td></tr>
+<tr class="memdesc:a178eaadaa0171d41ffe88175cf2c7736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mirror Y after read coordinates.  <br /></td></tr>
+<tr class="separator:a178eaadaa0171d41ffe88175cf2c7736"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6b38657032dbfc228c007160faeffec" id="r_aa6b38657032dbfc228c007160faeffec"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#aa6b38657032dbfc228c007160faeffec">esp_lcd_touch_get_mirror_y</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, bool *mirror)</td></tr>
+<tr class="memdesc:aa6b38657032dbfc228c007160faeffec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is mirrored Y.  <br /></td></tr>
+<tr class="separator:aa6b38657032dbfc228c007160faeffec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a8240978947c19d71e7cf545bfd5acc" id="r_a8a8240978947c19d71e7cf545bfd5acc"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a8a8240978947c19d71e7cf545bfd5acc">esp_lcd_touch_del</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp)</td></tr>
+<tr class="memdesc:a8a8240978947c19d71e7cf545bfd5acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete touch (free all allocated memory and restart HW)  <br /></td></tr>
+<tr class="separator:a8a8240978947c19d71e7cf545bfd5acc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19377f5479504bb0dce19a5a5c8a648" id="r_aa19377f5479504bb0dce19a5a5c8a648"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#aa19377f5479504bb0dce19a5a5c8a648">esp_lcd_touch_register_interrupt_callback</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, <a class="el" href="esp__lcd__touch_8h.html#aed924a11f5b98e00fe8fa37b239f636d">esp_lcd_touch_interrupt_callback_t</a> callback)</td></tr>
+<tr class="memdesc:aa19377f5479504bb0dce19a5a5c8a648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register user callback called after the touch interrupt occurred.  <br /></td></tr>
+<tr class="separator:aa19377f5479504bb0dce19a5a5c8a648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d87098c087ee1ec78e4d427f2d9978" id="r_ad8d87098c087ee1ec78e4d427f2d9978"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#ad8d87098c087ee1ec78e4d427f2d9978">esp_lcd_touch_register_interrupt_callback_with_data</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp, <a class="el" href="esp__lcd__touch_8h.html#aed924a11f5b98e00fe8fa37b239f636d">esp_lcd_touch_interrupt_callback_t</a> callback, void *user_data)</td></tr>
+<tr class="memdesc:ad8d87098c087ee1ec78e4d427f2d9978"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register user callback called after the touch interrupt occurred with user data.  <br /></td></tr>
+<tr class="separator:ad8d87098c087ee1ec78e4d427f2d9978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a618f01d5e3a25b0d852c0447d6a5db5f" id="r_a618f01d5e3a25b0d852c0447d6a5db5f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a618f01d5e3a25b0d852c0447d6a5db5f">esp_lcd_touch_enter_sleep</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp)</td></tr>
+<tr class="memdesc:a618f01d5e3a25b0d852c0447d6a5db5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter sleep mode.  <br /></td></tr>
+<tr class="separator:a618f01d5e3a25b0d852c0447d6a5db5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7cc134a229739580887b5d74c441487a" id="r_a7cc134a229739580887b5d74c441487a"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="esp__lcd__touch_8h.html#a7cc134a229739580887b5d74c441487a">esp_lcd_touch_exit_sleep</a> (<a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> tp)</td></tr>
+<tr class="memdesc:a7cc134a229739580887b5d74c441487a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exit sleep mode.  <br /></td></tr>
+<tr class="separator:a7cc134a229739580887b5d74c441487a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Podroben opis</h2>
+<div class="textblock"><p>ESP LCD touch. </p>
+</div><h2 class="groupheader">Opis funkcije</h2>
+<a id="a8a8240978947c19d71e7cf545bfd5acc" name="a8a8240978947c19d71e7cf545bfd5acc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8240978947c19d71e7cf545bfd5acc">&#9670;&#160;</a></span>esp_lcd_touch_del()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_del </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete touch (free all allocated memory and restart HW) </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a618f01d5e3a25b0d852c0447d6a5db5f" name="a618f01d5e3a25b0d852c0447d6a5db5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a618f01d5e3a25b0d852c0447d6a5db5f">&#9670;&#160;</a></span>esp_lcd_touch_enter_sleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_enter_sleep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enter sleep mode. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_ARG if parameter is invalid </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a7cc134a229739580887b5d74c441487a" name="a7cc134a229739580887b5d74c441487a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7cc134a229739580887b5d74c441487a">&#9670;&#160;</a></span>esp_lcd_touch_exit_sleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_exit_sleep </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Exit sleep mode. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_ARG if parameter is invalid </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a2e924cbb14601c86fc2fe5b7c8a27aef" name="a2e924cbb14601c86fc2fe5b7c8a27aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e924cbb14601c86fc2fe5b7c8a27aef">&#9670;&#160;</a></span>esp_lcd_touch_get_coordinates()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool esp_lcd_touch_get_coordinates </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>strength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>point_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>max_point_num</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read coordinates from touch controller. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">x</td><td>Array of X coordinates </td></tr>
+    <tr><td class="paramname">y</td><td>Array of Y coordinates </td></tr>
+    <tr><td class="paramname">strength</td><td>Array of the strengths (can be NULL) </td></tr>
+    <tr><td class="paramname">point_num</td><td>Count of points touched (equals with count of items in x and y array) </td></tr>
+    <tr><td class="paramname">max_point_num</td><td>Maximum count of touched points to return (equals with max size of x and y array)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>Returns true, when touched and coordinates readed. Otherwise returns false. </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a894e5c22d47d5a8e89b8b472a06a5a06" name="a894e5c22d47d5a8e89b8b472a06a5a06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a894e5c22d47d5a8e89b8b472a06a5a06">&#9670;&#160;</a></span>esp_lcd_touch_get_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_get_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__point__data__t.html">esp_lcd_touch_point_data_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>point_cnt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>max_point_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get each touch point data from touch controller. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">data</td><td>Array of data structures to be filled out </td></tr>
+    <tr><td class="paramname">point_cnt</td><td>Count of touched points (equals to count of items in x and y array) </td></tr>
+    <tr><td class="paramname">max_point_cnt</td><td>Maximum count of touched points to return (equals with max size of x and y array)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_ARG if parameter is invalid</li>
+<li>ESP_ERR_INVALID_STATE if parameter is uninitialized </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="aa3763afc1107b6d8a3a36619c298e08a" name="aa3763afc1107b6d8a3a36619c298e08a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3763afc1107b6d8a3a36619c298e08a">&#9670;&#160;</a></span>esp_lcd_touch_get_mirror_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_get_mirror_x </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>mirror</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Is mirrored X. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">mirror</td><td>Get X mirror value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="aa6b38657032dbfc228c007160faeffec" name="aa6b38657032dbfc228c007160faeffec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6b38657032dbfc228c007160faeffec">&#9670;&#160;</a></span>esp_lcd_touch_get_mirror_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_get_mirror_y </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>mirror</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Is mirrored Y. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">mirror</td><td>Get Y mirror value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a3fbd9e53e4dca1022ff417f3d1d4277f" name="a3fbd9e53e4dca1022ff417f3d1d4277f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fbd9e53e4dca1022ff417f3d1d4277f">&#9670;&#160;</a></span>esp_lcd_touch_get_swap_xy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_get_swap_xy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>swap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Are X and Y coordinates swapped. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">swap</td><td>Get swap value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="acdce04195b09e422ce45dfc9d59cbdb4" name="acdce04195b09e422ce45dfc9d59cbdb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdce04195b09e422ce45dfc9d59cbdb4">&#9670;&#160;</a></span>esp_lcd_touch_read_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_read_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read data from touch controller. </p>
+<dl class="section note"><dt>Opomba</dt><dd>This function is usually blocking.</dd></dl>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success</li>
+<li>ESP_ERR_INVALID_ARG parameter error</li>
+<li>ESP_FAIL sending command error, slave hasn't ACK the transfer</li>
+<li>ESP_ERR_INVALID_STATE I2C driver not installed or not in master mode</li>
+<li>ESP_ERR_TIMEOUT operation timeout because the bus is busy </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="aa19377f5479504bb0dce19a5a5c8a648" name="aa19377f5479504bb0dce19a5a5c8a648"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa19377f5479504bb0dce19a5a5c8a648">&#9670;&#160;</a></span>esp_lcd_touch_register_interrupt_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_register_interrupt_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="esp__lcd__touch_8h.html#aed924a11f5b98e00fe8fa37b239f636d">esp_lcd_touch_interrupt_callback_t</a>&#160;</td>
+          <td class="paramname"><em>callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register user callback called after the touch interrupt occurred. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">callback</td><td>Interrupt callback</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ad8d87098c087ee1ec78e4d427f2d9978" name="ad8d87098c087ee1ec78e4d427f2d9978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8d87098c087ee1ec78e4d427f2d9978">&#9670;&#160;</a></span>esp_lcd_touch_register_interrupt_callback_with_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_register_interrupt_callback_with_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="esp__lcd__touch_8h.html#aed924a11f5b98e00fe8fa37b239f636d">esp_lcd_touch_interrupt_callback_t</a>&#160;</td>
+          <td class="paramname"><em>callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>user_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Register user callback called after the touch interrupt occurred with user data. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">callback</td><td>Interrupt callback </td></tr>
+    <tr><td class="paramname">user_data</td><td>User data passed to callback</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a8ce613d11d9731ad0cb9747753ab505b" name="a8ce613d11d9731ad0cb9747753ab505b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ce613d11d9731ad0cb9747753ab505b">&#9670;&#160;</a></span>esp_lcd_touch_set_mirror_x()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_set_mirror_x </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>mirror</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mirror X after read coordinates. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">mirror</td><td>Set X mirror value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="a178eaadaa0171d41ffe88175cf2c7736" name="a178eaadaa0171d41ffe88175cf2c7736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a178eaadaa0171d41ffe88175cf2c7736">&#9670;&#160;</a></span>esp_lcd_touch_set_mirror_y()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_set_mirror_y </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>mirror</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mirror Y after read coordinates. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">mirror</td><td>Set Y mirror value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+<a id="ab501eb38c94e082ae9530114110978a1" name="ab501eb38c94e082ae9530114110978a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab501eb38c94e082ae9530114110978a1">&#9670;&#160;</a></span>esp_lcd_touch_set_swap_xy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t esp_lcd_touch_set_swap_xy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a>&#160;</td>
+          <td class="paramname"><em>tp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>swap</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Swap X and Y after read coordinates. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tp</td><td>Touch handler </td></tr>
+    <tr><td class="paramname">swap</td><td>Set swap value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd><ul>
+<li>ESP_OK on success </li>
+</ul>
+</dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

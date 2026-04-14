@@ -1,0 +1,1848 @@
+\doxysection{nanovg\+\_\+gl.\+h}
+\hypertarget{nanovg__gl_8h_source}{}\label{nanovg__gl_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/nanovg/nanovg\_gl.h@{managed\_components/lvgl\_\_lvgl/src/libs/nanovg/nanovg\_gl.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Copyright\ (c)\ 2009-\/2013\ Mikko\ Mononen\ memon@inside.org}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ This\ software\ is\ provided\ 'as-\/is',\ without\ any\ express\ or\ implied}}
+\DoxyCodeLine{00005\ \textcolor{comment}{//\ warranty.\ \ In\ no\ event\ will\ the\ authors\ be\ held\ liable\ for\ any\ damages}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ arising\ from\ the\ use\ of\ this\ software.}}
+\DoxyCodeLine{00007\ \textcolor{comment}{//\ Permission\ is\ granted\ to\ anyone\ to\ use\ this\ software\ for\ any\ purpose,}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ including\ commercial\ applications,\ and\ to\ alter\ it\ and\ redistribute\ it}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ freely,\ subject\ to\ the\ following\ restrictions:}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//\ 1.\ The\ origin\ of\ this\ software\ must\ not\ be\ misrepresented;\ you\ must\ not}}
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ \ \ \ claim\ that\ you\ wrote\ the\ original\ software.\ If\ you\ use\ this\ software}}
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ \ \ \ in\ a\ product,\ an\ acknowledgment\ in\ the\ product\ documentation\ would\ be}}
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ \ \ \ appreciated\ but\ is\ not\ required.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ 2.\ Altered\ source\ versions\ must\ be\ plainly\ marked\ as\ such,\ and\ must\ not\ be}}
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ \ \ \ misrepresented\ as\ being\ the\ original\ software.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ 3.\ This\ notice\ may\ not\ be\ removed\ or\ altered\ from\ any\ source\ distribution.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ NANOVG\_GL\_H}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ NANOVG\_GL\_H}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#if\ LV\_USE\_NANOVG}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00026\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Create\ flags}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{enum}\ NVGcreateFlags\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Flag\ indicating\ if\ geometry\ based\ anti-\/aliasing\ is\ used\ (may\ not\ be\ needed\ when\ using\ MSAA).}}
+\DoxyCodeLine{00033\ \ \ \ \ NVG\_ANTIALIAS\ \ \ \ \ \ \ =\ 1\ <<\ 0,}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Flag\ indicating\ if\ strokes\ should\ be\ drawn\ using\ stencil\ buffer.\ The\ rendering\ will\ be\ a\ little}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ slower,\ but\ path\ overlaps\ (i.e.\ self-\/intersecting\ or\ sharp\ turns)\ will\ be\ drawn\ just\ once.}}
+\DoxyCodeLine{00036\ \ \ \ \ NVG\_STENCIL\_STROKES\ =\ 1\ <<\ 1,}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{comment}{//\ Flag\ indicating\ that\ additional\ debug\ checks\ are\ done.}}
+\DoxyCodeLine{00038\ \ \ \ \ NVG\_DEBUG\ \ \ \ \ \ \ \ \ \ \ =\ 1\ <<\ 2,}
+\DoxyCodeLine{00039\ \};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL2\_IMPLEMENTATION}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL2\ 1}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_IMPLEMENTATION\ 1}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_USE\_UNIFORMBUFFER\ 0}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GL3\_IMPLEMENTATION}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL3\ 1}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_IMPLEMENTATION\ 1}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_USE\_UNIFORMBUFFER\ 1}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES2\_IMPLEMENTATION}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GLES2\ 1}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_IMPLEMENTATION\ 1}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_USE\_UNIFORMBUFFER\ 0}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES3\_IMPLEMENTATION}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GLES3\ 1}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_IMPLEMENTATION\ 1}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#\ \ define\ NANOVG\_GL\_USE\_UNIFORMBUFFER\ 0}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ NANOVG\_GL\_USE\_STATE\_FILTER\ (1)}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ Creates\ NanoVG\ contexts\ for\ different\ OpenGL\ (ES)\ versions.}}
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ Flags\ should\ be\ combination\ of\ the\ create\ flags\ above.}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL2}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ NVGcontext\ *\ nvgCreateGL2(\textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ nvgDeleteGL2(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGL2(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00070\ GLuint\ nvglImageHandleGL2(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ NVGcontext\ *\ nvgCreateGL3(\textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ nvgDeleteGL3(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGL3(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00080\ GLuint\ nvglImageHandleGL3(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GLES2}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ NVGcontext\ *\ nvgCreateGLES2(\textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{void}\ nvgDeleteGLES2(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGLES2(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00090\ GLuint\ nvglImageHandleGLES2(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GLES3}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ NVGcontext\ *\ nvgCreateGLES3(\textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{void}\ nvgDeleteGLES3(NVGcontext\ *\ ctx);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGLES3(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00100\ GLuint\ nvglImageHandleGLES3(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{comment}{//\ These\ are\ additional\ flags\ on\ top\ of\ NVGimageFlags.}}
+\DoxyCodeLine{00105\ \textcolor{keyword}{enum}\ NVGimageFlagsGL\ \{}
+\DoxyCodeLine{00106\ \ \ \ \ NVG\_IMAGE\_NODELETE\ \ \ \ \ \ \ \ \ \ =\ 1\ <<\ 16,\ \ \textcolor{comment}{//\ Do\ not\ delete\ GL\ texture\ handle.}}
+\DoxyCodeLine{00107\ \};}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ NANOVG\_GL\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#ifdef\ NANOVG\_GL\_IMPLEMENTATION}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#include\ "{}nanovg.h"{}}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#include\ "{}../../stdlib/lv\_mem.h"{}}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#include\ "{}../../stdlib/lv\_string.h"{}}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#include\ "{}../../stdlib/lv\_sprintf.h"{}}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_log.h"{}}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_profiler.h"{}}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{enum}\ GLNVGuniformLoc\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ GLNVG\_LOC\_VIEWSIZE,}
+\DoxyCodeLine{00127\ \ \ \ \ GLNVG\_LOC\_TEX,}
+\DoxyCodeLine{00128\ \ \ \ \ GLNVG\_LOC\_FRAG,}
+\DoxyCodeLine{00129\ \ \ \ \ GLNVG\_MAX\_LOCS}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{enum}\ GLNVGshaderType\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ NSVG\_SHADER\_FILLGRAD,}
+\DoxyCodeLine{00134\ \ \ \ \ NSVG\_SHADER\_FILLIMG,}
+\DoxyCodeLine{00135\ \ \ \ \ NSVG\_SHADER\_SIMPLE,}
+\DoxyCodeLine{00136\ \ \ \ \ NSVG\_SHADER\_IMG}
+\DoxyCodeLine{00137\ \};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ GLNVG\_SHADER\_COUNT\ 4}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{00142\ \textcolor{keyword}{enum}\ GLNVGuniformBindings\ \{}
+\DoxyCodeLine{00143\ \ \ \ \ GLNVG\_FRAG\_BINDING\ =\ 0,}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{struct\ }GLNVGshader\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ GLuint\ prog;}
+\DoxyCodeLine{00149\ \ \ \ \ GLuint\ frag;}
+\DoxyCodeLine{00150\ \ \ \ \ GLuint\ vert;}
+\DoxyCodeLine{00151\ \ \ \ \ GLint\ loc[GLNVG\_MAX\_LOCS];}
+\DoxyCodeLine{00152\ \};}
+\DoxyCodeLine{00153\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GLNVGshader\ GLNVGshader;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{keyword}{struct\ }GLNVGtexture\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{int}\ id;}
+\DoxyCodeLine{00157\ \ \ \ \ GLuint\ tex;}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{int}\ width,\ height;}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{int}\ type;}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00161\ \};}
+\DoxyCodeLine{00162\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GLNVGtexture\ GLNVGtexture;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \textcolor{keyword}{struct\ }GLNVGblend\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ GLenum\ srcRGB;}
+\DoxyCodeLine{00166\ \ \ \ \ GLenum\ dstRGB;}
+\DoxyCodeLine{00167\ \ \ \ \ GLenum\ srcAlpha;}
+\DoxyCodeLine{00168\ \ \ \ \ GLenum\ dstAlpha;}
+\DoxyCodeLine{00169\ \};}
+\DoxyCodeLine{00170\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GLNVGblend\ GLNVGblend;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \textcolor{keyword}{enum}\ GLNVGcallType\ \{}
+\DoxyCodeLine{00173\ \ \ \ \ GLNVG\_NONE\ =\ 0,}
+\DoxyCodeLine{00174\ \ \ \ \ GLNVG\_FILL,}
+\DoxyCodeLine{00175\ \ \ \ \ GLNVG\_CONVEXFILL,}
+\DoxyCodeLine{00176\ \ \ \ \ GLNVG\_STROKE,}
+\DoxyCodeLine{00177\ \ \ \ \ GLNVG\_TRIANGLES,}
+\DoxyCodeLine{00178\ \};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{keyword}{struct\ }GLNVGcall\ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{int}\ type;}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{int}\ image;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{int}\ pathOffset;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{int}\ pathCount;}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{int}\ triangleOffset;}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{int}\ triangleCount;}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{int}\ uniformOffset;}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{int}\ shaderType;}
+\DoxyCodeLine{00189\ \ \ \ \ GLNVGblend\ blendFunc;}
+\DoxyCodeLine{00190\ \};}
+\DoxyCodeLine{00191\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GLNVGcall\ GLNVGcall;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{struct\ }GLNVGpath\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{int}\ fillOffset;}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{int}\ fillCount;}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{int}\ strokeOffset;}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{int}\ strokeCount;}
+\DoxyCodeLine{00198\ \};}
+\DoxyCodeLine{00199\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GLNVGpath\ GLNVGpath;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{00202\ \textcolor{keyword}{struct\ }GLNVGfragUniforms\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scissorMat[12];\ \textcolor{comment}{//\ matrices\ are\ actually\ 3\ vec4s}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ paintMat[12];}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }NVGcolor\ innerCol;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }NVGcolor\ outerCol;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scissorExt[2];}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scissorScale[2];}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ extent[2];}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ feather;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ strokeMult;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ strokeThr;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ texType;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ type;}
+\DoxyCodeLine{00217\ \ \ \ \ \}\ s;}
+\DoxyCodeLine{00218\ \};}
+\DoxyCodeLine{00219\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GLNVGfragUniforms\ GLNVGfragUniforms;}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00221\ \textcolor{comment}{//\ note:\ after\ modifying\ layout\ or\ size\ of\ uniform\ array,}}
+\DoxyCodeLine{00222\ \textcolor{comment}{//\ don't\ forget\ to\ also\ update\ the\ fragment\ shader\ source!}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\#define\ NANOVG\_GL\_UNIFORMARRAY\_SIZE\ 11}}
+\DoxyCodeLine{00224\ \textcolor{keyword}{union\ }GLNVGfragUniforms\ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scissorMat[12];\ \textcolor{comment}{//\ matrices\ are\ actually\ 3\ vec4s}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ paintMat[12];}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }NVGcolor\ innerCol;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{union\ }NVGcolor\ outerCol;}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scissorExt[2];}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ scissorScale[2];}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ extent[2];}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ feather;}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ strokeMult;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ strokeThr;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ texType;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ type;}
+\DoxyCodeLine{00239\ \ \ \ \ \}\ s;}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{float}\ uniformArray[NANOVG\_GL\_UNIFORMARRAY\_SIZE][4];}
+\DoxyCodeLine{00241\ \};}
+\DoxyCodeLine{00242\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }GLNVGfragUniforms\ GLNVGfragUniforms;}
+\DoxyCodeLine{00243\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \textcolor{keyword}{struct\ }GLNVGcontext\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ GLNVGshader\ shaders[GLNVG\_SHADER\_COUNT];}
+\DoxyCodeLine{00247\ \ \ \ \ GLNVGtexture\ *\ textures;}
+\DoxyCodeLine{00248\ \ \ \ \ \textcolor{keywordtype}{float}\ view[2];}
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{int}\ ntextures;}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordtype}{int}\ ctextures;}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{int}\ textureId;}
+\DoxyCodeLine{00252\ \ \ \ \ GLuint\ vertBuf[2];}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{int}\ vertBufIndex;}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{00255\ \ \ \ \ GLuint\ vertArr;}
+\DoxyCodeLine{00256\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{00258\ \ \ \ \ GLuint\ fragBuf;}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{int}\ fragSize;}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00262\ \ \ \ \ \textcolor{keywordtype}{int}\ boundShader;}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{//\ Per\ frame\ buffers}}
+\DoxyCodeLine{00265\ \ \ \ \ GLNVGcall\ *\ calls;}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{int}\ ccalls;}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keywordtype}{int}\ ncalls;}
+\DoxyCodeLine{00268\ \ \ \ \ GLNVGpath\ *\ paths;}
+\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordtype}{int}\ cpaths;}
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{int}\ npaths;}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keyword}{struct\ }NVGvertex\ *\ verts;}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordtype}{int}\ cverts;}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{keywordtype}{int}\ nverts;}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ uniforms;}
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{int}\ cuniforms;}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{int}\ nuniforms;}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{comment}{//\ cached\ state}}
+\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_STATE\_FILTER}}
+\DoxyCodeLine{00280\ \ \ \ \ GLuint\ boundTexture;}
+\DoxyCodeLine{00281\ \ \ \ \ GLuint\ stencilMask;}
+\DoxyCodeLine{00282\ \ \ \ \ GLenum\ stencilFunc;}
+\DoxyCodeLine{00283\ \ \ \ \ GLint\ stencilFuncRef;}
+\DoxyCodeLine{00284\ \ \ \ \ GLuint\ stencilFuncMask;}
+\DoxyCodeLine{00285\ \ \ \ \ GLNVGblend\ blendFunc;}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \textcolor{keywordtype}{int}\ dummyTex;}
+\DoxyCodeLine{00289\ \};}
+\DoxyCodeLine{00290\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }GLNVGcontext\ GLNVGcontext;}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_maxi(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)}
+\DoxyCodeLine{00293\ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordflow}{return}\ a\ >\ b\ ?\ a\ :\ b;}
+\DoxyCodeLine{00295\ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#ifdef\ NANOVG\_GLES2}}
+\DoxyCodeLine{00298\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ glnvg\_\_nearestPow2(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ num)}
+\DoxyCodeLine{00299\ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ n\ =\ num\ >\ 0\ ?\ num\ -\/\ 1\ :\ 0;}
+\DoxyCodeLine{00301\ \ \ \ \ n\ |=\ n\ >>\ 1;}
+\DoxyCodeLine{00302\ \ \ \ \ n\ |=\ n\ >>\ 2;}
+\DoxyCodeLine{00303\ \ \ \ \ n\ |=\ n\ >>\ 4;}
+\DoxyCodeLine{00304\ \ \ \ \ n\ |=\ n\ >>\ 8;}
+\DoxyCodeLine{00305\ \ \ \ \ n\ |=\ n\ >>\ 16;}
+\DoxyCodeLine{00306\ \ \ \ \ n++;}
+\DoxyCodeLine{00307\ \ \ \ \ \textcolor{keywordflow}{return}\ n;}
+\DoxyCodeLine{00308\ \}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_bindTexture(GLNVGcontext\ *\ gl,\ GLuint\ tex)}
+\DoxyCodeLine{00312\ \{}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_STATE\_FILTER}}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>boundTexture\ !=\ tex)\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ gl-\/>boundTexture\ =\ tex;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ tex);}
+\DoxyCodeLine{00317\ \ \ \ \ \}}
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00319\ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ tex);}
+\DoxyCodeLine{00320\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00321\ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_stencilMask(GLNVGcontext\ *\ gl,\ GLuint\ mask)}
+\DoxyCodeLine{00324\ \{}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_STATE\_FILTER}}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>stencilMask\ !=\ mask)\ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ gl-\/>stencilMask\ =\ mask;}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ glStencilMask(mask);}
+\DoxyCodeLine{00329\ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00331\ \ \ \ \ glStencilMask(mask);}
+\DoxyCodeLine{00332\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00333\ \}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_stencilFunc(GLNVGcontext\ *\ gl,\ GLenum\ func,\ GLint\ ref,\ GLuint\ mask)}
+\DoxyCodeLine{00336\ \{}
+\DoxyCodeLine{00337\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_STATE\_FILTER}}
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{if}((gl-\/>stencilFunc\ !=\ func)\ ||}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ (gl-\/>stencilFuncRef\ !=\ ref)\ ||}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ (gl-\/>stencilFuncMask\ !=\ mask))\ \{}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ gl-\/>stencilFunc\ =\ func;}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ gl-\/>stencilFuncRef\ =\ ref;}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ gl-\/>stencilFuncMask\ =\ mask;}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ glStencilFunc(func,\ ref,\ mask);}
+\DoxyCodeLine{00346\ \ \ \ \ \}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00348\ \ \ \ \ glStencilFunc(func,\ ref,\ mask);}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00350\ \}}
+\DoxyCodeLine{00351\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_blendFuncSeparate(GLNVGcontext\ *\ gl,\ \textcolor{keyword}{const}\ GLNVGblend\ *\ blend)}
+\DoxyCodeLine{00352\ \{}
+\DoxyCodeLine{00353\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_STATE\_FILTER}}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordflow}{if}((gl-\/>blendFunc.srcRGB\ !=\ blend-\/>srcRGB)\ ||}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ (gl-\/>blendFunc.dstRGB\ !=\ blend-\/>dstRGB)\ ||}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ (gl-\/>blendFunc.srcAlpha\ !=\ blend-\/>srcAlpha)\ ||}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ (gl-\/>blendFunc.dstAlpha\ !=\ blend-\/>dstAlpha))\ \{}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ gl-\/>blendFunc\ =\ *blend;}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ glBlendFuncSeparate(blend-\/>srcRGB,\ blend-\/>dstRGB,\ blend-\/>srcAlpha,\ blend-\/>dstAlpha);}
+\DoxyCodeLine{00361\ \ \ \ \ \}}
+\DoxyCodeLine{00362\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00363\ \ \ \ \ glBlendFuncSeparate(blend-\/>srcRGB,\ blend-\/>dstRGB,\ blend-\/>srcAlpha,\ blend-\/>dstAlpha);}
+\DoxyCodeLine{00364\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00365\ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \textcolor{keyword}{static}\ GLNVGtexture\ *\ glnvg\_\_allocTexture(GLNVGcontext\ *\ gl)}
+\DoxyCodeLine{00368\ \{}
+\DoxyCodeLine{00369\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ NULL;}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ gl-\/>ntextures;\ i++)\ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>textures[i].id\ ==\ 0)\ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ tex\ =\ \&gl-\/>textures[i];}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00377\ \ \ \ \ \}}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordflow}{if}(tex\ ==\ NULL)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>ntextures\ +\ 1\ >\ gl-\/>ctextures)\ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ GLNVGtexture\ *\ textures;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ctextures\ =\ glnvg\_\_maxi(gl-\/>ntextures\ +\ 1,\ 4)\ +\ \ gl-\/>ctextures\ /\ 2;\ \textcolor{comment}{//\ 1.5x\ Overallocate}}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ textures\ =\ (GLNVGtexture\ *)\mbox{\hyperlink{lv__mem_8c_a321c5f913529f7062d00abf4e1f6349f}{lv\_realloc}}(gl-\/>textures,\ \textcolor{keyword}{sizeof}(GLNVGtexture)\ *\ ctextures);}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(textures\ ==\ NULL)\ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ gl-\/>textures\ =\ textures;}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ gl-\/>ctextures\ =\ ctextures;}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ tex\ =\ \&gl-\/>textures[gl-\/>ntextures++];}
+\DoxyCodeLine{00388\ \ \ \ \ \}}
+\DoxyCodeLine{00389\ }
+\DoxyCodeLine{00390\ \ \ \ \ lv\_memzero(tex,\ \textcolor{keyword}{sizeof}(*tex));}
+\DoxyCodeLine{00391\ \ \ \ \ tex-\/>id\ =\ ++gl-\/>textureId;}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{return}\ tex;}
+\DoxyCodeLine{00394\ \}}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \textcolor{keyword}{static}\ GLNVGtexture\ *\ glnvg\_\_findTexture(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00397\ \{}
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ gl-\/>ntextures;\ i++)}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>textures[i].id\ ==\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&gl-\/>textures[i];}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00403\ \}}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_deleteTexture(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00406\ \{}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00408\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ gl-\/>ntextures;\ i++)\ \{}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>textures[i].id\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>textures[i].tex\ !=\ 0\ \&\&\ (gl-\/>textures[i].flags\ \&\ NVG\_IMAGE\_NODELETE)\ ==\ 0)}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glDeleteTextures(1,\ \&gl-\/>textures[i].tex);}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ lv\_memzero(\&gl-\/>textures[i],\ \textcolor{keyword}{sizeof}(gl-\/>textures[i]));}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00415\ \ \ \ \ \}}
+\DoxyCodeLine{00416\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00417\ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_dumpShaderError(GLuint\ shader,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ type)}
+\DoxyCodeLine{00420\ \{}
+\DoxyCodeLine{00421\ \ \ \ \ GLchar\ str[512\ +\ 1];}
+\DoxyCodeLine{00422\ \ \ \ \ GLsizei\ len\ =\ 0;}
+\DoxyCodeLine{00423\ \ \ \ \ glGetShaderInfoLog(shader,\ 512,\ \&len,\ str);}
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keywordflow}{if}(len\ >\ 512)\ len\ =\ 512;}
+\DoxyCodeLine{00425\ \ \ \ \ str[len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00426\ \ \ \ \ LV\_LOG\_ERROR(\textcolor{stringliteral}{"{}Shader\ \%s/\%s\ error:\(\backslash\)n\%s"{}},\ name,\ type,\ str);}
+\DoxyCodeLine{00427\ \}}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_dumpProgramError(GLuint\ prog,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name)}
+\DoxyCodeLine{00430\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ GLchar\ str[512\ +\ 1];}
+\DoxyCodeLine{00432\ \ \ \ \ GLsizei\ len\ =\ 0;}
+\DoxyCodeLine{00433\ \ \ \ \ glGetProgramInfoLog(prog,\ 512,\ \&len,\ str);}
+\DoxyCodeLine{00434\ \ \ \ \ \textcolor{keywordflow}{if}(len\ >\ 512)\ len\ =\ 512;}
+\DoxyCodeLine{00435\ \ \ \ \ str[len]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{00436\ \ \ \ \ LV\_LOG\_ERROR(\textcolor{stringliteral}{"{}Program\ \%s\ error:\(\backslash\)n\%s"{}},\ name,\ str);}
+\DoxyCodeLine{00437\ \}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00439\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_checkError(GLNVGcontext\ *\ gl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ str)}
+\DoxyCodeLine{00440\ \{}
+\DoxyCodeLine{00441\ \ \ \ \ GLenum\ err;}
+\DoxyCodeLine{00442\ \ \ \ \ \textcolor{keywordflow}{if}((gl-\/>flags\ \&\ NVG\_DEBUG)\ ==\ 0)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00443\ \ \ \ \ err\ =\ glGetError();}
+\DoxyCodeLine{00444\ \ \ \ \ \textcolor{keywordflow}{if}(err\ !=\ GL\_NO\_ERROR)\ \{}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ LV\_LOG\_ERROR(\textcolor{stringliteral}{"{}Error\ \%08x\ after\ \%s"{}},\ err,\ str);}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00447\ \ \ \ \ \}}
+\DoxyCodeLine{00448\ \}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_createShader(GLNVGshader\ *\ shader,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ header,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ opts,}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ vshader,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ fshader)}
+\DoxyCodeLine{00452\ \{}
+\DoxyCodeLine{00453\ \ \ \ \ GLint\ status;}
+\DoxyCodeLine{00454\ \ \ \ \ GLuint\ prog,\ vert,\ frag;}
+\DoxyCodeLine{00455\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ str[3];}
+\DoxyCodeLine{00456\ \ \ \ \ str[0]\ =\ header;}
+\DoxyCodeLine{00457\ \ \ \ \ str[1]\ =\ opts\ !=\ NULL\ ?\ opts\ :\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00459\ \ \ \ \ lv\_memzero(shader,\ \textcolor{keyword}{sizeof}(*shader));}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00461\ \ \ \ \ prog\ =\ glCreateProgram();}
+\DoxyCodeLine{00462\ \ \ \ \ vert\ =\ glCreateShader(GL\_VERTEX\_SHADER);}
+\DoxyCodeLine{00463\ \ \ \ \ frag\ =\ glCreateShader(GL\_FRAGMENT\_SHADER);}
+\DoxyCodeLine{00464\ \ \ \ \ str[2]\ =\ vshader;}
+\DoxyCodeLine{00465\ \ \ \ \ glShaderSource(vert,\ 3,\ str,\ 0);}
+\DoxyCodeLine{00466\ \ \ \ \ str[2]\ =\ fshader;}
+\DoxyCodeLine{00467\ \ \ \ \ glShaderSource(frag,\ 3,\ str,\ 0);}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00469\ \ \ \ \ glCompileShader(vert);}
+\DoxyCodeLine{00470\ \ \ \ \ glGetShaderiv(vert,\ GL\_COMPILE\_STATUS,\ \&status);}
+\DoxyCodeLine{00471\ \ \ \ \ \textcolor{keywordflow}{if}(status\ !=\ GL\_TRUE)\ \{}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ glnvg\_\_dumpShaderError(vert,\ name,\ \textcolor{stringliteral}{"{}vert"{}});}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00474\ \ \ \ \ \}}
+\DoxyCodeLine{00475\ }
+\DoxyCodeLine{00476\ \ \ \ \ glCompileShader(frag);}
+\DoxyCodeLine{00477\ \ \ \ \ glGetShaderiv(frag,\ GL\_COMPILE\_STATUS,\ \&status);}
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordflow}{if}(status\ !=\ GL\_TRUE)\ \{}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ glnvg\_\_dumpShaderError(frag,\ name,\ \textcolor{stringliteral}{"{}frag"{}});}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00481\ \ \ \ \ \}}
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00483\ \ \ \ \ glAttachShader(prog,\ vert);}
+\DoxyCodeLine{00484\ \ \ \ \ glAttachShader(prog,\ frag);}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ glBindAttribLocation(prog,\ 0,\ \textcolor{stringliteral}{"{}vertex"{}});}
+\DoxyCodeLine{00487\ \ \ \ \ glBindAttribLocation(prog,\ 1,\ \textcolor{stringliteral}{"{}tcoord"{}});}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \ \ glLinkProgram(prog);}
+\DoxyCodeLine{00490\ \ \ \ \ glGetProgramiv(prog,\ GL\_LINK\_STATUS,\ \&status);}
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keywordflow}{if}(status\ !=\ GL\_TRUE)\ \{}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ glnvg\_\_dumpProgramError(prog,\ name);}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00494\ \ \ \ \ \}}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00496\ \ \ \ \ shader-\/>prog\ =\ prog;}
+\DoxyCodeLine{00497\ \ \ \ \ shader-\/>vert\ =\ vert;}
+\DoxyCodeLine{00498\ \ \ \ \ shader-\/>frag\ =\ frag;}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00501\ \}}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_deleteShader(GLNVGshader\ *\ shader)}
+\DoxyCodeLine{00504\ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \textcolor{keywordflow}{if}(shader-\/>prog\ !=\ 0)}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ glDeleteProgram(shader-\/>prog);}
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keywordflow}{if}(shader-\/>vert\ !=\ 0)}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ glDeleteShader(shader-\/>vert);}
+\DoxyCodeLine{00509\ \ \ \ \ \textcolor{keywordflow}{if}(shader-\/>frag\ !=\ 0)}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ glDeleteShader(shader-\/>frag);}
+\DoxyCodeLine{00511\ \}}
+\DoxyCodeLine{00512\ }
+\DoxyCodeLine{00513\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_getUniforms(GLNVGshader\ *\ shader)}
+\DoxyCodeLine{00514\ \{}
+\DoxyCodeLine{00515\ \ \ \ \ shader-\/>loc[GLNVG\_LOC\_VIEWSIZE]\ =\ glGetUniformLocation(shader-\/>prog,\ \textcolor{stringliteral}{"{}viewSize"{}});}
+\DoxyCodeLine{00516\ \ \ \ \ shader-\/>loc[GLNVG\_LOC\_TEX]\ =\ glGetUniformLocation(shader-\/>prog,\ \textcolor{stringliteral}{"{}tex"{}});}
+\DoxyCodeLine{00517\ }
+\DoxyCodeLine{00518\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{00519\ \ \ \ \ shader-\/>loc[GLNVG\_LOC\_FRAG]\ =\ glGetUniformBlockIndex(shader-\/>prog,\ \textcolor{stringliteral}{"{}frag"{}});}
+\DoxyCodeLine{00520\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00521\ \ \ \ \ shader-\/>loc[GLNVG\_LOC\_FRAG]\ =\ glGetUniformLocation(shader-\/>prog,\ \textcolor{stringliteral}{"{}frag"{}});}
+\DoxyCodeLine{00522\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00523\ \}}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_renderCreateTexture(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ type,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data);}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_renderCreate(\textcolor{keywordtype}{void}\ *\ uptr)}
+\DoxyCodeLine{00528\ \{}
+\DoxyCodeLine{00529\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{00530\ \ \ \ \ \textcolor{keywordtype}{int}\ align\ =\ 4;}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{comment}{//\ TODO:\ mediump\ float\ may\ not\ be\ enough\ for\ GLES2\ in\ iOS.}}
+\DoxyCodeLine{00533\ \ \ \ \ \textcolor{comment}{//\ see\ the\ following\ discussion:\ https://github.com/memononen/nanovg/issues/46}}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ shaderHeader\ =}
+\DoxyCodeLine{00535\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL2}}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#define\ NANOVG\_GL2\ 1\(\backslash\)n"{}}}
+\DoxyCodeLine{00537\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#version\ 150\ core\(\backslash\)n"{}}}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#define\ NANOVG\_GL3\ 1\(\backslash\)n"{}}}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES2}}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#version\ 100\(\backslash\)n"{}}}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#define\ NANOVG\_GL2\ 1\(\backslash\)n"{}}}
+\DoxyCodeLine{00543\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES3}}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#version\ 300\ es\(\backslash\)n"{}}}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#define\ NANOVG\_GL3\ 1\(\backslash\)n"{}}}
+\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00547\ }
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#define\ USE\_UNIFORMBUFFER\ 1\(\backslash\)n"{}}}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#define\ UNIFORMARRAY\_SIZE\ 11\(\backslash\)n"{}}}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00554\ }
+\DoxyCodeLine{00555\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ fillVertShader\ =}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ GL\_ES\(\backslash\)n"{}}}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#if\ defined(NANOVG\_GL3)\(\backslash\)n"{}}}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ precision\ highp\ float;\(\backslash\)n"{}}}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ precision\ mediump\ float;\(\backslash\)n"{}}}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ NANOVG\_GL3\(\backslash\)n"{}}}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ vec2\ viewSize;\(\backslash\)n"{}}}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ in\ vec2\ vertex;\(\backslash\)n"{}}}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ in\ vec2\ tcoord;\(\backslash\)n"{}}}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ out\ vec2\ ftcoord;\(\backslash\)n"{}}}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ out\ vec2\ fpos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ out\ vec2\ v\_scissorPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ out\ vec2\ v\_paintPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ vec2\ viewSize;\(\backslash\)n"{}}}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ attribute\ vec2\ vertex;\(\backslash\)n"{}}}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ attribute\ vec2\ tcoord;\(\backslash\)n"{}}}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ ftcoord;\(\backslash\)n"{}}}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ fpos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ v\_scissorPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ v\_paintPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ NANOVG\_GL3\(\backslash\)n"{}}}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ USE\_UNIFORMBUFFER\(\backslash\)n"{}}}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ layout(std140)\ uniform\ frag\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ mat3\ scissorMat;\(\backslash\)n"{}}}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ mat3\ paintMat;\(\backslash\)n"{}}}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ innerCol;\(\backslash\)n"{}}}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ outerCol;\(\backslash\)n"{}}}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ scissorExt;\(\backslash\)n"{}}}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ scissorScale;\(\backslash\)n"{}}}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ extent;\(\backslash\)n"{}}}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ radius;\(\backslash\)n"{}}}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ feather;\(\backslash\)n"{}}}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ strokeMult;\(\backslash\)n"{}}}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ strokeThr;\(\backslash\)n"{}}}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ int\ texType;\(\backslash\)n"{}}}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ int\ type;\(\backslash\)n"{}}}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \};\(\backslash\)n"{}}}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ vec4\ frag[UNIFORMARRAY\_SIZE];\(\backslash\)n"{}}}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ vec4\ frag[UNIFORMARRAY\_SIZE];\(\backslash\)n"{}}}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifndef\ USE\_UNIFORMBUFFER\(\backslash\)n"{}}}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ scissorMat\ mat3(frag[0].xyz,\ frag[1].xyz,\ frag[2].xyz)\(\backslash\)n"{}}}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ paintMat\ mat3(frag[3].xyz,\ frag[4].xyz,\ frag[5].xyz)\(\backslash\)n"{}}}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}void\ main(void)\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ ftcoord\ =\ tcoord;\(\backslash\)n"{}}}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ fpos\ =\ vertex;\(\backslash\)n"{}}}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ gl\_Position\ =\ vec4(2.0*vertex.x/viewSize.x\ -\/\ 1.0,\ 1.0\ -\/\ 2.0*vertex.y/viewSize.y,\ 0,\ 1);\(\backslash\)n"{}}}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#if\ SHADER\_TYPE\ !=\ 2\(\backslash\)n"{}}\ \textcolor{comment}{//\ Not\ SIMPLE}}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ v\_scissorPos\ =\ (scissorMat\ *\ vec3(vertex,\ 1.0)).xy;\(\backslash\)n"{}}}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#if\ SHADER\_TYPE\ ==\ 0\ ||\ SHADER\_TYPE\ ==\ 1\(\backslash\)n"{}}\ \textcolor{comment}{//\ FILLGRAD\ or\ FILLIMG}}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ v\_paintPos\ =\ (paintMat\ *\ vec3(vertex,\ 1.0)).xy;\(\backslash\)n"{}}}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00618\ }
+\DoxyCodeLine{00619\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ fillFragShader\ =}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ GL\_ES\(\backslash\)n"{}}}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#if\ defined(NANOVG\_GL3)\(\backslash\)n"{}}}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ precision\ highp\ float;\(\backslash\)n"{}}}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ precision\ mediump\ float;\(\backslash\)n"{}}}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ NANOVG\_GL3\(\backslash\)n"{}}}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ USE\_UNIFORMBUFFER\(\backslash\)n"{}}}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ layout(std140)\ uniform\ frag\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ mat3\ scissorMat;\(\backslash\)n"{}}}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ mat3\ paintMat;\(\backslash\)n"{}}}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ innerCol;\(\backslash\)n"{}}}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ outerCol;\(\backslash\)n"{}}}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ scissorExt;\(\backslash\)n"{}}}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ scissorScale;\(\backslash\)n"{}}}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ extent;\(\backslash\)n"{}}}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ radius;\(\backslash\)n"{}}}
+\DoxyCodeLine{00638\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ feather;\(\backslash\)n"{}}}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ strokeMult;\(\backslash\)n"{}}}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ strokeThr;\(\backslash\)n"{}}}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ int\ texType;\(\backslash\)n"{}}}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ int\ type;\(\backslash\)n"{}}}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \};\(\backslash\)n"{}}}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}\ \textcolor{comment}{//\ NANOVG\_GL3\ \&\&\ !USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ vec4\ frag[UNIFORMARRAY\_SIZE];\(\backslash\)n"{}}}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ sampler2D\ tex;\(\backslash\)n"{}}}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ in\ vec2\ ftcoord;\(\backslash\)n"{}}}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ in\ vec2\ fpos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ in\ vec2\ v\_scissorPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ in\ vec2\ v\_paintPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ out\ vec4\ outColor;\(\backslash\)n"{}}}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}\ \textcolor{comment}{//\ !NANOVG\_GL3}}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ vec4\ frag[UNIFORMARRAY\_SIZE];\(\backslash\)n"{}}}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ uniform\ sampler2D\ tex;\(\backslash\)n"{}}}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ ftcoord;\(\backslash\)n"{}}}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ fpos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ v\_scissorPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ varying\ vec2\ v\_paintPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifndef\ USE\_UNIFORMBUFFER\(\backslash\)n"{}}}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ scissorMat\ mat3(frag[0].xyz,\ frag[1].xyz,\ frag[2].xyz)\(\backslash\)n"{}}}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ paintMat\ mat3(frag[3].xyz,\ frag[4].xyz,\ frag[5].xyz)\(\backslash\)n"{}}}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ innerCol\ frag[6]\(\backslash\)n"{}}}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ outerCol\ frag[7]\(\backslash\)n"{}}}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ scissorExt\ frag[8].xy\(\backslash\)n"{}}}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ scissorScale\ frag[8].zw\(\backslash\)n"{}}}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ extent\ frag[9].xy\(\backslash\)n"{}}}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ radius\ frag[9].z\(\backslash\)n"{}}}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ feather\ frag[9].w\(\backslash\)n"{}}}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ strokeMult\ frag[10].x\(\backslash\)n"{}}}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ strokeThr\ frag[10].y\(\backslash\)n"{}}}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ texType\ int(frag[10].z)\(\backslash\)n"{}}}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#define\ type\ int(frag[10].w)\(\backslash\)n"{}}}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}float\ sdroundrect(vec2\ pt,\ vec2\ ext,\ float\ rad)\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ vec2\ ext2\ =\ ext\ -\/\ vec2(rad,rad);\(\backslash\)n"{}}}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ vec2\ d\ =\ abs(pt)\ -\/\ ext2;\(\backslash\)n"{}}}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ return\ min(max(d.x,d.y),0.0)\ +\ length(max(d,0.0))\ -\/\ rad;\(\backslash\)n"{}}}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}}}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}//\ Scissoring\(\backslash\)n"{}}}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}float\ scissorMask(vec2\ p)\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ vec2\ sc\ =\ (abs(p)\ -\/\ scissorExt);\(\backslash\)n"{}}}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ sc\ =\ vec2(0.5,0.5)\ -\/\ sc\ *\ scissorScale;\(\backslash\)n"{}}}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ return\ clamp(sc.x,0.0,1.0)\ *\ clamp(sc.y,0.0,1.0);\(\backslash\)n"{}}}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}}}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ EDGE\_AA\(\backslash\)n"{}}}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}//\ Stroke\ -\/\ from\ [0..1]\ to\ clipped\ pyramid,\ where\ the\ slope\ is\ 1px.\(\backslash\)n"{}}}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}float\ strokeMask()\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ return\ min(1.0,\ (1.0-\/abs(ftcoord.x*2.0-\/1.0))*strokeMult)\ *\ min(1.0,\ ftcoord.y);\(\backslash\)n"{}}}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}}}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}void\ main(void)\ \{\(\backslash\)n"{}}}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ vec4\ result;\(\backslash\)n"{}}}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#if\ SHADER\_TYPE\ !=\ 2\(\backslash\)n"{}}\ \textcolor{comment}{//\ Not\ SIMPLE}}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ scissor\ =\ scissorMask(v\_scissorPos);\(\backslash\)n"{}}}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ EDGE\_AA\(\backslash\)n"{}}}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ float\ strokeAlpha\ =\ strokeMask();\(\backslash\)n"{}}}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ //\ if\ (strokeAlpha\ <\ strokeThr)\ discard;\(\backslash\)n"{}}}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ float\ strokeAlpha\ =\ 1.0;\(\backslash\)n"{}}}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#if\ SHADER\_TYPE\ ==\ 0\(\backslash\)n"{}}\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gradient}}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ //\ Calculate\ gradient\ color\ using\ box\ gradient\(\backslash\)n"{}}}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ pt\ =\ v\_paintPos;\(\backslash\)n"{}}}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ float\ d\ =\ clamp((sdroundrect(pt,\ extent,\ radius)\ +\ feather*0.5)\ /\ feather,\ 0.0,\ 1.0);\(\backslash\)n"{}}}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ color\ =\ mix(innerCol,outerCol,d);\(\backslash\)n"{}}}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ //\ Combine\ alpha\(\backslash\)n"{}}}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ color\ *=\ strokeAlpha\ *\ scissor;\(\backslash\)n"{}}}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ result\ =\ color;\(\backslash\)n"{}}}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#elif\ SHADER\_TYPE\ ==\ 1\(\backslash\)n"{}}\ \ \ \ \ \textcolor{comment}{//\ Image}}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ //\ Calculate\ color\ fron\ texture\(\backslash\)n"{}}}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec2\ pt\ =\ v\_paintPos\ /\ extent;\(\backslash\)n"{}}}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ NANOVG\_GL3\(\backslash\)n"{}}}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ color\ =\ texture(tex,\ pt);\(\backslash\)n"{}}}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ color\ =\ texture2D(tex,\ pt);\(\backslash\)n"{}}}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ if\ (texType\ ==\ 1)\ color\ =\ vec4(color.xyz*color.w,color.w);"{}}}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 2)\ color\ =\ vec4(color.x);"{}}}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 3)\ color.rgb\ =\ color.bgr;"{}}\ \ \textcolor{comment}{//\ BGR\ -\/>\ RGB\ swizzle\ (premultiplied)}}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 4)\ color\ =\ vec4(color.bgr,\ 1.0);"{}}\ \ \textcolor{comment}{//\ BGRX\ -\/>\ RGB\ with\ alpha=1}}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 5)\ color\ =\ vec4(color.bgr*color.a,\ color.a);"{}}\ \ \textcolor{comment}{//\ BGR\ swizzle\ +\ premultiply}}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ //\ Apply\ color\ tint\ and\ alpha.\(\backslash\)n"{}}}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ color\ *=\ innerCol;\(\backslash\)n"{}}}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ //\ Combine\ alpha\(\backslash\)n"{}}}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ color\ *=\ strokeAlpha\ *\ scissor;\(\backslash\)n"{}}}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ result\ =\ color;\(\backslash\)n"{}}}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#elif\ SHADER\_TYPE\ ==\ 2\(\backslash\)n"{}}\ \ \ \ \ \textcolor{comment}{//\ Stencil\ fill}}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ result\ =\ vec4(1,1,1,1);\(\backslash\)n"{}}}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#elif\ SHADER\_TYPE\ ==\ 3\(\backslash\)n"{}}\ \ \ \ \ \textcolor{comment}{//\ Textured\ tris}}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ NANOVG\_GL3\(\backslash\)n"{}}}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ color\ =\ texture(tex,\ ftcoord);\(\backslash\)n"{}}}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ vec4\ color\ =\ texture2D(tex,\ ftcoord);\(\backslash\)n"{}}}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ if\ (texType\ ==\ 1)\ color\ =\ vec4(color.xyz*color.w,color.w);"{}}}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 2)\ color\ =\ vec4(color.x);"{}}}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 3)\ color.rgb\ =\ color.bgr;"{}}\ \ \textcolor{comment}{//\ BGR\ -\/>\ RGB\ swizzle\ (premultiplied)}}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 4)\ color\ =\ vec4(color.bgr,\ 1.0);"{}}\ \ \textcolor{comment}{//\ BGRX\ -\/>\ RGB\ with\ alpha=1}}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ else\ if\ (texType\ ==\ 5)\ color\ =\ vec4(color.bgr*color.a,\ color.a);"{}}\ \ \textcolor{comment}{//\ BGR\ swizzle\ +\ premultiply}}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ color\ *=\ scissor;\(\backslash\)n"{}}}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \ \ \ \ result\ =\ color\ *\ innerCol;\(\backslash\)n"{}}}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ \#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#ifdef\ NANOVG\_GL3\(\backslash\)n"{}}}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ outColor\ =\ result;\(\backslash\)n"{}}}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#else\(\backslash\)n"{}}}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ \ gl\_FragColor\ =\ result;\(\backslash\)n"{}}}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#endif\(\backslash\)n"{}}}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}\(\backslash\)n"{}};}
+\DoxyCodeLine{00755\ }
+\DoxyCodeLine{00756\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}init"{}});}
+\DoxyCodeLine{00757\ }
+\DoxyCodeLine{00758\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{00759\ \ \ \ \ \textcolor{keywordtype}{char}\ opts[64];}
+\DoxyCodeLine{00760\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ GLNVG\_SHADER\_COUNT;\ i++)\ \{}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ lv\_snprintf(opts,\ \textcolor{keyword}{sizeof}(opts),\ \textcolor{stringliteral}{"{}\#define\ SHADER\_TYPE\ \%d\(\backslash\)n\%s"{}},\ i,}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (gl-\/>flags\ \&\ NVG\_ANTIALIAS)\ ?\ \textcolor{stringliteral}{"{}\#define\ EDGE\_AA\ 1\(\backslash\)n"{}}\ :\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(glnvg\_\_createShader(\&gl-\/>shaders[i],\ \textcolor{stringliteral}{"{}shader"{}},\ shaderHeader,\ opts,\ fillVertShader,\ fillFragShader)\ ==\ 0)}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}uniform\ locations"{}});}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ glnvg\_\_getUniforms(\&gl-\/>shaders[i]);}
+\DoxyCodeLine{00767\ \ \ \ \ \}}
+\DoxyCodeLine{00768\ }
+\DoxyCodeLine{00769\ \ \ \ \ \textcolor{comment}{//\ Create\ dynamic\ vertex\ array}}
+\DoxyCodeLine{00770\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{00771\ \ \ \ \ glGenVertexArrays(1,\ \&gl-\/>vertArr);}
+\DoxyCodeLine{00772\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00773\ \ \ \ \ glGenBuffers(2,\ gl-\/>vertBuf);}
+\DoxyCodeLine{00774\ }
+\DoxyCodeLine{00775\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{00776\ \ \ \ \ \textcolor{comment}{//\ Create\ UBOs}}
+\DoxyCodeLine{00777\ \ \ \ \ glUniformBlockBinding(gl-\/>shaders[0].prog,\ gl-\/>shaders[0].loc[GLNVG\_LOC\_FRAG],\ GLNVG\_FRAG\_BINDING);}
+\DoxyCodeLine{00778\ \ \ \ \ glGenBuffers(1,\ \&gl-\/>fragBuf);}
+\DoxyCodeLine{00779\ \ \ \ \ glGetIntegerv(GL\_UNIFORM\_BUFFER\_OFFSET\_ALIGNMENT,\ \&align);}
+\DoxyCodeLine{00780\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00781\ \ \ \ \ gl-\/>fragSize\ =\ \textcolor{keyword}{sizeof}(GLNVGfragUniforms)\ +\ align\ -\/\ \textcolor{keyword}{sizeof}(GLNVGfragUniforms)\ \%\ align;}
+\DoxyCodeLine{00782\ }
+\DoxyCodeLine{00783\ \ \ \ \ \textcolor{comment}{//\ Some\ platforms\ does\ not\ allow\ to\ have\ samples\ to\ unset\ textures.}}
+\DoxyCodeLine{00784\ \ \ \ \ \textcolor{comment}{//\ Create\ empty\ one\ which\ is\ bound\ when\ there's\ no\ texture\ specified.}}
+\DoxyCodeLine{00785\ \ \ \ \ gl-\/>dummyTex\ =\ glnvg\_\_renderCreateTexture(gl,\ NVG\_TEXTURE\_ALPHA,\ 1,\ 1,\ 0,\ NULL);}
+\DoxyCodeLine{00786\ }
+\DoxyCodeLine{00787\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}create\ done"{}});}
+\DoxyCodeLine{00788\ }
+\DoxyCodeLine{00789\ \ \ \ \ glFinish();}
+\DoxyCodeLine{00790\ }
+\DoxyCodeLine{00791\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00792\ \}}
+\DoxyCodeLine{00793\ }
+\DoxyCodeLine{00794\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_renderCreateTexture(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ type,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data)}
+\DoxyCodeLine{00795\ \{}
+\DoxyCodeLine{00796\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{00797\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ glnvg\_\_allocTexture(gl);}
+\DoxyCodeLine{00798\ }
+\DoxyCodeLine{00799\ \ \ \ \ \textcolor{keywordflow}{if}(tex\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00800\ }
+\DoxyCodeLine{00801\ \textcolor{preprocessor}{\#ifdef\ NANOVG\_GLES2}}
+\DoxyCodeLine{00802\ \ \ \ \ \textcolor{comment}{//\ Check\ for\ non-\/power\ of\ 2.}}
+\DoxyCodeLine{00803\ \ \ \ \ \textcolor{keywordflow}{if}(glnvg\_\_nearestPow2(w)\ !=\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})w\ ||\ glnvg\_\_nearestPow2(h)\ !=\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int})h)\ \{}
+\DoxyCodeLine{00804\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ repeat}}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((imageFlags\ \&\ NVG\_IMAGE\_REPEATX)\ !=\ 0\ ||\ (imageFlags\ \&\ NVG\_IMAGE\_REPEATY)\ !=\ 0)\ \{}
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_LOG\_WARN(\textcolor{stringliteral}{"{}Repeat\ X/Y\ is\ not\ supported\ for\ non\ power-\/of-\/two\ textures\ (\%d\ x\ \%d)"{}},\ w,\ h);}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ imageFlags\ \&=\ \string~(NVG\_IMAGE\_REPEATX\ |\ NVG\_IMAGE\_REPEATY);}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00809\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ No\ mips.}}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_GENERATE\_MIPMAPS)\ \{}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_LOG\_WARN(\textcolor{stringliteral}{"{}Mip-\/maps\ is\ not\ support\ for\ non\ power-\/of-\/two\ textures\ (\%d\ x\ \%d)"{}},\ w,\ h);}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \ \ \ \ imageFlags\ \&=\ \string~NVG\_IMAGE\_GENERATE\_MIPMAPS;}
+\DoxyCodeLine{00813\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00814\ \ \ \ \ \}}
+\DoxyCodeLine{00815\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00816\ }
+\DoxyCodeLine{00817\ \ \ \ \ glGenTextures(1,\ \&tex-\/>tex);}
+\DoxyCodeLine{00818\ \ \ \ \ tex-\/>width\ =\ w;}
+\DoxyCodeLine{00819\ \ \ \ \ tex-\/>height\ =\ h;}
+\DoxyCodeLine{00820\ \ \ \ \ tex-\/>type\ =\ type;}
+\DoxyCodeLine{00821\ \ \ \ \ tex-\/>flags\ =\ imageFlags;}
+\DoxyCodeLine{00822\ \ \ \ \ glnvg\_\_bindTexture(gl,\ tex-\/>tex);}
+\DoxyCodeLine{00823\ }
+\DoxyCodeLine{00824\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ALIGNMENT,\ 1);}
+\DoxyCodeLine{00825\ \textcolor{preprocessor}{\#ifndef\ NANOVG\_GLES2}}
+\DoxyCodeLine{00826\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ROW\_LENGTH,\ tex-\/>width);}
+\DoxyCodeLine{00827\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_PIXELS,\ 0);}
+\DoxyCodeLine{00828\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_ROWS,\ 0);}
+\DoxyCodeLine{00829\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00830\ }
+\DoxyCodeLine{00831\ \textcolor{preprocessor}{\#if\ defined\ (NANOVG\_GL2)}}
+\DoxyCodeLine{00832\ \ \ \ \ \textcolor{comment}{//\ GL\ 1.4\ and\ later\ has\ support\ for\ generating\ mipmaps\ using\ a\ tex\ parameter.}}
+\DoxyCodeLine{00833\ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_GENERATE\_MIPMAPS)\ \{}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_GENERATE\_MIPMAP,\ GL\_TRUE);}
+\DoxyCodeLine{00835\ \ \ \ \ \}}
+\DoxyCodeLine{00836\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00837\ }
+\DoxyCodeLine{00838\ \ \ \ \ \textcolor{keywordflow}{if}(type\ ==\ NVG\_TEXTURE\_BGRA\ ||\ type\ ==\ NVG\_TEXTURE\_BGRX)}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BGRA/BGRX:\ upload\ as\ RGBA,\ shader\ will\ swizzle\ BGR-\/>RGB\ */}}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGBA,\ w,\ h,\ 0,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00841\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(type\ ==\ NVG\_TEXTURE\_RGBA)}
+\DoxyCodeLine{00842\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGBA,\ w,\ h,\ 0,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(type\ ==\ NVG\_TEXTURE\_BGR)}
+\DoxyCodeLine{00844\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BGR888:\ upload\ as\ RGB,\ shader\ will\ swizzle\ BGR-\/>RGB\ */}}
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGB,\ w,\ h,\ 0,\ GL\_RGB,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00846\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(type\ ==\ NVG\_TEXTURE\_RGB565)}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ RGB565:\ directly\ compatible\ with\ GL\ */}}
+\DoxyCodeLine{00848\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RGB,\ w,\ h,\ 0,\ GL\_RGB,\ GL\_UNSIGNED\_SHORT\_5\_6\_5,\ data);}
+\DoxyCodeLine{00849\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00850\ \textcolor{preprocessor}{\#if\ defined(NANOVG\_GLES2)\ ||\ defined\ (NANOVG\_GL2)}}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_LUMINANCE,\ w,\ h,\ 0,\ GL\_LUMINANCE,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00852\ \textcolor{preprocessor}{\#elif\ defined(NANOVG\_GLES3)}}
+\DoxyCodeLine{00853\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_R8,\ w,\ h,\ 0,\ GL\_RED,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00854\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00855\ \ \ \ \ \ \ \ \ glTexImage2D(GL\_TEXTURE\_2D,\ 0,\ GL\_RED,\ w,\ h,\ 0,\ GL\_RED,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00856\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00857\ }
+\DoxyCodeLine{00858\ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_GENERATE\_MIPMAPS)\ \{}
+\DoxyCodeLine{00859\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_NEAREST)\ \{}
+\DoxyCodeLine{00860\ \ \ \ \ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_NEAREST\_MIPMAP\_NEAREST);}
+\DoxyCodeLine{00861\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00862\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00863\ \ \ \ \ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR\_MIPMAP\_LINEAR);}
+\DoxyCodeLine{00864\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00865\ \ \ \ \ \}}
+\DoxyCodeLine{00866\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00867\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_NEAREST)\ \{}
+\DoxyCodeLine{00868\ \ \ \ \ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_NEAREST);}
+\DoxyCodeLine{00869\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MIN\_FILTER,\ GL\_LINEAR);}
+\DoxyCodeLine{00872\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00873\ \ \ \ \ \}}
+\DoxyCodeLine{00874\ }
+\DoxyCodeLine{00875\ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_NEAREST)\ \{}
+\DoxyCodeLine{00876\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_NEAREST);}
+\DoxyCodeLine{00877\ \ \ \ \ \}}
+\DoxyCodeLine{00878\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00879\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_MAG\_FILTER,\ GL\_LINEAR);}
+\DoxyCodeLine{00880\ \ \ \ \ \}}
+\DoxyCodeLine{00881\ }
+\DoxyCodeLine{00882\ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_REPEATX)}
+\DoxyCodeLine{00883\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_S,\ GL\_REPEAT);}
+\DoxyCodeLine{00884\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00885\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_S,\ GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00886\ }
+\DoxyCodeLine{00887\ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_REPEATY)}
+\DoxyCodeLine{00888\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_T,\ GL\_REPEAT);}
+\DoxyCodeLine{00889\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00890\ \ \ \ \ \ \ \ \ glTexParameteri(GL\_TEXTURE\_2D,\ GL\_TEXTURE\_WRAP\_T,\ GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{00891\ }
+\DoxyCodeLine{00892\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ALIGNMENT,\ 4);}
+\DoxyCodeLine{00893\ \textcolor{preprocessor}{\#ifndef\ NANOVG\_GLES2}}
+\DoxyCodeLine{00894\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ROW\_LENGTH,\ 0);}
+\DoxyCodeLine{00895\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_PIXELS,\ 0);}
+\DoxyCodeLine{00896\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_ROWS,\ 0);}
+\DoxyCodeLine{00897\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00898\ }
+\DoxyCodeLine{00899\ \ \ \ \ \textcolor{comment}{//\ The\ new\ way\ to\ build\ mipmaps\ on\ GLES\ and\ GL3}}
+\DoxyCodeLine{00900\ \textcolor{preprocessor}{\#if\ !defined(NANOVG\_GL2)}}
+\DoxyCodeLine{00901\ \ \ \ \ \textcolor{keywordflow}{if}(imageFlags\ \&\ NVG\_IMAGE\_GENERATE\_MIPMAPS)\ \{}
+\DoxyCodeLine{00902\ \ \ \ \ \ \ \ \ glGenerateMipmap(GL\_TEXTURE\_2D);}
+\DoxyCodeLine{00903\ \ \ \ \ \}}
+\DoxyCodeLine{00904\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00905\ }
+\DoxyCodeLine{00906\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}create\ tex"{}});}
+\DoxyCodeLine{00907\ \ \ \ \ glnvg\_\_bindTexture(gl,\ 0);}
+\DoxyCodeLine{00908\ }
+\DoxyCodeLine{00909\ \ \ \ \ \textcolor{keywordflow}{return}\ tex-\/>id;}
+\DoxyCodeLine{00910\ \}}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00912\ }
+\DoxyCodeLine{00913\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_renderDeleteTexture(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ image)}
+\DoxyCodeLine{00914\ \{}
+\DoxyCodeLine{00915\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{00916\ \ \ \ \ \textcolor{keywordflow}{return}\ glnvg\_\_deleteTexture(gl,\ image);}
+\DoxyCodeLine{00917\ \}}
+\DoxyCodeLine{00918\ }
+\DoxyCodeLine{00919\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_renderUpdateTexture(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ data)}
+\DoxyCodeLine{00920\ \{}
+\DoxyCodeLine{00921\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{00922\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ glnvg\_\_findTexture(gl,\ image);}
+\DoxyCodeLine{00923\ }
+\DoxyCodeLine{00924\ \ \ \ \ \textcolor{keywordflow}{if}(tex\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00925\ \ \ \ \ glnvg\_\_bindTexture(gl,\ tex-\/>tex);}
+\DoxyCodeLine{00926\ }
+\DoxyCodeLine{00927\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ALIGNMENT,\ 1);}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00929\ \textcolor{preprocessor}{\#ifndef\ NANOVG\_GLES2}}
+\DoxyCodeLine{00930\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ROW\_LENGTH,\ tex-\/>width);}
+\DoxyCodeLine{00931\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_PIXELS,\ x);}
+\DoxyCodeLine{00932\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_ROWS,\ y);}
+\DoxyCodeLine{00933\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00934\ \ \ \ \ \textcolor{comment}{//\ No\ support\ for\ all\ of\ skip,\ need\ to\ update\ a\ whole\ row\ at\ a\ time.}}
+\DoxyCodeLine{00935\ \ \ \ \ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGRA\ ||\ tex-\/>type\ ==\ NVG\_TEXTURE\_RGBA\ ||\ tex-\/>type\ ==\ NVG\_TEXTURE\_BGRX)}
+\DoxyCodeLine{00936\ \ \ \ \ \ \ \ \ data\ +=\ y\ *\ tex-\/>width\ *\ 4;}
+\DoxyCodeLine{00937\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGR)}
+\DoxyCodeLine{00938\ \ \ \ \ \ \ \ \ data\ +=\ y\ *\ tex-\/>width\ *\ 3;}
+\DoxyCodeLine{00939\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_RGB565)}
+\DoxyCodeLine{00940\ \ \ \ \ \ \ \ \ data\ +=\ y\ *\ tex-\/>width\ *\ 2;}
+\DoxyCodeLine{00941\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00942\ \ \ \ \ \ \ \ \ data\ +=\ y\ *\ tex-\/>width;}
+\DoxyCodeLine{00943\ \ \ \ \ x\ =\ 0;}
+\DoxyCodeLine{00944\ \ \ \ \ w\ =\ tex-\/>width;}
+\DoxyCodeLine{00945\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00946\ }
+\DoxyCodeLine{00947\ \ \ \ \ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGRA\ ||\ tex-\/>type\ ==\ NVG\_TEXTURE\_BGRX)}
+\DoxyCodeLine{00948\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BGRA/BGRX:\ upload\ as\ RGBA,\ shader\ will\ swizzle\ BGR-\/>RGB\ */}}
+\DoxyCodeLine{00949\ \ \ \ \ \ \ \ \ glTexSubImage2D(GL\_TEXTURE\_2D,\ 0,\ x,\ y,\ w,\ h,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00950\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_RGBA)}
+\DoxyCodeLine{00951\ \ \ \ \ \ \ \ \ glTexSubImage2D(GL\_TEXTURE\_2D,\ 0,\ x,\ y,\ w,\ h,\ GL\_RGBA,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00952\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGR)}
+\DoxyCodeLine{00953\ \ \ \ \ \ \ \ \ glTexSubImage2D(GL\_TEXTURE\_2D,\ 0,\ x,\ y,\ w,\ h,\ GL\_RGB,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00954\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_RGB565)}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ \ \ glTexSubImage2D(GL\_TEXTURE\_2D,\ 0,\ x,\ y,\ w,\ h,\ GL\_RGB,\ GL\_UNSIGNED\_SHORT\_5\_6\_5,\ data);}
+\DoxyCodeLine{00956\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00957\ \textcolor{preprocessor}{\#if\ defined(NANOVG\_GLES2)\ ||\ defined(NANOVG\_GL2)}}
+\DoxyCodeLine{00958\ \ \ \ \ \ \ \ \ glTexSubImage2D(GL\_TEXTURE\_2D,\ 0,\ x,\ y,\ w,\ h,\ GL\_LUMINANCE,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00959\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00960\ \ \ \ \ \ \ \ \ glTexSubImage2D(GL\_TEXTURE\_2D,\ 0,\ x,\ y,\ w,\ h,\ GL\_RED,\ GL\_UNSIGNED\_BYTE,\ data);}
+\DoxyCodeLine{00961\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00962\ }
+\DoxyCodeLine{00963\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ALIGNMENT,\ 4);}
+\DoxyCodeLine{00964\ \textcolor{preprocessor}{\#ifndef\ NANOVG\_GLES2}}
+\DoxyCodeLine{00965\ \ \ \ \ glPixelStorei(GL\_UNPACK\_ROW\_LENGTH,\ 0);}
+\DoxyCodeLine{00966\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_PIXELS,\ 0);}
+\DoxyCodeLine{00967\ \ \ \ \ glPixelStorei(GL\_UNPACK\_SKIP\_ROWS,\ 0);}
+\DoxyCodeLine{00968\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00969\ }
+\DoxyCodeLine{00970\ \ \ \ \ glnvg\_\_bindTexture(gl,\ 0);}
+\DoxyCodeLine{00971\ }
+\DoxyCodeLine{00972\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00973\ \}}
+\DoxyCodeLine{00974\ }
+\DoxyCodeLine{00975\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_renderGetTextureSize(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keywordtype}{int}\ *\ w,\ \textcolor{keywordtype}{int}\ *\ h)}
+\DoxyCodeLine{00976\ \{}
+\DoxyCodeLine{00977\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{00978\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ glnvg\_\_findTexture(gl,\ image);}
+\DoxyCodeLine{00979\ \ \ \ \ \textcolor{keywordflow}{if}(tex\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00980\ \ \ \ \ *w\ =\ tex-\/>width;}
+\DoxyCodeLine{00981\ \ \ \ \ *h\ =\ tex-\/>height;}
+\DoxyCodeLine{00982\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{00983\ \}}
+\DoxyCodeLine{00984\ }
+\DoxyCodeLine{00985\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_xformToMat3x4(\textcolor{keywordtype}{float}\ *\ m3,\ \textcolor{keywordtype}{float}\ *\ t)}
+\DoxyCodeLine{00986\ \{}
+\DoxyCodeLine{00987\ \ \ \ \ m3[0]\ =\ t[0];}
+\DoxyCodeLine{00988\ \ \ \ \ m3[1]\ =\ t[1];}
+\DoxyCodeLine{00989\ \ \ \ \ m3[2]\ =\ 0.0f;}
+\DoxyCodeLine{00990\ \ \ \ \ m3[3]\ =\ 0.0f;}
+\DoxyCodeLine{00991\ \ \ \ \ m3[4]\ =\ t[2];}
+\DoxyCodeLine{00992\ \ \ \ \ m3[5]\ =\ t[3];}
+\DoxyCodeLine{00993\ \ \ \ \ m3[6]\ =\ 0.0f;}
+\DoxyCodeLine{00994\ \ \ \ \ m3[7]\ =\ 0.0f;}
+\DoxyCodeLine{00995\ \ \ \ \ m3[8]\ =\ t[4];}
+\DoxyCodeLine{00996\ \ \ \ \ m3[9]\ =\ t[5];}
+\DoxyCodeLine{00997\ \ \ \ \ m3[10]\ =\ 1.0f;}
+\DoxyCodeLine{00998\ \ \ \ \ m3[11]\ =\ 0.0f;}
+\DoxyCodeLine{00999\ \}}
+\DoxyCodeLine{01000\ }
+\DoxyCodeLine{01001\ \textcolor{keyword}{static}\ NVGcolor\ glnvg\_\_premulColor(NVGcolor\ c)}
+\DoxyCodeLine{01002\ \{}
+\DoxyCodeLine{01003\ \ \ \ \ c.ch.r\ *=\ c.ch.a;}
+\DoxyCodeLine{01004\ \ \ \ \ c.ch.g\ *=\ c.ch.a;}
+\DoxyCodeLine{01005\ \ \ \ \ c.ch.b\ *=\ c.ch.a;}
+\DoxyCodeLine{01006\ \ \ \ \ \textcolor{keywordflow}{return}\ c;}
+\DoxyCodeLine{01007\ \}}
+\DoxyCodeLine{01008\ }
+\DoxyCodeLine{01009\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_convertPaint(GLNVGcontext\ *\ gl,\ GLNVGfragUniforms\ *\ frag,\ NVGpaint\ *\ paint,}
+\DoxyCodeLine{01010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGscissor\ *\ scissor,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ fringe,\ \textcolor{keywordtype}{float}\ strokeThr)}
+\DoxyCodeLine{01011\ \{}
+\DoxyCodeLine{01012\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ NULL;}
+\DoxyCodeLine{01013\ \ \ \ \ \textcolor{keywordtype}{float}\ invxform[6];}
+\DoxyCodeLine{01014\ }
+\DoxyCodeLine{01015\ \ \ \ \ lv\_memzero(frag,\ \textcolor{keyword}{sizeof}(*frag));}
+\DoxyCodeLine{01016\ }
+\DoxyCodeLine{01017\ \ \ \ \ frag-\/>s.innerCol\ =\ glnvg\_\_premulColor(paint-\/>innerColor);}
+\DoxyCodeLine{01018\ \ \ \ \ frag-\/>s.outerCol\ =\ glnvg\_\_premulColor(paint-\/>outerColor);}
+\DoxyCodeLine{01019\ }
+\DoxyCodeLine{01020\ \ \ \ \ \textcolor{keywordflow}{if}(scissor-\/>extent[0]\ <\ -\/0.5f\ ||\ scissor-\/>extent[1]\ <\ -\/0.5f)\ \{}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ lv\_memzero(frag-\/>s.scissorMat,\ \textcolor{keyword}{sizeof}(frag-\/>s.scissorMat));}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ frag-\/>s.scissorExt[0]\ =\ 1.0f;}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ frag-\/>s.scissorExt[1]\ =\ 1.0f;}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ frag-\/>s.scissorScale[0]\ =\ 1.0f;}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ frag-\/>s.scissorScale[1]\ =\ 1.0f;}
+\DoxyCodeLine{01026\ \ \ \ \ \}}
+\DoxyCodeLine{01027\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ nvgTransformInverse(invxform,\ scissor-\/>xform);}
+\DoxyCodeLine{01029\ \ \ \ \ \ \ \ \ glnvg\_\_xformToMat3x4(frag-\/>s.scissorMat,\ invxform);}
+\DoxyCodeLine{01030\ \ \ \ \ \ \ \ \ frag-\/>s.scissorExt[0]\ =\ scissor-\/>extent[0];}
+\DoxyCodeLine{01031\ \ \ \ \ \ \ \ \ frag-\/>s.scissorExt[1]\ =\ scissor-\/>extent[1];}
+\DoxyCodeLine{01032\ \ \ \ \ \ \ \ \ frag-\/>s.scissorScale[0]\ =\ sqrtf(scissor-\/>xform[0]\ *\ scissor-\/>xform[0]\ +\ scissor-\/>xform[2]\ *\ scissor-\/>xform[2])\ /\ fringe;}
+\DoxyCodeLine{01033\ \ \ \ \ \ \ \ \ frag-\/>s.scissorScale[1]\ =\ sqrtf(scissor-\/>xform[1]\ *\ scissor-\/>xform[1]\ +\ scissor-\/>xform[3]\ *\ scissor-\/>xform[3])\ /\ fringe;}
+\DoxyCodeLine{01034\ \ \ \ \ \}}
+\DoxyCodeLine{01035\ }
+\DoxyCodeLine{01036\ \ \ \ \ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__string_8h_a036075376021724a89548607952fc7f1}{lv\_memcpy}}(frag-\/>s.extent,\ paint-\/>extent,\ \textcolor{keyword}{sizeof}(frag-\/>s.extent));}
+\DoxyCodeLine{01037\ \ \ \ \ frag-\/>s.strokeMult\ =\ (width\ *\ 0.5f\ +\ fringe\ *\ 0.5f)\ /\ fringe;}
+\DoxyCodeLine{01038\ \ \ \ \ frag-\/>s.strokeThr\ =\ strokeThr;}
+\DoxyCodeLine{01039\ }
+\DoxyCodeLine{01040\ \ \ \ \ \textcolor{keywordflow}{if}(paint-\/>image\ !=\ 0)\ \{}
+\DoxyCodeLine{01041\ \ \ \ \ \ \ \ \ tex\ =\ glnvg\_\_findTexture(gl,\ paint-\/>image);}
+\DoxyCodeLine{01042\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tex\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((tex-\/>flags\ \&\ NVG\_IMAGE\_FLIPY)\ !=\ 0)\ \{}
+\DoxyCodeLine{01044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ m1[6],\ m2[6];}
+\DoxyCodeLine{01045\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformTranslate(m1,\ 0.0f,\ frag-\/>s.extent[1]\ *\ 0.5f);}
+\DoxyCodeLine{01046\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformMultiply(m1,\ paint-\/>xform);}
+\DoxyCodeLine{01047\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformScale(m2,\ 1.0f,\ -\/1.0f);}
+\DoxyCodeLine{01048\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformMultiply(m2,\ m1);}
+\DoxyCodeLine{01049\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformTranslate(m1,\ 0.0f,\ -\/frag-\/>s.extent[1]\ *\ 0.5f);}
+\DoxyCodeLine{01050\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformMultiply(m1,\ m2);}
+\DoxyCodeLine{01051\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformInverse(invxform,\ m1);}
+\DoxyCodeLine{01052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ \ \ \ \ \ \ nvgTransformInverse(invxform,\ paint-\/>xform);}
+\DoxyCodeLine{01055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01056\ \ \ \ \ \ \ \ \ frag-\/>s.type\ =\ NSVG\_SHADER\_FILLIMG;}
+\DoxyCodeLine{01057\ }
+\DoxyCodeLine{01058\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{01059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_RGBA)}
+\DoxyCodeLine{01060\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ (tex-\/>flags\ \&\ NVG\_IMAGE\_PREMULTIPLIED)\ ?\ 0\ :\ 1;}
+\DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGRA)}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ (tex-\/>flags\ \&\ NVG\_IMAGE\_PREMULTIPLIED)\ ?\ 3\ :\ 5;\ \ \textcolor{comment}{//\ BGR\ swizzle,\ optionally\ premultiply}}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGR)}
+\DoxyCodeLine{01064\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 3;\ \ \textcolor{comment}{//\ BGR\ -\/>\ RGB\ swizzle\ (no\ alpha\ channel)}}
+\DoxyCodeLine{01065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGRX)}
+\DoxyCodeLine{01066\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 4;\ \ \textcolor{comment}{//\ BGRX\ -\/>\ RGB\ with\ alpha=1\ in\ shader}}
+\DoxyCodeLine{01067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_RGB565)}
+\DoxyCodeLine{01068\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 0;\ \ \textcolor{comment}{//\ RGB565\ is\ directly\ compatible}}
+\DoxyCodeLine{01069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01070\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 2;}
+\DoxyCodeLine{01071\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_RGBA)}
+\DoxyCodeLine{01073\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ (tex-\/>flags\ \&\ NVG\_IMAGE\_PREMULTIPLIED)\ ?\ 0.0f\ :\ 1.0f;}
+\DoxyCodeLine{01074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGRA)}
+\DoxyCodeLine{01075\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ (tex-\/>flags\ \&\ NVG\_IMAGE\_PREMULTIPLIED)\ ?\ 3.0f\ :\ 5.0f;\ \ \textcolor{comment}{//\ BGR\ swizzle,\ optionally\ premultiply}}
+\DoxyCodeLine{01076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGR)}
+\DoxyCodeLine{01077\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 3.0f;\ \ \textcolor{comment}{//\ BGR\ -\/>\ RGB\ swizzle\ (no\ alpha\ channel)}}
+\DoxyCodeLine{01078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_BGRX)}
+\DoxyCodeLine{01079\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 4.0f;\ \ \textcolor{comment}{//\ BGRX\ -\/>\ RGB\ with\ alpha=1\ in\ shader}}
+\DoxyCodeLine{01080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(tex-\/>type\ ==\ NVG\_TEXTURE\_RGB565)}
+\DoxyCodeLine{01081\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 0.0f;\ \ \textcolor{comment}{//\ RGB565\ is\ directly\ compatible}}
+\DoxyCodeLine{01082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01083\ \ \ \ \ \ \ \ \ \ \ \ \ frag-\/>s.texType\ =\ 2.0f;}
+\DoxyCodeLine{01084\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ printf("{}frag-\/>texType\ =\ \%d\(\backslash\)n"{},\ frag-\/>texType);}}
+\DoxyCodeLine{01086\ \ \ \ \ \}}
+\DoxyCodeLine{01087\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01088\ \ \ \ \ \ \ \ \ frag-\/>s.type\ =\ NSVG\_SHADER\_FILLGRAD;}
+\DoxyCodeLine{01089\ \ \ \ \ \ \ \ \ frag-\/>s.radius\ =\ paint-\/>radius;}
+\DoxyCodeLine{01090\ \ \ \ \ \ \ \ \ frag-\/>s.feather\ =\ paint-\/>feather;}
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ nvgTransformInverse(invxform,\ paint-\/>xform);}
+\DoxyCodeLine{01092\ \ \ \ \ \}}
+\DoxyCodeLine{01093\ }
+\DoxyCodeLine{01094\ \ \ \ \ glnvg\_\_xformToMat3x4(frag-\/>s.paintMat,\ invxform);}
+\DoxyCodeLine{01095\ }
+\DoxyCodeLine{01096\ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{01097\ \}}
+\DoxyCodeLine{01098\ }
+\DoxyCodeLine{01099\ \textcolor{keyword}{static}\ GLNVGfragUniforms\ *\ nvg\_\_fragUniformPtr(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{01100\ }
+\DoxyCodeLine{01101\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_bindShader(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ shaderType)}
+\DoxyCodeLine{01102\ \{}
+\DoxyCodeLine{01103\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>boundShader\ !=\ shaderType)\ \{}
+\DoxyCodeLine{01104\ \ \ \ \ \ \ \ \ gl-\/>boundShader\ =\ shaderType;}
+\DoxyCodeLine{01105\ \ \ \ \ \ \ \ \ glUseProgram(gl-\/>shaders[shaderType].prog);}
+\DoxyCodeLine{01106\ \ \ \ \ \ \ \ \ glUniform1i(gl-\/>shaders[shaderType].loc[GLNVG\_LOC\_TEX],\ 0);}
+\DoxyCodeLine{01107\ \ \ \ \ \ \ \ \ glUniform2fv(gl-\/>shaders[shaderType].loc[GLNVG\_LOC\_VIEWSIZE],\ 1,\ gl-\/>view);}
+\DoxyCodeLine{01108\ \ \ \ \ \}}
+\DoxyCodeLine{01109\ \}}
+\DoxyCodeLine{01110\ }
+\DoxyCodeLine{01111\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_setUniforms(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ uniformOffset,\ \textcolor{keywordtype}{int}\ image,\ \textcolor{keywordtype}{int}\ shaderType)}
+\DoxyCodeLine{01112\ \{}
+\DoxyCodeLine{01113\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ NULL;}
+\DoxyCodeLine{01114\ }
+\DoxyCodeLine{01115\ \ \ \ \ glnvg\_\_bindShader(gl,\ shaderType);}
+\DoxyCodeLine{01116\ }
+\DoxyCodeLine{01117\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{01118\ \ \ \ \ glBindBufferRange(GL\_UNIFORM\_BUFFER,\ GLNVG\_FRAG\_BINDING,\ gl-\/>fragBuf,\ uniformOffset,\ \textcolor{keyword}{sizeof}(GLNVGfragUniforms));}
+\DoxyCodeLine{01119\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{01120\ \ \ \ \ \textcolor{comment}{//\ Optimization:\ NSVG\_SHADER\_SIMPLE\ doesn't\ use\ any\ uniforms\ in\ the\ fragment\ shader,}}
+\DoxyCodeLine{01121\ \ \ \ \ \textcolor{comment}{//\ so\ we\ can\ skip\ uploading\ them.}}
+\DoxyCodeLine{01122\ \ \ \ \ \textcolor{keywordflow}{if}(shaderType\ !=\ NSVG\_SHADER\_SIMPLE)\ \{}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ GLNVGfragUniforms\ *\ frag\ =\ nvg\_\_fragUniformPtr(gl,\ uniformOffset);}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ glUniform4fv(gl-\/>shaders[shaderType].loc[GLNVG\_LOC\_FRAG],\ NANOVG\_GL\_UNIFORMARRAY\_SIZE,\ \&(frag-\/>uniformArray[0][0]));}
+\DoxyCodeLine{01125\ \ \ \ \ \}}
+\DoxyCodeLine{01126\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01127\ }
+\DoxyCodeLine{01128\ \ \ \ \ \textcolor{keywordflow}{if}(image\ !=\ 0)\ \{}
+\DoxyCodeLine{01129\ \ \ \ \ \ \ \ \ tex\ =\ glnvg\_\_findTexture(gl,\ image);}
+\DoxyCodeLine{01130\ \ \ \ \ \}}
+\DoxyCodeLine{01131\ \ \ \ \ \textcolor{comment}{//\ If\ no\ image\ is\ set,\ use\ empty\ texture}}
+\DoxyCodeLine{01132\ \ \ \ \ \textcolor{keywordflow}{if}(tex\ ==\ NULL)\ \{}
+\DoxyCodeLine{01133\ \ \ \ \ \ \ \ \ tex\ =\ glnvg\_\_findTexture(gl,\ gl-\/>dummyTex);}
+\DoxyCodeLine{01134\ \ \ \ \ \}}
+\DoxyCodeLine{01135\ \ \ \ \ glnvg\_\_bindTexture(gl,\ tex\ !=\ NULL\ ?\ tex-\/>tex\ :\ 0);}
+\DoxyCodeLine{01136\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}tex\ paint\ tex"{}});}
+\DoxyCodeLine{01137\ \}}
+\DoxyCodeLine{01138\ }
+\DoxyCodeLine{01139\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_renderViewport(\textcolor{keywordtype}{void}\ *\ uptr,\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keywordtype}{float}\ devicePixelRatio)}
+\DoxyCodeLine{01140\ \{}
+\DoxyCodeLine{01141\ \ \ \ \ NVG\_NOTUSED(devicePixelRatio);}
+\DoxyCodeLine{01142\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{01143\ \ \ \ \ gl-\/>view[0]\ =\ width;}
+\DoxyCodeLine{01144\ \ \ \ \ gl-\/>view[1]\ =\ height;}
+\DoxyCodeLine{01145\ \}}
+\DoxyCodeLine{01146\ }
+\DoxyCodeLine{01147\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_fill(GLNVGcontext\ *\ gl,\ GLNVGcall\ *\ call)}
+\DoxyCodeLine{01148\ \{}
+\DoxyCodeLine{01149\ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN;}
+\DoxyCodeLine{01150\ \ \ \ \ GLNVGpath\ *\ paths\ =\ \&gl-\/>paths[call-\/>pathOffset];}
+\DoxyCodeLine{01151\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ npaths\ =\ call-\/>pathCount;}
+\DoxyCodeLine{01152\ }
+\DoxyCodeLine{01153\ \ \ \ \ \textcolor{comment}{//\ Draw\ shapes}}
+\DoxyCodeLine{01154\ \ \ \ \ glEnable(GL\_STENCIL\_TEST);}
+\DoxyCodeLine{01155\ \ \ \ \ glnvg\_\_stencilMask(gl,\ 0xff);}
+\DoxyCodeLine{01156\ \ \ \ \ glnvg\_\_stencilFunc(gl,\ GL\_ALWAYS,\ 0,\ 0xff);}
+\DoxyCodeLine{01157\ \ \ \ \ glColorMask(GL\_FALSE,\ GL\_FALSE,\ GL\_FALSE,\ GL\_FALSE);}
+\DoxyCodeLine{01158\ }
+\DoxyCodeLine{01159\ \ \ \ \ \textcolor{comment}{//\ set\ bindpoint\ for\ solid\ loc}}
+\DoxyCodeLine{01160\ \ \ \ \ glnvg\_\_setUniforms(gl,\ call-\/>uniformOffset,\ 0,\ NSVG\_SHADER\_SIMPLE);}
+\DoxyCodeLine{01161\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}fill\ simple"{}});}
+\DoxyCodeLine{01162\ }
+\DoxyCodeLine{01163\ \ \ \ \ glStencilOpSeparate(GL\_FRONT,\ GL\_KEEP,\ GL\_KEEP,\ GL\_INCR\_WRAP);}
+\DoxyCodeLine{01164\ \ \ \ \ glStencilOpSeparate(GL\_BACK,\ GL\_KEEP,\ GL\_KEEP,\ GL\_DECR\_WRAP);}
+\DoxyCodeLine{01165\ \ \ \ \ glDisable(GL\_CULL\_FACE);}
+\DoxyCodeLine{01166\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)}
+\DoxyCodeLine{01167\ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_FAN,\ paths[i].fillOffset,\ paths[i].fillCount);}
+\DoxyCodeLine{01168\ \ \ \ \ glEnable(GL\_CULL\_FACE);}
+\DoxyCodeLine{01169\ }
+\DoxyCodeLine{01170\ \ \ \ \ \textcolor{comment}{//\ Draw\ anti-\/aliased\ pixels}}
+\DoxyCodeLine{01171\ \ \ \ \ glColorMask(GL\_TRUE,\ GL\_TRUE,\ GL\_TRUE,\ GL\_TRUE);}
+\DoxyCodeLine{01172\ }
+\DoxyCodeLine{01173\ \ \ \ \ glnvg\_\_setUniforms(gl,\ call-\/>uniformOffset\ +\ gl-\/>fragSize,\ call-\/>image,\ call-\/>shaderType);}
+\DoxyCodeLine{01174\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}fill\ fill"{}});}
+\DoxyCodeLine{01175\ }
+\DoxyCodeLine{01176\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>flags\ \&\ NVG\_ANTIALIAS)\ \{}
+\DoxyCodeLine{01177\ \ \ \ \ \ \ \ \ glnvg\_\_stencilFunc(gl,\ GL\_EQUAL,\ 0x00,\ 0xff);}
+\DoxyCodeLine{01178\ \ \ \ \ \ \ \ \ glStencilOp(GL\_KEEP,\ GL\_KEEP,\ GL\_KEEP);}
+\DoxyCodeLine{01179\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ fringes}}
+\DoxyCodeLine{01180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)}
+\DoxyCodeLine{01181\ \ \ \ \ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_STRIP,\ paths[i].strokeOffset,\ paths[i].strokeCount);}
+\DoxyCodeLine{01182\ \ \ \ \ \}}
+\DoxyCodeLine{01183\ }
+\DoxyCodeLine{01184\ \ \ \ \ \textcolor{comment}{//\ Draw\ fill}}
+\DoxyCodeLine{01185\ \ \ \ \ glnvg\_\_stencilFunc(gl,\ GL\_NOTEQUAL,\ 0x0,\ 0xff);}
+\DoxyCodeLine{01186\ \ \ \ \ glStencilOp(GL\_ZERO,\ GL\_ZERO,\ GL\_ZERO);}
+\DoxyCodeLine{01187\ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_STRIP,\ call-\/>triangleOffset,\ call-\/>triangleCount);}
+\DoxyCodeLine{01188\ }
+\DoxyCodeLine{01189\ \ \ \ \ glDisable(GL\_STENCIL\_TEST);}
+\DoxyCodeLine{01190\ \ \ \ \ LV\_PROFILER\_DRAW\_END;}
+\DoxyCodeLine{01191\ \}}
+\DoxyCodeLine{01192\ }
+\DoxyCodeLine{01193\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_convexFill(GLNVGcontext\ *\ gl,\ GLNVGcall\ *\ call)}
+\DoxyCodeLine{01194\ \{}
+\DoxyCodeLine{01195\ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN;}
+\DoxyCodeLine{01196\ \ \ \ \ GLNVGpath\ *\ paths\ =\ \&gl-\/>paths[call-\/>pathOffset];}
+\DoxyCodeLine{01197\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ npaths\ =\ call-\/>pathCount;}
+\DoxyCodeLine{01198\ }
+\DoxyCodeLine{01199\ \ \ \ \ glnvg\_\_setUniforms(gl,\ call-\/>uniformOffset,\ call-\/>image,\ call-\/>shaderType);}
+\DoxyCodeLine{01200\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}convex\ fill"{}});}
+\DoxyCodeLine{01201\ }
+\DoxyCodeLine{01202\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)\ \{}
+\DoxyCodeLine{01203\ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_FAN,\ paths[i].fillOffset,\ paths[i].fillCount);}
+\DoxyCodeLine{01204\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ fringes}}
+\DoxyCodeLine{01205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(paths[i].strokeCount\ >\ 0)\ \{}
+\DoxyCodeLine{01206\ \ \ \ \ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_STRIP,\ paths[i].strokeOffset,\ paths[i].strokeCount);}
+\DoxyCodeLine{01207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01208\ \ \ \ \ \}}
+\DoxyCodeLine{01209\ \ \ \ \ LV\_PROFILER\_DRAW\_END;}
+\DoxyCodeLine{01210\ \}}
+\DoxyCodeLine{01211\ }
+\DoxyCodeLine{01212\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_stroke(GLNVGcontext\ *\ gl,\ GLNVGcall\ *\ call)}
+\DoxyCodeLine{01213\ \{}
+\DoxyCodeLine{01214\ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN;}
+\DoxyCodeLine{01215\ \ \ \ \ GLNVGpath\ *\ paths\ =\ \&gl-\/>paths[call-\/>pathOffset];}
+\DoxyCodeLine{01216\ \ \ \ \ \textcolor{keywordtype}{int}\ npaths\ =\ call-\/>pathCount,\ i;}
+\DoxyCodeLine{01217\ }
+\DoxyCodeLine{01218\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>flags\ \&\ NVG\_STENCIL\_STROKES)\ \{}
+\DoxyCodeLine{01219\ }
+\DoxyCodeLine{01220\ \ \ \ \ \ \ \ \ glEnable(GL\_STENCIL\_TEST);}
+\DoxyCodeLine{01221\ \ \ \ \ \ \ \ \ glnvg\_\_stencilMask(gl,\ 0xff);}
+\DoxyCodeLine{01222\ }
+\DoxyCodeLine{01223\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fill\ the\ stroke\ base\ without\ overlap}}
+\DoxyCodeLine{01224\ \ \ \ \ \ \ \ \ glnvg\_\_stencilFunc(gl,\ GL\_EQUAL,\ 0x0,\ 0xff);}
+\DoxyCodeLine{01225\ \ \ \ \ \ \ \ \ glStencilOp(GL\_KEEP,\ GL\_KEEP,\ GL\_INCR);}
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ glnvg\_\_setUniforms(gl,\ call-\/>uniformOffset\ +\ gl-\/>fragSize,\ call-\/>image,\ NSVG\_SHADER\_SIMPLE);}
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}stroke\ fill\ 0"{}});}
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)}
+\DoxyCodeLine{01229\ \ \ \ \ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_STRIP,\ paths[i].strokeOffset,\ paths[i].strokeCount);}
+\DoxyCodeLine{01230\ }
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ anti-\/aliased\ pixels.}}
+\DoxyCodeLine{01232\ \ \ \ \ \ \ \ \ glnvg\_\_setUniforms(gl,\ call-\/>uniformOffset,\ call-\/>image,\ call-\/>shaderType);}
+\DoxyCodeLine{01233\ \ \ \ \ \ \ \ \ glnvg\_\_stencilFunc(gl,\ GL\_EQUAL,\ 0x00,\ 0xff);}
+\DoxyCodeLine{01234\ \ \ \ \ \ \ \ \ glStencilOp(GL\_KEEP,\ GL\_KEEP,\ GL\_KEEP);}
+\DoxyCodeLine{01235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)}
+\DoxyCodeLine{01236\ \ \ \ \ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_STRIP,\ paths[i].strokeOffset,\ paths[i].strokeCount);}
+\DoxyCodeLine{01237\ }
+\DoxyCodeLine{01238\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ stencil\ buffer.}}
+\DoxyCodeLine{01239\ \ \ \ \ \ \ \ \ glColorMask(GL\_FALSE,\ GL\_FALSE,\ GL\_FALSE,\ GL\_FALSE);}
+\DoxyCodeLine{01240\ \ \ \ \ \ \ \ \ glnvg\_\_stencilFunc(gl,\ GL\_ALWAYS,\ 0x0,\ 0xff);}
+\DoxyCodeLine{01241\ \ \ \ \ \ \ \ \ glStencilOp(GL\_ZERO,\ GL\_ZERO,\ GL\_ZERO);}
+\DoxyCodeLine{01242\ \ \ \ \ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}stroke\ fill\ 1"{}});}
+\DoxyCodeLine{01243\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)}
+\DoxyCodeLine{01244\ \ \ \ \ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_STRIP,\ paths[i].strokeOffset,\ paths[i].strokeCount);}
+\DoxyCodeLine{01245\ \ \ \ \ \ \ \ \ glColorMask(GL\_TRUE,\ GL\_TRUE,\ GL\_TRUE,\ GL\_TRUE);}
+\DoxyCodeLine{01246\ }
+\DoxyCodeLine{01247\ \ \ \ \ \ \ \ \ glDisable(GL\_STENCIL\_TEST);}
+\DoxyCodeLine{01248\ }
+\DoxyCodeLine{01249\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ \ glnvg\_\_convertPaint(gl,\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset\ +\ gl-\/>fragSize),\ paint,\ scissor,\ strokeWidth,\ fringe,\ 1.0f\ -\/\ 0.5f/255.0f);}}
+\DoxyCodeLine{01250\ }
+\DoxyCodeLine{01251\ \ \ \ \ \}}
+\DoxyCodeLine{01252\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01253\ \ \ \ \ \ \ \ \ glnvg\_\_setUniforms(gl,\ call-\/>uniformOffset,\ call-\/>image,\ call-\/>shaderType);}
+\DoxyCodeLine{01254\ \ \ \ \ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}stroke\ fill"{}});}
+\DoxyCodeLine{01255\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ Strokes}}
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \ \ \ \ glDrawArrays(GL\_TRIANGLE\_STRIP,\ paths[i].strokeOffset,\ paths[i].strokeCount);}
+\DoxyCodeLine{01258\ \ \ \ \ \}}
+\DoxyCodeLine{01259\ \ \ \ \ LV\_PROFILER\_DRAW\_END;}
+\DoxyCodeLine{01260\ \}}
+\DoxyCodeLine{01261\ }
+\DoxyCodeLine{01262\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_triangles(GLNVGcontext\ *\ gl,\ GLNVGcall\ *\ call)}
+\DoxyCodeLine{01263\ \{}
+\DoxyCodeLine{01264\ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN;}
+\DoxyCodeLine{01265\ \ \ \ \ glnvg\_\_setUniforms(gl,\ call-\/>uniformOffset,\ call-\/>image,\ NSVG\_SHADER\_IMG);}
+\DoxyCodeLine{01266\ \ \ \ \ glnvg\_\_checkError(gl,\ \textcolor{stringliteral}{"{}triangles\ fill"{}});}
+\DoxyCodeLine{01267\ }
+\DoxyCodeLine{01268\ \ \ \ \ glDrawArrays(GL\_TRIANGLES,\ call-\/>triangleOffset,\ call-\/>triangleCount);}
+\DoxyCodeLine{01269\ \ \ \ \ LV\_PROFILER\_DRAW\_END;}
+\DoxyCodeLine{01270\ \}}
+\DoxyCodeLine{01271\ }
+\DoxyCodeLine{01272\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_renderCancel(\textcolor{keywordtype}{void}\ *\ uptr)}
+\DoxyCodeLine{01273\ \{}
+\DoxyCodeLine{01274\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{01275\ \ \ \ \ gl-\/>nverts\ =\ 0;}
+\DoxyCodeLine{01276\ \ \ \ \ gl-\/>npaths\ =\ 0;}
+\DoxyCodeLine{01277\ \ \ \ \ gl-\/>ncalls\ =\ 0;}
+\DoxyCodeLine{01278\ \ \ \ \ gl-\/>nuniforms\ =\ 0;}
+\DoxyCodeLine{01279\ \}}
+\DoxyCodeLine{01280\ }
+\DoxyCodeLine{01281\ \textcolor{keyword}{static}\ GLenum\ glnvg\_convertBlendFuncFactor(\textcolor{keywordtype}{int}\ factor)}
+\DoxyCodeLine{01282\ \{}
+\DoxyCodeLine{01283\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_ZERO)}
+\DoxyCodeLine{01284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_ZERO;}
+\DoxyCodeLine{01285\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_ONE)}
+\DoxyCodeLine{01286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_ONE;}
+\DoxyCodeLine{01287\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_SRC\_COLOR)}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_SRC\_COLOR;}
+\DoxyCodeLine{01289\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_ONE\_MINUS\_SRC\_COLOR)}
+\DoxyCodeLine{01290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_ONE\_MINUS\_SRC\_COLOR;}
+\DoxyCodeLine{01291\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_DST\_COLOR)}
+\DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_DST\_COLOR;}
+\DoxyCodeLine{01293\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_ONE\_MINUS\_DST\_COLOR)}
+\DoxyCodeLine{01294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_ONE\_MINUS\_DST\_COLOR;}
+\DoxyCodeLine{01295\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_SRC\_ALPHA)}
+\DoxyCodeLine{01296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_SRC\_ALPHA;}
+\DoxyCodeLine{01297\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_ONE\_MINUS\_SRC\_ALPHA)}
+\DoxyCodeLine{01298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_ONE\_MINUS\_SRC\_ALPHA;}
+\DoxyCodeLine{01299\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_DST\_ALPHA)}
+\DoxyCodeLine{01300\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_DST\_ALPHA;}
+\DoxyCodeLine{01301\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_ONE\_MINUS\_DST\_ALPHA)}
+\DoxyCodeLine{01302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_ONE\_MINUS\_DST\_ALPHA;}
+\DoxyCodeLine{01303\ \ \ \ \ \textcolor{keywordflow}{if}(factor\ ==\ NVG\_SRC\_ALPHA\_SATURATE)}
+\DoxyCodeLine{01304\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_SRC\_ALPHA\_SATURATE;}
+\DoxyCodeLine{01305\ \ \ \ \ \textcolor{keywordflow}{return}\ GL\_INVALID\_ENUM;}
+\DoxyCodeLine{01306\ \}}
+\DoxyCodeLine{01307\ }
+\DoxyCodeLine{01308\ \textcolor{keyword}{static}\ GLNVGblend\ glnvg\_\_blendCompositeOperation(NVGcompositeOperationState\ op)}
+\DoxyCodeLine{01309\ \{}
+\DoxyCodeLine{01310\ \ \ \ \ GLNVGblend\ blend;}
+\DoxyCodeLine{01311\ \ \ \ \ blend.srcRGB\ =\ glnvg\_convertBlendFuncFactor(op.srcRGB);}
+\DoxyCodeLine{01312\ \ \ \ \ blend.dstRGB\ =\ glnvg\_convertBlendFuncFactor(op.dstRGB);}
+\DoxyCodeLine{01313\ \ \ \ \ blend.srcAlpha\ =\ glnvg\_convertBlendFuncFactor(op.srcAlpha);}
+\DoxyCodeLine{01314\ \ \ \ \ blend.dstAlpha\ =\ glnvg\_convertBlendFuncFactor(op.dstAlpha);}
+\DoxyCodeLine{01315\ \ \ \ \ \textcolor{keywordflow}{if}(blend.srcRGB\ ==\ GL\_INVALID\_ENUM\ ||\ blend.dstRGB\ ==\ GL\_INVALID\_ENUM\ ||\ blend.srcAlpha\ ==\ GL\_INVALID\_ENUM\ ||}
+\DoxyCodeLine{01316\ \ \ \ \ \ \ \ blend.dstAlpha\ ==\ GL\_INVALID\_ENUM)\ \{}
+\DoxyCodeLine{01317\ \ \ \ \ \ \ \ \ blend.srcRGB\ =\ GL\_ONE;}
+\DoxyCodeLine{01318\ \ \ \ \ \ \ \ \ blend.dstRGB\ =\ GL\_ONE\_MINUS\_SRC\_ALPHA;}
+\DoxyCodeLine{01319\ \ \ \ \ \ \ \ \ blend.srcAlpha\ =\ GL\_ONE;}
+\DoxyCodeLine{01320\ \ \ \ \ \ \ \ \ blend.dstAlpha\ =\ GL\_ONE\_MINUS\_SRC\_ALPHA;}
+\DoxyCodeLine{01321\ \ \ \ \ \}}
+\DoxyCodeLine{01322\ \ \ \ \ \textcolor{keywordflow}{return}\ blend;}
+\DoxyCodeLine{01323\ \}}
+\DoxyCodeLine{01324\ }
+\DoxyCodeLine{01325\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_renderFlush(\textcolor{keywordtype}{void}\ *\ uptr)}
+\DoxyCodeLine{01326\ \{}
+\DoxyCodeLine{01327\ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN;}
+\DoxyCodeLine{01328\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{01329\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{01330\ }
+\DoxyCodeLine{01331\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>ncalls\ >\ 0)\ \{}
+\DoxyCodeLine{01332\ }
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Setup\ require\ GL\ state.}}
+\DoxyCodeLine{01334\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}setup\_gl\_state"{}});}
+\DoxyCodeLine{01335\ \ \ \ \ \ \ \ \ glEnable(GL\_CULL\_FACE);}
+\DoxyCodeLine{01336\ \ \ \ \ \ \ \ \ glCullFace(GL\_BACK);}
+\DoxyCodeLine{01337\ \ \ \ \ \ \ \ \ glFrontFace(GL\_CCW);}
+\DoxyCodeLine{01338\ \ \ \ \ \ \ \ \ glEnable(GL\_BLEND);}
+\DoxyCodeLine{01339\ \ \ \ \ \ \ \ \ glDisable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ glDisable(GL\_SCISSOR\_TEST);}
+\DoxyCodeLine{01341\ \ \ \ \ \ \ \ \ glColorMask(GL\_TRUE,\ GL\_TRUE,\ GL\_TRUE,\ GL\_TRUE);}
+\DoxyCodeLine{01342\ \ \ \ \ \ \ \ \ glStencilMask(0xffffffff);}
+\DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ glStencilOp(GL\_KEEP,\ GL\_KEEP,\ GL\_KEEP);}
+\DoxyCodeLine{01344\ \ \ \ \ \ \ \ \ glStencilFunc(GL\_ALWAYS,\ 0,\ 0xffffffff);}
+\DoxyCodeLine{01345\ \ \ \ \ \ \ \ \ glActiveTexture(GL\_TEXTURE0);}
+\DoxyCodeLine{01346\ \ \ \ \ \ \ \ \ glBindTexture(GL\_TEXTURE\_2D,\ 0);}
+\DoxyCodeLine{01347\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_STATE\_FILTER}}
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ gl-\/>boundTexture\ =\ 0;}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ gl-\/>boundShader\ =\ -\/1;}
+\DoxyCodeLine{01350\ \ \ \ \ \ \ \ \ gl-\/>stencilMask\ =\ 0xffffffff;}
+\DoxyCodeLine{01351\ \ \ \ \ \ \ \ \ gl-\/>stencilFunc\ =\ GL\_ALWAYS;}
+\DoxyCodeLine{01352\ \ \ \ \ \ \ \ \ gl-\/>stencilFuncRef\ =\ 0;}
+\DoxyCodeLine{01353\ \ \ \ \ \ \ \ \ gl-\/>stencilFuncMask\ =\ 0xffffffff;}
+\DoxyCodeLine{01354\ \ \ \ \ \ \ \ \ gl-\/>blendFunc.srcRGB\ =\ GL\_INVALID\_ENUM;}
+\DoxyCodeLine{01355\ \ \ \ \ \ \ \ \ gl-\/>blendFunc.srcAlpha\ =\ GL\_INVALID\_ENUM;}
+\DoxyCodeLine{01356\ \ \ \ \ \ \ \ \ gl-\/>blendFunc.dstRGB\ =\ GL\_INVALID\_ENUM;}
+\DoxyCodeLine{01357\ \ \ \ \ \ \ \ \ gl-\/>blendFunc.dstAlpha\ =\ GL\_INVALID\_ENUM;}
+\DoxyCodeLine{01358\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01359\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}setup\_gl\_state"{}});}
+\DoxyCodeLine{01360\ }
+\DoxyCodeLine{01361\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upload\ ubo\ for\ frag\ shaders}}
+\DoxyCodeLine{01363\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glBindBuffer"{}});}
+\DoxyCodeLine{01364\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_UNIFORM\_BUFFER,\ gl-\/>fragBuf);}
+\DoxyCodeLine{01365\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glBindBuffer"{}});}
+\DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glBufferData"{}});}
+\DoxyCodeLine{01367\ \ \ \ \ \ \ \ \ glBufferData(GL\_UNIFORM\_BUFFER,\ gl-\/>nuniforms\ *\ gl-\/>fragSize,\ gl-\/>uniforms,\ GL\_STREAM\_DRAW);}
+\DoxyCodeLine{01368\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glBufferData"{}});}
+\DoxyCodeLine{01369\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01370\ }
+\DoxyCodeLine{01371\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upload\ vertex\ data}}
+\DoxyCodeLine{01372\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{01373\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glBindVertexArray"{}});}
+\DoxyCodeLine{01374\ \ \ \ \ \ \ \ \ glBindVertexArray(gl-\/>vertArr);}
+\DoxyCodeLine{01375\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glBindVertexArray"{}});}
+\DoxyCodeLine{01376\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01377\ \ \ \ \ \ \ \ \ gl-\/>vertBufIndex\ =\ (gl-\/>vertBufIndex\ +\ 1)\ \%\ 2;}
+\DoxyCodeLine{01378\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glBindBuffer"{}});}
+\DoxyCodeLine{01379\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ gl-\/>vertBuf[gl-\/>vertBufIndex]);}
+\DoxyCodeLine{01380\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glBindBuffer"{}});}
+\DoxyCodeLine{01381\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glBufferData"{}});}
+\DoxyCodeLine{01382\ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ gl-\/>nverts\ *\ \textcolor{keyword}{sizeof}(NVGvertex),\ gl-\/>verts,\ GL\_STREAM\_DRAW);}
+\DoxyCodeLine{01383\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glBufferData"{}});}
+\DoxyCodeLine{01384\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glEnableVertexAttribArray"{}});}
+\DoxyCodeLine{01385\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{01386\ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{01387\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glEnableVertexAttribArray"{}});}
+\DoxyCodeLine{01388\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glVertexAttribPointer"{}});}
+\DoxyCodeLine{01389\ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ \textcolor{keyword}{sizeof}(NVGvertex),\ (\textcolor{keyword}{const}\ GLvoid\ *)(\textcolor{keywordtype}{size\_t})0);}
+\DoxyCodeLine{01390\ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 2,\ GL\_FLOAT,\ GL\_FALSE,\ \textcolor{keyword}{sizeof}(NVGvertex),\ (\textcolor{keyword}{const}\ GLvoid\ *)(0\ +\ 2\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{float})));}
+\DoxyCodeLine{01391\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glVertexAttribPointer"{}});}
+\DoxyCodeLine{01392\ }
+\DoxyCodeLine{01393\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{01394\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_BEGIN\_TAG(\textcolor{stringliteral}{"{}glBindBuffer"{}});}
+\DoxyCodeLine{01395\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_UNIFORM\_BUFFER,\ gl-\/>fragBuf);}
+\DoxyCodeLine{01396\ \ \ \ \ \ \ \ \ LV\_PROFILER\_DRAW\_END\_TAG(\textcolor{stringliteral}{"{}glBindBuffer"{}});}
+\DoxyCodeLine{01397\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01398\ }
+\DoxyCodeLine{01399\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ gl-\/>ncalls;\ i++)\ \{}
+\DoxyCodeLine{01400\ \ \ \ \ \ \ \ \ \ \ \ \ GLNVGcall\ *\ call\ =\ \&gl-\/>calls[i];}
+\DoxyCodeLine{01401\ \ \ \ \ \ \ \ \ \ \ \ \ glnvg\_\_blendFuncSeparate(gl,\ \&call-\/>blendFunc);}
+\DoxyCodeLine{01402\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>type\ ==\ GLNVG\_FILL)}
+\DoxyCodeLine{01403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glnvg\_\_fill(gl,\ call);}
+\DoxyCodeLine{01404\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(call-\/>type\ ==\ GLNVG\_CONVEXFILL)}
+\DoxyCodeLine{01405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glnvg\_\_convexFill(gl,\ call);}
+\DoxyCodeLine{01406\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(call-\/>type\ ==\ GLNVG\_STROKE)}
+\DoxyCodeLine{01407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glnvg\_\_stroke(gl,\ call);}
+\DoxyCodeLine{01408\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(call-\/>type\ ==\ GLNVG\_TRIANGLES)}
+\DoxyCodeLine{01409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glnvg\_\_triangles(gl,\ call);}
+\DoxyCodeLine{01410\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01411\ }
+\DoxyCodeLine{01412\ \ \ \ \ \ \ \ \ glDisableVertexAttribArray(0);}
+\DoxyCodeLine{01413\ \ \ \ \ \ \ \ \ glDisableVertexAttribArray(1);}
+\DoxyCodeLine{01414\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{01415\ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{01416\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01417\ \ \ \ \ \ \ \ \ glDisable(GL\_CULL\_FACE);}
+\DoxyCodeLine{01418\ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{01419\ \ \ \ \ \ \ \ \ glUseProgram(0);}
+\DoxyCodeLine{01420\ \ \ \ \ \ \ \ \ glnvg\_\_bindTexture(gl,\ 0);}
+\DoxyCodeLine{01421\ \ \ \ \ \}}
+\DoxyCodeLine{01422\ }
+\DoxyCodeLine{01423\ \ \ \ \ \textcolor{comment}{//\ Reset\ calls}}
+\DoxyCodeLine{01424\ \ \ \ \ gl-\/>nverts\ =\ 0;}
+\DoxyCodeLine{01425\ \ \ \ \ gl-\/>npaths\ =\ 0;}
+\DoxyCodeLine{01426\ \ \ \ \ gl-\/>ncalls\ =\ 0;}
+\DoxyCodeLine{01427\ \ \ \ \ gl-\/>nuniforms\ =\ 0;}
+\DoxyCodeLine{01428\ \ \ \ \ LV\_PROFILER\_DRAW\_END;}
+\DoxyCodeLine{01429\ \}}
+\DoxyCodeLine{01430\ }
+\DoxyCodeLine{01431\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_maxVertCount(\textcolor{keyword}{const}\ NVGpath\ *\ paths,\ \textcolor{keywordtype}{int}\ npaths)}
+\DoxyCodeLine{01432\ \{}
+\DoxyCodeLine{01433\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ count\ =\ 0;}
+\DoxyCodeLine{01434\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)\ \{}
+\DoxyCodeLine{01435\ \ \ \ \ \ \ \ \ count\ +=\ paths[i].nfill;}
+\DoxyCodeLine{01436\ \ \ \ \ \ \ \ \ count\ +=\ paths[i].nstroke;}
+\DoxyCodeLine{01437\ \ \ \ \ \}}
+\DoxyCodeLine{01438\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{01439\ \}}
+\DoxyCodeLine{01440\ }
+\DoxyCodeLine{01441\ \textcolor{keyword}{static}\ GLNVGcall\ *\ glnvg\_\_allocCall(GLNVGcontext\ *\ gl)}
+\DoxyCodeLine{01442\ \{}
+\DoxyCodeLine{01443\ \ \ \ \ GLNVGcall\ *\ ret\ =\ NULL;}
+\DoxyCodeLine{01444\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>ncalls\ +\ 1\ >\ gl-\/>ccalls)\ \{}
+\DoxyCodeLine{01445\ \ \ \ \ \ \ \ \ GLNVGcall\ *\ calls;}
+\DoxyCodeLine{01446\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ ccalls\ =\ glnvg\_\_maxi(gl-\/>ncalls\ +\ 1,\ 128)\ +\ gl-\/>ccalls\ /\ 2;\ \textcolor{comment}{//\ 1.5x\ Overallocate}}
+\DoxyCodeLine{01447\ \ \ \ \ \ \ \ \ calls\ =\ (GLNVGcall\ *)\mbox{\hyperlink{lv__mem_8c_a321c5f913529f7062d00abf4e1f6349f}{lv\_realloc}}(gl-\/>calls,\ \textcolor{keyword}{sizeof}(GLNVGcall)\ *\ ccalls);}
+\DoxyCodeLine{01448\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(calls\ ==\ NULL)\ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{01449\ \ \ \ \ \ \ \ \ gl-\/>calls\ =\ calls;}
+\DoxyCodeLine{01450\ \ \ \ \ \ \ \ \ gl-\/>ccalls\ =\ ccalls;}
+\DoxyCodeLine{01451\ \ \ \ \ \}}
+\DoxyCodeLine{01452\ \ \ \ \ ret\ =\ \&gl-\/>calls[gl-\/>ncalls++];}
+\DoxyCodeLine{01453\ \ \ \ \ lv\_memzero(ret,\ \textcolor{keyword}{sizeof}(GLNVGcall));}
+\DoxyCodeLine{01454\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{01455\ \}}
+\DoxyCodeLine{01456\ }
+\DoxyCodeLine{01457\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_allocPaths(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{01458\ \{}
+\DoxyCodeLine{01459\ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ 0;}
+\DoxyCodeLine{01460\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>npaths\ +\ n\ >\ gl-\/>cpaths)\ \{}
+\DoxyCodeLine{01461\ \ \ \ \ \ \ \ \ GLNVGpath\ *\ paths;}
+\DoxyCodeLine{01462\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cpaths\ =\ glnvg\_\_maxi(gl-\/>npaths\ +\ n,\ 128)\ +\ gl-\/>cpaths\ /\ 2;\ \textcolor{comment}{//\ 1.5x\ Overallocate}}
+\DoxyCodeLine{01463\ \ \ \ \ \ \ \ \ paths\ =\ (GLNVGpath\ *)\mbox{\hyperlink{lv__mem_8c_a321c5f913529f7062d00abf4e1f6349f}{lv\_realloc}}(gl-\/>paths,\ \textcolor{keyword}{sizeof}(GLNVGpath)\ *\ cpaths);}
+\DoxyCodeLine{01464\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(paths\ ==\ NULL)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{01465\ \ \ \ \ \ \ \ \ gl-\/>paths\ =\ paths;}
+\DoxyCodeLine{01466\ \ \ \ \ \ \ \ \ gl-\/>cpaths\ =\ cpaths;}
+\DoxyCodeLine{01467\ \ \ \ \ \}}
+\DoxyCodeLine{01468\ \ \ \ \ ret\ =\ gl-\/>npaths;}
+\DoxyCodeLine{01469\ \ \ \ \ gl-\/>npaths\ +=\ n;}
+\DoxyCodeLine{01470\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{01471\ \}}
+\DoxyCodeLine{01472\ }
+\DoxyCodeLine{01473\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_allocVerts(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{01474\ \{}
+\DoxyCodeLine{01475\ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ 0;}
+\DoxyCodeLine{01476\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>nverts\ +\ n\ >\ gl-\/>cverts)\ \{}
+\DoxyCodeLine{01477\ \ \ \ \ \ \ \ \ NVGvertex\ *\ verts;}
+\DoxyCodeLine{01478\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cverts\ =\ glnvg\_\_maxi(gl-\/>nverts\ +\ n,\ 4096)\ +\ gl-\/>cverts\ /\ 2;\ \textcolor{comment}{//\ 1.5x\ Overallocate}}
+\DoxyCodeLine{01479\ \ \ \ \ \ \ \ \ verts\ =\ (NVGvertex\ *)\mbox{\hyperlink{lv__mem_8c_a321c5f913529f7062d00abf4e1f6349f}{lv\_realloc}}(gl-\/>verts,\ \textcolor{keyword}{sizeof}(NVGvertex)\ *\ cverts);}
+\DoxyCodeLine{01480\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(verts\ ==\ NULL)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{01481\ \ \ \ \ \ \ \ \ gl-\/>verts\ =\ verts;}
+\DoxyCodeLine{01482\ \ \ \ \ \ \ \ \ gl-\/>cverts\ =\ cverts;}
+\DoxyCodeLine{01483\ \ \ \ \ \}}
+\DoxyCodeLine{01484\ \ \ \ \ ret\ =\ gl-\/>nverts;}
+\DoxyCodeLine{01485\ \ \ \ \ gl-\/>nverts\ +=\ n;}
+\DoxyCodeLine{01486\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{01487\ \}}
+\DoxyCodeLine{01488\ }
+\DoxyCodeLine{01489\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ glnvg\_\_allocFragUniforms(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{01490\ \{}
+\DoxyCodeLine{01491\ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ 0,\ structSize\ =\ gl-\/>fragSize;}
+\DoxyCodeLine{01492\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>nuniforms\ +\ n\ >\ gl-\/>cuniforms)\ \{}
+\DoxyCodeLine{01493\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ uniforms;}
+\DoxyCodeLine{01494\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cuniforms\ =\ glnvg\_\_maxi(gl-\/>nuniforms\ +\ n,\ 128)\ +\ gl-\/>cuniforms\ /\ 2;\ \textcolor{comment}{//\ 1.5x\ Overallocate}}
+\DoxyCodeLine{01495\ \ \ \ \ \ \ \ \ uniforms\ =\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *)\mbox{\hyperlink{lv__mem_8c_a321c5f913529f7062d00abf4e1f6349f}{lv\_realloc}}(gl-\/>uniforms,\ structSize\ *\ cuniforms);}
+\DoxyCodeLine{01496\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(uniforms\ ==\ NULL)\ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{01497\ \ \ \ \ \ \ \ \ gl-\/>uniforms\ =\ uniforms;}
+\DoxyCodeLine{01498\ \ \ \ \ \ \ \ \ gl-\/>cuniforms\ =\ cuniforms;}
+\DoxyCodeLine{01499\ \ \ \ \ \}}
+\DoxyCodeLine{01500\ \ \ \ \ ret\ =\ gl-\/>nuniforms\ *\ structSize;}
+\DoxyCodeLine{01501\ \ \ \ \ gl-\/>nuniforms\ +=\ n;}
+\DoxyCodeLine{01502\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{01503\ \}}
+\DoxyCodeLine{01504\ }
+\DoxyCodeLine{01505\ \textcolor{keyword}{static}\ GLNVGfragUniforms\ *\ nvg\_\_fragUniformPtr(GLNVGcontext\ *\ gl,\ \textcolor{keywordtype}{int}\ i)}
+\DoxyCodeLine{01506\ \{}
+\DoxyCodeLine{01507\ \ \ \ \ \textcolor{keywordflow}{return}\ (GLNVGfragUniforms\ *)\&gl-\/>uniforms[i];}
+\DoxyCodeLine{01508\ \}}
+\DoxyCodeLine{01509\ }
+\DoxyCodeLine{01510\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_vset(NVGvertex\ *\ vtx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ u,\ \textcolor{keywordtype}{float}\ v)}
+\DoxyCodeLine{01511\ \{}
+\DoxyCodeLine{01512\ \ \ \ \ vtx-\/>x\ =\ x;}
+\DoxyCodeLine{01513\ \ \ \ \ vtx-\/>y\ =\ y;}
+\DoxyCodeLine{01514\ \ \ \ \ vtx-\/>u\ =\ u;}
+\DoxyCodeLine{01515\ \ \ \ \ vtx-\/>v\ =\ v;}
+\DoxyCodeLine{01516\ \}}
+\DoxyCodeLine{01517\ }
+\DoxyCodeLine{01518\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_renderFill(\textcolor{keywordtype}{void}\ *\ uptr,\ NVGpaint\ *\ paint,\ NVGcompositeOperationState\ compositeOperation,}
+\DoxyCodeLine{01519\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGscissor\ *\ scissor,\ \textcolor{keywordtype}{float}\ fringe,}
+\DoxyCodeLine{01520\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ bounds,\ \textcolor{keyword}{const}\ NVGpath\ *\ paths,\ \textcolor{keywordtype}{int}\ npaths)}
+\DoxyCodeLine{01521\ \{}
+\DoxyCodeLine{01522\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{01523\ \ \ \ \ GLNVGcall\ *\ call\ =\ glnvg\_\_allocCall(gl);}
+\DoxyCodeLine{01524\ \ \ \ \ NVGvertex\ *\ quad;}
+\DoxyCodeLine{01525\ \ \ \ \ GLNVGfragUniforms\ *\ frag;}
+\DoxyCodeLine{01526\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ maxverts,\ offset;}
+\DoxyCodeLine{01527\ }
+\DoxyCodeLine{01528\ \ \ \ \ \textcolor{keywordflow}{if}(call\ ==\ NULL)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01529\ }
+\DoxyCodeLine{01530\ \ \ \ \ call-\/>type\ =\ GLNVG\_FILL;}
+\DoxyCodeLine{01531\ \ \ \ \ call-\/>triangleCount\ =\ 4;}
+\DoxyCodeLine{01532\ \ \ \ \ call-\/>pathOffset\ =\ glnvg\_\_allocPaths(gl,\ npaths);}
+\DoxyCodeLine{01533\ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>pathOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01534\ \ \ \ \ call-\/>pathCount\ =\ npaths;}
+\DoxyCodeLine{01535\ \ \ \ \ call-\/>image\ =\ paint-\/>image;}
+\DoxyCodeLine{01536\ \ \ \ \ call-\/>blendFunc\ =\ glnvg\_\_blendCompositeOperation(compositeOperation);}
+\DoxyCodeLine{01537\ }
+\DoxyCodeLine{01538\ \ \ \ \ \textcolor{keywordflow}{if}(npaths\ ==\ 1\ \&\&\ paths[0].convex)\ \{}
+\DoxyCodeLine{01539\ \ \ \ \ \ \ \ \ call-\/>type\ =\ GLNVG\_CONVEXFILL;}
+\DoxyCodeLine{01540\ \ \ \ \ \ \ \ \ call-\/>triangleCount\ =\ 0;\ \ \ \ \textcolor{comment}{//\ Bounding\ box\ fill\ quad\ not\ needed\ for\ convex\ fill}}
+\DoxyCodeLine{01541\ \ \ \ \ \}}
+\DoxyCodeLine{01542\ }
+\DoxyCodeLine{01543\ \ \ \ \ \textcolor{comment}{//\ Allocate\ vertices\ for\ all\ the\ paths.}}
+\DoxyCodeLine{01544\ \ \ \ \ maxverts\ =\ glnvg\_\_maxVertCount(paths,\ npaths)\ +\ call-\/>triangleCount;}
+\DoxyCodeLine{01545\ \ \ \ \ offset\ =\ glnvg\_\_allocVerts(gl,\ maxverts);}
+\DoxyCodeLine{01546\ \ \ \ \ \textcolor{keywordflow}{if}(offset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01547\ }
+\DoxyCodeLine{01548\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)\ \{}
+\DoxyCodeLine{01549\ \ \ \ \ \ \ \ \ GLNVGpath\ *\ copy\ =\ \&gl-\/>paths[call-\/>pathOffset\ +\ i];}
+\DoxyCodeLine{01550\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ NVGpath\ *\ path\ =\ \&paths[i];}
+\DoxyCodeLine{01551\ \ \ \ \ \ \ \ \ lv\_memzero(copy,\ \textcolor{keyword}{sizeof}(GLNVGpath));}
+\DoxyCodeLine{01552\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(path-\/>nfill\ >\ 0)\ \{}
+\DoxyCodeLine{01553\ \ \ \ \ \ \ \ \ \ \ \ \ copy-\/>fillOffset\ =\ offset;}
+\DoxyCodeLine{01554\ \ \ \ \ \ \ \ \ \ \ \ \ copy-\/>fillCount\ =\ path-\/>nfill;}
+\DoxyCodeLine{01555\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__string_8h_a036075376021724a89548607952fc7f1}{lv\_memcpy}}(\&gl-\/>verts[offset],\ path-\/>fill,\ \textcolor{keyword}{sizeof}(NVGvertex)\ *\ path-\/>nfill);}
+\DoxyCodeLine{01556\ \ \ \ \ \ \ \ \ \ \ \ \ offset\ +=\ path-\/>nfill;}
+\DoxyCodeLine{01557\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01558\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(path-\/>nstroke\ >\ 0)\ \{}
+\DoxyCodeLine{01559\ \ \ \ \ \ \ \ \ \ \ \ \ copy-\/>strokeOffset\ =\ offset;}
+\DoxyCodeLine{01560\ \ \ \ \ \ \ \ \ \ \ \ \ copy-\/>strokeCount\ =\ path-\/>nstroke;}
+\DoxyCodeLine{01561\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__string_8h_a036075376021724a89548607952fc7f1}{lv\_memcpy}}(\&gl-\/>verts[offset],\ path-\/>stroke,\ \textcolor{keyword}{sizeof}(NVGvertex)\ *\ path-\/>nstroke);}
+\DoxyCodeLine{01562\ \ \ \ \ \ \ \ \ \ \ \ \ offset\ +=\ path-\/>nstroke;}
+\DoxyCodeLine{01563\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01564\ \ \ \ \ \}}
+\DoxyCodeLine{01565\ }
+\DoxyCodeLine{01566\ \ \ \ \ \textcolor{comment}{//\ Setup\ uniforms\ for\ draw\ calls}}
+\DoxyCodeLine{01567\ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>type\ ==\ GLNVG\_FILL)\ \{}
+\DoxyCodeLine{01568\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Quad}}
+\DoxyCodeLine{01569\ \ \ \ \ \ \ \ \ call-\/>triangleOffset\ =\ offset;}
+\DoxyCodeLine{01570\ \ \ \ \ \ \ \ \ quad\ =\ \&gl-\/>verts[call-\/>triangleOffset];}
+\DoxyCodeLine{01571\ \ \ \ \ \ \ \ \ glnvg\_\_vset(\&quad[0],\ bounds[2],\ bounds[3],\ 0.5f,\ 1.0f);}
+\DoxyCodeLine{01572\ \ \ \ \ \ \ \ \ glnvg\_\_vset(\&quad[1],\ bounds[2],\ bounds[1],\ 0.5f,\ 1.0f);}
+\DoxyCodeLine{01573\ \ \ \ \ \ \ \ \ glnvg\_\_vset(\&quad[2],\ bounds[0],\ bounds[3],\ 0.5f,\ 1.0f);}
+\DoxyCodeLine{01574\ \ \ \ \ \ \ \ \ glnvg\_\_vset(\&quad[3],\ bounds[0],\ bounds[1],\ 0.5f,\ 1.0f);}
+\DoxyCodeLine{01575\ }
+\DoxyCodeLine{01576\ \ \ \ \ \ \ \ \ call-\/>uniformOffset\ =\ glnvg\_\_allocFragUniforms(gl,\ 2);}
+\DoxyCodeLine{01577\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>uniformOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01578\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Simple\ shader\ for\ stencil}}
+\DoxyCodeLine{01579\ \ \ \ \ \ \ \ \ frag\ =\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset);}
+\DoxyCodeLine{01580\ \ \ \ \ \ \ \ \ lv\_memzero(frag,\ \textcolor{keyword}{sizeof}(*frag));}
+\DoxyCodeLine{01581\ \ \ \ \ \ \ \ \ frag-\/>s.strokeThr\ =\ -\/1.0f;}
+\DoxyCodeLine{01582\ \ \ \ \ \ \ \ \ frag-\/>s.type\ =\ NSVG\_SHADER\_SIMPLE;}
+\DoxyCodeLine{01583\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fill\ shader}}
+\DoxyCodeLine{01584\ \ \ \ \ \ \ \ \ glnvg\_\_convertPaint(gl,\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset\ +\ gl-\/>fragSize),\ paint,\ scissor,\ fringe,\ fringe,}
+\DoxyCodeLine{01585\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/1.0f);}
+\DoxyCodeLine{01586\ \ \ \ \ \}}
+\DoxyCodeLine{01587\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01588\ \ \ \ \ \ \ \ \ call-\/>uniformOffset\ =\ glnvg\_\_allocFragUniforms(gl,\ 1);}
+\DoxyCodeLine{01589\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>uniformOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01590\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fill\ shader}}
+\DoxyCodeLine{01591\ \ \ \ \ \ \ \ \ glnvg\_\_convertPaint(gl,\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset),\ paint,\ scissor,\ fringe,\ fringe,\ -\/1.0f);}
+\DoxyCodeLine{01592\ \ \ \ \ \}}
+\DoxyCodeLine{01593\ }
+\DoxyCodeLine{01594\ \ \ \ \ \textcolor{keywordflow}{if}(paint-\/>image\ !=\ 0)}
+\DoxyCodeLine{01595\ \ \ \ \ \ \ \ \ call-\/>shaderType\ =\ NSVG\_SHADER\_FILLIMG;}
+\DoxyCodeLine{01596\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01597\ \ \ \ \ \ \ \ \ call-\/>shaderType\ =\ NSVG\_SHADER\_FILLGRAD;}
+\DoxyCodeLine{01598\ }
+\DoxyCodeLine{01599\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01600\ }
+\DoxyCodeLine{01601\ error:}
+\DoxyCodeLine{01602\ \ \ \ \ \textcolor{comment}{//\ We\ get\ here\ if\ call\ alloc\ was\ ok,\ but\ something\ else\ is\ not.}}
+\DoxyCodeLine{01603\ \ \ \ \ \textcolor{comment}{//\ Roll\ back\ the\ last\ call\ to\ prevent\ drawing\ it.}}
+\DoxyCodeLine{01604\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>ncalls\ >\ 0)\ gl-\/>ncalls-\/-\/;}
+\DoxyCodeLine{01605\ \}}
+\DoxyCodeLine{01606\ }
+\DoxyCodeLine{01607\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_renderStroke(\textcolor{keywordtype}{void}\ *\ uptr,\ NVGpaint\ *\ paint,\ NVGcompositeOperationState\ compositeOperation,}
+\DoxyCodeLine{01608\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGscissor\ *\ scissor,\ \textcolor{keywordtype}{float}\ fringe,}
+\DoxyCodeLine{01609\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ strokeWidth,\ \textcolor{keyword}{const}\ NVGpath\ *\ paths,\ \textcolor{keywordtype}{int}\ npaths)}
+\DoxyCodeLine{01610\ \{}
+\DoxyCodeLine{01611\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{01612\ \ \ \ \ GLNVGcall\ *\ call\ =\ glnvg\_\_allocCall(gl);}
+\DoxyCodeLine{01613\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ maxverts,\ offset;}
+\DoxyCodeLine{01614\ }
+\DoxyCodeLine{01615\ \ \ \ \ \textcolor{keywordflow}{if}(call\ ==\ NULL)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01616\ }
+\DoxyCodeLine{01617\ \ \ \ \ call-\/>type\ =\ GLNVG\_STROKE;}
+\DoxyCodeLine{01618\ \ \ \ \ call-\/>pathOffset\ =\ glnvg\_\_allocPaths(gl,\ npaths);}
+\DoxyCodeLine{01619\ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>pathOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01620\ \ \ \ \ call-\/>pathCount\ =\ npaths;}
+\DoxyCodeLine{01621\ \ \ \ \ call-\/>image\ =\ paint-\/>image;}
+\DoxyCodeLine{01622\ \ \ \ \ call-\/>blendFunc\ =\ glnvg\_\_blendCompositeOperation(compositeOperation);}
+\DoxyCodeLine{01623\ }
+\DoxyCodeLine{01624\ \ \ \ \ \textcolor{comment}{//\ Allocate\ vertices\ for\ all\ the\ paths.}}
+\DoxyCodeLine{01625\ \ \ \ \ maxverts\ =\ glnvg\_\_maxVertCount(paths,\ npaths);}
+\DoxyCodeLine{01626\ \ \ \ \ offset\ =\ glnvg\_\_allocVerts(gl,\ maxverts);}
+\DoxyCodeLine{01627\ \ \ \ \ \textcolor{keywordflow}{if}(offset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01628\ }
+\DoxyCodeLine{01629\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ npaths;\ i++)\ \{}
+\DoxyCodeLine{01630\ \ \ \ \ \ \ \ \ GLNVGpath\ *\ copy\ =\ \&gl-\/>paths[call-\/>pathOffset\ +\ i];}
+\DoxyCodeLine{01631\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ NVGpath\ *\ path\ =\ \&paths[i];}
+\DoxyCodeLine{01632\ \ \ \ \ \ \ \ \ lv\_memzero(copy,\ \textcolor{keyword}{sizeof}(GLNVGpath));}
+\DoxyCodeLine{01633\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(path-\/>nstroke)\ \{}
+\DoxyCodeLine{01634\ \ \ \ \ \ \ \ \ \ \ \ \ copy-\/>strokeOffset\ =\ offset;}
+\DoxyCodeLine{01635\ \ \ \ \ \ \ \ \ \ \ \ \ copy-\/>strokeCount\ =\ path-\/>nstroke;}
+\DoxyCodeLine{01636\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__string_8h_a036075376021724a89548607952fc7f1}{lv\_memcpy}}(\&gl-\/>verts[offset],\ path-\/>stroke,\ \textcolor{keyword}{sizeof}(NVGvertex)\ *\ path-\/>nstroke);}
+\DoxyCodeLine{01637\ \ \ \ \ \ \ \ \ \ \ \ \ offset\ +=\ path-\/>nstroke;}
+\DoxyCodeLine{01638\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01639\ \ \ \ \ \}}
+\DoxyCodeLine{01640\ }
+\DoxyCodeLine{01641\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>flags\ \&\ NVG\_STENCIL\_STROKES)\ \{}
+\DoxyCodeLine{01642\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fill\ shader}}
+\DoxyCodeLine{01643\ \ \ \ \ \ \ \ \ call-\/>uniformOffset\ =\ glnvg\_\_allocFragUniforms(gl,\ 2);}
+\DoxyCodeLine{01644\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>uniformOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01645\ }
+\DoxyCodeLine{01646\ \ \ \ \ \ \ \ \ glnvg\_\_convertPaint(gl,\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset),\ paint,\ scissor,\ strokeWidth,\ fringe,\ -\/1.0f);}
+\DoxyCodeLine{01647\ \ \ \ \ \ \ \ \ glnvg\_\_convertPaint(gl,\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset\ +\ gl-\/>fragSize),\ paint,\ scissor,\ strokeWidth,}
+\DoxyCodeLine{01648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fringe,\ 1.0f\ -\/\ 0.5f\ /\ 255.0f);}
+\DoxyCodeLine{01649\ }
+\DoxyCodeLine{01650\ \ \ \ \ \}}
+\DoxyCodeLine{01651\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{01652\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fill\ shader}}
+\DoxyCodeLine{01653\ \ \ \ \ \ \ \ \ call-\/>uniformOffset\ =\ glnvg\_\_allocFragUniforms(gl,\ 1);}
+\DoxyCodeLine{01654\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>uniformOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01655\ \ \ \ \ \ \ \ \ glnvg\_\_convertPaint(gl,\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset),\ paint,\ scissor,\ strokeWidth,\ fringe,\ -\/1.0f);}
+\DoxyCodeLine{01656\ \ \ \ \ \}}
+\DoxyCodeLine{01657\ }
+\DoxyCodeLine{01658\ \ \ \ \ \textcolor{keywordflow}{if}(paint-\/>image\ !=\ 0)}
+\DoxyCodeLine{01659\ \ \ \ \ \ \ \ \ call-\/>shaderType\ =\ NSVG\_SHADER\_FILLIMG;}
+\DoxyCodeLine{01660\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{01661\ \ \ \ \ \ \ \ \ call-\/>shaderType\ =\ NSVG\_SHADER\_FILLGRAD;}
+\DoxyCodeLine{01662\ }
+\DoxyCodeLine{01663\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01664\ }
+\DoxyCodeLine{01665\ error:}
+\DoxyCodeLine{01666\ \ \ \ \ \textcolor{comment}{//\ We\ get\ here\ if\ call\ alloc\ was\ ok,\ but\ something\ else\ is\ not.}}
+\DoxyCodeLine{01667\ \ \ \ \ \textcolor{comment}{//\ Roll\ back\ the\ last\ call\ to\ prevent\ drawing\ it.}}
+\DoxyCodeLine{01668\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>ncalls\ >\ 0)\ gl-\/>ncalls-\/-\/;}
+\DoxyCodeLine{01669\ \}}
+\DoxyCodeLine{01670\ }
+\DoxyCodeLine{01671\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_renderTriangles(\textcolor{keywordtype}{void}\ *\ uptr,\ NVGpaint\ *\ paint,\ NVGcompositeOperationState\ compositeOperation,}
+\DoxyCodeLine{01672\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGscissor\ *\ scissor,}
+\DoxyCodeLine{01673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ NVGvertex\ *\ verts,\ \textcolor{keywordtype}{int}\ nverts,\ \textcolor{keywordtype}{float}\ fringe)}
+\DoxyCodeLine{01674\ \{}
+\DoxyCodeLine{01675\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{01676\ \ \ \ \ GLNVGcall\ *\ call\ =\ glnvg\_\_allocCall(gl);}
+\DoxyCodeLine{01677\ \ \ \ \ GLNVGfragUniforms\ *\ frag;}
+\DoxyCodeLine{01678\ }
+\DoxyCodeLine{01679\ \ \ \ \ \textcolor{keywordflow}{if}(call\ ==\ NULL)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01680\ }
+\DoxyCodeLine{01681\ \ \ \ \ call-\/>type\ =\ GLNVG\_TRIANGLES;}
+\DoxyCodeLine{01682\ \ \ \ \ call-\/>image\ =\ paint-\/>image;}
+\DoxyCodeLine{01683\ \ \ \ \ call-\/>blendFunc\ =\ glnvg\_\_blendCompositeOperation(compositeOperation);}
+\DoxyCodeLine{01684\ }
+\DoxyCodeLine{01685\ \ \ \ \ \textcolor{comment}{//\ Allocate\ vertices\ for\ all\ the\ paths.}}
+\DoxyCodeLine{01686\ \ \ \ \ call-\/>triangleOffset\ =\ glnvg\_\_allocVerts(gl,\ nverts);}
+\DoxyCodeLine{01687\ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>triangleOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01688\ \ \ \ \ call-\/>triangleCount\ =\ nverts;}
+\DoxyCodeLine{01689\ }
+\DoxyCodeLine{01690\ \ \ \ \ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__string_8h_a036075376021724a89548607952fc7f1}{lv\_memcpy}}(\&gl-\/>verts[call-\/>triangleOffset],\ verts,\ \textcolor{keyword}{sizeof}(NVGvertex)\ *\ nverts);}
+\DoxyCodeLine{01691\ }
+\DoxyCodeLine{01692\ \ \ \ \ \textcolor{comment}{//\ Fill\ shader}}
+\DoxyCodeLine{01693\ \ \ \ \ call-\/>uniformOffset\ =\ glnvg\_\_allocFragUniforms(gl,\ 1);}
+\DoxyCodeLine{01694\ \ \ \ \ \textcolor{keywordflow}{if}(call-\/>uniformOffset\ ==\ -\/1)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01695\ \ \ \ \ frag\ =\ nvg\_\_fragUniformPtr(gl,\ call-\/>uniformOffset);}
+\DoxyCodeLine{01696\ \ \ \ \ glnvg\_\_convertPaint(gl,\ frag,\ paint,\ scissor,\ 1.0f,\ fringe,\ -\/1.0f);}
+\DoxyCodeLine{01697\ \ \ \ \ frag-\/>s.type\ =\ NSVG\_SHADER\_IMG;}
+\DoxyCodeLine{01698\ \ \ \ \ call-\/>shaderType\ =\ NSVG\_SHADER\_IMG;}
+\DoxyCodeLine{01699\ }
+\DoxyCodeLine{01700\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01701\ }
+\DoxyCodeLine{01702\ error:}
+\DoxyCodeLine{01703\ \ \ \ \ \textcolor{comment}{//\ We\ get\ here\ if\ call\ alloc\ was\ ok,\ but\ something\ else\ is\ not.}}
+\DoxyCodeLine{01704\ \ \ \ \ \textcolor{comment}{//\ Roll\ back\ the\ last\ call\ to\ prevent\ drawing\ it.}}
+\DoxyCodeLine{01705\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>ncalls\ >\ 0)\ gl-\/>ncalls-\/-\/;}
+\DoxyCodeLine{01706\ \}}
+\DoxyCodeLine{01707\ }
+\DoxyCodeLine{01708\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ glnvg\_\_renderDelete(\textcolor{keywordtype}{void}\ *\ uptr)}
+\DoxyCodeLine{01709\ \{}
+\DoxyCodeLine{01710\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)uptr;}
+\DoxyCodeLine{01711\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{01712\ \ \ \ \ \textcolor{keywordflow}{if}(gl\ ==\ NULL)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{01713\ }
+\DoxyCodeLine{01714\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ GLNVG\_SHADER\_COUNT;\ i++)}
+\DoxyCodeLine{01715\ \ \ \ \ \ \ \ \ glnvg\_\_deleteShader(\&gl-\/>shaders[i]);}
+\DoxyCodeLine{01716\ }
+\DoxyCodeLine{01717\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{01718\ \textcolor{preprocessor}{\#if\ NANOVG\_GL\_USE\_UNIFORMBUFFER}}
+\DoxyCodeLine{01719\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>fragBuf\ !=\ 0)}
+\DoxyCodeLine{01720\ \ \ \ \ \ \ \ \ glDeleteBuffers(1,\ \&gl-\/>fragBuf);}
+\DoxyCodeLine{01721\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01722\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>vertArr\ !=\ 0)}
+\DoxyCodeLine{01723\ \ \ \ \ \ \ \ \ glDeleteVertexArrays(1,\ \&gl-\/>vertArr);}
+\DoxyCodeLine{01724\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01725\ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>vertBuf[0]\ !=\ 0)}
+\DoxyCodeLine{01726\ \ \ \ \ \ \ \ \ glDeleteBuffers(2,\ gl-\/>vertBuf);}
+\DoxyCodeLine{01727\ }
+\DoxyCodeLine{01728\ \ \ \ \ \textcolor{keywordflow}{for}(i\ =\ 0;\ i\ <\ gl-\/>ntextures;\ i++)\ \{}
+\DoxyCodeLine{01729\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(gl-\/>textures[i].tex\ !=\ 0\ \&\&\ (gl-\/>textures[i].flags\ \&\ NVG\_IMAGE\_NODELETE)\ ==\ 0)}
+\DoxyCodeLine{01730\ \ \ \ \ \ \ \ \ \ \ \ \ glDeleteTextures(1,\ \&gl-\/>textures[i].tex);}
+\DoxyCodeLine{01731\ \ \ \ \ \}}
+\DoxyCodeLine{01732\ \ \ \ \ \mbox{\hyperlink{lv__mem_8c_a7455e11b1593bd5d98475bde81b97171}{lv\_free}}(gl-\/>textures);}
+\DoxyCodeLine{01733\ }
+\DoxyCodeLine{01734\ \ \ \ \ \mbox{\hyperlink{lv__mem_8c_a7455e11b1593bd5d98475bde81b97171}{lv\_free}}(gl-\/>paths);}
+\DoxyCodeLine{01735\ \ \ \ \ \mbox{\hyperlink{lv__mem_8c_a7455e11b1593bd5d98475bde81b97171}{lv\_free}}(gl-\/>verts);}
+\DoxyCodeLine{01736\ \ \ \ \ \mbox{\hyperlink{lv__mem_8c_a7455e11b1593bd5d98475bde81b97171}{lv\_free}}(gl-\/>uniforms);}
+\DoxyCodeLine{01737\ \ \ \ \ \mbox{\hyperlink{lv__mem_8c_a7455e11b1593bd5d98475bde81b97171}{lv\_free}}(gl-\/>calls);}
+\DoxyCodeLine{01738\ }
+\DoxyCodeLine{01739\ \ \ \ \ \mbox{\hyperlink{lv__mem_8c_a7455e11b1593bd5d98475bde81b97171}{lv\_free}}(gl);}
+\DoxyCodeLine{01740\ \}}
+\DoxyCodeLine{01741\ }
+\DoxyCodeLine{01742\ }
+\DoxyCodeLine{01743\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL2}}
+\DoxyCodeLine{01744\ \ \ \ \ NVGcontext\ *\ nvgCreateGL2(\textcolor{keywordtype}{int}\ flags)}
+\DoxyCodeLine{01745\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{01746\ \ \ \ \ NVGcontext\ *\ nvgCreateGL3(\textcolor{keywordtype}{int}\ flags)}
+\DoxyCodeLine{01747\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES2}}
+\DoxyCodeLine{01748\ \ \ \ \ NVGcontext\ *\ nvgCreateGLES2(\textcolor{keywordtype}{int}\ flags)}
+\DoxyCodeLine{01749\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES3}}
+\DoxyCodeLine{01750\ \ \ \ \ NVGcontext\ *\ nvgCreateGLES3(\textcolor{keywordtype}{int}\ flags)}
+\DoxyCodeLine{01751\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01752\ \{}
+\DoxyCodeLine{01753\ \ \ \ \ NVGparams\ params;}
+\DoxyCodeLine{01754\ \ \ \ \ NVGcontext\ *\ ctx\ =\ NULL;}
+\DoxyCodeLine{01755\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)\mbox{\hyperlink{lv__mem_8c_a7c725dea849c62a365099eb5783cd7a9}{lv\_malloc}}(\textcolor{keyword}{sizeof}(GLNVGcontext));}
+\DoxyCodeLine{01756\ \ \ \ \ \textcolor{keywordflow}{if}(gl\ ==\ NULL)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01757\ \ \ \ \ lv\_memzero(gl,\ \textcolor{keyword}{sizeof}(GLNVGcontext));}
+\DoxyCodeLine{01758\ }
+\DoxyCodeLine{01759\ \ \ \ \ lv\_memzero(\&params,\ \textcolor{keyword}{sizeof}(params));}
+\DoxyCodeLine{01760\ \ \ \ \ params.renderCreate\ =\ glnvg\_\_renderCreate;}
+\DoxyCodeLine{01761\ \ \ \ \ params.renderCreateTexture\ =\ glnvg\_\_renderCreateTexture;}
+\DoxyCodeLine{01762\ \ \ \ \ params.renderDeleteTexture\ =\ glnvg\_\_renderDeleteTexture;}
+\DoxyCodeLine{01763\ \ \ \ \ params.renderUpdateTexture\ =\ glnvg\_\_renderUpdateTexture;}
+\DoxyCodeLine{01764\ \ \ \ \ params.renderGetTextureSize\ =\ glnvg\_\_renderGetTextureSize;}
+\DoxyCodeLine{01765\ \ \ \ \ params.renderViewport\ =\ glnvg\_\_renderViewport;}
+\DoxyCodeLine{01766\ \ \ \ \ params.renderCancel\ =\ glnvg\_\_renderCancel;}
+\DoxyCodeLine{01767\ \ \ \ \ params.renderFlush\ =\ glnvg\_\_renderFlush;}
+\DoxyCodeLine{01768\ \ \ \ \ params.renderFill\ =\ glnvg\_\_renderFill;}
+\DoxyCodeLine{01769\ \ \ \ \ params.renderStroke\ =\ glnvg\_\_renderStroke;}
+\DoxyCodeLine{01770\ \ \ \ \ params.renderTriangles\ =\ glnvg\_\_renderTriangles;}
+\DoxyCodeLine{01771\ \ \ \ \ params.renderDelete\ =\ glnvg\_\_renderDelete;}
+\DoxyCodeLine{01772\ \ \ \ \ params.userPtr\ =\ gl;}
+\DoxyCodeLine{01773\ \ \ \ \ params.edgeAntiAlias\ =\ flags\ \&\ NVG\_ANTIALIAS\ ?\ 1\ :\ 0;}
+\DoxyCodeLine{01774\ }
+\DoxyCodeLine{01775\ \ \ \ \ gl-\/>flags\ =\ flags;}
+\DoxyCodeLine{01776\ }
+\DoxyCodeLine{01777\ \ \ \ \ ctx\ =\ nvgCreateInternal(\&params);}
+\DoxyCodeLine{01778\ \ \ \ \ \textcolor{keywordflow}{if}(ctx\ ==\ NULL)\ \textcolor{keywordflow}{goto}\ error;}
+\DoxyCodeLine{01779\ }
+\DoxyCodeLine{01780\ \ \ \ \ \textcolor{keywordflow}{return}\ ctx;}
+\DoxyCodeLine{01781\ }
+\DoxyCodeLine{01782\ error:}
+\DoxyCodeLine{01783\ \ \ \ \ \textcolor{comment}{//\ 'gl'\ is\ freed\ by\ nvgDeleteInternal.}}
+\DoxyCodeLine{01784\ \ \ \ \ \textcolor{keywordflow}{if}(ctx\ !=\ NULL)\ nvgDeleteInternal(ctx);}
+\DoxyCodeLine{01785\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{01786\ \}}
+\DoxyCodeLine{01787\ }
+\DoxyCodeLine{01788\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL2}}
+\DoxyCodeLine{01789\ \ \ \ \ \textcolor{keywordtype}{void}\ nvgDeleteGL2(NVGcontext\ *\ ctx)}
+\DoxyCodeLine{01790\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{01791\ \ \ \ \ \textcolor{keywordtype}{void}\ nvgDeleteGL3(NVGcontext\ *\ ctx)}
+\DoxyCodeLine{01792\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES2}}
+\DoxyCodeLine{01793\ \ \ \ \ \textcolor{keywordtype}{void}\ nvgDeleteGLES2(NVGcontext\ *\ ctx)}
+\DoxyCodeLine{01794\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES3}}
+\DoxyCodeLine{01795\ \ \ \ \ \textcolor{keywordtype}{void}\ nvgDeleteGLES3(NVGcontext\ *\ ctx)}
+\DoxyCodeLine{01796\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01797\ \{}
+\DoxyCodeLine{01798\ \ \ \ \ nvgDeleteInternal(ctx);}
+\DoxyCodeLine{01799\ \}}
+\DoxyCodeLine{01800\ }
+\DoxyCodeLine{01801\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL2}}
+\DoxyCodeLine{01802\ \ \ \ \ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGL2(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags)}
+\DoxyCodeLine{01803\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{01804\ \ \ \ \ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGL3(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags)}
+\DoxyCodeLine{01805\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES2}}
+\DoxyCodeLine{01806\ \ \ \ \ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGLES2(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags)}
+\DoxyCodeLine{01807\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES3}}
+\DoxyCodeLine{01808\ \ \ \ \ \textcolor{keywordtype}{int}\ nvglCreateImageFromHandleGLES3(NVGcontext\ *\ ctx,\ GLuint\ textureId,\ \textcolor{keywordtype}{int}\ w,\ \textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ imageFlags)}
+\DoxyCodeLine{01809\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01810\ \{}
+\DoxyCodeLine{01811\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)nvgInternalParams(ctx)-\/>userPtr;}
+\DoxyCodeLine{01812\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ glnvg\_\_allocTexture(gl);}
+\DoxyCodeLine{01813\ }
+\DoxyCodeLine{01814\ \ \ \ \ \textcolor{keywordflow}{if}(tex\ ==\ NULL)\ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{01815\ }
+\DoxyCodeLine{01816\ \ \ \ \ tex-\/>type\ =\ NVG\_TEXTURE\_RGBA;}
+\DoxyCodeLine{01817\ \ \ \ \ tex-\/>tex\ =\ textureId;}
+\DoxyCodeLine{01818\ \ \ \ \ tex-\/>flags\ =\ imageFlags;}
+\DoxyCodeLine{01819\ \ \ \ \ tex-\/>width\ =\ w;}
+\DoxyCodeLine{01820\ \ \ \ \ tex-\/>height\ =\ h;}
+\DoxyCodeLine{01821\ }
+\DoxyCodeLine{01822\ \ \ \ \ \textcolor{keywordflow}{return}\ tex-\/>id;}
+\DoxyCodeLine{01823\ \}}
+\DoxyCodeLine{01824\ }
+\DoxyCodeLine{01825\ \textcolor{preprocessor}{\#if\ defined\ NANOVG\_GL2}}
+\DoxyCodeLine{01826\ \ \ \ \ GLuint\ nvglImageHandleGL2(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image)}
+\DoxyCodeLine{01827\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GL3}}
+\DoxyCodeLine{01828\ \ \ \ \ GLuint\ nvglImageHandleGL3(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image)}
+\DoxyCodeLine{01829\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES2}}
+\DoxyCodeLine{01830\ \ \ \ \ GLuint\ nvglImageHandleGLES2(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image)}
+\DoxyCodeLine{01831\ \textcolor{preprocessor}{\#elif\ defined\ NANOVG\_GLES3}}
+\DoxyCodeLine{01832\ \ \ \ \ GLuint\ nvglImageHandleGLES3(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{int}\ image)}
+\DoxyCodeLine{01833\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{01834\ \{}
+\DoxyCodeLine{01835\ \ \ \ \ GLNVGcontext\ *\ gl\ =\ (GLNVGcontext\ *)nvgInternalParams(ctx)-\/>userPtr;}
+\DoxyCodeLine{01836\ \ \ \ \ GLNVGtexture\ *\ tex\ =\ glnvg\_\_findTexture(gl,\ image);}
+\DoxyCodeLine{01837\ \ \ \ \ \textcolor{keywordflow}{return}\ tex-\/>tex;}
+\DoxyCodeLine{01838\ \}}
+\DoxyCodeLine{01839\ }
+\DoxyCodeLine{01840\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_NANOVG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{01841\ }
+\DoxyCodeLine{01842\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ NANOVG\_GL\_IMPLEMENTATION\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

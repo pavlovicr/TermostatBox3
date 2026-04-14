@@ -1,0 +1,115 @@
+\doxysection{ Struktura frogfs\+\_\+fh\+\_\+t}
+\hypertarget{structfrogfs__fh__t}{}\label{structfrogfs__fh__t}\index{frogfs\_fh\_t@{frogfs\_fh\_t}}
+
+
+A frogfs file handle.  
+
+
+
+
+{\ttfamily \#include $<$frogfs.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda frogfs\+\_\+fh\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structfrogfs__fh__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const frogfs\+\_\+fs\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structfrogfs__fh__t_a1dc69757cdfc686b2eb4b42d0504c731}{fs}}
+\item 
+\mbox{\hyperlink{structfrogfs__entry__t}{frogfs\+\_\+entry\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structfrogfs__fh__t_a940c5742808c192bf5c94e48555ee6ad}{entry}}
+\item 
+const \mbox{\hyperlink{structfrogfs__file__t}{frogfs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structfrogfs__fh__t_a92568491e200fa99334e8ec7d19f0fd7}{file}}
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structfrogfs__fh__t_ae7761fab26a080472fccdb0576a5c879}{data\+\_\+start}}
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structfrogfs__fh__t_a4e30d6c7870e322829752cc96bdf57fd}{data\+\_\+ptr}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structfrogfs__fh__t_ad2bb955a8a049eb30023afe5f0a53c82}{data\+\_\+sz}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structfrogfs__fh__t_ae5d4d18f0326d704a19f634cb1e222e7}{real\+\_\+sz}}
+\item 
+\Hypertarget{structfrogfs__fh__t_ab3ccc4a34c1ed661589885b332364d0b}\label{structfrogfs__fh__t_ab3ccc4a34c1ed661589885b332364d0b} 
+unsigned int {\bfseries flags}
+\item 
+const \mbox{\hyperlink{structfrogfs__decomp__funcs__t}{frogfs\+\_\+decomp\+\_\+funcs\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structfrogfs__fh__t_ac377fe1485edeacf56339f2cc770f7a1}{decomp\+\_\+funcs}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structfrogfs__fh__t_a9f26ffb4349d1ac84726303796f85ede}{decomp\+\_\+priv}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+A frogfs file handle. 
+
+Structure describing a frogfs file entry. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structfrogfs__fh__t_a4e30d6c7870e322829752cc96bdf57fd}\label{structfrogfs__fh__t_a4e30d6c7870e322829752cc96bdf57fd} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!data\_ptr@{data\_ptr}}
+\index{data\_ptr@{data\_ptr}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{data\_ptr}{data\_ptr}}
+{\footnotesize\ttfamily const void\texorpdfstring{$\ast$}{*} frogfs\+\_\+fh\+\_\+t\+::data\+\_\+ptr}
+
+current data pointer \Hypertarget{structfrogfs__fh__t_ae7761fab26a080472fccdb0576a5c879}\label{structfrogfs__fh__t_ae7761fab26a080472fccdb0576a5c879} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!data\_start@{data\_start}}
+\index{data\_start@{data\_start}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{data\_start}{data\_start}}
+{\footnotesize\ttfamily const void\texorpdfstring{$\ast$}{*} frogfs\+\_\+fh\+\_\+t\+::data\+\_\+start}
+
+data start pointer \Hypertarget{structfrogfs__fh__t_ad2bb955a8a049eb30023afe5f0a53c82}\label{structfrogfs__fh__t_ad2bb955a8a049eb30023afe5f0a53c82} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!data\_sz@{data\_sz}}
+\index{data\_sz@{data\_sz}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{data\_sz}{data\_sz}}
+{\footnotesize\ttfamily size\+\_\+t frogfs\+\_\+fh\+\_\+t\+::data\+\_\+sz}
+
+data size \Hypertarget{structfrogfs__fh__t_ac377fe1485edeacf56339f2cc770f7a1}\label{structfrogfs__fh__t_ac377fe1485edeacf56339f2cc770f7a1} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!decomp\_funcs@{decomp\_funcs}}
+\index{decomp\_funcs@{decomp\_funcs}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{decomp\_funcs}{decomp\_funcs}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structfrogfs__decomp__funcs__t}{frogfs\+\_\+decomp\+\_\+funcs\+\_\+t}}\texorpdfstring{$\ast$}{*} frogfs\+\_\+fh\+\_\+t\+::decomp\+\_\+funcs}
+
+open flags decompresor funcs \Hypertarget{structfrogfs__fh__t_a9f26ffb4349d1ac84726303796f85ede}\label{structfrogfs__fh__t_a9f26ffb4349d1ac84726303796f85ede} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!decomp\_priv@{decomp\_priv}}
+\index{decomp\_priv@{decomp\_priv}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{decomp\_priv}{decomp\_priv}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} frogfs\+\_\+fh\+\_\+t\+::decomp\+\_\+priv}
+
+decompressor private data \Hypertarget{structfrogfs__fh__t_a940c5742808c192bf5c94e48555ee6ad}\label{structfrogfs__fh__t_a940c5742808c192bf5c94e48555ee6ad} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!entry@{entry}}
+\index{entry@{entry}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{entry}{entry}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\+\_\+entry\+\_\+t}}\texorpdfstring{$\ast$}{*} frogfs\+\_\+fh\+\_\+t\+::entry}
+
+file entry \Hypertarget{structfrogfs__fh__t_a92568491e200fa99334e8ec7d19f0fd7}\label{structfrogfs__fh__t_a92568491e200fa99334e8ec7d19f0fd7} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!file@{file}}
+\index{file@{file}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structfrogfs__file__t}{frogfs\+\_\+file\+\_\+t}}\texorpdfstring{$\ast$}{*} frogfs\+\_\+fh\+\_\+t\+::file}
+
+file header pointer \Hypertarget{structfrogfs__fh__t_a1dc69757cdfc686b2eb4b42d0504c731}\label{structfrogfs__fh__t_a1dc69757cdfc686b2eb4b42d0504c731} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!fs@{fs}}
+\index{fs@{fs}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{fs}{fs}}
+{\footnotesize\ttfamily const frogfs\+\_\+fs\+\_\+t \texorpdfstring{$\ast$}{*} frogfs\+\_\+fh\+\_\+t\+::fs}
+
+filesystem handle
+
+frogfs fs pointer \Hypertarget{structfrogfs__fh__t_ae5d4d18f0326d704a19f634cb1e222e7}\label{structfrogfs__fh__t_ae5d4d18f0326d704a19f634cb1e222e7} 
+\index{frogfs\_fh\_t@{frogfs\_fh\_t}!real\_sz@{real\_sz}}
+\index{real\_sz@{real\_sz}!frogfs\_fh\_t@{frogfs\_fh\_t}}
+\doxysubsubsection{\texorpdfstring{real\_sz}{real\_sz}}
+{\footnotesize\ttfamily size\+\_\+t frogfs\+\_\+fh\+\_\+t\+::real\+\_\+sz}
+
+real (expanded) size 
+
+Opis strukture je zgrajen na podlagi naslednjih datotek \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/frogfs/include/frogfs/frogfs.\+h\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/frogfs/src/frogfs\+\_\+priv.\+h\end{DoxyCompactItemize}

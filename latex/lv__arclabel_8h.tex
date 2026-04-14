@@ -1,0 +1,538 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/arclabel/lv\+\_\+arclabel.h}
+\hypertarget{lv__arclabel_8h}{}\label{lv__arclabel_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/arclabel/lv\_arclabel.h@{managed\_components/lvgl\_\_lvgl/src/widgets/arclabel/lv\_arclabel.h}}
+{\ttfamily \#include "{}../../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+arclabel.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+arclabel.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lv__arclabel_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__arclabel_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__arclabel_8h_a06fab68e4b09cbdeb9bef7dc61bcb423}\label{lv__arclabel_8h_a06fab68e4b09cbdeb9bef7dc61bcb423} 
+\#define {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+DOT\+\_\+\+NUM}~3
+\item 
+\Hypertarget{lv__arclabel_8h_a6452075ef5a594ca29242efbb88ba5e3}\label{lv__arclabel_8h_a6452075ef5a594ca29242efbb88ba5e3} 
+\#define {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+DEFAULT\+\_\+\+TEXT}~"{}Arced Text"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__arclabel_8h_aa6548fabb3c2ab3adfae4590ef764c76}\label{lv__arclabel_8h_aa6548fabb3c2ab3adfae4590ef764c76} 
+enum {\bfseries lv\+\_\+arclabel\+\_\+dir\+\_\+t} \{ {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+DIR\+\_\+\+CLOCKWISE} = 0
+, {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+DIR\+\_\+\+COUNTER\+\_\+\+CLOCKWISE} = 1
+ \}
+\item 
+\Hypertarget{lv__arclabel_8h_ae46e8596abaef997e42e672dfc468085}\label{lv__arclabel_8h_ae46e8596abaef997e42e672dfc468085} 
+enum {\bfseries lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t} \{ {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+DEFAULT} = 0
+, {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+LEADING} = 1
+, {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+CENTER} = 2
+, {\bfseries LV\+\_\+\+ARCLABEL\+\_\+\+TEXT\+\_\+\+ALIGN\+\_\+\+TRAILING} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209}{lv\+\_\+arclabel\+\_\+overflow\+\_\+t}} \{ \mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209ae4e19a8ef05e1722edfff3e7f7bffb60}{LV\+\_\+\+ARCLABEL\+\_\+\+OVERFLOW\+\_\+\+VISIBLE}}
+, \mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209aef625ac87afa4cb5bcdd5f99641a8daa}{LV\+\_\+\+ARCLABEL\+\_\+\+OVERFLOW\+\_\+\+ELLIPSIS}}
+, \mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209a82215dff6eaf23939a41cb18858b504d}{LV\+\_\+\+ARCLABEL\+\_\+\+OVERFLOW\+\_\+\+CLIP}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__arclabel_8h_a09430f3ffc4e06a66e4781a96b22e519}{lv\+\_\+arclabel\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_abfe9b23429fc50eaf8679945240ca000}{lv\+\_\+arclabel\+\_\+set\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}text)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a39d49e4697bc01ba81e274a1c87eb4b6}{lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+fmt}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}fmt,...) LV\+\_\+\+FORMAT\+\_\+\+ATTRIBUTE(2
+\item 
+void void \mbox{\hyperlink{lv__arclabel_8h_ae249c40d498ef5aa470864df87be9bc9}{lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+static}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}text)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a96600c7f5863f3b209a951c5d966432c}{lv\+\_\+arclabel\+\_\+set\+\_\+angle\+\_\+start}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t start)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a108ff46c88c5b6dff9f56eb8452cc79e}{lv\+\_\+arclabel\+\_\+set\+\_\+angle\+\_\+size}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+value\+\_\+precise\+\_\+t size)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_ae3d880ef60eaab2a47ed9387ac464f5c}{lv\+\_\+arclabel\+\_\+set\+\_\+offset}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t offset)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a7ce66fa8925acded104ddc1f82465137}{lv\+\_\+arclabel\+\_\+set\+\_\+dir}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+arclabel\+\_\+dir\+\_\+t dir)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a0d27fc68e72d1e40170c150c0b5e6f2a}{lv\+\_\+arclabel\+\_\+set\+\_\+recolor}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_ad48b317f99a96f56d90c399ef071024e}{lv\+\_\+arclabel\+\_\+set\+\_\+radius}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t radius)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a62bd38c95a2ef1d6d9a7734d8eddd427}{lv\+\_\+arclabel\+\_\+set\+\_\+center\+\_\+offset\+\_\+x}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t x)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_ae660198bfe35b137da16eeb362405303}{lv\+\_\+arclabel\+\_\+set\+\_\+center\+\_\+offset\+\_\+y}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t y)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a14f0820e1fb7a7c265bf185b084bbc05}{lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+vertical\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t align)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_ab35b72340c170d92c8c03cf866000d05}{lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+horizontal\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t align)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_ab6e7c65bccc65ea91e82abaaaf16906c}{lv\+\_\+arclabel\+\_\+set\+\_\+overflow}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209}{lv\+\_\+arclabel\+\_\+overflow\+\_\+t}} overflow)
+\item 
+void \mbox{\hyperlink{lv__arclabel_8h_a6a46e598231c6bcb350fad6be0f60fab}{lv\+\_\+arclabel\+\_\+set\+\_\+end\+\_\+overlap}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool overlap)
+\item 
+lv\+\_\+value\+\_\+precise\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_aaf0612279639695ed4d54e1cb4bb0b1b}{lv\+\_\+arclabel\+\_\+get\+\_\+angle\+\_\+start}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+value\+\_\+precise\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_a2d73f819371b3ed1302aa0af07575e81}{lv\+\_\+arclabel\+\_\+get\+\_\+angle\+\_\+size}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+arclabel\+\_\+dir\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_ab02fca3365780988ad0fed9fe066f69d}{lv\+\_\+arclabel\+\_\+get\+\_\+dir}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__arclabel_8h_a60cf07062ff8caf315813dbbeb94027d}{lv\+\_\+arclabel\+\_\+get\+\_\+recolor}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_a0525243d4447f13c8f610e019931ad16}{lv\+\_\+arclabel\+\_\+get\+\_\+radius}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_aebc1c4ca340a4c035094b8e586d0f261}{lv\+\_\+arclabel\+\_\+get\+\_\+center\+\_\+offset\+\_\+x}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_a9c37132f1af11da806791a6aa44c5e70}{lv\+\_\+arclabel\+\_\+get\+\_\+center\+\_\+offset\+\_\+y}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_a115608c10adce67c381aaf2114262844}{lv\+\_\+arclabel\+\_\+get\+\_\+text\+\_\+vertical\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_a9b479a94430460d053c5b6b51a39c561}{lv\+\_\+arclabel\+\_\+get\+\_\+text\+\_\+horizontal\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209}{lv\+\_\+arclabel\+\_\+overflow\+\_\+t}} \mbox{\hyperlink{lv__arclabel_8h_a028d7e808e3277a5c857f6ac8b20b12a}{lv\+\_\+arclabel\+\_\+get\+\_\+overflow}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__arclabel_8h_a6ee6bf2dadf0818960cb85ce32aa6b45}{lv\+\_\+arclabel\+\_\+get\+\_\+end\+\_\+overlap}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+lv\+\_\+value\+\_\+precise\+\_\+t \mbox{\hyperlink{lv__arclabel_8h_a1cbd5eb0fd433c7170fee02d49fef8ca}{lv\+\_\+arclabel\+\_\+get\+\_\+text\+\_\+angle}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__arclabel_8h_adb3a17a50b4b5312fff9d960467f1f96}\label{lv__arclabel_8h_adb3a17a50b4b5312fff9d960467f1f96} 
+\mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\+\_\+\+ATTRIBUTE\+\_\+\+EXTERN\+\_\+\+DATA}} const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+arclabel\+\_\+class}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis naštevnega (enum) tipa}
+\Hypertarget{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209}\label{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_overflow\_t@{lv\_arclabel\_overflow\_t}}
+\index{lv\_arclabel\_overflow\_t@{lv\_arclabel\_overflow\_t}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_overflow\_t}{lv\_arclabel\_overflow\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209}{lv\+\_\+arclabel\+\_\+overflow\+\_\+t}}}
+
+\begin{DoxyEnumFields}{Vrednosti naštevnih tipov}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_ARCLABEL\_OVERFLOW\_VISIBLE@{LV\_ARCLABEL\_OVERFLOW\_VISIBLE}!lv\_arclabel.h@{lv\_arclabel.h}}\index{lv\_arclabel.h@{lv\_arclabel.h}!LV\_ARCLABEL\_OVERFLOW\_VISIBLE@{LV\_ARCLABEL\_OVERFLOW\_VISIBLE}}}\Hypertarget{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209ae4e19a8ef05e1722edfff3e7f7bffb60}\label{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209ae4e19a8ef05e1722edfff3e7f7bffb60} 
+LV\+\_\+\+ARCLABEL\+\_\+\+OVERFLOW\+\_\+\+VISIBLE&Show full text, may overflow object area \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_ARCLABEL\_OVERFLOW\_ELLIPSIS@{LV\_ARCLABEL\_OVERFLOW\_ELLIPSIS}!lv\_arclabel.h@{lv\_arclabel.h}}\index{lv\_arclabel.h@{lv\_arclabel.h}!LV\_ARCLABEL\_OVERFLOW\_ELLIPSIS@{LV\_ARCLABEL\_OVERFLOW\_ELLIPSIS}}}\Hypertarget{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209aef625ac87afa4cb5bcdd5f99641a8daa}\label{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209aef625ac87afa4cb5bcdd5f99641a8daa} 
+LV\+\_\+\+ARCLABEL\+\_\+\+OVERFLOW\+\_\+\+ELLIPSIS&Show ellipsis (...) when text overflows \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_ARCLABEL\_OVERFLOW\_CLIP@{LV\_ARCLABEL\_OVERFLOW\_CLIP}!lv\_arclabel.h@{lv\_arclabel.h}}\index{lv\_arclabel.h@{lv\_arclabel.h}!LV\_ARCLABEL\_OVERFLOW\_CLIP@{LV\_ARCLABEL\_OVERFLOW\_CLIP}}}\Hypertarget{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209a82215dff6eaf23939a41cb18858b504d}\label{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209a82215dff6eaf23939a41cb18858b504d} 
+LV\+\_\+\+ARCLABEL\+\_\+\+OVERFLOW\+\_\+\+CLIP&Clip text at arc boundary \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__arclabel_8h_a09430f3ffc4e06a66e4781a96b22e519}\label{lv__arclabel_8h_a09430f3ffc4e06a66e4781a96b22e519} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_create@{lv\_arclabel\_create}}
+\index{lv\_arclabel\_create@{lv\_arclabel\_create}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_create()}{lv\_arclabel\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+arclabel\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create an arc label object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new arc label \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created arc label 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a2d73f819371b3ed1302aa0af07575e81}\label{lv__arclabel_8h_a2d73f819371b3ed1302aa0af07575e81} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_angle\_size@{lv\_arclabel\_get\_angle\_size}}
+\index{lv\_arclabel\_get\_angle\_size@{lv\_arclabel\_get\_angle\_size}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_angle\_size()}{lv\_arclabel\_get\_angle\_size()}}
+{\footnotesize\ttfamily lv\+\_\+value\+\_\+precise\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+angle\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the angle size of an arc label. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the end angle \mbox{[}0..360\mbox{]} (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_aaf0612279639695ed4d54e1cb4bb0b1b}\label{lv__arclabel_8h_aaf0612279639695ed4d54e1cb4bb0b1b} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_angle\_start@{lv\_arclabel\_get\_angle\_start}}
+\index{lv\_arclabel\_get\_angle\_start@{lv\_arclabel\_get\_angle\_start}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_angle\_start()}{lv\_arclabel\_get\_angle\_start()}}
+{\footnotesize\ttfamily lv\+\_\+value\+\_\+precise\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+angle\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the start angle of an arc label. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the start angle \mbox{[}0..360\mbox{]} (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_aebc1c4ca340a4c035094b8e586d0f261}\label{lv__arclabel_8h_aebc1c4ca340a4c035094b8e586d0f261} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_center\_offset\_x@{lv\_arclabel\_get\_center\_offset\_x}}
+\index{lv\_arclabel\_get\_center\_offset\_x@{lv\_arclabel\_get\_center\_offset\_x}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_center\_offset\_x()}{lv\_arclabel\_get\_center\_offset\_x()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+center\+\_\+offset\+\_\+x (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the center offset x for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the x offset 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a9c37132f1af11da806791a6aa44c5e70}\label{lv__arclabel_8h_a9c37132f1af11da806791a6aa44c5e70} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_center\_offset\_y@{lv\_arclabel\_get\_center\_offset\_y}}
+\index{lv\_arclabel\_get\_center\_offset\_y@{lv\_arclabel\_get\_center\_offset\_y}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_center\_offset\_y()}{lv\_arclabel\_get\_center\_offset\_y()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+center\+\_\+offset\+\_\+y (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the center offset y for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the y offset 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_ab02fca3365780988ad0fed9fe066f69d}\label{lv__arclabel_8h_ab02fca3365780988ad0fed9fe066f69d} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_dir@{lv\_arclabel\_get\_dir}}
+\index{lv\_arclabel\_get\_dir@{lv\_arclabel\_get\_dir}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_dir()}{lv\_arclabel\_get\_dir()}}
+{\footnotesize\ttfamily lv\+\_\+arclabel\+\_\+dir\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+dir (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get whether the arc label is type or not. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+arc label\textquotesingle{}s direction 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a6ee6bf2dadf0818960cb85ce32aa6b45}\label{lv__arclabel_8h_a6ee6bf2dadf0818960cb85ce32aa6b45} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_end\_overlap@{lv\_arclabel\_get\_end\_overlap}}
+\index{lv\_arclabel\_get\_end\_overlap@{lv\_arclabel\_get\_end\_overlap}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_end\_overlap()}{lv\_arclabel\_get\_end\_overlap()}}
+{\footnotesize\ttfamily bool lv\+\_\+arclabel\+\_\+get\+\_\+end\+\_\+overlap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the end overlap behavior for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the end overlap mode 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a028d7e808e3277a5c857f6ac8b20b12a}\label{lv__arclabel_8h_a028d7e808e3277a5c857f6ac8b20b12a} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_overflow@{lv\_arclabel\_get\_overflow}}
+\index{lv\_arclabel\_get\_overflow@{lv\_arclabel\_get\_overflow}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_overflow()}{lv\_arclabel\_get\_overflow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209}{lv\+\_\+arclabel\+\_\+overflow\+\_\+t}} lv\+\_\+arclabel\+\_\+get\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the overflow behavior for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the overflow mode 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a0525243d4447f13c8f610e019931ad16}\label{lv__arclabel_8h_a0525243d4447f13c8f610e019931ad16} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_radius@{lv\_arclabel\_get\_radius}}
+\index{lv\_arclabel\_get\_radius@{lv\_arclabel\_get\_radius}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_radius()}{lv\_arclabel\_get\_radius()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+radius (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the text of the arc label. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the radius of the arc label 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a60cf07062ff8caf315813dbbeb94027d}\label{lv__arclabel_8h_a60cf07062ff8caf315813dbbeb94027d} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_recolor@{lv\_arclabel\_get\_recolor}}
+\index{lv\_arclabel\_get\_recolor@{lv\_arclabel\_get\_recolor}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_recolor()}{lv\_arclabel\_get\_recolor()}}
+{\footnotesize\ttfamily bool lv\+\_\+arclabel\+\_\+get\+\_\+recolor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Enable the recoloring by in-\/line commands
+
+\begin{DoxySeeAlso}{Glej}
+\doxylink{lv__arclabel_8h_a0d27fc68e72d1e40170c150c0b5e6f2a}{lv\+\_\+arclabel\+\_\+set\+\_\+recolor}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: enable recoloring, false\+: disable 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a1cbd5eb0fd433c7170fee02d49fef8ca}\label{lv__arclabel_8h_a1cbd5eb0fd433c7170fee02d49fef8ca} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_text\_angle@{lv\_arclabel\_get\_text\_angle}}
+\index{lv\_arclabel\_get\_text\_angle@{lv\_arclabel\_get\_text\_angle}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_text\_angle()}{lv\_arclabel\_get\_text\_angle()}}
+{\footnotesize\ttfamily lv\+\_\+value\+\_\+precise\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+text\+\_\+angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the text angle for an arc label object. \begin{DoxyNote}{Opomba}
+The text angle is calculated at runtime. You can get the updated value after the arclabel\textquotesingle{}s size has been updated. Returns the real rendered text angle in degrees except in {\ttfamily LV\+\_\+\+ARCLABEL\+\_\+\+OVERFLOW\+\_\+\+VISIBLE} mode. 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the text angle (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a9b479a94430460d053c5b6b51a39c561}\label{lv__arclabel_8h_a9b479a94430460d053c5b6b51a39c561} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_text\_horizontal\_align@{lv\_arclabel\_get\_text\_horizontal\_align}}
+\index{lv\_arclabel\_get\_text\_horizontal\_align@{lv\_arclabel\_get\_text\_horizontal\_align}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_text\_horizontal\_align()}{lv\_arclabel\_get\_text\_horizontal\_align()}}
+{\footnotesize\ttfamily lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+text\+\_\+horizontal\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the text horizontal alignment for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the horizontal alignment 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a115608c10adce67c381aaf2114262844}\label{lv__arclabel_8h_a115608c10adce67c381aaf2114262844} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_get\_text\_vertical\_align@{lv\_arclabel\_get\_text\_vertical\_align}}
+\index{lv\_arclabel\_get\_text\_vertical\_align@{lv\_arclabel\_get\_text\_vertical\_align}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_get\_text\_vertical\_align()}{lv\_arclabel\_get\_text\_vertical\_align()}}
+{\footnotesize\ttfamily lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t lv\+\_\+arclabel\+\_\+get\+\_\+text\+\_\+vertical\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the text vertical alignment for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the vertical alignment 
+\end{DoxyReturn}
+\Hypertarget{lv__arclabel_8h_a108ff46c88c5b6dff9f56eb8452cc79e}\label{lv__arclabel_8h_a108ff46c88c5b6dff9f56eb8452cc79e} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_angle\_size@{lv\_arclabel\_set\_angle\_size}}
+\index{lv\_arclabel\_set\_angle\_size@{lv\_arclabel\_set\_angle\_size}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_angle\_size()}{lv\_arclabel\_set\_angle\_size()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+angle\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+Set the end angle of an arc. 0 deg\+: right, 90 bottom, etc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em size} & the angle size (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_a96600c7f5863f3b209a951c5d966432c}\label{lv__arclabel_8h_a96600c7f5863f3b209a951c5d966432c} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_angle\_start@{lv\_arclabel\_set\_angle\_start}}
+\index{lv\_arclabel\_set\_angle\_start@{lv\_arclabel\_set\_angle\_start}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_angle\_start()}{lv\_arclabel\_set\_angle\_start()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+angle\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+value\+\_\+precise\+\_\+t}]{start }\end{DoxyParamCaption})}
+
+Set the start angle of an arc. 0 deg\+: right, 90 bottom, etc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em start} & the start angle. (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_a62bd38c95a2ef1d6d9a7734d8eddd427}\label{lv__arclabel_8h_a62bd38c95a2ef1d6d9a7734d8eddd427} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_center\_offset\_x@{lv\_arclabel\_set\_center\_offset\_x}}
+\index{lv\_arclabel\_set\_center\_offset\_x@{lv\_arclabel\_set\_center\_offset\_x}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_center\_offset\_x()}{lv\_arclabel\_set\_center\_offset\_x()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+center\+\_\+offset\+\_\+x (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+Set the center offset x for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em x} & the x offset \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_ae660198bfe35b137da16eeb362405303}\label{lv__arclabel_8h_ae660198bfe35b137da16eeb362405303} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_center\_offset\_y@{lv\_arclabel\_set\_center\_offset\_y}}
+\index{lv\_arclabel\_set\_center\_offset\_y@{lv\_arclabel\_set\_center\_offset\_y}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_center\_offset\_y()}{lv\_arclabel\_set\_center\_offset\_y()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+center\+\_\+offset\+\_\+y (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+Set the center offset y for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em y} & the y offset \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_a7ce66fa8925acded104ddc1f82465137}\label{lv__arclabel_8h_a7ce66fa8925acded104ddc1f82465137} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_dir@{lv\_arclabel\_set\_dir}}
+\index{lv\_arclabel\_set\_dir@{lv\_arclabel\_set\_dir}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_dir()}{lv\_arclabel\_set\_dir()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+dir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+arclabel\+\_\+dir\+\_\+t}]{dir }\end{DoxyParamCaption})}
+
+Set the type of arc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to and arc label object \\
+\hline
+{\em dir} & arc label\textquotesingle{}s direction \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_a6a46e598231c6bcb350fad6be0f60fab}\label{lv__arclabel_8h_a6a46e598231c6bcb350fad6be0f60fab} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_end\_overlap@{lv\_arclabel\_set\_end\_overlap}}
+\index{lv\_arclabel\_set\_end\_overlap@{lv\_arclabel\_set\_end\_overlap}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_end\_overlap()}{lv\_arclabel\_set\_end\_overlap()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+end\+\_\+overlap (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{overlap }\end{DoxyParamCaption})}
+
+Set the end overlap behavior for an arc label object. This controls how text is handled when it would overlap at the end of a 360-\/degree arc. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em overlap} & set the arc label\textquotesingle{}s end overlap behavior \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_ae3d880ef60eaab2a47ed9387ac464f5c}\label{lv__arclabel_8h_ae3d880ef60eaab2a47ed9387ac464f5c} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_offset@{lv\_arclabel\_set\_offset}}
+\index{lv\_arclabel\_set\_offset@{lv\_arclabel\_set\_offset}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_offset()}{lv\_arclabel\_set\_offset()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{offset }\end{DoxyParamCaption})}
+
+Set the rotation for the whole arc 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em offset} & rotation angle \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_ab6e7c65bccc65ea91e82abaaaf16906c}\label{lv__arclabel_8h_ab6e7c65bccc65ea91e82abaaaf16906c} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_overflow@{lv\_arclabel\_set\_overflow}}
+\index{lv\_arclabel\_set\_overflow@{lv\_arclabel\_set\_overflow}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_overflow()}{lv\_arclabel\_set\_overflow()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__arclabel_8h_ab62c834f2f24e3a56f20b0646870b209}{lv\+\_\+arclabel\+\_\+overflow\+\_\+t}}}]{overflow }\end{DoxyParamCaption})}
+
+Set the overflow behavior for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em overflow} & the overflow mode (visible, ellipsis, clip) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_ad48b317f99a96f56d90c399ef071024e}\label{lv__arclabel_8h_ad48b317f99a96f56d90c399ef071024e} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_radius@{lv\_arclabel\_set\_radius}}
+\index{lv\_arclabel\_set\_radius@{lv\_arclabel\_set\_radius}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_radius()}{lv\_arclabel\_set\_radius()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+radius (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{radius }\end{DoxyParamCaption})}
+
+Set the radius for an arc label object.
+
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to the arc label object. \\
+\hline
+{\em radius} & The radius value to set for the label\textquotesingle{}s curvature, in pixels. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_a0d27fc68e72d1e40170c150c0b5e6f2a}\label{lv__arclabel_8h_a0d27fc68e72d1e40170c150c0b5e6f2a} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_recolor@{lv\_arclabel\_set\_recolor}}
+\index{lv\_arclabel\_set\_recolor@{lv\_arclabel\_set\_recolor}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_recolor()}{lv\_arclabel\_set\_recolor()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+recolor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Enable the recoloring by in-\/line commands 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em en} & true\+: enable recoloring, false\+: disable Example\+: "{}\+This is a \#ff0000 red\# word"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_abfe9b23429fc50eaf8679945240ca000}\label{lv__arclabel_8h_abfe9b23429fc50eaf8679945240ca000} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_text@{lv\_arclabel\_set\_text}}
+\index{lv\_arclabel\_set\_text@{lv\_arclabel\_set\_text}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_text()}{lv\_arclabel\_set\_text()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+Set the text of the arc label.
+
+This function sets the text displayed by an arc label object.
+
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & Pointer to the arc label object. \\
+\hline
+{\em text} & Pointer to a null-\/terminated string containing the new text for the label. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_a39d49e4697bc01ba81e274a1c87eb4b6}\label{lv__arclabel_8h_a39d49e4697bc01ba81e274a1c87eb4b6} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_text\_fmt@{lv\_arclabel\_set\_text\_fmt}}
+\index{lv\_arclabel\_set\_text\_fmt@{lv\_arclabel\_set\_text\_fmt}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_text\_fmt()}{lv\_arclabel\_set\_text\_fmt()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+fmt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+Set the formatted text of an arc label object.
+
+This function sets the text of an arc label object with support for variable arguments formatting, similar to {\ttfamily printf}.
+
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & The arc label object to set the text for. \\
+\hline
+{\em fmt} & A format string that specifies how subsequent arguments are converted to text. \\
+\hline
+{\em ...} & Arguments following the format string that are used to replace format specifiers in the format string. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_ab35b72340c170d92c8c03cf866000d05}\label{lv__arclabel_8h_ab35b72340c170d92c8c03cf866000d05} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_text\_horizontal\_align@{lv\_arclabel\_set\_text\_horizontal\_align}}
+\index{lv\_arclabel\_set\_text\_horizontal\_align@{lv\_arclabel\_set\_text\_horizontal\_align}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_text\_horizontal\_align()}{lv\_arclabel\_set\_text\_horizontal\_align()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+horizontal\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t}]{align }\end{DoxyParamCaption})}
+
+Set the text horizontal alignment for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em align} & the horizontal alignment \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_ae249c40d498ef5aa470864df87be9bc9}\label{lv__arclabel_8h_ae249c40d498ef5aa470864df87be9bc9} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_text\_static@{lv\_arclabel\_set\_text\_static}}
+\index{lv\_arclabel\_set\_text\_static@{lv\_arclabel\_set\_text\_static}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_text\_static()}{lv\_arclabel\_set\_text\_static()}}
+{\footnotesize\ttfamily void void lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+static (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{text }\end{DoxyParamCaption})}
+
+Sets a new static text for the arc label or refreshes it with the current text. The \textquotesingle{}text\textquotesingle{} must remain valid in memory; the arc label does not manage its lifecycle.
+
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & Pointer to the arc label object. \\
+\hline
+{\em text} & Pointer to the new text. If NULL, the label is refreshed with its current text. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__arclabel_8h_a14f0820e1fb7a7c265bf185b084bbc05}\label{lv__arclabel_8h_a14f0820e1fb7a7c265bf185b084bbc05} 
+\index{lv\_arclabel.h@{lv\_arclabel.h}!lv\_arclabel\_set\_text\_vertical\_align@{lv\_arclabel\_set\_text\_vertical\_align}}
+\index{lv\_arclabel\_set\_text\_vertical\_align@{lv\_arclabel\_set\_text\_vertical\_align}!lv\_arclabel.h@{lv\_arclabel.h}}
+\doxysubsubsection{\texorpdfstring{lv\_arclabel\_set\_text\_vertical\_align()}{lv\_arclabel\_set\_text\_vertical\_align()}}
+{\footnotesize\ttfamily void lv\+\_\+arclabel\+\_\+set\+\_\+text\+\_\+vertical\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+arclabel\+\_\+text\+\_\+align\+\_\+t}]{align }\end{DoxyParamCaption})}
+
+Set the text vertical alignment for an arc label object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an arc label object \\
+\hline
+{\em align} & the vertical alignment \\
+\hline
+\end{DoxyParams}

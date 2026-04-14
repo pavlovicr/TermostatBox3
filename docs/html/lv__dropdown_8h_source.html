@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/src/widgets/dropdown/lv_dropdown.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_e9f8e557d5343d9e0f422cb5bf98db87.html">widgets</a></li><li class="navelem"><a class="el" href="dir_0e43edd7755d7839a228f5ee3c843f75.html">dropdown</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">lv_dropdown.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="lv__dropdown_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef LV_DROPDOWN_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define LV_DROPDOWN_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *      INCLUDES</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *********************/</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../../lv_conf_internal.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#if LV_USE_DROPDOWN != 0</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/*Testing of dependencies*/</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#if LV_USE_LABEL == 0</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#error &quot;lv_dropdown: lv_label is required. Enable it in lv_conf.h (LV_USE_LABEL 1)&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;../label/lv_label.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*********************</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> *      DEFINES</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> *********************/</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#define LV_DROPDOWN_POS_LAST 0xFFFF</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><a class="code hl_define" href="lv__conf__cmsis_8h.html#ad9dbfeb90679a5db213a80f3e8d61b28">LV_EXPORT_CONST_INT</a>(LV_DROPDOWN_POS_LAST);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if LV_USE_OBJ_PROPERTY</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">enum</span> _lv_property_dropdown_id_t {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    LV_PROPERTY_ID(DROPDOWN, TEXT,                LV_PROPERTY_TYPE_TEXT,   0),</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    LV_PROPERTY_ID(DROPDOWN, OPTIONS,             LV_PROPERTY_TYPE_TEXT,   1),</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    LV_PROPERTY_ID(DROPDOWN, OPTION_COUNT,        LV_PROPERTY_TYPE_INT,    2),</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    LV_PROPERTY_ID(DROPDOWN, SELECTED,            LV_PROPERTY_TYPE_INT,    3),</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="comment">// LV_PROPERTY_ID(DROPDOWN, SELECTED_STR,        LV_PROPERTY_TYPE_TEXT,   4),</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    LV_PROPERTY_ID(DROPDOWN, DIR,                 LV_PROPERTY_TYPE_INT,    5),</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    LV_PROPERTY_ID(DROPDOWN, SYMBOL,              LV_PROPERTY_TYPE_IMGSRC, 6),</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    LV_PROPERTY_ID(DROPDOWN, SELECTED_HIGHLIGHT,  LV_PROPERTY_TYPE_INT,    7),</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    LV_PROPERTY_ID(DROPDOWN, LIST,                LV_PROPERTY_TYPE_OBJ,    8),</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    LV_PROPERTY_ID(DROPDOWN, IS_OPEN,             LV_PROPERTY_TYPE_BOOL,   9),</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    LV_PROPERTY_DROPDOWN_END,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><a class="code hl_define" href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a> <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__class__t.html">lv_obj_class_t</a> lv_dropdown_class;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><a class="code hl_define" href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a> <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__class__t.html">lv_obj_class_t</a> lv_dropdownlist_class;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * <a class="code hl_function" href="lv__dropdown_8h.html#abbbb2e711d8e7959722448e86342ef92">lv_dropdown_create</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * parent);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">/*=====================</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * Setter functions</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> *====================*/</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#a079da305a870983e61f4ba85c532542c">lv_dropdown_set_text</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keyword">const</span> <span class="keywordtype">char</span> * text);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#aca93aec852d5ce5760e4868877ff2785">lv_dropdown_set_text_static</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keyword">const</span> <span class="keywordtype">char</span> * text);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#ad00b981639dc0b8a4001c90a1d8a56c7">lv_dropdown_set_options</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keyword">const</span> <span class="keywordtype">char</span> * options);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#a7696e2ad568946dfbac414de0c4ed12b">lv_dropdown_set_options_static</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keyword">const</span> <span class="keywordtype">char</span> * options);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#a5294b94963e1ec9359e3fe117d6d7c27">lv_dropdown_add_option</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keyword">const</span> <span class="keywordtype">char</span> * option, uint32_t pos);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#a75a9a06cc301e32f08339d328ff213cb">lv_dropdown_clear_options</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#aadb4615405d0481db642cda610cbdf41">lv_dropdown_set_selected</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, uint32_t sel_opt);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#a3adabc80b73c0b36f4aef3cd0e709a08">lv_dropdown_set_dir</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, lv_dir_t dir);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#ae094b64d9d44116f46ab254c8f956c1c">lv_dropdown_set_symbol</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keyword">const</span> <span class="keywordtype">void</span> * symbol);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#a327251f0c12cea1cdc39c01b00c03b92">lv_dropdown_set_selected_highlight</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keywordtype">bool</span> en);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">/*=====================</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment"> * Getter functions</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"> *====================*/</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * <a class="code hl_function" href="lv__dropdown_8h.html#a7d33b4a951d1d87c3d329f5e6815d791">lv_dropdown_get_list</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code hl_function" href="lv__dropdown_8h.html#a7c42fc3b52890692398f6d80abb1749c">lv_dropdown_get_text</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code hl_function" href="lv__dropdown_8h.html#a77c886ca7c228f5bfd32f56fa9bc78aa">lv_dropdown_get_options</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>uint32_t <a class="code hl_function" href="lv__dropdown_8h.html#a1692c9e7c5cd2b286c659d9bd3acfb06">lv_dropdown_get_selected</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>uint32_t <a class="code hl_function" href="lv__dropdown_8h.html#a3d8e0a7a434bb22cf23671d17892f083">lv_dropdown_get_option_count</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#aefeba4ae1a0b1af394ebc850702be613">lv_dropdown_get_selected_str</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keywordtype">char</span> * buf, uint32_t buf_size);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>int32_t <a class="code hl_function" href="lv__dropdown_8h.html#a1fa7ef4d251d39bdd68baf3284fdb299">lv_dropdown_get_option_index</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <span class="keyword">const</span> <span class="keywordtype">char</span> * option);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code hl_function" href="lv__dropdown_8h.html#af950a1701591afb579297f5653625eb7">lv_dropdown_get_symbol</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="keywordtype">bool</span> <a class="code hl_function" href="lv__dropdown_8h.html#a37d97249d38e68fc0f44a491c38f36e1">lv_dropdown_get_selected_highlight</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>lv_dir_t <a class="code hl_function" href="lv__dropdown_8h.html#a8cf3f964156f5502187cebfd612ddf34">lv_dropdown_get_dir</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">/*=====================</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment"> * Other functions</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment"> *====================*/</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#abc47202ceef699f04323e9ae2878d7a2">lv_dropdown_open</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * dropdown_obj);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__dropdown_8h.html#a1e8078986b69017e6f4c89adfa96a40d">lv_dropdown_close</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="keywordtype">bool</span> <a class="code hl_function" href="lv__dropdown_8h.html#a4206fa2c3d80ce141a32ac71ab90e876">lv_dropdown_is_open</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="preprocessor">#if LV_USE_OBSERVER</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><a class="code hl_struct" href="struct__lv__observer__t.html">lv_observer_t</a> * <a class="code hl_function" href="lv__dropdown_8h.html#af32ee89a899d796f3ccb141fac43864e">lv_dropdown_bind_value</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, <a class="code hl_struct" href="struct__lv__subject__t.html">lv_subject_t</a> * subject);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">#endif </span><span class="comment">/*LV_USE_DROPDOWN*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span> </div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="preprocessor">#endif </span><span class="comment">/*LV_DROPDOWN_H*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="alv__conf__cmsis_8h_html_a52a21700fe5946c140157ebf74459a46"><div class="ttname"><a href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a></div><div class="ttdeci">#define LV_ATTRIBUTE_EXTERN_DATA</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:630</div></div>
+<div class="ttc" id="alv__conf__cmsis_8h_html_ad9dbfeb90679a5db213a80f3e8d61b28"><div class="ttname"><a href="lv__conf__cmsis_8h.html#ad9dbfeb90679a5db213a80f3e8d61b28">LV_EXPORT_CONST_INT</a></div><div class="ttdeci">#define LV_EXPORT_CONST_INT(int_value)</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:627</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a079da305a870983e61f4ba85c532542c"><div class="ttname"><a href="lv__dropdown_8h.html#a079da305a870983e61f4ba85c532542c">lv_dropdown_set_text</a></div><div class="ttdeci">void lv_dropdown_set_text(lv_obj_t *obj, const char *text)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:164</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a1692c9e7c5cd2b286c659d9bd3acfb06"><div class="ttname"><a href="lv__dropdown_8h.html#a1692c9e7c5cd2b286c659d9bd3acfb06">lv_dropdown_get_selected</a></div><div class="ttdeci">uint32_t lv_dropdown_get_selected(const lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:434</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a1e8078986b69017e6f4c89adfa96a40d"><div class="ttname"><a href="lv__dropdown_8h.html#a1e8078986b69017e6f4c89adfa96a40d">lv_dropdown_close</a></div><div class="ttdeci">void lv_dropdown_close(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:633</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a1fa7ef4d251d39bdd68baf3284fdb299"><div class="ttname"><a href="lv__dropdown_8h.html#a1fa7ef4d251d39bdd68baf3284fdb299">lv_dropdown_get_option_index</a></div><div class="ttdeci">int32_t lv_dropdown_get_option_index(lv_obj_t *obj, const char *option)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:486</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a327251f0c12cea1cdc39c01b00c03b92"><div class="ttname"><a href="lv__dropdown_8h.html#a327251f0c12cea1cdc39c01b00c03b92">lv_dropdown_set_selected_highlight</a></div><div class="ttdeci">void lv_dropdown_set_selected_highlight(lv_obj_t *obj, bool en)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:397</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a37d97249d38e68fc0f44a491c38f36e1"><div class="ttname"><a href="lv__dropdown_8h.html#a37d97249d38e68fc0f44a491c38f36e1">lv_dropdown_get_selected_highlight</a></div><div class="ttdeci">bool lv_dropdown_get_selected_highlight(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:517</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a3adabc80b73c0b36f4aef3cd0e709a08"><div class="ttname"><a href="lv__dropdown_8h.html#a3adabc80b73c0b36f4aef3cd0e709a08">lv_dropdown_set_dir</a></div><div class="ttdeci">void lv_dropdown_set_dir(lv_obj_t *obj, lv_dir_t dir)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:376</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a3d8e0a7a434bb22cf23671d17892f083"><div class="ttname"><a href="lv__dropdown_8h.html#a3d8e0a7a434bb22cf23671d17892f083">lv_dropdown_get_option_count</a></div><div class="ttdeci">uint32_t lv_dropdown_get_option_count(const lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:443</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a4206fa2c3d80ce141a32ac71ab90e876"><div class="ttname"><a href="lv__dropdown_8h.html#a4206fa2c3d80ce141a32ac71ab90e876">lv_dropdown_is_open</a></div><div class="ttdeci">bool lv_dropdown_is_open(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:646</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a5294b94963e1ec9359e3fe117d6d7c27"><div class="ttname"><a href="lv__dropdown_8h.html#a5294b94963e1ec9359e3fe117d6d7c27">lv_dropdown_add_option</a></div><div class="ttdeci">void lv_dropdown_add_option(lv_obj_t *obj, const char *option, uint32_t pos)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:270</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a75a9a06cc301e32f08339d328ff213cb"><div class="ttname"><a href="lv__dropdown_8h.html#a75a9a06cc301e32f08339d328ff213cb">lv_dropdown_clear_options</a></div><div class="ttdeci">void lv_dropdown_clear_options(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:342</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a7696e2ad568946dfbac414de0c4ed12b"><div class="ttname"><a href="lv__dropdown_8h.html#a7696e2ad568946dfbac414de0c4ed12b">lv_dropdown_set_options_static</a></div><div class="ttdeci">void lv_dropdown_set_options_static(lv_obj_t *obj, const char *options)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:241</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a77c886ca7c228f5bfd32f56fa9bc78aa"><div class="ttname"><a href="lv__dropdown_8h.html#a77c886ca7c228f5bfd32f56fa9bc78aa">lv_dropdown_get_options</a></div><div class="ttdeci">const char * lv_dropdown_get_options(const lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:426</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a7c42fc3b52890692398f6d80abb1749c"><div class="ttname"><a href="lv__dropdown_8h.html#a7c42fc3b52890692398f6d80abb1749c">lv_dropdown_get_text</a></div><div class="ttdeci">const char * lv_dropdown_get_text(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:418</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a7d33b4a951d1d87c3d329f5e6815d791"><div class="ttname"><a href="lv__dropdown_8h.html#a7d33b4a951d1d87c3d329f5e6815d791">lv_dropdown_get_list</a></div><div class="ttdeci">lv_obj_t * lv_dropdown_get_list(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:410</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_a8cf3f964156f5502187cebfd612ddf34"><div class="ttname"><a href="lv__dropdown_8h.html#a8cf3f964156f5502187cebfd612ddf34">lv_dropdown_get_dir</a></div><div class="ttdeci">lv_dir_t lv_dropdown_get_dir(const lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:524</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_aadb4615405d0481db642cda610cbdf41"><div class="ttname"><a href="lv__dropdown_8h.html#aadb4615405d0481db642cda610cbdf41">lv_dropdown_set_selected</a></div><div class="ttdeci">void lv_dropdown_set_selected(lv_obj_t *obj, uint32_t sel_opt)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:359</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_abbbb2e711d8e7959722448e86342ef92"><div class="ttname"><a href="lv__dropdown_8h.html#abbbb2e711d8e7959722448e86342ef92">lv_dropdown_create</a></div><div class="ttdeci">lv_obj_t * lv_dropdown_create(lv_obj_t *parent)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:152</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_abc47202ceef699f04323e9ae2878d7a2"><div class="ttname"><a href="lv__dropdown_8h.html#abc47202ceef699f04323e9ae2878d7a2">lv_dropdown_open</a></div><div class="ttdeci">void lv_dropdown_open(lv_obj_t *dropdown_obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:535</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_aca93aec852d5ce5760e4868877ff2785"><div class="ttname"><a href="lv__dropdown_8h.html#aca93aec852d5ce5760e4868877ff2785">lv_dropdown_set_text_static</a></div><div class="ttdeci">void lv_dropdown_set_text_static(lv_obj_t *obj, const char *text)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:182</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_ad00b981639dc0b8a4001c90a1d8a56c7"><div class="ttname"><a href="lv__dropdown_8h.html#ad00b981639dc0b8a4001c90a1d8a56c7">lv_dropdown_set_options</a></div><div class="ttdeci">void lv_dropdown_set_options(lv_obj_t *obj, const char *options)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:194</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_ae094b64d9d44116f46ab254c8f956c1c"><div class="ttname"><a href="lv__dropdown_8h.html#ae094b64d9d44116f46ab254c8f956c1c">lv_dropdown_set_symbol</a></div><div class="ttdeci">void lv_dropdown_set_symbol(lv_obj_t *obj, const void *symbol)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:388</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_aefeba4ae1a0b1af394ebc850702be613"><div class="ttname"><a href="lv__dropdown_8h.html#aefeba4ae1a0b1af394ebc850702be613">lv_dropdown_get_selected_str</a></div><div class="ttdeci">void lv_dropdown_get_selected_str(const lv_obj_t *obj, char *buf, uint32_t buf_size)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:452</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_af32ee89a899d796f3ccb141fac43864e"><div class="ttname"><a href="lv__dropdown_8h.html#af32ee89a899d796f3ccb141fac43864e">lv_dropdown_bind_value</a></div><div class="ttdeci">lv_observer_t * lv_dropdown_bind_value(lv_obj_t *obj, lv_subject_t *subject)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:656</div></div>
+<div class="ttc" id="alv__dropdown_8h_html_af950a1701591afb579297f5653625eb7"><div class="ttname"><a href="lv__dropdown_8h.html#af950a1701591afb579297f5653625eb7">lv_dropdown_get_symbol</a></div><div class="ttdeci">const char * lv_dropdown_get_symbol(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_dropdown.c:510</div></div>
+<div class="ttc" id="astruct__lv__obj__class__t_html"><div class="ttname"><a href="struct__lv__obj__class__t.html">_lv_obj_class_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_class_private.h:31</div></div>
+<div class="ttc" id="astruct__lv__obj__t_html"><div class="ttname"><a href="struct__lv__obj__t.html">_lv_obj_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_private.h:55</div></div>
+<div class="ttc" id="astruct__lv__observer__t_html"><div class="ttname"><a href="struct__lv__observer__t.html">_lv_observer_t</a></div><div class="ttdef"><b>Definition</b> lv_observer_private.h:32</div></div>
+<div class="ttc" id="astruct__lv__subject__t_html"><div class="ttname"><a href="struct__lv__subject__t.html">_lv_subject_t</a></div><div class="ttdef"><b>Definition</b> lv_observer.h:59</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

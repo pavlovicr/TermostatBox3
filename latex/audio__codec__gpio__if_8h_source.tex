@@ -1,0 +1,45 @@
+\doxysection{audio\+\_\+codec\+\_\+gpio\+\_\+if.\+h}
+\hypertarget{audio__codec__gpio__if_8h_source}{}\label{audio__codec__gpio__if_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/interface/audio\_codec\_gpio\_if.h@{managed\_components/espressif\_\_esp\_codec\_dev/interface/audio\_codec\_gpio\_if.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2023\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_AUDIO\_CODEC\_GPIO\_IF\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_AUDIO\_CODEC\_GPIO\_IF\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ AUDIO\_GPIO\_MODE\_FLOAT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00021\ \ \ \ \ AUDIO\_GPIO\_MODE\_PULL\_UP\ =\ (1\ <<\ 0),\ \ \ }
+\DoxyCodeLine{00022\ \ \ \ \ AUDIO\_GPIO\_MODE\_PULL\_DOWN\ =\ (1\ <<\ 1),\ }
+\DoxyCodeLine{00023\ \}\ audio\_gpio\_mode\_t;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ AUDIO\_GPIO\_DIR\_OUT,\ }
+\DoxyCodeLine{00030\ \ \ \ \ AUDIO\_GPIO\_DIR\_IN,\ \ }
+\DoxyCodeLine{00031\ \}\ audio\_gpio\_dir\_t;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ int\ (*setup)(int16\_t\ gpio,\ audio\_gpio\_dir\_t\ dir,\ audio\_gpio\_mode\_t\ mode);\ }
+\DoxyCodeLine{00038\ \ \ \ \ int\ (*set)(int16\_t\ gpio,\ \textcolor{keywordtype}{bool}\ high);\ }
+\DoxyCodeLine{00039\ \ \ \ \ bool\ (*get)(int16\_t\ gpio);\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{int}\ audio\_codec\_delete\_gpio\_if(\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}}\ *gpio\_if);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00051\ \}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

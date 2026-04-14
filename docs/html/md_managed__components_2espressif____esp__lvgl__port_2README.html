@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: LVGL ESP Portation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">LVGL ESP Portation</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md388"></a> <a href="https://components.espressif.com/components/espressif/esp_lvgl_port"><img src="https://components.espressif.com/components/espressif/esp_lvgl_port/badge.svg" alt="Component Registry" style="pointer-events: none;" class="inline"/></a> <img src="https://img.shields.io/badge/maintenance-actively--developed-brightgreen.svg" alt="maintenance-status" style="pointer-events: none;" class="inline"/></p>
+<p>This component helps with using LVGL with Espressif's LCD and touch drivers. It can be used with any project with LCD display.</p>
+<h1><a class="anchor" id="autotoc_md389"></a>
+Features</h1>
+<ul>
+<li>Initialization of the LVGL<ul>
+<li>Create task and timer</li>
+<li>Handle rotating</li>
+<li>Power saving</li>
+</ul>
+</li>
+<li>Add/remove display (using <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/lcd.html"><code>esp_lcd</code></a>)</li>
+<li>Add/remove touch input (using <a href="https://github.com/espressif/esp-bsp/tree/master/components/lcd_touch"><code>esp_lcd_touch</code></a>)</li>
+<li>Add/remove navigation buttons input (using <a href="https://github.com/espressif/esp-iot-solution/tree/master/components/button"><code>button</code></a>)</li>
+<li>Add/remove encoder input (using <a href="https://github.com/espressif/esp-iot-solution/tree/master/components/knob"><code>knob</code></a>)</li>
+<li>Add/remove USB HID mouse/keyboard input (using <a href="https://components.espressif.com/components/espressif/usb_host_hid"><code>usb_host_hid</code></a>)</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md390"></a>
+LVGL Version</h1>
+<p>This component supports **LVGL8** and **LVGL9**. By default, it selects the latest LVGL version. If you want to use a specific version (e.g. latest LVGL8), you can easily define this requirement in <code>idf_component.yml</code> in your project like this:</p>
+<div class="fragment"><div class="line">lvgl/lvgl:</div>
+<div class="line">  version: &quot;^8&quot;</div>
+<div class="line">  public: true</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md391"></a>
+LVGL Version Compatibility</h2>
+<p>This component is fully compatible with LVGL version 9. All types and functions are used from LVGL9. Some LVGL9 types are not supported in LVGL8 and there are retyped in <a href="include/esp_lvgl_port_compatibility.h"><code>esp_lvgl_port_compatibility.h</code></a> header file. <b>Please, be aware, that some draw and object functions are not compatible between LVGL8 and LVGL9.</b></p>
+<h1><a class="anchor" id="autotoc_md392"></a>
+Usage</h1>
+<h2><a class="anchor" id="autotoc_md393"></a>
+Initialization</h2>
+<div class="fragment"><div class="line">c</div>
+<div class="line">   const lvgl_port_cfg_t lvgl_cfg = ESP_LVGL_PORT_INIT_CONFIG();</div>
+<div class="line">   esp_err_t err = lvgl_port_init(&amp;lvgl_cfg);</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md394"></a>
+Add screen</h2>
+<p>Add an LCD screen to the LVGL. It can be called multiple times for adding multiple LCD screens.</p>
+<div class="fragment"><div class="line">c</div>
+<div class="line">   static lv_disp_t * disp_handle;</div>
+<div class="line"> </div>
+<div class="line">   /* LCD IO */</div>
+<div class="line">   esp_lcd_panel_io_handle_t io_handle = NULL;</div>
+<div class="line">   ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi((esp_lcd_spi_bus_handle_t) 1, &amp;io_config, &amp;io_handle));</div>
+<div class="line"> </div>
+<div class="line">   /* LCD driver initialization */</div>
+<div class="line">   esp_lcd_panel_handle_t lcd_panel_handle;</div>
+<div class="line">   ESP_ERROR_CHECK(esp_lcd_new_panel_st7789(io_handle, &amp;panel_config, &amp;lcd_panel_handle));</div>
+<div class="line"> </div>
+<div class="line">   /* Add LCD screen */</div>
+<div class="line">   const lvgl_port_display_cfg_t disp_cfg = {</div>
+<div class="line">       .io_handle = io_handle,</div>
+<div class="line">       .panel_handle = lcd_panel_handle,</div>
+<div class="line">       .buffer_size = DISP_WIDTH*DISP_HEIGHT,</div>
+<div class="line">       .double_buffer = true,</div>
+<div class="line">       .hres = DISP_WIDTH,</div>
+<div class="line">       .vres = DISP_HEIGHT,</div>
+<div class="line">       .monochrome = false,</div>
+<div class="line">       .mipi_dsi = false,</div>
+<div class="line">       .color_format = LV_COLOR_FORMAT_RGB565,</div>
+<div class="line">       .rounder_cb = my_rounder_cb,</div>
+<div class="line">       .rotation = {</div>
+<div class="line">           .swap_xy = false,</div>
+<div class="line">           .mirror_x = false,</div>
+<div class="line">           .mirror_y = false,</div>
+<div class="line">       },</div>
+<div class="line">       .flags = {</div>
+<div class="line">           .buff_dma = true,</div>
+<div class="line">           .swap_bytes = false,</div>
+<div class="line">       }</div>
+<div class="line">   };</div>
+<div class="line">   disp_handle = lvgl_port_add_disp(&amp;disp_cfg);</div>
+<div class="line"> </div>
+<div class="line">   /* ... the rest of the initialization ... */</div>
+<div class="line"> </div>
+<div class="line">   /* If deinitializing LVGL port, remember to delete all displays: */</div>
+<div class="line">   lvgl_port_remove_disp(disp_handle);</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;[!NOTE]</p><ol type="1">
+<li>For adding RGB or MIPI-DSI screen, use functions <code>lvgl_port_add_disp_rgb</code> or <code>lvgl_port_add_disp_dsi</code>.</li>
+<li>DMA buffer can be used only when you use color format <code>LV_COLOR_FORMAT_RGB565</code>. </li>
+</ol>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md395"></a>
+Add touch input</h2>
+<p>Add touch input to the LVGL. It can be called more times for adding more touch inputs. </p><div class="fragment"><div class="line">c</div>
+<div class="line">   /* Touch driver initialization */</div>
+<div class="line">   ...</div>
+<div class="line">   esp_lcd_touch_handle_t tp;</div>
+<div class="line">   esp_err_t err = esp_lcd_touch_new_i2c_gt911(io_handle, &amp;tp_cfg, &amp;tp);</div>
+<div class="line"> </div>
+<div class="line">   /* Add touch input (for selected screen) */</div>
+<div class="line">   const lvgl_port_touch_cfg_t touch_cfg = {</div>
+<div class="line">       .disp = disp_handle,</div>
+<div class="line">       .handle = tp,</div>
+<div class="line">   };</div>
+<div class="line">   lv_indev_t* touch_handle = lvgl_port_add_touch(&amp;touch_cfg);</div>
+<div class="line"> </div>
+<div class="line">   /* ... the rest of the initialization ... */</div>
+<div class="line"> </div>
+<div class="line">   /* If deinitializing LVGL port, remember to delete all touches: */</div>
+<div class="line">   lvgl_port_remove_touch(touch_handle);</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;[!NOTE] If the screen has another resolution than the touch resolution, you can use scaling by add <code>.scale.x</code> or <code>.scale.y</code> into <code>lvgl_port_touch_cfg_t</code> configuration structure. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md396"></a>
+Add buttons input</h2>
+<p>Add buttons input to the LVGL. It can be called more times for adding more buttons inputs for different displays. This feature is available only when the component <code>espressif/button</code> was added into the project. </p><div class="fragment"><div class="line">c</div>
+<div class="line">   /* Buttons configuration structure */</div>
+<div class="line">   const button_gpio_config_t bsp_button_config[] = {</div>
+<div class="line">       {</div>
+<div class="line">           .gpio_num = GPIO_NUM_37,</div>
+<div class="line">           .active_level = 0,</div>
+<div class="line">       },</div>
+<div class="line">       {</div>
+<div class="line">           .gpio_num = GPIO_NUM_38,</div>
+<div class="line">           .active_level = 0,</div>
+<div class="line">       },</div>
+<div class="line">       {</div>
+<div class="line">           .gpio_num = GPIO_NUM_39,</div>
+<div class="line">           .active_level = 0,</div>
+<div class="line">       },</div>
+<div class="line">   };</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">   const button_config_t btn_cfg = {0};</div>
+<div class="line">   button_handle_t prev_btn_handle = NULL;</div>
+<div class="line">   button_handle_t next_btn_handle = NULL;</div>
+<div class="line">   button_handle_t enter_btn_handle = NULL;</div>
+<div class="line">   iot_button_new_gpio_device(&amp;btn_cfg, &amp;bsp_button_config[0], &amp;prev_btn_handle);</div>
+<div class="line">   iot_button_new_gpio_device(&amp;btn_cfg, &amp;bsp_button_config[1], &amp;next_btn_handle);</div>
+<div class="line">   iot_button_new_gpio_device(&amp;btn_cfg, &amp;bsp_button_config[2], &amp;enter_btn_handle);</div>
+<div class="line"> </div>
+<div class="line">   const lvgl_port_nav_btns_cfg_t btns = {</div>
+<div class="line">       .disp = disp_handle,</div>
+<div class="line">       .button_prev = prev_btn_handle,</div>
+<div class="line">       .button_next = next_btn_handle,</div>
+<div class="line">       .button_enter = enter_btn_handle</div>
+<div class="line">   };</div>
+<div class="line"> </div>
+<div class="line">   /* Add buttons input (for selected screen) */</div>
+<div class="line">   lv_indev_t* buttons_handle = lvgl_port_add_navigation_buttons(&amp;btns);</div>
+<div class="line"> </div>
+<div class="line">   /* ... the rest of the initialization ... */</div>
+<div class="line"> </div>
+<div class="line">   /* If deinitializing LVGL port, remember to delete all buttons: */</div>
+<div class="line">   lvgl_port_remove_navigation_buttons(buttons_handle);</div>
+</div><!-- fragment --> <blockquote class="doxtable">
+<p>&zwj;[!NOTE] When you use navigation buttons for control LVGL objects, these objects must be added to LVGL groups. See <a href="https://docs.lvgl.io/master/overview/indev.html?highlight=lv_indev_get_act#keypad-and-encoder">LVGL documentation</a> for more info. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md397"></a>
+Add encoder input</h2>
+<p>Add encoder input to the LVGL. It can be called more times for adding more encoder inputs for different displays. This feature is available only when the component <code>espressif/knob</code> was added into the project. </p><div class="fragment"><div class="line">c</div>
+<div class="line"> </div>
+<div class="line">   static const button_gpio_config_t encoder_btn_config = {</div>
+<div class="line">       .gpio_num = GPIO_BTN_PRESS,</div>
+<div class="line">       .active_level = 0,</div>
+<div class="line">   };</div>
+<div class="line"> </div>
+<div class="line">   const knob_config_t encoder_a_b_config = {</div>
+<div class="line">       .default_direction = 0,</div>
+<div class="line">       .gpio_encoder_a = GPIO_ENCODER_A,</div>
+<div class="line">       .gpio_encoder_b = GPIO_ENCODER_B,</div>
+<div class="line">   };</div>
+<div class="line"> </div>
+<div class="line">   const button_config_t btn_cfg = {0};</div>
+<div class="line">   button_handle_t encoder_btn_handle = NULL;</div>
+<div class="line">   BSP_ERROR_CHECK_RETURN_NULL(iot_button_new_gpio_device(&amp;btn_cfg, &amp;encoder_btn_config, &amp;encoder_btn_handle));</div>
+<div class="line"> </div>
+<div class="line">   /* Encoder configuration structure */</div>
+<div class="line">   const lvgl_port_encoder_cfg_t encoder = {</div>
+<div class="line">       .disp = disp_handle,</div>
+<div class="line">       .encoder_a_b = &amp;encoder_a_b_config,</div>
+<div class="line">       .encoder_enter = encoder_btn_handle</div>
+<div class="line">   };</div>
+<div class="line"> </div>
+<div class="line">   /* Add encoder input (for selected screen) */</div>
+<div class="line">   lv_indev_t* encoder_handle = lvgl_port_add_encoder(&amp;encoder);</div>
+<div class="line"> </div>
+<div class="line">   /* ... the rest of the initialization ... */</div>
+<div class="line"> </div>
+<div class="line">   /* If deinitializing LVGL port, remember to delete all encoders: */</div>
+<div class="line">   lvgl_port_remove_encoder(encoder_handle);</div>
+</div><!-- fragment --> <blockquote class="doxtable">
+<p>&zwj;[!NOTE] When you use encoder for control LVGL objects, these objects must be added to LVGL groups. See <a href="https://docs.lvgl.io/master/overview/indev.html?highlight=lv_indev_get_act#keypad-and-encoder">LVGL documentation</a> for more info. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md398"></a>
+Add USB HID keyboard and mouse input</h2>
+<p>Add mouse and keyboard input to the LVGL. This feature is available only when the component <a href="https://components.espressif.com/components/espressif/usb_host_hid">usb_host_hid</a> was added into the project.</p>
+<div class="fragment"><div class="line">c</div>
+<div class="line">   /* USB initialization */</div>
+<div class="line">   usb_host_config_t host_config = {</div>
+<div class="line">       .skip_phy_setup = false,</div>
+<div class="line">       .intr_flags = ESP_INTR_FLAG_LEVEL1,</div>
+<div class="line">   };</div>
+<div class="line">   ESP_ERROR_CHECK(usb_host_install(&amp;host_config));</div>
+<div class="line"> </div>
+<div class="line">   ...</div>
+<div class="line"> </div>
+<div class="line">   /* Add mouse input device */</div>
+<div class="line">   const lvgl_port_hid_mouse_cfg_t mouse_cfg = {</div>
+<div class="line">       .disp = display,</div>
+<div class="line">       .sensitivity = 1, /* Sensitivity of the mouse moving */</div>
+<div class="line">   };</div>
+<div class="line">   lvgl_port_add_usb_hid_mouse_input(&amp;mouse_cfg);</div>
+<div class="line"> </div>
+<div class="line">   /* Add keyboard input device */</div>
+<div class="line">   const lvgl_port_hid_keyboard_cfg_t kb_cfg = {</div>
+<div class="line">       .disp = display,</div>
+<div class="line">   };</div>
+<div class="line">   kb_indev = lvgl_port_add_usb_hid_keyboard_input(&amp;kb_cfg);</div>
+</div><!-- fragment --><p>Keyboard special behavior (when objects are in group):</p><ul>
+<li><b>TAB</b>: Select next object</li>
+<li><b>SHIFT</b> + <b>TAB</b>: Select previous object</li>
+<li><b>ENTER</b>: Control object (e.g. click to button)</li>
+<li><b>ARROWS</b> or <b>HOME</b> or <b>END</b>: Move in text area</li>
+<li><b>DEL</b> or <b>Backspace</b>: Remove character in textarea</li>
+</ul>
+<blockquote class="doxtable">
+<p>&zwj;[!NOTE] When you use keyboard for control LVGL objects, these objects must be added to LVGL groups. See <a href="https://docs.lvgl.io/master/overview/indev.html?highlight=lv_indev_get_act#keypad-and-encoder">LVGL documentation</a> for more info. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md399"></a>
+LVGL API usage</h2>
+<p>Every LVGL calls must be protected with these lock/unlock commands: </p><div class="fragment"><div class="line">c</div>
+<div class="line">   /* Wait for the other task done the screen operation */</div>
+<div class="line">   lvgl_port_lock(0);</div>
+<div class="line">   ...</div>
+<div class="line">   lv_obj_t * screen = lv_disp_get_scr_act(disp_handle);</div>
+<div class="line">   lv_obj_t * obj = lv_label_create(screen);</div>
+<div class="line">   ...</div>
+<div class="line">   /* Screen operation done -&gt; release for the other task */</div>
+<div class="line">   lvgl_port_unlock();</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md400"></a>
+Rotating screen</h2>
+<p>LVGL port supports rotation of the display. You can select whether you'd like software rotation or hardware rotation. Software rotation requires no additional logic in your <code>flush_cb</code> callback.</p>
+<p>Rotation mode can be selected in the <code><a class="el" href="structlvgl__port__display__cfg__t.html" title="Configuration display structure.">lvgl_port_display_cfg_t</a></code> structure. </p><div class="fragment"><div class="line">c</div>
+<div class="line">   const lvgl_port_display_cfg_t disp_cfg = {</div>
+<div class="line">       ...</div>
+<div class="line">       .flags = {</div>
+<div class="line">           ...</div>
+<div class="line">           .sw_rotate = true / false, // true: software; false: hardware</div>
+<div class="line">       }</div>
+<div class="line">   }</div>
+</div><!-- fragment --><p> Display rotation can be changed at runtime.</p>
+<div class="fragment"><div class="line">c</div>
+<div class="line">   lv_disp_set_rotation(disp_handle, LV_DISP_ROT_90);</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;[!NOTE] Software rotation consumes more RAM. Software rotation uses <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32p4/api-reference/peripherals/ppa.html">PPA</a> if available on the chip (e.g. ESP32P4). </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>&zwj;[!NOTE] During the hardware rotating, the component call <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/lcd.html"><code>esp_lcd</code></a> API. When using software rotation, you cannot use neither <code>direct_mode</code> nor <code>full_refresh</code> in the driver. See <a href="https://docs.lvgl.io/8.3/porting/display.html?highlight=sw_rotate">LVGL documentation</a> for more info. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md401"></a>
+Detecting gestures</h2>
+<p>LVGL (version 9.4 and higher) includes support for software detection of multi-touch gestures. This detection can be enabled by setting the <code>LV_USE_GESTURE_RECOGNITION</code> config and having <code>ESP_LCD_TOUCH_MAX_POINTS</code> &gt; 1. Example usage of the gesture callback can be found in LVGL <a href="https://docs.lvgl.io/master/details/main-modules/indev/gestures.html">documentation</a>.</p>
+<p>The LVGL port task is responsible for passing the touch coordinates to the gesture recognizers and calling the registered callback when a gesture is detected.</p>
+<p>To correctly distinguish two finger swipe from rotation, we recommend changing the default value (which is 0) for the rotation threshold. From our testing we recommend starting with 0.15 radians.</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct__lv__indev__t.html">lv_indev_t</a> indev = <a class="code hl_function" href="group__g04__display.html#gaa358520a1c77dbf054e73757e48dea9a">bsp_display_get_input_dev</a>();</div>
+<div class="line">lv_indev_set_rotation_rad_threshold(indev, 0.15f);</div>
+<div class="ttc" id="agroup__g04__display_html_gaa358520a1c77dbf054e73757e48dea9a"><div class="ttname"><a href="group__g04__display.html#gaa358520a1c77dbf054e73757e48dea9a">bsp_display_get_input_dev</a></div><div class="ttdeci">lv_indev_t * bsp_display_get_input_dev(void)</div><div class="ttdoc">Get pointer to input device (touch, buttons, ...)</div><div class="ttdef"><b>Definition</b> esp-box-3.c:789</div></div>
+<div class="ttc" id="astruct__lv__indev__t_html"><div class="ttname"><a href="struct__lv__indev__t.html">_lv_indev_t</a></div><div class="ttdef"><b>Definition</b> lv_indev_private.h:31</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md402"></a>
+Using PSRAM canvas</h2>
+<p>If the SRAM is insufficient, you can use the PSRAM as a canvas and use a small trans_buffer to carry it, this makes drawing more efficient. </p><div class="fragment"><div class="line">c</div>
+<div class="line">   const lvgl_port_display_cfg_t disp_cfg = {</div>
+<div class="line">       ...</div>
+<div class="line">       .buffer_size = DISP_WIDTH * DISP_HEIGHT, // in PSRAM, not DMA-capable</div>
+<div class="line">       .trans_size = size, // in SRAM, DMA-capable</div>
+<div class="line">       .flags = {</div>
+<div class="line">           .buff_spiram = true,</div>
+<div class="line">           .buff_dma = false,</div>
+<div class="line">           ...</div>
+<div class="line">       }</div>
+<div class="line">   }</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md403"></a>
+Generating images (C Array)</h2>
+<p>Images can be generated during build by adding these lines to end of the main CMakeLists.txt: </p><div class="fragment"><div class="line"># Generate C array for each image</div>
+<div class="line">lvgl_port_create_c_image(&quot;images/logo.png&quot; &quot;images/&quot; &quot;ARGB8888&quot; &quot;NONE&quot;)</div>
+<div class="line">lvgl_port_create_c_image(&quot;images/image.png&quot; &quot;images/&quot; &quot;ARGB8888&quot; &quot;NONE&quot;)</div>
+<div class="line"># Add generated images to build</div>
+<div class="line">lvgl_port_add_images(${COMPONENT_LIB} &quot;images/&quot;)</div>
+</div><!-- fragment --><p>Usage of create C image function: </p><div class="fragment"><div class="line">lvgl_port_create_c_image(input_image output_folder color_format compression)</div>
+</div><!-- fragment --><p>Available color formats: L8,I1,I2,I4,I8,A1,A2,A4,A8,ARGB8888,XRGB8888,RGB565,RGB565A8,RGB888,TRUECOLOR,TRUECOLOR_ALPHA,AUTO</p>
+<p>Available compression: NONE,RLE,LZ4</p>
+<blockquote class="doxtable">
+<p>&zwj;[!NOTE] Parameters <code>color_format</code> and <code>compression</code> are used only in LVGL 9. </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md404"></a>
+Power Saving</h1>
+<p>The LVGL port can be optimized for power saving mode. There are two main features.</p>
+<h2><a class="anchor" id="autotoc_md405"></a>
+LVGL task sleep</h2>
+<p>For optimization power saving, the LVGL task should sleep, when it does nothing. Set <code>task_max_sleep_ms</code> to big value, the LVGL task will wait for events only.</p>
+<p>The LVGL task can sleep till these situations:</p><ul>
+<li>LVGL display invalidate</li>
+<li>LVGL animation in process</li>
+<li>Touch interrupt</li>
+<li>Button interrupt</li>
+<li>Knob interrupt</li>
+<li>USB mouse/keyboard interrupt</li>
+<li>Timeout (<code>task_max_sleep_ms</code> in configuration structure)</li>
+<li>User wake (by function <code>lvgl_port_task_wake</code>)</li>
+</ul>
+<blockquote class="doxtable">
+<p>&zwj;[!WARNING] This feature is available from LVGL 9. </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>&zwj;[!NOTE] Don't forget to set the interrupt pin in LCD touch when you set a big time for sleep in <code>task_max_sleep_ms</code>. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md406"></a>
+Stopping the timer</h2>
+<p>Timers can still work during light-sleep mode. You can stop LVGL timer before use light-sleep by function:</p>
+<div class="fragment"><div class="line">lvgl_port_stop();</div>
+</div><!-- fragment --><p>and resume LVGL timer after wake by function:</p>
+<div class="fragment"><div class="line">lvgl_port_resume();</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md407"></a>
+Performance</h1>
+<p>Key feature of every graphical application is performance. Recommended settings for improving LCD performance is described in a separate document <a class="el" href="md_managed__components_2espressif____esp__lvgl__port_2docs_2performance.html">here</a>.</p>
+<h2><a class="anchor" id="autotoc_md408"></a>
+Performance monitor</h2>
+<p>For show performance monitor in LVGL9, please add these lines to sdkconfig.defaults and rebuild all.</p>
+<div class="fragment"><div class="line">CONFIG_LV_USE_OBSERVER=y</div>
+<div class="line">CONFIG_LV_USE_SYSMON=y</div>
+<div class="line">CONFIG_LV_USE_PERF_MONITOR=y</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

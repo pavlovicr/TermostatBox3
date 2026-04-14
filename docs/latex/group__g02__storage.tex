@@ -1,0 +1,306 @@
+\doxysection{SD Card and SPIFFS}
+\hypertarget{group__g02__storage}{}\label{group__g02__storage}\index{SD Card and SPIFFS@{SD Card and SPIFFS}}
+
+
+SPIFFS and SD card BSP API.  
+
+
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbsp__sdcard__cfg__t}{bsp\+\_\+sdcard\+\_\+cfg\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BSP SD card configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{group__g02__storage_gab09257cafdfb516962f4f1976175f58c}\label{group__g02__storage_gab09257cafdfb516962f4f1976175f58c} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+D0}~(GPIO\+\_\+\+NUM\+\_\+9)
+\item 
+\Hypertarget{group__g02__storage_ga9dcc2109b20c3c18b2459a6fca8e31fc}\label{group__g02__storage_ga9dcc2109b20c3c18b2459a6fca8e31fc} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+D1}~(GPIO\+\_\+\+NUM\+\_\+13)
+\item 
+\Hypertarget{group__g02__storage_gafde4a6bea5dd6d76b91d425333ba776e}\label{group__g02__storage_gafde4a6bea5dd6d76b91d425333ba776e} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+D2}~(GPIO\+\_\+\+NUM\+\_\+42)
+\item 
+\Hypertarget{group__g02__storage_ga64d8ab0f51532e2d8009766ab6e71c42}\label{group__g02__storage_ga64d8ab0f51532e2d8009766ab6e71c42} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+D3}~(GPIO\+\_\+\+NUM\+\_\+12)
+\item 
+\Hypertarget{group__g02__storage_ga9628c257bf4118d66bf869b252532088}\label{group__g02__storage_ga9628c257bf4118d66bf869b252532088} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+CMD}~(GPIO\+\_\+\+NUM\+\_\+14)
+\item 
+\Hypertarget{group__g02__storage_ga9b2f67dbe6e1c9c3a1e252847778c93c}\label{group__g02__storage_ga9b2f67dbe6e1c9c3a1e252847778c93c} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+CLK}~(GPIO\+\_\+\+NUM\+\_\+11)
+\item 
+\Hypertarget{group__g02__storage_gabf3b7b7976f2ace3c05582c650a6a15d}\label{group__g02__storage_gabf3b7b7976f2ace3c05582c650a6a15d} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+DET}~(GPIO\+\_\+\+NUM\+\_\+\+NC)
+\item 
+\Hypertarget{group__g02__storage_gafd5f01e7ffbe870883746bdb97f9f13d}\label{group__g02__storage_gafd5f01e7ffbe870883746bdb97f9f13d} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+POWER}~(GPIO\+\_\+\+NUM\+\_\+43)
+\item 
+\Hypertarget{group__g02__storage_gaa073dcc8c7b1ce03c845e59b1902fd62}\label{group__g02__storage_gaa073dcc8c7b1ce03c845e59b1902fd62} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+SPI\+\_\+\+MISO}~(GPIO\+\_\+\+NUM\+\_\+9)
+\item 
+\Hypertarget{group__g02__storage_ga826f0e2cc72b9a35d2d0a2c4afba9f68}\label{group__g02__storage_ga826f0e2cc72b9a35d2d0a2c4afba9f68} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+SPI\+\_\+\+CS}~(GPIO\+\_\+\+NUM\+\_\+12)
+\item 
+\Hypertarget{group__g02__storage_ga70168a6aa86d551e86751f8ad61c9bad}\label{group__g02__storage_ga70168a6aa86d551e86751f8ad61c9bad} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+SPI\+\_\+\+MOSI}~(GPIO\+\_\+\+NUM\+\_\+14)
+\item 
+\Hypertarget{group__g02__storage_gac446b76616f69ff0ca513b3b98108e21}\label{group__g02__storage_gac446b76616f69ff0ca513b3b98108e21} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+SPI\+\_\+\+CLK}~(GPIO\+\_\+\+NUM\+\_\+11)
+\item 
+\Hypertarget{group__g02__storage_ga183706ece1b79bb571cfae1cb5082b39}\label{group__g02__storage_ga183706ece1b79bb571cfae1cb5082b39} 
+\#define {\bfseries BSP\+\_\+\+SPIFFS\+\_\+\+MOUNT\+\_\+\+POINT}~CONFIG\+\_\+\+BSP\+\_\+\+SPIFFS\+\_\+\+MOUNT\+\_\+\+POINT
+\item 
+\Hypertarget{group__g02__storage_gac25b02b46a9070f161b83dd42ce5e552}\label{group__g02__storage_gac25b02b46a9070f161b83dd42ce5e552} 
+\#define {\bfseries BSP\+\_\+\+SD\+\_\+\+MOUNT\+\_\+\+POINT}~CONFIG\+\_\+\+BSP\+\_\+\+SD\+\_\+\+MOUNT\+\_\+\+POINT
+\item 
+\Hypertarget{group__g02__storage_ga4e6da2492c270e612d9567510d9b0611}\label{group__g02__storage_ga4e6da2492c270e612d9567510d9b0611} 
+\#define {\bfseries BSP\+\_\+\+SDSPI\+\_\+\+HOST}~(SPI2\+\_\+\+HOST)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g02__storage_gac9a93112f87090d2f5e2e11d24e93232}{bsp\+\_\+spiffs\+\_\+mount}} (void)
+\begin{DoxyCompactList}\small\item\em Mount SPIFFS to virtual file system. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g02__storage_ga0c392bdd27b40fb9de95391d9063325c}{bsp\+\_\+spiffs\+\_\+unmount}} (void)
+\begin{DoxyCompactList}\small\item\em Unmount SPIFFS from virtual file system. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g02__storage_ga5560065f8b54fe0756b84b1e899e6377}{bsp\+\_\+sdcard\+\_\+mount}} (void)
+\begin{DoxyCompactList}\small\item\em Mount micro\+SD card to virtual file system. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g02__storage_gab22f98cd53a08f8d0713097bbed2d2c0}{bsp\+\_\+sdcard\+\_\+unmount}} (void)
+\begin{DoxyCompactList}\small\item\em Unmount micor\+SD card from virtual file system. \end{DoxyCompactList}\item 
+sdmmc\+\_\+card\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{group__g02__storage_ga544da06689f3934a3235502772a8164c}{bsp\+\_\+sdcard\+\_\+get\+\_\+handle}} (void)
+\begin{DoxyCompactList}\small\item\em Get SD card handle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__g02__storage_ga23edbd6330f928a6aa428805569c55bd}{bsp\+\_\+sdcard\+\_\+get\+\_\+sdmmc\+\_\+host}} (const int slot, sdmmc\+\_\+host\+\_\+t \texorpdfstring{$\ast$}{*}config)
+\begin{DoxyCompactList}\small\item\em Get SD card MMC host config. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__g02__storage_ga5abfdbb971b7836c8741c770917262b1}{bsp\+\_\+sdcard\+\_\+get\+\_\+sdspi\+\_\+host}} (const int slot, sdmmc\+\_\+host\+\_\+t \texorpdfstring{$\ast$}{*}config)
+\begin{DoxyCompactList}\small\item\em Get SD card SPI host config. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__g02__storage_gae633008e9dcfbccd0258578f1d2b317a}{bsp\+\_\+sdcard\+\_\+sdmmc\+\_\+get\+\_\+slot}} (const int slot, sdmmc\+\_\+slot\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}config)
+\begin{DoxyCompactList}\small\item\em Get SD card MMC slot config. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__g02__storage_ga90a00ff32d12e77b321985c84d358cf6}{bsp\+\_\+sdcard\+\_\+sdspi\+\_\+get\+\_\+slot}} (const spi\+\_\+host\+\_\+device\+\_\+t spi\+\_\+host, sdspi\+\_\+device\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}config)
+\begin{DoxyCompactList}\small\item\em Get SD card SPI slot config. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g02__storage_gaa8a01e03e7801c3ba65dfd868c10a52f}{bsp\+\_\+sdcard\+\_\+sdmmc\+\_\+mount}} (\mbox{\hyperlink{structbsp__sdcard__cfg__t}{bsp\+\_\+sdcard\+\_\+cfg\+\_\+t}} \texorpdfstring{$\ast$}{*}cfg)
+\begin{DoxyCompactList}\small\item\em Mount micro\+SD card to virtual file system (MMC mode) \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g02__storage_ga4a0df6fcd3272a1ca89206872d897142}{bsp\+\_\+sdcard\+\_\+sdspi\+\_\+mount}} (\mbox{\hyperlink{structbsp__sdcard__cfg__t}{bsp\+\_\+sdcard\+\_\+cfg\+\_\+t}} \texorpdfstring{$\ast$}{*}cfg)
+\begin{DoxyCompactList}\small\item\em Mount micro\+SD card to virtual file system (SPI mode) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+SPIFFS and SD card BSP API. 
+
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{group__g02__storage_ga544da06689f3934a3235502772a8164c}\label{group__g02__storage_ga544da06689f3934a3235502772a8164c} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_get\_handle@{bsp\_sdcard\_get\_handle}}
+\index{bsp\_sdcard\_get\_handle@{bsp\_sdcard\_get\_handle}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_get\_handle()}{bsp\_sdcard\_get\_handle()}}
+{\footnotesize\ttfamily sdmmc\+\_\+card\+\_\+t \texorpdfstring{$\ast$}{*} bsp\+\_\+sdcard\+\_\+get\+\_\+handle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get SD card handle. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+SD card handle 
+\end{DoxyReturn}
+\Hypertarget{group__g02__storage_ga23edbd6330f928a6aa428805569c55bd}\label{group__g02__storage_ga23edbd6330f928a6aa428805569c55bd} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_get\_sdmmc\_host@{bsp\_sdcard\_get\_sdmmc\_host}}
+\index{bsp\_sdcard\_get\_sdmmc\_host@{bsp\_sdcard\_get\_sdmmc\_host}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_get\_sdmmc\_host()}{bsp\_sdcard\_get\_sdmmc\_host()}}
+{\footnotesize\ttfamily void bsp\+\_\+sdcard\+\_\+get\+\_\+sdmmc\+\_\+host (\begin{DoxyParamCaption}\item[{const int}]{slot,  }\item[{sdmmc\+\_\+host\+\_\+t \texorpdfstring{$\ast$}{*}}]{config }\end{DoxyParamCaption})}
+
+
+
+Get SD card MMC host config. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em slot} & SD card slot \\
+\hline
+{\em config} & Structure which will be filled \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__g02__storage_ga5abfdbb971b7836c8741c770917262b1}\label{group__g02__storage_ga5abfdbb971b7836c8741c770917262b1} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_get\_sdspi\_host@{bsp\_sdcard\_get\_sdspi\_host}}
+\index{bsp\_sdcard\_get\_sdspi\_host@{bsp\_sdcard\_get\_sdspi\_host}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_get\_sdspi\_host()}{bsp\_sdcard\_get\_sdspi\_host()}}
+{\footnotesize\ttfamily void bsp\+\_\+sdcard\+\_\+get\+\_\+sdspi\+\_\+host (\begin{DoxyParamCaption}\item[{const int}]{slot,  }\item[{sdmmc\+\_\+host\+\_\+t \texorpdfstring{$\ast$}{*}}]{config }\end{DoxyParamCaption})}
+
+
+
+Get SD card SPI host config. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em slot} & SD card slot \\
+\hline
+{\em config} & Structure which will be filled \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__g02__storage_ga5560065f8b54fe0756b84b1e899e6377}\label{group__g02__storage_ga5560065f8b54fe0756b84b1e899e6377} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_mount@{bsp\_sdcard\_mount}}
+\index{bsp\_sdcard\_mount@{bsp\_sdcard\_mount}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_mount()}{bsp\_sdcard\_mount()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t bsp\+\_\+sdcard\+\_\+mount (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Mount micro\+SD card to virtual file system. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE if esp\+\_\+vfs\+\_\+fat\+\_\+sdmmc\+\_\+mount was already called
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if memory can not be allocated
+\item ESP\+\_\+\+FAIL if partition can not be mounted
+\item other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{group__g02__storage_gae633008e9dcfbccd0258578f1d2b317a}\label{group__g02__storage_gae633008e9dcfbccd0258578f1d2b317a} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_sdmmc\_get\_slot@{bsp\_sdcard\_sdmmc\_get\_slot}}
+\index{bsp\_sdcard\_sdmmc\_get\_slot@{bsp\_sdcard\_sdmmc\_get\_slot}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_sdmmc\_get\_slot()}{bsp\_sdcard\_sdmmc\_get\_slot()}}
+{\footnotesize\ttfamily void bsp\+\_\+sdcard\+\_\+sdmmc\+\_\+get\+\_\+slot (\begin{DoxyParamCaption}\item[{const int}]{slot,  }\item[{sdmmc\+\_\+slot\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}}]{config }\end{DoxyParamCaption})}
+
+
+
+Get SD card MMC slot config. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em slot} & SD card slot \\
+\hline
+{\em config} & Structure which will be filled \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__g02__storage_gaa8a01e03e7801c3ba65dfd868c10a52f}\label{group__g02__storage_gaa8a01e03e7801c3ba65dfd868c10a52f} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_sdmmc\_mount@{bsp\_sdcard\_sdmmc\_mount}}
+\index{bsp\_sdcard\_sdmmc\_mount@{bsp\_sdcard\_sdmmc\_mount}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_sdmmc\_mount()}{bsp\_sdcard\_sdmmc\_mount()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t bsp\+\_\+sdcard\+\_\+sdmmc\+\_\+mount (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbsp__sdcard__cfg__t}{bsp\+\_\+sdcard\+\_\+cfg\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Mount micro\+SD card to virtual file system (MMC mode) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em cfg} & SD card configuration\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE if esp\+\_\+vfs\+\_\+fat\+\_\+sdmmc\+\_\+mount was already called
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if memory cannot be allocated
+\item ESP\+\_\+\+FAIL if partition cannot be mounted
+\item other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{group__g02__storage_ga90a00ff32d12e77b321985c84d358cf6}\label{group__g02__storage_ga90a00ff32d12e77b321985c84d358cf6} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_sdspi\_get\_slot@{bsp\_sdcard\_sdspi\_get\_slot}}
+\index{bsp\_sdcard\_sdspi\_get\_slot@{bsp\_sdcard\_sdspi\_get\_slot}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_sdspi\_get\_slot()}{bsp\_sdcard\_sdspi\_get\_slot()}}
+{\footnotesize\ttfamily void bsp\+\_\+sdcard\+\_\+sdspi\+\_\+get\+\_\+slot (\begin{DoxyParamCaption}\item[{const spi\+\_\+host\+\_\+device\+\_\+t}]{spi\+\_\+host,  }\item[{sdspi\+\_\+device\+\_\+config\+\_\+t \texorpdfstring{$\ast$}{*}}]{config }\end{DoxyParamCaption})}
+
+
+
+Get SD card SPI slot config. 
+
+
+\begin{DoxyParams}{Parametri}
+{\em spi\+\_\+host} & SPI host ID \\
+\hline
+{\em config} & Structure which will be filled \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__g02__storage_ga4a0df6fcd3272a1ca89206872d897142}\label{group__g02__storage_ga4a0df6fcd3272a1ca89206872d897142} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_sdspi\_mount@{bsp\_sdcard\_sdspi\_mount}}
+\index{bsp\_sdcard\_sdspi\_mount@{bsp\_sdcard\_sdspi\_mount}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_sdspi\_mount()}{bsp\_sdcard\_sdspi\_mount()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t bsp\+\_\+sdcard\+\_\+sdspi\+\_\+mount (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structbsp__sdcard__cfg__t}{bsp\+\_\+sdcard\+\_\+cfg\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Mount micro\+SD card to virtual file system (SPI mode) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em cfg} & SD card configuration\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE if esp\+\_\+vfs\+\_\+fat\+\_\+sdmmc\+\_\+mount was already called
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if memory cannot be allocated
+\item ESP\+\_\+\+FAIL if partition cannot be mounted
+\item other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{group__g02__storage_gab22f98cd53a08f8d0713097bbed2d2c0}\label{group__g02__storage_gab22f98cd53a08f8d0713097bbed2d2c0} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_sdcard\_unmount@{bsp\_sdcard\_unmount}}
+\index{bsp\_sdcard\_unmount@{bsp\_sdcard\_unmount}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_sdcard\_unmount()}{bsp\_sdcard\_unmount()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t bsp\+\_\+sdcard\+\_\+unmount (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Unmount micor\+SD card from virtual file system. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+NOT\+\_\+\+FOUND if the partition table does not contain FATFS partition with given label
+\item ESP\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE if esp\+\_\+vfs\+\_\+fat\+\_\+spiflash\+\_\+mount was already called
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if memory can not be allocated
+\item ESP\+\_\+\+FAIL if partition can not be mounted
+\item other error codes from wear levelling library, SPI flash driver, or FATFS drivers 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{group__g02__storage_gac9a93112f87090d2f5e2e11d24e93232}\label{group__g02__storage_gac9a93112f87090d2f5e2e11d24e93232} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_spiffs\_mount@{bsp\_spiffs\_mount}}
+\index{bsp\_spiffs\_mount@{bsp\_spiffs\_mount}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_spiffs\_mount()}{bsp\_spiffs\_mount()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t bsp\+\_\+spiffs\+\_\+mount (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Mount SPIFFS to virtual file system. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE if esp\+\_\+vfs\+\_\+spiffs\+\_\+register was already called
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if memory can not be allocated
+\item ESP\+\_\+\+FAIL if partition can not be mounted
+\item other error codes 
+\end{DoxyItemize}
+\end{DoxyReturn}
+\Hypertarget{group__g02__storage_ga0c392bdd27b40fb9de95391d9063325c}\label{group__g02__storage_ga0c392bdd27b40fb9de95391d9063325c} 
+\index{SD Card and SPIFFS@{SD Card and SPIFFS}!bsp\_spiffs\_unmount@{bsp\_spiffs\_unmount}}
+\index{bsp\_spiffs\_unmount@{bsp\_spiffs\_unmount}!SD Card and SPIFFS@{SD Card and SPIFFS}}
+\doxysubsubsection{\texorpdfstring{bsp\_spiffs\_unmount()}{bsp\_spiffs\_unmount()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t bsp\+\_\+spiffs\+\_\+unmount (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Unmount SPIFFS from virtual file system. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+NOT\+\_\+\+FOUND if the partition table does not contain SPIFFS partition with given label
+\item ESP\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+STATE if esp\+\_\+vfs\+\_\+spiffs\+\_\+unregister was already called
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if memory can not be allocated
+\item ESP\+\_\+\+FAIL if partition can not be mounted
+\item other error codes 
+\end{DoxyItemize}
+\end{DoxyReturn}

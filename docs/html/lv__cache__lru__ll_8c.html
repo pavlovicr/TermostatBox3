@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/misc/cache/class/lv_cache_lru_ll.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_3fae1cc67f391465909e41a1075a2efb.html">misc</a></li><li class="navelem"><a class="el" href="dir_adb854ff22add10ab08371ea06e25f2c.html">cache</a></li><li class="navelem"><a class="el" href="dir_bdacf034bc807b81bcaf70c22835e27c.html">class</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Strukture</a> &#124;
+<a href="#typedef-members">Uporabniško definirani tipi</a> &#124;
+<a href="#var-members">Spremenljivke</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_cache_lru_ll.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__cache__lru__ll_8h_source.html">lv_cache_lru_ll.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__cache__entry_8h_source.html">../lv_cache_entry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__sprintf_8h_source.html">../../../stdlib/lv_sprintf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h_source.html">../../../stdlib/lv_string.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__ll_8h_source.html">../../lv_ll.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__iter_8h_source.html">../../lv_iter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__assert_8h_source.html">../../lv_assert.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_cache_lru_ll.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_cache_lru_ll.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__cache__lru__ll_8c__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2misc_2cache_2class_2lv__cache__lru__ll_8c" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2misc_2cache_2class_2lv__cache__lru__ll_8c" id="amanaged__components_2lvgl____lvgl_2src_2misc_2cache_2class_2lv__cache__lru__ll_8c">
+<area shape="rect" title=" " alt="" coords="489,5,660,75"/>
+<area shape="rect" href="lv__cache__lru__ll_8h.html" title=" " alt="" coords="224,123,354,148"/>
+<area shape="poly" title=" " alt="" coords="490,72,338,121,336,116,488,67"/>
+<area shape="rect" href="lv__cache__entry_8h.html" title=" " alt="" coords="503,196,646,221"/>
+<area shape="poly" title=" " alt="" coords="577,75,577,182,572,182,572,75"/>
+<area shape="rect" href="lv__sprintf_8h.html" title=" " alt="" coords="319,269,430,309"/>
+<area shape="poly" title=" " alt="" coords="490,76,456,97,427,124,407,156,393,191,380,256,374,255,388,189,402,153,423,121,453,93,488,71"/>
+<area shape="rect" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h.html" title=" " alt="" coords="866,357,976,397"/>
+<area shape="poly" title=" " alt="" coords="661,65,716,86,775,115,834,151,887,194,913,228,925,269,927,289,925,309,924,344,919,344,920,309,921,289,920,270,908,230,883,198,831,155,773,119,714,91,659,70"/>
+<area shape="rect" href="lv__ll_8h.html" title=" " alt="" coords="556,365,641,390"/>
+<area shape="poly" title=" " alt="" coords="601,74,634,129,650,161,661,195,664,218,663,240,653,284,636,323,617,354,613,352,631,321,648,282,658,240,659,218,656,197,645,163,630,131,597,76"/>
+<area shape="rect" href="lv__iter_8h.html" title=" " alt="" coords="437,123,536,148"/>
+<area shape="poly" title=" " alt="" coords="544,77,509,114,505,111,541,73"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="756,196,873,221"/>
+<area shape="poly" title=" " alt="" coords="631,73,704,120,791,186,788,190,701,125,628,77"/>
+<area shape="rect" href="lv__cache__private_8h.html" title=" " alt="" coords="203,196,359,221"/>
+<area shape="poly" title=" " alt="" coords="290,149,286,183,281,182,285,148"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="468,445,569,471"/>
+<area shape="poly" title=" " alt="" coords="284,222,291,262,298,286,309,308,345,352,390,388,436,417,478,437,475,442,434,421,387,393,341,356,304,311,293,288,285,263,279,222"/>
+<area shape="rect" href="lv__os__private_8h.html" title=" " alt="" coords="68,277,244,302"/>
+<area shape="poly" title=" " alt="" coords="264,224,187,271,184,267,261,219"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="678,519,828,544"/>
+<area shape="poly" title=" " alt="" coords="557,468,703,512,701,517,555,473"/>
+<area shape="rect" href="lv__conf__kconfig_8h.html" title=" " alt="" coords="614,592,748,617"/>
+<area shape="poly" title=" " alt="" coords="743,546,704,584,701,580,739,542"/>
+<area shape="rect" title=" " alt="" coords="773,592,877,617"/>
+<area shape="poly" title=" " alt="" coords="767,542,805,580,802,584,763,546"/>
+<area shape="poly" title=" " alt="" coords="172,300,242,355,297,395,377,425,454,444,453,449,376,430,294,400,239,359,169,304"/>
+<area shape="poly" title=" " alt="" coords="117,305,74,321,34,342,19,355,10,368,9,381,16,396,35,413,60,428,126,456,210,477,304,494,499,516,664,525,664,530,499,521,303,499,208,483,125,461,57,433,32,417,12,399,4,382,5,366,15,351,31,338,72,316,115,300"/>
+<area shape="rect" href="lv__os_8h.html" title=" " alt="" coords="27,365,95,390"/>
+<area shape="poly" title=" " alt="" coords="145,304,86,357,82,353,141,300"/>
+<area shape="rect" href="lv__os__none_8h.html" title=" " alt="" coords="120,365,226,390"/>
+<area shape="poly" title=" " alt="" coords="161,302,170,350,165,351,155,303"/>
+<area shape="poly" title=" " alt="" coords="87,388,108,395,201,416,296,432,454,449,454,455,295,437,200,421,107,400,85,393"/>
+<area shape="poly" title=" " alt="" coords="574,222,527,432,521,431,569,221"/>
+<area shape="poly" title=" " alt="" coords="388,308,415,350,451,396,494,435,490,439,447,399,410,353,383,311"/>
+<area shape="poly" title=" " alt="" coords="866,392,584,447,582,442,865,387"/>
+<area shape="poly" title=" " alt="" coords="911,399,884,435,848,473,818,495,789,514,786,510,815,491,845,469,880,431,906,396"/>
+<area shape="poly" title=" " alt="" coords="588,392,542,437,538,433,585,388"/>
+<area shape="poly" title=" " alt="" coords="612,388,733,507,730,511,608,392"/>
+<area shape="poly" title=" " alt="" coords="490,148,494,221,518,431,512,432,489,222,484,148"/>
+<area shape="poly" title=" " alt="" coords="842,219,896,247,955,288,979,313,995,340,1000,368,991,398,976,422,957,443,912,476,863,501,817,517,815,512,861,496,909,472,953,439,972,419,987,396,995,368,990,341,974,316,951,292,893,251,840,224"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__log_8h.html" title=" " alt="" coords="716,365,790,390"/>
+<area shape="poly" title=" " alt="" coords="801,224,779,244,762,270,753,312,753,351,747,351,747,311,757,268,775,241,797,220"/>
+<area shape="rect" href="lv__mem_8h.html" title=" " alt="" coords="772,277,910,302"/>
+<area shape="poly" title=" " alt="" coords="821,221,835,263,830,265,816,222"/>
+<area shape="poly" title=" " alt="" coords="719,393,698,400,566,444,565,438,696,395,718,388"/>
+<area shape="poly" title=" " alt="" coords="756,390,756,505,750,505,750,390"/>
+<area shape="poly" title=" " alt="" coords="815,305,763,328,706,360,681,380,654,400,608,424,563,443,561,438,606,419,652,395,677,375,704,355,761,324,812,300"/>
+<area shape="poly" title=" " alt="" coords="839,303,805,398,765,507,760,505,800,396,834,302"/>
+<area shape="poly" title=" " alt="" coords="854,300,896,345,892,349,850,304"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Strukture</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct__lv__cache__lru__ll__t.html">_lv_cache_lru_ll_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Uporabniško definirani tipi</h2></td></tr>
+<tr class="memitem:ae89d2fb330d1c03bddf50e916dd5f61d" id="r_ae89d2fb330d1c03bddf50e916dd5f61d"><td class="memItemLeft" align="right" valign="top"><a id="ae89d2fb330d1c03bddf50e916dd5f61d" name="ae89d2fb330d1c03bddf50e916dd5f61d"></a>
+typedef uint32_t()&#160;</td><td class="memItemRight" valign="bottom"><b>get_data_size_cb_t</b>(const void *data)</td></tr>
+<tr class="separator:ae89d2fb330d1c03bddf50e916dd5f61d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5940e11e26bc3c1961c446a5d2b46a75" id="r_a5940e11e26bc3c1961c446a5d2b46a75"><td class="memItemLeft" align="right" valign="top"><a id="a5940e11e26bc3c1961c446a5d2b46a75" name="a5940e11e26bc3c1961c446a5d2b46a75"></a>
+typedef struct <a class="el" href="struct__lv__cache__lru__ll__t.html">_lv_cache_lru_ll_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>lv_cache_lru_ll_t</b></td></tr>
+<tr class="separator:a5940e11e26bc3c1961c446a5d2b46a75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Spremenljivke</h2></td></tr>
+<tr class="memitem:afe5d28f051a3aa085e889e711a61449e" id="r_afe5d28f051a3aa085e889e711a61449e"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct__lv__cache__class__t.html">lv_cache_class_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__cache__lru__ll_8c.html#afe5d28f051a3aa085e889e711a61449e">lv_cache_class_lru_ll_count</a></td></tr>
+<tr class="separator:afe5d28f051a3aa085e889e711a61449e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe86c2032ea2995123778c0ab27b75c3" id="r_afe86c2032ea2995123778c0ab27b75c3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct__lv__cache__class__t.html">lv_cache_class_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__cache__lru__ll_8c.html#afe86c2032ea2995123778c0ab27b75c3">lv_cache_class_lru_ll_size</a></td></tr>
+<tr class="separator:afe86c2032ea2995123778c0ab27b75c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis spremenljivke</h2>
+<a id="afe5d28f051a3aa085e889e711a61449e" name="afe5d28f051a3aa085e889e711a61449e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe5d28f051a3aa085e889e711a61449e">&#9670;&#160;</a></span>lv_cache_class_lru_ll_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct__lv__cache__class__t.html">lv_cache_class_t</a> lv_cache_class_lru_ll_count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Začetna vrednost / definicija :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .alloc_cb = alloc_cb,</div>
+<div class="line">    .init_cb = init_cnt_cb,</div>
+<div class="line">    .destroy_cb = destroy_cb,</div>
+<div class="line"> </div>
+<div class="line">    .get_cb = get_cb,</div>
+<div class="line">    .add_cb = add_cb,</div>
+<div class="line">    .remove_cb = remove_cb,</div>
+<div class="line">    .drop_cb = drop_cb,</div>
+<div class="line">    .drop_all_cb = drop_all_cb,</div>
+<div class="line">    .get_victim_cb = get_victim_cb,</div>
+<div class="line">    .reserve_cond_cb = reserve_cond_cb,</div>
+<div class="line">    .iter_create_cb = cache_iter_create_cb,</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afe86c2032ea2995123778c0ab27b75c3" name="afe86c2032ea2995123778c0ab27b75c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe86c2032ea2995123778c0ab27b75c3">&#9670;&#160;</a></span>lv_cache_class_lru_ll_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct__lv__cache__class__t.html">lv_cache_class_t</a> lv_cache_class_lru_ll_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Začetna vrednost / definicija :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .alloc_cb = alloc_cb,</div>
+<div class="line">    .init_cb = init_size_cb,</div>
+<div class="line">    .destroy_cb = destroy_cb,</div>
+<div class="line"> </div>
+<div class="line">    .get_cb = get_cb,</div>
+<div class="line">    .add_cb = add_cb,</div>
+<div class="line">    .remove_cb = remove_cb,</div>
+<div class="line">    .drop_cb = drop_cb,</div>
+<div class="line">    .drop_all_cb = drop_all_cb,</div>
+<div class="line">    .get_victim_cb = get_victim_cb,</div>
+<div class="line">    .reserve_cond_cb = reserve_cond_cb,</div>
+<div class="line">    .iter_create_cb = cache_iter_create_cb,</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

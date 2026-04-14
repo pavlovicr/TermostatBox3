@@ -1,0 +1,35 @@
+\doxysection{aht30.\+h}
+\hypertarget{aht30_8h_source}{}\label{aht30_8h_source}\index{managed\_components/espressif\_\_aht30/include/aht30.h@{managed\_components/espressif\_\_aht30/include/aht30.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2026\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}driver/i2c\_master.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ AHT30\_I2C\_ADDRESS\ \ \ \ \ \ \ \ \ 0x38}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *aht30\_handle\_t;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00031\ esp\_err\_t\ aht30\_create(i2c\_master\_bus\_handle\_t\ i2c\_bus,\ \textcolor{keyword}{const}\ uint8\_t\ dev\_addr,\ aht30\_handle\_t\ *handle\_ret);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ aht30\_delete(aht30\_handle\_t\ sensor);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00051\ esp\_err\_t\ aht30\_get\_temperature\_humidity\_value(aht30\_handle\_t\ sensor,\ \textcolor{keywordtype}{float}\ *temperature,\ \textcolor{keywordtype}{float}\ *humidity);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00063\ esp\_err\_t\ aht30\_get\_busy(aht30\_handle\_t\ sensor,\ \textcolor{keywordtype}{bool}\ *busy);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

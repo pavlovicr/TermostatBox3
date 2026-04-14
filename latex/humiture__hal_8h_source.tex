@@ -1,0 +1,71 @@
+\doxysection{humiture\+\_\+hal.\+h}
+\hypertarget{humiture__hal_8h_source}{}\label{humiture__hal_8h_source}\index{managed\_components/espressif\_\_sensor\_hub/include/hal/humiture\_hal.h@{managed\_components/espressif\_\_sensor\_hub/include/hal/humiture\_hal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2022-\/2024\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_HUMITURE\_HAL\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_HUMITURE\_HAL\_H\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ CONFIG\_SENSOR\_INCLUDED\_HUMITURE}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}i2c\_bus.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}sensor\_type.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *sensor\_humiture\_handle\_t;\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ esp\_err\_t\ (*init)(bus\_handle\_t\ handle,\ uint8\_t\ addr);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \ \ esp\_err\_t\ (*deinit)(void);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ \ \ esp\_err\_t\ (*test)(void);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \ \ esp\_err\_t\ (*acquire\_humidity)(\textcolor{keywordtype}{float}\ *humidity);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ \ \ esp\_err\_t\ (*acquire\_temperature)(\textcolor{keywordtype}{float}\ *temperature);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \ \ \ \ esp\_err\_t\ (*sleep)(void);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ esp\_err\_t\ (*wakeup)(void);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00080\ \ \ \ \ esp\_err\_t\ (*set\_mode)(sensor\_mode\_t\ work\_mode);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00087\ \ \ \ \ esp\_err\_t\ (*set\_range)(sensor\_range\_t\ range);}
+\DoxyCodeLine{00088\ \}\ humiture\_impl\_t;}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{00092\ \{}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00103\ sensor\_humiture\_handle\_t\ humiture\_create(bus\_handle\_t\ bus,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sensor\_name,\ uint8\_t\ addr);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00113\ esp\_err\_t\ humiture\_delete(sensor\_humiture\_handle\_t\ *sensor);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00123\ esp\_err\_t\ humiture\_test(sensor\_humiture\_handle\_t\ sensor);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00135\ esp\_err\_t\ humiture\_acquire\_humidity(sensor\_humiture\_handle\_t\ sensor,\ \textcolor{keywordtype}{float}\ *humidity);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00147\ esp\_err\_t\ humiture\_acquire\_temperature(sensor\_humiture\_handle\_t\ sensor,\ \textcolor{keywordtype}{float}\ *sensor\_data);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00158\ esp\_err\_t\ humiture\_sleep(sensor\_humiture\_handle\_t\ sensor);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00169\ esp\_err\_t\ humiture\_wakeup(sensor\_humiture\_handle\_t\ sensor);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00180\ esp\_err\_t\ humiture\_acquire(sensor\_humiture\_handle\_t\ sensor,\ \mbox{\hyperlink{structsensor__data__group__t}{sensor\_data\_group\_t}}\ *data\_group);}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00192\ esp\_err\_t\ humiture\_control(sensor\_humiture\_handle\_t\ sensor,\ sensor\_command\_t\ cmd,\ \textcolor{keywordtype}{void}\ *args);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00195\ \}}
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

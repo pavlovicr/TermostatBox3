@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Link Time Optimization(LTO)</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Link Time Optimization(LTO)</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md91"></a> Link time optimization(LTO) improves the optimization effect of GCC, such as reducing binary size, increasing performance, and so on. For more details please refer to related <a href="https://gcc.gnu.org/onlinedocs/gccint/LTO.html">GCC documents</a>.</p>
+<h1><a class="anchor" id="autotoc_md92"></a>
+Use</h1>
+<p>To use this feature, you need to include the required CMake file in your project's CMakeLists.txt after <code>project(XXXX)</code>.</p>
+<div class="fragment"><div class="line">include($ENV{IDF_PATH}/tools/cmake/project.cmake)</div>
+<div class="line"> </div>
+<div class="line">project(XXXX)</div>
+<div class="line"> </div>
+<div class="line">include(gcc)</div>
+</div><!-- fragment --><p>The LTO feature is disabled by default. To use it, you should enable the option <code>CU_GCC_LTO_ENABLE</code> in menuconfig. Then specify target components or dependencies to be optimized by LTO after <code>include(gcc)</code> as follows:</p>
+<div class="fragment"><div class="line">include(gcc)</div>
+<div class="line"> </div>
+<div class="line">cu_gcc_lto_set(COMPONENTS component_a component_b</div>
+<div class="line">               DEPENDS dependence_a dependence_b)</div>
+<div class="line"> </div>
+<div class="line">cu_gcc_string_1byte_align(COMPONENTS component_c component_d</div>
+<div class="line">                          DEPENDS dependence_c dependence_d)</div>
+</div><!-- fragment --><p>Based on your requirement, set compiling optimization level in the option <code>COMPILER_OPTIMIZATION</code>.</p>
+<ul>
+<li><p class="startli">Note</p>
+<div class="fragment"><div class="line">1. Reducing firmware size may decrease performance</div>
+<div class="line">2. Increasing performance may increase firmware size</div>
+<div class="line">3. Enable LTO cause compiling time cost increases a lot</div>
+<div class="line">4. Enable LTO may increase task stack cost</div>
+<div class="line">5. Enable string 1-byte align may decrease string process speed</div>
+</div><!-- fragment --></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md93"></a>
+Limitation</h1>
+<p>At the linking stage, the LTO generates new function indexes instead of the file path as follows:</p>
+<ul>
+<li><p class="startli">LTO</p>
+<div class="fragment"><div class="line">.text          0x00000000420016f4        0x6 /tmp/ccdjwYMH.ltrans51.ltrans.o</div>
+<div class="line">               0x00000000420016f4                app_main</div>
+</div><!-- fragment --></li>
+<li><p class="startli">Without LTO</p>
+<div class="fragment"><div class="line">.text.app_main 0x00000000420016f4        0x6 esp-idf/main/libmain.a(app_main.c.obj)</div>
+<div class="line">               0x00000000420016f4                app_main</div>
+</div><!-- fragment --></li>
+</ul>
+<p>So tools used to relink functions between flash and IRAM can't affect these optimized components and dependencies again. It is recommended that users had better optimize application components and dependencies than kernel and hardware driver ones.</p>
+<h1><a class="anchor" id="autotoc_md94"></a>
+Example</h1>
+<p>The example applies LTO in <code>light</code> of <code>esp-matter</code> because its application code is much larger. Add LTO configuration into project script <code>CMakeLists.txt</code> as follows:</p>
+<div class="fragment"><div class="line">project(light)</div>
+<div class="line"> </div>
+<div class="line">include(gcc)</div>
+<div class="line"> </div>
+<div class="line"># Add</div>
+<div class="line">set(app_lto_components main chip esp_matter)</div>
+<div class="line"># Add</div>
+<div class="line">set(idf_lto_components lwip wpa_supplicant nvs_flash)</div>
+<div class="line"># Add</div>
+<div class="line">set(lto_depends mbedcrypto)</div>
+<div class="line"> </div>
+<div class="line"># Add</div>
+<div class="line">cu_gcc_lto_set(COMPONENTS ${app_lto_components} ${idf_lto_components} </div>
+<div class="line">               DEPENDS ${lto_depends})</div>
+</div><!-- fragment --><p>Configure <code>ESP32-C2</code> as the target platform, enable <code>CU_GCC_LTO_ENABLE</code> and <code>CONFIG_COMPILER_OPTIMIZATION_ASSERTIONS_DISABLE</code>, set <code>COMPILER_OPTIMIZATION</code> to be <code>-Os</code>. Increase the <code>main</code> task stack size to <code>5120</code> by option <code>ESP_MAIN_TASK_STACK_SIZE</code>. Compile the project, and then you can see the firmware size decrease a lot:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Option   </th><th class="markdownTableHeadCenter">Firmware size   </th><th class="markdownTableHeadCenter">Stask cost    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">-Os   </td><td class="markdownTableBodyCenter">1,113,376   </td><td class="markdownTableBodyCenter">2508    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">-Os + LTO   </td><td class="markdownTableBodyCenter">1,020,640   </td><td class="markdownTableBodyCenter">4204   </td></tr>
+</table>
+<p>Then add <code>cu_gcc_string_1byte_align</code> after <code>cu_gcc_lto_set</code>:</p>
+<div class="fragment"><div class="line"># Add</div>
+<div class="line">cu_gcc_lto_set(COMPONENTS ${app_lto_components} ${idf_lto_components} </div>
+<div class="line">               DEPENDS ${lto_depends})</div>
+<div class="line"> </div>
+<div class="line">cu_gcc_string_1byte_align(COMPONENTS ${app_lto_components} ${idf_lto_components} </div>
+<div class="line">                          DEPENDS ${lto_depends})</div>
+</div><!-- fragment --><p>Build the project and the firmware size is:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Option   </th><th class="markdownTableHeadCenter">Firmware size    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">-Os + LTO   </td><td class="markdownTableBodyCenter">1,020,640    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">-Os + LTO + string 1-byte align   </td><td class="markdownTableBodyCenter">1,018,340   </td></tr>
+</table>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

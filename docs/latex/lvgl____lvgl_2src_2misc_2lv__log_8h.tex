@@ -1,0 +1,129 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+log.h}
+\hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h}{}\label{lvgl____lvgl_2src_2misc_2lv__log_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_log.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_log.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+log.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+log.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lvgl____lvgl_2src_2misc_2lv__log_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lvgl____lvgl_2src_2misc_2lv__log_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a45b27a0d26b24c8252df9604df41f6b1}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+TRACE}}~0
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a417a9a24eb689145dd63beb910e55931}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+INFO}}~1
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_abf1c7a8b781d8749e83aa9bc539d9bf7}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+WARN}}~2
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a0a7ce4fc77f8c28bf18db50894942961}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+ERROR}}~3
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a4b87580036923ecc1a3550b883c6b58b}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+USER}}~4
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a9d35ec5e9204e629c97b813c5fd6391c}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+NONE}}~5
+\item 
+\#define \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_ad6b0fc746463a54c763e8f0d3da88ed9}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+NUM}}~5
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a359ba45a44583154b8be83f7b7fa06f2}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a359ba45a44583154b8be83f7b7fa06f2} 
+\#define {\bfseries lv\+\_\+log\+\_\+add}(level,  file,  line, ...)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a1deeb0e317c6314c573ee8730321afd0}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a1deeb0e317c6314c573ee8730321afd0} 
+\#define {\bfseries LV\+\_\+\+LOG\+\_\+\+TRACE}(...)~do \{\}while(0)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_ad912d92d4a755984e83980ff3ee67673}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_ad912d92d4a755984e83980ff3ee67673} 
+\#define {\bfseries LV\+\_\+\+LOG\+\_\+\+INFO}(...)~do \{\}while(0)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a7838f102c438c68e7936435f2d981808}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a7838f102c438c68e7936435f2d981808} 
+\#define {\bfseries LV\+\_\+\+LOG\+\_\+\+WARN}(...)~do \{\}while(0)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a4f5f1571a6bea2b8532fa6c28dbb0d92}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a4f5f1571a6bea2b8532fa6c28dbb0d92} 
+\#define {\bfseries LV\+\_\+\+LOG\+\_\+\+ERROR}(...)~do \{\}while(0)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a619d6a9db17a9c1edb492ab026815696}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a619d6a9db17a9c1edb492ab026815696} 
+\#define {\bfseries LV\+\_\+\+LOG\+\_\+\+USER}(...)~do \{\}while(0)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_ae243a5c2034fa866cb1dc0674b9f4416}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_ae243a5c2034fa866cb1dc0674b9f4416} 
+\#define {\bfseries LV\+\_\+\+LOG}(...)~do \{\}while(0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a197d0f37f70d0d25b7fb8a12bf5394cf}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a197d0f37f70d0d25b7fb8a12bf5394cf} 
+typedef int8\+\_\+t {\bfseries lv\+\_\+log\+\_\+level\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_ad22944b0076821fa7799fe34a23ed5ee}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_ad22944b0076821fa7799fe34a23ed5ee} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a45b27a0d26b24c8252df9604df41f6b1}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+TRACE}})
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a38f89e8f01769336a832da80df3b1fdf}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a38f89e8f01769336a832da80df3b1fdf} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a417a9a24eb689145dd63beb910e55931}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+INFO}})
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a717fe03c56d1a9a980ed3cf1b271cd75}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a717fe03c56d1a9a980ed3cf1b271cd75} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_abf1c7a8b781d8749e83aa9bc539d9bf7}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+WARN}})
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a97aee2f20c236dfeb48be17173ccbc8a}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a97aee2f20c236dfeb48be17173ccbc8a} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a0a7ce4fc77f8c28bf18db50894942961}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+ERROR}})
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a70b8caa438b1d459262e7feacc80b047}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a70b8caa438b1d459262e7feacc80b047} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a4b87580036923ecc1a3550b883c6b58b}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+USER}})
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_ae8cb406569ad45378579a60ef40a6cb4}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_ae8cb406569ad45378579a60ef40a6cb4} 
+{\bfseries LV\+\_\+\+EXPORT\+\_\+\+CONST\+\_\+\+INT} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__log_8h_a9d35ec5e9204e629c97b813c5fd6391c}{LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+NONE}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a0a7ce4fc77f8c28bf18db50894942961}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a0a7ce4fc77f8c28bf18db50894942961} 
+\index{lv\_log.h@{lv\_log.h}!LV\_LOG\_LEVEL\_ERROR@{LV\_LOG\_LEVEL\_ERROR}}
+\index{LV\_LOG\_LEVEL\_ERROR@{LV\_LOG\_LEVEL\_ERROR}!lv\_log.h@{lv\_log.h}}
+\doxysubsubsection{\texorpdfstring{LV\_LOG\_LEVEL\_ERROR}{LV\_LOG\_LEVEL\_ERROR}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+ERROR~3}
+
+Log only critical issues, when system may fail. \Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a417a9a24eb689145dd63beb910e55931}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a417a9a24eb689145dd63beb910e55931} 
+\index{lv\_log.h@{lv\_log.h}!LV\_LOG\_LEVEL\_INFO@{LV\_LOG\_LEVEL\_INFO}}
+\index{LV\_LOG\_LEVEL\_INFO@{LV\_LOG\_LEVEL\_INFO}!lv\_log.h@{lv\_log.h}}
+\doxysubsubsection{\texorpdfstring{LV\_LOG\_LEVEL\_INFO}{LV\_LOG\_LEVEL\_INFO}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+INFO~1}
+
+Log important events. \Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a9d35ec5e9204e629c97b813c5fd6391c}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a9d35ec5e9204e629c97b813c5fd6391c} 
+\index{lv\_log.h@{lv\_log.h}!LV\_LOG\_LEVEL\_NONE@{LV\_LOG\_LEVEL\_NONE}}
+\index{LV\_LOG\_LEVEL\_NONE@{LV\_LOG\_LEVEL\_NONE}!lv\_log.h@{lv\_log.h}}
+\doxysubsubsection{\texorpdfstring{LV\_LOG\_LEVEL\_NONE}{LV\_LOG\_LEVEL\_NONE}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+NONE~5}
+
+Do not log anything. \Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_ad6b0fc746463a54c763e8f0d3da88ed9}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_ad6b0fc746463a54c763e8f0d3da88ed9} 
+\index{lv\_log.h@{lv\_log.h}!LV\_LOG\_LEVEL\_NUM@{LV\_LOG\_LEVEL\_NUM}}
+\index{LV\_LOG\_LEVEL\_NUM@{LV\_LOG\_LEVEL\_NUM}!lv\_log.h@{lv\_log.h}}
+\doxysubsubsection{\texorpdfstring{LV\_LOG\_LEVEL\_NUM}{LV\_LOG\_LEVEL\_NUM}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+NUM~5}
+
+Number of log levels \Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a45b27a0d26b24c8252df9604df41f6b1}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a45b27a0d26b24c8252df9604df41f6b1} 
+\index{lv\_log.h@{lv\_log.h}!LV\_LOG\_LEVEL\_TRACE@{LV\_LOG\_LEVEL\_TRACE}}
+\index{LV\_LOG\_LEVEL\_TRACE@{LV\_LOG\_LEVEL\_TRACE}!lv\_log.h@{lv\_log.h}}
+\doxysubsubsection{\texorpdfstring{LV\_LOG\_LEVEL\_TRACE}{LV\_LOG\_LEVEL\_TRACE}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+TRACE~0}
+
+Log detailed information. \Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_a4b87580036923ecc1a3550b883c6b58b}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_a4b87580036923ecc1a3550b883c6b58b} 
+\index{lv\_log.h@{lv\_log.h}!LV\_LOG\_LEVEL\_USER@{LV\_LOG\_LEVEL\_USER}}
+\index{LV\_LOG\_LEVEL\_USER@{LV\_LOG\_LEVEL\_USER}!lv\_log.h@{lv\_log.h}}
+\doxysubsubsection{\texorpdfstring{LV\_LOG\_LEVEL\_USER}{LV\_LOG\_LEVEL\_USER}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+USER~4}
+
+Log only custom log messages added by the user. \Hypertarget{lvgl____lvgl_2src_2misc_2lv__log_8h_abf1c7a8b781d8749e83aa9bc539d9bf7}\label{lvgl____lvgl_2src_2misc_2lv__log_8h_abf1c7a8b781d8749e83aa9bc539d9bf7} 
+\index{lv\_log.h@{lv\_log.h}!LV\_LOG\_LEVEL\_WARN@{LV\_LOG\_LEVEL\_WARN}}
+\index{LV\_LOG\_LEVEL\_WARN@{LV\_LOG\_LEVEL\_WARN}!lv\_log.h@{lv\_log.h}}
+\doxysubsubsection{\texorpdfstring{LV\_LOG\_LEVEL\_WARN}{LV\_LOG\_LEVEL\_WARN}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+LOG\+\_\+\+LEVEL\+\_\+\+WARN~2}
+
+Log if something unwanted happened but didn\textquotesingle{}t caused problem. 

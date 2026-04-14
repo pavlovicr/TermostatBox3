@@ -1,0 +1,86 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+observer\+\_\+t}
+\hypertarget{struct__lv__observer__t}{}\label{struct__lv__observer__t}\index{\_lv\_observer\_t@{\_lv\_observer\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+observer\+\_\+private.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda \+\_\+lv\+\_\+observer\+\_\+t\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{struct__lv__observer__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__observer__t_a285247732c8c0a053aabf71dd2f0f7cb}{subject}}
+\item 
+\mbox{\hyperlink{lv__observer_8h_a4fe2f04cd9e8e9c1895d0dc514f6cef5}{lv\+\_\+observer\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__observer__t_a5d5ce060763819130408d9cff126a9bf}{cb}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__observer__t_ab449ca9ed3fd2a19d32b39ec652a04f2}{target}}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__observer__t_a4e9f7e0e7af6234408c726e2b01a282c}{user\+\_\+data}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__observer__t_a9765b93a9cd49eac6f9154a5e031e753}{auto\+\_\+free\+\_\+user\+\_\+data}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__observer__t_a73afbeb19518bc427a491d99bcc7171c}{notified}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct__lv__observer__t_a7b64415b32529dc4ce7498a2fe75de8b}{for\+\_\+obj}}\+: 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+The observer object\+: a descriptor returned when subscribing LVGL widgets to subjects 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__observer__t_a9765b93a9cd49eac6f9154a5e031e753}\label{struct__lv__observer__t_a9765b93a9cd49eac6f9154a5e031e753} 
+\index{\_lv\_observer\_t@{\_lv\_observer\_t}!auto\_free\_user\_data@{auto\_free\_user\_data}}
+\index{auto\_free\_user\_data@{auto\_free\_user\_data}!\_lv\_observer\_t@{\_lv\_observer\_t}}
+\doxysubsubsection{\texorpdfstring{auto\_free\_user\_data}{auto\_free\_user\_data}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+observer\+\_\+t\+::auto\+\_\+free\+\_\+user\+\_\+data}
+
+Automatically free user data when observer is removed \Hypertarget{struct__lv__observer__t_a5d5ce060763819130408d9cff126a9bf}\label{struct__lv__observer__t_a5d5ce060763819130408d9cff126a9bf} 
+\index{\_lv\_observer\_t@{\_lv\_observer\_t}!cb@{cb}}
+\index{cb@{cb}!\_lv\_observer\_t@{\_lv\_observer\_t}}
+\doxysubsubsection{\texorpdfstring{cb}{cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__observer_8h_a4fe2f04cd9e8e9c1895d0dc514f6cef5}{lv\+\_\+observer\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+observer\+\_\+t\+::cb}
+
+Callback that notifies when value changes \Hypertarget{struct__lv__observer__t_a7b64415b32529dc4ce7498a2fe75de8b}\label{struct__lv__observer__t_a7b64415b32529dc4ce7498a2fe75de8b} 
+\index{\_lv\_observer\_t@{\_lv\_observer\_t}!for\_obj@{for\_obj}}
+\index{for\_obj@{for\_obj}!\_lv\_observer\_t@{\_lv\_observer\_t}}
+\doxysubsubsection{\texorpdfstring{for\_obj}{for\_obj}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+observer\+\_\+t\+::for\+\_\+obj}
+
+Is {\ttfamily target} a pointer to a Widget ({\ttfamily lv\+\_\+obj\+\_\+t \texorpdfstring{$\ast$}{*}})? \Hypertarget{struct__lv__observer__t_a73afbeb19518bc427a491d99bcc7171c}\label{struct__lv__observer__t_a73afbeb19518bc427a491d99bcc7171c} 
+\index{\_lv\_observer\_t@{\_lv\_observer\_t}!notified@{notified}}
+\index{notified@{notified}!\_lv\_observer\_t@{\_lv\_observer\_t}}
+\doxysubsubsection{\texorpdfstring{notified}{notified}}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+lv\+\_\+observer\+\_\+t\+::notified}
+
+Was observer already notified? \Hypertarget{struct__lv__observer__t_a285247732c8c0a053aabf71dd2f0f7cb}\label{struct__lv__observer__t_a285247732c8c0a053aabf71dd2f0f7cb} 
+\index{\_lv\_observer\_t@{\_lv\_observer\_t}!subject@{subject}}
+\index{subject@{subject}!\_lv\_observer\_t@{\_lv\_observer\_t}}
+\doxysubsubsection{\texorpdfstring{subject}{subject}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+observer\+\_\+t\+::subject}
+
+Observed subject \Hypertarget{struct__lv__observer__t_ab449ca9ed3fd2a19d32b39ec652a04f2}\label{struct__lv__observer__t_ab449ca9ed3fd2a19d32b39ec652a04f2} 
+\index{\_lv\_observer\_t@{\_lv\_observer\_t}!target@{target}}
+\index{target@{target}!\_lv\_observer\_t@{\_lv\_observer\_t}}
+\doxysubsubsection{\texorpdfstring{target}{target}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+observer\+\_\+t\+::target}
+
+A target for the observer, e.\+g. a widget or any pointer \Hypertarget{struct__lv__observer__t_a4e9f7e0e7af6234408c726e2b01a282c}\label{struct__lv__observer__t_a4e9f7e0e7af6234408c726e2b01a282c} 
+\index{\_lv\_observer\_t@{\_lv\_observer\_t}!user\_data@{user\_data}}
+\index{user\_data@{user\_data}!\_lv\_observer\_t@{\_lv\_observer\_t}}
+\doxysubsubsection{\texorpdfstring{user\_data}{user\_data}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+observer\+\_\+t\+::user\+\_\+data}
+
+Additional parameter supplied when subscribing 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/core/\mbox{\hyperlink{lv__observer__private_8h}{lv\+\_\+observer\+\_\+private.\+h}}\end{DoxyCompactItemize}

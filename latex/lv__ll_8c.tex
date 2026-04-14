@@ -1,0 +1,267 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+ll.c}
+\hypertarget{lv__ll_8c}{}\label{lv__ll_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_ll.c@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_ll.c}}
+{\ttfamily \#include "{}lv\+\_\+ll.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+mem.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+ll.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+ll.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{lv__ll_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__ll_8c_a5e854f4fd8dd9a3c3c694b2e7f50a550}\label{lv__ll_8c_a5e854f4fd8dd9a3c3c694b2e7f50a550} 
+\#define {\bfseries LL\+\_\+\+NODE\+\_\+\+META\+\_\+\+SIZE}~(sizeof(\mbox{\hyperlink{lv__ll_8h_aaaf22c8c1939f8ea17c80be0b1e9f299}{lv\+\_\+ll\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}) + sizeof(\mbox{\hyperlink{lv__ll_8h_aaaf22c8c1939f8ea17c80be0b1e9f299}{lv\+\_\+ll\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}))
+\item 
+\Hypertarget{lv__ll_8c_a7162ee79621282dc279ef8a8baef18a2}\label{lv__ll_8c_a7162ee79621282dc279ef8a8baef18a2} 
+\#define {\bfseries LL\+\_\+\+PREV\+\_\+\+P\+\_\+\+OFFSET}(ll\+\_\+p)~(ll\+\_\+p-\/$>$n\+\_\+size)
+\item 
+\Hypertarget{lv__ll_8c_ac697b8b6519b655bc091216853afa66d}\label{lv__ll_8c_ac697b8b6519b655bc091216853afa66d} 
+\#define {\bfseries LL\+\_\+\+NEXT\+\_\+\+P\+\_\+\+OFFSET}(ll\+\_\+p)~(ll\+\_\+p-\/$>$n\+\_\+size + sizeof(\mbox{\hyperlink{lv__ll_8h_aaaf22c8c1939f8ea17c80be0b1e9f299}{lv\+\_\+ll\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__ll_8c_a3d1489794c2209fc7f6c0fb8a8e15de9}{lv\+\_\+ll\+\_\+init}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p, uint32\+\_\+t node\+\_\+size)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__ll_8c_ad8ca2c62e5540caafeecb56036ec61ee}{lv\+\_\+ll\+\_\+ins\+\_\+head}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__ll_8c_a57ccf5ef5b53537f5668bd5b37569170}{lv\+\_\+ll\+\_\+ins\+\_\+prev}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p, void \texorpdfstring{$\ast$}{*}n\+\_\+act)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__ll_8c_a9d653b11d64780d2f6affa86031a0ebf}{lv\+\_\+ll\+\_\+ins\+\_\+tail}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p)
+\item 
+void \mbox{\hyperlink{lv__ll_8c_ab278c8df3975c82df6316c847e32f9d3}{lv\+\_\+ll\+\_\+remove}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p, void \texorpdfstring{$\ast$}{*}node\+\_\+p)
+\item 
+\Hypertarget{lv__ll_8c_ae8075d3120349cda08274ca5277681e0}\label{lv__ll_8c_ae8075d3120349cda08274ca5277681e0} 
+void {\bfseries lv\+\_\+ll\+\_\+clear\+\_\+custom} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p, void(\texorpdfstring{$\ast$}{*}cleanup)(void \texorpdfstring{$\ast$}{*}))
+\item 
+void \mbox{\hyperlink{lv__ll_8c_acf45161f454ce27389d774b677576b27}{lv\+\_\+ll\+\_\+chg\+\_\+list}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+ori\+\_\+p, \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+new\+\_\+p, void \texorpdfstring{$\ast$}{*}node, bool head)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__ll_8c_a1efbe81f5bd1e16e6e47fcbccbb76fc4}{lv\+\_\+ll\+\_\+get\+\_\+head}} (const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__ll_8c_a65467ee33c8e1ef64036b735b729d740}{lv\+\_\+ll\+\_\+get\+\_\+tail}} (const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__ll_8c_a240f711915c1ff7a35b14519f20f8e44}{lv\+\_\+ll\+\_\+get\+\_\+next}} (const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p, const void \texorpdfstring{$\ast$}{*}n\+\_\+act)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__ll_8c_ad4c33a58361b2042b7759b256472cf42}{lv\+\_\+ll\+\_\+get\+\_\+prev}} (const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p, const void \texorpdfstring{$\ast$}{*}n\+\_\+act)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__ll_8c_a82019febbea0b40eb06b5358361c4793}{lv\+\_\+ll\+\_\+get\+\_\+len}} (const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p)
+\item 
+void \mbox{\hyperlink{lv__ll_8c_ab059354e6df6d0c11c72f88532dbe49c}{lv\+\_\+ll\+\_\+move\+\_\+before}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p, void \texorpdfstring{$\ast$}{*}n\+\_\+act, void \texorpdfstring{$\ast$}{*}n\+\_\+after)
+\item 
+bool \mbox{\hyperlink{lv__ll_8c_a00c1406ac06d69ae8c057ac2a804a21b}{lv\+\_\+ll\+\_\+is\+\_\+empty}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p)
+\item 
+void \mbox{\hyperlink{lv__ll_8c_ade7eec2469b2c7d4487dacc33cbb1b32}{lv\+\_\+ll\+\_\+clear}} (\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}ll\+\_\+p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Handle linked lists. The nodes are dynamically allocated by the \textquotesingle{}lv\+\_\+mem\textquotesingle{} module, 
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__ll_8c_acf45161f454ce27389d774b677576b27}\label{lv__ll_8c_acf45161f454ce27389d774b677576b27} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_chg\_list@{lv\_ll\_chg\_list}}
+\index{lv\_ll\_chg\_list@{lv\_ll\_chg\_list}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_chg\_list()}{lv\_ll\_chg\_list()}}
+{\footnotesize\ttfamily void lv\+\_\+ll\+\_\+chg\+\_\+list (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+ori\+\_\+p,  }\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+new\+\_\+p,  }\item[{void \texorpdfstring{$\ast$}{*}}]{node,  }\item[{bool}]{head }\end{DoxyParamCaption})}
+
+Move a node to a new linked list 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+ori\+\_\+p} & pointer to the original (old) linked list \\
+\hline
+{\em ll\+\_\+new\+\_\+p} & pointer to the new linked list \\
+\hline
+{\em node} & pointer to a node \\
+\hline
+{\em head} & true\+: be the head in the new list false be the tail in the new list \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__ll_8c_ade7eec2469b2c7d4487dacc33cbb1b32}\label{lv__ll_8c_ade7eec2469b2c7d4487dacc33cbb1b32} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_clear@{lv\_ll\_clear}}
+\index{lv\_ll\_clear@{lv\_ll\_clear}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_clear()}{lv\_ll\_clear()}}
+{\footnotesize\ttfamily void lv\+\_\+ll\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p }\end{DoxyParamCaption})}
+
+Remove and free all elements from a linked list. The list remain valid but become empty. 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__ll_8c_a1efbe81f5bd1e16e6e47fcbccbb76fc4}\label{lv__ll_8c_a1efbe81f5bd1e16e6e47fcbccbb76fc4} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_get\_head@{lv\_ll\_get\_head}}
+\index{lv\_ll\_get\_head@{lv\_ll\_get\_head}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_get\_head()}{lv\_ll\_get\_head()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+ll\+\_\+get\+\_\+head (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p }\end{DoxyParamCaption})}
+
+Return with head node of the linked list 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the head of \textquotesingle{}ll\+\_\+p\textquotesingle{} 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_a82019febbea0b40eb06b5358361c4793}\label{lv__ll_8c_a82019febbea0b40eb06b5358361c4793} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_get\_len@{lv\_ll\_get\_len}}
+\index{lv\_ll\_get\_len@{lv\_ll\_get\_len}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_get\_len()}{lv\_ll\_get\_len()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+ll\+\_\+get\+\_\+len (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p }\end{DoxyParamCaption})}
+
+Return the length of the linked list. 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+length of the linked list 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_a240f711915c1ff7a35b14519f20f8e44}\label{lv__ll_8c_a240f711915c1ff7a35b14519f20f8e44} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_get\_next@{lv\_ll\_get\_next}}
+\index{lv\_ll\_get\_next@{lv\_ll\_get\_next}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_get\_next()}{lv\_ll\_get\_next()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+ll\+\_\+get\+\_\+next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{n\+\_\+act }\end{DoxyParamCaption})}
+
+Return with the pointer of the next node after \textquotesingle{}n\+\_\+act\textquotesingle{} 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+{\em n\+\_\+act} & pointer a node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the next node 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_ad4c33a58361b2042b7759b256472cf42}\label{lv__ll_8c_ad4c33a58361b2042b7759b256472cf42} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_get\_prev@{lv\_ll\_get\_prev}}
+\index{lv\_ll\_get\_prev@{lv\_ll\_get\_prev}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_get\_prev()}{lv\_ll\_get\_prev()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+ll\+\_\+get\+\_\+prev (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{n\+\_\+act }\end{DoxyParamCaption})}
+
+Return with the pointer of the previous node after \textquotesingle{}n\+\_\+act\textquotesingle{} 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+{\em n\+\_\+act} & pointer a node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the previous node 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_a65467ee33c8e1ef64036b735b729d740}\label{lv__ll_8c_a65467ee33c8e1ef64036b735b729d740} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_get\_tail@{lv\_ll\_get\_tail}}
+\index{lv\_ll\_get\_tail@{lv\_ll\_get\_tail}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_get\_tail()}{lv\_ll\_get\_tail()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+ll\+\_\+get\+\_\+tail (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p }\end{DoxyParamCaption})}
+
+Return with tail node of the linked list 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the tail of \textquotesingle{}ll\+\_\+p\textquotesingle{} 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_a3d1489794c2209fc7f6c0fb8a8e15de9}\label{lv__ll_8c_a3d1489794c2209fc7f6c0fb8a8e15de9} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_init@{lv\_ll\_init}}
+\index{lv\_ll\_init@{lv\_ll\_init}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_init()}{lv\_ll\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+ll\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p,  }\item[{uint32\+\_\+t}]{node\+\_\+size }\end{DoxyParamCaption})}
+
+Initialize linked list 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to \doxylink{structlv__ll__t}{lv\+\_\+ll\+\_\+t} variable \\
+\hline
+{\em node\+\_\+size} & the size of 1 node in bytes \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__ll_8c_ad8ca2c62e5540caafeecb56036ec61ee}\label{lv__ll_8c_ad8ca2c62e5540caafeecb56036ec61ee} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_ins\_head@{lv\_ll\_ins\_head}}
+\index{lv\_ll\_ins\_head@{lv\_ll\_ins\_head}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_ins\_head()}{lv\_ll\_ins\_head()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+ll\+\_\+ins\+\_\+head (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p }\end{DoxyParamCaption})}
+
+Add a new head to a linked list 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the new head 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_a57ccf5ef5b53537f5668bd5b37569170}\label{lv__ll_8c_a57ccf5ef5b53537f5668bd5b37569170} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_ins\_prev@{lv\_ll\_ins\_prev}}
+\index{lv\_ll\_ins\_prev@{lv\_ll\_ins\_prev}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_ins\_prev()}{lv\_ll\_ins\_prev()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+ll\+\_\+ins\+\_\+prev (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p,  }\item[{void \texorpdfstring{$\ast$}{*}}]{n\+\_\+act }\end{DoxyParamCaption})}
+
+Insert a new node in front of the n\+\_\+act node 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+{\em n\+\_\+act} & pointer a node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the new node 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_a9d653b11d64780d2f6affa86031a0ebf}\label{lv__ll_8c_a9d653b11d64780d2f6affa86031a0ebf} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_ins\_tail@{lv\_ll\_ins\_tail}}
+\index{lv\_ll\_ins\_tail@{lv\_ll\_ins\_tail}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_ins\_tail()}{lv\_ll\_ins\_tail()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+ll\+\_\+ins\+\_\+tail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p }\end{DoxyParamCaption})}
+
+Add a new tail to a linked list 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the new tail 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_a00c1406ac06d69ae8c057ac2a804a21b}\label{lv__ll_8c_a00c1406ac06d69ae8c057ac2a804a21b} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_is\_empty@{lv\_ll\_is\_empty}}
+\index{lv\_ll\_is\_empty@{lv\_ll\_is\_empty}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_is\_empty()}{lv\_ll\_is\_empty()}}
+{\footnotesize\ttfamily bool lv\+\_\+ll\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p }\end{DoxyParamCaption})}
+
+Check if a linked list is empty 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to a linked list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: the linked list is empty; false\+: not empty 
+\end{DoxyReturn}
+\Hypertarget{lv__ll_8c_ab059354e6df6d0c11c72f88532dbe49c}\label{lv__ll_8c_ab059354e6df6d0c11c72f88532dbe49c} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_move\_before@{lv\_ll\_move\_before}}
+\index{lv\_ll\_move\_before@{lv\_ll\_move\_before}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_move\_before()}{lv\_ll\_move\_before()}}
+{\footnotesize\ttfamily void lv\+\_\+ll\+\_\+move\+\_\+before (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p,  }\item[{void \texorpdfstring{$\ast$}{*}}]{n\+\_\+act,  }\item[{void \texorpdfstring{$\ast$}{*}}]{n\+\_\+after }\end{DoxyParamCaption})}
+
+Move a node before another node in the same linked list
+
+
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to a linked list \\
+\hline
+{\em n\+\_\+act} & pointer to node to move \\
+\hline
+{\em n\+\_\+after} & pointer to a node which should be after {\ttfamily n\+\_\+act} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__ll_8c_ab278c8df3975c82df6316c847e32f9d3}\label{lv__ll_8c_ab278c8df3975c82df6316c847e32f9d3} 
+\index{lv\_ll.c@{lv\_ll.c}!lv\_ll\_remove@{lv\_ll\_remove}}
+\index{lv\_ll\_remove@{lv\_ll\_remove}!lv\_ll.c@{lv\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_ll\_remove()}{lv\_ll\_remove()}}
+{\footnotesize\ttfamily void lv\+\_\+ll\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__ll__t}{lv\+\_\+ll\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{ll\+\_\+p,  }\item[{void \texorpdfstring{$\ast$}{*}}]{node\+\_\+p }\end{DoxyParamCaption})}
+
+Remove the node \textquotesingle{}node\+\_\+p\textquotesingle{} from \textquotesingle{}ll\+\_\+p\textquotesingle{} linked list. It does not free the memory of node. 
+\begin{DoxyParams}{Parametri}
+{\em ll\+\_\+p} & pointer to the linked list of \textquotesingle{}node\+\_\+p\textquotesingle{} \\
+\hline
+{\em node\+\_\+p} & pointer to node in \textquotesingle{}ll\+\_\+p\textquotesingle{} linked list \\
+\hline
+\end{DoxyParams}

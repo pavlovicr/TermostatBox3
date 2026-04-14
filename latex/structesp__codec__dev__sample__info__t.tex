@@ -1,0 +1,65 @@
+\doxysection{ Struktura esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t}
+\hypertarget{structesp__codec__dev__sample__info__t}{}\label{structesp__codec__dev__sample__info__t}\index{esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}}
+
+
+Codec audio sample information Notes\+: channel\+\_\+mask is used to filter wanted channels in driver side when set to 0, default filter all channels when channel is 2, can filter channel 0 (set to 1) or channel 1 (set to 2) when channel is 4, can filter either 3,2 channels or 1 channel.  
+
+
+
+
+{\ttfamily \#include $<$esp\+\_\+codec\+\_\+dev\+\_\+types.\+h$>$}
+
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structesp__codec__dev__sample__info__t_aa6e73fa36cc1c0b1347a1831caa6fc68}{bits\+\_\+per\+\_\+sample}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{structesp__codec__dev__sample__info__t_a968d15d4f53b85a1cf79f64b64ca1106}{channel}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structesp__codec__dev__sample__info__t_aa75acd6b00279d878bb10fa3336603da}{channel\+\_\+mask}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structesp__codec__dev__sample__info__t_a068be1881a29f6cd240b257a3b853aac}{sample\+\_\+rate}}
+\item 
+int \mbox{\hyperlink{structesp__codec__dev__sample__info__t_a294d5dec182c1859ebf1d7a8dc106526}{mclk\+\_\+multiple}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Codec audio sample information Notes\+: channel\+\_\+mask is used to filter wanted channels in driver side when set to 0, default filter all channels when channel is 2, can filter channel 0 (set to 1) or channel 1 (set to 2) when channel is 4, can filter either 3,2 channels or 1 channel. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structesp__codec__dev__sample__info__t_aa6e73fa36cc1c0b1347a1831caa6fc68}\label{structesp__codec__dev__sample__info__t_aa6e73fa36cc1c0b1347a1831caa6fc68} 
+\index{esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}!bits\_per\_sample@{bits\_per\_sample}}
+\index{bits\_per\_sample@{bits\_per\_sample}!esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}}
+\doxysubsubsection{\texorpdfstring{bits\_per\_sample}{bits\_per\_sample}}
+{\footnotesize\ttfamily uint8\+\_\+t esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t\+::bits\+\_\+per\+\_\+sample}
+
+Bit lengths of one channel data \Hypertarget{structesp__codec__dev__sample__info__t_a968d15d4f53b85a1cf79f64b64ca1106}\label{structesp__codec__dev__sample__info__t_a968d15d4f53b85a1cf79f64b64ca1106} 
+\index{esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}!channel@{channel}}
+\index{channel@{channel}!esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}}
+\doxysubsubsection{\texorpdfstring{channel}{channel}}
+{\footnotesize\ttfamily uint8\+\_\+t esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t\+::channel}
+
+Channels of sample \Hypertarget{structesp__codec__dev__sample__info__t_aa75acd6b00279d878bb10fa3336603da}\label{structesp__codec__dev__sample__info__t_aa75acd6b00279d878bb10fa3336603da} 
+\index{esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}!channel\_mask@{channel\_mask}}
+\index{channel\_mask@{channel\_mask}!esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}}
+\doxysubsubsection{\texorpdfstring{channel\_mask}{channel\_mask}}
+{\footnotesize\ttfamily uint16\+\_\+t esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t\+::channel\+\_\+mask}
+
+Channel mask indicate which channel to be selected \Hypertarget{structesp__codec__dev__sample__info__t_a294d5dec182c1859ebf1d7a8dc106526}\label{structesp__codec__dev__sample__info__t_a294d5dec182c1859ebf1d7a8dc106526} 
+\index{esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}!mclk\_multiple@{mclk\_multiple}}
+\index{mclk\_multiple@{mclk\_multiple}!esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}}
+\doxysubsubsection{\texorpdfstring{mclk\_multiple}{mclk\_multiple}}
+{\footnotesize\ttfamily int esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t\+::mclk\+\_\+multiple}
+
+The multiple of MCLK to the sample rate If value is 0, mclk = sample\+\_\+rate \texorpdfstring{$\ast$}{*} 256 If bits\+\_\+per\+\_\+sample is 24bit, mclk\+\_\+multiple should be the multiple of 3 \Hypertarget{structesp__codec__dev__sample__info__t_a068be1881a29f6cd240b257a3b853aac}\label{structesp__codec__dev__sample__info__t_a068be1881a29f6cd240b257a3b853aac} 
+\index{esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}!sample\_rate@{sample\_rate}}
+\index{sample\_rate@{sample\_rate}!esp\_codec\_dev\_sample\_info\_t@{esp\_codec\_dev\_sample\_info\_t}}
+\doxysubsubsection{\texorpdfstring{sample\_rate}{sample\_rate}}
+{\footnotesize\ttfamily uint32\+\_\+t esp\+\_\+codec\+\_\+dev\+\_\+sample\+\_\+info\+\_\+t\+::sample\+\_\+rate}
+
+Sample rate of sample 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+codec\+\_\+dev/include/esp\+\_\+codec\+\_\+dev\+\_\+types.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,51 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+rb.c}
+\hypertarget{lv__rb_8c}{}\label{lv__rb_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_rb.c@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_rb.c}}
+{\ttfamily \#include "{}lv\+\_\+rb\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+string.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+rb.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+rb.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__rb_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__rb_8c_a92ea608bc91ddfda544fcceec9b5a67a}\label{lv__rb_8c_a92ea608bc91ddfda544fcceec9b5a67a} 
+bool {\bfseries lv\+\_\+rb\+\_\+init} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, lv\+\_\+rb\+\_\+compare\+\_\+t compare, size\+\_\+t node\+\_\+size)
+\item 
+\Hypertarget{lv__rb_8c_a1902bac009ad4bb051b0f2e6afa772bd}\label{lv__rb_8c_a1902bac009ad4bb051b0f2e6afa772bd} 
+\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+insert} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, void \texorpdfstring{$\ast$}{*}key)
+\item 
+\Hypertarget{lv__rb_8c_a1138e825af5a5a89e4595c04050f7ce5}\label{lv__rb_8c_a1138e825af5a5a89e4595c04050f7ce5} 
+\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+find} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, const void \texorpdfstring{$\ast$}{*}key)
+\item 
+\Hypertarget{lv__rb_8c_a9a80a784e0955b7a612b247cd560c4a8}\label{lv__rb_8c_a9a80a784e0955b7a612b247cd560c4a8} 
+void \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+remove\+\_\+node} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, \mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\Hypertarget{lv__rb_8c_a7a892c85fd9307293a10866e618c21ec}\label{lv__rb_8c_a7a892c85fd9307293a10866e618c21ec} 
+void \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+remove} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, const void \texorpdfstring{$\ast$}{*}key)
+\item 
+\Hypertarget{lv__rb_8c_a9ba81fec5e2208c27bd58c59a8b76a81}\label{lv__rb_8c_a9ba81fec5e2208c27bd58c59a8b76a81} 
+bool {\bfseries lv\+\_\+rb\+\_\+drop\+\_\+node} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, \mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\Hypertarget{lv__rb_8c_af8555da274a75df66fa8ada5a23e1a47}\label{lv__rb_8c_af8555da274a75df66fa8ada5a23e1a47} 
+bool {\bfseries lv\+\_\+rb\+\_\+drop} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree, const void \texorpdfstring{$\ast$}{*}key)
+\item 
+\Hypertarget{lv__rb_8c_a38596714eae9eb6efa94dc0793f342c2}\label{lv__rb_8c_a38596714eae9eb6efa94dc0793f342c2} 
+void {\bfseries lv\+\_\+rb\+\_\+destroy} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree)
+\item 
+\Hypertarget{lv__rb_8c_ade4b0c55bc7ae4d35faf771517c9bf00}\label{lv__rb_8c_ade4b0c55bc7ae4d35faf771517c9bf00} 
+\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+minimum} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree)
+\item 
+\Hypertarget{lv__rb_8c_afd45675736e429cf5a1fe053076fb431}\label{lv__rb_8c_afd45675736e429cf5a1fe053076fb431} 
+\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+maximum} (\mbox{\hyperlink{struct__lv__rb__t}{lv\+\_\+rb\+\_\+t}} \texorpdfstring{$\ast$}{*}tree)
+\item 
+\Hypertarget{lv__rb_8c_a3672d51fd3bc600f3e602c69c7a5c95d}\label{lv__rb_8c_a3672d51fd3bc600f3e602c69c7a5c95d} 
+\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+minimum\+\_\+from} (\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}node)
+\item 
+\Hypertarget{lv__rb_8c_a6f175a5de760eca8b0a5a4d6d1f6bfaa}\label{lv__rb_8c_a6f175a5de760eca8b0a5a4d6d1f6bfaa} 
+\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+rb\+\_\+maximum\+\_\+from} (\mbox{\hyperlink{struct__lv__rb__node__t}{lv\+\_\+rb\+\_\+node\+\_\+t}} \texorpdfstring{$\ast$}{*}node)
+\end{DoxyCompactItemize}

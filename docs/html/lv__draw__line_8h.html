@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/draw/lv_draw_line.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_a1761009eb054311bcb948306d012834.html">draw</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Strukture</a> &#124;
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_draw_line.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__conf__internal_8h_source.html">../lv_conf_internal.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__color_8h_source.html">../misc/lv_color.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__area_8h_source.html">../misc/lv_area.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__style_8h_source.html">../misc/lv_style.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_draw_line.h" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_draw_line.h. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__draw__line_8h__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__line_8h" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__line_8h" id="amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__line_8h">
+<area shape="rect" title=" " alt="" coords="485,5,656,60"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="701,915,851,940"/>
+<area shape="poly" title=" " alt="" coords="485,43,344,59,264,71,186,87,116,107,59,132,38,145,21,160,11,176,8,193,8,782,13,813,29,833,53,849,84,864,132,881,198,895,363,913,538,921,686,924,686,929,538,927,362,918,197,900,131,886,82,869,50,853,25,837,9,815,3,782,3,192,7,174,17,157,34,141,57,127,114,102,185,82,263,66,343,53,485,38"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color_8h.html" title=" " alt="" coords="720,475,851,500"/>
+<area shape="poly" title=" " alt="" coords="587,59,611,119,620,155,624,193,624,269,628,301,638,331,654,360,673,386,717,432,758,464,754,469,713,436,669,390,649,363,633,333,623,302,619,269,619,193,615,156,606,121,582,61"/>
+<area shape="rect" href="lv__area_8h.html" title=" " alt="" coords="455,475,585,500"/>
+<area shape="poly" title=" " alt="" coords="559,61,535,121,526,156,523,193,523,342,523,461,517,461,517,342,517,193,521,155,530,119,554,59"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__style_8h.html" title=" " alt="" coords="823,108,955,133"/>
+<area shape="poly" title=" " alt="" coords="657,54,834,102,833,107,655,59"/>
+<area shape="rect" href="lv__conf__kconfig_8h.html" title=" " alt="" coords="637,988,771,1013"/>
+<area shape="poly" title=" " alt="" coords="766,942,727,980,724,976,762,938"/>
+<area shape="rect" title=" " alt="" coords="796,988,900,1013"/>
+<area shape="poly" title=" " alt="" coords="790,938,828,976,825,980,786,942"/>
+<area shape="poly" title=" " alt="" coords="720,495,648,506,564,529,522,545,482,566,445,592,413,623,384,664,371,701,371,742,380,793,389,834,397,849,412,865,432,876,459,885,530,901,610,912,687,918,687,924,610,917,529,906,458,890,430,880,409,869,392,853,384,836,375,794,366,743,366,700,379,661,409,620,442,588,479,562,520,541,562,524,647,501,720,490"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="423,621,516,647"/>
+<area shape="poly" title=" " alt="" coords="761,503,508,618,506,613,759,498"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="1010,841,1099,867"/>
+<area shape="poly" title=" " alt="" coords="851,487,890,493,931,503,971,521,1006,546,1022,566,1030,585,1032,633,1032,709,1038,773,1050,828,1045,829,1033,774,1027,709,1027,633,1025,586,1018,569,1002,550,968,525,930,508,889,498,851,493"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html" title=" " alt="" coords="781,695,867,720"/>
+<area shape="poly" title=" " alt="" coords="800,499,818,520,833,547,841,583,842,620,833,682,828,681,836,620,835,584,828,549,814,523,796,502"/>
+<area shape="rect" href="lv__palette_8h.html" title=" " alt="" coords="893,548,992,573"/>
+<area shape="poly" title=" " alt="" coords="805,498,899,540,897,545,803,502"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color__op_8h.html" title=" " alt="" coords="710,548,818,573"/>
+<area shape="poly" title=" " alt="" coords="777,501,765,535,760,534,772,499"/>
+<area shape="poly" title=" " alt="" coords="460,649,422,698,402,732,388,769,385,787,387,802,392,815,401,826,427,846,461,864,517,888,576,904,634,915,687,920,686,926,633,920,575,909,515,893,459,869,424,850,397,830,388,817,382,803,380,786,383,767,397,730,417,695,456,645"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__log_8h.html" title=" " alt="" coords="398,768,471,793"/>
+<area shape="poly" title=" " alt="" coords="463,648,449,670,439,695,434,725,435,754,429,754,429,725,433,694,445,667,458,645"/>
+<area shape="rect" href="lv__mem_8h.html" title=" " alt="" coords="448,695,587,720"/>
+<area shape="poly" title=" " alt="" coords="479,646,504,682,500,685,475,649"/>
+<area shape="poly" title=" " alt="" coords="441,792,460,829,474,848,492,864,538,889,588,906,639,917,687,922,686,927,638,922,587,911,536,894,489,869,470,852,455,831,436,795"/>
+<area shape="poly" title=" " alt="" coords="472,784,997,843,996,849,471,789"/>
+<area shape="poly" title=" " alt="" coords="1011,869,835,914,834,909,1009,864"/>
+<area shape="poly" title=" " alt="" coords="519,720,522,755,527,774,537,792,577,833,625,866,675,891,721,908,719,913,673,896,622,871,573,837,533,795,523,776,517,756,514,721"/>
+<area shape="poly" title=" " alt="" coords="544,718,708,791,785,811,863,826,997,845,996,850,862,831,784,816,706,796,542,723"/>
+<area shape="rect" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h.html" title=" " alt="" coords="547,768,637,793"/>
+<area shape="poly" title=" " alt="" coords="531,718,572,757,568,760,527,722"/>
+<area shape="poly" title=" " alt="" coords="609,792,752,904,749,908,605,796"/>
+<area shape="poly" title=" " alt="" coords="638,788,656,791,997,842,996,847,656,796,637,793"/>
+<area shape="poly" title=" " alt="" coords="824,721,784,902,779,900,819,720"/>
+<area shape="poly" title=" " alt="" coords="835,719,867,754,911,791,957,816,1003,834,1001,839,955,821,908,796,863,758,831,722"/>
+<area shape="poly" title=" " alt="" coords="923,550,829,508,831,503,925,545"/>
+<area shape="poly" title=" " alt="" coords="947,573,968,666,987,730,1013,792,1038,829,1033,832,1008,795,982,731,963,668,942,574"/>
+<area shape="poly" title=" " alt="" coords="772,547,784,513,789,515,777,549"/>
+<area shape="poly" title=" " alt="" coords="717,576,530,621,529,616,716,571"/>
+<area shape="poly" title=" " alt="" coords="777,572,997,791,1035,830,1032,834,993,795,774,575"/>
+<area shape="poly" title=" " alt="" coords="771,573,816,681,811,683,766,575"/>
+<area shape="poly" title=" " alt="" coords="506,502,449,551,417,585,389,623,353,689,342,721,337,751,337,780,345,809,361,837,386,865,406,878,436,889,514,906,603,916,687,921,687,927,603,921,513,911,434,894,404,883,382,869,357,840,340,811,332,781,331,751,337,719,348,687,384,620,413,581,446,547,503,498"/>
+<area shape="poly" title=" " alt="" coords="532,499,579,552,657,632,758,718,815,757,873,791,937,817,998,836,996,841,935,822,871,796,812,762,755,722,654,636,575,556,528,502"/>
+<area shape="poly" title=" " alt="" coords="537,498,798,684,795,689,534,502"/>
+<area shape="poly" title=" " alt="" coords="895,133,909,190,915,227,917,266,917,342,915,364,907,384,883,419,852,448,820,470,817,466,848,444,879,416,903,381,910,362,912,342,912,266,910,228,904,191,890,134"/>
+<area shape="poly" title=" " alt="" coords="824,130,632,148,395,178,284,197,193,218,131,242,115,254,109,267,109,342,112,387,121,424,136,456,157,483,183,506,214,528,292,571,352,597,410,615,409,620,350,602,289,576,211,533,179,511,153,486,132,459,116,426,107,388,104,342,104,265,111,251,128,237,191,213,283,192,394,173,631,143,823,125"/>
+<area shape="poly" title=" " alt="" coords="956,120,1127,123,1339,131,1440,139,1528,149,1593,162,1615,170,1628,179,1658,216,1678,252,1690,287,1694,322,1691,357,1682,391,1668,425,1648,459,1596,525,1532,591,1387,722,1337,764,1280,796,1194,827,1113,846,1112,840,1192,821,1278,791,1334,760,1384,718,1528,587,1592,522,1644,456,1663,423,1677,389,1686,356,1689,322,1685,288,1673,254,1653,219,1625,183,1612,175,1591,167,1527,154,1440,144,1339,137,1127,128,956,125"/>
+<area shape="poly" title=" " alt="" coords="887,135,861,188,815,266,752,353,715,393,674,429,629,455,582,473,580,468,626,450,670,424,711,389,748,349,811,264,856,185,882,133"/>
+<area shape="rect" href="lv__font_8h.html" title=" " alt="" coords="1441,328,1562,353"/>
+<area shape="poly" title=" " alt="" coords="956,126,1048,140,1163,164,1287,201,1347,224,1405,252,1449,283,1484,315,1480,319,1446,287,1403,257,1345,229,1285,206,1162,169,1047,145,955,131"/>
+<area shape="rect" href="lv__anim_8h.html" title=" " alt="" coords="1701,621,1787,647"/>
+<area shape="poly" title=" " alt="" coords="956,120,1145,124,1385,133,1601,151,1678,163,1704,171,1722,179,1741,197,1751,217,1754,239,1755,266,1755,489,1749,608,1744,608,1749,489,1749,266,1749,239,1746,218,1736,201,1718,184,1703,176,1677,169,1601,156,1385,139,1145,129,956,125"/>
+<area shape="rect" href="lv__text_8h.html" title=" " alt="" coords="1313,255,1391,280"/>
+<area shape="poly" title=" " alt="" coords="927,131,1303,248,1302,253,925,136"/>
+<area shape="rect" href="lv__bidi_8h.html" title=" " alt="" coords="1537,181,1615,207"/>
+<area shape="poly" title=" " alt="" coords="956,126,1472,179,1524,184,1523,190,1472,184,955,131"/>
+<area shape="rect" href="lv__grad_8h.html" title=" " alt="" coords="577,401,660,427"/>
+<area shape="poly" title=" " alt="" coords="823,130,791,137,758,147,727,162,699,183,680,206,664,232,641,289,628,344,623,388,617,387,623,343,636,287,659,230,675,203,696,179,724,158,756,142,790,131,822,125"/>
+<area shape="rect" href="lv__layout_8h.html" title=" " alt="" coords="219,328,378,353"/>
+<area shape="poly" title=" " alt="" coords="833,136,748,156,654,184,562,219,472,258,334,324,331,319,470,253,560,214,652,179,747,151,832,131"/>
+<area shape="rect" href="lv__style__gen_8h_source.html" title=" " alt="" coords="710,181,826,207"/>
+<area shape="poly" title=" " alt="" coords="871,136,801,177,798,172,868,131"/>
+<area shape="poly" title=" " alt="" coords="1509,353,1539,438,1557,502,1570,576,1576,653,1570,731,1561,769,1548,804,1530,838,1506,869,1493,877,1473,885,1413,898,1332,908,1238,915,1037,924,865,928,865,923,1037,919,1238,910,1332,902,1412,892,1471,880,1491,873,1502,865,1525,835,1543,802,1556,767,1565,730,1571,653,1565,576,1552,503,1534,439,1504,354"/>
+<area shape="poly" title=" " alt="" coords="1501,354,1487,404,1461,479,1423,565,1399,608,1373,648,1333,698,1297,733,1256,762,1201,796,1153,820,1106,839,1104,834,1151,816,1199,791,1253,758,1293,729,1329,694,1369,645,1395,605,1418,563,1456,477,1482,402,1496,353"/>
+<area shape="poly" title=" " alt="" coords="1441,347,1260,363,1150,379,1042,404,1014,416,985,429,880,453,796,462,712,467,604,477,599,478,598,473,604,472,711,462,796,457,879,448,983,424,1012,412,1040,399,1149,374,1259,357,1440,342"/>
+<area shape="rect" href="lv__symbol__def_8h.html" title=" " alt="" coords="1952,841,2080,867"/>
+<area shape="poly" title=" " alt="" coords="1517,351,1672,484,1782,585,1890,693,1953,766,2001,828,1997,832,1949,769,1886,696,1778,588,1668,488,1514,356"/>
+<area shape="rect" href="lv__draw__buf_8h.html" title=" " alt="" coords="1053,401,1213,427"/>
+<area shape="poly" title=" " alt="" coords="1443,356,1207,401,1206,396,1442,351"/>
+<area shape="poly" title=" " alt="" coords="1952,867,1934,869,1626,893,1323,910,865,927,865,921,1323,905,1626,888,1933,864,1952,862"/>
+<area shape="poly" title=" " alt="" coords="1078,429,856,474,855,469,1077,424"/>
+<area shape="poly" title=" " alt="" coords="1128,428,1100,483,1088,520,1083,560,1083,709,1076,774,1064,829,1059,828,1071,773,1077,709,1077,559,1083,519,1095,481,1124,426"/>
+<area shape="poly" title=" " alt="" coords="1053,427,841,453,751,467,709,477,693,496,676,526,644,604,618,689,601,755,595,754,613,687,639,603,671,523,689,493,707,472,750,462,840,448,1053,422"/>
+<area shape="poly" title=" " alt="" coords="1053,427,1035,429,604,477,599,478,598,473,604,472,1034,424,1053,422"/>
+<area shape="rect" href="lv__image__dsc_8h.html" title=" " alt="" coords="1192,621,1315,647"/>
+<area shape="poly" title=" " alt="" coords="1155,424,1185,444,1220,471,1253,506,1278,547,1282,563,1281,580,1270,610,1265,608,1276,579,1277,564,1274,549,1249,509,1216,475,1182,448,1152,429"/>
+<area shape="poly" title=" " alt="" coords="1253,648,1238,690,1210,751,1169,815,1143,844,1113,869,1070,887,1006,902,865,921,864,916,1005,897,1068,882,1111,864,1140,841,1165,812,1206,749,1233,688,1248,646"/>
+<area shape="poly" title=" " alt="" coords="1778,644,1820,664,1860,693,1898,735,1911,758,1920,781,1923,804,1920,826,1909,848,1891,869,1875,875,1845,881,1750,892,1459,909,1128,920,865,927,865,922,1128,915,1459,903,1749,886,1844,876,1874,870,1888,864,1905,845,1915,825,1917,804,1914,782,1906,760,1893,738,1857,697,1817,668,1776,649"/>
+<area shape="poly" title=" " alt="" coords="1726,649,1594,718,1501,760,1403,796,1326,816,1247,832,1113,850,1112,845,1246,827,1325,811,1402,791,1499,755,1591,714,1723,644"/>
+<area shape="poly" title=" " alt="" coords="1700,641,881,704,881,699,1700,636"/>
+<area shape="rect" href="lv__ext__data_8h.html" title=" " alt="" coords="1766,841,1877,867"/>
+<area shape="poly" title=" " alt="" coords="1765,645,1794,664,1828,692,1861,726,1885,767,1888,787,1881,805,1868,821,1853,835,1849,831,1864,818,1876,802,1882,786,1880,769,1856,729,1824,695,1791,668,1762,649"/>
+<area shape="rect" href="lv__timer_8h.html" title=" " alt="" coords="1701,695,1787,720"/>
+<area shape="poly" title=" " alt="" coords="1747,647,1747,681,1741,681,1741,647"/>
+<area shape="rect" href="lv__ll_8h.html" title=" " alt="" coords="1573,768,1635,793"/>
+<area shape="poly" title=" " alt="" coords="1734,649,1627,760,1623,756,1731,645"/>
+<area shape="poly" title=" " alt="" coords="1766,867,1747,869,1497,892,1249,908,865,926,865,921,1249,903,1496,887,1746,864,1766,862"/>
+<area shape="poly" title=" " alt="" coords="1777,718,1805,731,1830,749,1845,770,1846,782,1841,795,1826,809,1803,822,1746,843,1638,869,1571,880,1482,890,1268,906,866,926,865,920,1268,901,1482,885,1570,875,1637,864,1744,838,1801,817,1822,805,1836,792,1841,781,1840,772,1827,753,1802,736,1774,723"/>
+<area shape="poly" title=" " alt="" coords="1737,722,1701,760,1676,780,1648,796,1602,810,1542,822,1393,839,1238,849,1113,854,1113,849,1238,844,1393,834,1541,817,1601,805,1646,791,1673,775,1697,756,1733,719"/>
+<area shape="rect" href="lv__tick_8h.html" title=" " alt="" coords="1709,768,1827,793"/>
+<area shape="poly" title=" " alt="" coords="1750,719,1762,754,1757,756,1745,721"/>
+<area shape="poly" title=" " alt="" coords="1723,722,1640,764,1638,759,1720,718"/>
+<area shape="poly" title=" " alt="" coords="1750,796,1680,834,1634,854,1586,869,1524,881,1442,892,1243,909,866,926,865,921,1243,903,1442,887,1523,876,1585,864,1632,849,1678,829,1748,791"/>
+<area shape="poly" title=" " alt="" coords="1709,794,1691,796,1365,830,1113,851,1113,846,1364,824,1690,791,1709,788"/>
+<area shape="poly" title=" " alt="" coords="1603,795,1588,832,1574,853,1556,869,1517,882,1450,893,1260,909,1046,920,865,927,865,921,1045,915,1260,904,1449,887,1516,877,1553,864,1570,849,1583,830,1598,793"/>
+<area shape="poly" title=" " alt="" coords="1574,789,1113,848,1113,843,1573,783"/>
+<area shape="poly" title=" " alt="" coords="1359,279,1373,327,1393,441,1399,489,1402,534,1399,577,1389,622,1369,669,1340,721,1298,777,1257,814,1209,841,1145,869,1074,894,1000,910,929,921,865,926,865,921,928,916,999,905,1072,889,1143,864,1207,836,1254,809,1294,773,1335,719,1365,667,1384,620,1394,577,1397,534,1394,490,1387,442,1368,329,1354,281"/>
+<area shape="poly" title=" " alt="" coords="1355,280,1355,413,1355,562,1350,608,1329,648,1285,693,1218,745,1085,836,1082,832,1215,741,1282,689,1325,645,1345,606,1349,562,1349,413,1349,280"/>
+<area shape="poly" title=" " alt="" coords="1313,282,578,474,576,469,1312,276"/>
+<area shape="poly" title=" " alt="" coords="1377,278,1466,320,1463,324,1375,282"/>
+<area shape="rect" href="lv__sprintf_8h.html" title=" " alt="" coords="1117,548,1264,573"/>
+<area shape="poly" title=" " alt="" coords="1348,281,1206,537,1201,535,1343,279"/>
+<area shape="poly" title=" " alt="" coords="1190,574,1158,667,1132,731,1101,795,1075,832,1071,829,1096,792,1127,729,1153,666,1185,573"/>
+<area shape="poly" title=" " alt="" coords="1599,204,1665,242,1761,301,1871,378,1980,468,2030,516,2073,566,2108,617,2133,669,2146,720,2146,771,2139,796,2129,821,2114,845,2094,869,2075,877,2039,884,1923,897,1762,907,1571,914,1173,924,865,928,865,923,1173,919,1571,909,1761,901,1923,892,2039,879,2074,872,2090,865,2109,842,2124,818,2134,795,2140,770,2141,721,2128,671,2103,620,2069,569,2026,520,1977,472,1868,382,1758,306,1662,247,1596,209"/>
+<area shape="poly" title=" " alt="" coords="1580,207,1583,270,1582,312,1577,354,1561,421,1541,471,1513,518,1474,575,1421,650,1374,705,1319,750,1240,796,1175,823,1113,842,1112,837,1174,818,1237,791,1316,746,1371,701,1417,646,1470,572,1509,515,1537,469,1556,419,1572,353,1577,311,1578,270,1575,207"/>
+<area shape="poly" title=" " alt="" coords="1541,209,1402,253,1400,248,1539,204"/>
+<area shape="poly" title=" " alt="" coords="577,421,476,435,415,449,354,469,299,497,253,532,235,554,222,577,214,604,211,633,211,782,214,799,224,814,240,828,262,841,318,864,388,882,466,896,545,907,687,919,687,924,544,912,465,902,387,887,317,869,259,846,237,832,220,817,209,801,205,782,205,633,208,602,217,575,231,551,249,529,296,492,352,464,414,444,475,430,577,415"/>
+<area shape="poly" title=" " alt="" coords="646,424,747,467,745,472,644,429"/>
+<area shape="poly" title=" " alt="" coords="604,429,549,469,546,464,601,425"/>
+<area shape="poly" title=" " alt="" coords="268,356,207,383,172,403,138,426,107,454,82,485,65,520,59,560,59,782,64,813,80,833,104,849,136,864,180,880,240,893,389,910,550,919,687,923,687,928,549,925,389,915,239,898,179,885,134,869,102,853,76,837,59,815,53,782,53,559,60,519,77,482,103,450,135,422,169,398,205,378,265,351"/>
+<area shape="poly" title=" " alt="" coords="280,356,261,370,243,387,233,406,232,416,236,425,264,449,330,494,522,615,718,732,822,791,913,821,997,840,996,846,911,826,820,796,716,737,520,619,327,498,261,454,231,428,227,416,228,405,239,384,257,365,277,351"/>
+<area shape="rect" href="lv__flex_8h.html" title=" " alt="" coords="246,401,351,427"/>
+<area shape="poly" title=" " alt="" coords="301,354,301,388,296,388,296,354"/>
+<area shape="rect" href="lv__grid_8h.html" title=" " alt="" coords="376,401,483,427"/>
+<area shape="poly" title=" " alt="" coords="321,351,397,392,395,397,318,356"/>
+<area shape="poly" title=" " alt="" coords="257,429,210,447,161,474,141,492,124,511,113,534,109,560,109,782,115,813,132,833,158,849,190,864,230,878,284,890,417,907,561,917,687,922,687,927,561,922,417,912,283,895,229,883,188,869,155,854,128,838,111,815,104,782,104,559,108,532,120,509,137,488,158,470,207,442,255,424"/>
+<area shape="poly" title=" " alt="" coords="335,424,472,468,471,473,333,429"/>
+<area shape="poly" title=" " alt="" coords="390,429,322,455,284,474,246,497,213,524,185,556,167,592,160,633,160,782,162,800,167,814,187,835,217,849,253,864,288,876,334,886,450,902,575,913,687,920,687,925,575,918,449,908,333,891,286,881,251,869,214,854,184,839,163,817,157,802,155,782,155,632,162,590,181,553,209,520,243,493,281,469,320,450,388,424"/>
+<area shape="poly" title=" " alt="" coords="446,425,496,464,493,468,442,429"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-&gt;B definira relacijo "A vključuje B". Vse datoteke, ki torej mejijo na tekočo (t.j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. </div>
+<div class="dyncontent">
+<div class="center"><img src="lv__draw__line_8h__dep__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__line_8hdep" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__line_8hdep" id="amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__line_8hdep">
+<area shape="rect" title=" " alt="" coords="3159,5,3329,60"/>
+<area shape="rect" href="lv__obj__draw_8h.html" title=" " alt="" coords="2243,108,2413,163"/>
+<area shape="poly" title=" " alt="" coords="3145,47,2414,127,2413,122,3145,42"/>
+<area shape="rect" href="lv__draw__sw_8h.html" title=" " alt="" coords="4325,108,4496,163"/>
+<area shape="poly" title=" " alt="" coords="3343,40,4325,124,4325,129,3343,45"/>
+<area shape="rect" href="lv__obj_8h.html" title=" " alt="" coords="1797,218,1968,273"/>
+<area shape="poly" title=" " alt="" coords="2230,163,1969,226,1967,221,2229,158"/>
+<area shape="rect" href="lv__obj__draw__private_8h.html" title=" " alt="" coords="2243,218,2413,273"/>
+<area shape="poly" title=" " alt="" coords="2331,177,2331,218,2325,218,2325,177"/>
+<area shape="rect" href="lvgl_8h.html" title=" " alt="" coords="1608,453,1779,493"/>
+<area shape="poly" title=" " alt="" coords="1868,287,1839,342,1798,399,1764,430,1728,455,1725,450,1760,426,1794,396,1834,339,1864,284"/>
+<area shape="rect" href="lv__obj__private_8h.html" title=" " alt="" coords="2299,335,2469,390"/>
+<area shape="poly" title=" " alt="" coords="1982,260,2127,288,2287,325,2312,333,2310,338,2286,331,2126,293,1981,265"/>
+<area shape="rect" href="lv__obj__property_8c.html" title=" " alt="" coords="2024,445,2195,500"/>
+<area shape="poly" title=" " alt="" coords="1971,276,2009,298,2043,326,2066,355,2083,386,2105,444,2100,446,2078,389,2061,358,2039,330,2006,302,1968,281"/>
+<area shape="rect" href="lv__observer_8h.html" title=" " alt="" coords="1859,335,2029,390"/>
+<area shape="poly" title=" " alt="" coords="1905,283,1932,334,1928,336,1901,286"/>
+<area shape="rect" href="lv__refr_8h.html" title=" " alt="" coords="2789,335,2960,390"/>
+<area shape="poly" title=" " alt="" coords="1982,253,2348,289,2676,325,2790,343,2789,348,2676,331,2348,294,1982,259"/>
+<area shape="rect" href="lv__display__private_8h.html" title=" " alt="" coords="3549,335,3720,390"/>
+<area shape="poly" title=" " alt="" coords="1982,255,2231,277,2423,287,2586,290,2863,287,2997,287,3140,291,3303,303,3494,325,3550,336,3549,341,3493,331,3302,308,3140,297,2997,292,2863,292,2586,295,2423,292,2230,283,1981,260"/>
+<area shape="rect" href="lv__init_8c.html" title=" " alt="" coords="3549,453,3720,493"/>
+<area shape="poly" title=" " alt="" coords="1982,255,2231,277,2359,285,2467,288,2652,288,2741,289,2836,294,2943,306,3070,325,3136,340,3185,357,3235,376,3299,395,3418,419,3538,443,3567,450,3566,455,3537,448,3417,425,3298,400,3233,381,3184,362,3134,346,3069,331,2943,311,2835,300,2740,294,2652,293,2467,293,2358,290,2230,283,1981,260"/>
+<area shape="rect" href="lv__draw__arc_8c.html" title=" " alt="" coords="2493,335,2664,390"/>
+<area shape="poly" title=" " alt="" coords="1982,252,2212,277,2348,298,2482,325,2509,333,2507,338,2481,331,2347,303,2211,282,1982,257"/>
+<area shape="rect" href="lv__draw__label_8c.html" title=" " alt="" coords="3355,445,3525,500"/>
+<area shape="poly" title=" " alt="" coords="1982,254,2231,277,2344,284,2440,285,2604,282,2683,283,2767,289,2862,302,2973,325,3019,341,3053,358,3087,377,3132,395,3190,412,3236,421,3343,443,3355,446,3354,451,3342,448,3235,427,3189,417,3130,400,3084,381,3051,363,3017,346,2971,331,2861,307,2767,294,2683,288,2604,287,2440,290,2344,289,2230,283,1981,260"/>
+<area shape="rect" href="lv__draw__rect_8c.html" title=" " alt="" coords="5,335,176,390"/>
+<area shape="poly" title=" " alt="" coords="1783,250,1445,256,984,270,746,280,523,294,333,310,189,331,160,338,158,333,187,325,332,305,523,288,745,275,983,265,1445,251,1783,245"/>
+<area shape="rect" href="lv__draw__triangle_8c.html" title=" " alt="" coords="200,335,371,390"/>
+<area shape="poly" title=" " alt="" coords="1784,251,1480,259,1076,273,675,297,509,312,383,331,354,338,353,333,382,325,508,307,674,292,1075,268,1480,253,1783,246"/>
+<area shape="rect" href="lv__snapshot_8h.html" title=" " alt="" coords="395,335,573,390"/>
+<area shape="poly" title=" " alt="" coords="1784,252,1518,262,1172,278,833,301,692,315,586,331,557,338,555,333,585,325,692,310,832,296,1172,273,1518,256,1784,247"/>
+<area shape="rect" href="lv__gridnav_8h.html" title=" " alt="" coords="597,335,768,390"/>
+<area shape="poly" title=" " alt="" coords="1784,248,1596,250,1346,261,1207,272,1064,286,920,306,781,331,752,338,751,333,779,325,919,300,1063,281,1206,266,1345,256,1596,245,1784,243"/>
+<area shape="rect" href="lv__indev__gesture_8h_source.html" title=" " alt="" coords="792,335,963,390"/>
+<area shape="poly" title=" " alt="" coords="1783,250,1627,256,1425,269,1200,293,1086,310,975,331,948,338,946,333,974,325,1085,304,1199,287,1424,263,1627,251,1783,245"/>
+<area shape="rect" href="lv__indev__gesture__private_8h_source.html" title=" " alt="" coords="987,335,1189,390"/>
+<area shape="poly" title=" " alt="" coords="1784,256,1520,281,1360,303,1202,331,1171,338,1170,333,1201,325,1360,297,1519,276,1783,251"/>
+<area shape="rect" href="lv__indev__scroll_8h.html" title=" " alt="" coords="1213,335,1384,390"/>
+<area shape="poly" title=" " alt="" coords="1784,261,1603,288,1499,307,1397,331,1371,338,1370,333,1395,325,1498,302,1602,283,1783,256"/>
+<area shape="rect" href="lv__file__explorer_8h.html" title=" " alt="" coords="1408,328,1579,397"/>
+<area shape="poly" title=" " alt="" coords="1785,275,1591,331,1580,334,1578,329,1590,325,1784,270"/>
+<area shape="rect" href="lv__fragment_8h.html" title=" " alt="" coords="1603,335,1784,390"/>
+<area shape="poly" title=" " alt="" coords="1829,282,1738,337,1735,333,1827,277"/>
+<area shape="rect" href="lv__theme_8h.html" title=" " alt="" coords="2104,335,2275,390"/>
+<area shape="poly" title=" " alt="" coords="1966,275,2120,333,2119,338,1964,280"/>
+<area shape="poly" title=" " alt="" coords="2305,398,2177,448,2175,443,2303,393"/>
+<area shape="rect" href="lv__display_8c.html" title=" " alt="" coords="2280,445,2451,500"/>
+<area shape="poly" title=" " alt="" coords="2380,404,2373,446,2367,445,2374,403"/>
+<area shape="poly" title=" " alt="" coords="1871,398,1738,455,1736,450,1869,393"/>
+<area shape="poly" title=" " alt="" coords="2776,385,2676,400,2490,419,2345,429,2199,436,2012,448,1779,467,1779,461,2012,443,2199,431,2344,423,2490,414,2676,395,2775,380"/>
+<area shape="rect" href="lv__draw__sw__border_8c.html" title=" " alt="" coords="2901,445,3083,500"/>
+<area shape="poly" title=" " alt="" coords="2916,398,2965,443,2962,447,2912,402"/>
+<area shape="rect" href="lv__draw__sw__box__shadow_8c.html" title=" " alt="" coords="3107,445,3330,500"/>
+<area shape="poly" title=" " alt="" coords="2972,392,3136,443,3134,448,2970,397"/>
+<area shape="rect" href="lv__draw__sw__fill_8c.html" title=" " alt="" coords="2475,445,2645,500"/>
+<area shape="poly" title=" " alt="" coords="2786,397,2637,448,2636,443,2784,392"/>
+<area shape="rect" href="lv__draw__sw__transform_8c.html" title=" " alt="" coords="2670,445,2877,500"/>
+<area shape="poly" title=" " alt="" coords="2842,402,2800,447,2796,443,2838,398"/>
+<area shape="poly" title=" " alt="" coords="3536,392,3494,400,3337,417,3204,424,3087,425,2978,421,2868,419,2751,420,2619,428,2463,448,2452,450,2451,445,2462,443,2618,423,2751,414,2868,413,2978,416,3087,419,3204,419,3337,412,3493,395,3535,387"/>
+<area shape="rect" href="lv__draw_8c.html" title=" " alt="" coords="3744,445,3915,500"/>
+<area shape="poly" title=" " alt="" coords="3695,394,3783,443,3781,447,3693,399"/>
+<area shape="rect" href="lv__draw__sw__img_8c.html" title=" " alt="" coords="3939,445,4109,500"/>
+<area shape="poly" title=" " alt="" coords="3734,389,3939,445,3938,450,3733,394"/>
+<area shape="poly" title=" " alt="" coords="3637,404,3637,452,3632,452,3632,404"/>
+<area shape="poly" title=" " alt="" coords="569,391,586,395,677,408,796,421,1086,441,1608,466,1608,471,1086,447,796,426,676,414,585,400,568,396"/>
+<area shape="poly" title=" " alt="" coords="766,391,781,395,895,416,1013,432,1246,455,1452,465,1608,469,1608,474,1452,471,1245,460,1013,438,895,421,779,400,765,396"/>
+<area shape="poly" title=" " alt="" coords="961,391,975,395,1150,426,1325,447,1483,460,1608,466,1608,471,1483,465,1324,452,1149,431,974,400,960,397"/>
+<area shape="poly" title=" " alt="" coords="1569,402,1659,450,1657,455,1566,406"/>
+<area shape="poly" title=" " alt="" coords="1696,404,1696,452,1691,452,1691,404"/>
+<area shape="poly" title=" " alt="" coords="2091,389,2042,400,1779,456,1778,451,2041,395,2090,384"/>
+<area shape="poly" title=" " alt="" coords="2245,395,2324,443,2321,447,2243,400"/>
+<area shape="poly" title=" " alt="" coords="4312,140,3964,144,3506,156,3280,165,3082,178,2930,194,2877,203,2842,213,2802,236,2775,260,2722,330,2710,349,2703,367,2694,383,2678,399,2649,417,2623,428,2575,436,2525,439,2463,448,2451,451,2450,446,2462,443,2524,433,2575,431,2622,423,2647,412,2674,395,2690,380,2698,364,2705,347,2718,326,2771,257,2798,231,2840,208,2876,198,2929,188,3082,172,3280,160,3505,151,3964,139,4312,135"/>
+<area shape="poly" title=" " alt="" coords="4311,140,4030,145,3673,157,3501,167,3351,179,3236,194,3196,203,3171,213,3138,236,3108,264,3082,295,3060,329,3025,394,3003,446,2998,444,3020,392,3055,326,3078,292,3104,260,3134,232,3168,208,3195,198,3235,189,3350,174,3501,161,3673,152,4030,140,4311,135"/>
+<area shape="poly" title=" " alt="" coords="4312,142,4026,150,3667,165,3355,186,3253,199,3222,206,3207,213,3189,238,3179,268,3176,299,3177,332,3191,395,3209,444,3204,446,3186,396,3172,333,3171,299,3174,266,3185,236,3204,209,3220,201,3252,194,3354,181,3667,160,4025,145,4312,136"/>
+<area shape="poly" title=" " alt="" coords="4311,140,4030,144,3661,155,3472,164,3297,177,3147,193,3034,213,2957,233,2898,254,2844,284,2779,330,2762,347,2751,364,2740,381,2722,399,2679,427,2635,448,2633,443,2677,422,2718,395,2736,378,2746,361,2757,344,2776,326,2841,279,2896,250,2955,228,3033,208,3146,188,3297,172,3472,159,3661,150,4030,139,4311,135"/>
+<area shape="poly" title=" " alt="" coords="4312,140,4013,143,3630,154,3444,163,3282,176,3158,192,3115,202,3088,213,3073,226,3059,247,3030,303,3002,360,2988,383,2974,399,2928,429,2878,450,2876,445,2925,424,2970,395,2984,380,2998,357,3025,301,3054,245,3069,223,3085,208,3114,197,3157,187,3281,170,3444,158,3630,148,4013,138,4312,134"/>
+<area shape="poly" title=" " alt="" coords="4510,135,5054,143,5816,158,6503,180,6725,193,6790,200,6819,208,6832,227,6836,245,6832,264,6819,282,6792,303,6753,322,6703,339,6643,355,6496,380,6317,400,6113,414,5889,424,5408,434,4923,435,4481,434,4133,436,4009,440,3927,448,3916,450,3915,445,3926,443,4009,435,4133,431,4481,428,4923,430,5408,429,5889,419,6113,409,6317,395,6495,375,6642,350,6702,334,6751,317,6789,299,6815,278,6827,262,6831,245,6827,229,6816,213,6789,206,6725,198,6502,185,5816,163,5053,148,4510,141"/>
+<area shape="poly" title=" " alt="" coords="4510,135,5063,143,5840,157,6540,179,6767,193,6834,200,6863,208,6882,232,6896,255,6905,280,6907,304,6905,328,6896,353,6883,376,6863,400,6828,409,6748,418,6477,432,6093,445,5643,454,4730,468,4110,473,4110,468,4730,462,5643,449,6092,439,6476,427,6748,412,6827,404,6860,395,6878,373,6891,350,6899,327,6902,304,6899,281,6891,258,6878,235,6860,213,6833,205,6767,198,6540,185,5840,163,5063,148,4510,140"/>
+<area shape="rect" href="lv__global_8h.html" title=" " alt="" coords="3311,335,3481,390"/>
+<area shape="poly" title=" " alt="" coords="4312,142,4030,151,3678,166,3372,187,3272,199,3241,206,3227,213,3217,228,3214,244,3218,260,3228,279,3244,299,3264,315,3311,339,3309,344,3261,320,3240,302,3223,281,3213,262,3209,244,3212,226,3224,209,3240,201,3271,194,3371,181,3678,160,4030,145,4311,137"/>
+<area shape="rect" href="lv__draw__sw__blend_8c.html" title=" " alt="" coords="4264,328,4435,397"/>
+<area shape="poly" title=" " alt="" coords="4350,172,4331,190,4316,212,4308,241,4310,271,4319,300,4331,326,4326,329,4314,302,4305,272,4303,240,4311,210,4327,187,4347,169"/>
+<area shape="rect" href="lv__draw__sw__blend__to__a8_8h.html" title=" " alt="" coords="4325,211,4496,280"/>
+<area shape="poly" title=" " alt="" coords="4413,177,4413,210,4408,210,4408,177"/>
+<area shape="rect" href="lv__draw__sw__blend__to__al88_8h.html" title=" " alt="" coords="4520,211,4691,280"/>
+<area shape="poly" title=" " alt="" coords="4472,167,4546,208,4543,213,4469,172"/>
+<area shape="rect" href="lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend__to__argb8888_8h.html" title=" " alt="" coords="4715,211,4885,280"/>
+<area shape="poly" title=" " alt="" coords="4510,157,4703,208,4715,212,4713,217,4702,213,4508,162"/>
+<area shape="rect" href="lv__draw__sw__blend__to__argb8888__premultiplied_8h.html" title=" " alt="" coords="4909,211,5168,280"/>
+<area shape="poly" title=" " alt="" coords="4510,147,4691,173,4898,208,4910,210,4908,216,4897,213,4690,178,4509,152"/>
+<area shape="rect" href="lv__draw__sw__blend__to__i1_8h.html" title=" " alt="" coords="6211,211,6381,280"/>
+<area shape="poly" title=" " alt="" coords="4510,134,4865,138,5354,149,5606,158,5843,171,6046,187,6199,208,6211,211,6210,216,6198,213,6045,193,5842,176,5606,163,5353,154,4865,143,4510,140"/>
+<area shape="rect" href="lv__draw__sw__blend__to__l8_8h.html" title=" " alt="" coords="3451,211,3621,280"/>
+<area shape="poly" title=" " alt="" coords="4312,141,4177,147,4007,160,3820,181,3634,213,3622,216,3621,211,3633,208,3819,176,4006,154,4176,142,4311,136"/>
+<area shape="rect" href="lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend__to__rgb565_8h.html" title=" " alt="" coords="3645,211,3816,280"/>
+<area shape="poly" title=" " alt="" coords="4312,146,4090,169,3959,188,3830,213,3817,216,3816,211,3829,208,3958,183,4089,163,4311,141"/>
+<area shape="rect" href="lv__draw__sw__blend__to__rgb565__swapped_8h.html" title=" " alt="" coords="3841,211,4055,280"/>
+<area shape="poly" title=" " alt="" coords="4312,159,4069,213,4057,216,4055,211,4067,208,4311,154"/>
+<area shape="rect" href="lvgl____lvgl_2src_2draw_2sw_2blend_2lv__draw__sw__blend__to__rgb888_8h.html" title=" " alt="" coords="4080,211,4251,280"/>
+<area shape="poly" title=" " alt="" coords="4339,171,4243,213,4241,208,4337,166"/>
+<area shape="rect" href="lv__draw__sw__arc_8c.html" title=" " alt="" coords="5192,218,5363,273"/>
+<area shape="poly" title=" " alt="" coords="4510,136,4644,142,4812,155,4997,176,5181,208,5208,215,5207,221,5179,213,4996,181,4811,160,4643,148,4510,141"/>
+<area shape="rect" href="lv__draw__sw__blur_8c.html" title=" " alt="" coords="5387,218,5557,273"/>
+<area shape="poly" title=" " alt="" coords="4510,133,4676,136,4892,147,5133,169,5256,186,5375,208,5404,215,5402,221,5374,213,5255,192,5133,175,4892,152,4676,142,4510,139"/>
+<area shape="rect" href="lv__draw__sw__letter_8c.html" title=" " alt="" coords="5581,218,5757,273"/>
+<area shape="poly" title=" " alt="" coords="4510,137,4749,146,5055,161,5353,181,5476,194,5570,208,5599,215,5598,220,5569,213,5475,199,5353,187,5055,166,4749,151,4510,142"/>
+<area shape="rect" href="lv__draw__sw__line_8c.html" title=" " alt="" coords="5781,218,5952,273"/>
+<area shape="poly" title=" " alt="" coords="4510,136,4787,143,5151,156,5509,178,5657,192,5770,208,5799,215,5798,221,5769,213,5657,197,5509,183,5151,162,4787,148,4510,141"/>
+<area shape="rect" href="lv__draw__sw__mask__rect_8c.html" title=" " alt="" coords="5976,218,6187,273"/>
+<area shape="poly" title=" " alt="" coords="4510,136,4823,143,5243,157,5660,178,5833,192,5964,208,5999,215,5998,221,5964,213,5833,197,5660,183,5243,162,4823,148,4510,141"/>
+<area shape="rect" href="lv__draw__sw__private_8h.html" title=" " alt="" coords="3237,218,3427,273"/>
+<area shape="poly" title=" " alt="" coords="4312,139,4145,143,3927,154,3683,177,3560,193,3439,213,3409,220,3408,215,3438,208,3559,188,3683,171,3927,149,4145,138,4312,134"/>
+<area shape="rect" href="lv__draw__sw__triangle_8c.html" title=" " alt="" coords="6405,218,6597,273"/>
+<area shape="poly" title=" " alt="" coords="4510,134,4899,138,5444,148,5727,158,5993,170,6221,187,6394,208,6426,215,6425,221,6393,213,6221,192,5993,176,5727,163,5444,154,4899,143,4510,140"/>
+<area shape="rect" href="lv__draw__sw__vector_8c.html" title=" " alt="" coords="6622,218,6805,273"/>
+<area shape="poly" title=" " alt="" coords="4510,134,4937,135,5545,144,5862,153,6160,166,6416,184,6610,208,6641,215,6640,221,6609,213,6416,190,6160,171,5862,158,5545,149,4937,140,4510,139"/>
+<area shape="poly" title=" " alt="" coords="3297,374,2826,412,2596,433,2463,448,2452,450,2451,445,2462,443,2595,428,2826,407,3297,369"/>
+<area shape="poly" title=" " alt="" coords="3342,400,3264,447,3261,443,3340,395"/>
+<area shape="poly" title=" " alt="" coords="3495,385,3733,443,3745,446,3743,451,3731,448,3494,390"/>
+<area shape="poly" title=" " alt="" coords="3496,386,3538,395,3647,410,3732,418,3818,425,3927,443,3939,445,3938,450,3926,448,3817,431,3732,423,3646,416,3537,400,3495,391"/>
+<area shape="poly" title=" " alt="" coords="3468,393,3594,450,3592,455,3466,398"/>
+<area shape="poly" title=" " alt="" coords="3414,402,3432,444,3427,446,3409,404"/>
+<area shape="poly" title=" " alt="" coords="4389,294,4370,329,4365,327,4384,291"/>
+<area shape="poly" title=" " alt="" coords="4519,288,4425,330,4423,325,4517,283"/>
+<area shape="poly" title=" " alt="" coords="4702,283,4558,320,4435,347,4434,342,4556,315,4700,278"/>
+<area shape="poly" title=" " alt="" coords="4896,283,4641,325,4435,354,4434,348,4640,320,4895,278"/>
+<area shape="poly" title=" " alt="" coords="6197,283,6028,305,5810,323,5560,336,5295,347,4790,359,4435,363,4435,358,4790,354,5294,341,5559,331,5809,317,6028,299,6197,277"/>
+<area shape="poly" title=" " alt="" coords="3635,277,3813,310,3987,333,4142,347,4264,355,4263,360,4142,352,3986,338,3812,315,3634,283"/>
+<area shape="poly" title=" " alt="" coords="3830,277,3951,303,4069,324,4264,350,4263,355,4068,329,3950,308,3829,282"/>
+<area shape="poly" title=" " alt="" coords="4069,279,4264,334,4263,339,4068,284"/>
+<area shape="poly" title=" " alt="" coords="4232,285,4297,325,4294,330,4229,290"/>
+<area shape="poly" title=" " alt="" coords="3356,283,3384,334,3379,336,3351,286"/>
+</map>
+</div>
+</div>
+<p><a href="lv__draw__line_8h_source.html">izvorna koda</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Strukture</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:a3c0526f52f44e5bfdd6d0c2d2df83cfc" id="r_a3c0526f52f44e5bfdd6d0c2d2df83cfc"><td class="memItemLeft" align="right" valign="top"><a id="a3c0526f52f44e5bfdd6d0c2d2df83cfc" name="a3c0526f52f44e5bfdd6d0c2d2df83cfc"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>LV_DRAW_LINE_POINT_NONE</b>&#160;&#160;&#160;INT32_MAX</td></tr>
+<tr class="separator:a3c0526f52f44e5bfdd6d0c2d2df83cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a6302f7f8c1d37c64b80c577787288490" id="r_a6302f7f8c1d37c64b80c577787288490"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__line_8h.html#a6302f7f8c1d37c64b80c577787288490">lv_draw_line_dsc_init</a> (<a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *dsc)</td></tr>
+<tr class="separator:a6302f7f8c1d37c64b80c577787288490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace2fcaf241cdbffa18ba64b7afd3526e" id="r_ace2fcaf241cdbffa18ba64b7afd3526e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__line_8h.html#ace2fcaf241cdbffa18ba64b7afd3526e">lv_draw_task_get_line_dsc</a> (<a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *task)</td></tr>
+<tr class="separator:ace2fcaf241cdbffa18ba64b7afd3526e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6259999cb02197a94f34a340995dc26b" id="r_a6259999cb02197a94f34a340995dc26b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__line_8h.html#a6259999cb02197a94f34a340995dc26b">lv_draw_line</a> (<a class="el" href="struct__lv__layer__t.html">lv_layer_t</a> *layer, const <a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *dsc)</td></tr>
+<tr class="separator:a6259999cb02197a94f34a340995dc26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb10282b1c0d17f2229b7b130dd227e0" id="r_abb10282b1c0d17f2229b7b130dd227e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__line_8h.html#abb10282b1c0d17f2229b7b130dd227e0">lv_draw_line_iterate</a> (<a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *t, <a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *dsc, void(*draw_line_cb)(<a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *t, const <a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *dsc))</td></tr>
+<tr class="separator:abb10282b1c0d17f2229b7b130dd227e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="a6259999cb02197a94f34a340995dc26b" name="a6259999cb02197a94f34a340995dc26b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6259999cb02197a94f34a340995dc26b">&#9670;&#160;</a></span>lv_draw_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_line </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__layer__t.html">lv_layer_t</a> *&#160;</td>
+          <td class="paramname"><em>layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>dsc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a line draw task </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layer</td><td>pointer to a layer </td></tr>
+    <tr><td class="paramname">dsc</td><td>pointer to an initialized <code><a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a></code> variable </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6302f7f8c1d37c64b80c577787288490" name="a6302f7f8c1d37c64b80c577787288490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6302f7f8c1d37c64b80c577787288490">&#9670;&#160;</a></span>lv_draw_line_dsc_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_line_dsc_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>dsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize a line draw descriptor </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dsc</td><td>pointer to a draw descriptor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abb10282b1c0d17f2229b7b130dd227e0" name="abb10282b1c0d17f2229b7b130dd227e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb10282b1c0d17f2229b7b130dd227e0">&#9670;&#160;</a></span>lv_draw_line_iterate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_line_iterate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>dsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void(*)(<a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *t, const <a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> *dsc)&#160;</td>
+          <td class="paramname"><em>draw_line_cb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A helper function to call a callback which draws a line between two points. This way it doesn't matter if <code>p1, p2</code> or <code>points</code> were used as it calls the <code>callback</code> as needed. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>draw task </td></tr>
+    <tr><td class="paramname">dsc</td><td>pointer to a draw descriptor </td></tr>
+    <tr><td class="paramname">draw_line_cb</td><td>a callback that draws a line between <code>dsc-&gt;p1</code> and <code>dsc-&gt;p2</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ace2fcaf241cdbffa18ba64b7afd3526e" name="ace2fcaf241cdbffa18ba64b7afd3526e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2fcaf241cdbffa18ba64b7afd3526e">&#9670;&#160;</a></span>lv_draw_task_get_line_dsc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structlv__draw__line__dsc__t.html">lv_draw_line_dsc_t</a> * lv_draw_task_get_line_dsc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *&#160;</td>
+          <td class="paramname"><em>task</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Try to get a line draw descriptor from a draw task. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>draw task </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the task's draw descriptor or NULL if the task is not of type LV_DRAW_TASK_TYPE_LINE </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

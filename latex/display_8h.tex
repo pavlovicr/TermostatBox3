@@ -1,0 +1,69 @@
+\doxysection{Datoteka managed\+\_\+components/espressif\+\_\+\+\_\+esp-\/box-\/3/include/bsp/display.h}
+\hypertarget{display_8h}{}\label{display_8h}\index{managed\_components/espressif\_\_esp-\/box-\/3/include/bsp/display.h@{managed\_components/espressif\_\_esp-\/box-\/3/include/bsp/display.h}}
+
+
+BSP LCD.  
+
+
+{\ttfamily \#include "{}esp\+\_\+lcd\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}display.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko display.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=211pt]{display_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{display_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structbsp__display__config__t}{bsp\+\_\+display\+\_\+config\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em BSP display configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries ESP\+\_\+\+LCD\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGB565}~(1)
+\item 
+\#define {\bfseries ESP\+\_\+\+LCD\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGB888}~(2)
+\item 
+\#define {\bfseries BSP\+\_\+\+LCD\+\_\+\+COLOR\+\_\+\+FORMAT}~(ESP\+\_\+\+LCD\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGB565)
+\item 
+\#define {\bfseries BSP\+\_\+\+LCD\+\_\+\+BIGENDIAN}~(1)
+\item 
+\#define {\bfseries BSP\+\_\+\+LCD\+\_\+\+BITS\+\_\+\+PER\+\_\+\+PIXEL}~(16)
+\item 
+\#define {\bfseries BSP\+\_\+\+LCD\+\_\+\+COLOR\+\_\+\+SPACE}~(LCD\+\_\+\+RGB\+\_\+\+ELEMENT\+\_\+\+ORDER\+\_\+\+BGR)
+\item 
+\#define {\bfseries BSP\+\_\+\+LCD\+\_\+\+H\+\_\+\+RES}~(320)
+\item 
+\#define {\bfseries BSP\+\_\+\+LCD\+\_\+\+V\+\_\+\+RES}~(240)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g04__display_ga351d7157db337483dafe16ea3cf67969}{bsp\+\_\+display\+\_\+new}} (const \mbox{\hyperlink{structbsp__display__config__t}{bsp\+\_\+display\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}config, esp\+\_\+lcd\+\_\+panel\+\_\+handle\+\_\+t \texorpdfstring{$\ast$}{*}ret\+\_\+panel, esp\+\_\+lcd\+\_\+panel\+\_\+io\+\_\+handle\+\_\+t \texorpdfstring{$\ast$}{*}ret\+\_\+io)
+\begin{DoxyCompactList}\small\item\em Create new display panel. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g04__display_gaa917c022925dd941b2fd68cac525a309}{bsp\+\_\+display\+\_\+brightness\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Initialize display\textquotesingle{}s brightness. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g04__display_ga12c7b53be5b337029f2d1aacce916d1c}{bsp\+\_\+display\+\_\+brightness\+\_\+set}} (int brightness\+\_\+percent)
+\begin{DoxyCompactList}\small\item\em Set display\textquotesingle{}s brightness. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g04__display_ga17e487e96d85995e5de4aab309d290b2}{bsp\+\_\+display\+\_\+backlight\+\_\+on}} (void)
+\begin{DoxyCompactList}\small\item\em Turn on display backlight. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g04__display_gaa09e452cc60dcb24bb2ba980669610de}{bsp\+\_\+display\+\_\+backlight\+\_\+off}} (void)
+\begin{DoxyCompactList}\small\item\em Turn off display backlight. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+BSP LCD. 
+
+This file offers API for basic LCD control. It is useful for users who want to use the LCD without the default Graphical Library LVGL.
+
+For standard LCD initialization with LVGL graphical library, you can call all-\/in-\/one function \doxylink{group__g04__display_gae4275824d225d70a382b86178f39450c}{bsp\+\_\+display\+\_\+start()}. 

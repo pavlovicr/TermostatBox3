@@ -1,0 +1,105 @@
+\doxysection{lv\+\_\+nanovg\+\_\+utils.\+h}
+\hypertarget{lv__nanovg__utils_8h_source}{}\label{lv__nanovg__utils_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/draw/nanovg/lv\_nanovg\_utils.h@{managed\_components/lvgl\_\_lvgl/src/draw/nanovg/lv\_nanovg\_utils.h}}
+\mbox{\hyperlink{lv__nanovg__utils_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ LV\_NANOVG\_UTILS\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ LV\_NANOVG\_UTILS\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_NANOVG}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_assert.h"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_matrix.h"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_color.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}../../libs/nanovg/nanovg.h"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{struct\ }\_lv\_draw\_nanovg\_unit\_t;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ lv\_nanovg\_utils\_init(\textcolor{keyword}{struct}\ \_lv\_draw\_nanovg\_unit\_t\ *\ u);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ lv\_nanovg\_utils\_deinit(\textcolor{keyword}{struct}\ \_lv\_draw\_nanovg\_unit\_t\ *\ u);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ lv\_nanovg\_matrix\_convert(\textcolor{keywordtype}{float}\ *\ xform,\ \textcolor{keyword}{const}\ lv\_matrix\_t\ *\ matrix)}
+\DoxyCodeLine{00058\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ LV\_ASSERT\_NULL(xform);}
+\DoxyCodeLine{00060\ \ \ \ \ LV\_ASSERT\_NULL(matrix);}
+\DoxyCodeLine{00061\ \ \ \ \ xform[0]\ =\ matrix-\/>m[0][0];}
+\DoxyCodeLine{00062\ \ \ \ \ xform[1]\ =\ matrix-\/>m[1][0];}
+\DoxyCodeLine{00063\ \ \ \ \ xform[2]\ =\ matrix-\/>m[0][1];}
+\DoxyCodeLine{00064\ \ \ \ \ xform[3]\ =\ matrix-\/>m[1][1];}
+\DoxyCodeLine{00065\ \ \ \ \ xform[4]\ =\ matrix-\/>m[0][2];}
+\DoxyCodeLine{00066\ \ \ \ \ xform[5]\ =\ matrix-\/>m[1][2];}
+\DoxyCodeLine{00067\ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ NVGcolor\ lv\_nanovg\_color\_convert(\mbox{\hyperlink{structlv__color__t}{lv\_color\_t}}\ color,\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\_opa\_t}}\ opa)}
+\DoxyCodeLine{00076\ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ nvgRGBA(color.red,\ color.green,\ color.blue,\ opa);}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ lv\_nanovg\_transform(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ lv\_matrix\_t\ *\ matrix);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ lv\_nanovg\_set\_clip\_area(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ lv\_nanovg\_path\_append\_rect(NVGcontext\ *\ ctx,\ \textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ w,\ \textcolor{keywordtype}{float}\ h,\ \textcolor{keywordtype}{float}\ r);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ lv\_nanovg\_path\_append\_area(NVGcontext\ *\ ctx,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ lv\_nanovg\_path\_append\_arc\_right\_angle(NVGcontext\ *\ ctx,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ start\_x,\ \textcolor{keywordtype}{float}\ start\_y,}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ center\_x,\ \textcolor{keywordtype}{float}\ center\_y,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ end\_x,\ \textcolor{keywordtype}{float}\ end\_y);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ lv\_nanovg\_path\_append\_arc(NVGcontext\ *\ ctx,}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ cx,\ \textcolor{keywordtype}{float}\ cy,}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ radius,}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ start\_angle,}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sweep,}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ pie);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ lv\_nanovg\_fill(NVGcontext\ *\ ctx,\ \textcolor{keyword}{enum}\ NVGwinding\ winding,\ \textcolor{keyword}{enum}\ NVGcompositeOperation\ composite\_operation,}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ NVGcolor\ color);}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00158\ \textcolor{keywordtype}{void}\ lv\_nanovg\_end\_frame(\textcolor{keyword}{struct}\ \_lv\_draw\_nanovg\_unit\_t\ *\ u);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00164\ \textcolor{keywordtype}{void}\ lv\_nanovg\_clean\_up(\textcolor{keyword}{struct}\ \_lv\_draw\_nanovg\_unit\_t\ *\ u);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00174\ \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\_draw\_buf\_t}}\ *\ lv\_nanovg\_reshape\_global\_image(\textcolor{keyword}{struct}\ \_lv\_draw\_nanovg\_unit\_t\ *\ u,}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ cf,}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ w,}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ h);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00180\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00181\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_DRAW\_NANOVG\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00186\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_NANOVG\_UTILS\_H*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

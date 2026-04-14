@@ -1,0 +1,62 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t}
+\hypertarget{struct__lv__image__decoder__args__t}{}\label{struct__lv__image__decoder__args__t}\index{\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+image\+\_\+decoder\+\_\+private.\+h$>$}
+
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{struct__lv__image__decoder__args__t_ad2087a4f429c40a65a2b0598c3ea381d}{stride\+\_\+align}}
+\item 
+bool \mbox{\hyperlink{struct__lv__image__decoder__args__t_a3652031eff67ba20f4cd0053ae245e21}{premultiply}}
+\item 
+bool \mbox{\hyperlink{struct__lv__image__decoder__args__t_a95caf229296d588fee2297b83eb150a5}{no\+\_\+cache}}
+\item 
+bool \mbox{\hyperlink{struct__lv__image__decoder__args__t_af05964f5f0623715976cb78edff48372}{use\+\_\+indexed}}
+\item 
+bool \mbox{\hyperlink{struct__lv__image__decoder__args__t_a9376e876bfb0fb38a6c01c2901f8226a}{flush\+\_\+cache}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Image decoder args. It determines how to decoder an image, e.\+g. whether to premultiply the alpha or not. It should be passed to lv\+\_\+img\+\_\+decoder\+\_\+open() function. If NULL is provided, default args are used.
+
+Default args\+: all field are zero or false. 
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__image__decoder__args__t_a9376e876bfb0fb38a6c01c2901f8226a}\label{struct__lv__image__decoder__args__t_a9376e876bfb0fb38a6c01c2901f8226a} 
+\index{\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}!flush\_cache@{flush\_cache}}
+\index{flush\_cache@{flush\_cache}!\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}}
+\doxysubsubsection{\texorpdfstring{flush\_cache}{flush\_cache}}
+{\footnotesize\ttfamily bool \+\_\+lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t\+::flush\+\_\+cache}
+
+Whether to flush the data cache after decoding \Hypertarget{struct__lv__image__decoder__args__t_a95caf229296d588fee2297b83eb150a5}\label{struct__lv__image__decoder__args__t_a95caf229296d588fee2297b83eb150a5} 
+\index{\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}!no\_cache@{no\_cache}}
+\index{no\_cache@{no\_cache}!\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}}
+\doxysubsubsection{\texorpdfstring{no\_cache}{no\_cache}}
+{\footnotesize\ttfamily bool \+\_\+lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t\+::no\+\_\+cache}
+
+When set, decoded image won\textquotesingle{}t be put to cache, and decoder open will also ignore cache. \Hypertarget{struct__lv__image__decoder__args__t_a3652031eff67ba20f4cd0053ae245e21}\label{struct__lv__image__decoder__args__t_a3652031eff67ba20f4cd0053ae245e21} 
+\index{\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}!premultiply@{premultiply}}
+\index{premultiply@{premultiply}!\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}}
+\doxysubsubsection{\texorpdfstring{premultiply}{premultiply}}
+{\footnotesize\ttfamily bool \+\_\+lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t\+::premultiply}
+
+Whether image should be premultiplied or not after decoding \Hypertarget{struct__lv__image__decoder__args__t_ad2087a4f429c40a65a2b0598c3ea381d}\label{struct__lv__image__decoder__args__t_ad2087a4f429c40a65a2b0598c3ea381d} 
+\index{\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}!stride\_align@{stride\_align}}
+\index{stride\_align@{stride\_align}!\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}}
+\doxysubsubsection{\texorpdfstring{stride\_align}{stride\_align}}
+{\footnotesize\ttfamily bool \+\_\+lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t\+::stride\+\_\+align}
+
+Whether stride should be aligned \Hypertarget{struct__lv__image__decoder__args__t_af05964f5f0623715976cb78edff48372}\label{struct__lv__image__decoder__args__t_af05964f5f0623715976cb78edff48372} 
+\index{\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}!use\_indexed@{use\_indexed}}
+\index{use\_indexed@{use\_indexed}!\_lv\_image\_decoder\_args\_t@{\_lv\_image\_decoder\_args\_t}}
+\doxysubsubsection{\texorpdfstring{use\_indexed}{use\_indexed}}
+{\footnotesize\ttfamily bool \+\_\+lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t\+::use\+\_\+indexed}
+
+Decoded indexed image as is. Convert to ARGB8888 if false. 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/\mbox{\hyperlink{lv__image__decoder__private_8h}{lv\+\_\+image\+\_\+decoder\+\_\+private.\+h}}\end{DoxyCompactItemize}

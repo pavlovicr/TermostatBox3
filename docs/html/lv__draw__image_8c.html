@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/draw/lv_draw_image.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_a1761009eb054311bcb948306d012834.html">draw</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_draw_image.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__draw__image__private_8h_source.html">lv_draw_image_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__area__private_8h_source.html">../misc/lv_area_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__image__decoder__private_8h_source.html">lv_image_decoder_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__draw__private_8h_source.html">lv_draw_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__display_8h_source.html">../display/lv_display.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__log_8h_source.html">../misc/lv_log.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__math_8h_source.html">../misc/lv_math.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__refr_8h_source.html">../core/lv_refr.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__private_8h_source.html">../core/lv_obj_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__mem_8h_source.html">../stdlib/lv_mem.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h_source.html">../stdlib/lv_string.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_draw_image.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_draw_image.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__draw__image_8c__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__image_8c" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__image_8c" id="amanaged__components_2lvgl____lvgl_2src_2draw_2lv__draw__image_8c">
+<area shape="rect" title=" " alt="" coords="2517,5,2687,60"/>
+<area shape="rect" href="lv__draw__image__private_8h.html" title=" " alt="" coords="1813,181,1999,207"/>
+<area shape="poly" title=" " alt="" coords="2517,56,1970,181,1969,176,2516,51"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__log_8h.html" title=" " alt="" coords="2629,841,2703,867"/>
+<area shape="poly" title=" " alt="" coords="2688,43,2799,68,2845,85,2863,95,2875,107,2878,120,2875,134,2870,233,2864,310,2858,387,2855,486,2855,709,2852,734,2841,757,2826,777,2806,794,2762,822,2717,841,2715,836,2759,817,2803,790,2822,773,2837,754,2846,733,2850,708,2850,486,2853,387,2858,309,2865,232,2870,133,2873,120,2870,109,2860,99,2843,90,2797,73,2687,49"/>
+<area shape="rect" href="lv__mem_8h.html" title=" " alt="" coords="2727,841,2866,867"/>
+<area shape="poly" title=" " alt="" coords="2688,42,2749,52,2810,66,2862,84,2881,94,2895,106,2926,154,2941,198,2945,241,2940,284,2919,375,2910,427,2906,486,2906,709,2898,748,2878,783,2852,812,2826,835,2823,831,2848,808,2874,780,2893,746,2901,708,2901,486,2905,427,2914,374,2935,283,2940,241,2936,199,2921,156,2891,110,2878,99,2860,89,2808,71,2748,57,2687,47"/>
+<area shape="rect" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h.html" title=" " alt="" coords="2727,915,2818,940"/>
+<area shape="poly" title=" " alt="" coords="2688,38,2742,47,2802,60,2863,79,2920,106,2954,122,2981,138,3000,159,3006,174,3007,193,3007,415,3005,449,2999,478,2982,525,2964,572,2959,599,2957,633,2957,782,2953,807,2944,829,2929,848,2911,866,2868,893,2825,912,2823,908,2866,888,2907,861,2925,845,2939,826,2948,805,2951,782,2951,633,2954,599,2959,570,2977,523,2994,476,3000,449,3002,415,3002,193,3000,175,2996,162,2978,142,2951,127,2918,110,2861,84,2801,65,2741,52,2687,44"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html" title=" " alt="" coords="2264,768,2351,793"/>
+<area shape="poly" title=" " alt="" coords="2626,59,2662,108,2703,175,2721,214,2735,254,2745,297,2749,339,2749,489,2745,508,2736,527,2701,567,2650,607,2589,646,2457,716,2349,765,2347,760,2455,711,2586,642,2647,603,2697,563,2731,524,2740,506,2743,488,2743,339,2740,297,2730,256,2716,216,2698,178,2658,111,2622,62"/>
+<area shape="rect" href="lv__area__private_8h.html" title=" " alt="" coords="2525,255,2708,280"/>
+<area shape="poly" title=" " alt="" coords="2606,60,2618,241,2612,241,2601,60"/>
+<area shape="rect" href="lv__image__decoder__private_8h.html" title=" " alt="" coords="668,401,875,427"/>
+<area shape="poly" title=" " alt="" coords="2517,40,2104,58,1542,90,1272,112,1045,137,957,150,890,165,848,179,837,186,834,193,834,269,830,304,819,337,790,391,785,388,814,335,824,302,829,268,829,192,833,183,845,175,889,159,956,145,1045,131,1271,107,1541,85,2104,52,2516,34"/>
+<area shape="rect" href="lv__draw__private_8h.html" title=" " alt="" coords="593,328,731,353"/>
+<area shape="poly" title=" " alt="" coords="2516,38,2114,46,1563,61,1062,82,893,96,841,103,814,110,785,130,760,155,719,212,690,269,672,316,667,314,685,267,714,209,756,151,782,126,812,106,840,98,893,90,1061,77,1562,55,2114,41,2516,33"/>
+<area shape="rect" href="lv__display_8h.html" title=" " alt="" coords="1427,548,1588,573"/>
+<area shape="poly" title=" " alt="" coords="2516,41,2265,57,1954,88,1808,108,1688,133,1642,147,1607,162,1585,177,1578,193,1578,416,1573,451,1560,485,1528,539,1523,536,1555,483,1568,450,1573,415,1573,192,1581,174,1604,157,1640,142,1687,128,1808,103,1953,82,2265,52,2516,36"/>
+<area shape="rect" href="lv__refr_8h.html" title=" " alt="" coords="1419,108,1537,133"/>
+<area shape="poly" title=" " alt="" coords="2517,41,2103,65,1832,85,1557,111,1552,111,1551,106,1556,105,1831,80,2103,59,2516,35"/>
+<area shape="rect" href="lv__obj__private_8h.html" title=" " alt="" coords="2690,108,2861,133"/>
+<area shape="poly" title=" " alt="" coords="2656,58,2741,99,2739,104,2654,62"/>
+<area shape="rect" href="lv__draw__image_8h.html" title=" " alt="" coords="1663,328,1797,353"/>
+<area shape="poly" title=" " alt="" coords="1875,209,1833,229,1792,257,1765,286,1745,317,1740,314,1761,283,1788,253,1831,224,1873,204"/>
+<area shape="rect" href="lv__draw_8h.html" title=" " alt="" coords="1193,401,1277,427"/>
+<area shape="poly" title=" " alt="" coords="1664,354,1292,407,1291,402,1663,349"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__style_8h.html" title=" " alt="" coords="2011,475,2143,500"/>
+<area shape="poly" title=" " alt="" coords="1759,351,2038,467,2036,472,1757,356"/>
+<area shape="rect" href="lv__image__decoder_8h.html" title=" " alt="" coords="1046,475,1198,500"/>
+<area shape="poly" title=" " alt="" coords="1663,345,1546,349,1405,358,1273,375,1221,388,1183,404,1167,416,1154,431,1134,463,1130,461,1150,428,1164,412,1181,399,1220,383,1273,370,1404,352,1545,343,1663,340"/>
+<area shape="rect" href="lv__draw__buf_8h.html" title=" " alt="" coords="1714,548,1874,573"/>
+<area shape="poly" title=" " alt="" coords="1736,353,1789,534,1784,535,1731,354"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="917,1061,1068,1087"/>
+<area shape="poly" title=" " alt="" coords="1194,429,1119,449,1035,477,710,622,387,770,341,801,307,830,283,865,265,915,258,945,257,969,264,990,282,1011,314,1024,373,1036,542,1053,736,1063,903,1068,903,1074,736,1068,541,1058,372,1041,313,1029,279,1015,259,993,252,970,253,944,259,914,278,862,303,826,338,797,385,766,708,617,1033,472,1118,444,1192,423"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="1533,988,1669,1013"/>
+<area shape="poly" title=" " alt="" coords="1239,427,1246,525,1264,680,1277,762,1295,836,1316,898,1328,921,1341,938,1369,955,1414,969,1519,988,1518,993,1412,974,1367,960,1338,942,1324,924,1311,900,1290,838,1272,763,1258,681,1241,526,1233,427"/>
+<area shape="poly" title=" " alt="" coords="1278,416,1997,477,1997,482,1277,422"/>
+<area shape="rect" href="lv__text_8h.html" title=" " alt="" coords="1324,548,1403,573"/>
+<area shape="poly" title=" " alt="" coords="1253,425,1279,446,1307,473,1332,504,1352,535,1347,538,1327,508,1303,476,1275,450,1250,429"/>
+<area shape="rect" href="lv__profiler_8h.html" title=" " alt="" coords="5,621,151,647"/>
+<area shape="poly" title=" " alt="" coords="1193,419,941,435,772,452,601,477,523,493,463,508,327,551,123,619,121,614,325,545,461,503,522,488,600,472,772,447,941,430,1193,414"/>
+<area shape="rect" href="lv__matrix_8h.html" title=" " alt="" coords="63,695,205,720"/>
+<area shape="poly" title=" " alt="" coords="1194,426,1100,447,991,477,924,503,873,527,822,551,755,576,609,617,462,650,220,696,219,690,461,645,608,611,753,571,820,546,871,522,922,498,989,472,1099,442,1193,421"/>
+<area shape="rect" href="lv__event_8h.html" title=" " alt="" coords="1349,841,1487,867"/>
+<area shape="poly" title=" " alt="" coords="1243,426,1410,828,1405,830,1238,428"/>
+<area shape="poly" title=" " alt="" coords="1219,429,1153,470,1150,465,1216,424"/>
+<area shape="poly" title=" " alt="" coords="1278,424,1737,542,1736,547,1277,429"/>
+<area shape="rect" href="lv__conf__kconfig_8h.html" title=" " alt="" coords="853,1135,988,1160"/>
+<area shape="poly" title=" " alt="" coords="983,1089,944,1127,940,1123,979,1085"/>
+<area shape="rect" title=" " alt="" coords="1013,1135,1117,1160"/>
+<area shape="poly" title=" " alt="" coords="1006,1085,1045,1123,1041,1127,1003,1089"/>
+<area shape="poly" title=" " alt="" coords="1532,1013,1082,1065,1081,1060,1532,1007"/>
+<area shape="poly" title=" " alt="" coords="2043,503,1992,523,1938,550,1877,583,1827,611,1808,628,1793,648,1784,673,1781,706,1781,856,1777,880,1768,902,1753,921,1735,938,1694,966,1651,986,1649,981,1691,961,1732,934,1749,918,1763,899,1772,878,1775,855,1775,706,1779,672,1788,645,1804,624,1824,607,1875,578,1935,546,1990,518,2041,498"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color_8h.html" title=" " alt="" coords="2001,621,2131,647"/>
+<area shape="poly" title=" " alt="" coords="2080,500,2078,574,2073,608,2068,607,2073,573,2074,500"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="2697,768,2790,793"/>
+<area shape="poly" title=" " alt="" coords="2143,492,2320,512,2407,528,2468,546,2510,567,2551,593,2625,652,2685,710,2727,755,2723,759,2681,713,2621,656,2548,598,2508,572,2466,550,2406,533,2320,518,2143,497"/>
+<area shape="rect" href="lv__area_8h.html" title=" " alt="" coords="2221,621,2351,647"/>
+<area shape="poly" title=" " alt="" coords="2095,498,2259,611,2256,615,2092,502"/>
+<area shape="poly" title=" " alt="" coords="2011,495,1754,512,1588,529,1417,551,1416,545,1588,523,1754,507,2010,489"/>
+<area shape="poly" title=" " alt="" coords="2069,647,2068,686,2063,743,2049,807,2038,838,2023,868,2004,895,1985,913,1933,942,1866,974,1811,992,1681,1016,1516,1041,1351,1058,1201,1068,1082,1073,1082,1068,1201,1063,1351,1053,1516,1036,1680,1011,1810,986,1864,969,1930,938,1982,909,2000,892,2018,865,2033,836,2044,805,2058,742,2063,686,2064,647"/>
+<area shape="poly" title=" " alt="" coords="2059,648,2025,703,2011,740,2005,780,2005,856,2002,869,1995,881,1970,904,1933,924,1887,941,1782,970,1682,990,1681,984,1781,965,1885,936,1931,919,1967,899,1991,878,1997,867,1999,855,1999,779,2006,739,2020,701,2055,645"/>
+<area shape="poly" title=" " alt="" coords="2120,644,2684,764,2683,769,2119,649"/>
+<area shape="poly" title=" " alt="" coords="2104,644,2157,664,2213,692,2255,724,2289,756,2285,760,2251,728,2210,697,2155,669,2103,649"/>
+<area shape="rect" href="lv__palette_8h.html" title=" " alt="" coords="1866,695,1965,720"/>
+<area shape="poly" title=" " alt="" coords="2036,649,1946,691,1944,686,2034,644"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__color__op_8h.html" title=" " alt="" coords="2091,695,2199,720"/>
+<area shape="poly" title=" " alt="" coords="2074,645,2116,684,2112,688,2070,649"/>
+<area shape="poly" title=" " alt="" coords="2791,787,2840,805,2862,820,2880,840,2894,869,2896,897,2888,923,2872,946,2850,967,2823,986,2760,1016,2719,1026,2656,1035,2478,1050,2248,1061,1988,1068,1464,1075,1082,1076,1082,1070,1464,1070,1988,1063,2248,1056,2478,1045,2656,1030,2718,1021,2758,1011,2820,981,2847,963,2868,943,2883,920,2890,896,2888,870,2876,843,2859,824,2837,809,2790,792"/>
+<area shape="poly" title=" " alt="" coords="2733,795,2691,834,2687,830,2729,791"/>
+<area shape="poly" title=" " alt="" coords="2754,792,2782,829,2778,832,2750,795"/>
+<area shape="poly" title=" " alt="" coords="2668,867,2666,898,2657,939,2639,981,2626,1000,2609,1016,2584,1024,2538,1031,2389,1044,2184,1054,1945,1061,1451,1071,1082,1075,1082,1069,1451,1066,1945,1056,2184,1048,2389,1038,2537,1026,2583,1019,2606,1011,2622,996,2635,979,2652,937,2660,897,2663,867"/>
+<area shape="poly" title=" " alt="" coords="2652,869,2590,907,2550,927,2507,943,2435,958,2340,970,2109,987,1871,997,1682,1001,1682,996,1871,991,2109,982,2339,964,2434,952,2505,937,2548,922,2588,902,2649,864"/>
+<area shape="poly" title=" " alt="" coords="2810,865,2832,899,2837,921,2832,941,2806,975,2777,994,2743,1005,2700,1016,2599,1031,2427,1043,1955,1061,1451,1071,1082,1075,1082,1069,1451,1065,1955,1055,2427,1038,2598,1026,2699,1011,2741,1000,2775,989,2803,971,2828,939,2832,921,2827,902,2805,868"/>
+<area shape="poly" title=" " alt="" coords="2772,869,2678,907,2617,927,2555,943,2478,954,2376,965,2131,982,1683,1000,1682,994,2131,976,2376,960,2477,949,2553,937,2616,922,2676,902,2770,864"/>
+<area shape="poly" title=" " alt="" coords="2795,868,2783,902,2778,901,2790,866"/>
+<area shape="poly" title=" " alt="" coords="2764,942,2721,980,2691,1000,2659,1016,2620,1025,2561,1033,2394,1047,2179,1057,1935,1065,1443,1073,1082,1075,1081,1070,1443,1068,1935,1059,2179,1052,2394,1042,2560,1028,2619,1020,2657,1011,2689,996,2718,976,2760,938"/>
+<area shape="poly" title=" " alt="" coords="2728,940,2709,943,2413,970,2122,987,1867,997,1683,1001,1683,996,1867,991,2121,982,2413,965,2708,937,2727,935"/>
+<area shape="poly" title=" " alt="" coords="2322,792,2361,832,2403,891,2419,923,2427,956,2424,987,2406,1015,2386,1024,2347,1032,2221,1045,2046,1055,1840,1063,1410,1072,1082,1075,1082,1070,1410,1066,1840,1057,2046,1050,2221,1040,2347,1027,2385,1019,2403,1011,2419,985,2421,956,2414,925,2399,894,2357,836,2318,796"/>
+<area shape="poly" title=" " alt="" coords="2301,795,2268,843,2252,872,2242,898,2229,921,2203,942,2162,960,2106,974,2038,984,1964,992,1812,1000,1682,1003,1682,997,1812,995,1964,987,2038,979,2104,969,2160,955,2201,938,2225,917,2237,896,2248,870,2264,840,2297,792"/>
+<area shape="poly" title=" " alt="" coords="1918,720,1917,762,1909,822,1900,854,1888,886,1871,916,1849,942,1821,958,1780,972,1683,991,1682,986,1779,966,1819,953,1846,938,1867,913,1883,884,1895,852,1903,821,1912,762,1913,720"/>
+<area shape="poly" title=" " alt="" coords="1946,692,2035,650,2038,655,1948,697"/>
+<area shape="poly" title=" " alt="" coords="2145,721,2134,764,2111,825,2095,857,2075,889,2051,918,2022,942,1996,955,1961,966,1872,983,1773,993,1683,999,1683,994,1773,988,1871,978,1960,961,1994,950,2019,938,2047,914,2070,886,2090,855,2106,823,2128,762,2140,720"/>
+<area shape="poly" title=" " alt="" coords="2137,696,2094,657,2098,653,2140,692"/>
+<area shape="poly" title=" " alt="" coords="2199,712,2683,770,2683,775,2199,718"/>
+<area shape="poly" title=" " alt="" coords="2172,718,2269,760,2267,765,2170,722"/>
+<area shape="poly" title=" " alt="" coords="2300,645,2358,708,2394,755,2428,807,2454,862,2467,917,2467,944,2461,969,2450,993,2432,1015,2411,1024,2371,1032,2242,1045,2063,1055,1852,1062,1415,1071,1082,1075,1082,1070,1415,1066,1852,1057,2063,1049,2242,1039,2370,1027,2409,1019,2428,1011,2445,990,2456,967,2461,943,2461,917,2449,864,2423,809,2390,758,2354,712,2296,649"/>
+<area shape="poly" title=" " alt="" coords="2284,648,2258,703,2210,785,2178,829,2142,872,2100,911,2054,942,2025,955,1985,965,1887,981,1779,992,1683,999,1682,993,1779,987,1886,976,1984,960,2023,950,2051,938,2097,906,2138,868,2174,826,2205,782,2253,701,2279,646"/>
+<area shape="poly" title=" " alt="" coords="2294,646,2309,694,2312,754,2306,754,2303,695,2289,648"/>
+<area shape="poly" title=" " alt="" coords="1329,576,740,767,289,917,281,933,281,948,286,961,297,973,328,995,360,1011,404,1026,463,1038,610,1056,768,1065,903,1069,903,1074,767,1070,609,1061,462,1044,403,1031,358,1016,325,999,294,977,282,964,276,948,276,931,286,913,738,762,1327,571"/>
+<area shape="poly" title=" " alt="" coords="1372,572,1590,974,1586,977,1367,575"/>
+<area shape="poly" title=" " alt="" coords="1403,569,1416,571,1619,594,1779,603,1938,608,2144,619,2208,624,2207,629,2143,624,1938,613,1778,608,1619,599,1415,576,1403,574"/>
+<area shape="poly" title=" " alt="" coords="72,648,40,703,26,740,21,780,21,929,24,957,33,978,50,995,74,1011,120,1025,202,1037,433,1054,692,1064,903,1069,903,1074,692,1069,433,1059,201,1042,119,1030,72,1016,46,999,29,981,19,958,15,929,15,779,21,739,35,701,67,646"/>
+<area shape="poly" title=" " alt="" coords="127,722,92,776,77,813,71,853,71,929,72,955,75,976,84,994,102,1011,119,1019,145,1027,223,1039,327,1049,446,1057,697,1066,904,1069,904,1075,697,1071,446,1062,326,1055,223,1045,144,1032,117,1024,99,1016,80,997,70,978,66,956,66,929,66,852,72,812,88,774,122,719"/>
+<area shape="poly" title=" " alt="" coords="1349,861,947,883,756,899,694,908,666,917,656,931,650,945,650,957,654,969,676,991,711,1010,755,1026,805,1040,904,1059,903,1064,804,1045,753,1031,708,1015,673,995,650,972,645,958,645,944,651,929,663,912,693,903,755,894,947,877,1349,856"/>
+<area shape="poly" title=" " alt="" coords="1431,865,1464,899,1508,938,1570,979,1567,984,1504,942,1460,903,1427,869"/>
+<area shape="rect" href="lv__array_8h.html" title=" " alt="" coords="1351,915,1437,940"/>
+<area shape="poly" title=" " alt="" coords="1417,868,1405,902,1400,901,1412,866"/>
+<area shape="poly" title=" " alt="" coords="1428,937,1555,981,1553,986,1426,943"/>
+<area shape="poly" title=" " alt="" coords="1108,502,995,584,901,649,851,673,804,692,713,717,627,731,547,742,472,758,437,771,403,787,369,809,337,837,305,873,275,916,270,928,270,942,279,971,295,996,309,1011,340,1022,396,1033,558,1049,743,1060,903,1067,903,1073,743,1066,558,1054,396,1038,339,1028,306,1016,291,1000,274,974,265,943,265,927,270,913,301,869,333,834,366,805,400,783,435,766,471,753,546,737,627,725,712,711,802,687,849,668,898,644,992,580,1105,498"/>
+<area shape="poly" title=" " alt="" coords="1129,499,1297,938,1334,956,1391,971,1519,990,1519,995,1390,976,1332,961,1293,942,1124,501"/>
+<area shape="poly" title=" " alt="" coords="1198,488,1394,493,1648,504,1896,521,1998,532,2076,545,2125,559,2174,577,2253,613,2251,617,2172,582,2124,564,2075,551,1997,538,1895,526,1647,509,1394,499,1198,493"/>
+<area shape="poly" title=" " alt="" coords="1199,494,1701,547,1700,552,1198,499"/>
+<area shape="rect" href="lv__fs_8h.html" title=" " alt="" coords="309,915,421,940"/>
+<area shape="poly" title=" " alt="" coords="1114,502,1079,543,1023,601,953,664,875,722,816,757,754,789,627,844,511,885,421,913,419,908,510,880,625,839,751,784,814,753,873,718,950,660,1019,597,1075,539,1110,499"/>
+<area shape="poly" title=" " alt="" coords="1787,575,1770,598,1751,630,1736,667,1730,706,1730,855,1729,882,1723,902,1713,921,1697,942,1671,966,1642,984,1640,979,1668,962,1693,938,1709,918,1718,900,1723,881,1725,855,1725,706,1731,665,1747,627,1766,595,1782,572"/>
+<area shape="poly" title=" " alt="" coords="1838,571,2010,615,2008,620,1837,576"/>
+<area shape="poly" title=" " alt="" coords="1874,566,2003,584,2074,599,2144,619,2193,638,2251,666,2384,738,2515,811,2619,864,2728,908,2726,912,2617,869,2513,815,2381,742,2249,671,2191,643,2142,624,2073,604,2002,589,1874,571"/>
+<area shape="poly" title=" " alt="" coords="1873,571,2208,619,2207,624,1873,576"/>
+<area shape="poly" title=" " alt="" coords="389,938,468,974,519,994,571,1011,658,1031,747,1046,904,1064,903,1069,746,1051,657,1036,569,1016,517,999,466,979,386,943"/>
+<area shape="poly" title=" " alt="" coords="421,936,433,937,747,965,1057,982,1326,992,1519,996,1519,1001,1326,997,1056,987,747,970,432,943,421,941"/>
+<area shape="poly" title=" " alt="" coords="2623,279,2638,336,2645,374,2647,413,2647,489,2639,512,2617,534,2584,553,2543,570,2450,600,2361,621,2360,616,2449,595,2541,565,2581,548,2613,529,2635,509,2642,488,2642,413,2639,375,2633,337,2618,281"/>
+<area shape="poly" title=" " alt="" coords="828,424,1053,469,1052,475,827,429"/>
+<area shape="rect" href="lv__cache_8h.html" title=" " alt="" coords="613,475,793,500"/>
+<area shape="poly" title=" " alt="" coords="762,429,726,466,722,463,758,425"/>
+<area shape="poly" title=" " alt="" coords="735,498,815,532,923,589,981,625,1037,667,1090,714,1136,766,1151,791,1158,814,1162,859,1163,879,1168,900,1178,919,1196,938,1219,951,1251,963,1336,979,1431,989,1519,995,1519,1000,1431,995,1335,985,1250,968,1216,956,1192,942,1173,922,1163,901,1158,880,1156,859,1153,815,1146,793,1132,770,1086,718,1034,671,978,630,920,593,813,537,733,502"/>
+<area shape="rect" href="lv__cache__entry_8h.html" title=" " alt="" coords="991,768,1122,793"/>
+<area shape="poly" title=" " alt="" coords="719,498,1034,757,1030,761,715,502"/>
+<area shape="rect" href="lv__cache__class_8h_source.html" title=" " alt="" coords="338,548,506,573"/>
+<area shape="poly" title=" " alt="" coords="659,503,481,547,480,542,657,497"/>
+<area shape="rect" href="lv__cache__instance_8h.html" title=" " alt="" coords="531,548,743,573"/>
+<area shape="poly" title=" " alt="" coords="694,502,659,540,655,536,690,499"/>
+<area shape="poly" title=" " alt="" coords="1062,793,1070,823,1086,863,1111,904,1127,923,1145,938,1173,951,1212,963,1311,980,1420,990,1519,995,1519,1000,1420,995,1310,985,1210,968,1171,956,1142,942,1123,926,1107,908,1082,866,1065,825,1057,794"/>
+<area shape="poly" title=" " alt="" coords="732,348,1180,403,1180,408,731,353"/>
+<area shape="poly" title=" " alt="" coords="661,354,654,387,654,407,658,426,668,445,682,463,678,466,664,448,653,428,649,407,649,387,656,353"/>
+<area shape="rect" href="lv__os__private_8h.html" title=" " alt="" coords="659,841,835,867"/>
+<area shape="poly" title=" " alt="" coords="593,354,490,373,378,401,328,419,288,440,262,462,255,474,253,486,253,708,255,723,263,736,293,760,338,781,394,799,523,825,646,841,645,847,522,830,393,804,336,786,290,764,259,739,250,724,247,709,247,486,250,472,258,459,286,435,326,414,376,396,489,368,592,349"/>
+<area shape="poly" title=" " alt="" coords="659,863,440,884,346,899,315,907,299,916,294,927,299,939,315,956,337,971,397,998,474,1020,561,1037,746,1058,903,1068,903,1073,745,1064,560,1042,472,1025,395,1003,334,976,311,960,294,941,289,927,295,913,313,903,345,894,440,878,659,858"/>
+<area shape="poly" title=" " alt="" coords="754,866,775,903,790,922,810,938,849,949,919,960,1115,976,1336,988,1519,994,1518,1000,1336,993,1115,982,918,965,848,955,807,942,787,926,770,906,750,868"/>
+<area shape="rect" href="lv__os_8h.html" title=" " alt="" coords="677,915,745,940"/>
+<area shape="poly" title=" " alt="" coords="744,868,726,904,721,901,739,866"/>
+<area shape="rect" href="lv__os__none_8h.html" title=" " alt="" coords="445,915,551,940"/>
+<area shape="poly" title=" " alt="" coords="708,869,552,913,551,908,707,864"/>
+<area shape="poly" title=" " alt="" coords="746,934,765,937,978,962,1189,979,1519,995,1519,1000,1189,984,977,967,764,943,745,939"/>
+<area shape="poly" title=" " alt="" coords="1519,572,1536,595,1556,627,1571,665,1578,706,1578,855,1584,920,1596,974,1591,976,1579,921,1573,855,1573,706,1566,667,1551,629,1532,598,1515,575"/>
+<area shape="poly" title=" " alt="" coords="1589,570,1987,620,1986,625,1588,575"/>
+<area shape="poly" title=" " alt="" coords="1588,567,2208,623,2208,628,1588,572"/>
+<area shape="poly" title=" " alt="" coords="1509,574,1495,647,1462,750,1431,830,1426,828,1457,748,1490,646,1503,573"/>
+<area shape="rect" href="lv__timer_8h.html" title=" " alt="" coords="911,841,997,867"/>
+<area shape="poly" title=" " alt="" coords="1465,576,1352,609,1206,657,1134,684,1070,713,1017,742,981,770,965,798,958,828,953,827,960,796,977,766,1014,737,1067,708,1132,679,1205,652,1350,604,1464,571"/>
+<area shape="poly" title=" " alt="" coords="910,863,740,885,662,901,636,909,623,917,607,941,602,964,607,988,623,1012,640,1025,667,1037,739,1054,823,1064,904,1069,904,1074,823,1069,738,1059,665,1042,638,1030,619,1015,602,990,597,964,602,939,619,913,634,904,661,896,739,880,910,857"/>
+<area shape="poly" title=" " alt="" coords="969,865,1022,902,1057,922,1094,937,1149,954,1206,968,1322,986,1429,995,1519,998,1518,1003,1429,1000,1321,991,1205,973,1147,959,1092,943,1054,926,1019,906,966,869"/>
+<area shape="rect" href="lv__tick_8h.html" title=" " alt="" coords="821,915,938,940"/>
+<area shape="poly" title=" " alt="" coords="944,869,903,907,900,903,940,865"/>
+<area shape="rect" href="lv__ll_8h.html" title=" " alt="" coords="962,915,1023,940"/>
+<area shape="poly" title=" " alt="" coords="963,866,982,901,978,904,958,868"/>
+<area shape="poly" title=" " alt="" coords="891,939,977,1049,973,1052,887,942"/>
+<area shape="poly" title=" " alt="" coords="939,936,950,937,1265,970,1519,991,1519,996,1265,976,950,943,938,941"/>
+<area shape="poly" title=" " alt="" coords="995,940,995,1048,990,1048,990,940"/>
+<area shape="poly" title=" " alt="" coords="1024,934,1042,937,1173,956,1303,972,1519,991,1519,996,1302,977,1172,962,1042,943,1023,939"/>
+<area shape="poly" title=" " alt="" coords="1419,127,1279,138,1195,148,1112,162,1035,180,972,204,948,217,930,232,919,248,915,266,915,341,930,377,968,447,1086,646,1211,841,1256,908,1281,938,1322,955,1383,970,1520,989,1519,995,1382,975,1321,960,1278,942,1252,911,1206,844,1082,649,963,450,925,379,910,343,910,266,914,246,926,229,945,213,970,199,1034,175,1111,157,1194,143,1278,133,1418,122"/>
+<area shape="poly" title=" " alt="" coords="1483,133,1490,190,1495,266,1495,415,1499,480,1506,534,1501,535,1494,480,1490,415,1490,266,1485,191,1477,134"/>
+<area shape="rect" href="lv__obj_8h.html" title=" " alt="" coords="2199,181,2272,207"/>
+<area shape="poly" title=" " alt="" coords="1538,125,2185,185,2185,191,1537,130"/>
+<area shape="poly" title=" " alt="" coords="2272,193,2374,198,2505,207,2633,225,2684,237,2722,252,2843,326,2892,363,2933,403,2965,447,2988,499,3003,560,3007,633,3007,929,3002,960,2988,982,2967,995,2940,1002,2875,1008,2804,1016,2695,1029,2511,1040,2007,1057,1471,1069,1082,1074,1082,1069,1471,1063,2007,1052,2511,1035,2695,1024,2803,1011,2875,1002,2939,997,2965,990,2985,978,2997,958,3002,928,3002,633,2997,561,2983,501,2960,450,2929,406,2889,367,2840,331,2719,257,2683,242,2632,230,2505,213,2373,203,2272,199"/>
+<area shape="poly" title=" " alt="" coords="2199,199,2123,202,2020,211,1905,229,1791,257,1725,281,1697,294,1674,309,1655,328,1640,351,1632,379,1629,413,1629,855,1622,921,1610,976,1605,974,1617,920,1623,855,1623,413,1626,378,1636,349,1650,325,1670,305,1694,289,1723,276,1789,252,1904,223,2020,206,2122,197,2198,193"/>
+<area shape="poly" title=" " alt="" coords="2205,209,2167,227,2124,253,2082,287,2065,307,2051,329,2042,363,2044,399,2054,433,2066,461,2061,464,2049,435,2039,400,2037,363,2046,327,2061,304,2079,283,2121,248,2165,222,2203,204"/>
+<area shape="poly" title=" " alt="" coords="2235,207,2221,264,2215,301,2213,339,2213,415,2209,447,2200,478,2186,507,2168,534,2129,581,2093,614,2090,611,2126,577,2164,531,2181,504,2195,476,2204,446,2207,415,2207,339,2210,301,2216,263,2229,206"/>
+<area shape="poly" title=" " alt="" coords="2273,200,2351,220,2439,252,2504,277,2568,295,2628,310,2683,326,2730,348,2750,362,2767,379,2781,400,2791,424,2797,453,2799,486,2799,635,2795,670,2786,703,2760,758,2755,755,2781,702,2790,669,2794,635,2794,486,2792,453,2786,426,2776,402,2763,383,2747,366,2727,353,2681,331,2627,315,2566,300,2502,282,2437,257,2349,225,2272,205"/>
+<area shape="poly" title=" " alt="" coords="2254,205,2279,226,2305,253,2348,309,2378,356,2400,406,2419,474,2422,488,2419,501,2399,521,2377,529,2354,535,2332,550,2311,579,2297,609,2292,607,2306,576,2328,546,2352,530,2376,524,2397,517,2414,499,2417,488,2414,475,2395,408,2373,358,2344,312,2301,256,2276,230,2250,209"/>
+<area shape="rect" href="lv__obj__tree_8h.html" title=" " alt="" coords="2298,475,2405,500"/>
+<area shape="poly" title=" " alt="" coords="2248,205,2265,227,2282,253,2306,310,2326,367,2349,460,2344,462,2320,369,2301,312,2277,256,2261,230,2244,208"/>
+<area shape="rect" href="lv__obj__pos_8h.html" title=" " alt="" coords="2487,401,2589,427"/>
+<area shape="poly" title=" " alt="" coords="2273,200,2338,218,2373,233,2406,252,2445,285,2479,322,2527,388,2522,391,2475,325,2441,289,2403,257,2371,238,2336,224,2272,205"/>
+<area shape="rect" href="lv__obj__scroll_8h.html" title=" " alt="" coords="1949,548,2063,573"/>
+<area shape="poly" title=" " alt="" coords="2199,201,2133,213,2096,223,2059,237,2026,255,2000,277,1982,305,1975,340,1975,415,1978,448,1984,480,1999,534,1994,536,1978,481,1972,449,1970,415,1970,339,1977,303,1996,274,2023,250,2057,232,2094,218,2132,207,2198,196"/>
+<area shape="rect" href="lv__obj__style_8h.html" title=" " alt="" coords="2061,328,2173,353"/>
+<area shape="poly" title=" " alt="" coords="2228,209,2137,319,2133,316,2224,205"/>
+<area shape="rect" href="lv__obj__draw_8h.html" title=" " alt="" coords="1801,255,1912,280"/>
+<area shape="poly" title=" " alt="" coords="2199,205,1926,256,1925,251,2198,200"/>
+<area shape="rect" href="lv__obj__class_8h.html" title=" " alt="" coords="2341,548,2455,573"/>
+<area shape="poly" title=" " alt="" coords="2241,206,2255,263,2261,301,2263,339,2263,415,2267,460,2274,478,2288,498,2316,523,2349,540,2347,545,2313,527,2284,502,2269,481,2261,462,2258,415,2258,339,2256,301,2250,264,2236,207"/>
+<area shape="poly" title=" " alt="" coords="2400,498,2438,516,2456,529,2470,547,2473,560,2470,574,2449,697,2438,750,2423,797,2402,840,2371,878,2329,912,2274,942,2225,958,2159,971,1997,989,1826,998,1682,1001,1682,996,1826,993,1997,983,2158,966,2223,953,2272,938,2327,908,2368,874,2397,837,2418,795,2433,748,2444,696,2465,573,2468,560,2465,549,2452,533,2435,520,2397,502"/>
+<area shape="poly" title=" " alt="" coords="2298,496,1602,554,1602,549,2298,490"/>
+<area shape="poly" title=" " alt="" coords="2539,427,2532,457,2519,496,2499,539,2469,575,2446,593,2419,607,2365,624,2363,619,2417,602,2443,588,2465,571,2494,536,2514,494,2527,455,2534,426"/>
+<area shape="poly" title=" " alt="" coords="1970,576,1927,594,1881,622,1861,639,1846,659,1835,681,1831,706,1831,855,1830,882,1826,903,1816,922,1798,942,1773,961,1744,976,1683,994,1682,989,1742,971,1770,957,1795,938,1812,919,1821,902,1825,881,1826,855,1826,706,1830,680,1841,656,1858,636,1878,618,1924,589,1968,571"/>
+<area shape="poly" title=" " alt="" coords="2052,571,2228,615,2227,620,2050,576"/>
+<area shape="poly" title=" " alt="" coords="2173,349,2254,369,2300,386,2346,406,2391,433,2431,464,2465,502,2490,547,2506,595,2513,639,2513,679,2505,717,2490,753,2468,790,2408,868,2367,913,2346,928,2315,942,2262,958,2191,970,2017,988,1834,997,1683,1001,1683,996,1834,992,2017,982,2190,965,2261,953,2313,938,2343,924,2364,909,2404,865,2464,787,2485,751,2500,715,2508,678,2508,639,2501,597,2485,549,2461,505,2427,468,2388,437,2344,411,2298,391,2252,374,2172,354"/>
+<area shape="poly" title=" " alt="" coords="2116,354,2086,462,2081,461,2111,353"/>
+<area shape="poly" title=" " alt="" coords="1838,282,1764,323,1761,319,1835,278"/>
+<area shape="poly" title=" " alt="" coords="1852,282,1704,549,1686,590,1681,608,1679,633,1679,856,1674,892,1660,926,1641,956,1623,979,1619,976,1637,953,1655,923,1669,890,1674,855,1674,633,1676,608,1681,588,1700,547,1848,279"/>
+<area shape="poly" title=" " alt="" coords="1899,277,2062,322,2061,327,1898,283"/>
+<area shape="poly" title=" " alt="" coords="2401,574,2401,612,2398,668,2387,732,2366,794,2341,845,2316,883,2283,914,2235,942,2190,959,2129,972,1979,990,1818,999,1683,1002,1682,996,1818,993,1978,984,2128,967,2189,954,2233,938,2280,909,2312,880,2336,843,2361,792,2382,731,2392,667,2396,612,2396,574"/>
+<area shape="poly" title=" " alt="" coords="2381,576,2318,616,2315,611,2379,571"/>
+<area shape="poly" title=" " alt="" coords="2690,136,2286,189,2285,183,2689,131"/>
+<area shape="rect" href="lv__ext__data_8h.html" title=" " alt="" coords="3043,988,3153,1013"/>
+<area shape="poly" title=" " alt="" coords="2802,131,2871,168,2914,196,2956,229,2995,267,3028,311,3050,359,3056,385,3058,413,3058,855,3061,888,3069,920,3089,974,3084,976,3064,922,3056,889,3053,855,3053,413,3051,386,3045,361,3023,314,2991,271,2952,233,2911,200,2869,173,2800,136"/>
+<area shape="poly" title=" " alt="" coords="3043,1014,3024,1016,2843,1028,2605,1039,2036,1056,1082,1074,1082,1069,2036,1051,2605,1034,2843,1023,3023,1011,3042,1009"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a84aca2cc7bd4af000779c4f10c56c499" id="r_a84aca2cc7bd4af000779c4f10c56c499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#a84aca2cc7bd4af000779c4f10c56c499">lv_draw_image_dsc_init</a> (<a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *dsc)</td></tr>
+<tr class="separator:a84aca2cc7bd4af000779c4f10c56c499"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a170315ee50f4c3c1bcf15179feef4312" id="r_a170315ee50f4c3c1bcf15179feef4312"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#a170315ee50f4c3c1bcf15179feef4312">lv_draw_task_get_image_dsc</a> (<a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *task)</td></tr>
+<tr class="separator:a170315ee50f4c3c1bcf15179feef4312"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9a2de74c25e9e834a604d6c0a91ae3" id="r_a7b9a2de74c25e9e834a604d6c0a91ae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#a7b9a2de74c25e9e834a604d6c0a91ae3">lv_draw_layer</a> (<a class="el" href="struct__lv__layer__t.html">lv_layer_t</a> *layer, const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *dsc, const <a class="el" href="structlv__area__t.html">lv_area_t</a> *coords)</td></tr>
+<tr class="separator:a7b9a2de74c25e9e834a604d6c0a91ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e8f4c0853d873d806b6d64e4e0347ec" id="r_a8e8f4c0853d873d806b6d64e4e0347ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#a8e8f4c0853d873d806b6d64e4e0347ec">lv_draw_image</a> (<a class="el" href="struct__lv__layer__t.html">lv_layer_t</a> *layer, const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *dsc, const <a class="el" href="structlv__area__t.html">lv_area_t</a> *image_coords)</td></tr>
+<tr class="separator:a8e8f4c0853d873d806b6d64e4e0347ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50b21044e521ad809b032bb1b6bc9311" id="r_a50b21044e521ad809b032bb1b6bc9311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lv__image__decoder_8h.html#acd24602bce640a0081d7644747d8be18">lv_image_src_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#a50b21044e521ad809b032bb1b6bc9311">lv_image_src_get_type</a> (const void *src)</td></tr>
+<tr class="separator:a50b21044e521ad809b032bb1b6bc9311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b341060fd85a667abd8b826327c93a4" id="r_a3b341060fd85a667abd8b826327c93a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#a3b341060fd85a667abd8b826327c93a4">lv_draw_image_normal_helper</a> (<a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *t, const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *draw_dsc, const <a class="el" href="structlv__area__t.html">lv_area_t</a> *coords, <a class="el" href="lv__draw__image_8h.html#a79f415540ecac2897df82bd8a4f33bf6">lv_draw_image_core_cb</a> draw_core_cb, const <a class="el" href="struct__lv__image__decoder__args__t.html">lv_image_decoder_args_t</a> *decoder_args)</td></tr>
+<tr class="separator:a3b341060fd85a667abd8b826327c93a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a668f29bad497b7230338d38c1f6d0a89" id="r_a668f29bad497b7230338d38c1f6d0a89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#a668f29bad497b7230338d38c1f6d0a89">lv_draw_image_tiled_helper</a> (<a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *t, const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *draw_dsc, const <a class="el" href="structlv__area__t.html">lv_area_t</a> *coords, <a class="el" href="lv__draw__image_8h.html#a79f415540ecac2897df82bd8a4f33bf6">lv_draw_image_core_cb</a> draw_core_cb, const <a class="el" href="struct__lv__image__decoder__args__t.html">lv_image_decoder_args_t</a> *decoder_args)</td></tr>
+<tr class="separator:a668f29bad497b7230338d38c1f6d0a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90ed670c8d8da29ca85f73252eae0a1" id="r_ac90ed670c8d8da29ca85f73252eae0a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__draw__image_8c.html#ac90ed670c8d8da29ca85f73252eae0a1">lv_image_buf_get_transformed_area</a> (<a class="el" href="structlv__area__t.html">lv_area_t</a> *res, int32_t w, int32_t h, int32_t angle, uint16_t scale_x, uint16_t scale_y, const <a class="el" href="structlv__point__t.html">lv_point_t</a> *pivot)</td></tr>
+<tr class="separator:ac90ed670c8d8da29ca85f73252eae0a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="a8e8f4c0853d873d806b6d64e4e0347ec" name="a8e8f4c0853d873d806b6d64e4e0347ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e8f4c0853d873d806b6d64e4e0347ec">&#9670;&#160;</a></span>lv_draw_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_image </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__layer__t.html">lv_layer_t</a> *&#160;</td>
+          <td class="paramname"><em>layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>dsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlv__area__t.html">lv_area_t</a> *&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create an image draw task </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layer</td><td>pointer to a layer </td></tr>
+    <tr><td class="paramname">dsc</td><td>pointer to an initialized draw descriptor </td></tr>
+    <tr><td class="paramname">coords</td><td>the coordinates of the image </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Opomba</dt><dd><code>coords</code> can be small than the real image area (if only a part of the image is rendered) or can be larger (in case of tiled images). . </dd></dl>
+
+</div>
+</div>
+<a id="a84aca2cc7bd4af000779c4f10c56c499" name="a84aca2cc7bd4af000779c4f10c56c499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84aca2cc7bd4af000779c4f10c56c499">&#9670;&#160;</a></span>lv_draw_image_dsc_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_image_dsc_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>dsc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Initialize an image draw descriptor. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dsc</td><td>pointer to a draw descriptor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b341060fd85a667abd8b826327c93a4" name="a3b341060fd85a667abd8b826327c93a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b341060fd85a667abd8b826327c93a4">&#9670;&#160;</a></span>lv_draw_image_normal_helper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_image_normal_helper </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>draw_dsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlv__area__t.html">lv_area_t</a> *&#160;</td>
+          <td class="paramname"><em>coords</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__draw__image_8h.html#a79f415540ecac2897df82bd8a4f33bf6">lv_draw_image_core_cb</a>&#160;</td>
+          <td class="paramname"><em>draw_core_cb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__image__decoder__args__t.html">lv_image_decoder_args_t</a> *&#160;</td>
+          <td class="paramname"><em>decoder_args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Can be used by draw units to handle the decoding and prepare everything for the actual image rendering </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>pointer to a draw task </td></tr>
+    <tr><td class="paramname">draw_dsc</td><td>the draw descriptor of the image </td></tr>
+    <tr><td class="paramname">coords</td><td>the absolute coordinates of the image </td></tr>
+    <tr><td class="paramname">draw_core_cb</td><td>a callback to perform the actual rendering </td></tr>
+    <tr><td class="paramname">decoder_args</td><td>the args passed to image decoders, or NULL for defaults </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a668f29bad497b7230338d38c1f6d0a89" name="a668f29bad497b7230338d38c1f6d0a89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a668f29bad497b7230338d38c1f6d0a89">&#9670;&#160;</a></span>lv_draw_image_tiled_helper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_image_tiled_helper </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>draw_dsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlv__area__t.html">lv_area_t</a> *&#160;</td>
+          <td class="paramname"><em>coords</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="lv__draw__image_8h.html#a79f415540ecac2897df82bd8a4f33bf6">lv_draw_image_core_cb</a>&#160;</td>
+          <td class="paramname"><em>draw_core_cb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__image__decoder__args__t.html">lv_image_decoder_args_t</a> *&#160;</td>
+          <td class="paramname"><em>decoder_args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Can be used by draw units for TILED images to handle the decoding and prepare everything for the actual image rendering </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>pointer to a draw task </td></tr>
+    <tr><td class="paramname">draw_dsc</td><td>the draw descriptor of the image </td></tr>
+    <tr><td class="paramname">coords</td><td>the absolute coordinates of the image </td></tr>
+    <tr><td class="paramname">draw_core_cb</td><td>a callback to perform the actual rendering </td></tr>
+    <tr><td class="paramname">decoder_args</td><td>the args passed to image decoders, or NULL for defaults </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7b9a2de74c25e9e834a604d6c0a91ae3" name="a7b9a2de74c25e9e834a604d6c0a91ae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b9a2de74c25e9e834a604d6c0a91ae3">&#9670;&#160;</a></span>lv_draw_layer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_draw_layer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__layer__t.html">lv_layer_t</a> *&#160;</td>
+          <td class="paramname"><em>layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> *&#160;</td>
+          <td class="paramname"><em>dsc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlv__area__t.html">lv_area_t</a> *&#160;</td>
+          <td class="paramname"><em>coords</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a draw task to blend a layer to another layer </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">layer</td><td>pointer to a layer </td></tr>
+    <tr><td class="paramname">dsc</td><td>pointer to an initialized draw descriptor. <code>src</code> must be set to the layer to blend </td></tr>
+    <tr><td class="paramname">coords</td><td>the coordinates of the layer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Opomba</dt><dd><code>coords</code> can be small than the total widget area from which the layer is created (if only a part of the widget was rendered to a layer) </dd></dl>
+
+</div>
+</div>
+<a id="a170315ee50f4c3c1bcf15179feef4312" name="a170315ee50f4c3c1bcf15179feef4312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a170315ee50f4c3c1bcf15179feef4312">&#9670;&#160;</a></span>lv_draw_task_get_image_dsc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct__lv__draw__image__dsc__t.html">lv_draw_image_dsc_t</a> * lv_draw_task_get_image_dsc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct__lv__draw__task__t.html">lv_draw_task_t</a> *&#160;</td>
+          <td class="paramname"><em>task</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Try to get an image draw descriptor from a draw task. </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">task</td><td>draw task </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the task's draw descriptor or NULL if the task is not of type LV_DRAW_TASK_TYPE_IMAGE </dd></dl>
+
+</div>
+</div>
+<a id="ac90ed670c8d8da29ca85f73252eae0a1" name="ac90ed670c8d8da29ca85f73252eae0a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac90ed670c8d8da29ca85f73252eae0a1">&#9670;&#160;</a></span>lv_image_buf_get_transformed_area()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_image_buf_get_transformed_area </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlv__area__t.html">lv_area_t</a> *&#160;</td>
+          <td class="paramname"><em>res</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>angle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>scale_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>scale_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structlv__point__t.html">lv_point_t</a> *&#160;</td>
+          <td class="paramname"><em>pivot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the area of a rectangle if its rotated and scaled </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">res</td><td>store the coordinates here </td></tr>
+    <tr><td class="paramname">w</td><td>width of the rectangle to transform </td></tr>
+    <tr><td class="paramname">h</td><td>height of the rectangle to transform </td></tr>
+    <tr><td class="paramname">angle</td><td>angle of rotation </td></tr>
+    <tr><td class="paramname">scale_x</td><td>zoom in x direction, (256 no zoom) </td></tr>
+    <tr><td class="paramname">scale_y</td><td>zoom in y direction, (256 no zoom) </td></tr>
+    <tr><td class="paramname">pivot</td><td>x,y pivot coordinates of rotation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a50b21044e521ad809b032bb1b6bc9311" name="a50b21044e521ad809b032bb1b6bc9311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50b21044e521ad809b032bb1b6bc9311">&#9670;&#160;</a></span>lv_image_src_get_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lv__image__decoder_8h.html#acd24602bce640a0081d7644747d8be18">lv_image_src_t</a> lv_image_src_get_type </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>src</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the type of an image source </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>pointer to an image source:<ul>
+<li>pointer to an 'lv_image_t' variable (image stored internally and compiled into the code)</li>
+<li>a path to a file (e.g. "S:/folder/image.bin")</li>
+<li>or a symbol (e.g. LV_SYMBOL_CLOSE) </li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>type of the image source LV_IMAGE_SRC_VARIABLE/FILE/SYMBOL/UNKNOWN </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

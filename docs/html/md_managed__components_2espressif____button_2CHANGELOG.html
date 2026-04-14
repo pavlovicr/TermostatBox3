@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: ChangeLog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">ChangeLog</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md4"></a> </p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+v4.1.6 - 2026-02-09</h1>
+<h2><a class="anchor" id="autotoc_md6"></a>
+Fix:</h2>
+<ul>
+<li>Added error checking for <code>gpio_config</code> in <code>iot_button_new_gpio_device</code></li>
+<li>Fixed issue where button cannot be recognized after restart when button is held down during restart. <a href="https://github.com/espressif/esp-iot-solution/issues/654">#654</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md7"></a>
+v4.1.5 - 2025-12-3</h1>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Fix:</h2>
+<ul>
+<li>Fixed the unreasonable function name <code>iot_button_get_ticks_time</code> and renamed it to <code>iot_button_get_pressed_time</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md9"></a>
+v4.1.4 - 2025-10-08</h1>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Fix:</h2>
+<ul>
+<li>Fixed requires in CMake for IDF6.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md11"></a>
+v4.1.3 - 2025-04-11</h1>
+<h2><a class="anchor" id="autotoc_md12"></a>
+Fix:</h2>
+<ul>
+<li>Added initialization for gpio_config. <a href="https://github.com/espressif/esp-iot-solution/pull/485">!485</a></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md13"></a>
+v4.1.2 - 2025-03-24</h1>
+<h2><a class="anchor" id="autotoc_md14"></a>
+Fix:</h2>
+<ul>
+<li>fix incorrect long press start and release check.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md15"></a>
+v4.1.1 - 2025-03-13</h1>
+<h2><a class="anchor" id="autotoc_md16"></a>
+Improve:</h2>
+<ul>
+<li>include stdbool.h before using bool</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md17"></a>
+v4.1.0 - 2025-02-28</h1>
+<h2><a class="anchor" id="autotoc_md18"></a>
+Improve:</h2>
+<ul>
+<li>Update the version of dependent cmake_utilities to *</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md19"></a>
+v4.0.0 - 2025-1-9</h1>
+<h2><a class="anchor" id="autotoc_md20"></a>
+Enhancements:</h2>
+<ul>
+<li>Use the factory pattern to reduce the build size.</li>
+<li>Change the state machine to use enumerated values.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md21"></a>
+Break change:</h2>
+<ul>
+<li>Standardize the return value of the iot_button interface to esp_err_t.</li>
+<li>Remove support for the old ADC driver.</li>
+<li>Modify the callback registration interface to: <div class="fragment"><div class="line">esp_err_t iot_button_register_cb(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle, button_event_t event, <a class="code hl_union" href="unionbutton__event__args__t.html">button_event_args_t</a> *event_args, button_cb_t cb, <span class="keywordtype">void</span> *usr_data);</div>
+<div class="ttc" id="astructbutton__dev__t_html"><div class="ttname"><a href="structbutton__dev__t.html">button_dev_t</a></div><div class="ttdoc">Structs to record individual key parameters.</div><div class="ttdef"><b>Definition</b> iot_button.c:69</div></div>
+<div class="ttc" id="aunionbutton__event__args__t_html"><div class="ttname"><a href="unionbutton__event__args__t.html">button_event_args_t</a></div><div class="ttdoc">Button events arg.</div><div class="ttdef"><b>Definition</b> iot_button.h:53</div></div>
+</div><!-- fragment --></li>
+<li>Modify the callback unregistration interface to: <div class="fragment"><div class="line">esp_err_t iot_button_unregister_cb(<a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_handle, button_event_t event, <a class="code hl_union" href="unionbutton__event__args__t.html">button_event_args_t</a> *event_args);</div>
+</div><!-- fragment --></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md22"></a>
+v3.5.0 - 2024-12-27</h1>
+<h2><a class="anchor" id="autotoc_md23"></a>
+Enhancements:</h2>
+<ul>
+<li>Add config to disable gpio button internal pull resistor.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md24"></a>
+v3.4.1 - 2024-12-6</h1>
+<h2><a class="anchor" id="autotoc_md25"></a>
+Fix:</h2>
+<ul>
+<li>Fix the issue where <code>BUTTON_LONG_PRESS_START</code> is not triggered when the polling interval exceeds 20ms.</li>
+<li>Remove the <code>BUTTON_LONG_PRESS_TOLERANCE_MS</code> configuration option.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md26"></a>
+v3.4.0 - 2024-10-22</h1>
+<h2><a class="anchor" id="autotoc_md27"></a>
+Enhancements:</h2>
+<ul>
+<li>Supports a maximum button polling interval of 500ms.</li>
+<li>Fixed a potential counter overflow issue.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md28"></a>
+Break change:</h2>
+<ul>
+<li>The return value of <code>iot_button_get_ticks_time</code> has been changed from <code>uint16_t</code> to <code>uint32_t</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md29"></a>
+v3.3.2 - 2024-8-28</h1>
+<h2><a class="anchor" id="autotoc_md30"></a>
+Enhancements:</h2>
+<ul>
+<li>Support macro CONFIG_PM_POWER_DOWN_PERIPHERAL_IN_LIGHT_SLEEP in power save mode.</li>
+<li>Supports retrieving and printing the string corresponding to a button event.</li>
+<li>Fixed the bug where the event was not assigned to <code>BUTTON_LONG_PRESS_START</code> before the <code>BUTTON_LONG_PRESS_START</code> event occurred.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md31"></a>
+v3.3.1 - 2024-8-8</h1>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Enhancements:</h2>
+<ul>
+<li>Add Button Event <b>BUTTON_PRESS_END</b>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md33"></a>
+v3.3.0 - 2024-8-7</h1>
+<h2><a class="anchor" id="autotoc_md34"></a>
+Enhancements:</h2>
+<ul>
+<li>Add Callback <b>button_power_save_cb_t</b> to support enter power save manually.</li>
+<li>Increase the maximum polling interval supported by the button from 20ms to 50ms.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md35"></a>
+v3.2.3 - 2024-7-2</h1>
+<ul>
+<li>Fixed the issue where the GPIO button in low-power mode continuously woke up the CPU after being pressed, causing abnormal power consumption.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md36"></a>
+v3.2.2 - 2024-6-17</h1>
+<ul>
+<li>Fix the compilation error for chips that do not support ADC.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md37"></a>
+v3.2.1 - 2024-6-17</h1>
+<h2><a class="anchor" id="autotoc_md38"></a>
+bugfix</h2>
+<ul>
+<li>Fixed ignored ADC button tied to GND. thanks <code>demianzenkov</code> for the fix.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md39"></a>
+v3.2.0 - 2023-11-13</h1>
+<h2><a class="anchor" id="autotoc_md40"></a>
+Enhancements:</h2>
+<ul>
+<li>The power consumption of GPIO buttons is lower during light sleep mode.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md41"></a>
+v3.1.3 - 2023-11-13</h1>
+<ul>
+<li>Resolved issue 'ADC_ATTEN_DB_11 is deprecated'.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md42"></a>
+v3.1.2 - 2023-10-24</h1>
+<h2><a class="anchor" id="autotoc_md43"></a>
+bugfix</h2>
+<ul>
+<li>Fixed a bug where iot_button_delete feature crashes for custom button</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md44"></a>
+v3.1.1 - 2023-10-18</h1>
+<h2><a class="anchor" id="autotoc_md45"></a>
+bugfix</h2>
+<ul>
+<li>Fixed a bug where multiple callbacks feature crashes for BUTTON_MULTIPLE_CLICK</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md46"></a>
+v3.1.0 - 2023-10-9</h1>
+<h2><a class="anchor" id="autotoc_md47"></a>
+Enhancements:</h2>
+<ul>
+<li>Support matrix keypad</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md48"></a>
+v3.0.1 - 2023-9-1</h1>
+<h2><a class="anchor" id="autotoc_md49"></a>
+Enhancements:</h2>
+<ul>
+<li>Resolves bug for iot_button_unregister_event function returned error when reallocating with 0 byte.</li>
+<li>Update Test cases to test iot_button_unregister_event_cb</li>
+<li>Add api iot_button_stop &amp; iot_button_resume for power save.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md50"></a>
+v3.0.0 - 2023-8-15</h1>
+<h2><a class="anchor" id="autotoc_md51"></a>
+Enhancements:</h2>
+<ul>
+<li>Add support to register multiple callbacks for a button_event<ul>
+<li>Update iot_button_unregister_cb, to unregister all the callbacks for that event</li>
+<li>Add iot_button_unregister_event to unregister specific callbacks of that event</li>
+<li>Add iot_button_count_event to return number of callbacks registered for the event.</li>
+<li>Update iot_button_count_cb, to return sum of number of registered callbacks.</li>
+</ul>
+</li>
+<li>Add support for Long press on specific time<ul>
+<li>Add iot_button_register_event, which takes specific event_config_t data as input.</li>
+<li>Add BUTTON_LONG_PRESS_UP to trigger callback at the latest time of button release</li>
+<li>Update BUTTON_LONG_PRESS_START to trigger callback as the time passes for long_press.</li>
+</ul>
+</li>
+<li>Add support to trigger callback for specified number of clicks.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md52"></a>
+v2.5.6 - 2023-8-22</h1>
+<h2><a class="anchor" id="autotoc_md53"></a>
+bugfix</h2>
+<ul>
+<li>Fixed a bug where the Serial trigger interval in button_long_press_hold event fires at an incorrect time</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md54"></a>
+v2.5.5 - 2023-8-3</h1>
+<ul>
+<li>Add modify api which can change long_press_time and short_press_time</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md55"></a>
+v2.5.4 - 2023-7-27</h1>
+<h2><a class="anchor" id="autotoc_md56"></a>
+Enhancements:</h2>
+<ul>
+<li>Add test apps and ci auto test</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md57"></a>
+v2.5.3 - 2023-7-26</h1>
+<h2><a class="anchor" id="autotoc_md58"></a>
+Enhancements:</h2>
+<ul>
+<li><code>repeat</code> defined in struct <a class="el" href="structbutton__dev__t.html" title="Structs to record individual key parameters.">button_dev_t</a> is reset to 0 after event <code>BUTTON_PRESS_REPEAT_DONE</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md59"></a>
+v2.5.2 - 2023-7-18</h1>
+<h2><a class="anchor" id="autotoc_md60"></a>
+Enhancements:</h2>
+<ul>
+<li>Set "event" member to BUTTON_PRESS_REPEAT before calling the BUTTON_PRESS_REPEAT callback</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md61"></a>
+v2.5.1 - 2023-3-14</h1>
+<h2><a class="anchor" id="autotoc_md62"></a>
+Enhancements:</h2>
+<ul>
+<li>Update doc and code specification</li>
+<li>Avoid overwriting callback by @franz-ms-muc in #252</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md63"></a>
+v2.5.0 - 2023-2-1</h1>
+<h2><a class="anchor" id="autotoc_md64"></a>
+Enhancements:</h2>
+<ul>
+<li>Support custom button</li>
+<li>Add BUTTON_PRESS_REPEAT_DONE event </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

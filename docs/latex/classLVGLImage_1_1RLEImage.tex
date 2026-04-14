@@ -1,0 +1,139 @@
+\doxysection{ Razred LVGLImage.\+RLEImage}
+\hypertarget{classLVGLImage_1_1RLEImage}{}\label{classLVGLImage_1_1RLEImage}\index{LVGLImage.RLEImage@{LVGLImage.RLEImage}}
+
+
+Diagram razredov za LVGLImage.\+RLEImage\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classLVGLImage_1_1RLEImage__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Kolaboracijski diagram razreda LVGLImage.\+RLEImage\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{classLVGLImage_1_1RLEImage__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+None \mbox{\hyperlink{classLVGLImage_1_1RLEImage_a01c99cf25aa0f375c6bc93db42d9b94a}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, \mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} cf=Color\+Format.\+UNKNOWN, int w=0, int h=0, bytes data=b\textquotesingle{}\textquotesingle{})
+\item 
+\mbox{\hyperlink{classLVGLImage_1_1RLEImage_a85fdcb49cb72356133185d8d1cffe681}{to\+\_\+rle}} (self, str filename)
+\item 
+\Hypertarget{classLVGLImage_1_1RLEImage_a981a902ded58f4631b40dd07e8e92b1e}\label{classLVGLImage_1_1RLEImage_a981a902ded58f4631b40dd07e8e92b1e} 
+{\bfseries rle\+\_\+compress} (self, bytearray data, int blksize, threshold=16)
+\item 
+\Hypertarget{classLVGLImage_1_1RLEImage_a62c2e8d1b30a9ea00c311a37b353e3b2}\label{classLVGLImage_1_1RLEImage_a62c2e8d1b30a9ea00c311a37b353e3b2} 
+{\bfseries get\+\_\+repeat\+\_\+count} (self, bytearray data, int blksize)
+\item 
+\Hypertarget{classLVGLImage_1_1RLEImage_ac8cc5e9e5780303dda3407e1fe85c181}\label{classLVGLImage_1_1RLEImage_ac8cc5e9e5780303dda3407e1fe85c181} 
+{\bfseries get\+\_\+nonrepeat\+\_\+count} (self, bytearray data, int blksize, threshold)
+\end{DoxyCompactItemize}
+\doxysubsection*{Javne metode inherited from \mbox{\hyperlink{classLVGLImage_1_1LVGLImage}{LVGLImage.\+LVGLImage}}}
+\begin{DoxyCompactItemize}
+\item 
+str {\bfseries \+\_\+\+\_\+repr\+\_\+\+\_\+} (self)
+\item 
+\mbox{\hyperlink{classLVGLImage_1_1LVGLImage_ab2fb0a9d36e4be6e150455039632522f}{adjust\+\_\+stride}} (self, int stride=0, int align=1)
+\item 
+\mbox{\hyperlink{classLVGLImage_1_1LVGLImage_a54d5f6a25e583bb689f57398755fb0de}{premultiply}} (self)
+\item 
+int \mbox{\hyperlink{classLVGLImage_1_1LVGLImage_a7b4212ac427615b5f9354778a2a5b48d}{data\+\_\+len}} (self)
+\item 
+bytearray {\bfseries header} (self)
+\item 
+{\bfseries is\+\_\+indexed} (self)
+\item 
+\mbox{\hyperlink{classLVGLImage_1_1LVGLImage_a3dadbacb2cc122a64eeb463867f2c888}{set\+\_\+data}} (self, \mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} cf, int w, int h, bytes data, int stride=0)
+\item 
+{\bfseries from\+\_\+data} (self, bytes data)
+\item 
+\mbox{\hyperlink{classLVGLImage_1_1LVGLImage_a3d22f106fe0b66c76a0a9d831dab2888}{from\+\_\+bin}} (self, str filename)
+\item 
+\mbox{\hyperlink{classLVGLImage_1_1LVGLImage_a0286bc100729ab487042fb1130442548}{to\+\_\+bin}} (self, str filename, \mbox{\hyperlink{classLVGLImage_1_1CompressMethod}{Compress\+Method}} compress=Compress\+Method.\+NONE)
+\item 
+{\bfseries to\+\_\+c\+\_\+array} (self, str filename, \mbox{\hyperlink{classLVGLImage_1_1CompressMethod}{Compress\+Method}} compress=Compress\+Method.\+NONE, str outputname=None)
+\item 
+{\bfseries to\+\_\+png} (self, str filename)
+\item 
+\mbox{\hyperlink{classLVGLImage_1_1LVGLImage_a9d51f524081cb1ad3da53d0d783c6e03}{from\+\_\+png}} (self, str filename, \mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} cf=None, int background=0x00\+\_\+00\+\_\+00, rgb565\+\_\+dither=False, nema\+\_\+gfx=False)
+\item 
+{\bfseries s\+RGB\+\_\+to\+\_\+linear} (self, x)
+\item 
+{\bfseries linear\+\_\+to\+\_\+s\+RGB} (self, y)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Javni atributi inherited from \mbox{\hyperlink{classLVGLImage_1_1LVGLImage}{LVGLImage.\+LVGLImage}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries stride}
+\item 
+{\bfseries premultiplied}
+\item 
+{\bfseries rgb565\+\_\+dither}
+\item 
+{\bfseries nema\+\_\+gfx}
+\item 
+{\bfseries data\+\_\+len}
+\item 
+{\bfseries h}
+\item 
+{\bfseries cf}
+\item 
+{\bfseries data}
+\item 
+{\bfseries w}
+\item 
+{\bfseries background}
+\end{DoxyCompactItemize}
+\doxysubsection*{Zaščitene metode in atributi inherited from \mbox{\hyperlink{classLVGLImage_1_1LVGLImage}{LVGLImage.\+LVGLImage}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries \+\_\+check\+\_\+ext} (self, str filename, ext)
+\item 
+{\bfseries \+\_\+check\+\_\+dir} (self, str filename)
+\item 
+{\bfseries \+\_\+png\+\_\+to\+\_\+indexed} (self, \mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} cf, str filename)
+\item 
+{\bfseries \+\_\+png\+\_\+to\+\_\+alpha\+\_\+only} (self, \mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} cf, str filename)
+\item 
+{\bfseries \+\_\+png\+\_\+to\+\_\+al88} (self, \mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} cf, str filename)
+\item 
+{\bfseries \+\_\+png\+\_\+to\+\_\+luma\+\_\+only} (self, \mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} cf, str filename)
+\item 
+{\bfseries \+\_\+png\+\_\+to\+\_\+colormap} (self, cf, str filename)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis konstruktorjev in destruktorjev }
+\Hypertarget{classLVGLImage_1_1RLEImage_a01c99cf25aa0f375c6bc93db42d9b94a}\label{classLVGLImage_1_1RLEImage_a01c99cf25aa0f375c6bc93db42d9b94a} 
+\index{LVGLImage.RLEImage@{LVGLImage.RLEImage}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!LVGLImage.RLEImage@{LVGLImage.RLEImage}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily  None LVGLImage.\+RLEImage.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{\mbox{\hyperlink{classLVGLImage_1_1ColorFormat}{Color\+Format}} }]{cf = {\ttfamily ColorFormat.UNKNOWN},  }\item[{int }]{w = {\ttfamily 0},  }\item[{int }]{h = {\ttfamily 0},  }\item[{bytes }]{data = {\ttfamily b\textquotesingle{}\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Skrije implementacijo iz \mbox{\hyperlink{classLVGLImage_1_1LVGLImage}{LVGLImage.\+LVGLImage}}.
+
+
+
+\doxysubsection{Opis metod}
+\Hypertarget{classLVGLImage_1_1RLEImage_a85fdcb49cb72356133185d8d1cffe681}\label{classLVGLImage_1_1RLEImage_a85fdcb49cb72356133185d8d1cffe681} 
+\index{LVGLImage.RLEImage@{LVGLImage.RLEImage}!to\_rle@{to\_rle}}
+\index{to\_rle@{to\_rle}!LVGLImage.RLEImage@{LVGLImage.RLEImage}}
+\doxysubsubsection{\texorpdfstring{to\_rle()}{to\_rle()}}
+{\footnotesize\ttfamily LVGLImage.\+RLEImage.\+to\+\_\+rle (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{str}]{filename }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Compress this image to file, filename should be ended with '.rle'
+\end{DoxyVerb}
+ 
+
+Opis razreda je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/scripts/LVGLImage.\+py\end{DoxyCompactItemize}

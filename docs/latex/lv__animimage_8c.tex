@@ -1,0 +1,313 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/animimage/lv\+\_\+animimage.c}
+\hypertarget{lv__animimage_8c}{}\label{lv__animimage_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/animimage/lv\_animimage.c@{managed\_components/lvgl\_\_lvgl/src/widgets/animimage/lv\_animimage.c}}
+{\ttfamily \#include "{}lv\+\_\+animimage\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+image\+\_\+decoder.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+fs.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+anim.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+animimage.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+animimage.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__animimage_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lv__animimage_8c_a83df207eaff4e11ccadd9bbd50994918}{LV\+\_\+\+OBJX\+\_\+\+NAME}}~"{}lv\+\_\+animimg"{}
+\item 
+\Hypertarget{lv__animimage_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__animimage_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&\mbox{\hyperlink{lv__animimage_8c_a12c53c4ecb9674e661e56fcae0a8e042}{lv\+\_\+animimg\+\_\+class}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__animimage_8c_ab28b662bd3a35e485e22dfe9fc9d7cf0}{lv\+\_\+animimg\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_ab6a59082af1fa4d7011ad51fb408d57e}{lv\+\_\+animimg\+\_\+set\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const void \texorpdfstring{$\ast$}{*}dsc\mbox{[}$\,$\mbox{]}, size\+\_\+t num)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_abcba2e2d7db30bed1a28d626a6002109}{lv\+\_\+animimg\+\_\+set\+\_\+src\+\_\+reverse}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const void \texorpdfstring{$\ast$}{*}dsc\mbox{[}$\,$\mbox{]}, size\+\_\+t num)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_a0a00a2187bf49d067726b87751aae526}{lv\+\_\+animimg\+\_\+start}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__animimage_8c_a80f0b54e7fa8c18fcbdcdc134bdf061c}{lv\+\_\+animimg\+\_\+delete}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_a6ac40f50683a07a3abf82f16fceee1a8}{lv\+\_\+animimg\+\_\+set\+\_\+duration}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t duration)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_a9cec2a8cbd2227bf0b306e7738f91e7b}{lv\+\_\+animimg\+\_\+set\+\_\+repeat\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t count)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_a49bfd1dcc87c74bdbdee936f105f15e6}{lv\+\_\+animimg\+\_\+set\+\_\+reverse\+\_\+duration}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t duration)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_a27f970db7e327b5faf4bea15dc77440e}{lv\+\_\+animimg\+\_\+set\+\_\+reverse\+\_\+delay}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t duration)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_a466bd206b4cbb19bc2ecc979f37febb1}{lv\+\_\+animimg\+\_\+set\+\_\+start\+\_\+cb}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__anim_8h_a5e4061b364072c804f44fcdfc7d7eb39}{lv\+\_\+anim\+\_\+start\+\_\+cb\+\_\+t}} start\+\_\+cb)
+\item 
+void \mbox{\hyperlink{lv__animimage_8c_aa48a2f483eed08c92f9ce42274105f54}{lv\+\_\+animimg\+\_\+set\+\_\+completed\+\_\+cb}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__anim_8h_a4e18ac2283cf959337b251bf75a358c2}{lv\+\_\+anim\+\_\+completed\+\_\+cb\+\_\+t}} completed\+\_\+cb)
+\item 
+const void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__animimage_8c_ae0603724f3a008fffe3300438f75169c}{lv\+\_\+animimg\+\_\+get\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{lv__animimage_8c_a3fdb296465f567e516636e42da5a339f}{lv\+\_\+animimg\+\_\+get\+\_\+src\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__animimage_8c_a95522f375ff0c8d09d5ff6169fcd6de3}{lv\+\_\+animimg\+\_\+get\+\_\+duration}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__animimage_8c_a26684892075b1058eb660d9478d965be}{lv\+\_\+animimg\+\_\+get\+\_\+repeat\+\_\+count}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__animimage_8c_aabb8cc4620db6670744c35eea8f8c29f}{lv\+\_\+animimg\+\_\+get\+\_\+anim}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__animimage_8c_a12c53c4ecb9674e661e56fcae0a8e042}{lv\+\_\+animimg\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{lv__animimage_8c_a83df207eaff4e11ccadd9bbd50994918}\label{lv__animimage_8c_a83df207eaff4e11ccadd9bbd50994918} 
+\index{lv\_animimage.c@{lv\_animimage.c}!LV\_OBJX\_NAME@{LV\_OBJX\_NAME}}
+\index{LV\_OBJX\_NAME@{LV\_OBJX\_NAME}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{LV\_OBJX\_NAME}{LV\_OBJX\_NAME}}
+{\footnotesize\ttfamily \#define LV\+\_\+\+OBJX\+\_\+\+NAME~"{}lv\+\_\+animimg"{}}
+
+Modified by NXP in 2025 
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__animimage_8c_ab28b662bd3a35e485e22dfe9fc9d7cf0}\label{lv__animimage_8c_ab28b662bd3a35e485e22dfe9fc9d7cf0} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_create@{lv\_animimg\_create}}
+\index{lv\_animimg\_create@{lv\_animimg\_create}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_create()}{lv\_animimg\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+animimg\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create an animation image objects 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new button \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created animation image object 
+\end{DoxyReturn}
+\Hypertarget{lv__animimage_8c_a80f0b54e7fa8c18fcbdcdc134bdf061c}\label{lv__animimage_8c_a80f0b54e7fa8c18fcbdcdc134bdf061c} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_delete@{lv\_animimg\_delete}}
+\index{lv\_animimg\_delete@{lv\_animimg\_delete}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_delete()}{lv\_animimg\_delete()}}
+{\footnotesize\ttfamily bool lv\+\_\+animimg\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Delete the image animation. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_aabb8cc4620db6670744c35eea8f8c29f}\label{lv__animimage_8c_aabb8cc4620db6670744c35eea8f8c29f} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_get\_anim@{lv\_animimg\_get\_anim}}
+\index{lv\_animimg\_get\_anim@{lv\_animimg\_get\_anim}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_get\_anim()}{lv\_animimg\_get\_anim()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+animimg\+\_\+get\+\_\+anim (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the image animation underlying animation. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the animation reference 
+\end{DoxyReturn}
+\Hypertarget{lv__animimage_8c_a95522f375ff0c8d09d5ff6169fcd6de3}\label{lv__animimage_8c_a95522f375ff0c8d09d5ff6169fcd6de3} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_get\_duration@{lv\_animimg\_get\_duration}}
+\index{lv\_animimg\_get\_duration@{lv\_animimg\_get\_duration}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_get\_duration()}{lv\_animimg\_get\_duration()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+animimg\+\_\+get\+\_\+duration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the image animation duration time. unit\+:ms 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the animation duration time 
+\end{DoxyReturn}
+\Hypertarget{lv__animimage_8c_a26684892075b1058eb660d9478d965be}\label{lv__animimage_8c_a26684892075b1058eb660d9478d965be} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_get\_repeat\_count@{lv\_animimg\_get\_repeat\_count}}
+\index{lv\_animimg\_get\_repeat\_count@{lv\_animimg\_get\_repeat\_count}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_get\_repeat\_count()}{lv\_animimg\_get\_repeat\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+animimg\+\_\+get\+\_\+repeat\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the image animation repeat play times. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the repeat count 
+\end{DoxyReturn}
+\Hypertarget{lv__animimage_8c_ae0603724f3a008fffe3300438f75169c}\label{lv__animimage_8c_ae0603724f3a008fffe3300438f75169c} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_get\_src@{lv\_animimg\_get\_src}}
+\index{lv\_animimg\_get\_src@{lv\_animimg\_get\_src}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_get\_src()}{lv\_animimg\_get\_src()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} lv\+\_\+animimg\+\_\+get\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the image animation images source. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+a pointer that will point to a series images 
+\end{DoxyReturn}
+\Hypertarget{lv__animimage_8c_a3fdb296465f567e516636e42da5a339f}\label{lv__animimage_8c_a3fdb296465f567e516636e42da5a339f} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_get\_src\_count@{lv\_animimg\_get\_src\_count}}
+\index{lv\_animimg\_get\_src\_count@{lv\_animimg\_get\_src\_count}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_get\_src\_count()}{lv\_animimg\_get\_src\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t lv\+\_\+animimg\+\_\+get\+\_\+src\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the image animation images source. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the number of source images 
+\end{DoxyReturn}
+\Hypertarget{lv__animimage_8c_aa48a2f483eed08c92f9ce42274105f54}\label{lv__animimage_8c_aa48a2f483eed08c92f9ce42274105f54} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_completed\_cb@{lv\_animimg\_set\_completed\_cb}}
+\index{lv\_animimg\_set\_completed\_cb@{lv\_animimg\_set\_completed\_cb}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_completed\_cb()}{lv\_animimg\_set\_completed\_cb()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+completed\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__anim_8h_a4e18ac2283cf959337b251bf75a358c2}{lv\+\_\+anim\+\_\+completed\+\_\+cb\+\_\+t}}}]{completed\+\_\+cb }\end{DoxyParamCaption})}
+
+Set a function call when the animation is completed 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em completed\+\_\+cb} & a function call when the animation is completed \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_a6ac40f50683a07a3abf82f16fceee1a8}\label{lv__animimage_8c_a6ac40f50683a07a3abf82f16fceee1a8} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_duration@{lv\_animimg\_set\_duration}}
+\index{lv\_animimg\_set\_duration@{lv\_animimg\_set\_duration}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_duration()}{lv\_animimg\_set\_duration()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+duration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{duration }\end{DoxyParamCaption})}
+
+Set the image animation duration time. unit\+:ms 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em duration} & the duration in milliseconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_a9cec2a8cbd2227bf0b306e7738f91e7b}\label{lv__animimage_8c_a9cec2a8cbd2227bf0b306e7738f91e7b} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_repeat\_count@{lv\_animimg\_set\_repeat\_count}}
+\index{lv\_animimg\_set\_repeat\_count@{lv\_animimg\_set\_repeat\_count}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_repeat\_count()}{lv\_animimg\_set\_repeat\_count()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+repeat\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+Set the image animation repeatedly play times. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em count} & the number of times to repeat the animation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_a27f970db7e327b5faf4bea15dc77440e}\label{lv__animimage_8c_a27f970db7e327b5faf4bea15dc77440e} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_reverse\_delay@{lv\_animimg\_set\_reverse\_delay}}
+\index{lv\_animimg\_set\_reverse\_delay@{lv\_animimg\_set\_reverse\_delay}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_reverse\_delay()}{lv\_animimg\_set\_reverse\_delay()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+reverse\+\_\+delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{duration }\end{DoxyParamCaption})}
+
+Make the image animation to play back to when the forward direction is ready. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em duration} & delay in milliseconds before starting the playback image animation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_a49bfd1dcc87c74bdbdee936f105f15e6}\label{lv__animimage_8c_a49bfd1dcc87c74bdbdee936f105f15e6} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_reverse\_duration@{lv\_animimg\_set\_reverse\_duration}}
+\index{lv\_animimg\_set\_reverse\_duration@{lv\_animimg\_set\_reverse\_duration}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_reverse\_duration()}{lv\_animimg\_set\_reverse\_duration()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+reverse\+\_\+duration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{duration }\end{DoxyParamCaption})}
+
+Make the image animation to play back to when the forward direction is ready. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em duration} & the duration of the playback image animation in milliseconds. 0\+: disable playback \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_ab6a59082af1fa4d7011ad51fb408d57e}\label{lv__animimage_8c_ab6a59082af1fa4d7011ad51fb408d57e} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_src@{lv\_animimg\_set\_src}}
+\index{lv\_animimg\_set\_src@{lv\_animimg\_set\_src}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_src()}{lv\_animimg\_set\_src()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{dsc\mbox{[}$\,$\mbox{]},  }\item[{size\+\_\+t}]{num }\end{DoxyParamCaption})}
+
+Set the image animation images source. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em dsc} & pointer to a series images \\
+\hline
+{\em num} & images\textquotesingle{} number \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_abcba2e2d7db30bed1a28d626a6002109}\label{lv__animimage_8c_abcba2e2d7db30bed1a28d626a6002109} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_src\_reverse@{lv\_animimg\_set\_src\_reverse}}
+\index{lv\_animimg\_set\_src\_reverse@{lv\_animimg\_set\_src\_reverse}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_src\_reverse()}{lv\_animimg\_set\_src\_reverse()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+src\+\_\+reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{dsc\mbox{[}$\,$\mbox{]},  }\item[{size\+\_\+t}]{num }\end{DoxyParamCaption})}
+
+Set the images source for flip playback of animation image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em dsc} & pointer to a series images \\
+\hline
+{\em num} & images\textquotesingle{} number \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_a466bd206b4cbb19bc2ecc979f37febb1}\label{lv__animimage_8c_a466bd206b4cbb19bc2ecc979f37febb1} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_set\_start\_cb@{lv\_animimg\_set\_start\_cb}}
+\index{lv\_animimg\_set\_start\_cb@{lv\_animimg\_set\_start\_cb}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_set\_start\_cb()}{lv\_animimg\_set\_start\_cb()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+set\+\_\+start\+\_\+cb (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__anim_8h_a5e4061b364072c804f44fcdfc7d7eb39}{lv\+\_\+anim\+\_\+start\+\_\+cb\+\_\+t}}}]{start\+\_\+cb }\end{DoxyParamCaption})}
+
+Set a function call when the animation image really starts (considering {\ttfamily delay}) 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+{\em start\+\_\+cb} & a function call when the animation is start \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__animimage_8c_a0a00a2187bf49d067726b87751aae526}\label{lv__animimage_8c_a0a00a2187bf49d067726b87751aae526} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_start@{lv\_animimg\_start}}
+\index{lv\_animimg\_start@{lv\_animimg\_start}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_start()}{lv\_animimg\_start()}}
+{\footnotesize\ttfamily void lv\+\_\+animimg\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Startup the image animation. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an animation image object \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__animimage_8c_a12c53c4ecb9674e661e56fcae0a8e042}\label{lv__animimage_8c_a12c53c4ecb9674e661e56fcae0a8e042} 
+\index{lv\_animimage.c@{lv\_animimage.c}!lv\_animimg\_class@{lv\_animimg\_class}}
+\index{lv\_animimg\_class@{lv\_animimg\_class}!lv\_animimage.c@{lv\_animimage.c}}
+\doxysubsubsection{\texorpdfstring{lv\_animimg\_class}{lv\_animimg\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+animimg\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_animimg\_constructor,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__animimg__t}{lv\_animimg\_t}}),}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&lv\_image\_class,}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_animimg"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Modified by NXP in 2025 

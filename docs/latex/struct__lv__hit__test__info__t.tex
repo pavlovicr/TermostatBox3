@@ -1,0 +1,50 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t}
+\hypertarget{struct__lv__hit__test__info__t}{}\label{struct__lv__hit__test__info__t}\index{\_lv\_hit\_test\_info\_t@{\_lv\_hit\_test\_info\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+obj\+\_\+event\+\_\+private.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda \+\_\+lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{struct__lv__hit__test__info__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__hit__test__info__t_a6003e65dbcb03814dd00d2cb4e98565f}{point}}
+\item 
+bool \mbox{\hyperlink{struct__lv__hit__test__info__t_ad622cb82e43a4fc6cd8c59a2ed33fffa}{res}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Used as the event parameter of \doxylink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771ac8d8b62da30cda383ee339236a9744f0}{LV\+\_\+\+EVENT\+\_\+\+HIT\+\_\+\+TEST} to check if an {\ttfamily point} can click the object or not. {\ttfamily res} should be set like this\+:
+\begin{DoxyItemize}
+\item If already set to {\ttfamily false} another event wants that point non clickable. If you want to respect it leave it as {\ttfamily false} or set {\ttfamily true} to overwrite it.
+\item If already set {\ttfamily true} and {\ttfamily point} shouldn\textquotesingle{}t be clickable set to {\ttfamily false}
+\item If already set to {\ttfamily true} you agree that {\ttfamily point} can click the object leave it as {\ttfamily true} 
+\end{DoxyItemize}
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__hit__test__info__t_a6003e65dbcb03814dd00d2cb4e98565f}\label{struct__lv__hit__test__info__t_a6003e65dbcb03814dd00d2cb4e98565f} 
+\index{\_lv\_hit\_test\_info\_t@{\_lv\_hit\_test\_info\_t}!point@{point}}
+\index{point@{point}!\_lv\_hit\_test\_info\_t@{\_lv\_hit\_test\_info\_t}}
+\doxysubsubsection{\texorpdfstring{point}{point}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t\+::point}
+
+A point relative to screen to check if it can click the object or not \Hypertarget{struct__lv__hit__test__info__t_ad622cb82e43a4fc6cd8c59a2ed33fffa}\label{struct__lv__hit__test__info__t_ad622cb82e43a4fc6cd8c59a2ed33fffa} 
+\index{\_lv\_hit\_test\_info\_t@{\_lv\_hit\_test\_info\_t}!res@{res}}
+\index{res@{res}!\_lv\_hit\_test\_info\_t@{\_lv\_hit\_test\_info\_t}}
+\doxysubsubsection{\texorpdfstring{res}{res}}
+{\footnotesize\ttfamily bool \+\_\+lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t\+::res}
+
+true\+: {\ttfamily point} can click the object; false\+: it cannot 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/core/\mbox{\hyperlink{lv__obj__event__private_8h}{lv\+\_\+obj\+\_\+event\+\_\+private.\+h}}\end{DoxyCompactItemize}

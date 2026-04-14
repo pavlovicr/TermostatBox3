@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka components/sensor_manager/sensor_manager.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_409f97388efe006bc3438b95e9edef48.html">components</a></li><li class="navelem"><a class="el" href="dir_6669eebaccfcf2ea1609b48415c07aa8.html">sensor_manager</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Makro deklaracije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka sensor_manager.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Sensor Manager implementacija za AHT21 senzor.  
+<a href="#details">...</a></p>
+<div class="textblock"><code>#include &quot;sensor_manager.h&quot;</code><br />
+<code>#include &quot;driver/i2c_master.h&quot;</code><br />
+<code>#include &quot;esp_log.h&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "sensor_manager.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko sensor_manager.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="sensor__manager_8c__incl.png" border="0" usemap="#acomponents_2sensor__manager_2sensor__manager_8c" alt=""/></div>
+<map name="acomponents_2sensor__manager_2sensor__manager_8c" id="acomponents_2sensor__manager_2sensor__manager_8c">
+<area shape="rect" title="Sensor Manager implementacija za AHT21 senzor." alt="" coords="371,5,585,45"/>
+<area shape="rect" href="sensor__manager_8h_source.html" title=" " alt="" coords="29,93,170,119"/>
+<area shape="poly" title=" " alt="" coords="388,48,169,93,168,88,387,43"/>
+<area shape="rect" title=" " alt="" coords="194,93,341,119"/>
+<area shape="poly" title=" " alt="" coords="428,48,312,91,310,86,427,43"/>
+<area shape="rect" title=" " alt="" coords="365,93,449,119"/>
+<area shape="poly" title=" " alt="" coords="463,47,429,85,425,81,459,44"/>
+<area shape="rect" title=" " alt="" coords="473,93,624,119"/>
+<area shape="poly" title=" " alt="" coords="497,44,531,81,527,85,493,47"/>
+<area shape="rect" title=" " alt="" coords="649,93,766,119"/>
+<area shape="poly" title=" " alt="" coords="534,43,662,86,660,91,532,48"/>
+<area shape="rect" title=" " alt="" coords="789,93,860,119"/>
+<area shape="poly" title=" " alt="" coords="565,43,777,90,775,95,564,48"/>
+<area shape="rect" title=" " alt="" coords="5,167,87,192"/>
+<area shape="poly" title=" " alt="" coords="93,121,65,157,61,154,88,117"/>
+<area shape="rect" title=" " alt="" coords="111,167,194,192"/>
+<area shape="poly" title=" " alt="" coords="110,117,138,154,134,157,106,121"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:a033b5e8a30541fe4ff939a62fdb7a43d" id="r_a033b5e8a30541fe4ff939a62fdb7a43d"><td class="memItemLeft" align="right" valign="top"><a id="a033b5e8a30541fe4ff939a62fdb7a43d" name="a033b5e8a30541fe4ff939a62fdb7a43d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_MASTER_SCL_IO</b>&#160;&#160;&#160;40</td></tr>
+<tr class="memdesc:a033b5e8a30541fe4ff939a62fdb7a43d"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin za I2C SCL. <br /></td></tr>
+<tr class="separator:a033b5e8a30541fe4ff939a62fdb7a43d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af47631d568bba17edf9d1ea042602bb6" id="r_af47631d568bba17edf9d1ea042602bb6"><td class="memItemLeft" align="right" valign="top"><a id="af47631d568bba17edf9d1ea042602bb6" name="af47631d568bba17edf9d1ea042602bb6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_MASTER_SDA_IO</b>&#160;&#160;&#160;41</td></tr>
+<tr class="memdesc:af47631d568bba17edf9d1ea042602bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin za I2C SDA. <br /></td></tr>
+<tr class="separator:af47631d568bba17edf9d1ea042602bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c22ca4de37a83a59014e48b0a0b043d" id="r_a5c22ca4de37a83a59014e48b0a0b043d"><td class="memItemLeft" align="right" valign="top"><a id="a5c22ca4de37a83a59014e48b0a0b043d" name="a5c22ca4de37a83a59014e48b0a0b043d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_MASTER_FREQ_HZ</b>&#160;&#160;&#160;100000</td></tr>
+<tr class="memdesc:a5c22ca4de37a83a59014e48b0a0b043d"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C frekvenca (100 kHz standard mode) <br /></td></tr>
+<tr class="separator:a5c22ca4de37a83a59014e48b0a0b043d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ebc0bc57afc33bd33967be8479690db" id="r_a7ebc0bc57afc33bd33967be8479690db"><td class="memItemLeft" align="right" valign="top"><a id="a7ebc0bc57afc33bd33967be8479690db" name="a7ebc0bc57afc33bd33967be8479690db"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>I2C_MASTER_TIMEOUT_MS</b>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:a7ebc0bc57afc33bd33967be8479690db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout za I2C komunikacijo. <br /></td></tr>
+<tr class="separator:a7ebc0bc57afc33bd33967be8479690db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf09beb37608b1dfd7615bf7d25535a3" id="r_abf09beb37608b1dfd7615bf7d25535a3"><td class="memItemLeft" align="right" valign="top"><a id="abf09beb37608b1dfd7615bf7d25535a3" name="abf09beb37608b1dfd7615bf7d25535a3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT21_I2C_ADDR</b>&#160;&#160;&#160;0x38</td></tr>
+<tr class="memdesc:abf09beb37608b1dfd7615bf7d25535a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C naslov AHT21 senzorja. <br /></td></tr>
+<tr class="separator:abf09beb37608b1dfd7615bf7d25535a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a949698e499d5bee187c3f4d60ce7d1b9" id="r_a949698e499d5bee187c3f4d60ce7d1b9"><td class="memItemLeft" align="right" valign="top"><a id="a949698e499d5bee187c3f4d60ce7d1b9" name="a949698e499d5bee187c3f4d60ce7d1b9"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT21_CMD_INIT</b>&#160;&#160;&#160;0xBE</td></tr>
+<tr class="memdesc:a949698e499d5bee187c3f4d60ce7d1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">AHT21 ukaz za inicializacijo. <br /></td></tr>
+<tr class="separator:a949698e499d5bee187c3f4d60ce7d1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acaec77e0f911daabacca2c4b8353dfe7" id="r_acaec77e0f911daabacca2c4b8353dfe7"><td class="memItemLeft" align="right" valign="top"><a id="acaec77e0f911daabacca2c4b8353dfe7" name="acaec77e0f911daabacca2c4b8353dfe7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT21_CMD_TRIGGER</b>&#160;&#160;&#160;0xAC</td></tr>
+<tr class="memdesc:acaec77e0f911daabacca2c4b8353dfe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">AHT21 ukaz za merjenje. <br /></td></tr>
+<tr class="separator:acaec77e0f911daabacca2c4b8353dfe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72755793c23334ecf154a0f86c10b506" id="r_a72755793c23334ecf154a0f86c10b506"><td class="memItemLeft" align="right" valign="top"><a id="a72755793c23334ecf154a0f86c10b506" name="a72755793c23334ecf154a0f86c10b506"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT21_CMD_SOFT_RESET</b>&#160;&#160;&#160;0xBA</td></tr>
+<tr class="memdesc:a72755793c23334ecf154a0f86c10b506"><td class="mdescLeft">&#160;</td><td class="mdescRight">AHT21 ukaz za soft reset. <br /></td></tr>
+<tr class="separator:a72755793c23334ecf154a0f86c10b506"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38335dbc7dd9d28314631246d9fd4b98" id="r_a38335dbc7dd9d28314631246d9fd4b98"><td class="memItemLeft" align="right" valign="top"><a id="a38335dbc7dd9d28314631246d9fd4b98" name="a38335dbc7dd9d28314631246d9fd4b98"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AHT21_MEASUREMENT_DELAY_MS</b>&#160;&#160;&#160;80</td></tr>
+<tr class="memdesc:a38335dbc7dd9d28314631246d9fd4b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Čas čakanja na meritev. <br /></td></tr>
+<tr class="separator:a38335dbc7dd9d28314631246d9fd4b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Internal functions</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Public API</div></td></tr>
+<tr class="memitem:a85db1a63317059b92201f63dc6f01a8e" id="r_a85db1a63317059b92201f63dc6f01a8e"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensor__manager_8c.html#a85db1a63317059b92201f63dc6f01a8e">sensor_manager_init</a> (void)</td></tr>
+<tr class="memdesc:a85db1a63317059b92201f63dc6f01a8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializira sensor manager.  <br /></td></tr>
+<tr class="separator:a85db1a63317059b92201f63dc6f01a8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87fd569dcd32769762ac76581938475f" id="r_a87fd569dcd32769762ac76581938475f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensor__manager_8c.html#a87fd569dcd32769762ac76581938475f">sensor_manager_read</a> (<a class="el" href="structsensor__data__t.html">sensor_data_t</a> *data)</td></tr>
+<tr class="memdesc:a87fd569dcd32769762ac76581938475f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prebere podatke senzorja.  <br /></td></tr>
+<tr class="separator:a87fd569dcd32769762ac76581938475f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6190f6444c5ee1bb98b29c2c9341a14" id="r_ae6190f6444c5ee1bb98b29c2c9341a14"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensor__manager_8c.html#ae6190f6444c5ee1bb98b29c2c9341a14">sensor_manager_deinit</a> (void)</td></tr>
+<tr class="memdesc:ae6190f6444c5ee1bb98b29c2c9341a14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinicializira sensor manager.  <br /></td></tr>
+<tr class="separator:ae6190f6444c5ee1bb98b29c2c9341a14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13e4cdcae4ad2b92e090491ff2886839" id="r_a13e4cdcae4ad2b92e090491ff2886839"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensor__manager_8c.html#a13e4cdcae4ad2b92e090491ff2886839">sensor_manager_is_initialized</a> (void)</td></tr>
+<tr class="memdesc:a13e4cdcae4ad2b92e090491ff2886839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Preveri ali je modul inicializiran.  <br /></td></tr>
+<tr class="separator:a13e4cdcae4ad2b92e090491ff2886839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Podroben opis</h2>
+<div class="textblock"><p>Sensor Manager implementacija za AHT21 senzor. </p>
+<p>Ta modul omogoča:</p><ul>
+<li>inicializacijo I2C vodila</li>
+<li>komunikacijo z AHT21 senzorjem</li>
+<li>branje temperature in vlage </li>
+</ul>
+</div><h2 class="groupheader">Opis funkcije</h2>
+<a id="ae6190f6444c5ee1bb98b29c2c9341a14" name="ae6190f6444c5ee1bb98b29c2c9341a14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6190f6444c5ee1bb98b29c2c9341a14">&#9670;&#160;</a></span>sensor_manager_deinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t sensor_manager_deinit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deinicializira sensor manager. </p>
+<p>Deinitialize sensor manager.</p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK ob uspehu </dd></dl>
+
+</div>
+</div>
+<a id="a85db1a63317059b92201f63dc6f01a8e" name="a85db1a63317059b92201f63dc6f01a8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85db1a63317059b92201f63dc6f01a8e">&#9670;&#160;</a></span>sensor_manager_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t sensor_manager_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializira sensor manager. </p>
+<p>Initialize sensor manager and AHT21 sensor.</p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK ob uspehu </dd></dl>
+
+</div>
+</div>
+<a id="a13e4cdcae4ad2b92e090491ff2886839" name="a13e4cdcae4ad2b92e090491ff2886839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13e4cdcae4ad2b92e090491ff2886839">&#9670;&#160;</a></span>sensor_manager_is_initialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool sensor_manager_is_initialized </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Preveri ali je modul inicializiran. </p>
+<p>Check if sensor is initialized.</p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>true če je inicializiran </dd></dl>
+
+</div>
+</div>
+<a id="a87fd569dcd32769762ac76581938475f" name="a87fd569dcd32769762ac76581938475f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87fd569dcd32769762ac76581938475f">&#9670;&#160;</a></span>sensor_manager_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t sensor_manager_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structsensor__data__t.html">sensor_data_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prebere podatke senzorja. </p>
+<p>Read temperature and humidity from AHT21.</p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Struktura za temperaturo in vlago</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK ob uspehu </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,158 @@
+\doxysection{sensor\+\_\+type.\+h}
+\hypertarget{sensor__type_8h_source}{}\label{sensor__type_8h_source}\index{managed\_components/espressif\_\_sensor\_hub/include/sensor\_type.h@{managed\_components/espressif\_\_sensor\_hub/include/sensor\_type.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2023-\/2024\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_IOT\_SENSOR\_TYPE\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_IOT\_SENSOR\_TYPE\_H\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}esp\_err.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *sensor\_device\_impl\_t;}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ SENSOR\_EVENT\_ANY\_ID\ ESP\_EVENT\_ANY\_ID\ }}
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *sensor\_driver\_handle\_t;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *bus\_handle\_t;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ SENSOR\_DATA\_GROUP\_MAX\_NUM\ 6\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#ifndef\ AXIS3\_T}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x;\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y;\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ z;\ }
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ axis[3];}
+\DoxyCodeLine{00032\ \}\ axis3\_t;}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ AXIS3\_T\ axis3\_t}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ RGBW\_T}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ r;\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ g;\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ b;\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{float}\ w;\ }
+\DoxyCodeLine{00046\ \}\ rgbw\_t;}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ RGBW\_T\ rgbw\_t}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#ifndef\ UV\_T}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ uv;\ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ uva;\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ uvb;\ }
+\DoxyCodeLine{00059\ \}\ uv\_t;}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ UV\_T\ uv\_t}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00068\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ NULL\_ID,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ HUMITURE\_ID,\ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ IMU\_ID,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \ \ \ \ LIGHT\_SENSOR\_ID,\ }
+\DoxyCodeLine{00073\ \ \ \ \ SENSOR\_TYPE\_MAX,\ }
+\DoxyCodeLine{00074\ \}\ sensor\_type\_t;}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ COMMAND\_SET\_MODE,\ \ }
+\DoxyCodeLine{00082\ \ \ \ \ COMMAND\_SET\_RANGE,\ }
+\DoxyCodeLine{00083\ \ \ \ \ COMMAND\_SET\_ODR,\ \ \ }
+\DoxyCodeLine{00084\ \ \ \ \ COMMAND\_SET\_POWER,\ }
+\DoxyCodeLine{00085\ \ \ \ \ COMMAND\_SELF\_TEST,\ }
+\DoxyCodeLine{00086\ \ \ \ \ COMMAND\_MAX\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00087\ \}\ sensor\_command\_t;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ POWER\_MODE\_WAKEUP,\ }
+\DoxyCodeLine{00095\ \ \ \ \ POWER\_MODE\_SLEEP,\ \ }
+\DoxyCodeLine{00096\ \ \ \ \ POWER\_MAX\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00097\ \}\ sensor\_power\_mode\_t;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ MODE\_DEFAULT,\ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ MODE\_POLLING,\ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ MODE\_INTERRUPT,\ }
+\DoxyCodeLine{00107\ \ \ \ \ MODE\_MAX,\ \ \ \ \ \ \ }
+\DoxyCodeLine{00108\ \}\ sensor\_mode\_t;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00114\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00115\ \ \ \ \ RANGE\_DEFAULT,\ }
+\DoxyCodeLine{00116\ \ \ \ \ RANGE\_MIN,\ \ \ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ RANGE\_MEDIUM,\ \ }
+\DoxyCodeLine{00118\ \ \ \ \ RANGE\_MAX,\ \ \ \ \ }
+\DoxyCodeLine{00119\ \}\ sensor\_range\_t;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00125\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ SENSOR\_STARTED,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00127\ \ \ \ \ SENSOR\_STOPED,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00128\ \ \ \ \ SENSOR\_EVENT\_COMMON\_END\ =\ 9,\ }
+\DoxyCodeLine{00129\ \}\ sensor\_event\_id\_t;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ SENSOR\_ACCE\_DATA\_READY\ =\ 10,\ \ \ \ }
+\DoxyCodeLine{00137\ \ \ \ \ SENSOR\_GYRO\_DATA\_READY,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00138\ \ \ \ \ SENSOR\_MAG\_DATA\_READY,\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00139\ \ \ \ \ SENSOR\_TEMP\_DATA\_READY,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ \ \ \ \ SENSOR\_HUMI\_DATA\_READY,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ SENSOR\_BARO\_DATA\_READY,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00142\ \ \ \ \ SENSOR\_LIGHT\_DATA\_READY,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00143\ \ \ \ \ SENSOR\_RGBW\_DATA\_READY,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00144\ \ \ \ \ SENSOR\_UV\_DATA\_READY,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00145\ \ \ \ \ SENSOR\_PROXI\_DATA\_READY,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00146\ \ \ \ \ SENSOR\_HR\_DATA\_READY,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00147\ \ \ \ \ SENSOR\_TVOC\_DATA\_READY,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00148\ \ \ \ \ SENSOR\_NOISE\_DATA\_READY,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00149\ \ \ \ \ SENSOR\_STEP\_DATA\_READY,\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00150\ \ \ \ \ SENSOR\_FORCE\_DATA\_READY,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ SENSOR\_CURRENT\_DATA\_READY,\ \ \ \ \ \ }
+\DoxyCodeLine{00152\ \ \ \ \ SENSOR\_VOLTAGE\_DATA\_READY,\ \ \ \ \ \ }
+\DoxyCodeLine{00153\ \ \ \ \ SENSOR\_EVENT\_ID\_END,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00154\ \}\ sensor\_data\_event\_id\_t;}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00161\ \ \ \ \ int64\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_ae492014b595577abd06f774b463374bd}{timestamp}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a25507b4fad43144e8979ac5e7ebd43fb}{sensor\_name}};\ \ \ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ sensor\_type\_t\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_acae6c43187fda2418fec341c8f71d42d}{sensor\_type}};\ \ \ \ \ }
+\DoxyCodeLine{00164\ \ \ \ \ uint8\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_af13031c7f2c630ff9e81f82e20cee2dd}{sensor\_addr}};\ \ \ \ \ }
+\DoxyCodeLine{00165\ \ \ \ \ int32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a43cda84d09384696247f3ec624ed1242}{event\_id}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00166\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a94bcbb782162668f27a49bab2b26cd68}{min\_delay}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ axis3\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a1662e1f0165631236a3782400874027d}{acce}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ axis3\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a746c90a793fbd6dd64f533fc447b0cb2}{gyro}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ axis3\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a4433f6abf5523e08cc5a40f32ca7092d}{mag}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temperature;\ \ \ \ \ }
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ humidity;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a398722443380df66c45f074b10313a5b}{baro}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a67559d4a59264e7538fc0bce88c82206}{light}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ rgbw\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a3783fb4791adcd1e77fd9ec3df5787da}{rgbw}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ uv\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_aff461c1ec7808c53337eb9d1dd7033ff}{uv}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a7202401394902e3b698011dfd4b293e9}{proximity}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a299246363ce39c89aa8cacd5ac5fa94d}{hr}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a293e4b93569495f9d6af99232b0f06fe}{tvoc}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a1f4e2f9c4ca2d18e3828c734e8d3850e}{noise}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a302e4d35647c996171f17f1403c8ed06}{step}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a015faf1b28a33c56ec046678b13dfd00}{force}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_a983037f06b7ed6a410f3ebbdfd979b7e}{current}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsensor__data__t_aac6efdb0976be507901dc5a9fb117a15}{voltage}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[4];\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \};}
+\DoxyCodeLine{00187\ \}\ \mbox{\hyperlink{structsensor__data__t}{sensor\_data\_t}};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00194\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{structsensor__data__group__t_ab6203898fa3a64f06cd254010249e00b}{number}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{structsensor__data__t}{sensor\_data\_t}}\ sensor\_data[SENSOR\_DATA\_GROUP\_MAX\_NUM];\ }
+\DoxyCodeLine{00196\ \}\ \mbox{\hyperlink{structsensor__data__group__t}{sensor\_data\_group\_t}};}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00203\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00204\ \ \ \ \ sensor\_type\_t\ type;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00205\ \ \ \ \ sensor\_driver\_handle\_t\ (*create)(bus\_handle\_t,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *sensor\_name,\ uint8\_t\ addr);\ }
+\DoxyCodeLine{00206\ \ \ \ \ esp\_err\_t\ (*remove)(sensor\_driver\_handle\_t\ *);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00207\ \ \ \ \ esp\_err\_t\ (*acquire)(sensor\_driver\_handle\_t,\ \mbox{\hyperlink{structsensor__data__group__t}{sensor\_data\_group\_t}}\ *);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00208\ \ \ \ \ esp\_err\_t\ (*control)(sensor\_driver\_handle\_t,\ sensor\_command\_t\ cmd,\ \textcolor{keywordtype}{void}\ *args);\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00209\ \}\ iot\_sensor\_impl\_t;}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

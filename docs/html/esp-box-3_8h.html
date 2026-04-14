@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/espressif__esp-box-3/include/bsp/esp-box-3.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_4662c897cf2db784487e53db75b2a046.html">espressif__esp-box-3</a></li><li class="navelem"><a class="el" href="dir_4655ab33da1fd0f0471d124e8b996d18.html">include</a></li><li class="navelem"><a class="el" href="dir_0fc42dd83bfe783e19c37008ca26bbb2.html">bsp</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Strukture</a> &#124;
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#enum-members">Naštevni tipi</a> &#124;
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka esp-box-3.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>ESP BSP: ESP-BOX-3.  
+<a href="#details">...</a></p>
+<div class="textblock"><code>#include &quot;sdkconfig.h&quot;</code><br />
+<code>#include &quot;driver/gpio.h&quot;</code><br />
+<code>#include &quot;driver/i2s_std.h&quot;</code><br />
+<code>#include &quot;driver/i2c_master.h&quot;</code><br />
+<code>#include &quot;driver/sdmmc_host.h&quot;</code><br />
+<code>#include &quot;driver/sdspi_host.h&quot;</code><br />
+<code>#include &quot;esp_vfs_fat.h&quot;</code><br />
+<code>#include &quot;esp_codec_dev.h&quot;</code><br />
+<code>#include &quot;iot_button.h&quot;</code><br />
+<code>#include &quot;bsp/config.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="display_8h_source.html">bsp/display.h</a>&quot;</code><br />
+<code>#include &quot;iot_sensor_hub.h&quot;</code><br />
+<code>#include &quot;lvgl.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="esp__lvgl__port_8h_source.html">esp_lvgl_port.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "esp-box-3.h" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko esp-box-3.h. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="esp-box-3_8h__incl.png" border="0" usemap="#amanaged__components_2espressif____esp-box-3_2include_2bsp_2esp-box-3_8h" alt=""/></div>
+<map name="amanaged__components_2espressif____esp-box-3_2include_2bsp_2esp-box-3_8h" id="amanaged__components_2espressif____esp-box-3_2include_2bsp_2esp-box-3_8h">
+<area shape="rect" title="ESP BSP: ESP&#45;BOX&#45;3." alt="" coords="1947,5,2141,60"/>
+<area shape="rect" title=" " alt="" coords="735,181,831,207"/>
+<area shape="poly" title=" " alt="" coords="1947,36,1709,38,1405,47,1252,57,1111,70,991,88,901,111,873,123,848,139,806,174,802,170,845,135,871,118,899,105,990,82,1110,65,1252,51,1405,42,1709,33,1947,31"/>
+<area shape="rect" title=" " alt="" coords="1924,108,2028,133"/>
+<area shape="poly" title=" " alt="" coords="2025,62,1996,99,1992,95,2021,58"/>
+<area shape="rect" title=" " alt="" coords="2052,108,2175,133"/>
+<area shape="poly" title=" " alt="" coords="2067,58,2097,95,2093,99,2063,62"/>
+<area shape="rect" title=" " alt="" coords="2199,108,2345,133"/>
+<area shape="poly" title=" " alt="" coords="2115,58,2230,101,2228,106,2113,63"/>
+<area shape="rect" title=" " alt="" coords="2370,108,2529,133"/>
+<area shape="poly" title=" " alt="" coords="2142,52,2383,103,2382,108,2141,57"/>
+<area shape="rect" title=" " alt="" coords="2553,108,2698,133"/>
+<area shape="poly" title=" " alt="" coords="2142,46,2540,104,2539,109,2142,51"/>
+<area shape="rect" title=" " alt="" coords="2723,108,2832,133"/>
+<area shape="poly" title=" " alt="" coords="2142,40,2394,66,2709,105,2708,110,2394,72,2141,46"/>
+<area shape="rect" href="esp__codec__dev_8h_source.html" title=" " alt="" coords="290,108,422,133"/>
+<area shape="poly" title=" " alt="" coords="1947,42,436,118,436,113,1947,36"/>
+<area shape="rect" href="iot__button_8h_source.html" title=" " alt="" coords="913,108,1013,133"/>
+<area shape="poly" title=" " alt="" coords="1947,44,1027,117,1027,112,1947,39"/>
+<area shape="rect" href="managed__components_2espressif____esp-box-3_2include_2bsp_2config_8h_source.html" title=" " alt="" coords="2857,108,2957,133"/>
+<area shape="poly" title=" " alt="" coords="2142,38,2450,62,2644,81,2843,105,2843,111,2644,87,2450,67,2142,43"/>
+<area shape="rect" href="display_8h.html" title="BSP LCD." alt="" coords="2981,108,3088,133"/>
+<area shape="poly" title=" " alt="" coords="2142,36,2502,60,2732,79,2968,105,2968,111,2732,85,2501,65,2142,42"/>
+<area shape="rect" href="iot__sensor__hub_8h_source.html" title=" " alt="" coords="1093,181,1225,207"/>
+<area shape="poly" title=" " alt="" coords="1947,54,1236,182,1235,176,1946,49"/>
+<area shape="rect" title=" " alt="" coords="2071,328,2129,353"/>
+<area shape="poly" title=" " alt="" coords="1967,62,1938,77,1917,94,1907,112,1909,122,1914,132,1942,161,1971,182,2002,195,2034,201,2067,203,2100,201,2169,191,2238,181,2272,179,2306,181,2338,188,2370,202,2400,223,2429,253,2435,267,2429,282,2392,294,2315,308,2144,336,2143,330,2314,303,2390,288,2425,278,2429,267,2425,256,2397,227,2367,206,2337,193,2305,187,2272,185,2239,187,2170,197,2101,207,2067,209,2033,207,2000,200,1969,186,1939,165,1910,135,1903,123,1902,111,1913,90,1935,73,1964,58"/>
+<area shape="rect" href="esp__lvgl__port_8h.html" title="ESP LVGL port." alt="" coords="1775,181,1897,207"/>
+<area shape="poly" title=" " alt="" coords="1948,61,1906,82,1870,110,1852,138,1843,169,1837,167,1847,136,1866,106,1903,77,1945,57"/>
+<area shape="rect" href="audio__codec__if_8h_source.html" title=" " alt="" coords="23,181,153,207"/>
+<area shape="poly" title=" " alt="" coords="314,136,145,180,144,175,312,131"/>
+<area shape="rect" href="esp__codec__dev__types_8h_source.html" title=" " alt="" coords="299,255,475,280"/>
+<area shape="poly" title=" " alt="" coords="290,126,214,131,130,141,57,158,31,169,13,183,8,194,13,205,30,218,55,230,124,247,205,257,285,262,285,267,205,262,123,252,53,235,27,223,9,208,3,194,9,180,28,165,56,153,129,136,213,126,290,121"/>
+<area shape="rect" href="audio__codec__data__if_8h_source.html" title=" " alt="" coords="178,181,345,207"/>
+<area shape="poly" title=" " alt="" coords="343,135,290,175,286,171,339,131"/>
+<area shape="rect" href="esp__codec__dev__vol_8h_source.html" title=" " alt="" coords="369,181,529,207"/>
+<area shape="poly" title=" " alt="" coords="373,131,425,171,422,175,370,135"/>
+<area shape="rect" href="audio__codec__vol__if_8h_source.html" title=" " alt="" coords="553,181,711,207"/>
+<area shape="poly" title=" " alt="" coords="401,131,575,175,573,180,400,136"/>
+<area shape="poly" title=" " alt="" coords="137,204,326,249,325,254,136,209"/>
+<area shape="rect" href="stdint_8h_source.html" title=" " alt="" coords="402,328,473,353"/>
+<area shape="poly" title=" " alt="" coords="397,279,423,315,419,318,393,282"/>
+<area shape="rect" title=" " alt="" coords="295,328,377,353"/>
+<area shape="poly" title=" " alt="" coords="381,282,354,318,350,315,376,279"/>
+<area shape="rect" title=" " alt="" coords="1255,328,1337,353"/>
+<area shape="poly" title=" " alt="" coords="475,274,510,277,714,289,874,294,1035,303,1242,325,1241,331,1035,308,874,300,714,295,509,283,475,280"/>
+<area shape="rect" title=" " alt="" coords="354,401,425,427"/>
+<area shape="poly" title=" " alt="" coords="432,355,407,392,403,389,427,352"/>
+<area shape="rect" title=" " alt="" coords="449,401,521,427"/>
+<area shape="poly" title=" " alt="" coords="448,352,472,389,468,392,443,355"/>
+<area shape="poly" title=" " alt="" coords="283,204,356,245,353,250,280,209"/>
+<area shape="poly" title=" " alt="" coords="441,209,408,246,404,242,437,205"/>
+<area shape="poly" title=" " alt="" coords="593,209,440,253,439,248,592,204"/>
+<area shape="poly" title=" " alt="" coords="935,136,826,179,824,174,933,131"/>
+<area shape="poly" title=" " alt="" coords="970,132,1006,215,1026,256,1039,278,1243,325,1242,330,1036,282,1021,259,1001,217,965,135"/>
+<area shape="rect" href="button__types_8h_source.html" title=" " alt="" coords="855,181,974,207"/>
+<area shape="poly" title=" " alt="" coords="957,135,932,172,928,169,953,132"/>
+<area shape="poly" title=" " alt="" coords="886,209,793,244,676,283,486,330,485,325,674,277,791,239,884,204"/>
+<area shape="poly" title=" " alt="" coords="924,205,952,242,972,262,995,278,1028,294,1057,304,1111,313,1169,317,1242,325,1242,331,1169,322,1111,319,1056,309,1026,299,992,282,969,266,948,245,920,208"/>
+<area shape="rect" href="button__interface_8h_source.html" title=" " alt="" coords="521,255,663,280"/>
+<area shape="poly" title=" " alt="" coords="864,209,658,254,657,249,862,204"/>
+<area shape="poly" title=" " alt="" coords="568,282,476,325,474,320,566,278"/>
+<area shape="poly" title=" " alt="" coords="552,283,391,327,390,322,550,277"/>
+<area shape="poly" title=" " alt="" coords="663,270,915,288,1076,304,1242,325,1241,331,1075,309,914,293,663,275"/>
+<area shape="rect" title=" " alt="" coords="2971,181,3098,207"/>
+<area shape="poly" title=" " alt="" coords="3037,134,3037,168,3032,168,3032,134"/>
+<area shape="poly" title=" " alt="" coords="1171,205,1235,278,1275,317,1271,320,1232,282,1167,209"/>
+<area shape="rect" href="sensor__event_8h_source.html" title=" " alt="" coords="802,255,923,280"/>
+<area shape="poly" title=" " alt="" coords="1112,209,925,254,923,249,1111,204"/>
+<area shape="rect" href="sensor__type_8h_source.html" title=" " alt="" coords="1050,255,1163,280"/>
+<area shape="poly" title=" " alt="" coords="1152,209,1126,245,1121,242,1148,205"/>
+<area shape="poly" title=" " alt="" coords="924,275,1243,325,1242,331,923,280"/>
+<area shape="rect" title=" " alt="" coords="938,328,1089,353"/>
+<area shape="poly" title=" " alt="" coords="888,278,978,320,975,324,886,282"/>
+<area shape="rect" title=" " alt="" coords="1113,328,1231,353"/>
+<area shape="poly" title=" " alt="" coords="913,277,1110,322,1108,328,912,283"/>
+<area shape="rect" title=" " alt="" coords="497,328,626,353"/>
+<area shape="poly" title=" " alt="" coords="815,283,624,327,623,322,814,277"/>
+<area shape="rect" title=" " alt="" coords="650,328,787,353"/>
+<area shape="poly" title=" " alt="" coords="841,282,756,324,753,319,838,278"/>
+<area shape="rect" title=" " alt="" coords="812,328,913,353"/>
+<area shape="poly" title=" " alt="" coords="865,280,865,314,860,314,860,280"/>
+<area shape="poly" title=" " alt="" coords="1138,278,1253,320,1251,325,1136,283"/>
+<area shape="poly" title=" " alt="" coords="1776,200,1644,206,1487,217,1350,234,1304,244,1279,257,1273,269,1273,284,1284,315,1279,317,1267,285,1268,268,1276,253,1302,239,1349,228,1487,212,1644,201,1775,195"/>
+<area shape="poly" title=" " alt="" coords="1897,194,1978,198,2068,207,2148,225,2179,237,2199,253,2206,264,2206,275,2194,295,2170,312,2143,326,2141,321,2168,308,2190,291,2201,274,2201,265,2195,256,2176,242,2147,230,2067,212,1977,203,1897,199"/>
+<area shape="rect" title=" " alt="" coords="1857,255,1991,280"/>
+<area shape="poly" title=" " alt="" coords="1852,205,1901,244,1897,248,1849,209"/>
+<area shape="rect" href="esp__lvgl__port__disp_8h.html" title="ESP LVGL port display." alt="" coords="2260,255,2415,280"/>
+<area shape="poly" title=" " alt="" coords="1897,201,2247,251,2246,256,1897,207"/>
+<area shape="rect" href="esp__lvgl__port__touch_8h.html" title="ESP LVGL port touch." alt="" coords="1290,255,1454,280"/>
+<area shape="poly" title=" " alt="" coords="1775,207,1460,255,1460,250,1775,202"/>
+<area shape="rect" href="esp__lvgl__port__knob_8h.html" title="ESP LVGL port knob." alt="" coords="1479,255,1639,280"/>
+<area shape="poly" title=" " alt="" coords="1792,209,1618,254,1616,249,1791,204"/>
+<area shape="rect" href="esp__lvgl__port__button_8h.html" title="ESP LVGL port button." alt="" coords="2015,255,2185,280"/>
+<area shape="poly" title=" " alt="" coords="1879,204,2045,248,2043,254,1878,209"/>
+<area shape="rect" href="esp__lvgl__port__usbhid_8h.html" title="ESP LVGL port USB HID." alt="" coords="1663,255,1833,280"/>
+<area shape="poly" title=" " alt="" coords="1824,209,1775,248,1772,244,1820,205"/>
+<area shape="poly" title=" " alt="" coords="2260,278,2198,283,1351,339,1350,333,2197,277,2260,272"/>
+<area shape="poly" title=" " alt="" coords="2300,283,2143,329,2142,324,2299,277"/>
+<area shape="rect" title=" " alt="" coords="2386,328,2531,353"/>
+<area shape="poly" title=" " alt="" coords="2358,278,2429,319,2426,323,2356,282"/>
+<area shape="rect" title=" " alt="" coords="2206,328,2362,353"/>
+<area shape="poly" title=" " alt="" coords="2331,282,2303,319,2299,316,2327,279"/>
+<area shape="poly" title=" " alt="" coords="1362,282,1320,320,1317,317,1358,278"/>
+<area shape="poly" title=" " alt="" coords="1455,276,1467,277,1807,311,2057,333,2057,338,1806,316,1467,283,1454,281"/>
+<area shape="poly" title=" " alt="" coords="1517,283,1351,327,1350,322,1516,277"/>
+<area shape="poly" title=" " alt="" coords="1640,277,2057,331,2057,336,1639,282"/>
+<area shape="poly" title=" " alt="" coords="2015,281,2003,283,1630,316,1351,338,1350,333,1630,311,2003,277,2014,276"/>
+<area shape="poly" title=" " alt="" coords="2103,280,2103,314,2097,314,2097,280"/>
+<area shape="poly" title=" " alt="" coords="1676,283,1351,334,1350,328,1675,277"/>
+<area shape="poly" title=" " alt="" coords="1805,277,2058,328,2057,333,1804,283"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-&gt;B definira relacijo "A vključuje B". Vse datoteke, ki torej mejijo na tekočo (t.j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. </div>
+<div class="dyncontent">
+<div class="center"><img src="esp-box-3_8h__dep__incl.png" border="0" usemap="#amanaged__components_2espressif____esp-box-3_2include_2bsp_2esp-box-3_8hdep" alt=""/></div>
+<map name="amanaged__components_2espressif____esp-box-3_2include_2bsp_2esp-box-3_8hdep" id="amanaged__components_2espressif____esp-box-3_2include_2bsp_2esp-box-3_8hdep">
+<area shape="rect" title="ESP BSP: ESP&#45;BOX&#45;3." alt="" coords="125,5,320,60"/>
+<area shape="rect" href="esp-bsp_8h_source.html" title=" " alt="" coords="133,108,313,163"/>
+<area shape="poly" title=" " alt="" coords="225,74,225,108,220,108,220,74"/>
+<area shape="rect" href="display__manager_8c.html" title="Display Manager implementacija." alt="" coords="5,211,219,251"/>
+<area shape="poly" title=" " alt="" coords="182,174,136,213,133,209,179,170"/>
+<area shape="rect" href="ui__manager_8c.html" title="UI Manager implementation." alt="" coords="243,211,426,251"/>
+<area shape="poly" title=" " alt="" coords="267,170,314,209,310,213,263,174"/>
+</map>
+</div>
+</div>
+<p><a href="esp-box-3_8h_source.html">izvorna koda</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Strukture</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">BSP SD card configuration structure.  <a href="structbsp__sdcard__cfg__t.html#details">...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbsp__display__cfg__t.html">bsp_display_cfg_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">BSP display configuration structure.  <a href="structbsp__display__cfg__t.html#details">...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbsp__sensor__config__t.html">bsp_sensor_config_t</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">BSP sensor configuration structure.  <a href="structbsp__sensor__config__t.html#details">...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:ga59dbc07d841beeef475d2ad13a5b5a44" id="r_ga59dbc07d841beeef475d2ad13a5b5a44"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_BOARD_ESP_BOX_3</b></td></tr>
+<tr class="separator:ga59dbc07d841beeef475d2ad13a5b5a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf3184870706e0f9f1b2b197c88b1d97f" id="r_gaf3184870706e0f9f1b2b197c88b1d97f"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_DISPLAY</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:gaf3184870706e0f9f1b2b197c88b1d97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad0498d67d7e36d8e145c39888a1e6a4d" id="r_gad0498d67d7e36d8e145c39888a1e6a4d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_TOUCH</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:gad0498d67d7e36d8e145c39888a1e6a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec2ddd404379a47d2676d04ead119f5a" id="r_gaec2ddd404379a47d2676d04ead119f5a"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_BUTTONS</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:gaec2ddd404379a47d2676d04ead119f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad63a95c6d3dc6ac82b209c1321571376" id="r_gad63a95c6d3dc6ac82b209c1321571376"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_AUDIO</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:gad63a95c6d3dc6ac82b209c1321571376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01e31729481f9bfca5e9fe071438a177" id="r_ga01e31729481f9bfca5e9fe071438a177"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_AUDIO_SPEAKER</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ga01e31729481f9bfca5e9fe071438a177"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga811d0c5c3218cf067cd4dc08e519a01b" id="r_ga811d0c5c3218cf067cd4dc08e519a01b"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_AUDIO_MIC</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ga811d0c5c3218cf067cd4dc08e519a01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2a5c3ffe7d8bf63f01bc45a713a424d1" id="r_ga2a5c3ffe7d8bf63f01bc45a713a424d1"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_SDCARD</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ga2a5c3ffe7d8bf63f01bc45a713a424d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf5bb0ba529832b2529e25954094d3baa" id="r_gaf5bb0ba529832b2529e25954094d3baa"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_IMU</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:gaf5bb0ba529832b2529e25954094d3baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa4989eb0836176c95447f3174c096775" id="r_gaa4989eb0836176c95447f3174c096775"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_CAPS_HUMITURE</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:gaa4989eb0836176c95447f3174c096775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf6e6a5b5564ddafadb75fca91f8f14b0" id="r_gaf6e6a5b5564ddafadb75fca91f8f14b0"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2C_SCL</b>&#160;&#160;&#160;(GPIO_NUM_18)</td></tr>
+<tr class="separator:gaf6e6a5b5564ddafadb75fca91f8f14b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a7ea0acc73c945f4922eb57fd462beb" id="r_ga4a7ea0acc73c945f4922eb57fd462beb"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2C_SDA</b>&#160;&#160;&#160;(GPIO_NUM_8)</td></tr>
+<tr class="separator:ga4a7ea0acc73c945f4922eb57fd462beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab4bbcb86d5af69ade9e654f559742007" id="r_gab4bbcb86d5af69ade9e654f559742007"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2C_DOCK_SCL</b>&#160;&#160;&#160;(GPIO_NUM_40)</td></tr>
+<tr class="separator:gab4bbcb86d5af69ade9e654f559742007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2ce6e089d0a41e5c0eae579cdafa0151" id="r_ga2ce6e089d0a41e5c0eae579cdafa0151"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2C_DOCK_SDA</b>&#160;&#160;&#160;(GPIO_NUM_41)</td></tr>
+<tr class="separator:ga2ce6e089d0a41e5c0eae579cdafa0151"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaec5acd718d4fdbee097417496980369f" id="r_gaec5acd718d4fdbee097417496980369f"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2S_SCLK</b>&#160;&#160;&#160;(GPIO_NUM_17)</td></tr>
+<tr class="separator:gaec5acd718d4fdbee097417496980369f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac87982f5780feb8b0ac8f6ad926ea7e5" id="r_gac87982f5780feb8b0ac8f6ad926ea7e5"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2S_MCLK</b>&#160;&#160;&#160;(GPIO_NUM_2)</td></tr>
+<tr class="separator:gac87982f5780feb8b0ac8f6ad926ea7e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5baaef0bb1e3fa60d1a2e41ce4fa19e0" id="r_ga5baaef0bb1e3fa60d1a2e41ce4fa19e0"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2S_LCLK</b>&#160;&#160;&#160;(GPIO_NUM_45)</td></tr>
+<tr class="separator:ga5baaef0bb1e3fa60d1a2e41ce4fa19e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4c9175656d5ac9654ebe5630651323d4" id="r_ga4c9175656d5ac9654ebe5630651323d4"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2S_DOUT</b>&#160;&#160;&#160;(GPIO_NUM_15)</td></tr>
+<tr class="separator:ga4c9175656d5ac9654ebe5630651323d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad06a790497cfb0a3e7f3e664ad79f712" id="r_gad06a790497cfb0a3e7f3e664ad79f712"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2S_DSIN</b>&#160;&#160;&#160;(GPIO_NUM_16)</td></tr>
+<tr class="separator:gad06a790497cfb0a3e7f3e664ad79f712"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacc69fbb943e686b0bd9690b6ba08a39d" id="r_gacc69fbb943e686b0bd9690b6ba08a39d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_POWER_AMP_IO</b>&#160;&#160;&#160;(GPIO_NUM_46)</td></tr>
+<tr class="separator:gacc69fbb943e686b0bd9690b6ba08a39d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1779bb7b0adf312b557e88ce30a76dbc" id="r_ga1779bb7b0adf312b557e88ce30a76dbc"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_MUTE_STATUS</b>&#160;&#160;&#160;(GPIO_NUM_1)</td></tr>
+<tr class="separator:ga1779bb7b0adf312b557e88ce30a76dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaaa2d28b309a03c13bd464650fd40999c" id="r_gaaa2d28b309a03c13bd464650fd40999c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_DATA0</b>&#160;&#160;&#160;(GPIO_NUM_6)</td></tr>
+<tr class="separator:gaaa2d28b309a03c13bd464650fd40999c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6e804c690a1234b4838ca7a92f587bb6" id="r_ga6e804c690a1234b4838ca7a92f587bb6"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_PCLK</b>&#160;&#160;&#160;(GPIO_NUM_7)</td></tr>
+<tr class="separator:ga6e804c690a1234b4838ca7a92f587bb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga07b260fe35bcd9c416f14c40559ae949" id="r_ga07b260fe35bcd9c416f14c40559ae949"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_CS</b>&#160;&#160;&#160;(GPIO_NUM_5)</td></tr>
+<tr class="separator:ga07b260fe35bcd9c416f14c40559ae949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae20a7abfd875f359d898b33ad0fc43db" id="r_gae20a7abfd875f359d898b33ad0fc43db"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_DC</b>&#160;&#160;&#160;(GPIO_NUM_4)</td></tr>
+<tr class="separator:gae20a7abfd875f359d898b33ad0fc43db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae25ab440c1860bcc21ed994114d9c56e" id="r_gae25ab440c1860bcc21ed994114d9c56e"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_RST</b>&#160;&#160;&#160;(GPIO_NUM_48)</td></tr>
+<tr class="separator:gae25ab440c1860bcc21ed994114d9c56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga592f9f115d6c6f097d7d976a15e084b5" id="r_ga592f9f115d6c6f097d7d976a15e084b5"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_BACKLIGHT</b>&#160;&#160;&#160;(GPIO_NUM_47)</td></tr>
+<tr class="separator:ga592f9f115d6c6f097d7d976a15e084b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab558d70a7b47c2bcc23c1072533b39e6" id="r_gab558d70a7b47c2bcc23c1072533b39e6"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_TOUCH_INT</b>&#160;&#160;&#160;(GPIO_NUM_3)</td></tr>
+<tr class="separator:gab558d70a7b47c2bcc23c1072533b39e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6a37784678b2650c25883c389a502bba" id="r_ga6a37784678b2650c25883c389a502bba"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_USB_POS</b>&#160;&#160;&#160;(GPIO_NUM_20)</td></tr>
+<tr class="separator:ga6a37784678b2650c25883c389a502bba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga120cc04e8e889bd567a2d1a9285722af" id="r_ga120cc04e8e889bd567a2d1a9285722af"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_USB_NEG</b>&#160;&#160;&#160;(GPIO_NUM_19)</td></tr>
+<tr class="separator:ga120cc04e8e889bd567a2d1a9285722af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga076742466c8960ce35ff85b16e2d6350" id="r_ga076742466c8960ce35ff85b16e2d6350"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_BUTTON_CONFIG_IO</b>&#160;&#160;&#160;(GPIO_NUM_0)</td></tr>
+<tr class="separator:ga076742466c8960ce35ff85b16e2d6350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5404cfd0e0e3c96b85dc131f11eb7873" id="r_ga5404cfd0e0e3c96b85dc131f11eb7873"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_BUTTON_MUTE_IO</b>&#160;&#160;&#160;(GPIO_NUM_1)</td></tr>
+<tr class="separator:ga5404cfd0e0e3c96b85dc131f11eb7873"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab09257cafdfb516962f4f1976175f58c" id="r_gab09257cafdfb516962f4f1976175f58c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D0</b>&#160;&#160;&#160;(GPIO_NUM_9)</td></tr>
+<tr class="separator:gab09257cafdfb516962f4f1976175f58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9dcc2109b20c3c18b2459a6fca8e31fc" id="r_ga9dcc2109b20c3c18b2459a6fca8e31fc"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D1</b>&#160;&#160;&#160;(GPIO_NUM_13)</td></tr>
+<tr class="separator:ga9dcc2109b20c3c18b2459a6fca8e31fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafde4a6bea5dd6d76b91d425333ba776e" id="r_gafde4a6bea5dd6d76b91d425333ba776e"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D2</b>&#160;&#160;&#160;(GPIO_NUM_42)</td></tr>
+<tr class="separator:gafde4a6bea5dd6d76b91d425333ba776e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga64d8ab0f51532e2d8009766ab6e71c42" id="r_ga64d8ab0f51532e2d8009766ab6e71c42"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_D3</b>&#160;&#160;&#160;(GPIO_NUM_12)</td></tr>
+<tr class="separator:ga64d8ab0f51532e2d8009766ab6e71c42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9628c257bf4118d66bf869b252532088" id="r_ga9628c257bf4118d66bf869b252532088"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_CMD</b>&#160;&#160;&#160;(GPIO_NUM_14)</td></tr>
+<tr class="separator:ga9628c257bf4118d66bf869b252532088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9b2f67dbe6e1c9c3a1e252847778c93c" id="r_ga9b2f67dbe6e1c9c3a1e252847778c93c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_CLK</b>&#160;&#160;&#160;(GPIO_NUM_11)</td></tr>
+<tr class="separator:ga9b2f67dbe6e1c9c3a1e252847778c93c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabf3b7b7976f2ace3c05582c650a6a15d" id="r_gabf3b7b7976f2ace3c05582c650a6a15d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_DET</b>&#160;&#160;&#160;(GPIO_NUM_NC)</td></tr>
+<tr class="separator:gabf3b7b7976f2ace3c05582c650a6a15d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd5f01e7ffbe870883746bdb97f9f13d" id="r_gafd5f01e7ffbe870883746bdb97f9f13d"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_POWER</b>&#160;&#160;&#160;(GPIO_NUM_43)</td></tr>
+<tr class="separator:gafd5f01e7ffbe870883746bdb97f9f13d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa073dcc8c7b1ce03c845e59b1902fd62" id="r_gaa073dcc8c7b1ce03c845e59b1902fd62"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_MISO</b>&#160;&#160;&#160;(GPIO_NUM_9)</td></tr>
+<tr class="separator:gaa073dcc8c7b1ce03c845e59b1902fd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga826f0e2cc72b9a35d2d0a2c4afba9f68" id="r_ga826f0e2cc72b9a35d2d0a2c4afba9f68"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_CS</b>&#160;&#160;&#160;(GPIO_NUM_12)</td></tr>
+<tr class="separator:ga826f0e2cc72b9a35d2d0a2c4afba9f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga70168a6aa86d551e86751f8ad61c9bad" id="r_ga70168a6aa86d551e86751f8ad61c9bad"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_MOSI</b>&#160;&#160;&#160;(GPIO_NUM_14)</td></tr>
+<tr class="separator:ga70168a6aa86d551e86751f8ad61c9bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac446b76616f69ff0ca513b3b98108e21" id="r_gac446b76616f69ff0ca513b3b98108e21"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_SPI_CLK</b>&#160;&#160;&#160;(GPIO_NUM_11)</td></tr>
+<tr class="separator:gac446b76616f69ff0ca513b3b98108e21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb84ce61c3b10284c7c032b9aaf5aaaa" id="r_gabb84ce61c3b10284c7c032b9aaf5aaaa"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO1</b>&#160;&#160;&#160;GPIO_NUM_42</td></tr>
+<tr class="separator:gabb84ce61c3b10284c7c032b9aaf5aaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaeae8aad7d8c7a7ae05b8dfe24b8b9e55" id="r_gaeae8aad7d8c7a7ae05b8dfe24b8b9e55"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO2</b>&#160;&#160;&#160;BSP_USB_POS</td></tr>
+<tr class="separator:gaeae8aad7d8c7a7ae05b8dfe24b8b9e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga81053c8aefadf53a99eda6cfaf8fae53" id="r_ga81053c8aefadf53a99eda6cfaf8fae53"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO3</b>&#160;&#160;&#160;GPIO_NUM_39</td></tr>
+<tr class="separator:ga81053c8aefadf53a99eda6cfaf8fae53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae9e8c2e9d521ebad7d77b2f3f373cb97" id="r_gae9e8c2e9d521ebad7d77b2f3f373cb97"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO4</b>&#160;&#160;&#160;GPIO_NUM_40</td></tr>
+<tr class="separator:gae9e8c2e9d521ebad7d77b2f3f373cb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac852073234fb6017e1e9a90b91515d7a" id="r_gac852073234fb6017e1e9a90b91515d7a"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO5</b>&#160;&#160;&#160;GPIO_NUM_21</td></tr>
+<tr class="separator:gac852073234fb6017e1e9a90b91515d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga02e57d888bb7ec12d0fe07ab724715ec" id="r_ga02e57d888bb7ec12d0fe07ab724715ec"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO6</b>&#160;&#160;&#160;BSP_USB_NEG</td></tr>
+<tr class="separator:ga02e57d888bb7ec12d0fe07ab724715ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2e20dd8e0092c70ecf8a6a7d91e13e09" id="r_ga2e20dd8e0092c70ecf8a6a7d91e13e09"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO7</b>&#160;&#160;&#160;GPIO_NUM_38</td></tr>
+<tr class="separator:ga2e20dd8e0092c70ecf8a6a7d91e13e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga61d556d0e29ecb854a490ef707e7b634" id="r_ga61d556d0e29ecb854a490ef707e7b634"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD1_IO8</b>&#160;&#160;&#160;GPIO_NUM_41</td></tr>
+<tr class="separator:ga61d556d0e29ecb854a490ef707e7b634"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7d93eb69a29a5d2e57b7671a9a5a1a96" id="r_ga7d93eb69a29a5d2e57b7671a9a5a1a96"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO1</b>&#160;&#160;&#160;GPIO_NUM_13</td></tr>
+<tr class="separator:ga7d93eb69a29a5d2e57b7671a9a5a1a96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac5ca7ab81522ba3b60290f3ba30977da" id="r_gac5ca7ab81522ba3b60290f3ba30977da"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO2</b>&#160;&#160;&#160;GPIO_NUM_9</td></tr>
+<tr class="separator:gac5ca7ab81522ba3b60290f3ba30977da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4c03fb9e1d80596dd6aff735a759ff1" id="r_gae4c03fb9e1d80596dd6aff735a759ff1"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO3</b>&#160;&#160;&#160;GPIO_NUM_12</td></tr>
+<tr class="separator:gae4c03fb9e1d80596dd6aff735a759ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga6034a541238eb55602f26a69f17cd471" id="r_ga6034a541238eb55602f26a69f17cd471"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO4</b>&#160;&#160;&#160;GPIO_NUM_44</td></tr>
+<tr class="separator:ga6034a541238eb55602f26a69f17cd471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3e7f94ef631d05338043651c79632f05" id="r_ga3e7f94ef631d05338043651c79632f05"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO5</b>&#160;&#160;&#160;GPIO_NUM_10</td></tr>
+<tr class="separator:ga3e7f94ef631d05338043651c79632f05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5385007b9d8f5057e91593a1cfb0b705" id="r_ga5385007b9d8f5057e91593a1cfb0b705"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO6</b>&#160;&#160;&#160;GPIO_NUM_14</td></tr>
+<tr class="separator:ga5385007b9d8f5057e91593a1cfb0b705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga24034fd80a97075627922da48b4c5d3f" id="r_ga24034fd80a97075627922da48b4c5d3f"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO7</b>&#160;&#160;&#160;GPIO_NUM_11</td></tr>
+<tr class="separator:ga24034fd80a97075627922da48b4c5d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga83237ba6cd2adf58b096371391a7a662" id="r_ga83237ba6cd2adf58b096371391a7a662"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_PMOD2_IO8</b>&#160;&#160;&#160;GPIO_NUM_43</td></tr>
+<tr class="separator:ga83237ba6cd2adf58b096371391a7a662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0ecff944440fa9ccf0241e8acf1427dc" id="r_ga0ecff944440fa9ccf0241e8acf1427dc"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_I2C_NUM</b>&#160;&#160;&#160;CONFIG_BSP_I2C_NUM</td></tr>
+<tr class="separator:ga0ecff944440fa9ccf0241e8acf1427dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga183706ece1b79bb571cfae1cb5082b39" id="r_ga183706ece1b79bb571cfae1cb5082b39"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SPIFFS_MOUNT_POINT</b>&#160;&#160;&#160;CONFIG_BSP_SPIFFS_MOUNT_POINT</td></tr>
+<tr class="separator:ga183706ece1b79bb571cfae1cb5082b39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac25b02b46a9070f161b83dd42ce5e552" id="r_gac25b02b46a9070f161b83dd42ce5e552"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SD_MOUNT_POINT</b>&#160;&#160;&#160;CONFIG_BSP_SD_MOUNT_POINT</td></tr>
+<tr class="separator:gac25b02b46a9070f161b83dd42ce5e552"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4e6da2492c270e612d9567510d9b0611" id="r_ga4e6da2492c270e612d9567510d9b0611"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_SDSPI_HOST</b>&#160;&#160;&#160;(SPI2_HOST)</td></tr>
+<tr class="separator:ga4e6da2492c270e612d9567510d9b0611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga96deef22e8868d28956349a7532a451a" id="r_ga96deef22e8868d28956349a7532a451a"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_PIXEL_CLOCK_HZ</b>&#160;&#160;&#160;(40 * 1000 * 1000)</td></tr>
+<tr class="separator:ga96deef22e8868d28956349a7532a451a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga36f8a7c7ff061c8fb80096eee581200c" id="r_ga36f8a7c7ff061c8fb80096eee581200c"><td class="memItemLeft" align="right" valign="top">
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>BSP_LCD_SPI_NUM</b>&#160;&#160;&#160;(SPI3_HOST)</td></tr>
+<tr class="separator:ga36f8a7c7ff061c8fb80096eee581200c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Naštevni tipi</h2></td></tr>
+<tr class="memitem:gab129b577812bafca44e432865174c782" id="r_gab129b577812bafca44e432865174c782"><td class="memItemLeft" align="right" valign="top"><a id="gab129b577812bafca44e432865174c782" name="gab129b577812bafca44e432865174c782"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>bsp_button_t</b> { <b>BSP_BUTTON_CONFIG</b> = 0
+, <b>BSP_BUTTON_MUTE</b>
+, <b>BSP_BUTTON_MAIN</b>
+, <b>BSP_BUTTON_NUM</b>
+ }</td></tr>
+<tr class="separator:gab129b577812bafca44e432865174c782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:gafa64ce8ee16cae683e6e875f4fdc61bb" id="r_gafa64ce8ee16cae683e6e875f4fdc61bb"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g03__audio.html#gafa64ce8ee16cae683e6e875f4fdc61bb">bsp_audio_init</a> (const i2s_std_config_t *i2s_config)</td></tr>
+<tr class="memdesc:gafa64ce8ee16cae683e6e875f4fdc61bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init audio.  <br /></td></tr>
+<tr class="separator:gafa64ce8ee16cae683e6e875f4fdc61bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4b89fc97eebedb191e6a831281fe113" id="r_gae4b89fc97eebedb191e6a831281fe113"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structaudio__codec__data__if__t.html">audio_codec_data_if_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g03__audio.html#gae4b89fc97eebedb191e6a831281fe113">bsp_audio_get_codec_itf</a> (void)</td></tr>
+<tr class="memdesc:gae4b89fc97eebedb191e6a831281fe113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get codec I2S interface (initialized in bsp_audio_init)  <br /></td></tr>
+<tr class="separator:gae4b89fc97eebedb191e6a831281fe113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8d613375571e64ce7e65c87997900752" id="r_ga8d613375571e64ce7e65c87997900752"><td class="memItemLeft" align="right" valign="top">esp_codec_dev_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g03__audio.html#ga8d613375571e64ce7e65c87997900752">bsp_audio_codec_speaker_init</a> (void)</td></tr>
+<tr class="memdesc:ga8d613375571e64ce7e65c87997900752"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize speaker codec device.  <br /></td></tr>
+<tr class="separator:ga8d613375571e64ce7e65c87997900752"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad7ce449cdaa2fbac88496acc1770bb35" id="r_gad7ce449cdaa2fbac88496acc1770bb35"><td class="memItemLeft" align="right" valign="top">esp_codec_dev_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g03__audio.html#gad7ce449cdaa2fbac88496acc1770bb35">bsp_audio_codec_microphone_init</a> (void)</td></tr>
+<tr class="memdesc:gad7ce449cdaa2fbac88496acc1770bb35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize microphone codec device.  <br /></td></tr>
+<tr class="separator:gad7ce449cdaa2fbac88496acc1770bb35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb504c284aa8a47f2ffee89038bd5b98" id="r_gafb504c284aa8a47f2ffee89038bd5b98"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g01__i2c.html#gafb504c284aa8a47f2ffee89038bd5b98">bsp_i2c_init</a> (void)</td></tr>
+<tr class="memdesc:gafb504c284aa8a47f2ffee89038bd5b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init I2C driver.  <br /></td></tr>
+<tr class="separator:gafb504c284aa8a47f2ffee89038bd5b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa6817a14a21673842bdc988aedf23bcd" id="r_gaa6817a14a21673842bdc988aedf23bcd"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g01__i2c.html#gaa6817a14a21673842bdc988aedf23bcd">bsp_i2c_deinit</a> (void)</td></tr>
+<tr class="memdesc:gaa6817a14a21673842bdc988aedf23bcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinit I2C driver and free its resources.  <br /></td></tr>
+<tr class="separator:gaa6817a14a21673842bdc988aedf23bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7379e225eb4230551bdb96d2ed2dabca" id="r_ga7379e225eb4230551bdb96d2ed2dabca"><td class="memItemLeft" align="right" valign="top">i2c_master_bus_handle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g01__i2c.html#ga7379e225eb4230551bdb96d2ed2dabca">bsp_i2c_get_handle</a> (void)</td></tr>
+<tr class="memdesc:ga7379e225eb4230551bdb96d2ed2dabca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get I2C driver handle.  <br /></td></tr>
+<tr class="separator:ga7379e225eb4230551bdb96d2ed2dabca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac9a93112f87090d2f5e2e11d24e93232" id="r_gac9a93112f87090d2f5e2e11d24e93232"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gac9a93112f87090d2f5e2e11d24e93232">bsp_spiffs_mount</a> (void)</td></tr>
+<tr class="memdesc:gac9a93112f87090d2f5e2e11d24e93232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount SPIFFS to virtual file system.  <br /></td></tr>
+<tr class="separator:gac9a93112f87090d2f5e2e11d24e93232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0c392bdd27b40fb9de95391d9063325c" id="r_ga0c392bdd27b40fb9de95391d9063325c"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga0c392bdd27b40fb9de95391d9063325c">bsp_spiffs_unmount</a> (void)</td></tr>
+<tr class="memdesc:ga0c392bdd27b40fb9de95391d9063325c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unmount SPIFFS from virtual file system.  <br /></td></tr>
+<tr class="separator:ga0c392bdd27b40fb9de95391d9063325c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5560065f8b54fe0756b84b1e899e6377" id="r_ga5560065f8b54fe0756b84b1e899e6377"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga5560065f8b54fe0756b84b1e899e6377">bsp_sdcard_mount</a> (void)</td></tr>
+<tr class="memdesc:ga5560065f8b54fe0756b84b1e899e6377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount microSD card to virtual file system.  <br /></td></tr>
+<tr class="separator:ga5560065f8b54fe0756b84b1e899e6377"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab22f98cd53a08f8d0713097bbed2d2c0" id="r_gab22f98cd53a08f8d0713097bbed2d2c0"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gab22f98cd53a08f8d0713097bbed2d2c0">bsp_sdcard_unmount</a> (void)</td></tr>
+<tr class="memdesc:gab22f98cd53a08f8d0713097bbed2d2c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unmount micorSD card from virtual file system.  <br /></td></tr>
+<tr class="separator:gab22f98cd53a08f8d0713097bbed2d2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga544da06689f3934a3235502772a8164c" id="r_ga544da06689f3934a3235502772a8164c"><td class="memItemLeft" align="right" valign="top">sdmmc_card_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga544da06689f3934a3235502772a8164c">bsp_sdcard_get_handle</a> (void)</td></tr>
+<tr class="memdesc:ga544da06689f3934a3235502772a8164c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card handle.  <br /></td></tr>
+<tr class="separator:ga544da06689f3934a3235502772a8164c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga23edbd6330f928a6aa428805569c55bd" id="r_ga23edbd6330f928a6aa428805569c55bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga23edbd6330f928a6aa428805569c55bd">bsp_sdcard_get_sdmmc_host</a> (const int slot, sdmmc_host_t *config)</td></tr>
+<tr class="memdesc:ga23edbd6330f928a6aa428805569c55bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card MMC host config.  <br /></td></tr>
+<tr class="separator:ga23edbd6330f928a6aa428805569c55bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5abfdbb971b7836c8741c770917262b1" id="r_ga5abfdbb971b7836c8741c770917262b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga5abfdbb971b7836c8741c770917262b1">bsp_sdcard_get_sdspi_host</a> (const int slot, sdmmc_host_t *config)</td></tr>
+<tr class="memdesc:ga5abfdbb971b7836c8741c770917262b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card SPI host config.  <br /></td></tr>
+<tr class="separator:ga5abfdbb971b7836c8741c770917262b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae633008e9dcfbccd0258578f1d2b317a" id="r_gae633008e9dcfbccd0258578f1d2b317a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gae633008e9dcfbccd0258578f1d2b317a">bsp_sdcard_sdmmc_get_slot</a> (const int slot, sdmmc_slot_config_t *config)</td></tr>
+<tr class="memdesc:gae633008e9dcfbccd0258578f1d2b317a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card MMC slot config.  <br /></td></tr>
+<tr class="separator:gae633008e9dcfbccd0258578f1d2b317a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga90a00ff32d12e77b321985c84d358cf6" id="r_ga90a00ff32d12e77b321985c84d358cf6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga90a00ff32d12e77b321985c84d358cf6">bsp_sdcard_sdspi_get_slot</a> (const spi_host_device_t spi_host, sdspi_device_config_t *config)</td></tr>
+<tr class="memdesc:ga90a00ff32d12e77b321985c84d358cf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SD card SPI slot config.  <br /></td></tr>
+<tr class="separator:ga90a00ff32d12e77b321985c84d358cf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa8a01e03e7801c3ba65dfd868c10a52f" id="r_gaa8a01e03e7801c3ba65dfd868c10a52f"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#gaa8a01e03e7801c3ba65dfd868c10a52f">bsp_sdcard_sdmmc_mount</a> (<a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *cfg)</td></tr>
+<tr class="memdesc:gaa8a01e03e7801c3ba65dfd868c10a52f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount microSD card to virtual file system (MMC mode)  <br /></td></tr>
+<tr class="separator:gaa8a01e03e7801c3ba65dfd868c10a52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4a0df6fcd3272a1ca89206872d897142" id="r_ga4a0df6fcd3272a1ca89206872d897142"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g02__storage.html#ga4a0df6fcd3272a1ca89206872d897142">bsp_sdcard_sdspi_mount</a> (<a class="el" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *cfg)</td></tr>
+<tr class="memdesc:ga4a0df6fcd3272a1ca89206872d897142"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mount microSD card to virtual file system (SPI mode)  <br /></td></tr>
+<tr class="separator:ga4a0df6fcd3272a1ca89206872d897142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae4275824d225d70a382b86178f39450c" id="r_gae4275824d225d70a382b86178f39450c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g04__display.html#gae4275824d225d70a382b86178f39450c">bsp_display_start</a> (void)</td></tr>
+<tr class="memdesc:gae4275824d225d70a382b86178f39450c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize display.  <br /></td></tr>
+<tr class="separator:gae4275824d225d70a382b86178f39450c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaff98dc9c5df3ce94267754f35face5d2" id="r_gaff98dc9c5df3ce94267754f35face5d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g04__display.html#gaff98dc9c5df3ce94267754f35face5d2">bsp_display_start_with_config</a> (const <a class="el" href="structbsp__display__cfg__t.html">bsp_display_cfg_t</a> *cfg)</td></tr>
+<tr class="memdesc:gaff98dc9c5df3ce94267754f35face5d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize display.  <br /></td></tr>
+<tr class="separator:gaff98dc9c5df3ce94267754f35face5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaa358520a1c77dbf054e73757e48dea9a" id="r_gaa358520a1c77dbf054e73757e48dea9a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct__lv__indev__t.html">lv_indev_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g04__display.html#gaa358520a1c77dbf054e73757e48dea9a">bsp_display_get_input_dev</a> (void)</td></tr>
+<tr class="memdesc:gaa358520a1c77dbf054e73757e48dea9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get pointer to input device (touch, buttons, ...)  <br /></td></tr>
+<tr class="separator:gaa358520a1c77dbf054e73757e48dea9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f9276ddd28d9427995f513d36aed139" id="r_ga8f9276ddd28d9427995f513d36aed139"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g04__display.html#ga8f9276ddd28d9427995f513d36aed139">bsp_display_lock</a> (uint32_t timeout_ms)</td></tr>
+<tr class="memdesc:ga8f9276ddd28d9427995f513d36aed139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Take LVGL mutex.  <br /></td></tr>
+<tr class="separator:ga8f9276ddd28d9427995f513d36aed139"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gac08779b1b61a813af6d9c96a4b54740d" id="r_gac08779b1b61a813af6d9c96a4b54740d"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>bsp_display_unlock</b> (void)</td></tr>
+<tr class="memdesc:gac08779b1b61a813af6d9c96a4b54740d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Give LVGL mutex. <br /></td></tr>
+<tr class="separator:gac08779b1b61a813af6d9c96a4b54740d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4bb816859abde4dcf196ca41b380a94a" id="r_ga4bb816859abde4dcf196ca41b380a94a"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g04__display.html#ga4bb816859abde4dcf196ca41b380a94a">bsp_display_enter_sleep</a> (void)</td></tr>
+<tr class="memdesc:ga4bb816859abde4dcf196ca41b380a94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set display enter sleep mode.  <br /></td></tr>
+<tr class="separator:ga4bb816859abde4dcf196ca41b380a94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4528c90bb660dfe358849b9c379d7ca9" id="r_ga4528c90bb660dfe358849b9c379d7ca9"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g04__display.html#ga4528c90bb660dfe358849b9c379d7ca9">bsp_display_exit_sleep</a> (void)</td></tr>
+<tr class="memdesc:ga4528c90bb660dfe358849b9c379d7ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set display exit sleep mode.  <br /></td></tr>
+<tr class="separator:ga4528c90bb660dfe358849b9c379d7ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga444b52fd41e46fc4d98fbb90b66a654c" id="r_ga444b52fd41e46fc4d98fbb90b66a654c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g04__display.html#ga444b52fd41e46fc4d98fbb90b66a654c">bsp_display_rotate</a> (<a class="el" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp, lv_disp_rotation_t rotation)</td></tr>
+<tr class="memdesc:ga444b52fd41e46fc4d98fbb90b66a654c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotate screen.  <br /></td></tr>
+<tr class="separator:ga444b52fd41e46fc4d98fbb90b66a654c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga709ba5c932018eb218885bb20b27c6c0" id="r_ga709ba5c932018eb218885bb20b27c6c0"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g05__buttons.html#ga709ba5c932018eb218885bb20b27c6c0">bsp_iot_button_create</a> (<a class="el" href="structbutton__dev__t.html">button_handle_t</a> btn_array[], int *btn_cnt, int btn_array_size)</td></tr>
+<tr class="memdesc:ga709ba5c932018eb218885bb20b27c6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize all buttons.  <br /></td></tr>
+<tr class="separator:ga709ba5c932018eb218885bb20b27c6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga78df0851c9634f986cefa631bb0f93dd" id="r_ga78df0851c9634f986cefa631bb0f93dd"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__g10__sensors.html#ga78df0851c9634f986cefa631bb0f93dd">bsp_sensor_init</a> (const <a class="el" href="structbsp__sensor__config__t.html">bsp_sensor_config_t</a> *cfg, sensor_handle_t *sensor_handle)</td></tr>
+<tr class="memdesc:ga78df0851c9634f986cefa631bb0f93dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a sensor.  <br /></td></tr>
+<tr class="separator:ga78df0851c9634f986cefa631bb0f93dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Podroben opis</h2>
+<div class="textblock"><p>ESP BSP: ESP-BOX-3. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

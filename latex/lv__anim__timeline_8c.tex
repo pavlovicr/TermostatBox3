@@ -1,0 +1,301 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+anim\+\_\+timeline.c}
+\hypertarget{lv__anim__timeline_8c}{}\label{lv__anim__timeline_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_anim\_timeline.c@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_anim\_timeline.c}}
+{\ttfamily \#include "{}lv\+\_\+anim\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+anim\+\_\+timeline\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+mem.\+h"{}}\newline
+{\ttfamily \#include "{}../stdlib/lv\+\_\+string.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+anim\+\_\+timeline.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+anim\+\_\+timeline.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__anim__timeline_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__anim__timeline_8c_afe22742e57b02478ee9ede8bf55b910d}{lv\+\_\+anim\+\_\+timeline\+\_\+create}} (void)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_a3e5b8715d6aa502203aea629af31c130}{lv\+\_\+anim\+\_\+timeline\+\_\+delete}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_a045fd50fdf6e545ba71df95c3f8fa80c}{lv\+\_\+anim\+\_\+timeline\+\_\+add}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at, uint32\+\_\+t start\+\_\+time, const \mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*}a)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__anim__timeline_8c_a631773d63194f6443cb4fa2b80a6f055}{lv\+\_\+anim\+\_\+timeline\+\_\+start}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_aa8132aef401ea21c6ec3ec31561bbdc4}{lv\+\_\+anim\+\_\+timeline\+\_\+pause}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_ad8a2f74c2b88b4cd70a9b20d8f27190e}{lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+reverse}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at, bool reverse)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_ae94c90fcb02c4e3fb1446d7f27c91530}{lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+delay}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at, uint32\+\_\+t delay)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_a005c3788328cf30e25d523c2082de18d}{lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+repeat\+\_\+count}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at, uint32\+\_\+t cnt)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_aeb4fd52767514d6f5c0a391d7baaadf5}{lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+repeat\+\_\+delay}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at, uint32\+\_\+t delay)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_a220b311c65a98b559ec4ba5d2b597650}{lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+progress}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at, uint16\+\_\+t progress)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_acb085bdebb2d81dc5da45662a7087202}{lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+user\+\_\+data}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__anim__timeline_8c_aefa7a248ae35b30bcbe6773fbe5c508d}{lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+playtime}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+bool \mbox{\hyperlink{lv__anim__timeline_8c_aabc8223c96f7f777898dfbf1463f6fdd}{lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+reverse}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__anim__timeline_8c_a5077a3314ecec011376a571bd8f10426}{lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+delay}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{lv__anim__timeline_8c_a7b212252595f6e705d61a381732d2462}{lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+progress}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__anim__timeline_8c_a9dd15bca34223a019b350eec4d900766}{lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+repeat\+\_\+count}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__anim__timeline_8c_a7eb48bf2d08374e62bff16506d3b471d}{lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+repeat\+\_\+delay}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__anim__timeline_8c_a970fbb05f65b65bafe83177f3f161382}{lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+user\+\_\+data}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}at)
+\item 
+void \mbox{\hyperlink{lv__anim__timeline_8c_ac62e035d0e29b25be563856ce5cbd5d1}{lv\+\_\+anim\+\_\+timeline\+\_\+merge}} (\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}dest, const \mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}src, int32\+\_\+t delay)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__anim__timeline_8c_a045fd50fdf6e545ba71df95c3f8fa80c}\label{lv__anim__timeline_8c_a045fd50fdf6e545ba71df95c3f8fa80c} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_add@{lv\_anim\_timeline\_add}}
+\index{lv\_anim\_timeline\_add@{lv\_anim\_timeline\_add}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_add()}{lv\_anim\_timeline\_add()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{uint32\+\_\+t}]{start\+\_\+time,  }\item[{const \mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{a }\end{DoxyParamCaption})}
+
+Add animation to the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+{\em start\+\_\+time} & the time the animation started on the timeline, note that start\+\_\+time will override the value of delay. \\
+\hline
+{\em a} & pointer to an animation. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_afe22742e57b02478ee9ede8bf55b910d}\label{lv__anim__timeline_8c_afe22742e57b02478ee9ede8bf55b910d} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_create@{lv\_anim\_timeline\_create}}
+\index{lv\_anim\_timeline\_create@{lv\_anim\_timeline\_create}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_create()}{lv\_anim\_timeline\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+anim\+\_\+timeline\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Create an animation timeline. \begin{DoxyReturn}{Rezultat(i)}
+pointer to the animation timeline. 
+\end{DoxyReturn}
+\Hypertarget{lv__anim__timeline_8c_a3e5b8715d6aa502203aea629af31c130}\label{lv__anim__timeline_8c_a3e5b8715d6aa502203aea629af31c130} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_delete@{lv\_anim\_timeline\_delete}}
+\index{lv\_anim\_timeline\_delete@{lv\_anim\_timeline\_delete}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_delete()}{lv\_anim\_timeline\_delete()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Delete animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_a5077a3314ecec011376a571bd8f10426}\label{lv__anim__timeline_8c_a5077a3314ecec011376a571bd8f10426} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_get\_delay@{lv\_anim\_timeline\_get\_delay}}
+\index{lv\_anim\_timeline\_get\_delay@{lv\_anim\_timeline\_get\_delay}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_get\_delay()}{lv\_anim\_timeline\_get\_delay()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Get the wait time when playing from the very start, or reverse from the very end. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to an animation timeline \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the remaining time in milliseconds 
+\end{DoxyReturn}
+\Hypertarget{lv__anim__timeline_8c_aefa7a248ae35b30bcbe6773fbe5c508d}\label{lv__anim__timeline_8c_aefa7a248ae35b30bcbe6773fbe5c508d} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_get\_playtime@{lv\_anim\_timeline\_get\_playtime}}
+\index{lv\_anim\_timeline\_get\_playtime@{lv\_anim\_timeline\_get\_playtime}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_get\_playtime()}{lv\_anim\_timeline\_get\_playtime()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+playtime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Get the time used to play the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+total time spent in animation timeline. 
+\end{DoxyReturn}
+\Hypertarget{lv__anim__timeline_8c_a7b212252595f6e705d61a381732d2462}\label{lv__anim__timeline_8c_a7b212252595f6e705d61a381732d2462} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_get\_progress@{lv\_anim\_timeline\_get\_progress}}
+\index{lv\_anim\_timeline\_get\_progress@{lv\_anim\_timeline\_get\_progress}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_get\_progress()}{lv\_anim\_timeline\_get\_progress()}}
+{\footnotesize\ttfamily uint16\+\_\+t lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+progress (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Get the progress of the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+return value 0\texorpdfstring{$\sim$}{\string~}65535 to map 0\texorpdfstring{$\sim$}{\string~}100\% animation progress. 
+\end{DoxyReturn}
+\Hypertarget{lv__anim__timeline_8c_a9dd15bca34223a019b350eec4d900766}\label{lv__anim__timeline_8c_a9dd15bca34223a019b350eec4d900766} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_get\_repeat\_count@{lv\_anim\_timeline\_get\_repeat\_count}}
+\index{lv\_anim\_timeline\_get\_repeat\_count@{lv\_anim\_timeline\_get\_repeat\_count}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_get\_repeat\_count()}{lv\_anim\_timeline\_get\_repeat\_count()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+repeat\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Get repeat count of the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_a7eb48bf2d08374e62bff16506d3b471d}\label{lv__anim__timeline_8c_a7eb48bf2d08374e62bff16506d3b471d} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_get\_repeat\_delay@{lv\_anim\_timeline\_get\_repeat\_delay}}
+\index{lv\_anim\_timeline\_get\_repeat\_delay@{lv\_anim\_timeline\_get\_repeat\_delay}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_get\_repeat\_delay()}{lv\_anim\_timeline\_get\_repeat\_delay()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+repeat\+\_\+delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Get repeat delay of the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_aabc8223c96f7f777898dfbf1463f6fdd}\label{lv__anim__timeline_8c_aabc8223c96f7f777898dfbf1463f6fdd} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_get\_reverse@{lv\_anim\_timeline\_get\_reverse}}
+\index{lv\_anim\_timeline\_get\_reverse@{lv\_anim\_timeline\_get\_reverse}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_get\_reverse()}{lv\_anim\_timeline\_get\_reverse()}}
+{\footnotesize\ttfamily bool lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Get whether the animation timeline is played in reverse. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+return true if it is reverse playback. 
+\end{DoxyReturn}
+\Hypertarget{lv__anim__timeline_8c_a970fbb05f65b65bafe83177f3f161382}\label{lv__anim__timeline_8c_a970fbb05f65b65bafe83177f3f161382} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_get\_user\_data@{lv\_anim\_timeline\_get\_user\_data}}
+\index{lv\_anim\_timeline\_get\_user\_data@{lv\_anim\_timeline\_get\_user\_data}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_get\_user\_data()}{lv\_anim\_timeline\_get\_user\_data()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+anim\+\_\+timeline\+\_\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Get the user\+\_\+data of a an animation timeline 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_ac62e035d0e29b25be563856ce5cbd5d1}\label{lv__anim__timeline_8c_ac62e035d0e29b25be563856ce5cbd5d1} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_merge@{lv\_anim\_timeline\_merge}}
+\index{lv\_anim\_timeline\_merge@{lv\_anim\_timeline\_merge}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_merge()}{lv\_anim\_timeline\_merge()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+merge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dest,  }\item[{const \mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src,  }\item[{int32\+\_\+t}]{delay }\end{DoxyParamCaption})}
+
+Merge (add) all animations of a timeline to another 
+\begin{DoxyParams}{Parametri}
+{\em dest} & merge animation into this timeline \\
+\hline
+{\em src} & merge the animations of this timeline \\
+\hline
+{\em delay} & add the animations with this extra delay \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_aa8132aef401ea21c6ec3ec31561bbdc4}\label{lv__anim__timeline_8c_aa8132aef401ea21c6ec3ec31561bbdc4} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_pause@{lv\_anim\_timeline\_pause}}
+\index{lv\_anim\_timeline\_pause@{lv\_anim\_timeline\_pause}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_pause()}{lv\_anim\_timeline\_pause()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+pause (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Pause the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_ae94c90fcb02c4e3fb1446d7f27c91530}\label{lv__anim__timeline_8c_ae94c90fcb02c4e3fb1446d7f27c91530} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_set\_delay@{lv\_anim\_timeline\_set\_delay}}
+\index{lv\_anim\_timeline\_set\_delay@{lv\_anim\_timeline\_set\_delay}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_set\_delay()}{lv\_anim\_timeline\_set\_delay()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{uint32\+\_\+t}]{delay }\end{DoxyParamCaption})}
+
+Set the time to wait before starting the animation. Applies only when playing from the very start, or reverse from the very end. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to an animation timeline \\
+\hline
+{\em delay} & the delay time in milliseconds \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_a220b311c65a98b559ec4ba5d2b597650}\label{lv__anim__timeline_8c_a220b311c65a98b559ec4ba5d2b597650} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_set\_progress@{lv\_anim\_timeline\_set\_progress}}
+\index{lv\_anim\_timeline\_set\_progress@{lv\_anim\_timeline\_set\_progress}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_set\_progress()}{lv\_anim\_timeline\_set\_progress()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+progress (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{uint16\+\_\+t}]{progress }\end{DoxyParamCaption})}
+
+Set the progress of the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+{\em progress} & set value 0\texorpdfstring{$\sim$}{\string~}65535 to map 0\texorpdfstring{$\sim$}{\string~}100\% animation progress. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_a005c3788328cf30e25d523c2082de18d}\label{lv__anim__timeline_8c_a005c3788328cf30e25d523c2082de18d} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_set\_repeat\_count@{lv\_anim\_timeline\_set\_repeat\_count}}
+\index{lv\_anim\_timeline\_set\_repeat\_count@{lv\_anim\_timeline\_set\_repeat\_count}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_set\_repeat\_count()}{lv\_anim\_timeline\_set\_repeat\_count()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+repeat\+\_\+count (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{uint32\+\_\+t}]{cnt }\end{DoxyParamCaption})}
+
+Make the animation timeline repeat itself. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+{\em cnt} & repeat count or {\ttfamily LV\+\_\+\+ANIM\+\_\+\+REPEAT\+\_\+\+INFINITE} for infinite repetition. 0\+: to disable repetition. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_aeb4fd52767514d6f5c0a391d7baaadf5}\label{lv__anim__timeline_8c_aeb4fd52767514d6f5c0a391d7baaadf5} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_set\_repeat\_delay@{lv\_anim\_timeline\_set\_repeat\_delay}}
+\index{lv\_anim\_timeline\_set\_repeat\_delay@{lv\_anim\_timeline\_set\_repeat\_delay}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_set\_repeat\_delay()}{lv\_anim\_timeline\_set\_repeat\_delay()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+repeat\+\_\+delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{uint32\+\_\+t}]{delay }\end{DoxyParamCaption})}
+
+Set a delay before repeating the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+{\em delay} & delay in milliseconds before repeating the animation timeline. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_ad8a2f74c2b88b4cd70a9b20d8f27190e}\label{lv__anim__timeline_8c_ad8a2f74c2b88b4cd70a9b20d8f27190e} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_set\_reverse@{lv\_anim\_timeline\_set\_reverse}}
+\index{lv\_anim\_timeline\_set\_reverse@{lv\_anim\_timeline\_set\_reverse}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_set\_reverse()}{lv\_anim\_timeline\_set\_reverse()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{bool}]{reverse }\end{DoxyParamCaption})}
+
+Set the playback direction of the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+{\em reverse} & whether to play in reverse. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_acb085bdebb2d81dc5da45662a7087202}\label{lv__anim__timeline_8c_acb085bdebb2d81dc5da45662a7087202} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_set\_user\_data@{lv\_anim\_timeline\_set\_user\_data}}
+\index{lv\_anim\_timeline\_set\_user\_data@{lv\_anim\_timeline\_set\_user\_data}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_set\_user\_data()}{lv\_anim\_timeline\_set\_user\_data()}}
+{\footnotesize\ttfamily void lv\+\_\+anim\+\_\+timeline\+\_\+set\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Set the user\+\_\+data of a an animation timeline 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+{\em user\+\_\+data} & pointer to any data. Only the pointer will be saved. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__anim__timeline_8c_a631773d63194f6443cb4fa2b80a6f055}\label{lv__anim__timeline_8c_a631773d63194f6443cb4fa2b80a6f055} 
+\index{lv\_anim\_timeline.c@{lv\_anim\_timeline.c}!lv\_anim\_timeline\_start@{lv\_anim\_timeline\_start}}
+\index{lv\_anim\_timeline\_start@{lv\_anim\_timeline\_start}!lv\_anim\_timeline.c@{lv\_anim\_timeline.c}}
+\doxysubsubsection{\texorpdfstring{lv\_anim\_timeline\_start()}{lv\_anim\_timeline\_start()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+anim\+\_\+timeline\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__anim__timeline__t}{lv\+\_\+anim\+\_\+timeline\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{at }\end{DoxyParamCaption})}
+
+Start the animation timeline. 
+\begin{DoxyParams}{Parametri}
+{\em at} & pointer to the animation timeline. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+total time spent in animation timeline. 
+\end{DoxyReturn}

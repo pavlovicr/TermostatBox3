@@ -1,0 +1,123 @@
+\doxysection{ Struktura \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t}
+\hypertarget{struct__lv__cache__class__t}{}\label{struct__lv__cache__class__t}\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+
+
+{\ttfamily \#include $<$lv\+\_\+cache\+\_\+private.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{struct__lv__cache__class__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_a0e1b4cc7f8bd6df651aaf059b6f929a3}{lv\+\_\+cache\+\_\+alloc\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_a7ad762757cde6652b595e09b3897bf5d}{alloc\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_af67f46f68b5b4c1c818517f8e6727d2e}{lv\+\_\+cache\+\_\+init\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_aace215eaf7b21fd2e5a5207c71976850}{init\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_aab43e73a609af413bad6bcb378bf563a}{lv\+\_\+cache\+\_\+destroy\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_a7622f2d7c11e483960ce5c01b31bde77}{destroy\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_a1a4414479279c18d15568874f90fd7f0}{lv\+\_\+cache\+\_\+get\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_afe7dd90e949bc4b0fa78873ebdd88c9b}{get\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_a5be85c22f93d54f673208ce72b19137f}{lv\+\_\+cache\+\_\+add\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_afd9502dea4fa7cc68e3777c0c7c51d53}{add\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_aae3c1a6f5ead18a028b7ab98b73d1d67}{lv\+\_\+cache\+\_\+remove\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_a3b6a61878eaed4d444383750efae9668}{remove\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_a8affee25becaa2e62a77ba07afcb603c}{lv\+\_\+cache\+\_\+drop\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_a790355250bff96017750bbba4ead80e4}{drop\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_a647e9dd6c00854f5d7d8f3a9d6f16b82}{lv\+\_\+cache\+\_\+drop\+\_\+all\+\_\+cb\+\_\+t}} \mbox{\hyperlink{struct__lv__cache__class__t_a59b6d4b192e116a78fc3df48f64c276c}{drop\+\_\+all\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_ab40093e77d1b34251a9df3601b53312e}{lv\+\_\+cache\+\_\+get\+\_\+victim\+\_\+cb}} \mbox{\hyperlink{struct__lv__cache__class__t_a3853c1363c44d435a44eea38dfbcb6a0}{get\+\_\+victim\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_a3be8aee0b01c2dd948960b3852dbb686}{lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+cb}} \mbox{\hyperlink{struct__lv__cache__class__t_a97c4468bed631453f58b36db18475ba1}{reserve\+\_\+cond\+\_\+cb}}
+\item 
+\mbox{\hyperlink{lv__cache__private_8h_ac198654521e43cf409365aadac4f8dc8}{lv\+\_\+cache\+\_\+iter\+\_\+create\+\_\+cb}} \mbox{\hyperlink{struct__lv__cache__class__t_a7a06005ef36d72490e1377a9a80b04d5}{iter\+\_\+create\+\_\+cb}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Cache class struct for building custom cache classes
+
+Examples\+:
+\begin{DoxyItemize}
+\item lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+rb\+\_\+count for LRU-\/based cache with count-\/based eviction policy.
+\item lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+rb\+\_\+size for LRU-\/based cache with size-\/based eviction policy. 
+\end{DoxyItemize}
+
+\doxysubsection{Opis atributov}
+\Hypertarget{struct__lv__cache__class__t_afd9502dea4fa7cc68e3777c0c7c51d53}\label{struct__lv__cache__class__t_afd9502dea4fa7cc68e3777c0c7c51d53} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!add\_cb@{add\_cb}}
+\index{add\_cb@{add\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{add\_cb}{add\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_a5be85c22f93d54f673208ce72b19137f}{lv\+\_\+cache\+\_\+add\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::add\+\_\+cb}
+
+The add function for cache entries \Hypertarget{struct__lv__cache__class__t_a7ad762757cde6652b595e09b3897bf5d}\label{struct__lv__cache__class__t_a7ad762757cde6652b595e09b3897bf5d} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!alloc\_cb@{alloc\_cb}}
+\index{alloc\_cb@{alloc\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{alloc\_cb}{alloc\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_a0e1b4cc7f8bd6df651aaf059b6f929a3}{lv\+\_\+cache\+\_\+alloc\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::alloc\+\_\+cb}
+
+The allocation function for cache entries \Hypertarget{struct__lv__cache__class__t_a7622f2d7c11e483960ce5c01b31bde77}\label{struct__lv__cache__class__t_a7622f2d7c11e483960ce5c01b31bde77} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!destroy\_cb@{destroy\_cb}}
+\index{destroy\_cb@{destroy\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{destroy\_cb}{destroy\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_aab43e73a609af413bad6bcb378bf563a}{lv\+\_\+cache\+\_\+destroy\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::destroy\+\_\+cb}
+
+The destruction function for cache entries \Hypertarget{struct__lv__cache__class__t_a59b6d4b192e116a78fc3df48f64c276c}\label{struct__lv__cache__class__t_a59b6d4b192e116a78fc3df48f64c276c} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!drop\_all\_cb@{drop\_all\_cb}}
+\index{drop\_all\_cb@{drop\_all\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{drop\_all\_cb}{drop\_all\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_a647e9dd6c00854f5d7d8f3a9d6f16b82}{lv\+\_\+cache\+\_\+drop\+\_\+all\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::drop\+\_\+all\+\_\+cb}
+
+The drop all function for cache entries \Hypertarget{struct__lv__cache__class__t_a790355250bff96017750bbba4ead80e4}\label{struct__lv__cache__class__t_a790355250bff96017750bbba4ead80e4} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!drop\_cb@{drop\_cb}}
+\index{drop\_cb@{drop\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{drop\_cb}{drop\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_a8affee25becaa2e62a77ba07afcb603c}{lv\+\_\+cache\+\_\+drop\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::drop\+\_\+cb}
+
+The drop function for cache entries \Hypertarget{struct__lv__cache__class__t_afe7dd90e949bc4b0fa78873ebdd88c9b}\label{struct__lv__cache__class__t_afe7dd90e949bc4b0fa78873ebdd88c9b} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!get\_cb@{get\_cb}}
+\index{get\_cb@{get\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{get\_cb}{get\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_a1a4414479279c18d15568874f90fd7f0}{lv\+\_\+cache\+\_\+get\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::get\+\_\+cb}
+
+The get function for cache entries \Hypertarget{struct__lv__cache__class__t_a3853c1363c44d435a44eea38dfbcb6a0}\label{struct__lv__cache__class__t_a3853c1363c44d435a44eea38dfbcb6a0} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!get\_victim\_cb@{get\_victim\_cb}}
+\index{get\_victim\_cb@{get\_victim\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{get\_victim\_cb}{get\_victim\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_ab40093e77d1b34251a9df3601b53312e}{lv\+\_\+cache\+\_\+get\+\_\+victim\+\_\+cb}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::get\+\_\+victim\+\_\+cb}
+
+The get victim function for cache entries \Hypertarget{struct__lv__cache__class__t_aace215eaf7b21fd2e5a5207c71976850}\label{struct__lv__cache__class__t_aace215eaf7b21fd2e5a5207c71976850} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!init\_cb@{init\_cb}}
+\index{init\_cb@{init\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{init\_cb}{init\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_af67f46f68b5b4c1c818517f8e6727d2e}{lv\+\_\+cache\+\_\+init\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::init\+\_\+cb}
+
+The initialization function for cache entries \Hypertarget{struct__lv__cache__class__t_a7a06005ef36d72490e1377a9a80b04d5}\label{struct__lv__cache__class__t_a7a06005ef36d72490e1377a9a80b04d5} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!iter\_create\_cb@{iter\_create\_cb}}
+\index{iter\_create\_cb@{iter\_create\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{iter\_create\_cb}{iter\_create\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_ac198654521e43cf409365aadac4f8dc8}{lv\+\_\+cache\+\_\+iter\+\_\+create\+\_\+cb}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::iter\+\_\+create\+\_\+cb}
+
+The iterator creation function for cache entries \Hypertarget{struct__lv__cache__class__t_a3b6a61878eaed4d444383750efae9668}\label{struct__lv__cache__class__t_a3b6a61878eaed4d444383750efae9668} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!remove\_cb@{remove\_cb}}
+\index{remove\_cb@{remove\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{remove\_cb}{remove\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_aae3c1a6f5ead18a028b7ab98b73d1d67}{lv\+\_\+cache\+\_\+remove\+\_\+cb\+\_\+t}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::remove\+\_\+cb}
+
+The remove function for cache entries \Hypertarget{struct__lv__cache__class__t_a97c4468bed631453f58b36db18475ba1}\label{struct__lv__cache__class__t_a97c4468bed631453f58b36db18475ba1} 
+\index{\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}!reserve\_cond\_cb@{reserve\_cond\_cb}}
+\index{reserve\_cond\_cb@{reserve\_cond\_cb}!\_lv\_cache\_class\_t@{\_lv\_cache\_class\_t}}
+\doxysubsubsection{\texorpdfstring{reserve\_cond\_cb}{reserve\_cond\_cb}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__cache__private_8h_a3be8aee0b01c2dd948960b3852dbb686}{lv\+\_\+cache\+\_\+reserve\+\_\+cond\+\_\+cb}} \+\_\+lv\+\_\+cache\+\_\+class\+\_\+t\+::reserve\+\_\+cond\+\_\+cb}
+
+The reserve condition function for cache entries 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/cache/\mbox{\hyperlink{lv__cache__private_8h}{lv\+\_\+cache\+\_\+private.\+h}}\end{DoxyCompactItemize}

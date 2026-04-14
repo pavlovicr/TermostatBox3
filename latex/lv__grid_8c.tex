@@ -1,0 +1,96 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/layouts/grid/lv\+\_\+grid.c}
+\hypertarget{lv__grid_8c}{}\label{lv__grid_8c}\index{managed\_components/lvgl\_\_lvgl/src/layouts/grid/lv\_grid.c@{managed\_components/lvgl\_\_lvgl/src/layouts/grid/lv\_grid.c}}
+{\ttfamily \#include "{}lv\+\_\+grid.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}../lv\+\_\+layout.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+global.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+grid.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+grid.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__grid_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structitem__repos__hint__t}{item\+\_\+repos\+\_\+hint\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structlv__grid__calc__t}{lv\+\_\+grid\+\_\+calc\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__grid_8c_a765431dd1912d834af2a8bab0c7f268b}\label{lv__grid_8c_a765431dd1912d834af2a8bab0c7f268b} 
+\#define {\bfseries layout\+\_\+list\+\_\+def}~LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$layout\+\_\+list
+\item 
+\#define \mbox{\hyperlink{lv__grid_8c_ab0805576da313c288b892206ac6d31f5}{IS\+\_\+\+FR}}(x)~(x $>$= \mbox{\hyperlink{lv__area_8h_afd59cbd057971f697443ef3cdfd44b9d}{LV\+\_\+\+COORD\+\_\+\+MAX}} -\/ 100)
+\item 
+\Hypertarget{lv__grid_8c_a519adef58149da64400c8acede055872}\label{lv__grid_8c_a519adef58149da64400c8acede055872} 
+\#define {\bfseries IS\+\_\+\+CONTENT}(x)~(x == \mbox{\hyperlink{lv__area_8h_afd59cbd057971f697443ef3cdfd44b9d}{LV\+\_\+\+COORD\+\_\+\+MAX}} -\/ 101)
+\item 
+\Hypertarget{lv__grid_8c_ad6397d95b81ac853b6601d46f496c1f0}\label{lv__grid_8c_ad6397d95b81ac853b6601d46f496c1f0} 
+\#define {\bfseries GET\+\_\+\+FR}(x)~(x -\/ (\mbox{\hyperlink{lv__area_8h_afd59cbd057971f697443ef3cdfd44b9d}{LV\+\_\+\+COORD\+\_\+\+MAX}} -\/ 100))
+\item 
+\Hypertarget{lv__grid_8c_a685de0372015982d3cedc1eac004b8d5}\label{lv__grid_8c_a685de0372015982d3cedc1eac004b8d5} 
+\#define {\bfseries LV\+\_\+\+TRACE\+\_\+\+LAYOUT}(...)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__grid_8c_acf18da2e52613c4f1e0e400727c4fc8b}\label{lv__grid_8c_acf18da2e52613c4f1e0e400727c4fc8b} 
+void {\bfseries lv\+\_\+grid\+\_\+init} (void)
+\item 
+\Hypertarget{lv__grid_8c_a2362960c945b3e3fc85792142f84981e}\label{lv__grid_8c_a2362960c945b3e3fc85792142f84981e} 
+void {\bfseries lv\+\_\+obj\+\_\+set\+\_\+grid\+\_\+dsc\+\_\+array} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const int32\+\_\+t col\+\_\+dsc\mbox{[}$\,$\mbox{]}, const int32\+\_\+t row\+\_\+dsc\mbox{[}$\,$\mbox{]})
+\item 
+\Hypertarget{lv__grid_8c_ac011467a368ae904ad004b11e3fce299}\label{lv__grid_8c_ac011467a368ae904ad004b11e3fce299} 
+void {\bfseries lv\+\_\+obj\+\_\+set\+\_\+grid\+\_\+align} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+grid\+\_\+align\+\_\+t column\+\_\+align, lv\+\_\+grid\+\_\+align\+\_\+t row\+\_\+align)
+\item 
+void \mbox{\hyperlink{lv__grid_8c_a7fa8d2ba26210e02a184cb727a13eb9a}{lv\+\_\+obj\+\_\+set\+\_\+grid\+\_\+cell}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+grid\+\_\+align\+\_\+t x\+\_\+align, int32\+\_\+t col\+\_\+pos, int32\+\_\+t col\+\_\+span, lv\+\_\+grid\+\_\+align\+\_\+t y\+\_\+align, int32\+\_\+t row\+\_\+pos, int32\+\_\+t row\+\_\+span)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__grid_8c_aa9a06a28200f63f59093e58960b39964}{lv\+\_\+grid\+\_\+fr}} (uint8\+\_\+t x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{lv__grid_8c_ab0805576da313c288b892206ac6d31f5}\label{lv__grid_8c_ab0805576da313c288b892206ac6d31f5} 
+\index{lv\_grid.c@{lv\_grid.c}!IS\_FR@{IS\_FR}}
+\index{IS\_FR@{IS\_FR}!lv\_grid.c@{lv\_grid.c}}
+\doxysubsubsection{\texorpdfstring{IS\_FR}{IS\_FR}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+FR(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(x $>$= \mbox{\hyperlink{lv__area_8h_afd59cbd057971f697443ef3cdfd44b9d}{LV\+\_\+\+COORD\+\_\+\+MAX}} -\/ 100)}
+
+Some helper defines 
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__grid_8c_aa9a06a28200f63f59093e58960b39964}\label{lv__grid_8c_aa9a06a28200f63f59093e58960b39964} 
+\index{lv\_grid.c@{lv\_grid.c}!lv\_grid\_fr@{lv\_grid\_fr}}
+\index{lv\_grid\_fr@{lv\_grid\_fr}!lv\_grid.c@{lv\_grid.c}}
+\doxysubsubsection{\texorpdfstring{lv\_grid\_fr()}{lv\_grid\_fr()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+grid\+\_\+fr (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+Just a wrapper to {\ttfamily LV\+\_\+\+GRID\+\_\+\+FR} for bindings. \Hypertarget{lv__grid_8c_a7fa8d2ba26210e02a184cb727a13eb9a}\label{lv__grid_8c_a7fa8d2ba26210e02a184cb727a13eb9a} 
+\index{lv\_grid.c@{lv\_grid.c}!lv\_obj\_set\_grid\_cell@{lv\_obj\_set\_grid\_cell}}
+\index{lv\_obj\_set\_grid\_cell@{lv\_obj\_set\_grid\_cell}!lv\_grid.c@{lv\_grid.c}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_set\_grid\_cell()}{lv\_obj\_set\_grid\_cell()}}
+{\footnotesize\ttfamily void lv\+\_\+obj\+\_\+set\+\_\+grid\+\_\+cell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+grid\+\_\+align\+\_\+t}]{column\+\_\+align,  }\item[{int32\+\_\+t}]{col\+\_\+pos,  }\item[{int32\+\_\+t}]{col\+\_\+span,  }\item[{lv\+\_\+grid\+\_\+align\+\_\+t}]{row\+\_\+align,  }\item[{int32\+\_\+t}]{row\+\_\+pos,  }\item[{int32\+\_\+t}]{row\+\_\+span }\end{DoxyParamCaption})}
+
+Set the cell of an object. The object\textquotesingle{}s parent needs to have grid layout, else nothing will happen 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an object \\
+\hline
+{\em column\+\_\+align} & the vertical alignment in the cell. {\ttfamily LV\+\_\+\+GRID\+\_\+\+START/\+END/\+CENTER/\+STRETCH} \\
+\hline
+{\em col\+\_\+pos} & column ID \\
+\hline
+{\em col\+\_\+span} & number of columns to take (\texorpdfstring{$>$}{>}= 1) \\
+\hline
+{\em row\+\_\+align} & the horizontal alignment in the cell. {\ttfamily LV\+\_\+\+GRID\+\_\+\+START/\+END/\+CENTER/\+STRETCH} \\
+\hline
+{\em row\+\_\+pos} & row ID \\
+\hline
+{\em row\+\_\+span} & number of rows to take (\texorpdfstring{$>$}{>}= 1) \\
+\hline
+\end{DoxyParams}

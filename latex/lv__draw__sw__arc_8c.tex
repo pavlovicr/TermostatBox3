@@ -1,0 +1,52 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/draw/sw/lv\+\_\+draw\+\_\+sw\+\_\+arc.c}
+\hypertarget{lv__draw__sw__arc_8c}{}\label{lv__draw__sw__arc_8c}\index{managed\_components/lvgl\_\_lvgl/src/draw/sw/lv\_draw\_sw\_arc.c@{managed\_components/lvgl\_\_lvgl/src/draw/sw/lv\_draw\_sw\_arc.c}}
+{\ttfamily \#include "{}../../misc/lv\+\_\+area\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}blend/lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../lv\+\_\+image\+\_\+decoder\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+draw\+\_\+sw.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+log.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+mem.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}../lv\+\_\+draw\+\_\+private.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+sw\+\_\+arc.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+sw\+\_\+arc.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__draw__sw__arc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__draw__sw__arc_8c_ae179eee96df062349fde663f121c322c}\label{lv__draw__sw__arc_8c_ae179eee96df062349fde663f121c322c} 
+\#define {\bfseries SPLIT\+\_\+\+RADIUS\+\_\+\+LIMIT}~10  /\texorpdfstring{$\ast$}{*}With radius greater than this the arc will drawn in quarters. A quarter is drawn only if there is arc in it\texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{lv__draw__sw__arc_8c_a202180ea3bbf5e1b0591324933b6db8a}\label{lv__draw__sw__arc_8c_a202180ea3bbf5e1b0591324933b6db8a} 
+\#define {\bfseries SPLIT\+\_\+\+ANGLE\+\_\+\+GAP\+\_\+\+LIMIT}~60  /\texorpdfstring{$\ast$}{*}With small gaps in the arc don\textquotesingle{}t bother with splitting because there is nothing to skip.\texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__draw__sw__arc_8c_a4af42d84c7ec3a9e6ffd4f21af3c53b1}{lv\+\_\+draw\+\_\+sw\+\_\+arc}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__draw__sw__arc_8c_a4af42d84c7ec3a9e6ffd4f21af3c53b1}\label{lv__draw__sw__arc_8c_a4af42d84c7ec3a9e6ffd4f21af3c53b1} 
+\index{lv\_draw\_sw\_arc.c@{lv\_draw\_sw\_arc.c}!lv\_draw\_sw\_arc@{lv\_draw\_sw\_arc}}
+\index{lv\_draw\_sw\_arc@{lv\_draw\_sw\_arc}!lv\_draw\_sw\_arc.c@{lv\_draw\_sw\_arc.c}}
+\doxysubsubsection{\texorpdfstring{lv\_draw\_sw\_arc()}{lv\_draw\_sw\_arc()}}
+{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+sw\+\_\+arc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{const \mbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords }\end{DoxyParamCaption})}
+
+Draw an arc with SW render. 
+\begin{DoxyParams}{Parametri}
+{\em t} & pointer to a draw task \\
+\hline
+{\em dsc} & the draw descriptor \\
+\hline
+{\em coords} & the coordinates of the arc \\
+\hline
+\end{DoxyParams}

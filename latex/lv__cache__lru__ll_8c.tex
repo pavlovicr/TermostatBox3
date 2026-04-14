@@ -1,0 +1,89 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/cache/class/lv\+\_\+cache\+\_\+lru\+\_\+ll.c}
+\hypertarget{lv__cache__lru__ll_8c}{}\label{lv__cache__lru__ll_8c}\index{managed\_components/lvgl\_\_lvgl/src/misc/cache/class/lv\_cache\_lru\_ll.c@{managed\_components/lvgl\_\_lvgl/src/misc/cache/class/lv\_cache\_lru\_ll.c}}
+{\ttfamily \#include "{}lv\+\_\+cache\+\_\+lru\+\_\+ll.\+h"{}}\newline
+{\ttfamily \#include "{}../lv\+\_\+cache\+\_\+entry.\+h"{}}\newline
+{\ttfamily \#include "{}../../../stdlib/lv\+\_\+sprintf.\+h"{}}\newline
+{\ttfamily \#include "{}../../../stdlib/lv\+\_\+string.\+h"{}}\newline
+{\ttfamily \#include "{}../../lv\+\_\+ll.\+h"{}}\newline
+{\ttfamily \#include "{}../../lv\+\_\+iter.\+h"{}}\newline
+{\ttfamily \#include "{}../../lv\+\_\+assert.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+cache\+\_\+lru\+\_\+ll.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+cache\+\_\+lru\+\_\+ll.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__cache__lru__ll_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__cache__lru__ll__t}{\+\_\+lv\+\_\+cache\+\_\+lru\+\_\+ll\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__cache__lru__ll_8c_ae89d2fb330d1c03bddf50e916dd5f61d}\label{lv__cache__lru__ll_8c_ae89d2fb330d1c03bddf50e916dd5f61d} 
+typedef uint32\+\_\+t() {\bfseries get\+\_\+data\+\_\+size\+\_\+cb\+\_\+t}(const void \texorpdfstring{$\ast$}{*}data)
+\item 
+\Hypertarget{lv__cache__lru__ll_8c_a5940e11e26bc3c1961c446a5d2b46a75}\label{lv__cache__lru__ll_8c_a5940e11e26bc3c1961c446a5d2b46a75} 
+typedef struct \mbox{\hyperlink{struct__lv__cache__lru__ll__t}{\+\_\+lv\+\_\+cache\+\_\+lru\+\_\+ll\+\_\+t}} {\bfseries lv\+\_\+cache\+\_\+lru\+\_\+ll\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__cache__class__t}{lv\+\_\+cache\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__cache__lru__ll_8c_afe5d28f051a3aa085e889e711a61449e}{lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+ll\+\_\+count}}
+\item 
+const \mbox{\hyperlink{struct__lv__cache__class__t}{lv\+\_\+cache\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__cache__lru__ll_8c_afe86c2032ea2995123778c0ab27b75c3}{lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+ll\+\_\+size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__cache__lru__ll_8c_afe5d28f051a3aa085e889e711a61449e}\label{lv__cache__lru__ll_8c_afe5d28f051a3aa085e889e711a61449e} 
+\index{lv\_cache\_lru\_ll.c@{lv\_cache\_lru\_ll.c}!lv\_cache\_class\_lru\_ll\_count@{lv\_cache\_class\_lru\_ll\_count}}
+\index{lv\_cache\_class\_lru\_ll\_count@{lv\_cache\_class\_lru\_ll\_count}!lv\_cache\_lru\_ll.c@{lv\_cache\_lru\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_class\_lru\_ll\_count}{lv\_cache\_class\_lru\_ll\_count}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__cache__class__t}{lv\+\_\+cache\+\_\+class\+\_\+t}} lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+ll\+\_\+count}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .alloc\_cb\ =\ alloc\_cb,}
+\DoxyCodeLine{\ \ \ \ .init\_cb\ =\ init\_cnt\_cb,}
+\DoxyCodeLine{\ \ \ \ .destroy\_cb\ =\ destroy\_cb,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ .get\_cb\ =\ get\_cb,}
+\DoxyCodeLine{\ \ \ \ .add\_cb\ =\ add\_cb,}
+\DoxyCodeLine{\ \ \ \ .remove\_cb\ =\ remove\_cb,}
+\DoxyCodeLine{\ \ \ \ .drop\_cb\ =\ drop\_cb,}
+\DoxyCodeLine{\ \ \ \ .drop\_all\_cb\ =\ drop\_all\_cb,}
+\DoxyCodeLine{\ \ \ \ .get\_victim\_cb\ =\ get\_victim\_cb,}
+\DoxyCodeLine{\ \ \ \ .reserve\_cond\_cb\ =\ reserve\_cond\_cb,}
+\DoxyCodeLine{\ \ \ \ .iter\_create\_cb\ =\ cache\_iter\_create\_cb,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{lv__cache__lru__ll_8c_afe86c2032ea2995123778c0ab27b75c3}\label{lv__cache__lru__ll_8c_afe86c2032ea2995123778c0ab27b75c3} 
+\index{lv\_cache\_lru\_ll.c@{lv\_cache\_lru\_ll.c}!lv\_cache\_class\_lru\_ll\_size@{lv\_cache\_class\_lru\_ll\_size}}
+\index{lv\_cache\_class\_lru\_ll\_size@{lv\_cache\_class\_lru\_ll\_size}!lv\_cache\_lru\_ll.c@{lv\_cache\_lru\_ll.c}}
+\doxysubsubsection{\texorpdfstring{lv\_cache\_class\_lru\_ll\_size}{lv\_cache\_class\_lru\_ll\_size}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__cache__class__t}{lv\+\_\+cache\+\_\+class\+\_\+t}} lv\+\_\+cache\+\_\+class\+\_\+lru\+\_\+ll\+\_\+size}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .alloc\_cb\ =\ alloc\_cb,}
+\DoxyCodeLine{\ \ \ \ .init\_cb\ =\ init\_size\_cb,}
+\DoxyCodeLine{\ \ \ \ .destroy\_cb\ =\ destroy\_cb,}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ .get\_cb\ =\ get\_cb,}
+\DoxyCodeLine{\ \ \ \ .add\_cb\ =\ add\_cb,}
+\DoxyCodeLine{\ \ \ \ .remove\_cb\ =\ remove\_cb,}
+\DoxyCodeLine{\ \ \ \ .drop\_cb\ =\ drop\_cb,}
+\DoxyCodeLine{\ \ \ \ .drop\_all\_cb\ =\ drop\_all\_cb,}
+\DoxyCodeLine{\ \ \ \ .get\_victim\_cb\ =\ get\_victim\_cb,}
+\DoxyCodeLine{\ \ \ \ .reserve\_cond\_cb\ =\ reserve\_cond\_cb,}
+\DoxyCodeLine{\ \ \ \ .iter\_create\_cb\ =\ cache\_iter\_create\_cb,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

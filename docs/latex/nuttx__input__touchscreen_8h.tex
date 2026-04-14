@@ -1,0 +1,279 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/drivers/nuttx/mock/nuttx\+\_\+input\+\_\+touchscreen.h}
+\hypertarget{nuttx__input__touchscreen_8h}{}\label{nuttx__input__touchscreen_8h}\index{managed\_components/lvgl\_\_lvgl/src/drivers/nuttx/mock/nuttx\_input\_touchscreen.h@{managed\_components/lvgl\_\_lvgl/src/drivers/nuttx/mock/nuttx\_input\_touchscreen.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}nuttx\+\_\+input\+\_\+touchscreen.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko nuttx\+\_\+input\+\_\+touchscreen.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{nuttx__input__touchscreen_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structtouch__point__s}{touch\+\_\+point\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structtouch__sample__s}{touch\+\_\+sample\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_a064f80406bc8ce1dbed4a818bee673cd}\label{nuttx__input__touchscreen_8h_a064f80406bc8ce1dbed4a818bee673cd} 
+\#define {\bfseries \+\_\+\+TSIOC}(x)~(x)
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_ac0a92a27fa3055894d9fdc93bd64267e}{TSIOC\+\_\+\+SETXRCAL}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a77a4188ceae8ae460b33c86da746f5ba}{TSIOC\+\_\+\+GETXRCAL}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a3e9dac97aababeb21fba17c8d5b09392}{TSIOC\+\_\+\+SETFREQUENCY}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a4d6dc4cdc1f5a4347b88ff149f4ea1a9}{TSIOC\+\_\+\+GETFREQUENCY}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a76784523b7bbb53ddf7a00835d402d70}{TSIOC\+\_\+\+GETFWVERSION}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_ad9e6d3fd2f2d660975891e637ddc3c2b}{TSIOC\+\_\+\+ENABLEGESTURE}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_adf3d966ef8f248f10c389e2549138694}{TSIOC\+\_\+\+DOACALIB}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a3fec4afab4a50d75319c22ca7999bdbe}{TSIOC\+\_\+\+CALDATA}}
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_a8ab122b8d74038d32461ee0ac3a39074}\label{nuttx__input__touchscreen_8h_a8ab122b8d74038d32461ee0ac3a39074} 
+\#define {\bfseries TSIOC\+\_\+\+USESCALED}~\+\_\+\+TSIOC(0x0009) /\texorpdfstring{$\ast$}{*} arg\+: bool, yes/no \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_ac626ef55bb9b39e463a2f878356bd3d7}{TSIOC\+\_\+\+GETOFFSETX}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_aaa014c8cbf7dd25237af238eb5244eb2}{TSIOC\+\_\+\+GETOFFSETY}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_ab49bf0b95e58cb1fca9a1379c2e3a945}{TSIOC\+\_\+\+GETTHRESHX}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a610d4b48e2462d3d55fc278c865113c0}{TSIOC\+\_\+\+GETTHRESHY}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a74b08c4ad7b9a4ef01ccfeb7707d89aa}{TSIOC\+\_\+\+GRAB}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a93b939d2dbe6a2b58fd7fee86fa56aa5}{TSIOC\+\_\+\+GETMAXPOINTS}}
+\item 
+\#define \mbox{\hyperlink{nuttx__input__touchscreen_8h_a6a19c90eb8fd1b4f668b32a466bd9565}{TSIOC\+\_\+\+GETRESOLUTION}}
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_a1ea19c312a20c9d48db1205d94d0279d}\label{nuttx__input__touchscreen_8h_a1ea19c312a20c9d48db1205d94d0279d} 
+\#define {\bfseries TOUCH\+\_\+\+DOWN}~(1 $<$$<$ 0) /\texorpdfstring{$\ast$}{*} A new touch contact is established \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_ae08a78bd6704ad18855c1edb210d0af8}\label{nuttx__input__touchscreen_8h_ae08a78bd6704ad18855c1edb210d0af8} 
+\#define {\bfseries TOUCH\+\_\+\+MOVE}~(1 $<$$<$ 1) /\texorpdfstring{$\ast$}{*} Movement occurred with previously reported contact \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_a06402e4baf90a258dbffc869fc6d1e46}\label{nuttx__input__touchscreen_8h_a06402e4baf90a258dbffc869fc6d1e46} 
+\#define {\bfseries TOUCH\+\_\+\+UP}~(1 $<$$<$ 2) /\texorpdfstring{$\ast$}{*} The touch contact was lost \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_aa9821747ba785d00b3acb01e7de576d0}\label{nuttx__input__touchscreen_8h_aa9821747ba785d00b3acb01e7de576d0} 
+\#define {\bfseries TOUCH\+\_\+\+ID\+\_\+\+VALID}~(1 $<$$<$ 3) /\texorpdfstring{$\ast$}{*} Touch ID is certain \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_a92dd6479505168eaf47633058c8d6c5b}\label{nuttx__input__touchscreen_8h_a92dd6479505168eaf47633058c8d6c5b} 
+\#define {\bfseries TOUCH\+\_\+\+POS\+\_\+\+VALID}~(1 $<$$<$ 4) /\texorpdfstring{$\ast$}{*} Hardware provided a valid X/Y position \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_a8bbe08ba68af8ecdae7b2cd6e550839d}\label{nuttx__input__touchscreen_8h_a8bbe08ba68af8ecdae7b2cd6e550839d} 
+\#define {\bfseries TOUCH\+\_\+\+PRESSURE\+\_\+\+VALID}~(1 $<$$<$ 5) /\texorpdfstring{$\ast$}{*} Hardware provided a valid pressure \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_ae217ca7a1bfbff6059d75b05712750a8}\label{nuttx__input__touchscreen_8h_ae217ca7a1bfbff6059d75b05712750a8} 
+\#define {\bfseries TOUCH\+\_\+\+SIZE\+\_\+\+VALID}~(1 $<$$<$ 6) /\texorpdfstring{$\ast$}{*} Hardware provided a valid H/W contact size \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__input__touchscreen_8h_adb208664aed35712bb0b9a00df5f72b3}\label{nuttx__input__touchscreen_8h_adb208664aed35712bb0b9a00df5f72b3} 
+\#define {\bfseries TOUCH\+\_\+\+GESTURE\+\_\+\+VALID}~(1 $<$$<$ 7) /\texorpdfstring{$\ast$}{*} Hardware provided a valid gesture \texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{nuttx__input__touchscreen_8h_a3fec4afab4a50d75319c22ca7999bdbe}\label{nuttx__input__touchscreen_8h_a3fec4afab4a50d75319c22ca7999bdbe} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_CALDATA@{TSIOC\_CALDATA}}
+\index{TSIOC\_CALDATA@{TSIOC\_CALDATA}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_CALDATA}{TSIOC\_CALDATA}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+CALDATA}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0008)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ struct\ g\_tscaldata\_s}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_adf3d966ef8f248f10c389e2549138694}\label{nuttx__input__touchscreen_8h_adf3d966ef8f248f10c389e2549138694} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_DOACALIB@{TSIOC\_DOACALIB}}
+\index{TSIOC\_DOACALIB@{TSIOC\_DOACALIB}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_DOACALIB}{TSIOC\_DOACALIB}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+DOACALIB}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0007)\ \textcolor{comment}{/*\ arg:\ none.}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Initiate\ TS\ auto\ calibration}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_ad9e6d3fd2f2d660975891e637ddc3c2b}\label{nuttx__input__touchscreen_8h_ad9e6d3fd2f2d660975891e637ddc3c2b} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_ENABLEGESTURE@{TSIOC\_ENABLEGESTURE}}
+\index{TSIOC\_ENABLEGESTURE@{TSIOC\_ENABLEGESTURE}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_ENABLEGESTURE}{TSIOC\_ENABLEGESTURE}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+ENABLEGESTURE}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0006)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ for\ enable\ gesture\ feature}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a4d6dc4cdc1f5a4347b88ff149f4ea1a9}\label{nuttx__input__touchscreen_8h_a4d6dc4cdc1f5a4347b88ff149f4ea1a9} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETFREQUENCY@{TSIOC\_GETFREQUENCY}}
+\index{TSIOC\_GETFREQUENCY@{TSIOC\_GETFREQUENCY}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETFREQUENCY}{TSIOC\_GETFREQUENCY}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETFREQUENCY}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0004)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ uint32\_t\ frequency\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a76784523b7bbb53ddf7a00835d402d70}\label{nuttx__input__touchscreen_8h_a76784523b7bbb53ddf7a00835d402d70} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETFWVERSION@{TSIOC\_GETFWVERSION}}
+\index{TSIOC\_GETFWVERSION@{TSIOC\_GETFWVERSION}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETFWVERSION}{TSIOC\_GETFWVERSION}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETFWVERSION}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0005)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ uint32\_t\ firmware\ version}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a93b939d2dbe6a2b58fd7fee86fa56aa5}\label{nuttx__input__touchscreen_8h_a93b939d2dbe6a2b58fd7fee86fa56aa5} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETMAXPOINTS@{TSIOC\_GETMAXPOINTS}}
+\index{TSIOC\_GETMAXPOINTS@{TSIOC\_GETMAXPOINTS}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETMAXPOINTS}{TSIOC\_GETMAXPOINTS}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETMAXPOINTS}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x000f)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ uint8\_t\ max\ touch\ point}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_ac626ef55bb9b39e463a2f878356bd3d7}\label{nuttx__input__touchscreen_8h_ac626ef55bb9b39e463a2f878356bd3d7} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETOFFSETX@{TSIOC\_GETOFFSETX}}
+\index{TSIOC\_GETOFFSETX@{TSIOC\_GETOFFSETX}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETOFFSETX}{TSIOC\_GETOFFSETX}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETOFFSETX}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x000a)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ X\ offset\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_aaa014c8cbf7dd25237af238eb5244eb2}\label{nuttx__input__touchscreen_8h_aaa014c8cbf7dd25237af238eb5244eb2} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETOFFSETY@{TSIOC\_GETOFFSETY}}
+\index{TSIOC\_GETOFFSETY@{TSIOC\_GETOFFSETY}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETOFFSETY}{TSIOC\_GETOFFSETY}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETOFFSETY}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x000b)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ Y\ offset\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a6a19c90eb8fd1b4f668b32a466bd9565}\label{nuttx__input__touchscreen_8h_a6a19c90eb8fd1b4f668b32a466bd9565} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETRESOLUTION@{TSIOC\_GETRESOLUTION}}
+\index{TSIOC\_GETRESOLUTION@{TSIOC\_GETRESOLUTION}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETRESOLUTION}{TSIOC\_GETRESOLUTION}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETRESOLUTION}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0010)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ struct\ touch\_resolution\_s}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_ab49bf0b95e58cb1fca9a1379c2e3a945}\label{nuttx__input__touchscreen_8h_ab49bf0b95e58cb1fca9a1379c2e3a945} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETTHRESHX@{TSIOC\_GETTHRESHX}}
+\index{TSIOC\_GETTHRESHX@{TSIOC\_GETTHRESHX}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETTHRESHX}{TSIOC\_GETTHRESHX}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETTHRESHX}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x000c)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ X\ threshold\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a610d4b48e2462d3d55fc278c865113c0}\label{nuttx__input__touchscreen_8h_a610d4b48e2462d3d55fc278c865113c0} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETTHRESHY@{TSIOC\_GETTHRESHY}}
+\index{TSIOC\_GETTHRESHY@{TSIOC\_GETTHRESHY}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETTHRESHY}{TSIOC\_GETTHRESHY}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETTHRESHY}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x000d)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ Y\ threshold\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a77a4188ceae8ae460b33c86da746f5ba}\label{nuttx__input__touchscreen_8h_a77a4188ceae8ae460b33c86da746f5ba} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GETXRCAL@{TSIOC\_GETXRCAL}}
+\index{TSIOC\_GETXRCAL@{TSIOC\_GETXRCAL}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GETXRCAL}{TSIOC\_GETXRCAL}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GETXRCAL}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0002)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ Xplate\ R\ calibration\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a74b08c4ad7b9a4ef01ccfeb7707d89aa}\label{nuttx__input__touchscreen_8h_a74b08c4ad7b9a4ef01ccfeb7707d89aa} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_GRAB@{TSIOC\_GRAB}}
+\index{TSIOC\_GRAB@{TSIOC\_GRAB}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_GRAB}{TSIOC\_GRAB}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+GRAB}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x000e)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ for\ enable\ grab}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_a3e9dac97aababeb21fba17c8d5b09392}\label{nuttx__input__touchscreen_8h_a3e9dac97aababeb21fba17c8d5b09392} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_SETFREQUENCY@{TSIOC\_SETFREQUENCY}}
+\index{TSIOC\_SETFREQUENCY@{TSIOC\_SETFREQUENCY}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_SETFREQUENCY}{TSIOC\_SETFREQUENCY}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+SETFREQUENCY}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0003)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ uint32\_t\ frequency\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__input__touchscreen_8h_ac0a92a27fa3055894d9fdc93bd64267e}\label{nuttx__input__touchscreen_8h_ac0a92a27fa3055894d9fdc93bd64267e} 
+\index{nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}!TSIOC\_SETXRCAL@{TSIOC\_SETXRCAL}}
+\index{TSIOC\_SETXRCAL@{TSIOC\_SETXRCAL}!nuttx\_input\_touchscreen.h@{nuttx\_input\_touchscreen.h}}
+\doxysubsubsection{\texorpdfstring{TSIOC\_SETXRCAL}{TSIOC\_SETXRCAL}}
+{\footnotesize\ttfamily \#define TSIOC\+\_\+\+SETXRCAL}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_TSIOC(0x0001)\ \textcolor{comment}{/*\ arg:\ Pointer\ to}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ int\ Xplate\ R\ calibration\ value}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+
+\end{DoxyCode}

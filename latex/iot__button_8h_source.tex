@@ -1,0 +1,99 @@
+\doxysection{iot\+\_\+button.\+h}
+\hypertarget{iot__button_8h_source}{}\label{iot__button_8h_source}\index{managed\_components/espressif\_\_button/include/iot\_button.h@{managed\_components/espressif\_\_button/include/iot\_button.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ SPDX-\/FileCopyrightText:\ 2022-\/2025\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}sdkconfig.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}esp\_err.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}button\_types.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ void\ (*\ button\_cb\_t)(\textcolor{keywordtype}{void}\ *button\_handle,\ \textcolor{keywordtype}{void}\ *usr\_data);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{typedef}\ void\ (*\ button\_power\_save\_cb\_t)(\textcolor{keywordtype}{void}\ *usr\_data);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00025\ \ \ \ \ button\_power\_save\_cb\_t\ \mbox{\hyperlink{structbutton__power__save__config__t_af669a045aeccd4ac68a884238cffd127}{enter\_power\_save\_cb}};\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structbutton__power__save__config__t_adb8046661d9e859211bdd3b23caba7b4}{usr\_data}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \}\ \mbox{\hyperlink{structbutton__power__save__config__t}{button\_power\_save\_config\_t}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ BUTTON\_PRESS\_DOWN\ =\ 0,}
+\DoxyCodeLine{00035\ \ \ \ \ BUTTON\_PRESS\_UP,}
+\DoxyCodeLine{00036\ \ \ \ \ BUTTON\_PRESS\_REPEAT,}
+\DoxyCodeLine{00037\ \ \ \ \ BUTTON\_PRESS\_REPEAT\_DONE,}
+\DoxyCodeLine{00038\ \ \ \ \ BUTTON\_SINGLE\_CLICK,}
+\DoxyCodeLine{00039\ \ \ \ \ BUTTON\_DOUBLE\_CLICK,}
+\DoxyCodeLine{00040\ \ \ \ \ BUTTON\_MULTIPLE\_CLICK,}
+\DoxyCodeLine{00041\ \ \ \ \ BUTTON\_LONG\_PRESS\_START,}
+\DoxyCodeLine{00042\ \ \ \ \ BUTTON\_LONG\_PRESS\_HOLD,}
+\DoxyCodeLine{00043\ \ \ \ \ BUTTON\_LONG\_PRESS\_UP,}
+\DoxyCodeLine{00044\ \ \ \ \ BUTTON\_PRESS\_END,}
+\DoxyCodeLine{00045\ \ \ \ \ BUTTON\_EVENT\_MAX,}
+\DoxyCodeLine{00046\ \ \ \ \ BUTTON\_NONE\_PRESS,}
+\DoxyCodeLine{00047\ \}\ button\_event\_t;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structbutton__event__args__t_1_1long__press__t}{long\_press\_t}}\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structbutton__event__args__t_1_1long__press__t_afa32d2d583e01cfd82b991656f82d961}{press\_time}};\ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \}\ long\_press;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structbutton__event__args__t_1_1multiple__clicks__t}{multiple\_clicks\_t}}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structbutton__event__args__t_1_1multiple__clicks__t_a4c6137289d1c4b002c11c0131c9d282e}{clicks}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \}\ multiple\_clicks;\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \}\ \mbox{\hyperlink{unionbutton__event__args__t}{button\_event\_args\_t}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ BUTTON\_LONG\_PRESS\_TIME\_MS\ =\ 0,}
+\DoxyCodeLine{00077\ \ \ \ \ BUTTON\_SHORT\_PRESS\_TIME\_MS,}
+\DoxyCodeLine{00078\ \ \ \ \ BUTTON\_PARAM\_MAX,}
+\DoxyCodeLine{00079\ \}\ button\_param\_t;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00090\ esp\_err\_t\ iot\_button\_delete(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00107\ esp\_err\_t\ iot\_button\_register\_cb(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle,\ button\_event\_t\ event,\ \mbox{\hyperlink{unionbutton__event__args__t}{button\_event\_args\_t}}\ *event\_args,\ button\_cb\_t\ cb,\ \textcolor{keywordtype}{void}\ *usr\_data);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00121\ esp\_err\_t\ iot\_button\_unregister\_cb(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle,\ button\_event\_t\ event,\ \mbox{\hyperlink{unionbutton__event__args__t}{button\_event\_args\_t}}\ *event\_args);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{size\_t}\ iot\_button\_count\_cb(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00145\ \textcolor{keywordtype}{size\_t}\ iot\_button\_count\_event\_cb(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle,\ button\_event\_t\ event);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00154\ button\_event\_t\ iot\_button\_get\_event(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *iot\_button\_get\_event\_str(button\_event\_t\ event);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00181\ esp\_err\_t\ iot\_button\_print\_event(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00190\ uint8\_t\ iot\_button\_get\_repeat(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00199\ uint32\_t\ iot\_button\_get\_pressed\_time(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00211\ \_\_attribute\_\_((deprecated(\textcolor{stringliteral}{"{}Use\ iot\_button\_get\_pressed\_time()\ instead"{}})))}
+\DoxyCodeLine{00212\ uint32\_t\ iot\_button\_get\_ticks\_time(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00221\ uint16\_t\ iot\_button\_get\_long\_press\_hold\_cnt(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00233\ esp\_err\_t\ iot\_button\_set\_param(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle,\ button\_param\_t\ param,\ \textcolor{keywordtype}{void}\ *value);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00243\ uint8\_t\ iot\_button\_get\_key\_level(\mbox{\hyperlink{structbutton__dev__t}{button\_handle\_t}}\ btn\_handle);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00252\ esp\_err\_t\ iot\_button\_resume(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00261\ esp\_err\_t\ iot\_button\_stop(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00274\ esp\_err\_t\ iot\_button\_register\_power\_save\_cb(const\ \mbox{\hyperlink{structbutton__power__save__config__t}{button\_power\_save\_config\_t}}\ *config);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00277\ \}}
+\DoxyCodeLine{00278\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

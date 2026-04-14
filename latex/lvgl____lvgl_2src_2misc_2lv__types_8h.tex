@@ -1,0 +1,489 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+types.h}
+\hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h}{}\label{lvgl____lvgl_2src_2misc_2lv__types_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_types.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_types.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+types.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+types.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lvgl____lvgl_2src_2misc_2lv__types_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad07f3715eae2cfee3d5e0000edb150d7}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad07f3715eae2cfee3d5e0000edb150d7} 
+\#define {\bfseries LV\+\_\+\+UNUSED}(x)~((void)x)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a90402ffaf707eb13f751b8986a853787}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a90402ffaf707eb13f751b8986a853787} 
+\#define {\bfseries \+\_\+\+LV\+\_\+\+CONCAT}(x,  y)~x \#\# y
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a8bd914f1aed4043a7bce9f18d07d970e}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a8bd914f1aed4043a7bce9f18d07d970e} 
+\#define {\bfseries LV\+\_\+\+CONCAT}(x,  y)~\+\_\+\+LV\+\_\+\+CONCAT(x, y)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a8cefabc0f9ff1163b943b18dc9f710df}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a8cefabc0f9ff1163b943b18dc9f710df} 
+\#define {\bfseries \+\_\+\+LV\+\_\+\+CONCAT3}(x,  y,  z)~x \#\# y \#\# z
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ab53dc15751d2a7143271b44db65eddf2}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ab53dc15751d2a7143271b44db65eddf2} 
+\#define {\bfseries LV\+\_\+\+CONCAT3}(x,  y,  z)~\+\_\+\+LV\+\_\+\+CONCAT3(x, y, z)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a7f9cd8663554d2d676fde390bb00bcd6}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a7f9cd8663554d2d676fde390bb00bcd6} 
+\#define {\bfseries LV\+\_\+\+FORMAT\+\_\+\+ATTRIBUTE}(fmtstr,  vararg)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a62dca3d661bb020a935cabde0b750655}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a62dca3d661bb020a935cabde0b750655} 
+\#define {\bfseries LV\+\_\+\+NORETURN}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aff96ed12592afd8b7de28e35fb7a47cd}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aff96ed12592afd8b7de28e35fb7a47cd} 
+\#define {\bfseries LV\+\_\+\+UNREACHABLE}()~while(1)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a54b111ae24e3ce7956bbc4485f9a5b40}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a54b111ae24e3ce7956bbc4485f9a5b40} 
+\#define {\bfseries LV\+\_\+\+ARRAYLEN}(a)~(sizeof(a)/sizeof((a)\mbox{[}0\mbox{]}))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a7a3b1e9f6778da30d47b93a630e83458}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a7a3b1e9f6778da30d47b93a630e83458} 
+typedef uint32\+\_\+t {\bfseries lv\+\_\+uintptr\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a5ec3ac7a02d432b3dcaf74f946245571}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a5ec3ac7a02d432b3dcaf74f946245571} 
+typedef int32\+\_\+t {\bfseries lv\+\_\+intptr\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a5a7caf7a6d6e9ef7ce147c4d2f629eb8}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a5a7caf7a6d6e9ef7ce147c4d2f629eb8} 
+typedef int32\+\_\+t {\bfseries lv\+\_\+value\+\_\+precise\+\_\+t}
+\item 
+typedef struct \mbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aaeafa7c3defcafd64be08c45c6e864b3}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aaeafa7c3defcafd64be08c45c6e864b3} 
+typedef \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+screen\+\_\+create\+\_\+cb\+\_\+t}) (void)
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_acdb0f6245624d86b1cb002186fd6cf96}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_acdb0f6245624d86b1cb002186fd6cf96} 
+typedef uint8\+\_\+t {\bfseries lv\+\_\+opa\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aa0abcf662f99207908e28b0f72c990c8}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aa0abcf662f99207908e28b0f72c990c8} 
+typedef uint8\+\_\+t {\bfseries lv\+\_\+style\+\_\+prop\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a45f1eead6ce2fb12e215ea3e0558f168}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a45f1eead6ce2fb12e215ea3e0558f168} 
+typedef struct \mbox{\hyperlink{struct__lv__obj__class__t}{\+\_\+lv\+\_\+obj\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+obj\+\_\+class\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a0fa2dbb9ed984eb2abdfc8c0b1990d00}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a0fa2dbb9ed984eb2abdfc8c0b1990d00} 
+typedef struct \mbox{\hyperlink{struct__lv__group__t}{\+\_\+lv\+\_\+group\+\_\+t}} {\bfseries lv\+\_\+group\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a6e34268a0a7129745629c71f74e86265}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a6e34268a0a7129745629c71f74e86265} 
+typedef struct \mbox{\hyperlink{struct__lv__display__t}{\+\_\+lv\+\_\+display\+\_\+t}} {\bfseries lv\+\_\+display\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a582c22621ba5b1fdf40a96325a0564e9}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a582c22621ba5b1fdf40a96325a0564e9} 
+typedef struct \mbox{\hyperlink{struct__lv__layer__t}{\+\_\+lv\+\_\+layer\+\_\+t}} {\bfseries lv\+\_\+layer\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_abef3cb242f32d3c69635d7f9347620f6}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_abef3cb242f32d3c69635d7f9347620f6} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__unit__t}{\+\_\+lv\+\_\+draw\+\_\+unit\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+unit\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a9d358cfe063f80d7499a72b46429bf61}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a9d358cfe063f80d7499a72b46429bf61} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__task__t}{\+\_\+lv\+\_\+draw\+\_\+task\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+task\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a7fc4c271f4ad53b4949e26b2999a1785}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a7fc4c271f4ad53b4949e26b2999a1785} 
+typedef struct \mbox{\hyperlink{struct__lv__indev__t}{\+\_\+lv\+\_\+indev\+\_\+t}} {\bfseries lv\+\_\+indev\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a21b130dbe9349eab447cf0c891517272}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a21b130dbe9349eab447cf0c891517272} 
+typedef struct \mbox{\hyperlink{struct__lv__event__t}{\+\_\+lv\+\_\+event\+\_\+t}} {\bfseries lv\+\_\+event\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aab341e84d977d67aec9b766ccd6d3173}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aab341e84d977d67aec9b766ccd6d3173} 
+typedef struct \mbox{\hyperlink{struct__lv__timer__t}{\+\_\+lv\+\_\+timer\+\_\+t}} {\bfseries lv\+\_\+timer\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a028e2d4002c963c60ebd3cc2641da3c1}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a028e2d4002c963c60ebd3cc2641da3c1} 
+typedef struct \mbox{\hyperlink{struct__lv__theme__t}{\+\_\+lv\+\_\+theme\+\_\+t}} {\bfseries lv\+\_\+theme\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a94df93c022dc57ee917b4757e50ebe22}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a94df93c022dc57ee917b4757e50ebe22} 
+typedef struct \mbox{\hyperlink{struct__lv__anim__t}{\+\_\+lv\+\_\+anim\+\_\+t}} {\bfseries lv\+\_\+anim\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a769fcfd75ee4426abc152fb61accab4d}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a769fcfd75ee4426abc152fb61accab4d} 
+typedef struct \mbox{\hyperlink{struct__lv__anim__timeline__t}{\+\_\+lv\+\_\+anim\+\_\+timeline\+\_\+t}} {\bfseries lv\+\_\+anim\+\_\+timeline\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a11e3396cab33231964d98046c4e436af}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a11e3396cab33231964d98046c4e436af} 
+typedef struct \mbox{\hyperlink{struct__lv__font__t}{\+\_\+lv\+\_\+font\+\_\+t}} {\bfseries lv\+\_\+font\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a41617a4e6527620532aa99b156e4aa4b}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a41617a4e6527620532aa99b156e4aa4b} 
+typedef struct \mbox{\hyperlink{struct__lv__font__class__t}{\+\_\+lv\+\_\+font\+\_\+class\+\_\+t}} {\bfseries lv\+\_\+font\+\_\+class\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad76f3e3a3d6e2efd9d196893f18a501f}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad76f3e3a3d6e2efd9d196893f18a501f} 
+typedef struct \mbox{\hyperlink{struct__lv__font__info__t}{\+\_\+lv\+\_\+font\+\_\+info\+\_\+t}} {\bfseries lv\+\_\+font\+\_\+info\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a977c39306808d71024c4f654d46cdb98}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a977c39306808d71024c4f654d46cdb98} 
+typedef struct \+\_\+lv\+\_\+font\+\_\+manager\+\_\+t {\bfseries lv\+\_\+font\+\_\+manager\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a5bac91810ff9cd902ad9a46dbaf6d2a7}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a5bac91810ff9cd902ad9a46dbaf6d2a7} 
+typedef struct \mbox{\hyperlink{struct__lv__image__decoder__t}{\+\_\+lv\+\_\+image\+\_\+decoder\+\_\+t}} {\bfseries lv\+\_\+image\+\_\+decoder\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aa57e2cda5824f5ba4ce5e5a0ad6da725}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aa57e2cda5824f5ba4ce5e5a0ad6da725} 
+typedef struct \mbox{\hyperlink{struct__lv__image__decoder__dsc__t}{\+\_\+lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+image\+\_\+decoder\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ac28823722a4ebd410c27ae51d1b7bb24}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ac28823722a4ebd410c27ae51d1b7bb24} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__image__dsc__t}{\+\_\+lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a3b1b22249352d20afd77ab892b99521d}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a3b1b22249352d20afd77ab892b99521d} 
+typedef struct \+\_\+lv\+\_\+fragment\+\_\+t {\bfseries lv\+\_\+fragment\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ace80d6cb64ad23d58e0ab21b141af343}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ace80d6cb64ad23d58e0ab21b141af343} 
+typedef struct \+\_\+lv\+\_\+fragment\+\_\+class\+\_\+t {\bfseries lv\+\_\+fragment\+\_\+class\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ab93be883a1b7283ca05e625a264cef78}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ab93be883a1b7283ca05e625a264cef78} 
+typedef struct \+\_\+lv\+\_\+fragment\+\_\+managed\+\_\+states\+\_\+t {\bfseries lv\+\_\+fragment\+\_\+managed\+\_\+states\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aac1c7fa4491814a5a8011cb02225d85a}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aac1c7fa4491814a5a8011cb02225d85a} 
+typedef struct \+\_\+lv\+\_\+profiler\+\_\+builtin\+\_\+config\+\_\+t {\bfseries lv\+\_\+profiler\+\_\+builtin\+\_\+config\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a381fb0d40902843a951ff787f2e803c1}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a381fb0d40902843a951ff787f2e803c1} 
+typedef struct \mbox{\hyperlink{struct__lv__rb__node__t}{\+\_\+lv\+\_\+rb\+\_\+node\+\_\+t}} {\bfseries lv\+\_\+rb\+\_\+node\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae547e957b3898bd9284210d9d64430af}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae547e957b3898bd9284210d9d64430af} 
+typedef struct \mbox{\hyperlink{struct__lv__rb__t}{\+\_\+lv\+\_\+rb\+\_\+t}} {\bfseries lv\+\_\+rb\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ada4c995e27d92e07b48d406a4510d2cb}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ada4c995e27d92e07b48d406a4510d2cb} 
+typedef struct \mbox{\hyperlink{struct__lv__color__filter__dsc__t}{\+\_\+lv\+\_\+color\+\_\+filter\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+color\+\_\+filter\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ab42bca9bdf429577209b23c0fb53d6b7}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ab42bca9bdf429577209b23c0fb53d6b7} 
+typedef struct \mbox{\hyperlink{struct__lv__event__dsc__t}{\+\_\+lv\+\_\+event\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+event\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a972f064415c1836ab71995454d0281ab}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a972f064415c1836ab71995454d0281ab} 
+typedef struct \mbox{\hyperlink{struct__lv__cache__t}{\+\_\+lv\+\_\+cache\+\_\+t}} {\bfseries lv\+\_\+cache\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_acc3bb05738d33b35c54cff5dcfec50a5}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_acc3bb05738d33b35c54cff5dcfec50a5} 
+typedef struct \mbox{\hyperlink{struct__lv__cache__entry__t}{\+\_\+lv\+\_\+cache\+\_\+entry\+\_\+t}} {\bfseries lv\+\_\+cache\+\_\+entry\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae3c6cde8c86988d266ad188071cf97ee}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae3c6cde8c86988d266ad188071cf97ee} 
+typedef struct \mbox{\hyperlink{struct__lv__fs__file__cache__t}{\+\_\+lv\+\_\+fs\+\_\+file\+\_\+cache\+\_\+t}} {\bfseries lv\+\_\+fs\+\_\+file\+\_\+cache\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aa2cffabc800b4bc250317e9602fdcf12}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aa2cffabc800b4bc250317e9602fdcf12} 
+typedef struct \mbox{\hyperlink{struct__lv__image__decoder__args__t}{\+\_\+lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t}} {\bfseries lv\+\_\+image\+\_\+decoder\+\_\+args\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a947669f390edb235e66f88746ab7b158}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a947669f390edb235e66f88746ab7b158} 
+typedef struct \mbox{\hyperlink{struct__lv__image__cache__data__t}{\+\_\+lv\+\_\+image\+\_\+cache\+\_\+data\+\_\+t}} {\bfseries lv\+\_\+image\+\_\+cache\+\_\+data\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a5718549f1d16e97ce6ecd0cbc0c9d7a9}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a5718549f1d16e97ce6ecd0cbc0c9d7a9} 
+typedef struct \mbox{\hyperlink{struct__lv__image__header__cache__data__t}{\+\_\+lv\+\_\+image\+\_\+header\+\_\+cache\+\_\+data\+\_\+t}} {\bfseries lv\+\_\+image\+\_\+header\+\_\+cache\+\_\+data\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a6e0ea00f183f16a684ff8393924d3b31}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a6e0ea00f183f16a684ff8393924d3b31} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__mask__t}{\+\_\+lv\+\_\+draw\+\_\+mask\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+mask\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a3b7d1b2bcd84ce8bb3f3cf94f7d1f318}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a3b7d1b2bcd84ce8bb3f3cf94f7d1f318} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__label__hint__t}{\+\_\+lv\+\_\+draw\+\_\+label\+\_\+hint\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+label\+\_\+hint\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4c7fa57c877b900960e6e4b239adb4cc}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4c7fa57c877b900960e6e4b239adb4cc} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__glyph__dsc__t}{\+\_\+lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+glyph\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aad210c69394fac90e2a9d1d07fa88107}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aad210c69394fac90e2a9d1d07fa88107} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__image__sup__t}{\+\_\+lv\+\_\+draw\+\_\+image\+\_\+sup\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+image\+\_\+sup\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_af629d7884575526caffd58237d4d23bd}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_af629d7884575526caffd58237d4d23bd} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__mask__rect__dsc__t}{\+\_\+lv\+\_\+draw\+\_\+mask\+\_\+rect\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+mask\+\_\+rect\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ac81074b8472c5411d76bb33a11ba89bf}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ac81074b8472c5411d76bb33a11ba89bf} 
+typedef struct \mbox{\hyperlink{struct__lv__obj__style__t}{\+\_\+lv\+\_\+obj\+\_\+style\+\_\+t}} {\bfseries lv\+\_\+obj\+\_\+style\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a7b1a3e2277ce07d9e98497a914c23524}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a7b1a3e2277ce07d9e98497a914c23524} 
+typedef struct \mbox{\hyperlink{struct__lv__obj__style__transition__dsc__t}{\+\_\+lv\+\_\+obj\+\_\+style\+\_\+transition\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+obj\+\_\+style\+\_\+transition\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad8007303eb3a55ddf0231fe53f683e99}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad8007303eb3a55ddf0231fe53f683e99} 
+typedef struct \mbox{\hyperlink{struct__lv__hit__test__info__t}{\+\_\+lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t}} {\bfseries lv\+\_\+hit\+\_\+test\+\_\+info\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ab8e37d9debdeaaf39cefacfa89b87f7c}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ab8e37d9debdeaaf39cefacfa89b87f7c} 
+typedef struct \mbox{\hyperlink{struct__lv__cover__check__info__t}{\+\_\+lv\+\_\+cover\+\_\+check\+\_\+info\+\_\+t}} {\bfseries lv\+\_\+cover\+\_\+check\+\_\+info\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a2932a610d92d80d7fe23074189b20391}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a2932a610d92d80d7fe23074189b20391} 
+typedef struct \mbox{\hyperlink{struct__lv__obj__spec__attr__t}{\+\_\+lv\+\_\+obj\+\_\+spec\+\_\+attr\+\_\+t}} {\bfseries lv\+\_\+obj\+\_\+spec\+\_\+attr\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a2ad4ad9550e1e65bc74375eba10e7ad3}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a2ad4ad9550e1e65bc74375eba10e7ad3} 
+typedef struct \mbox{\hyperlink{struct__lv__image__t}{\+\_\+lv\+\_\+image\+\_\+t}} {\bfseries lv\+\_\+image\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a19d983bb6d756f5097bd8c2cfafa4c2c}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a19d983bb6d756f5097bd8c2cfafa4c2c} 
+typedef struct \mbox{\hyperlink{struct__lv__animimg__t}{\+\_\+lv\+\_\+animimg\+\_\+t}} {\bfseries lv\+\_\+animimg\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a6378b40299d6374ada37cfa3f44e173f}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a6378b40299d6374ada37cfa3f44e173f} 
+typedef struct \mbox{\hyperlink{struct__lv__arc__t}{\+\_\+lv\+\_\+arc\+\_\+t}} {\bfseries lv\+\_\+arc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae7af463dcc2b49c209998bb45b97026f}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae7af463dcc2b49c209998bb45b97026f} 
+typedef struct \mbox{\hyperlink{struct__lv__arclabel__t}{\+\_\+lv\+\_\+arclabel\+\_\+t}} {\bfseries lv\+\_\+arclabel\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a2d1731f41ba66ecaf389660ff26e5446}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a2d1731f41ba66ecaf389660ff26e5446} 
+typedef struct \mbox{\hyperlink{struct__lv__label__t}{\+\_\+lv\+\_\+label\+\_\+t}} {\bfseries lv\+\_\+label\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ac78e57b2d0614d467e01eda26ed492f4}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ac78e57b2d0614d467e01eda26ed492f4} 
+typedef struct \mbox{\hyperlink{struct__lv__bar__anim__t}{\+\_\+lv\+\_\+bar\+\_\+anim\+\_\+t}} {\bfseries lv\+\_\+bar\+\_\+anim\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae020ae88e76450ff666e8632b50359fc}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae020ae88e76450ff666e8632b50359fc} 
+typedef struct \mbox{\hyperlink{struct__lv__bar__t}{\+\_\+lv\+\_\+bar\+\_\+t}} {\bfseries lv\+\_\+bar\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aa959bf934544bf8e0f1e8893ef0e7ec9}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aa959bf934544bf8e0f1e8893ef0e7ec9} 
+typedef struct \mbox{\hyperlink{struct__lv__button__t}{\+\_\+lv\+\_\+button\+\_\+t}} {\bfseries lv\+\_\+button\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4a1bcfe7541887ae44c07f0590eceaca}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4a1bcfe7541887ae44c07f0590eceaca} 
+typedef struct \mbox{\hyperlink{struct__lv__buttonmatrix__t}{\+\_\+lv\+\_\+buttonmatrix\+\_\+t}} {\bfseries lv\+\_\+buttonmatrix\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad4a24a987af789f85de56694869f179f}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad4a24a987af789f85de56694869f179f} 
+typedef struct \mbox{\hyperlink{struct__lv__calendar__t}{\+\_\+lv\+\_\+calendar\+\_\+t}} {\bfseries lv\+\_\+calendar\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a90b29f8449ad2cc6f065abf732996546}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a90b29f8449ad2cc6f065abf732996546} 
+typedef struct \mbox{\hyperlink{struct__lv__canvas__t}{\+\_\+lv\+\_\+canvas\+\_\+t}} {\bfseries lv\+\_\+canvas\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aeacc3499b961eb483973761383b9f2ff}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aeacc3499b961eb483973761383b9f2ff} 
+typedef struct \mbox{\hyperlink{struct__lv__chart__series__t}{\+\_\+lv\+\_\+chart\+\_\+series\+\_\+t}} {\bfseries lv\+\_\+chart\+\_\+series\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a44faef4fba25f91acf644db5c09ad508}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a44faef4fba25f91acf644db5c09ad508} 
+typedef struct \mbox{\hyperlink{struct__lv__chart__cursor__t}{\+\_\+lv\+\_\+chart\+\_\+cursor\+\_\+t}} {\bfseries lv\+\_\+chart\+\_\+cursor\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a1932b2236c8d98e9f03030db58ab96bb}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a1932b2236c8d98e9f03030db58ab96bb} 
+typedef struct \mbox{\hyperlink{struct__lv__chart__t}{\+\_\+lv\+\_\+chart\+\_\+t}} {\bfseries lv\+\_\+chart\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4daafad61c6a164984e3dde74d564459}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4daafad61c6a164984e3dde74d564459} 
+typedef struct \mbox{\hyperlink{struct__lv__checkbox__t}{\+\_\+lv\+\_\+checkbox\+\_\+t}} {\bfseries lv\+\_\+checkbox\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a96c9128cda565aafa0b68bc5a0fdfb24}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a96c9128cda565aafa0b68bc5a0fdfb24} 
+typedef struct \mbox{\hyperlink{struct__lv__dropdown__t}{\+\_\+lv\+\_\+dropdown\+\_\+t}} {\bfseries lv\+\_\+dropdown\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a650fb6c4d2ddfb23153cb7ee249dc947}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a650fb6c4d2ddfb23153cb7ee249dc947} 
+typedef struct \mbox{\hyperlink{struct__lv__dropdown__list__t}{\+\_\+lv\+\_\+dropdown\+\_\+list\+\_\+t}} {\bfseries lv\+\_\+dropdown\+\_\+list\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ab7984b21a6025392a609caaf807d00ba}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ab7984b21a6025392a609caaf807d00ba} 
+typedef struct \mbox{\hyperlink{struct__lv__imagebutton__src__info__t}{\+\_\+lv\+\_\+imagebutton\+\_\+src\+\_\+info\+\_\+t}} {\bfseries lv\+\_\+imagebutton\+\_\+src\+\_\+info\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a08f4e4b1aff0ea5b23d42dcff7966092}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a08f4e4b1aff0ea5b23d42dcff7966092} 
+typedef struct \mbox{\hyperlink{struct__lv__imagebutton__t}{\+\_\+lv\+\_\+imagebutton\+\_\+t}} {\bfseries lv\+\_\+imagebutton\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a26313223367aadf504eacbe97433c499}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a26313223367aadf504eacbe97433c499} 
+typedef struct \mbox{\hyperlink{struct__lv__keyboard__t}{\+\_\+lv\+\_\+keyboard\+\_\+t}} {\bfseries lv\+\_\+keyboard\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_af647a2be6ce9e97df18dbc39efacc218}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_af647a2be6ce9e97df18dbc39efacc218} 
+typedef struct \mbox{\hyperlink{struct__lv__led__t}{\+\_\+lv\+\_\+led\+\_\+t}} {\bfseries lv\+\_\+led\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aa3522d9eabc37fb0e7f90f87fdad4d22}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aa3522d9eabc37fb0e7f90f87fdad4d22} 
+typedef struct \mbox{\hyperlink{struct__lv__line__t}{\+\_\+lv\+\_\+line\+\_\+t}} {\bfseries lv\+\_\+line\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a0bf64340c7d7b5cb898b9fc12f0c02cb}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a0bf64340c7d7b5cb898b9fc12f0c02cb} 
+typedef struct \mbox{\hyperlink{struct__lv__menu__load__page__event__data__t}{\+\_\+lv\+\_\+menu\+\_\+load\+\_\+page\+\_\+event\+\_\+data\+\_\+t}} {\bfseries lv\+\_\+menu\+\_\+load\+\_\+page\+\_\+event\+\_\+data\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a7dfed7e1bcf1b74421bb2b113e96074f}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a7dfed7e1bcf1b74421bb2b113e96074f} 
+typedef struct \mbox{\hyperlink{struct__lv__menu__history__t}{\+\_\+lv\+\_\+menu\+\_\+history\+\_\+t}} {\bfseries lv\+\_\+menu\+\_\+history\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a1693ccd38315c2e2f7e912519fa00f0b}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a1693ccd38315c2e2f7e912519fa00f0b} 
+typedef struct \mbox{\hyperlink{struct__lv__menu__t}{\+\_\+lv\+\_\+menu\+\_\+t}} {\bfseries lv\+\_\+menu\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a0ebb27ac5b93f0177d8f8cf80f520c09}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a0ebb27ac5b93f0177d8f8cf80f520c09} 
+typedef struct \mbox{\hyperlink{struct__lv__menu__page__t}{\+\_\+lv\+\_\+menu\+\_\+page\+\_\+t}} {\bfseries lv\+\_\+menu\+\_\+page\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4e57b8749946a05256cba04e34711b28}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4e57b8749946a05256cba04e34711b28} 
+typedef struct \mbox{\hyperlink{struct__lv__msgbox__t}{\+\_\+lv\+\_\+msgbox\+\_\+t}} {\bfseries lv\+\_\+msgbox\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a5781d97263ec9a557ea2a1f977cefa6e}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a5781d97263ec9a557ea2a1f977cefa6e} 
+typedef struct \mbox{\hyperlink{struct__lv__roller__t}{\+\_\+lv\+\_\+roller\+\_\+t}} {\bfseries lv\+\_\+roller\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aba96f5e0f7de86ea266d1e5085ceb49c}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aba96f5e0f7de86ea266d1e5085ceb49c} 
+typedef struct \mbox{\hyperlink{struct__lv__scale__section__t}{\+\_\+lv\+\_\+scale\+\_\+section\+\_\+t}} {\bfseries lv\+\_\+scale\+\_\+section\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ab66cb74ffdb9c6898603ab67bbf66832}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ab66cb74ffdb9c6898603ab67bbf66832} 
+typedef struct \mbox{\hyperlink{struct__lv__scale__t}{\+\_\+lv\+\_\+scale\+\_\+t}} {\bfseries lv\+\_\+scale\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a156b532bb6ae0880cd961466613d19bb}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a156b532bb6ae0880cd961466613d19bb} 
+typedef struct \mbox{\hyperlink{struct__lv__slider__t}{\+\_\+lv\+\_\+slider\+\_\+t}} {\bfseries lv\+\_\+slider\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_af6910516317bf60e044ef07fa7240d3e}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_af6910516317bf60e044ef07fa7240d3e} 
+typedef struct \mbox{\hyperlink{struct__lv__span__t}{\+\_\+lv\+\_\+span\+\_\+t}} {\bfseries lv\+\_\+span\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae64488b99e922e6a4bed68c2de46bea3}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae64488b99e922e6a4bed68c2de46bea3} 
+typedef struct \mbox{\hyperlink{struct__lv__spangroup__t}{\+\_\+lv\+\_\+spangroup\+\_\+t}} {\bfseries lv\+\_\+spangroup\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad1642cc84541b4380423203419cec599}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad1642cc84541b4380423203419cec599} 
+typedef struct \mbox{\hyperlink{struct__lv__textarea__t}{\+\_\+lv\+\_\+textarea\+\_\+t}} {\bfseries lv\+\_\+textarea\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_af62101b132a2f5931b8e26c2793f055f}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_af62101b132a2f5931b8e26c2793f055f} 
+typedef struct \mbox{\hyperlink{struct__lv__spinbox__t}{\+\_\+lv\+\_\+spinbox\+\_\+t}} {\bfseries lv\+\_\+spinbox\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a9bd6f7e6f6e44445ca1587f7f449f098}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a9bd6f7e6f6e44445ca1587f7f449f098} 
+typedef struct \mbox{\hyperlink{struct__lv__switch__t}{\+\_\+lv\+\_\+switch\+\_\+t}} {\bfseries lv\+\_\+switch\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad1bad76c5dddb94ac3e1081618d4a126}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad1bad76c5dddb94ac3e1081618d4a126} 
+typedef struct \mbox{\hyperlink{struct__lv__table__cell__t}{\+\_\+lv\+\_\+table\+\_\+cell\+\_\+t}} {\bfseries lv\+\_\+table\+\_\+cell\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aec18880cb34c9e823136ace96ff1a848}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aec18880cb34c9e823136ace96ff1a848} 
+typedef struct \mbox{\hyperlink{struct__lv__table__t}{\+\_\+lv\+\_\+table\+\_\+t}} {\bfseries lv\+\_\+table\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a6074ffb095a4b5dbcad527504c84b1f8}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a6074ffb095a4b5dbcad527504c84b1f8} 
+typedef struct \mbox{\hyperlink{struct__lv__tabview__t}{\+\_\+lv\+\_\+tabview\+\_\+t}} {\bfseries lv\+\_\+tabview\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae3296e29625afcf1cc70f8e68cf61a4d}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae3296e29625afcf1cc70f8e68cf61a4d} 
+typedef struct \mbox{\hyperlink{struct__lv__tileview__t}{\+\_\+lv\+\_\+tileview\+\_\+t}} {\bfseries lv\+\_\+tileview\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a3f0b67da2693ce696d39ac71b43af2c2}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a3f0b67da2693ce696d39ac71b43af2c2} 
+typedef struct \mbox{\hyperlink{struct__lv__tileview__tile__t}{\+\_\+lv\+\_\+tileview\+\_\+tile\+\_\+t}} {\bfseries lv\+\_\+tileview\+\_\+tile\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae0112600117abc4339c48c2fb9c6d0f6}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae0112600117abc4339c48c2fb9c6d0f6} 
+typedef struct \mbox{\hyperlink{struct__lv__win__t}{\+\_\+lv\+\_\+win\+\_\+t}} {\bfseries lv\+\_\+win\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_afac16ff5058ea831bab44d4983ebf35a}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_afac16ff5058ea831bab44d4983ebf35a} 
+typedef struct \mbox{\hyperlink{struct__lv__spinner__t}{\+\_\+lv\+\_\+spinner\+\_\+t}} {\bfseries lv\+\_\+spinner\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a2db8a3c08ce6dfc9e7b083f3aa02a0ac}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a2db8a3c08ce6dfc9e7b083f3aa02a0ac} 
+typedef struct \+\_\+lv\+\_\+3dtexture\+\_\+t {\bfseries lv\+\_\+3dtexture\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4b940c7bae978b9be1a1e1f0610ecebf}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4b940c7bae978b9be1a1e1f0610ecebf} 
+typedef struct \+\_\+lv\+\_\+gltf\+\_\+t {\bfseries lv\+\_\+gltf\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ac7c4916acb9ff8d7b905a8f4058a86f3}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ac7c4916acb9ff8d7b905a8f4058a86f3} 
+typedef struct \+\_\+lv\+\_\+gltf\+\_\+model\+\_\+t {\bfseries lv\+\_\+gltf\+\_\+model\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ac16d3dd8a288553cf92e95b24a076906}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ac16d3dd8a288553cf92e95b24a076906} 
+typedef struct \+\_\+lv\+\_\+gltf\+\_\+model\+\_\+node\+\_\+t {\bfseries lv\+\_\+gltf\+\_\+model\+\_\+node\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad6e902efff1248962a6ac04728551445}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad6e902efff1248962a6ac04728551445} 
+typedef struct \+\_\+lv\+\_\+gltf\+\_\+environment {\bfseries lv\+\_\+gltf\+\_\+environment\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a2ed7a002fc79f7b372fc9e983d2b5b86}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a2ed7a002fc79f7b372fc9e983d2b5b86} 
+typedef struct \+\_\+lv\+\_\+gltf\+\_\+ibl\+\_\+sampler {\bfseries lv\+\_\+gltf\+\_\+ibl\+\_\+sampler\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4881e030e5e167d86882b87c25181992}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4881e030e5e167d86882b87c25181992} 
+typedef struct \mbox{\hyperlink{struct__lv__subject__t}{\+\_\+lv\+\_\+subject\+\_\+t}} {\bfseries lv\+\_\+subject\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae4868706c8ccd93b41d1bf850de7cd93}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae4868706c8ccd93b41d1bf850de7cd93} 
+typedef struct \mbox{\hyperlink{struct__lv__observer__t}{\+\_\+lv\+\_\+observer\+\_\+t}} {\bfseries lv\+\_\+observer\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a19e3639db58d84ea29918f571e1bf21a}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a19e3639db58d84ea29918f571e1bf21a} 
+typedef struct \mbox{\hyperlink{struct__lv__subject__increment__dsc__t}{\+\_\+lv\+\_\+subject\+\_\+increment\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+subject\+\_\+increment\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4238d8696eacd1266e985641d35402f0}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4238d8696eacd1266e985641d35402f0} 
+typedef struct \+\_\+lv\+\_\+monkey\+\_\+config\+\_\+t {\bfseries lv\+\_\+monkey\+\_\+config\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aeec8eb2ac32a65d899f2cd2760efa151}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aeec8eb2ac32a65d899f2cd2760efa151} 
+typedef struct \+\_\+lv\+\_\+ime\+\_\+pinyin\+\_\+t {\bfseries lv\+\_\+ime\+\_\+pinyin\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a6a485881fb75d96c8baea452f754e759}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a6a485881fb75d96c8baea452f754e759} 
+typedef struct \+\_\+lv\+\_\+file\+\_\+explorer\+\_\+t {\bfseries lv\+\_\+file\+\_\+explorer\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a6f1f91118dcffe21d616301dd6a2753e}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a6f1f91118dcffe21d616301dd6a2753e} 
+typedef struct \+\_\+lv\+\_\+barcode\+\_\+t {\bfseries lv\+\_\+barcode\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ace129bdee95c7a25a49dcc18c6254a08}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ace129bdee95c7a25a49dcc18c6254a08} 
+typedef struct \+\_\+lv\+\_\+qrcode\+\_\+t {\bfseries lv\+\_\+qrcode\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a831b101187c22ff24df72628b971e06b}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a831b101187c22ff24df72628b971e06b} 
+typedef struct \+\_\+lv\+\_\+freetype\+\_\+outline\+\_\+vector\+\_\+t {\bfseries lv\+\_\+freetype\+\_\+outline\+\_\+vector\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aa3b5691b465c514b99a2e6580343a55a}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aa3b5691b465c514b99a2e6580343a55a} 
+typedef struct \+\_\+lv\+\_\+freetype\+\_\+outline\+\_\+event\+\_\+param\+\_\+t {\bfseries lv\+\_\+freetype\+\_\+outline\+\_\+event\+\_\+param\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_afaa852c230fdc61aa1f864f6019dda3a}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_afaa852c230fdc61aa1f864f6019dda3a} 
+typedef struct \+\_\+lv\+\_\+fpoint\+\_\+t {\bfseries lv\+\_\+fpoint\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aecc04bfa364c7b83d110a05b4fb24495}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aecc04bfa364c7b83d110a05b4fb24495} 
+typedef struct \+\_\+lv\+\_\+matrix\+\_\+t {\bfseries lv\+\_\+matrix\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_afe0adeb6066ac24b5068593fc98e2299}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_afe0adeb6066ac24b5068593fc98e2299} 
+typedef struct \+\_\+lv\+\_\+vector\+\_\+path\+\_\+t {\bfseries lv\+\_\+vector\+\_\+path\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4e0e3f708175a112b805c16160b56fda}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4e0e3f708175a112b805c16160b56fda} 
+typedef struct \+\_\+lv\+\_\+vector\+\_\+gradient\+\_\+t {\bfseries lv\+\_\+vector\+\_\+gradient\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4bf10f79df6cd3c4b33f06825314a32b}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4bf10f79df6cd3c4b33f06825314a32b} 
+typedef struct \+\_\+lv\+\_\+vector\+\_\+fill\+\_\+dsc\+\_\+t {\bfseries lv\+\_\+vector\+\_\+fill\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aab0ca379f561627d4273352790a66a75}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aab0ca379f561627d4273352790a66a75} 
+typedef struct \+\_\+lv\+\_\+vector\+\_\+stroke\+\_\+dsc\+\_\+t {\bfseries lv\+\_\+vector\+\_\+stroke\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a3fb8ddb9146563c8d160a013d60cd8a8}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a3fb8ddb9146563c8d160a013d60cd8a8} 
+typedef struct \+\_\+lv\+\_\+vector\+\_\+path\+\_\+ctx\+\_\+t {\bfseries lv\+\_\+vector\+\_\+path\+\_\+ctx\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a8643cf985de5354ae6098b49d05f9b48}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a8643cf985de5354ae6098b49d05f9b48} 
+typedef struct \+\_\+lv\+\_\+draw\+\_\+vector\+\_\+dsc\+\_\+t {\bfseries lv\+\_\+draw\+\_\+vector\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a0845069b9cbebb4666f1133d682b45b6}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a0845069b9cbebb4666f1133d682b45b6} 
+typedef struct \+\_\+lv\+\_\+xkb\+\_\+t {\bfseries lv\+\_\+xkb\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a5ea5ddd8f18776f472f6b487f2bd79e5}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a5ea5ddd8f18776f472f6b487f2bd79e5} 
+typedef struct \+\_\+lv\+\_\+libinput\+\_\+event\+\_\+t {\bfseries lv\+\_\+libinput\+\_\+event\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_abb1a69686e2b7893f33244e36cd9ded7}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_abb1a69686e2b7893f33244e36cd9ded7} 
+typedef struct \+\_\+lv\+\_\+libinput\+\_\+t {\bfseries lv\+\_\+libinput\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a1dabd0a9d3594fe113cf1f48a5de9f5c}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a1dabd0a9d3594fe113cf1f48a5de9f5c} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__unit__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+unit\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+unit\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a72b8d814798ae23f90b3f3a66e7f8d89}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a72b8d814798ae23f90b3f3a66e7f8d89} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__mask__common__dsc__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+common\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+common\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a404c6aab005691e33f300f84218622e7}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a404c6aab005691e33f300f84218622e7} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__mask__line__param__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+line\+\_\+param\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+line\+\_\+param\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a7fdcfd3cdc79fb824dae6e8050486a14}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a7fdcfd3cdc79fb824dae6e8050486a14} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__mask__angle__param__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+angle\+\_\+param\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+angle\+\_\+param\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ae475d5595142139ba6adc0f85e015862}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ae475d5595142139ba6adc0f85e015862} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__mask__radius__param__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+radius\+\_\+param\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+radius\+\_\+param\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ad3dd6be3a01afe393ef9d676c85e03fc}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ad3dd6be3a01afe393ef9d676c85e03fc} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__mask__fade__param__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+fade\+\_\+param\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+fade\+\_\+param\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a1d153f92ff6457d9d5034c7bd28791f8}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a1d153f92ff6457d9d5034c7bd28791f8} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__mask__map__param__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+map\+\_\+param\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+map\+\_\+param\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a4070429d7af64d2628fa578fe8cef652}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a4070429d7af64d2628fa578fe8cef652} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__blend__dsc__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aaeb5c9a772646e55a6ad08704d2c7e86}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aaeb5c9a772646e55a6ad08704d2c7e86} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__blend__fill__dsc__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+fill\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+fill\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a3c0d90380e5741b3c1389fb84e8ea00e}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a3c0d90380e5741b3c1389fb84e8ea00e} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__sw__blend__image__dsc__t}{\+\_\+lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+image\+\_\+dsc\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+sw\+\_\+blend\+\_\+image\+\_\+dsc\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a3b8ae1591dcf4cc645174c9162755bec}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a3b8ae1591dcf4cc645174c9162755bec} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__buf__handlers__t}{\+\_\+lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+handlers\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aa821cf4a6e5ec2d4ebfc71097a85beed}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aa821cf4a6e5ec2d4ebfc71097a85beed} 
+typedef struct \+\_\+lv\+\_\+rlottie\+\_\+t {\bfseries lv\+\_\+rlottie\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a1fd4c762569c50ae325e646f8c9f0d81}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a1fd4c762569c50ae325e646f8c9f0d81} 
+typedef struct \+\_\+lv\+\_\+ffmpeg\+\_\+player\+\_\+t {\bfseries lv\+\_\+ffmpeg\+\_\+player\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a14257aa97ca0fd805f03e8cbcb1df48c}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a14257aa97ca0fd805f03e8cbcb1df48c} 
+typedef struct \+\_\+lv\+\_\+opengles\+\_\+window\+\_\+t {\bfseries lv\+\_\+opengles\+\_\+window\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a777b55da1f404156b2538382e7fd8882}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a777b55da1f404156b2538382e7fd8882} 
+typedef struct \+\_\+lv\+\_\+opengles\+\_\+window\+\_\+texture\+\_\+t {\bfseries lv\+\_\+opengles\+\_\+window\+\_\+texture\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a0306ffef52606607423dd111b74c26c6}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a0306ffef52606607423dd111b74c26c6} 
+typedef uint32\+\_\+t {\bfseries lv\+\_\+prop\+\_\+id\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a63b3a8fae8333693999b3f131ed1e398}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a63b3a8fae8333693999b3f131ed1e398} 
+typedef struct \mbox{\hyperlink{struct__lv__array__t}{\+\_\+lv\+\_\+array\+\_\+t}} {\bfseries lv\+\_\+array\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a65133c6e9aa193ab7a0b82afe93a8882}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a65133c6e9aa193ab7a0b82afe93a8882} 
+typedef struct \mbox{\hyperlink{struct__lv__iter__t}{\+\_\+lv\+\_\+iter\+\_\+t}} {\bfseries lv\+\_\+iter\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_ac76d1016c0998e76e9f6fb0a974b4528}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_ac76d1016c0998e76e9f6fb0a974b4528} 
+typedef struct \mbox{\hyperlink{struct__lv__circle__buf__t}{\+\_\+lv\+\_\+circle\+\_\+buf\+\_\+t}} {\bfseries lv\+\_\+circle\+\_\+buf\+\_\+t}
+\item 
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_aef095d20cced64810944ca64aab7ca31}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_aef095d20cced64810944ca64aab7ca31} 
+typedef struct \mbox{\hyperlink{struct__lv__draw__buf__t}{\+\_\+lv\+\_\+draw\+\_\+buf\+\_\+t}} {\bfseries lv\+\_\+draw\+\_\+buf\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \{ {\bfseries LV\+\_\+\+RESULT\+\_\+\+INVALID} = 0
+, {\bfseries LV\+\_\+\+RESULT\+\_\+\+OK}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis uporabniško definiranega tipa}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158} 
+\index{lv\_types.h@{lv\_types.h}!lv\_obj\_t@{lv\_obj\_t}}
+\index{lv\_obj\_t@{lv\_obj\_t}!lv\_types.h@{lv\_types.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_t}{lv\_obj\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct__lv__obj__t}{\+\_\+lv\+\_\+obj\+\_\+t}} \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}}}
+
+Typedefs from various lvgl modules. They are defined here to avoid circular dependencies. 
+
+\doxysubsection{Opis naštevnega (enum) tipa}
+\Hypertarget{lvgl____lvgl_2src_2misc_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}\label{lvgl____lvgl_2src_2misc_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275} 
+\index{lv\_types.h@{lv\_types.h}!lv\_result\_t@{lv\_result\_t}}
+\index{lv\_result\_t@{lv\_result\_t}!lv\_types.h@{lv\_types.h}}
+\doxysubsubsection{\texorpdfstring{lv\_result\_t}{lv\_result\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}}}
+
+LVGL error codes. 

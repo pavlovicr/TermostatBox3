@@ -1,0 +1,61 @@
+\doxysection{cjc8910\+\_\+reg.\+h}
+\hypertarget{cjc8910__reg_8h_source}{}\label{cjc8910__reg_8h_source}\index{managed\_components/espressif\_\_esp\_codec\_dev/device/cjc8910/cjc8910\_reg.h@{managed\_components/espressif\_\_esp\_codec\_dev/device/cjc8910/cjc8910\_reg.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2025\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_CJC8910\_REG\_H\_}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_CJC8910\_REG\_H\_}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00010\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ CJC8910\_R15\_RESET\ 0x1E\ \ }\textcolor{comment}{/*\ reset\ digital,\ analog,\ etc.\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CJC8910\_R8\_SAMPLE\_RATE\ 0x10\ \ }\textcolor{comment}{/*\ clock\ and\ sample\ rate\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ CJC8910\_R7\_AUDIO\_INTERFACE\ 0x0E\ \ }\textcolor{comment}{/*\ digital\ audio\ interface\ format\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ CJC8910\_R5\_ADC\_DAC\_CONTROL\ \ \ \ \ \ 0x0A\ \ }\textcolor{comment}{/*\ ADC\ and\ DAC\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ CJC8910\_R23\_ADDITIONAL\_CONTROL1\ 0x2E\ \ }\textcolor{comment}{/*\ Addtional\ control\ 1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ CJC8910\_R24\_ADDITIONAL\_CONTROL2\ 0x30\ \ }\textcolor{comment}{/*\ Addtional\ control\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ CJC8910\_R27\_ADDITIONAL\_CONTROL3\ 0x36\ \ }\textcolor{comment}{/*\ Addtional\ control\ 3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ CJC8910\_R25\_PWR\_MGMT1\_L\ \ \ \ \ \ \ \ \ 0x32\ \ }\textcolor{comment}{/*\ Power\ management1\ and\ VMIDSEL\ (low\ byte)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ CJC8910\_R25\_PWR\_MGMT1\_H\ \ \ \ \ \ \ \ \ 0x33\ \ }\textcolor{comment}{/*\ Power\ management1\ and\ VMIDSEL\ (high\ byte)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ CJC8910\_R26\_PWR\_MGMT2\_L\ \ \ \ \ \ \ \ \ 0x34\ \ }\textcolor{comment}{/*\ Power\ management2\ and\ DAC\ left\ power\ down\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ CJC8910\_R26\_PWR\_MGMT2\_H\ \ \ \ \ \ \ \ \ 0x35\ \ }\textcolor{comment}{/*\ Power\ management2\ and\ DAC\ right\ power\ up\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ CJC8910\_R37\_ADC\_PDN\ \ \ \ \ \ \ \ \ \ \ \ \ 0x4A\ \ }\textcolor{comment}{/*\ ADC\ power\ down\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ CJC8910\_R67\_LOW\_POWER\_PLAYBACK\ \ 0x86\ \ }\textcolor{comment}{/*\ Low\ power\ playback\ mode\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ CJC8910\_R0\_LEFT\_INPUT\_VOLUME\ 0x01\ \ }\textcolor{comment}{/*\ Audio\ input\ left\ channel\ volume\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ CJC8910\_R21\_LEFT\_ADC\_VOLUME\ \ 0x2B\ \ }\textcolor{comment}{/*\ Left\ ADC\ digital\ volume\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ CJC8910\_R32\_ADCL\_SIGNAL\_PATH\ 0x41\ \ }\textcolor{comment}{/*\ ADC\ signal\ path\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ CJC8910\_R33\_MIC\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x42\ \ }\textcolor{comment}{/*\ Microphone\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ CJC8910\_R34\_AUX\ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x44\ \ }\textcolor{comment}{/*\ Auxiliary\ input\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ CJC8910\_R17\_ALC1\_CONTROL\ \ \ \ \ \ \ 0x22\ \ }\textcolor{comment}{/*\ ALC\ control\ 1\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#define\ CJC8910\_R18\_ALC2\_CONTROL\ \ \ \ \ \ \ 0x24\ \ }\textcolor{comment}{/*\ ALC\ control\ 2\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ CJC8910\_R19\_ALC3\_CONTROL\ \ \ \ \ \ \ 0x26\ \ }\textcolor{comment}{/*\ ALC\ control\ 3\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ CJC8910\_R20\_NOISE\_GATE\_CONTROL\ 0x28\ \ }\textcolor{comment}{/*\ Noise\ gate\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ CJC8910\_R2\_LOUT1\_VOLUME\ \ \ \ \ 0x05\ \ }\textcolor{comment}{/*\ Audio\ output\ left\ channel1\ volume\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ CJC8910\_R10\_LEFT\_DAC\_VOLUME\ 0x15\ \ }\textcolor{comment}{/*\ Left\ channel\ DAC\ digital\ volume\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ CJC8910\_R35\_LEFT\_OUT\_MIX2\_L\ 0x46\ \ }\textcolor{comment}{/*\ Left\ out\ mixer\ 2\ (low\ byte)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ CJC8910\_R35\_LEFT\_OUT\_MIX2\_H\ 0x47\ \ }\textcolor{comment}{/*\ Left\ out\ mixer\ 2\ (high\ byte)\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ CJC8910\_R12\_BASS\_CONTROL\ \ \ 0x18\ \ }\textcolor{comment}{/*\ Bass\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ CJC8910\_R13\_TREBLE\_CONTROL\ 0x1A\ \ }\textcolor{comment}{/*\ Treble\ control\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ CJC8910\_MAX\_REGISTER\ 0x55}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ \_CJC8910\_REG\_H\_}}
+
+\end{DoxyCode}

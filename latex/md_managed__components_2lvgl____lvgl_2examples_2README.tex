@@ -1,0 +1,106 @@
+\chapter{Examples Directory Requirements}
+\hypertarget{md_managed__components_2lvgl____lvgl_2examples_2README}{}\label{md_managed__components_2lvgl____lvgl_2examples_2README}\index{Examples Directory Requirements@{Examples Directory Requirements}}
+\label{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md558}%
+\Hypertarget{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md558}%
+ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{lvgl/examples/}
+\DoxyCodeLine{\ \ \ \ index.rst\ \ \ \ \ \ \ \ (directory-\/order\ directive\ since\ sub-\/dirs}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ are\ not\ presented\ in\ alphabetical\ order)}
+\DoxyCodeLine{\ \ \ \ anim/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ index.rst\ \ \ \ (see\ below\ for\ expected\ contents)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lv\_example\_anim\_1.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lv\_example\_anim\_2.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lv\_example\_anim\_3.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lv\_example\_anim\_4.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ lv\_example\_anim\_timeline\_1.c}
+\DoxyCodeLine{\ \ \ \ ...}
+\DoxyCodeLine{\ \ \ \ layouts/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ flex/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ index.rst\ \ \ \ (see\ below\ for\ expected\ contents)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ lv\_example\_flex\_1.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ lv\_example\_flex\_2.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ lv\_example\_flex\_3.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ etc.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ grid/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ etc.}
+\DoxyCodeLine{\ \ \ \ libs/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ index.rst\ \ \ \ \ \ \ \ (section-\/heading\ name:\ "{}3rd-\/Party\ Libraries"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [since\ it\ is\ different\ than\ parent\ directory\ name])}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ barcode/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ index.rst\ \ \ \ (see\ below\ for\ expected\ contents)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ lv\_example\_barcode\_1.c}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ lv\_example\_barcode\_1.h}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ bmp/}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ etc.}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ etc.}
+\DoxyCodeLine{\ \ \ \ etc.}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md559}{}\doxysection{\texorpdfstring{index.\+rst Requirements}{index.rst Requirements}}\label{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md559}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Example\ 1\ Title\ \ <-\/-\/\ required\ for\ each\ example}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \ <-\/-\/\ required\ for\ each\ example}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <-\/-\/\ blank\ lines\ are\ ignored}
+\DoxyCodeLine{..\ lv\_example::\ anim/lv\_example\_anim\_1\ \ \ <-\/-\/\ path\ relative\ to\ the\ \`{}lvgl/examples/`\ dir}
+\DoxyCodeLine{\ \ \ \ :language:\ c}
+
+\end{DoxyCode}
+
+
+Repeat the above pattern for each example in current directory. That number may be zero (0) for directories like {\ttfamily libs/} in which all examples are in directories below that level. See directory structure above.
+
+For paths outside the current directory, simply provide the path to the code example relative to the {\ttfamily lvgl/examples/} directory. Example from {\ttfamily lvgl/examples/widgets/scale/index.\+rst}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{...}
+\DoxyCodeLine{}
+\DoxyCodeLine{A\ round\ scale\ style\ simulating\ a\ compass}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{..\ lv\_example::\ widgets/scale/lv\_example\_scale\_12}
+\DoxyCodeLine{\ \ :language:\ c}
+\DoxyCodeLine{}
+\DoxyCodeLine{Axis\ ticks\ and\ labels\ with\ scrolling\ on\ a\ chart}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{..\ lv\_example::\ widgets/chart/lv\_example\_chart\_2\ \ \ \ \ <-\/-\/\ path\ is\ outside\ scale/\ dir}
+\DoxyCodeLine{\ \ :language:\ c}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md560}{}\doxysubsubsection{\texorpdfstring{Note}{Note}}\label{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md560}
+Starting the example code filename with {\ttfamily lv\+\_\+example\+\_\+} is not a requirement of the {\ttfamily example\+\_\+list.\+py} script, but does make it clear that it is an example, so this pattern should be preserved for new and changed examples.\hypertarget{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md561}{}\doxysubsection{\texorpdfstring{Custom Section Headings}{Custom Section Headings}}\label{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md561}
+If a section heading needs to be spelled differently than the capitalized name of the parent directory, then an {\ttfamily index.\+rst} file in that directory may contain the desired section-\/heading name in an {\ttfamily .. example\+\_\+heading\+:} pseudo-\/directive. Example from {\ttfamily lvgl/examples/libs/index.\+rst}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{..\ example\_heading:\ 3rd-\/Party\ Libraries}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md562}{}\doxysubsection{\texorpdfstring{Optional Directory Reordering}{Optional Directory Reordering}}\label{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md562}
+There are cases where it is not appropriate to present the contents of a set of subdirectories in alphabetical order. When this is the case, a pseudo-\/directive in the {\ttfamily index.\+rst} file in the parent directory can be specified to govern the sequence its subdirectories are processed. The example below is from {\ttfamily lvgl/examples/widgets/index.\+rst}. It is provided in order to cause the "{}\+Base Widget"{} (obj) directory to be processed first (and thus included in the output first).
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{..\ dir\_order:}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ obj}
+\DoxyCodeLine{\ \ \ \ animimg}
+\DoxyCodeLine{\ \ \ \ arc}
+\DoxyCodeLine{\ \ \ \ arclabel}
+\DoxyCodeLine{\ \ \ \ bar}
+\DoxyCodeLine{\ \ \ \ button}
+\DoxyCodeLine{\ \ \ \ buttonmatrix}
+\DoxyCodeLine{\ \ \ \ etc.}
+
+\end{DoxyCode}
+\hypertarget{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md563}{}\doxysubsubsection{\texorpdfstring{Note}{Note}}\label{md_managed__components_2lvgl____lvgl_2examples_2README_autotoc_md563}
+A warning is issued if either\+:
+
+
+\begin{DoxyItemize}
+\item a subdirectory is named that does not exist, or
+\item a subdirectory exists that is not in the list and not in the {\ttfamily avoid\+\_\+dirs} list. 
+\end{DoxyItemize}

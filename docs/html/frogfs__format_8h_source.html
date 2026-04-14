@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/lvgl__lvgl/src/libs/frogfs/src/frogfs_format.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_048b45341ae6d63bbcc98d0ebf394f8f.html">libs</a></li><li class="navelem"><a class="el" href="dir_bced7b1c203e38a084231b7a54f95f40.html">frogfs</a></li><li class="navelem"><a class="el" href="dir_b93e1b5a1e5320aad3251998361d155c.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">frogfs_format.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* This Source Code Form is subject to the terms of the Mozilla Public</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * License, v. 2.0. If a copy of the MPL was not distributed with this</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * file, You can obtain one at http://mozilla.org/MPL/2.0/. */</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../../../lv_conf_internal.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include LV_STDINT_INCLUDE</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define FROGFS_IS_DIR(e) (e-&gt;u.child_count &lt; 0xFF00)</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define FROGFS_IS_FILE(e) (e-&gt;u.child_count &gt;= 0xFF00)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#define FROGFS_IS_COMP(e) (e-&gt;u.child_count &gt; 0xFF00)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structfrogfs__head__t.html">   29</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structfrogfs__head__t.html">frogfs_head_t</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structfrogfs__head__t.html#a7db765c1ecb7c274267be512ecc1bfcd">   30</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__head__t.html#a7db765c1ecb7c274267be512ecc1bfcd">magic</a>; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structfrogfs__head__t.html#a06561e81359e14b2c1975353351a9a11">   31</a></span>    uint8_t <a class="code hl_variable" href="structfrogfs__head__t.html#a06561e81359e14b2c1975353351a9a11">ver_major</a>; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structfrogfs__head__t.html#a9a7f53ce14334830020e6ab22da0bf77">   32</a></span>    uint8_t <a class="code hl_variable" href="structfrogfs__head__t.html#a9a7f53ce14334830020e6ab22da0bf77">ver_minor</a>; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    uint16_t num_entries; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structfrogfs__head__t.html#a7842f5dcd33cb56cc9eccee3be6ed05c">   34</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__head__t.html#a7842f5dcd33cb56cc9eccee3be6ed05c">bin_sz</a>; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <a class="code hl_struct" href="structfrogfs__head__t.html">frogfs_head_t</a>;</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structfrogfs__hash__t.html">   40</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structfrogfs__hash__t.html">frogfs_hash_t</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="structfrogfs__hash__t.html#a53d8a8c59f3fa487530d3fe2f5c14590">   41</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__hash__t.html#a53d8a8c59f3fa487530d3fe2f5c14590">hash</a>; </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="structfrogfs__hash__t.html#ab43ec112ff11c42a87934f2f9516a59b">   42</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__hash__t.html#ab43ec112ff11c42a87934f2f9516a59b">offs</a>; </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>} <a class="code hl_struct" href="structfrogfs__hash__t.html">frogfs_hash_t</a>;</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="};">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structfrogfs__entry__t.html">   48</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structfrogfs__entry__t.html">frogfs_entry_t</a> {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structfrogfs__entry__t.html#a42d8386f4771a5b0e7b2996f2a5ad7ff">   49</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__entry__t.html#a42d8386f4771a5b0e7b2996f2a5ad7ff">parent</a>; </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keyword">union </span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structfrogfs__entry__t.html#a9e6c34d40fef0e442d20238fbeb88c26">   51</a></span>        uint16_t <a class="code hl_variable" href="structfrogfs__entry__t.html#a9e6c34d40fef0e442d20238fbeb88c26">child_count</a>; </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structfrogfs__entry__t.html#a2fefcb3d7974ecabf7b175af79f38cdd">   52</a></span>        uint8_t <a class="code hl_variable" href="structfrogfs__entry__t.html#a2fefcb3d7974ecabf7b175af79f38cdd">compression</a>; </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    } u;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structfrogfs__entry__t.html#ac2c34ac53c0363e8ed12810381d13869">   54</a></span>    uint8_t <a class="code hl_variable" href="structfrogfs__entry__t.html#ac2c34ac53c0363e8ed12810381d13869">seg_sz</a>; </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structfrogfs__entry__t.html#a1be30830cdcd386398b6668118148522">   55</a></span>    uint8_t <a class="code hl_variable" href="structfrogfs__entry__t.html#a1be30830cdcd386398b6668118148522">opts</a>; </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structfrogfs__dir__t.html">   61</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structfrogfs__dir__t.html">frogfs_dir_t</a> {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structfrogfs__entry__t.html">frogfs_entry_t</a> entry;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    uint32_t children[];</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>} <a class="code hl_struct" href="structfrogfs__dir__t.html">frogfs_dir_t</a>;</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="};">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structfrogfs__file__t.html">   69</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structfrogfs__file__t.html">frogfs_file_t</a> {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structfrogfs__entry__t.html">frogfs_entry_t</a> entry;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    uint32_t data_offs;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    uint32_t data_sz;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>} <a class="code hl_struct" href="structfrogfs__file__t.html">frogfs_file_t</a>;</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structfrogfs__comp__t.html">   78</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structfrogfs__comp__t.html">frogfs_comp_t</a> {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keyword">const</span> <a class="code hl_struct" href="structfrogfs__entry__t.html">frogfs_entry_t</a> entry;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    uint32_t data_offs;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="structfrogfs__comp__t.html#a47387f61cba47b05457a8131257d041d">   81</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__comp__t.html#a47387f61cba47b05457a8131257d041d">data_sz</a>; </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="structfrogfs__comp__t.html#a9f2baa4d2e8758ddf0c4682fa67ca0b0">   82</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__comp__t.html#a9f2baa4d2e8758ddf0c4682fa67ca0b0">real_sz</a>; </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>} <a class="code hl_struct" href="structfrogfs__comp__t.html">frogfs_comp_t</a>;</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00088" data-start="{" data-end="};">
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structfrogfs__foot__t.html">   88</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structfrogfs__foot__t.html">frogfs_foot_t</a> {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structfrogfs__foot__t.html#a2d5a271771e38b5392c3d53685f40528">   89</a></span>    uint32_t <a class="code hl_variable" href="structfrogfs__foot__t.html#a2d5a271771e38b5392c3d53685f40528">crc32</a>; </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>} <a class="code hl_struct" href="structfrogfs__foot__t.html">frogfs_foot_t</a>;</div>
+</div>
+<div class="ttc" id="astructfrogfs__comp__t_html"><div class="ttname"><a href="structfrogfs__comp__t.html">frogfs_comp_t</a></div><div class="ttdoc">Compressed file object header.</div><div class="ttdef"><b>Definition</b> frogfs_format.h:78</div></div>
+<div class="ttc" id="astructfrogfs__comp__t_html_a47387f61cba47b05457a8131257d041d"><div class="ttname"><a href="structfrogfs__comp__t.html#a47387f61cba47b05457a8131257d041d">frogfs_comp_t::data_sz</a></div><div class="ttdeci">uint32_t data_sz</div><div class="ttdef"><b>Definition</b> frogfs_format.h:81</div></div>
+<div class="ttc" id="astructfrogfs__comp__t_html_a9f2baa4d2e8758ddf0c4682fa67ca0b0"><div class="ttname"><a href="structfrogfs__comp__t.html#a9f2baa4d2e8758ddf0c4682fa67ca0b0">frogfs_comp_t::real_sz</a></div><div class="ttdeci">uint32_t real_sz</div><div class="ttdef"><b>Definition</b> frogfs_format.h:82</div></div>
+<div class="ttc" id="astructfrogfs__dir__t_html"><div class="ttname"><a href="structfrogfs__dir__t.html">frogfs_dir_t</a></div><div class="ttdoc">Directory object header.</div><div class="ttdef"><b>Definition</b> frogfs_format.h:61</div></div>
+<div class="ttc" id="astructfrogfs__entry__t_html"><div class="ttname"><a href="structfrogfs__entry__t.html">frogfs_entry_t</a></div><div class="ttdoc">Entry header.</div><div class="ttdef"><b>Definition</b> frogfs_format.h:48</div></div>
+<div class="ttc" id="astructfrogfs__entry__t_html_a1be30830cdcd386398b6668118148522"><div class="ttname"><a href="structfrogfs__entry__t.html#a1be30830cdcd386398b6668118148522">frogfs_entry_t::opts</a></div><div class="ttdeci">uint8_t opts</div><div class="ttdef"><b>Definition</b> frogfs_format.h:55</div></div>
+<div class="ttc" id="astructfrogfs__entry__t_html_a2fefcb3d7974ecabf7b175af79f38cdd"><div class="ttname"><a href="structfrogfs__entry__t.html#a2fefcb3d7974ecabf7b175af79f38cdd">frogfs_entry_t::compression</a></div><div class="ttdeci">uint8_t compression</div><div class="ttdef"><b>Definition</b> frogfs_format.h:52</div></div>
+<div class="ttc" id="astructfrogfs__entry__t_html_a42d8386f4771a5b0e7b2996f2a5ad7ff"><div class="ttname"><a href="structfrogfs__entry__t.html#a42d8386f4771a5b0e7b2996f2a5ad7ff">frogfs_entry_t::parent</a></div><div class="ttdeci">uint32_t parent</div><div class="ttdef"><b>Definition</b> frogfs_format.h:49</div></div>
+<div class="ttc" id="astructfrogfs__entry__t_html_a9e6c34d40fef0e442d20238fbeb88c26"><div class="ttname"><a href="structfrogfs__entry__t.html#a9e6c34d40fef0e442d20238fbeb88c26">frogfs_entry_t::child_count</a></div><div class="ttdeci">uint16_t child_count</div><div class="ttdef"><b>Definition</b> frogfs_format.h:51</div></div>
+<div class="ttc" id="astructfrogfs__entry__t_html_ac2c34ac53c0363e8ed12810381d13869"><div class="ttname"><a href="structfrogfs__entry__t.html#ac2c34ac53c0363e8ed12810381d13869">frogfs_entry_t::seg_sz</a></div><div class="ttdeci">uint8_t seg_sz</div><div class="ttdef"><b>Definition</b> frogfs_format.h:54</div></div>
+<div class="ttc" id="astructfrogfs__file__t_html"><div class="ttname"><a href="structfrogfs__file__t.html">frogfs_file_t</a></div><div class="ttdoc">File object header.</div><div class="ttdef"><b>Definition</b> frogfs_format.h:69</div></div>
+<div class="ttc" id="astructfrogfs__foot__t_html"><div class="ttname"><a href="structfrogfs__foot__t.html">frogfs_foot_t</a></div><div class="ttdoc">Filesystem footer.</div><div class="ttdef"><b>Definition</b> frogfs_format.h:88</div></div>
+<div class="ttc" id="astructfrogfs__foot__t_html_a2d5a271771e38b5392c3d53685f40528"><div class="ttname"><a href="structfrogfs__foot__t.html#a2d5a271771e38b5392c3d53685f40528">frogfs_foot_t::crc32</a></div><div class="ttdeci">uint32_t crc32</div><div class="ttdef"><b>Definition</b> frogfs_format.h:89</div></div>
+<div class="ttc" id="astructfrogfs__hash__t_html"><div class="ttname"><a href="structfrogfs__hash__t.html">frogfs_hash_t</a></div><div class="ttdoc">Hash table entry.</div><div class="ttdef"><b>Definition</b> frogfs_format.h:40</div></div>
+<div class="ttc" id="astructfrogfs__hash__t_html_a53d8a8c59f3fa487530d3fe2f5c14590"><div class="ttname"><a href="structfrogfs__hash__t.html#a53d8a8c59f3fa487530d3fe2f5c14590">frogfs_hash_t::hash</a></div><div class="ttdeci">uint32_t hash</div><div class="ttdef"><b>Definition</b> frogfs_format.h:41</div></div>
+<div class="ttc" id="astructfrogfs__hash__t_html_ab43ec112ff11c42a87934f2f9516a59b"><div class="ttname"><a href="structfrogfs__hash__t.html#ab43ec112ff11c42a87934f2f9516a59b">frogfs_hash_t::offs</a></div><div class="ttdeci">uint32_t offs</div><div class="ttdef"><b>Definition</b> frogfs_format.h:42</div></div>
+<div class="ttc" id="astructfrogfs__head__t_html"><div class="ttname"><a href="structfrogfs__head__t.html">frogfs_head_t</a></div><div class="ttdoc">Filesystem header.</div><div class="ttdef"><b>Definition</b> frogfs_format.h:29</div></div>
+<div class="ttc" id="astructfrogfs__head__t_html_a06561e81359e14b2c1975353351a9a11"><div class="ttname"><a href="structfrogfs__head__t.html#a06561e81359e14b2c1975353351a9a11">frogfs_head_t::ver_major</a></div><div class="ttdeci">uint8_t ver_major</div><div class="ttdef"><b>Definition</b> frogfs_format.h:31</div></div>
+<div class="ttc" id="astructfrogfs__head__t_html_a7842f5dcd33cb56cc9eccee3be6ed05c"><div class="ttname"><a href="structfrogfs__head__t.html#a7842f5dcd33cb56cc9eccee3be6ed05c">frogfs_head_t::bin_sz</a></div><div class="ttdeci">uint32_t bin_sz</div><div class="ttdef"><b>Definition</b> frogfs_format.h:34</div></div>
+<div class="ttc" id="astructfrogfs__head__t_html_a7db765c1ecb7c274267be512ecc1bfcd"><div class="ttname"><a href="structfrogfs__head__t.html#a7db765c1ecb7c274267be512ecc1bfcd">frogfs_head_t::magic</a></div><div class="ttdeci">uint32_t magic</div><div class="ttdef"><b>Definition</b> frogfs_format.h:30</div></div>
+<div class="ttc" id="astructfrogfs__head__t_html_a9a7f53ce14334830020e6ab22da0bf77"><div class="ttname"><a href="structfrogfs__head__t.html#a9a7f53ce14334830020e6ab22da0bf77">frogfs_head_t::ver_minor</a></div><div class="ttdeci">uint8_t ver_minor</div><div class="ttdef"><b>Definition</b> frogfs_format.h:32</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

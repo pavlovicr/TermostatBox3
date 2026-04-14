@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: README</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">README</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p align="center"></p>
+<p><img src="images/arlekino-joker.jpg" alt="" width="100" class="inline"/> </p>
+<p align="center"></p>
+<p><img src="images/esp32s3-BOX-3.png" alt="" width="100" class="inline"/> </p>
+<p align="center"></p>
+<p><img src="images/AHT30.png" alt="" width="100" class="inline"/> </p>
+<p align="center"></p>
+<p><img src="images/ili9341.png" alt="" width="100" class="inline"/> </p>
+<h1><a class="anchor" id="autotoc_md658"></a>
+🌡️ WiFi Sobni Termostat — ESP32-S3-Box-3 + Shelly 2PM Gen3</h1>
+<p>Pametni sobni termostat z zaslonom na dotik, ki temelji na ESP32-S3-Box-3 in prek WiFi omrežja krmili Shelly 2PM Gen3 stikalo za vklop/izklop grelnega sistema.</p>
+<blockquote class="doxtable">
+<p>&zwj;📷 <em>Slika: ESP32-S3-Box-3 in Shelly 2PM Gen3 — strojna oprema projekta</em> </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md659"></a>
+&lt;/blockquote&gt;</h2>
+<h2><a class="anchor" id="autotoc_md660"></a>
+📋 Kazalo vsebine</h2>
+<ul>
+<li>Opis projekta</li>
+<li>Strojna oprema</li>
+<li>Programska oprema in knjižnice</li>
+<li>Shema vezave</li>
+<li>Konfiguracija Shelly 2PM Gen3</li>
+<li>Nastavitev projekta</li>
+<li>Konfiguracija parametrov</li>
+<li>Opis delovanja</li>
+<li>Upravljanje prek zaslona</li>
+<li>Zgradba in nalaganje firmware</li>
+<li>Odpravljanje težav</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md662"></a>
+📌 Opis projekta</h2>
+<p>Projekt implementira <b>samostojni WiFi termostat</b> z grafičnim vmesnikom na dotik. Naprava:</p>
+<ul>
+<li>meri temperaturo in vlažnost prek <b>vgrajenega ali zunanjega senzorja</b> (npr. SHT30, DHT22),</li>
+<li>prikazuje trenutne vrednosti in nastavitve na <b>barvnem IPS zaslonu</b> ESP32-S3-Box-3,</li>
+<li>omogoča nastavljanje <b>ciljne temperature</b> neposredno prek zaslona na dotik,</li>
+<li>prek <b>HTTP REST API klicev</b> krmili Shelly 2PM Gen3 — vklopi ali izklopi izhod (kanal 1) glede na izmereno temperaturo,</li>
+<li>implementira <b>histerezno logiko</b> za preprečitev pogostega preklapljanja,</li>
+<li>opcijsko se integrira z <b>Home Assistant</b> prek MQTT ali HTTP.</li>
+</ul>
+<blockquote class="doxtable">
+<p>&zwj;📷 <em>Slika: Zaslon termostata — prikaz temperature, vlažnosti in nastavljene vrednosti</em> </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md663"></a>
+&lt;/blockquote&gt;</h2>
+<h2><a class="anchor" id="autotoc_md664"></a>
+🔧 Strojna oprema</h2>
+<h3><a class="anchor" id="autotoc_md665"></a>
+Zahtevane komponente</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Komponenta   </th><th class="markdownTableHeadNone">Opis   </th><th class="markdownTableHeadNone">Opomba    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>ESP32-S3-Box-3</b>   </td><td class="markdownTableBodyNone">Razvojni kit z zaslonom, mikrofonom, zvočnikom   </td><td class="markdownTableBodyNone">Srce naprave    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Shelly 2PM Gen3</b>   </td><td class="markdownTableBodyNone">WiFi pametno stikalo z merjenjem moči (2 kanala)   </td><td class="markdownTableBodyNone">Krmili grelec    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Temperaturni senzor</b>   </td><td class="markdownTableBodyNone">SHT30 (I²C) ali DHT22   </td><td class="markdownTableBodyNone">Glej vezavo spodaj    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Napajanje ESP32</b>   </td><td class="markdownTableBodyNone">USB-C 5V / 2A   </td><td class="markdownTableBodyNone">Vključeno v Box-3    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Napajanje Shelly</b>   </td><td class="markdownTableBodyNone">110–240 V AC   </td><td class="markdownTableBodyNone">Pozor: visoka napetost!   </td></tr>
+</table>
+<blockquote class="doxtable">
+<p>&zwj;📷 <em>Slika: Shelly 2PM Gen3 — notranjost in priključni sponki</em> </p>
+</blockquote>
+<h3><a class="anchor" id="autotoc_md666"></a>
+Opomba glede senzorja</h3>
+<p>ESP32-S3-Box-3 <b>nima vgrajenega temperaturnega senzorja</b>. Za merjenje temperature in vlažnosti je treba priključiti zunanji senzor:</p>
+<ul>
+<li><b>SHT30</b> (priporočeno): I²C, natančen, enostaven za integracijo</li>
+<li><b>DHT22</b>: enovodna komunikacija, cenovno ugodnejši</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md668"></a>
+💻 Programska oprema in knjižnice</h2>
+<h3><a class="anchor" id="autotoc_md669"></a>
+Razvojno okolje</h3>
+<ul>
+<li><b>ESP-IDF</b> v5.x ali <b>Arduino IDE</b> z ESP32 podporo (odvisno od implementacije)</li>
+<li><b>PlatformIO</b> (priporočeno za lažje upravljanje odvisnosti)</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md670"></a>
+Ključne knjižnice</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Knjižnica   </th><th class="markdownTableHeadNone">Namen    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>lvgl</code>   </td><td class="markdownTableBodyNone">Grafični vmesnik (GUI) na zaslonu    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>esp_http_client</code>   </td><td class="markdownTableBodyNone">HTTP klici do Shelly API    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>esp_wifi</code>   </td><td class="markdownTableBodyNone">WiFi povezljivost    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>SHT3x</code> / <code>DHT</code>   </td><td class="markdownTableBodyNone">Branje senzorja temperature    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>esp_sntp</code>   </td><td class="markdownTableBodyNone">Sinhronizacija ure (opcijsko)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>arduino-mqtt</code>   </td><td class="markdownTableBodyNone">MQTT integracija (opcijsko)   </td></tr>
+</table>
+<hr  />
+<h2><a class="anchor" id="autotoc_md672"></a>
+🔌 Shema vezave</h2>
+<h3><a class="anchor" id="autotoc_md673"></a>
+Senzor SHT30 → ESP32-S3-Box-3</h3>
+<div class="fragment"><div class="line">SHT30           ESP32-S3-Box-3</div>
+<div class="line">------          ---------------</div>
+<div class="line">VCC  ────────►  3.3V</div>
+<div class="line">GND  ────────►  GND</div>
+<div class="line">SDA  ────────►  GPIO 8  (I²C Data)</div>
+<div class="line">SCL  ────────►  GPIO 18 (I²C Clock)</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;📷 <em>Slika: Fizična vezava senzorja na ESP32-S3-Box-3</em> </p>
+</blockquote>
+<h3><a class="anchor" id="autotoc_md674"></a>
+Shelly 2PM Gen3 — priključitev grelca</h3>
+<div class="fragment"><div class="line">230V napajanje ──►  L (Shelly vhod)</div>
+<div class="line">                    N (Shelly nevtrala)</div>
+<div class="line">Shelly izhod O1 ──► Grelec faza</div>
+<div class="line">Grelec nevtrala ──► N skupna</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;⚠️ <b>OPOZORILO:</b> Shelly 2PM Gen3 deluje pri omrežni napetosti 230V AC. <br  />
+ Priključevanje sme izvajati <b>izključno usposobljena oseba</b>. Pred delom obvezno <b>izklopite električno napajanje</b> na varovalniku! </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>&zwj;📷 <em>Slika: Shelly 2PM Gen3 — shema priključitve grelca</em> </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md675"></a>
+&lt;/blockquote&gt;</h2>
+<h2><a class="anchor" id="autotoc_md676"></a>
+⚙️ Konfiguracija Shelly 2PM Gen3</h2>
+<p>Preden zaženete termostat, morate Shelly ustrezno nastaviti.</p>
+<h3><a class="anchor" id="autotoc_md677"></a>
+1. Začetna nastavitev Shelly</h3>
+<ol type="1">
+<li>Shelly ob prvem zagonu ustvari lastno WiFi točko (<code>ShellyPlus2PM-XXXXXX</code>).</li>
+<li>Povežite se nanjo in odprite <code><a href="http://192.168.33.1">http://192.168.33.1</a></code> v brskalniku.</li>
+<li>Pod <b>Settings → WiFi</b> vnesite podatke vašega domačega WiFi omrežja.</li>
+<li>Po ponovnem zagonu preverite IP naslov Shelly v usmerjevalniku (DHCP lista).</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md678"></a>
+2. Nastavitev statičnega IP (priporočeno)</h3>
+<p>Da ESP32 vedno doseže Shelly na istem naslovu, nastavite statični IP:</p>
+<ul>
+<li>V spletnem vmesniku Shelly: <b>Settings → WiFi → Static IP</b></li>
+<li>Primer: <code>192.168.1.100</code>, maska <code>255.255.255.0</code>, prehod <code>192.168.1.1</code></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md679"></a>
+3. Preveritev HTTP API</h3>
+<p>V brskalniku ali z <code>curl</code> preverite, da API deluje:</p>
+<div class="fragment"><div class="line"># Stanje naprave</div>
+<div class="line">curl http://192.168.1.100/rpc/Shelly.GetStatus</div>
+<div class="line"> </div>
+<div class="line"># Vklop izhoda 1 (grelec ON)</div>
+<div class="line">curl &quot;http://192.168.1.100/rpc/Switch.Set?id=0&amp;on=true&quot;</div>
+<div class="line"> </div>
+<div class="line"># Izklop izhoda 1 (grelec OFF)</div>
+<div class="line">curl &quot;http://192.168.1.100/rpc/Switch.Set?id=0&amp;on=false&quot;</div>
+<div class="line"> </div>
+<div class="line"># Branje stanja stikala</div>
+<div class="line">curl &quot;http://192.168.1.100/rpc/Switch.GetStatus?id=0&quot;</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;📷 <em>Slika: Shelly spletni vmesnik — prikaz stanja in nastavitev</em> </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md680"></a>
+&lt;/blockquote&gt;</h2>
+<h2><a class="anchor" id="autotoc_md681"></a>
+🚀 Nastavitev projekta</h2>
+<h3><a class="anchor" id="autotoc_md682"></a>
+1. Kloniranje repozitorija</h3>
+<div class="fragment"><div class="line">git clone https://github.com/vaš-uporabnik/esp32-termostat.git</div>
+<div class="line">cd esp32-termostat</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md683"></a>
+2. Kopiranje konfiguracijske datoteke</h3>
+<div class="fragment"><div class="line">cp config/config_example.h config/config.h</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md684"></a>
+3. Urejanje konfiguracije</h3>
+<p>Odprite <code>config/config.h</code> in nastavite parametre (glej naslednje poglavje).</p>
+<h3><a class="anchor" id="autotoc_md685"></a>
+4. Nameščanje odvisnosti (PlatformIO)</h3>
+<div class="fragment"><div class="line">pio lib install</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md687"></a>
+🔑 Konfiguracija parametrov</h2>
+<p>Vse nastavitve so zbrane v datoteki <code>config/config.h</code>:</p>
+<div class="fragment"><div class="line"><span class="comment">// ── WiFi ──────────────────────────────────────────────</span></div>
+<div class="line"><span class="preprocessor">#define WIFI_SSID        &quot;VašeOmrežje&quot;</span></div>
+<div class="line"><span class="preprocessor">#define WIFI_PASSWORD    &quot;VašeGeslo&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ── Shelly 2PM Gen3 ───────────────────────────────────</span></div>
+<div class="line"><span class="preprocessor">#define SHELLY_IP        &quot;192.168.1.100&quot;   </span><span class="comment">// IP naslov Shelly</span></div>
+<div class="line"><span class="preprocessor">#define SHELLY_CHANNEL   0                  </span><span class="comment">// Kanal: 0 = izhod 1, 1 = izhod 2</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ── Temperaturni senzor ───────────────────────────────</span></div>
+<div class="line"><span class="preprocessor">#define SENSOR_TYPE      SENSOR_SHT30       </span><span class="comment">// SENSOR_SHT30 ali SENSOR_DHT22</span></div>
+<div class="line"><span class="preprocessor">#define SENSOR_SDA_PIN   8</span></div>
+<div class="line"><span class="preprocessor">#define SENSOR_SCL_PIN   18</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ── Termostatska logika ───────────────────────────────</span></div>
+<div class="line"><span class="preprocessor">#define TEMP_DEFAULT     21.0f              </span><span class="comment">// Privzeta ciljna temperatura (°C)</span></div>
+<div class="line"><span class="preprocessor">#define TEMP_MIN         10.0f              </span><span class="comment">// Minimalna nastavitev (°C)</span></div>
+<div class="line"><span class="preprocessor">#define TEMP_MAX         30.0f             </span><span class="comment">// Maksimalna nastavitev (°C)</span></div>
+<div class="line"><span class="preprocessor">#define TEMP_HYSTERESIS  0.5f              </span><span class="comment">// Histereza (°C) — preprečuje pogosto preklapljanje</span></div>
+<div class="line"><span class="preprocessor">#define SENSOR_INTERVAL  30000             </span><span class="comment">// Interval meritev (ms)</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ── MQTT (opcijsko) ───────────────────────────────────</span></div>
+<div class="line"><span class="preprocessor">#define MQTT_ENABLED     false</span></div>
+<div class="line"><span class="preprocessor">#define MQTT_BROKER      &quot;192.168.1.10&quot;</span></div>
+<div class="line"><span class="preprocessor">#define MQTT_PORT        1883</span></div>
+<div class="line"><span class="preprocessor">#define MQTT_TOPIC_STATE &quot;termostat/stanje&quot;</span></div>
+<div class="line"><span class="preprocessor">#define MQTT_TOPIC_SET   &quot;termostat/nastavi&quot;</span></div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md689"></a>
+🧠 Opis delovanja</h2>
+<h3><a class="anchor" id="autotoc_md690"></a>
+Termostatska logika (histereza)</h3>
+<p>Naprava deluje po naslednjem principu:</p>
+<div class="fragment"><div class="line">Izmerjena temperatura &lt; (Ciljna temperatura − Histereza)</div>
+<div class="line">    → Pošlji ukaz Shelly: VKLOPI grelec</div>
+<div class="line"> </div>
+<div class="line">Izmerjena temperatura &gt; (Ciljna temperatura + Histereza)</div>
+<div class="line">    → Pošlji ukaz Shelly: IZKLOPI grelec</div>
+<div class="line"> </div>
+<div class="line">Vmesno območje → Stanje se NE spremeni (preprečevanje treperenja)</div>
+</div><!-- fragment --><p><b>Primer</b> (ciljna temperatura 21°C, histereza 0,5°C):</p><ul>
+<li>Pod 20,5°C → grelec se VKLOPI</li>
+<li>Nad 21,5°C → grelec se IZKLOPI</li>
+<li>Med 20,5°C in 21,5°C → stanje ostane nespremenjeno</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md691"></a>
+HTTP komunikacija s Shelly</h3>
+<p>ESP32 pošilja ukaze prek lokalnega WiFi omrežja neposredno na Shelly REST API. Ni potrebe po oblačnih storitvah ali zunanjem posredniku.</p>
+<div class="fragment"><div class="line">ESP32-S3-Box-3  ──WiFi──►  Usmerjevalnik  ──LAN──►  Shelly 2PM Gen3</div>
+<div class="line">    (termostat)                                          (stikalo)</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md692"></a>
+Stanja sistema</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Stanje   </th><th class="markdownTableHeadNone">Opis    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">🔴 <code>CONNECTING</code>   </td><td class="markdownTableBodyNone">Vzpostavljanje WiFi povezave    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">🟡 <code>SENSOR_ERROR</code>   </td><td class="markdownTableBodyNone">Napaka pri branju senzorja    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">🟢 <code>HEATING</code>   </td><td class="markdownTableBodyNone">Grelec vklopljen    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">🔵 <code>IDLE</code>   </td><td class="markdownTableBodyNone">Grelec izklopljen, temperatura dosežena    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">⚫ <code>SHELLY_OFFLINE</code>   </td><td class="markdownTableBodyNone">Shelly ni dosegljiv   </td></tr>
+</table>
+<hr  />
+<h2><a class="anchor" id="autotoc_md694"></a>
+📱 Upravljanje prek zaslona</h2>
+<blockquote class="doxtable">
+<p>&zwj;📷 <em>Slika: Zaslonski vmesnik — glavni zaslon termostata</em> </p>
+</blockquote>
+<h3><a class="anchor" id="autotoc_md695"></a>
+Glavni zaslon</h3>
+<ul>
+<li><b>Zgornji del:</b> Trenutna temperatura (velika pisava) in vlažnost</li>
+<li><b>Sredina:</b> Nastavljena ciljna temperatura z gumbi <code>−</code> in <code>+</code></li>
+<li><b>Spodaj:</b> Ikona stanja grelca (🔥 = vklopljeno, ❄️ = izklopljeno)</li>
+<li><b>Statusna vrstica:</b> WiFi signal, ura, stanje Shelly</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md696"></a>
+Navigacija</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Gesta / gumb   </th><th class="markdownTableHeadNone">Dejanje    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Dotik <code>+</code>   </td><td class="markdownTableBodyNone">Povišaj ciljno temperaturo za 0,5°C    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Dotik <code>−</code>   </td><td class="markdownTableBodyNone">Znižaj ciljno temperaturo za 0,5°C    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Dolg pritisk <code>+</code> ali <code>−</code>   </td><td class="markdownTableBodyNone">Hitro spreminjanje temperature    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Dotik ikone nastavitev (⚙️)   </td><td class="markdownTableBodyNone">Odpri meni nastavitev    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Gumb na ohišju (levi)   </td><td class="markdownTableBodyNone">Pojdi nazaj / zbudi zaslon   </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md697"></a>
+Meni nastavitev</h3>
+<ul>
+<li>Ročni/Avtomatski način</li>
+<li>Nastavljanje urnika (opcijsko)</li>
+<li>Informacije o napravi (IP, firmware verzija)</li>
+<li>Ponastavitev na privzete vrednosti</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md699"></a>
+🏗️ Zgradba in nalaganje firmware</h2>
+<h3><a class="anchor" id="autotoc_md700"></a>
+PlatformIO (priporočeno)</h3>
+<div class="fragment"><div class="line"># Zgradba</div>
+<div class="line">pio run</div>
+<div class="line"> </div>
+<div class="line"># Nalaganje na ESP32-S3-Box-3</div>
+<div class="line">pio run --target upload</div>
+<div class="line"> </div>
+<div class="line"># Odpri serijski monitor (115200 baud)</div>
+<div class="line">pio device monitor</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md701"></a>
+Arduino IDE</h3>
+<ol type="1">
+<li>Odprite <code>src/main.cpp</code> (preimenujte v <code>main.ino</code>).</li>
+<li>V <b>Board Manager</b> izberite: <code>ESP32S3 Dev Module</code>.</li>
+<li>Nastavite <b>Flash Size</b>: <code>16MB</code>, <b>PSRAM</b>: <code>OPI PSRAM</code>.</li>
+<li>Naložite s <code>Ctrl+U</code>.</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md702"></a>
+Pričakovani izpis ob zagonu</h3>
+<div class="fragment"><div class="line">[BOOT] ESP32-S3-Box-3 Termostat v1.0</div>
+<div class="line">[WIFI] Povezovanje na &#39;VašeOmrežje&#39;...</div>
+<div class="line">[WIFI] Povezano! IP: 192.168.1.50</div>
+<div class="line">[SENSOR] SHT30 inicializiran (I²C: 0x44)</div>
+<div class="line">[SHELLY] Dosegljiv na 192.168.1.100 ✓</div>
+<div class="line">[THERMOSTAT] Zagotovljeno — ciljna temp: 21.0°C, histereza: 0.5°C</div>
+</div><!-- fragment --><hr  />
+<h2><a class="anchor" id="autotoc_md704"></a>
+🛠️ Odpravljanje težav</h2>
+<h3><a class="anchor" id="autotoc_md705"></a>
+WiFi se ne poveže</h3>
+<ul>
+<li>Preverite SSID in geslo v <code>config.h</code>.</li>
+<li>ESP32-S3-Box-3 podpira samo <b>2,4 GHz</b> omrežja (ne 5 GHz).</li>
+<li>Preverite, ali je DHCP vklopljen na usmerjevalniku.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md706"></a>
+Shelly ni dosegljiv</h3>
+<div class="fragment"><div class="line"># Na računalniku v istem omrežju preverite:</div>
+<div class="line">ping 192.168.1.100</div>
+<div class="line">curl http://192.168.1.100/rpc/Shelly.GetDeviceInfo</div>
+</div><!-- fragment --><ul>
+<li>Prepričajte se, da sta ESP32 in Shelly v <b>istem WiFi omrežju</b>.</li>
+<li>Preverite, ali usmerjevalnik blokira komunikacijo med napravami (AP isolation).</li>
+<li>Potrdite IP naslov Shelly v DHCP tabeli usmerjevalnika.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md707"></a>
+Napaka senzorja temperature</h3>
+<ul>
+<li>Preverite ožičenje: VCC → 3.3V (ne 5V!), GND, SDA, SCL.</li>
+<li>Preverite I²C naslov senzorja (SHT30 privzeto: <code>0x44</code>).</li>
+<li>V serijskem monitorju preverite I²C scan:</li>
+</ul>
+<div class="fragment"><div class="line">[I2C] Iskanje naprav...</div>
+<div class="line">[I2C] Najdena naprava na naslovu: 0x44  ✓</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md708"></a>
+Grelec ne reagira</h3>
+<ul>
+<li>Preverite ročno z <code>curl</code> (glejte poglavje Konfiguracija Shelly).</li>
+<li>Preverite, ali je pravi kanal nastavljen (<code>SHELLY_CHANNEL 0</code> ali <code>1</code>).</li>
+<li>Preverite, ali ima Shelly dovoljenja za lokalni API (v nastavitvah Shelly: <b>Settings → Local control → Enabled</b>).</li>
+</ul>
+<hr  />
+<h2><a class="anchor" id="autotoc_md710"></a>
+📡 Opcijska integracija z Home Assistant</h2>
+<p>Če imate Home Assistant, lahko termostat integrirate prek MQTT:</p>
+<div class="fragment"><div class="line"># configuration.yaml</div>
+<div class="line">climate:</div>
+<div class="line">  - platform: mqtt</div>
+<div class="line">    name: &quot;Sobni termostat&quot;</div>
+<div class="line">    modes:</div>
+<div class="line">      - &quot;off&quot;</div>
+<div class="line">      - &quot;heat&quot;</div>
+<div class="line">    current_temperature_topic: &quot;termostat/stanje/temperatura&quot;</div>
+<div class="line">    temperature_command_topic: &quot;termostat/nastavi/temperatura&quot;</div>
+<div class="line">    temperature_state_topic: &quot;termostat/stanje/ciljna_temp&quot;</div>
+<div class="line">    mode_command_topic: &quot;termostat/nastavi/nacin&quot;</div>
+<div class="line">    mode_state_topic: &quot;termostat/stanje/nacin&quot;</div>
+</div><!-- fragment --><blockquote class="doxtable">
+<p>&zwj;Omogočite MQTT v <code>config.h</code> in nastavite <code>MQTT_BROKER</code> na IP naslov vašega HA strežnika. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md711"></a>
+&lt;/blockquote&gt;</h2>
+<h2><a class="anchor" id="autotoc_md712"></a>
+📄 Licenca</h2>
+<p>MIT License — prosto za osebno in komercialno uporabo z navedbo avtorja.</p>
+<hr  />
+<h2><a class="anchor" id="autotoc_md714"></a>
+🙏 Zahvala</h2>
+<ul>
+<li><a href="https://lvgl.io/">LVGL</a> — odlična knjižnica za GUI na vgrajenih sistemih</li>
+<li><a href="https://shelly.cloud/">Shelly</a> — za odprt lokalni HTTP API</li>
+<li><a href="https://www.espressif.com/">Espressif</a> — za ESP32-S3-Box-3 platformo</li>
+</ul>
+<hr  />
+<p><em>Zadnja posodobitev: April 2026</em> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

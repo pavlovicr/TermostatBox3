@@ -1,0 +1,261 @@
+\chapter{ESP Codec Device}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN}{}\label{md_managed__components_2espressif____esp__codec__dev_2README__CN}\index{ESP Codec Device@{ESP Codec Device}}
+\label{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md273}%
+\Hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md273}%
+
+\begin{DoxyItemize}
+\item \href{https://components.espressif.com/components/espressif/esp_codec_dev}{\texttt{ }}
+\item \doxysectlink{md_README}{English version}{0}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md274}{}\doxysection{\texorpdfstring{概要}{概要}}\label{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md274}
+{\ttfamily esp\+\_\+codec\+\_\+dev} 是为音频编解码器设备提供驱动的组件，目前支持以下功能\+:
+\begin{DoxyItemize}
+\item 提供常用音频编解码器设备的驱动
+\item 支持音频编解码器设备的多实例 （包括同类型设备）
+\item 提供统一的抽象化接口来操作编解码器设备
+\item 支持客户定制化编解码器设备 (仅需实例化提供的接口)
+\item 为播放和录音提供易用的上层 API
+\item 支持通过内部 ADC 数据接口采集 ADC 麦克风 ({\ttfamily audio\+\_\+codec\+\_\+new\+\_\+adc\+\_\+data})
+\item 支持 PA-\/only 扬声器场景使用 dummy codec ({\ttfamily dummy\+\_\+codec\+\_\+new})，并通过 {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+open/close} 自动控制 PA
+\item 支持软件音量调节 (硬件不支持音量调节时)
+\item 支持定制化音量曲线以及音量控制实现
+\item 兼容多平台仅需替换 \href{./platform}{\texttt{ platform}}
+\end{DoxyItemize}
+
+已经支持的编解码器设备如下\+: \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ }&\cellcolor{\tableheadbgcolor}\textbf{ 播放   }&\cellcolor{\tableheadbgcolor}\textbf{ 录音    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\cellcolor{\tableheadbgcolor}\textbf{ }&\cellcolor{\tableheadbgcolor}\textbf{ 播放   }&\cellcolor{\tableheadbgcolor}\textbf{ 录音    }\\\cline{1-3}
+\endhead
+ES8311   &Y   &Y    \\\cline{1-3}
+ES8388   &Y   &Y    \\\cline{1-3}
+ES8374   &Y   &Y    \\\cline{1-3}
+ZL38063   &Y   &Y    \\\cline{1-3}
+TAS6805M   &Y   &N    \\\cline{1-3}
+AW88298   &Y   &N    \\\cline{1-3}
+ES8389   &Y   &Y    \\\cline{1-3}
+ES7210   &N   &Y    \\\cline{1-3}
+ES7243   &N   &Y    \\\cline{1-3}
+ES7243E   &N   &Y    \\\cline{1-3}
+ES8156   &N   &Y    \\\cline{1-3}
+CJC8910   &Y   &Y   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md275}{}\doxysection{\texorpdfstring{架构预览}{架构预览}}\label{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md275}
+以编解码器设备 (ES8311) 为例，下面分别介绍硬件框图和软件架构。 编解码器设备 (ES8311) 和主芯片(ESP32-\/\+S3) 之间的硬件连接简图如下\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{graph\ LR;}
+\DoxyCodeLine{\ \ \ \ subgraph\ "{}麦克风"{}}
+\DoxyCodeLine{\ \ \ \ \ \ Microphone}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ ESP32-\/S3}
+\DoxyCodeLine{\ \ \ \ \ \ \ I2C总线}
+\DoxyCodeLine{\ \ \ \ \ \ \ I2S总线}
+\DoxyCodeLine{\ \ \ \ \ \ \ PA\_GPIO}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ ES8311}
+\DoxyCodeLine{\ \ \ \ \ \ ADC}
+\DoxyCodeLine{\ \ \ \ \ \ DAC}
+\DoxyCodeLine{\ \ \ \ \ \ I2C端口}
+\DoxyCodeLine{\ \ \ \ \ \ I2S端口}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ NS4150}
+\DoxyCodeLine{\ \ \ \ \ \ IN}
+\DoxyCodeLine{\ \ \ \ \ \ CTRL}
+\DoxyCodeLine{\ \ \ \ \ \ OUT}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ subgraph\ "{}扬声器"{}}
+\DoxyCodeLine{\ \ \ \ \ \ Speaker}
+\DoxyCodeLine{\ \ \ \ end}
+\DoxyCodeLine{\ \ \ \ I2C总线\ -\/-\/>\ I2C端口}
+\DoxyCodeLine{\ \ \ \ I2S总线\ -\/-\/>\ I2S端口}
+\DoxyCodeLine{\ \ \ \ DAC\ -\/-\/>\ IN}
+\DoxyCodeLine{\ \ \ \ OUT\ -\/-\/>\ Speaker}
+\DoxyCodeLine{\ \ \ \ PA\_GPIO\ -\/-\/>\ CTRL}
+\DoxyCodeLine{\ \ \ \ Microphone\ -\/-\/>\ ADC}
+
+\end{DoxyCode}
+
+
+ESP32-\/\+S3 通过 I2C 总线向 ES8311 发送控制命令，通过 I2S 总线传递音频数据。在播放过程中, ES8311 从 I2S 总线接收数字音频数据进行数模转换后发送给功放芯片(\+NS4150), 最后发送给扬声器输出声音。在录音过程中，\+ES8311将从麦克风采集到的模拟信号放大，进行模数转换后发送给 ESP32-\/\+S3。 ESP32-\/\+S3 同 ES8311 在以下两个通道进行通讯\+:
+\begin{DoxyEnumerate}
+\item 控制通道：用来配置编解码器设备 (通过 I2C 总线)
+\item 数据通道\+: 用来交换音频数据 (通过 I2S 总线)
+\end{DoxyEnumerate}
+
+软件架构上，对硬件行为进行了下述抽象： 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{classDiagram}
+\DoxyCodeLine{direction\ LR;}
+\DoxyCodeLine{class\ audio\_codec\_ctrl\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ open()}
+\DoxyCodeLine{\ \ \ \ read\_reg()}
+\DoxyCodeLine{\ \ \ \ write\_reg()}
+\DoxyCodeLine{\ \ \ \ close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ audio\_codec\_gpio\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ setup()}
+\DoxyCodeLine{\ \ \ \ set()}
+\DoxyCodeLine{\ \ \ \ get()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ es8311\_codec\_cfg\_t\ \{}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_ctrl\_if\_t\ *ctrl\_if}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_gpio\_if\_t\ *gpio\_if}
+\DoxyCodeLine{\ \ \ \ int16\_t\ pa\_pin}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_hw\_gain\_t\ hw\_gain}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ audio\_codec\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_ctrl\_if\_t*\ ctrl\_if}
+\DoxyCodeLine{\ \ \ \ open()}
+\DoxyCodeLine{\ \ \ \ enable()}
+\DoxyCodeLine{\ \ \ \ set\_fs()}
+\DoxyCodeLine{\ \ \ \ set\_vol()}
+\DoxyCodeLine{\ \ \ \ set\_mic\_gain()}
+\DoxyCodeLine{\ \ \ \ close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ audio\_codec\_data\_if\_t\ \{}
+\DoxyCodeLine{\ \ \ \ open()}
+\DoxyCodeLine{\ \ \ \ set\_fmt()}
+\DoxyCodeLine{\ \ \ \ read()}
+\DoxyCodeLine{\ \ \ \ write()}
+\DoxyCodeLine{\ \ \ \ close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{class\ esp\_codec\_dev\ \{}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_data\_if\_t*\ data\_if}
+\DoxyCodeLine{\ \ \ \ audio\_codec\_if\_t*\ codec\_if}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_new()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_open()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_read()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_write()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_out\_vol()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_in\_gain()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_vol\_curve()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_set\_vol\_handler()}
+\DoxyCodeLine{\ \ \ \ esp\_codec\_dev\_close()}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{audio\_codec\_ctrl\_if\_t\ ..>\ es8311\_codec\_cfg\_t}
+\DoxyCodeLine{audio\_codec\_gpio\_if\_t\ ..>\ es8311\_codec\_cfg\_t}
+\DoxyCodeLine{es8311\_codec\_cfg\_t\ ..>\ audio\_codec\_if\_t}
+\DoxyCodeLine{audio\_codec\_if\_t\ ..>\ esp\_codec\_dev}
+\DoxyCodeLine{audio\_codec\_data\_if\_t\ ..>\ esp\_codec\_dev}
+
+\end{DoxyCode}
+
+
+通讯通道抽象为两种接口\+:
+\begin{DoxyItemize}
+\item {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} 控制接口： 主要提供 {\ttfamily read\+\_\+reg} 和 {\ttfamily write\+\_\+reg} API 来配置编解码器设备 常用控制通道包括 I2\+C， SPI 等
+\item {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} 数据接口： 主要提供 {\ttfamily read} 和 {\ttfamily write} API 用来交换音频数据 常用数据通道包括 I2\+S， SPI 等
+\end{DoxyItemize}
+
+{\ttfamily esp\+\_\+codec\+\_\+dev} 为用户提供便捷的上层 API 来实现播放和录音功能。它是由 {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} 和 {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} 组成。{\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} 对编解码器控制操作进行抽象，通过编解码器特有的配置参数构建（由 {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} 和{\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} 通过 {\ttfamily \doxylink{structes8311__codec__cfg__t}{es8311\+\_\+codec\+\_\+cfg\+\_\+t}} 进行配置）。{\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} 对 IO 控制进行抽象，以适配主控 IO 或者扩展芯片 IO， 在编解码器内部进行调用用以匹配特有的设定时序。\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md276}{}\doxysection{\texorpdfstring{解码器音量设定}{解码器音量设定}}\label{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md276}
+音量统一通过 API {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+out\+\_\+vol} 进行设定。 {\ttfamily esp\+\_\+codec\+\_\+dev} 支持以下音量设定实现\+:
+\begin{DoxyEnumerate}
+\item 通过调节音量寄存器实现
+\item 在硬件不支持音量调节下，可以使用内置的软件音量实现 {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+sw\+\_\+vol}
+\item 客制化音量接口实现，并通过 {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+vol\+\_\+handler} 设定
+\end{DoxyEnumerate}
+
+默认的音量调节区间是 0 -\/ 100，音量 100 对应为 0 d\+B，每个刻度对应 0.\+5 d\+B，音量 0 被特殊映射为 -\/96 d\+B。用户可以通过 {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+vol\+\_\+curve} 设定音量曲线来改变这一行为。音量曲线是音量映射 {\ttfamily \doxylink{structesp__codec__dev__vol__map__t}{esp\+\_\+codec\+\_\+dev\+\_\+vol\+\_\+map\+\_\+t}} 的数组，通过线性插值的方法来计算每一个音量对应的 dB 值 (请预先将音量映射排好序)。
+
+为了平衡在不同平台上播放相同内容的响度差异，需要了解音频增益的相关机制。简单说来音频增益包括软件增益 （可调节）和硬件增益 (不可调节) 两部分。软件增益可以通过改变音频数据的幅值或者改变音量寄存器实现。硬件增益受外围电路的影响，主要取决于模拟信号的放大系数。实现中选取了典型的影响参数 {\ttfamily \doxylink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}}，作为配置参数进行配置，以抵消平台间响度差异，详情可参考代码注释 \href{include/esp_codec_dev_vol.h}{\texttt{ esp\+\_\+codec\+\_\+dev\+\_\+vol.\+h}}。\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md277}{}\doxysection{\texorpdfstring{使用方法}{使用方法}}\label{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md277}
+以 ES8311 为例，下面将演示播放和录音的具体步骤
+\begin{DoxyEnumerate}
+\item 为编解码器设备的控制和数据总线安装驱动，可参考\href{test_apps/codec_dev_test/main/test_board.c}{\texttt{ test\+\_\+board.\+c}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ut\_i2c\_init(0);}
+\DoxyCodeLine{ut\_i2s\_init(0);}
+
+\end{DoxyCode}
+
+\item 为编解码器设备实现控制接口，数据接口和 GPIO 接口 (使用默认提供的接口实现) 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structaudio__codec__i2s__cfg__t}{audio\_codec\_i2s\_cfg\_t}}\ i2s\_cfg\ =\ \{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#if\ ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 0,\ 0)}}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{structaudio__codec__i2s__cfg__t_ad3c05b2d576039a5430ba5e85f6ff5e8}{rx\_handle}}\ =\ i2s\_keep[0]-\/>rx\_handle,}
+\DoxyCodeLine{\ \ \ \ .tx\_handle\ =\ i2s\_keep[0]-\/>tx\_handle,}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__data__if__t}{audio\_codec\_data\_if\_t}}\ *data\_if\ =\ audio\_codec\_new\_i2s\_data(\&i2s\_cfg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{structaudio__codec__i2c__cfg__t}{audio\_codec\_i2c\_cfg\_t}}\ i2c\_cfg\ =\ \{.\mbox{\hyperlink{structaudio__codec__i2c__cfg__t_a9d87b479bdb9d284a4917bf025ba0293}{addr}}\ =\ ES8311\_CODEC\_DEFAULT\_ADDR\};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\_codec\_ctrl\_if\_t}}\ *out\_ctrl\_if\ =\ audio\_codec\_new\_i2c\_ctrl(\&i2c\_cfg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}}\ *gpio\_if\ =\ audio\_codec\_new\_gpio();}
+
+\end{DoxyCode}
+
+\item 基于控制接口和 ES8311 特有的配置实现 {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} 接口 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structes8311__codec__cfg__t}{es8311\_codec\_cfg\_t}}\ es8311\_cfg\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{structes8311__codec__cfg__t_a1eee056f7211c85f7e54f40e05af8540}{codec\_mode}}\ =\ ESP\_CODEC\_DEV\_WORK\_MODE\_BOTH,}
+\DoxyCodeLine{\ \ \ \ .ctrl\_if\ =\ out\_ctrl\_if,}
+\DoxyCodeLine{\ \ \ \ .gpio\_if\ =\ gpio\_if,}
+\DoxyCodeLine{\ \ \ \ .pa\_pin\ =\ YOUR\_PA\_GPIO,}
+\DoxyCodeLine{\ \ \ \ .use\_mclk\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__if__t}{audio\_codec\_if\_t}}\ *out\_codec\_if\ =\ es8311\_codec\_new(\&es8311\_cfg);}
+
+\end{DoxyCode}
+
+\item 通过 API {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+new} 获取 {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+handle\+\_\+t} 句柄 参考下面代码用获取到的句柄来进行播放和录制操作\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{structesp__codec__dev__cfg__t}{esp\_codec\_dev\_cfg\_t}}\ dev\_cfg\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .\mbox{\hyperlink{structesp__codec__dev__cfg__t_ac56b4a00089745d0c8cbed2585c6e6b4}{codec\_if}}\ =\ out\_codec\_if;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ es8311\_codec\_new\ 获取到的接口实现}}
+\DoxyCodeLine{\ \ \ \ .data\_if\ =\ data\_if;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ audio\_codec\_new\_i2s\_data\ 获取到的数据接口实现}}
+\DoxyCodeLine{\ \ \ \ .dev\_type\ =\ ESP\_CODEC\_DEV\_TYPE\_IN\_OUT;\ \textcolor{comment}{//\ 设备同时支持录制和播放}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{esp\_codec\_dev\_handle\_t\ codec\_dev\ =\ esp\_codec\_dev\_new(\&dev\_cfg);}
+\DoxyCodeLine{\textcolor{comment}{//\ 以下代码展示如何播放音频}}
+\DoxyCodeLine{esp\_codec\_dev\_set\_out\_vol(codec\_dev,\ 60.0);}
+\DoxyCodeLine{\mbox{\hyperlink{structesp__codec__dev__sample__info__t}{esp\_codec\_dev\_sample\_info\_t}}\ fs\ =\ \{}
+\DoxyCodeLine{\ \ \ \ .sample\_rate\ =\ 48000,}
+\DoxyCodeLine{\ \ \ \ .channel\ =\ 2,}
+\DoxyCodeLine{\ \ \ \ .bits\_per\_sample\ =\ 16,}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{esp\_codec\_dev\_open(codec\_dev,\ \&fs);}
+\DoxyCodeLine{uint8\_t\ data[256];}
+\DoxyCodeLine{esp\_codec\_dev\_write(codec\_dev,\ data,\ \textcolor{keyword}{sizeof}(data));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ 以下代码展示如何录制音频}}
+\DoxyCodeLine{esp\_codec\_dev\_set\_in\_gain(codec\_dev,\ 30.0);}
+\DoxyCodeLine{esp\_codec\_dev\_read(codec\_dev,\ data,\ \textcolor{keyword}{sizeof}(data));}
+\DoxyCodeLine{esp\_codec\_dev\_close(codec\_dev);}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md278}{}\doxysubsection{\texorpdfstring{使用 ADC mic 和 dummy codec（无外部 codec 芯片）}{使用 ADC mic 和 dummy codec（无外部 codec 芯片）}}\label{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md278}
+对于使用内部 ADC 麦克风，且扬声器仅有 PA、没有外部 codec 芯片的板级设计：
+
+
+\begin{DoxyItemize}
+\item 使用 {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+adc\+\_\+data} 作为 ADC 录音数据接口。
+\item 使用 {\ttfamily dummy\+\_\+codec\+\_\+new} 并配置 {\ttfamily pa\+\_\+pin}，将 PA 电源控制绑定到 codec 生命周期。
+\item 这样依然可以通过 {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+open()} / {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+close()} 自动开关 PA。
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md279}{}\doxysection{\texorpdfstring{客制化编解码器设备}{客制化编解码器设备}}\label{md_managed__components_2espressif____esp__codec__dev_2README__CN_autotoc_md279}
+
+\begin{DoxyEnumerate}
+\item 实现接口 {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} 和 {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} 如果使用 I2C 总线作控制，\+I2S 总线做数据传输，可以使用默认的接口实现： {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+i2c\+\_\+ctrl} 和 {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+i2s\+\_\+data}
+\item 在第一步的基础上实现接口 {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__ctrl__if__t}{audio\_codec\_ctrl\_if\_t}}\ *ctrl\_if;\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__gpio__if__t}{audio\_codec\_gpio\_if\_t}}\ *gpio\_if;\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//...................................\ \ \ \ \ 其他设定}}
+\DoxyCodeLine{\}\ \mbox{\hyperlink{structmy__codec__cfg__t}{my\_codec\_cfg\_t}};}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \mbox{\hyperlink{structaudio__codec__if__t}{audio\_codec\_if\_t}}\ *my\_codec\_new(\mbox{\hyperlink{structmy__codec__cfg__t}{my\_codec\_cfg\_t}}\ *codec\_cfg);}
+
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+更细节的实现可以参考测试代码 \href{test_apps/codec_dev_test/main/my_codec.c}{\texttt{ my\+\_\+codec.\+c}}。 

@@ -1,0 +1,574 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+fs.h}
+\hypertarget{lv__fs_8h}{}\label{lv__fs_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_fs.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_fs.h}}
+{\ttfamily \#include "{}../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+fs.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+fs.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lv__fs_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__fs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structlv__fs__path__ex__t}{lv\+\_\+fs\+\_\+path\+\_\+ex\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__fs_8h_ae13bb25193e3fb51a4d2783195a230e9}\label{lv__fs_8h_ae13bb25193e3fb51a4d2783195a230e9} 
+\#define {\bfseries LV\+\_\+\+FS\+\_\+\+MAX\+\_\+\+FN\+\_\+\+LENGTH}~64
+\item 
+\Hypertarget{lv__fs_8h_a2b80a18ddbc650e5f838ac4dd6e0025b}\label{lv__fs_8h_a2b80a18ddbc650e5f838ac4dd6e0025b} 
+\#define {\bfseries LV\+\_\+\+FS\+\_\+\+MAX\+\_\+\+PATH\+\_\+\+LENGTH}~256
+\item 
+\Hypertarget{lv__fs_8h_ad43f3384e6d066e4d0911d2870cfd326}\label{lv__fs_8h_ad43f3384e6d066e4d0911d2870cfd326} 
+\#define {\bfseries LV\+\_\+\+FS\+\_\+\+CACHE\+\_\+\+FROM\+\_\+\+BUFFER}~UINT32\+\_\+\+MAX
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__fs_8h_ae4753375c8bf76a1c092017b5f377424}\label{lv__fs_8h_ae4753375c8bf76a1c092017b5f377424} 
+typedef struct \mbox{\hyperlink{struct__lv__fs__drv__t}{\+\_\+lv\+\_\+fs\+\_\+drv\+\_\+t}} {\bfseries lv\+\_\+fs\+\_\+drv\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \{ \newline
+{\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK} = 0
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+HW\+\_\+\+ERR}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+FS\+\_\+\+ERR}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+NOT\+\_\+\+EX}
+, \newline
+{\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+FULL}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+LOCKED}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+DENIED}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+BUSY}
+, \newline
+{\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+TOUT}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+NOT\+\_\+\+IMP}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OUT\+\_\+\+OF\+\_\+\+MEM}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+INV\+\_\+\+PARAM}
+, \newline
+{\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+DRIVE\+\_\+\+LETTER\+\_\+\+ALREADY\+\_\+\+USED}
+, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+UNKNOWN}
+ \}
+\item 
+enum \mbox{\hyperlink{lv__fs_8h_a8360657f94ea531412909c3e9b39223c}{lv\+\_\+fs\+\_\+mode\+\_\+t}} \{ {\bfseries LV\+\_\+\+FS\+\_\+\+MODE\+\_\+\+WR} = 0x01
+, {\bfseries LV\+\_\+\+FS\+\_\+\+MODE\+\_\+\+RD} = 0x02
+ \}
+\item 
+enum \mbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267b}{lv\+\_\+fs\+\_\+whence\+\_\+t}} \{ \mbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267baeab4de99544eff8575fed2fee38cd6c5}{LV\+\_\+\+FS\+\_\+\+SEEK\+\_\+\+SET}} = 0x00
+, \mbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267bae2d8f6afe283d333394a7af28e858196}{LV\+\_\+\+FS\+\_\+\+SEEK\+\_\+\+CUR}} = 0x01
+, \mbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267bab0f1a6bb2458d1531627e1be79eb79ac}{LV\+\_\+\+FS\+\_\+\+SEEK\+\_\+\+END}} = 0x02
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__fs_8h_a0c8cc12755f7515de54ec9064e83af75}{lv\+\_\+fs\+\_\+drv\+\_\+init}} (\mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv)
+\item 
+void \mbox{\hyperlink{lv__fs_8h_a2540b36d20b26416d944092a818b7be6}{lv\+\_\+fs\+\_\+drv\+\_\+register}} (\mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv)
+\item 
+\mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_a5981cd3ba5515329a8a52065594155db}{lv\+\_\+fs\+\_\+get\+\_\+drv}} (char letter)
+\item 
+void \mbox{\hyperlink{lv__fs_8h_a97c2868a79e19150e25eccde22eabde7}{lv\+\_\+fs\+\_\+remove\+\_\+drive}} (char letter)
+\item 
+bool \mbox{\hyperlink{lv__fs_8h_a4afefd5dbe151665fa2a24ad0a1eeff8}{lv\+\_\+fs\+\_\+is\+\_\+ready}} (char letter)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a339d0b51618dbcec593d0f4081348e5d}{lv\+\_\+fs\+\_\+open}} (\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}file\+\_\+p, const char \texorpdfstring{$\ast$}{*}path, \mbox{\hyperlink{lv__fs_8h_a8360657f94ea531412909c3e9b39223c}{lv\+\_\+fs\+\_\+mode\+\_\+t}} mode)
+\item 
+void \mbox{\hyperlink{lv__fs_8h_ab3e0455665065d99a2148191e1b7de6f}{lv\+\_\+fs\+\_\+make\+\_\+path\+\_\+from\+\_\+buffer}} (\mbox{\hyperlink{structlv__fs__path__ex__t}{lv\+\_\+fs\+\_\+path\+\_\+ex\+\_\+t}} \texorpdfstring{$\ast$}{*}path, char letter, const void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t size, const char \texorpdfstring{$\ast$}{*}ext)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_adb1ac42aca08605eafdba56f1b054346}{lv\+\_\+fs\+\_\+get\+\_\+buffer\+\_\+from\+\_\+path}} (\mbox{\hyperlink{structlv__fs__path__ex__t}{lv\+\_\+fs\+\_\+path\+\_\+ex\+\_\+t}} \texorpdfstring{$\ast$}{*}path, void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}buffer, uint32\+\_\+t \texorpdfstring{$\ast$}{*}size)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a695f81fd4c47d1ace4dce3ebb536e531}{lv\+\_\+fs\+\_\+close}} (\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}file\+\_\+p)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_aaeeaf5fdcf642f3d7af4828e1e74fbb7}{lv\+\_\+fs\+\_\+read}} (\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}file\+\_\+p, void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t btr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}br)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a924b9bb284d7cf2681bf54851a9e5138}{lv\+\_\+fs\+\_\+write}} (\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}file\+\_\+p, const void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t btw, uint32\+\_\+t \texorpdfstring{$\ast$}{*}bw)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a0bfb4e9168e6d4029713ac8016dbb2a5}{lv\+\_\+fs\+\_\+seek}} (\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}file\+\_\+p, uint32\+\_\+t pos, \mbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267b}{lv\+\_\+fs\+\_\+whence\+\_\+t}} whence)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a0d793e1972228df85d3161556d78cbde}{lv\+\_\+fs\+\_\+tell}} (\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}file\+\_\+p, uint32\+\_\+t \texorpdfstring{$\ast$}{*}pos)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_ac79fd1d425cfcb936627097fee7c5f71}{lv\+\_\+fs\+\_\+get\+\_\+size}} (\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}file\+\_\+p, uint32\+\_\+t \texorpdfstring{$\ast$}{*}size\+\_\+res)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a6c0b8339b7316bce1ac4866e328176ee}{lv\+\_\+fs\+\_\+path\+\_\+get\+\_\+size}} (const char \texorpdfstring{$\ast$}{*}path, uint32\+\_\+t \texorpdfstring{$\ast$}{*}size\+\_\+res)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a4ab166663cd6a84f392954d14ad55096}{lv\+\_\+fs\+\_\+load\+\_\+to\+\_\+buf}} (void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t buf\+\_\+size, const char \texorpdfstring{$\ast$}{*}path)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_a94f04b4264bfe2134ba76c2ba176dcec}{lv\+\_\+fs\+\_\+load\+\_\+with\+\_\+alloc}} (const char \texorpdfstring{$\ast$}{*}path, uint32\+\_\+t \texorpdfstring{$\ast$}{*}size)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a6380108bb1bb9c1a614e22563e5b557c}{lv\+\_\+fs\+\_\+dir\+\_\+open}} (\mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}} \texorpdfstring{$\ast$}{*}rddir\+\_\+p, const char \texorpdfstring{$\ast$}{*}path)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_aa03791eae6866563f609488df878d110}{lv\+\_\+fs\+\_\+dir\+\_\+read}} (\mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}} \texorpdfstring{$\ast$}{*}rddir\+\_\+p, char \texorpdfstring{$\ast$}{*}fn, uint32\+\_\+t fn\+\_\+len)
+\item 
+\mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a11baedafbe566704ebcacc272e87e1ba}{lv\+\_\+fs\+\_\+dir\+\_\+close}} (\mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}} \texorpdfstring{$\ast$}{*}rddir\+\_\+p)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_afc7b32ebfa614d25c869f54a86e3c6ec}{lv\+\_\+fs\+\_\+get\+\_\+letters}} (char \texorpdfstring{$\ast$}{*}buf)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_ad69f02629a6d9f8aabcb507d48c0fc1f}{lv\+\_\+fs\+\_\+get\+\_\+ext}} (const char \texorpdfstring{$\ast$}{*}fn)
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_a764a7b39028929bb714981e7a49f4d88}{lv\+\_\+fs\+\_\+up}} (char \texorpdfstring{$\ast$}{*}path)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_a1a431838749acd98be1c1df6af0b016b}{lv\+\_\+fs\+\_\+get\+\_\+last}} (const char \texorpdfstring{$\ast$}{*}path)
+\item 
+int \mbox{\hyperlink{lv__fs_8h_a63c3d62b3ef06165946d756c44e2d5ac}{lv\+\_\+fs\+\_\+path\+\_\+join}} (char \texorpdfstring{$\ast$}{*}buf, size\+\_\+t buf\+\_\+sz, const char \texorpdfstring{$\ast$}{*}base, const char \texorpdfstring{$\ast$}{*}end)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis naštevnega (enum) tipa}
+\Hypertarget{lv__fs_8h_a8360657f94ea531412909c3e9b39223c}\label{lv__fs_8h_a8360657f94ea531412909c3e9b39223c} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_mode\_t@{lv\_fs\_mode\_t}}
+\index{lv\_fs\_mode\_t@{lv\_fs\_mode\_t}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_mode\_t}{lv\_fs\_mode\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__fs_8h_a8360657f94ea531412909c3e9b39223c}{lv\+\_\+fs\+\_\+mode\+\_\+t}}}
+
+File open mode. \Hypertarget{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}\label{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_res\_t@{lv\_fs\_res\_t}}
+\index{lv\_fs\_res\_t@{lv\_fs\_res\_t}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_res\_t}{lv\_fs\_res\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}}}
+
+Errors in the file system module. \Hypertarget{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267b}\label{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267b} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_whence\_t@{lv\_fs\_whence\_t}}
+\index{lv\_fs\_whence\_t@{lv\_fs\_whence\_t}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_whence\_t}{lv\_fs\_whence\_t}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267b}{lv\+\_\+fs\+\_\+whence\+\_\+t}}}
+
+Seek modes. \begin{DoxyEnumFields}{Vrednosti naštevnih tipov}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_FS\_SEEK\_SET@{LV\_FS\_SEEK\_SET}!lv\_fs.h@{lv\_fs.h}}\index{lv\_fs.h@{lv\_fs.h}!LV\_FS\_SEEK\_SET@{LV\_FS\_SEEK\_SET}}}\Hypertarget{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267baeab4de99544eff8575fed2fee38cd6c5}\label{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267baeab4de99544eff8575fed2fee38cd6c5} 
+LV\+\_\+\+FS\+\_\+\+SEEK\+\_\+\+SET&Set the position from absolutely (from the start of file) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_FS\_SEEK\_CUR@{LV\_FS\_SEEK\_CUR}!lv\_fs.h@{lv\_fs.h}}\index{lv\_fs.h@{lv\_fs.h}!LV\_FS\_SEEK\_CUR@{LV\_FS\_SEEK\_CUR}}}\Hypertarget{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267bae2d8f6afe283d333394a7af28e858196}\label{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267bae2d8f6afe283d333394a7af28e858196} 
+LV\+\_\+\+FS\+\_\+\+SEEK\+\_\+\+CUR&Set the position from the current position \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LV\_FS\_SEEK\_END@{LV\_FS\_SEEK\_END}!lv\_fs.h@{lv\_fs.h}}\index{lv\_fs.h@{lv\_fs.h}!LV\_FS\_SEEK\_END@{LV\_FS\_SEEK\_END}}}\Hypertarget{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267bab0f1a6bb2458d1531627e1be79eb79ac}\label{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267bab0f1a6bb2458d1531627e1be79eb79ac} 
+LV\+\_\+\+FS\+\_\+\+SEEK\+\_\+\+END&Set the position from the end of the file \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__fs_8h_a695f81fd4c47d1ace4dce3ebb536e531}\label{lv__fs_8h_a695f81fd4c47d1ace4dce3ebb536e531} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_close@{lv\_fs\_close}}
+\index{lv\_fs\_close@{lv\_fs\_close}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_close()}{lv\_fs\_close()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+p }\end{DoxyParamCaption})}
+
+Close an already opened file 
+\begin{DoxyParams}{Parametri}
+{\em file\+\_\+p} & pointer to a \doxylink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t} variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a11baedafbe566704ebcacc272e87e1ba}\label{lv__fs_8h_a11baedafbe566704ebcacc272e87e1ba} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_dir\_close@{lv\_fs\_dir\_close}}
+\index{lv\_fs\_dir\_close@{lv\_fs\_dir\_close}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_dir\_close()}{lv\_fs\_dir\_close()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+dir\+\_\+close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rddir\+\_\+p }\end{DoxyParamCaption})}
+
+Close the directory reading 
+\begin{DoxyParams}{Parametri}
+{\em rddir\+\_\+p} & pointer to an initialized \textquotesingle{}fs\+\_\+dir\+\_\+t\textquotesingle{} variable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a6380108bb1bb9c1a614e22563e5b557c}\label{lv__fs_8h_a6380108bb1bb9c1a614e22563e5b557c} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_dir\_open@{lv\_fs\_dir\_open}}
+\index{lv\_fs\_dir\_open@{lv\_fs\_dir\_open}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_dir\_open()}{lv\_fs\_dir\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+dir\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rddir\+\_\+p,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+Initialize a \textquotesingle{}fs\+\_\+dir\+\_\+t\textquotesingle{} variable for directory reading 
+\begin{DoxyParams}{Parametri}
+{\em rddir\+\_\+p} & pointer to a \textquotesingle{}\doxylink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}\textquotesingle{} variable \\
+\hline
+{\em path} & path to a directory \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_aa03791eae6866563f609488df878d110}\label{lv__fs_8h_aa03791eae6866563f609488df878d110} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_dir\_read@{lv\_fs\_dir\_read}}
+\index{lv\_fs\_dir\_read@{lv\_fs\_dir\_read}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_dir\_read()}{lv\_fs\_dir\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+dir\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{rddir\+\_\+p,  }\item[{char \texorpdfstring{$\ast$}{*}}]{fn,  }\item[{uint32\+\_\+t}]{fn\+\_\+len }\end{DoxyParamCaption})}
+
+Read the next filename form a directory. The name of the directories will begin with \textquotesingle{}/\textquotesingle{} 
+\begin{DoxyParams}{Parametri}
+{\em rddir\+\_\+p} & pointer to an initialized \textquotesingle{}fs\+\_\+dir\+\_\+t\textquotesingle{} variable \\
+\hline
+{\em fn} & pointer to a buffer to store the filename \\
+\hline
+{\em fn\+\_\+len} & length of the buffer to store the filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a0c8cc12755f7515de54ec9064e83af75}\label{lv__fs_8h_a0c8cc12755f7515de54ec9064e83af75} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_drv\_init@{lv\_fs\_drv\_init}}
+\index{lv\_fs\_drv\_init@{lv\_fs\_drv\_init}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_drv\_init()}{lv\_fs\_drv\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+fs\+\_\+drv\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{drv }\end{DoxyParamCaption})}
+
+Initialize a file system driver with default values. It is used to ensure all fields have known values and not memory junk. After it you can set the fields. 
+\begin{DoxyParams}{Parametri}
+{\em drv} & pointer to driver variable to initialize \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__fs_8h_a2540b36d20b26416d944092a818b7be6}\label{lv__fs_8h_a2540b36d20b26416d944092a818b7be6} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_drv\_register@{lv\_fs\_drv\_register}}
+\index{lv\_fs\_drv\_register@{lv\_fs\_drv\_register}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_drv\_register()}{lv\_fs\_drv\_register()}}
+{\footnotesize\ttfamily void lv\+\_\+fs\+\_\+drv\+\_\+register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{drv }\end{DoxyParamCaption})}
+
+Add a new drive 
+\begin{DoxyParams}{Parametri}
+{\em drv} & pointer to an lv\+\_\+fs\+\_\+drv\+\_\+t structure which is inited with the corresponding function pointers. Only pointer is saved, so the driver should be static or dynamically allocated. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__fs_8h_adb1ac42aca08605eafdba56f1b054346}\label{lv__fs_8h_adb1ac42aca08605eafdba56f1b054346} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_get\_buffer\_from\_path@{lv\_fs\_get\_buffer\_from\_path}}
+\index{lv\_fs\_get\_buffer\_from\_path@{lv\_fs\_get\_buffer\_from\_path}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_get\_buffer\_from\_path()}{lv\_fs\_get\_buffer\_from\_path()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+fs\+\_\+get\+\_\+buffer\+\_\+from\+\_\+path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__path__ex__t}{lv\+\_\+fs\+\_\+path\+\_\+ex\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{path,  }\item[{void \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{size }\end{DoxyParamCaption})}
+
+Get the buffer address and size from a path object 
+\begin{DoxyParams}{Parametri}
+{\em path} & pointer to an initialized {\ttfamily lv\+\_\+fs\+\_\+path\+\_\+ex} data \\
+\hline
+{\em buffer} & pointer to a {\ttfamily void \texorpdfstring{$\ast$}{*}} variable to store the address \\
+\hline
+{\em size} & pointer to an {\ttfamily uint32\+\_\+t} data to store the size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: buffer and size are set; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: an error happened. 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a5981cd3ba5515329a8a52065594155db}\label{lv__fs_8h_a5981cd3ba5515329a8a52065594155db} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_get\_drv@{lv\_fs\_get\_drv}}
+\index{lv\_fs\_get\_drv@{lv\_fs\_get\_drv}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_get\_drv()}{lv\_fs\_get\_drv()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+fs\+\_\+get\+\_\+drv (\begin{DoxyParamCaption}\item[{char}]{letter }\end{DoxyParamCaption})}
+
+Give a pointer to a driver from its letter 
+\begin{DoxyParams}{Parametri}
+{\em letter} & the driver-\/identifier letter \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to a driver or NULL if not found 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_ad69f02629a6d9f8aabcb507d48c0fc1f}\label{lv__fs_8h_ad69f02629a6d9f8aabcb507d48c0fc1f} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_get\_ext@{lv\_fs\_get\_ext}}
+\index{lv\_fs\_get\_ext@{lv\_fs\_get\_ext}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_get\_ext()}{lv\_fs\_get\_ext()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+fs\+\_\+get\+\_\+ext (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{fn }\end{DoxyParamCaption})}
+
+Return with the extension of the filename 
+\begin{DoxyParams}{Parametri}
+{\em fn} & string with a filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the beginning extension or empty string if no extension 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a1a431838749acd98be1c1df6af0b016b}\label{lv__fs_8h_a1a431838749acd98be1c1df6af0b016b} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_get\_last@{lv\_fs\_get\_last}}
+\index{lv\_fs\_get\_last@{lv\_fs\_get\_last}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_get\_last()}{lv\_fs\_get\_last()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+fs\+\_\+get\+\_\+last (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+Get the last element of a path (e.\+g. U\+:/folder/file -\/\texorpdfstring{$>$}{>} file) 
+\begin{DoxyParams}{Parametri}
+{\em path} & pointer to a file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the beginning of the last element in the path 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_afc7b32ebfa614d25c869f54a86e3c6ec}\label{lv__fs_8h_afc7b32ebfa614d25c869f54a86e3c6ec} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_get\_letters@{lv\_fs\_get\_letters}}
+\index{lv\_fs\_get\_letters@{lv\_fs\_get\_letters}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_get\_letters()}{lv\_fs\_get\_letters()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} lv\+\_\+fs\+\_\+get\+\_\+letters (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})}
+
+Fill a buffer with the letters of existing drivers 
+\begin{DoxyParams}{Parametri}
+{\em buf} & buffer to store the letters (\textquotesingle{}\textbackslash{}0\textquotesingle{} added after the last letter) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_ac79fd1d425cfcb936627097fee7c5f71}\label{lv__fs_8h_ac79fd1d425cfcb936627097fee7c5f71} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_get\_size@{lv\_fs\_get\_size}}
+\index{lv\_fs\_get\_size@{lv\_fs\_get\_size}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_get\_size()}{lv\_fs\_get\_size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+get\+\_\+size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+p,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{size\+\_\+res }\end{DoxyParamCaption})}
+
+Get the size in bytes of an open file. The file read/write position will not be affected. 
+\begin{DoxyParams}{Parametri}
+{\em file\+\_\+p} & pointer to a \doxylink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t} variable \\
+\hline
+{\em size\+\_\+res} & pointer to store the file size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from {\ttfamily lv\+\_\+fs\+\_\+res\+\_\+t} 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a4afefd5dbe151665fa2a24ad0a1eeff8}\label{lv__fs_8h_a4afefd5dbe151665fa2a24ad0a1eeff8} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_is\_ready@{lv\_fs\_is\_ready}}
+\index{lv\_fs\_is\_ready@{lv\_fs\_is\_ready}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_is\_ready()}{lv\_fs\_is\_ready()}}
+{\footnotesize\ttfamily bool lv\+\_\+fs\+\_\+is\+\_\+ready (\begin{DoxyParamCaption}\item[{char}]{letter }\end{DoxyParamCaption})}
+
+Test if a drive is ready or not. If the {\ttfamily ready} function was not initialized {\ttfamily true} will be returned. 
+\begin{DoxyParams}{Parametri}
+{\em letter} & letter of the drive \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: drive is ready; false\+: drive is not ready 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a4ab166663cd6a84f392954d14ad55096}\label{lv__fs_8h_a4ab166663cd6a84f392954d14ad55096} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_load\_to\_buf@{lv\_fs\_load\_to\_buf}}
+\index{lv\_fs\_load\_to\_buf@{lv\_fs\_load\_to\_buf}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_load\_to\_buf()}{lv\_fs\_load\_to\_buf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+load\+\_\+to\+\_\+buf (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint32\+\_\+t}]{buf\+\_\+size,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+Read the contents of a file at the given path into a buffer. 
+\begin{DoxyParams}{Parametri}
+{\em buf} & a buffer to read the contents of the file into \\
+\hline
+{\em buf\+\_\+size} & the size of the buffer and the amount to read from the file \\
+\hline
+{\em path} & the path of the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK on success, LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+UNKNOWN if fewer than {\ttfamily buf\+\_\+size} bytes could be read from the file, or any error from {\ttfamily lv\+\_\+fs\+\_\+res\+\_\+t} 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a94f04b4264bfe2134ba76c2ba176dcec}\label{lv__fs_8h_a94f04b4264bfe2134ba76c2ba176dcec} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_load\_with\_alloc@{lv\_fs\_load\_with\_alloc}}
+\index{lv\_fs\_load\_with\_alloc@{lv\_fs\_load\_with\_alloc}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_load\_with\_alloc()}{lv\_fs\_load\_with\_alloc()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+fs\+\_\+load\+\_\+with\+\_\+alloc (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{size }\end{DoxyParamCaption})}
+
+Load a file into a memory buffer. 
+\begin{DoxyParams}{Parametri}
+{\em filename} & the path of the file \\
+\hline
+{\em size} & pointer to store the size of the loaded file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+a pointer to the loaded file buffer, or NULL if an error occurred 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_ab3e0455665065d99a2148191e1b7de6f}\label{lv__fs_8h_ab3e0455665065d99a2148191e1b7de6f} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_make\_path\_from\_buffer@{lv\_fs\_make\_path\_from\_buffer}}
+\index{lv\_fs\_make\_path\_from\_buffer@{lv\_fs\_make\_path\_from\_buffer}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_make\_path\_from\_buffer()}{lv\_fs\_make\_path\_from\_buffer()}}
+{\footnotesize\ttfamily void lv\+\_\+fs\+\_\+make\+\_\+path\+\_\+from\+\_\+buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__path__ex__t}{lv\+\_\+fs\+\_\+path\+\_\+ex\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{path,  }\item[{char}]{letter,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint32\+\_\+t}]{size,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{ext }\end{DoxyParamCaption})}
+
+Create a special object from buffer/ memory address which looks like a file and can be passed as path to {\ttfamily lv\+\_\+fs\+\_\+open} and other functions accepting a path.
+
+For example 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//Create\ a\ PNG\ file\ from\ t\ a\ buffer\ and\ use\ it}}
+\DoxyCodeLine{\mbox{\hyperlink{structlv__fs__path__ex__t}{lv\_fs\_path\_ex\_t}}\ p;}
+\DoxyCodeLine{\mbox{\hyperlink{lv__fs_8c_ab3e0455665065d99a2148191e1b7de6f}{lv\_fs\_make\_path\_from\_buffer}}(\&p,\ \textcolor{charliteral}{'A'},\ my\_buf,\ my\_buf\_size,\ \textcolor{stringliteral}{"{}png"{}});}
+\DoxyCodeLine{\mbox{\hyperlink{lv__image_8c_abd50066a66f6c4496c5d9149dbb67cfd}{lv\_image\_set\_src}}(image1,\ \&p);}
+
+\end{DoxyCode}
+ 
+\begin{DoxyParams}{Parametri}
+{\em path} & path to a lv\+\_\+fs\+\_\+path\+\_\+ex object \\
+\hline
+{\em letter} & the identifier letter of the driver. E.\+g. {\ttfamily LV\+\_\+\+FS\+\_\+\+MEMFS\+\_\+\+LETTER} \\
+\hline
+{\em buf} & address of the memory buffer \\
+\hline
+{\em size} & size of the memory buffer in bytes \\
+\hline
+{\em ext} & the extension, e.\+g. "{}png"{}, if NULL no extension will be added. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__fs_8h_a339d0b51618dbcec593d0f4081348e5d}\label{lv__fs_8h_a339d0b51618dbcec593d0f4081348e5d} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_open@{lv\_fs\_open}}
+\index{lv\_fs\_open@{lv\_fs\_open}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_open()}{lv\_fs\_open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+p,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{\mbox{\hyperlink{lv__fs_8h_a8360657f94ea531412909c3e9b39223c}{lv\+\_\+fs\+\_\+mode\+\_\+t}}}]{mode }\end{DoxyParamCaption})}
+
+Open a file 
+\begin{DoxyParams}{Parametri}
+{\em file\+\_\+p} & pointer to a \doxylink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t} variable \\
+\hline
+{\em path} & path to the file beginning with the driver letter (e.\+g. S\+:/folder/file.txt) \\
+\hline
+{\em mode} & read\+: FS\+\_\+\+MODE\+\_\+\+RD, write\+: FS\+\_\+\+MODE\+\_\+\+WR, both\+: FS\+\_\+\+MODE\+\_\+\+RD \texorpdfstring{$\vert$}{|} FS\+\_\+\+MODE\+\_\+\+WR \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a6c0b8339b7316bce1ac4866e328176ee}\label{lv__fs_8h_a6c0b8339b7316bce1ac4866e328176ee} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_path\_get\_size@{lv\_fs\_path\_get\_size}}
+\index{lv\_fs\_path\_get\_size@{lv\_fs\_path\_get\_size}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_path\_get\_size()}{lv\_fs\_path\_get\_size()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+path\+\_\+get\+\_\+size (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{size\+\_\+res }\end{DoxyParamCaption})}
+
+Get the size in bytes of a file at the given path. 
+\begin{DoxyParams}{Parametri}
+{\em path} & the path of the file \\
+\hline
+{\em size\+\_\+res} & pointer to store the file size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from {\ttfamily lv\+\_\+fs\+\_\+res\+\_\+t} 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a63c3d62b3ef06165946d756c44e2d5ac}\label{lv__fs_8h_a63c3d62b3ef06165946d756c44e2d5ac} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_path\_join@{lv\_fs\_path\_join}}
+\index{lv\_fs\_path\_join@{lv\_fs\_path\_join}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_path\_join()}{lv\_fs\_path\_join()}}
+{\footnotesize\ttfamily int lv\+\_\+fs\+\_\+path\+\_\+join (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{size\+\_\+t}]{buf\+\_\+sz,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{base,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{end }\end{DoxyParamCaption})}
+
+Concatenate two path components and automatically add/remove a separator as needed. buf, buf\+\_\+sz, and the return value are analogous to lv\+\_\+snprintf 
+\begin{DoxyParams}{Parametri}
+{\em buf} & the buffer to place the result in \\
+\hline
+{\em buf\+\_\+sz} & the size of buf. At most buf\+\_\+sz -\/ 1 characters will be written to buf, and a null terminator \\
+\hline
+{\em base} & the first path component \\
+\hline
+{\em end} & the second path component \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the number of characters (not including the null terminator) that would be written to buf, even if buf\+\_\+sz-\/1 was smaller 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_aaeeaf5fdcf642f3d7af4828e1e74fbb7}\label{lv__fs_8h_aaeeaf5fdcf642f3d7af4828e1e74fbb7} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_read@{lv\_fs\_read}}
+\index{lv\_fs\_read@{lv\_fs\_read}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_read()}{lv\_fs\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+p,  }\item[{void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint32\+\_\+t}]{btr,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{br }\end{DoxyParamCaption})}
+
+Read from a file 
+\begin{DoxyParams}{Parametri}
+{\em file\+\_\+p} & pointer to a \doxylink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t} variable \\
+\hline
+{\em buf} & pointer to a buffer where the read bytes are stored \\
+\hline
+{\em btr} & Bytes To Read \\
+\hline
+{\em br} & the number of real read bytes (Bytes Read). NULL if unused. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a97c2868a79e19150e25eccde22eabde7}\label{lv__fs_8h_a97c2868a79e19150e25eccde22eabde7} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_remove\_drive@{lv\_fs\_remove\_drive}}
+\index{lv\_fs\_remove\_drive@{lv\_fs\_remove\_drive}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_remove\_drive()}{lv\_fs\_remove\_drive()}}
+{\footnotesize\ttfamily void lv\+\_\+fs\+\_\+remove\+\_\+drive (\begin{DoxyParamCaption}\item[{char}]{letter }\end{DoxyParamCaption})}
+
+Remove a drive and call its remove function if available 
+\begin{DoxyParams}{Parametri}
+{\em letter} & letter identifier of the drive to remove \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__fs_8h_a0bfb4e9168e6d4029713ac8016dbb2a5}\label{lv__fs_8h_a0bfb4e9168e6d4029713ac8016dbb2a5} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_seek@{lv\_fs\_seek}}
+\index{lv\_fs\_seek@{lv\_fs\_seek}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_seek()}{lv\_fs\_seek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+seek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+p,  }\item[{uint32\+\_\+t}]{pos,  }\item[{\mbox{\hyperlink{lv__fs_8h_aedf4c57e970342cb1eb2ddaeac93267b}{lv\+\_\+fs\+\_\+whence\+\_\+t}}}]{whence }\end{DoxyParamCaption})}
+
+Set the position of the \textquotesingle{}cursor\textquotesingle{} (read write pointer) in a file 
+\begin{DoxyParams}{Parametri}
+{\em file\+\_\+p} & pointer to a \doxylink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t} variable \\
+\hline
+{\em pos} & the new position expressed in bytes index (0\+: start of file) \\
+\hline
+{\em whence} & tells from where to set position. See lv\+\_\+fs\+\_\+whence\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a0d793e1972228df85d3161556d78cbde}\label{lv__fs_8h_a0d793e1972228df85d3161556d78cbde} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_tell@{lv\_fs\_tell}}
+\index{lv\_fs\_tell@{lv\_fs\_tell}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_tell()}{lv\_fs\_tell()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+tell (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+p,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{pos }\end{DoxyParamCaption})}
+
+Give the position of the read write pointer 
+\begin{DoxyParams}{Parametri}
+{\em file\+\_\+p} & pointer to a \doxylink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t} variable \\
+\hline
+{\em pos} & pointer to store the position of the read write pointer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from \textquotesingle{}fs\+\_\+res\+\_\+t\textquotesingle{} 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a764a7b39028929bb714981e7a49f4d88}\label{lv__fs_8h_a764a7b39028929bb714981e7a49f4d88} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_up@{lv\_fs\_up}}
+\index{lv\_fs\_up@{lv\_fs\_up}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_up()}{lv\_fs\_up()}}
+{\footnotesize\ttfamily char \texorpdfstring{$\ast$}{*} lv\+\_\+fs\+\_\+up (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{path }\end{DoxyParamCaption})}
+
+Step up one level 
+\begin{DoxyParams}{Parametri}
+{\em path} & pointer to a file name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the truncated file name 
+\end{DoxyReturn}
+\Hypertarget{lv__fs_8h_a924b9bb284d7cf2681bf54851a9e5138}\label{lv__fs_8h_a924b9bb284d7cf2681bf54851a9e5138} 
+\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_write@{lv\_fs\_write}}
+\index{lv\_fs\_write@{lv\_fs\_write}!lv\_fs.h@{lv\_fs.h}}
+\doxysubsubsection{\texorpdfstring{lv\_fs\_write()}{lv\_fs\_write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} lv\+\_\+fs\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file\+\_\+p,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint32\+\_\+t}]{btw,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{bw }\end{DoxyParamCaption})}
+
+Write into a file 
+\begin{DoxyParams}{Parametri}
+{\em file\+\_\+p} & pointer to a \doxylink{structlv__fs__file__t}{lv\+\_\+fs\+\_\+file\+\_\+t} variable \\
+\hline
+{\em buf} & pointer to a buffer with the bytes to write \\
+\hline
+{\em btw} & Bytes To Write \\
+\hline
+{\em bw} & the number of real written bytes (Bytes Written). NULL if unused. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
+\end{DoxyReturn}

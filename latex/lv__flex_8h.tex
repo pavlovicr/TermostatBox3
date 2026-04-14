@@ -1,0 +1,122 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/layouts/flex/lv\+\_\+flex.h}
+\hypertarget{lv__flex_8h}{}\label{lv__flex_8h}\index{managed\_components/lvgl\_\_lvgl/src/layouts/flex/lv\_flex.h@{managed\_components/lvgl\_\_lvgl/src/layouts/flex/lv\_flex.h}}
+{\ttfamily \#include "{}../../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+area.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+flex.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+flex.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{lv__flex_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__flex_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__flex_8h_ab74f593a2bf05f0997ddba94065aea43}\label{lv__flex_8h_ab74f593a2bf05f0997ddba94065aea43} 
+\#define {\bfseries LV\+\_\+\+FLEX\+\_\+\+COLUMN}~(1 $<$$<$ 0)
+\item 
+\Hypertarget{lv__flex_8h_addb70e1b66be28f5dd7e41629c2f235e}\label{lv__flex_8h_addb70e1b66be28f5dd7e41629c2f235e} 
+\#define {\bfseries LV\+\_\+\+FLEX\+\_\+\+WRAP}~(1 $<$$<$ 2)
+\item 
+\Hypertarget{lv__flex_8h_a6969684d39eeb12c8a3e1c9f91209102}\label{lv__flex_8h_a6969684d39eeb12c8a3e1c9f91209102} 
+\#define {\bfseries LV\+\_\+\+FLEX\+\_\+\+REVERSE}~(1 $<$$<$ 3)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__flex_8h_a66b5aed9b72f4e6a3a366f80619425ab}\label{lv__flex_8h_a66b5aed9b72f4e6a3a366f80619425ab} 
+enum {\bfseries lv\+\_\+flex\+\_\+align\+\_\+t} \{ \newline
+{\bfseries LV\+\_\+\+FLEX\+\_\+\+ALIGN\+\_\+\+START}
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+ALIGN\+\_\+\+END}
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+ALIGN\+\_\+\+CENTER}
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+ALIGN\+\_\+\+SPACE\+\_\+\+EVENLY}
+, \newline
+{\bfseries LV\+\_\+\+FLEX\+\_\+\+ALIGN\+\_\+\+SPACE\+\_\+\+AROUND}
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+ALIGN\+\_\+\+SPACE\+\_\+\+BETWEEN}
+ \}
+\item 
+\Hypertarget{lv__flex_8h_aa591169a4b8b936b35e3e9fc84d3a187}\label{lv__flex_8h_aa591169a4b8b936b35e3e9fc84d3a187} 
+enum {\bfseries lv\+\_\+flex\+\_\+flow\+\_\+t} \{ \newline
+{\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+ROW} = 0x00
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+COLUMN} = LV\+\_\+\+FLEX\+\_\+\+COLUMN
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+ROW\+\_\+\+WRAP} = LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+ROW \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+WRAP
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+ROW\+\_\+\+REVERSE} = LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+ROW \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+REVERSE
+, \newline
+{\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+ROW\+\_\+\+WRAP\+\_\+\+REVERSE} = LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+ROW \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+WRAP \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+REVERSE
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+COLUMN\+\_\+\+WRAP} = LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+COLUMN \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+WRAP
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+COLUMN\+\_\+\+REVERSE} = LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+COLUMN \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+REVERSE
+, {\bfseries LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+COLUMN\+\_\+\+WRAP\+\_\+\+REVERSE} = LV\+\_\+\+FLEX\+\_\+\+FLOW\+\_\+\+COLUMN \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+WRAP \texorpdfstring{$\vert$}{|} LV\+\_\+\+FLEX\+\_\+\+REVERSE
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lv__flex_8h_adc17494d2a747e76966581dced09fd74}{lv\+\_\+flex\+\_\+init}} (void)
+\item 
+void \mbox{\hyperlink{lv__flex_8h_afe0e90502eefb9f215b641a818bceb50}{lv\+\_\+obj\+\_\+set\+\_\+flex\+\_\+flow}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+flex\+\_\+flow\+\_\+t flow)
+\item 
+void \mbox{\hyperlink{lv__flex_8h_a738059b5970caa4a6fbaa925e692c2df}{lv\+\_\+obj\+\_\+set\+\_\+flex\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+flex\+\_\+align\+\_\+t main\+\_\+place, lv\+\_\+flex\+\_\+align\+\_\+t cross\+\_\+place, lv\+\_\+flex\+\_\+align\+\_\+t track\+\_\+cross\+\_\+place)
+\item 
+void \mbox{\hyperlink{lv__flex_8h_a5aa092bfcef60f9e61eb84b66c266878}{lv\+\_\+obj\+\_\+set\+\_\+flex\+\_\+grow}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint8\+\_\+t grow)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__flex_8h_adc17494d2a747e76966581dced09fd74}\label{lv__flex_8h_adc17494d2a747e76966581dced09fd74} 
+\index{lv\_flex.h@{lv\_flex.h}!lv\_flex\_init@{lv\_flex\_init}}
+\index{lv\_flex\_init@{lv\_flex\_init}!lv\_flex.h@{lv\_flex.h}}
+\doxysubsubsection{\texorpdfstring{lv\_flex\_init()}{lv\_flex\_init()}}
+{\footnotesize\ttfamily void lv\+\_\+flex\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize a flex layout to default values \Hypertarget{lv__flex_8h_a738059b5970caa4a6fbaa925e692c2df}\label{lv__flex_8h_a738059b5970caa4a6fbaa925e692c2df} 
+\index{lv\_flex.h@{lv\_flex.h}!lv\_obj\_set\_flex\_align@{lv\_obj\_set\_flex\_align}}
+\index{lv\_obj\_set\_flex\_align@{lv\_obj\_set\_flex\_align}!lv\_flex.h@{lv\_flex.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_set\_flex\_align()}{lv\_obj\_set\_flex\_align()}}
+{\footnotesize\ttfamily void lv\+\_\+obj\+\_\+set\+\_\+flex\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+flex\+\_\+align\+\_\+t}]{main\+\_\+place,  }\item[{lv\+\_\+flex\+\_\+align\+\_\+t}]{cross\+\_\+place,  }\item[{lv\+\_\+flex\+\_\+align\+\_\+t}]{track\+\_\+cross\+\_\+place }\end{DoxyParamCaption})}
+
+Set how to place (where to align) the items and tracks 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an object. The parent must have flex layout else nothing will happen. \\
+\hline
+{\em main\+\_\+place} & where to place the items on main axis (in their track). Any value of {\ttfamily lv\+\_\+flex\+\_\+align\+\_\+t}. \\
+\hline
+{\em cross\+\_\+place} & where to place the item in their track on the cross axis. {\ttfamily LV\+\_\+\+FLEX\+\_\+\+ALIGN\+\_\+\+START/\+END/\+CENTER} \\
+\hline
+{\em track\+\_\+cross\+\_\+place} & where to place the tracks in the cross direction. Any value of {\ttfamily lv\+\_\+flex\+\_\+align\+\_\+t}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__flex_8h_afe0e90502eefb9f215b641a818bceb50}\label{lv__flex_8h_afe0e90502eefb9f215b641a818bceb50} 
+\index{lv\_flex.h@{lv\_flex.h}!lv\_obj\_set\_flex\_flow@{lv\_obj\_set\_flex\_flow}}
+\index{lv\_obj\_set\_flex\_flow@{lv\_obj\_set\_flex\_flow}!lv\_flex.h@{lv\_flex.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_set\_flex\_flow()}{lv\_obj\_set\_flex\_flow()}}
+{\footnotesize\ttfamily void lv\+\_\+obj\+\_\+set\+\_\+flex\+\_\+flow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+flex\+\_\+flow\+\_\+t}]{flow }\end{DoxyParamCaption})}
+
+Set how the item should flow 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an object. The parent must have flex layout else nothing will happen. \\
+\hline
+{\em flow} & an element of {\ttfamily lv\+\_\+flex\+\_\+flow\+\_\+t}. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__flex_8h_a5aa092bfcef60f9e61eb84b66c266878}\label{lv__flex_8h_a5aa092bfcef60f9e61eb84b66c266878} 
+\index{lv\_flex.h@{lv\_flex.h}!lv\_obj\_set\_flex\_grow@{lv\_obj\_set\_flex\_grow}}
+\index{lv\_obj\_set\_flex\_grow@{lv\_obj\_set\_flex\_grow}!lv\_flex.h@{lv\_flex.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_set\_flex\_grow()}{lv\_obj\_set\_flex\_grow()}}
+{\footnotesize\ttfamily void lv\+\_\+obj\+\_\+set\+\_\+flex\+\_\+grow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint8\+\_\+t}]{grow }\end{DoxyParamCaption})}
+
+Sets the width or height (on main axis) to grow the object in order fill the free space 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an object. The parent must have flex layout else nothing will happen. \\
+\hline
+{\em grow} & a value to set how much free space to take proportionally to other growing items. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,51 @@
+\doxysection{ Razred Crt\+Allocator}
+\hypertarget{classCrtAllocator}{}\label{classCrtAllocator}\index{CrtAllocator@{CrtAllocator}}
+
+
+C-\/runtime library allocator.  
+
+
+
+
+{\ttfamily \#include $<$allocators.\+h$>$}
+
+\doxysubsubsection*{Javne metode}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCrtAllocator_ae9b348831bee2b1b52b736c2d3921bad}\label{classCrtAllocator_ae9b348831bee2b1b52b736c2d3921bad} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Malloc} (size\+\_\+t size)
+\item 
+\Hypertarget{classCrtAllocator_a54b9a20354ba249613d332a7b445575d}\label{classCrtAllocator_a54b9a20354ba249613d332a7b445575d} 
+void \texorpdfstring{$\ast$}{*} {\bfseries Realloc} (void \texorpdfstring{$\ast$}{*}original\+Ptr, size\+\_\+t original\+Size, size\+\_\+t new\+Size)
+\item 
+\Hypertarget{classCrtAllocator_ae65fb1b4e1272d05e003be57feac68a6}\label{classCrtAllocator_ae65fb1b4e1272d05e003be57feac68a6} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classCrtAllocator}{Crt\+Allocator}} \&) const RAPIDJSON\+\_\+\+NOEXCEPT
+\item 
+\Hypertarget{classCrtAllocator_a1fb8ca99a43c939595e5c0b548d7532c}\label{classCrtAllocator_a1fb8ca99a43c939595e5c0b548d7532c} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{classCrtAllocator}{Crt\+Allocator}} \&) const RAPIDJSON\+\_\+\+NOEXCEPT
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statične javne metode in atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCrtAllocator_aa09ed06f0decbedcaaa2c2a417820a79}\label{classCrtAllocator_aa09ed06f0decbedcaaa2c2a417820a79} 
+static void {\bfseries Free} (void \texorpdfstring{$\ast$}{*}ptr) RAPIDJSON\+\_\+\+NOEXCEPT
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Statični javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classCrtAllocator_ac7df8398c529290f0cd5950d9492f524}\label{classCrtAllocator_ac7df8398c529290f0cd5950d9492f524} 
+static const bool {\bfseries k\+Need\+Free} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+C-\/runtime library allocator. 
+
+This class is just wrapper for standard C library memory routines. \begin{DoxyNote}{Opomba}
+implements Allocator concept 
+\end{DoxyNote}
+
+
+Opis razreda je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/allocators.\+h\end{DoxyCompactItemize}

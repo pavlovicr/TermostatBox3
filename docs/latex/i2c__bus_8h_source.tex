@@ -1,0 +1,132 @@
+\doxysection{i2c\+\_\+bus.\+h}
+\hypertarget{i2c__bus_8h_source}{}\label{i2c__bus_8h_source}\index{managed\_components/espressif\_\_i2c\_bus/include/i2c\_bus.h@{managed\_components/espressif\_\_i2c\_bus/include/i2c\_bus.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ SPDX-\/FileCopyrightText:\ 2022-\/2025\ Espressif\ Systems\ (Shanghai)\ CO\ LTD}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ SPDX-\/License-\/Identifier:\ Apache-\/2.0}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifndef\ \_I2C\_BUS\_H\_}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_I2C\_BUS\_H\_}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}esp\_idf\_version.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#if\ ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 3,\ 0)}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#if\ CONFIG\_I2C\_BUS\_BACKWARD\_CONFIG}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}driver/i2c.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}driver/i2c\_master.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}driver/i2c.h"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ NULL\_I2C\_MEM\_ADDR\ 0xFF\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ NULL\_I2C\_MEM\_16BIT\_ADDR\ 0XFFFF\ \ }}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ NULL\_I2C\_DEV\_ADDR\ 0xFF\ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *i2c\_bus\_handle\_t;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *i2c\_bus\_device\_handle\_t;\ \ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00029\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{00030\ \{}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#if\ CONFIG\_I2C\_BUS\_SUPPORT\_SOFTWARE}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ I2C\_NUM\_SW\_0\ =\ I2C\_NUM\_MAX\ +\ 1,}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#if\ CONFIG\_I2C\_BUS\_SOFTWARE\_MAX\_PORT\ >=\ 2}}
+\DoxyCodeLine{00037\ \ \ \ \ I2C\_NUM\_SW\_1,}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#if\ CONFIG\_I2C\_BUS\_SOFTWARE\_MAX\_PORT\ >=\ 3}}
+\DoxyCodeLine{00040\ \ \ \ \ I2C\_NUM\_SW\_2,}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#if\ CONFIG\_I2C\_BUS\_SOFTWARE\_MAX\_PORT\ >=\ 4}}
+\DoxyCodeLine{00043\ \ \ \ \ I2C\_NUM\_SW\_3,}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#if\ CONFIG\_I2C\_BUS\_SOFTWARE\_MAX\_PORT\ >=\ 5}}
+\DoxyCodeLine{00046\ \ \ \ \ I2C\_NUM\_SW\_4,}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ \ \ \ \ I2C\_NUM\_SW\_MAX,}
+\DoxyCodeLine{00049\ \}\ i2c\_sw\_port\_t;}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#if\ (ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 0,\ 0))}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ gpio\_pad\_select\_gpio\ esp\_rom\_gpio\_pad\_select\_gpio}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ portTICK\_RATE\_MS\ portTICK\_PERIOD\_MS}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#if\ ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 3,\ 0)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#if\ !CONFIG\_I2C\_BUS\_BACKWARD\_CONFIG}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00063\ \ \ \ \ i2c\_mode\_t\ \mbox{\hyperlink{structi2c__config__t_aff5e0ac442828c29d581b8b9d9f4f194}{mode}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structi2c__config__t_af8989662ab82ee14177e297d7c36719a}{sda\_io\_num}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structi2c__config__t_ab102a5d0b0b7e93965b1a2b21afea6a0}{scl\_io\_num}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structi2c__config__t_a97b18b2329ef69ff7ea2b7cd2cd09801}{sda\_pullup\_en}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structi2c__config__t_aa34aad87ac08d75c13d9307c48815baa}{scl\_pullup\_en}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structi2c__config__t_a9b3f94ba35b42b95a480f0834f2cbd6c}{clk\_speed}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \}\ master;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structi2c__config__t_a6a93cd32e019b96543ac1cce4cae8097}{clk\_flags}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \}\ \mbox{\hyperlink{structi2c__config__t}{i2c\_config\_t}};}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *i2c\_cmd\_handle\_t;\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{/****************************************\ Public\ Functions\ (Application\ level)*********************************************/}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ i2c\_bus\_handle\_t\ i2c\_bus\_create(i2c\_port\_t\ port,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structi2c__config__t}{i2c\_config\_t}}\ *conf);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00099\ esp\_err\_t\ i2c\_bus\_delete(i2c\_bus\_handle\_t\ *p\_bus\_handle);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#if\ ESP\_IDF\_VERSION\ >=\ ESP\_IDF\_VERSION\_VAL(5,\ 3,\ 0)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#if\ !CONFIG\_I2C\_BUS\_BACKWARD\_CONFIG}}
+\DoxyCodeLine{00109\ i2c\_master\_bus\_handle\_t\ i2c\_bus\_get\_internal\_bus\_handle(i2c\_bus\_handle\_t\ bus\_handle);}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00122\ uint8\_t\ i2c\_bus\_scan(i2c\_bus\_handle\_t\ bus\_handle,\ uint8\_t\ *buf,\ uint8\_t\ num);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00130\ uint32\_t\ i2c\_bus\_get\_current\_clk\_speed(i2c\_bus\_handle\_t\ bus\_handle);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00138\ uint8\_t\ i2c\_bus\_get\_created\_device\_num(i2c\_bus\_handle\_t\ bus\_handle);}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00150\ i2c\_bus\_device\_handle\_t\ i2c\_bus\_device\_create(i2c\_bus\_handle\_t\ bus\_handle,\ uint8\_t\ dev\_addr,\ uint32\_t\ clk\_speed);}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00160\ esp\_err\_t\ i2c\_bus\_device\_delete(i2c\_bus\_device\_handle\_t\ *p\_dev\_handle);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00168\ uint8\_t\ i2c\_bus\_device\_get\_address(i2c\_bus\_device\_handle\_t\ dev\_handle);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00183\ esp\_err\_t\ i2c\_bus\_read\_byte(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ uint8\_t\ *data);}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00200\ esp\_err\_t\ i2c\_bus\_read\_bytes(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ \textcolor{keywordtype}{size\_t}\ data\_len,\ uint8\_t\ *data);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00216\ esp\_err\_t\ i2c\_bus\_read\_bit(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ uint8\_t\ bit\_num,\ uint8\_t\ *data);}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00233\ esp\_err\_t\ i2c\_bus\_read\_bits(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ uint8\_t\ bit\_start,\ uint8\_t\ length,\ uint8\_t\ *data);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00248\ esp\_err\_t\ i2c\_bus\_write\_byte(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ uint8\_t\ data);}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00265\ esp\_err\_t\ i2c\_bus\_write\_bytes(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ \textcolor{keywordtype}{size\_t}\ data\_len,\ \textcolor{keyword}{const}\ uint8\_t\ *data);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00281\ esp\_err\_t\ i2c\_bus\_write\_bit(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ uint8\_t\ bit\_num,\ uint8\_t\ data);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00298\ esp\_err\_t\ i2c\_bus\_write\_bits(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint8\_t\ mem\_address,\ uint8\_t\ bit\_start,\ uint8\_t\ length,\ uint8\_t\ data);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \textcolor{comment}{/****************************************\ Public\ Functions\ (Low\ level)*********************************************/}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00320\ esp\_err\_t\ i2c\_bus\_cmd\_begin(i2c\_bus\_device\_handle\_t\ dev\_handle,\ i2c\_cmd\_handle\_t\ cmd);}
+\DoxyCodeLine{00321\ }
+\DoxyCodeLine{00336\ esp\_err\_t\ i2c\_bus\_write\_reg16(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint16\_t\ mem\_address,\ \textcolor{keywordtype}{size\_t}\ data\_len,\ \textcolor{keyword}{const}\ uint8\_t\ *data);}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00352\ esp\_err\_t\ i2c\_bus\_read\_reg16(i2c\_bus\_device\_handle\_t\ dev\_handle,\ uint16\_t\ mem\_address,\ \textcolor{keywordtype}{size\_t}\ data\_len,\ uint8\_t\ *data);}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00355\ \}}
+\DoxyCodeLine{00356\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

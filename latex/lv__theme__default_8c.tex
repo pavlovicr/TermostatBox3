@@ -1,0 +1,150 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/themes/default/lv\+\_\+theme\+\_\+default.c}
+\hypertarget{lv__theme__default_8c}{}\label{lv__theme__default_8c}\index{managed\_components/lvgl\_\_lvgl/src/themes/default/lv\_theme\_default.c@{managed\_components/lvgl\_\_lvgl/src/themes/default/lv\_theme\_default.c}}
+{\ttfamily \#include "{}../../../lvgl.\+h"{}}\newline
+{\ttfamily \#include "{}../lv\+\_\+theme\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+color.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+global.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+theme\+\_\+default.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+theme\+\_\+default.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__theme__default_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmy__theme__styles__t}{my\+\_\+theme\+\_\+styles\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct__my__theme__t}{\+\_\+my\+\_\+theme\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__theme__default_8c_a9744fca2a31ff9aa94573084eb1a837c}\label{lv__theme__default_8c_a9744fca2a31ff9aa94573084eb1a837c} 
+\#define {\bfseries theme\+\_\+def}~(\texorpdfstring{$\ast$}{*}(\mbox{\hyperlink{struct__my__theme__t}{my\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*})(\&LV\+\_\+\+GLOBAL\+\_\+\+DEFAULT()-\/$>$theme\+\_\+default))
+\item 
+\Hypertarget{lv__theme__default_8c_a4b7a2384ead30d43caff63b6a873cf00}\label{lv__theme__default_8c_a4b7a2384ead30d43caff63b6a873cf00} 
+\#define {\bfseries MODE\+\_\+\+DARK}~1
+\item 
+\Hypertarget{lv__theme__default_8c_a6dfedc9b51c224902aba429949ec2d17}\label{lv__theme__default_8c_a6dfedc9b51c224902aba429949ec2d17} 
+\#define {\bfseries RADIUS\+\_\+\+DEFAULT}~\mbox{\hyperlink{lv__display_8h_ac061d4e3b0c3e14ce430b6127d53715f}{LV\+\_\+\+DPX\+\_\+\+CALC}}(theme-\/$>$disp\+\_\+dpi, theme-\/$>$disp\+\_\+size == DISP\+\_\+\+LARGE ? 12 \+: 8)
+\item 
+\Hypertarget{lv__theme__default_8c_a6570b8c095ca00a7eb3888a1a7ac2914}\label{lv__theme__default_8c_a6570b8c095ca00a7eb3888a1a7ac2914} 
+\#define {\bfseries LIGHT\+\_\+\+COLOR\+\_\+\+SCR}~lv\+\_\+palette\+\_\+lighten(LV\+\_\+\+PALETTE\+\_\+\+GREY, 4)
+\item 
+\Hypertarget{lv__theme__default_8c_afb787989f75c8729922e909d97f8336b}\label{lv__theme__default_8c_afb787989f75c8729922e909d97f8336b} 
+\#define {\bfseries LIGHT\+\_\+\+COLOR\+\_\+\+CARD}~\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color_8c_ae88f1b549583615e288c9c3557cd249b}{lv\+\_\+color\+\_\+white}}()
+\item 
+\Hypertarget{lv__theme__default_8c_ad6455fa10cf4d2e5b3987b98867a99dc}\label{lv__theme__default_8c_ad6455fa10cf4d2e5b3987b98867a99dc} 
+\#define {\bfseries LIGHT\+\_\+\+COLOR\+\_\+\+TEXT}~lv\+\_\+palette\+\_\+darken(LV\+\_\+\+PALETTE\+\_\+\+GREY, 4)
+\item 
+\Hypertarget{lv__theme__default_8c_a2f03a6ee62cf0e369ec07fff73a73283}\label{lv__theme__default_8c_a2f03a6ee62cf0e369ec07fff73a73283} 
+\#define {\bfseries LIGHT\+\_\+\+COLOR\+\_\+\+GREY}~lv\+\_\+palette\+\_\+lighten(LV\+\_\+\+PALETTE\+\_\+\+GREY, 2)
+\item 
+\Hypertarget{lv__theme__default_8c_aa331416cb41d1efc9633e3a4a4eb8085}\label{lv__theme__default_8c_aa331416cb41d1efc9633e3a4a4eb8085} 
+\#define {\bfseries DARK\+\_\+\+COLOR\+\_\+\+SCR}~\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color_8c_a683fc45072eabc9c74257af7fc36345f}{lv\+\_\+color\+\_\+hex}}(0x15171A)
+\item 
+\Hypertarget{lv__theme__default_8c_a425d4929207e57bf45988363f62011c4}\label{lv__theme__default_8c_a425d4929207e57bf45988363f62011c4} 
+\#define {\bfseries DARK\+\_\+\+COLOR\+\_\+\+CARD}~\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color_8c_a683fc45072eabc9c74257af7fc36345f}{lv\+\_\+color\+\_\+hex}}(0x282b30)
+\item 
+\Hypertarget{lv__theme__default_8c_aa76d84d2777c8e873641a895df37088b}\label{lv__theme__default_8c_aa76d84d2777c8e873641a895df37088b} 
+\#define {\bfseries DARK\+\_\+\+COLOR\+\_\+\+TEXT}~lv\+\_\+palette\+\_\+lighten(LV\+\_\+\+PALETTE\+\_\+\+GREY, 5)
+\item 
+\Hypertarget{lv__theme__default_8c_a93feb80a79fc2b3635b61684c582209e}\label{lv__theme__default_8c_a93feb80a79fc2b3635b61684c582209e} 
+\#define {\bfseries DARK\+\_\+\+COLOR\+\_\+\+GREY}~\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__color_8c_a683fc45072eabc9c74257af7fc36345f}{lv\+\_\+color\+\_\+hex}}(0x2f3237)
+\item 
+\Hypertarget{lv__theme__default_8c_ac43c8a65e3b989abe0c91ed52678208c}\label{lv__theme__default_8c_ac43c8a65e3b989abe0c91ed52678208c} 
+\#define {\bfseries TRANSITION\+\_\+\+TIME}~\mbox{\hyperlink{lv__conf__cmsis_8h_a4cf6d2bbdde57ce13d52d38aa5eac1fa}{LV\+\_\+\+THEME\+\_\+\+DEFAULT\+\_\+\+TRANSITION\+\_\+\+TIME}}
+\item 
+\Hypertarget{lv__theme__default_8c_a4221b0a24a1716cf086b820f988e4285}\label{lv__theme__default_8c_a4221b0a24a1716cf086b820f988e4285} 
+\#define {\bfseries BORDER\+\_\+\+WIDTH}~\mbox{\hyperlink{lv__display_8h_ac061d4e3b0c3e14ce430b6127d53715f}{LV\+\_\+\+DPX\+\_\+\+CALC}}(theme-\/$>$disp\+\_\+dpi, 2)
+\item 
+\Hypertarget{lv__theme__default_8c_a38a1f439739ede11aa608ea45eaf24e5}\label{lv__theme__default_8c_a38a1f439739ede11aa608ea45eaf24e5} 
+\#define {\bfseries OUTLINE\+\_\+\+WIDTH}~\mbox{\hyperlink{lv__display_8h_ac061d4e3b0c3e14ce430b6127d53715f}{LV\+\_\+\+DPX\+\_\+\+CALC}}(theme-\/$>$disp\+\_\+dpi, 3)
+\item 
+\Hypertarget{lv__theme__default_8c_ae7fc5706849a1cbed0dff712f908a723}\label{lv__theme__default_8c_ae7fc5706849a1cbed0dff712f908a723} 
+\#define {\bfseries PAD\+\_\+\+DEF}~\mbox{\hyperlink{lv__display_8h_ac061d4e3b0c3e14ce430b6127d53715f}{LV\+\_\+\+DPX\+\_\+\+CALC}}(theme-\/$>$disp\+\_\+dpi, theme-\/$>$disp\+\_\+size == DISP\+\_\+\+LARGE ? 24 \+: theme-\/$>$disp\+\_\+size == DISP\+\_\+\+MEDIUM ? 20 \+: 16)
+\item 
+\Hypertarget{lv__theme__default_8c_a57869815479a48a8fc921f43e0844b2f}\label{lv__theme__default_8c_a57869815479a48a8fc921f43e0844b2f} 
+\#define {\bfseries PAD\+\_\+\+SMALL}~\mbox{\hyperlink{lv__display_8h_ac061d4e3b0c3e14ce430b6127d53715f}{LV\+\_\+\+DPX\+\_\+\+CALC}}(theme-\/$>$disp\+\_\+dpi, theme-\/$>$disp\+\_\+size == DISP\+\_\+\+LARGE ? 14 \+: theme-\/$>$disp\+\_\+size == DISP\+\_\+\+MEDIUM ? 12 \+: 10)
+\item 
+\Hypertarget{lv__theme__default_8c_a710b5e605b3d584daef7b2df5e74a9ca}\label{lv__theme__default_8c_a710b5e605b3d584daef7b2df5e74a9ca} 
+\#define {\bfseries PAD\+\_\+\+TINY}~\mbox{\hyperlink{lv__display_8h_ac061d4e3b0c3e14ce430b6127d53715f}{LV\+\_\+\+DPX\+\_\+\+CALC}}(theme-\/$>$disp\+\_\+dpi, theme-\/$>$disp\+\_\+size == DISP\+\_\+\+LARGE ? 8 \+: theme-\/$>$disp\+\_\+size == DISP\+\_\+\+MEDIUM ? 6 \+: 2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__theme__default_8c_a4ee14a1d67129a28317f4037ff33db38}\label{lv__theme__default_8c_a4ee14a1d67129a28317f4037ff33db38} 
+typedef struct \mbox{\hyperlink{struct__my__theme__t}{\+\_\+my\+\_\+theme\+\_\+t}} {\bfseries my\+\_\+theme\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Naštevni tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__theme__default_8c_a25d2034c6c5483e5889ec2d57c10bfa8}\label{lv__theme__default_8c_a25d2034c6c5483e5889ec2d57c10bfa8} 
+enum {\bfseries disp\+\_\+size\+\_\+t} \{ {\bfseries DISP\+\_\+\+SMALL} = 3
+, {\bfseries DISP\+\_\+\+MEDIUM} = 2
+, {\bfseries DISP\+\_\+\+LARGE} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__theme__default_8c_aedb38e1c1f4b3410aacf52ffdbde2e5b}{lv\+\_\+theme\+\_\+default\+\_\+init}} (\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\+\_\+display\+\_\+t}} \texorpdfstring{$\ast$}{*}disp, \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} color\+\_\+primary, \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} color\+\_\+secondary, bool dark, const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}font)
+\item 
+bool \mbox{\hyperlink{lv__theme__default_8c_a0c6f8ca7dac961072a65f0d7f3487519}{lv\+\_\+theme\+\_\+default\+\_\+is\+\_\+inited}} (void)
+\item 
+\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__theme__default_8c_a36c3aedbfb08ee9b98594e9d41773f6d}{lv\+\_\+theme\+\_\+default\+\_\+get}} (void)
+\item 
+void \mbox{\hyperlink{lv__theme__default_8c_a57af520a4d93120ee5f411ea104447f1}{lv\+\_\+theme\+\_\+default\+\_\+deinit}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__theme__default_8c_a57af520a4d93120ee5f411ea104447f1}\label{lv__theme__default_8c_a57af520a4d93120ee5f411ea104447f1} 
+\index{lv\_theme\_default.c@{lv\_theme\_default.c}!lv\_theme\_default\_deinit@{lv\_theme\_default\_deinit}}
+\index{lv\_theme\_default\_deinit@{lv\_theme\_default\_deinit}!lv\_theme\_default.c@{lv\_theme\_default.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_default\_deinit()}{lv\_theme\_default\_deinit()}}
+{\footnotesize\ttfamily void lv\+\_\+theme\+\_\+default\+\_\+deinit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Deinitialize the default theme \Hypertarget{lv__theme__default_8c_a36c3aedbfb08ee9b98594e9d41773f6d}\label{lv__theme__default_8c_a36c3aedbfb08ee9b98594e9d41773f6d} 
+\index{lv\_theme\_default.c@{lv\_theme\_default.c}!lv\_theme\_default\_get@{lv\_theme\_default\_get}}
+\index{lv\_theme\_default\_get@{lv\_theme\_default\_get}!lv\_theme\_default.c@{lv\_theme\_default.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_default\_get()}{lv\_theme\_default\_get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+theme\+\_\+default\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Get default theme \begin{DoxyReturn}{Rezultat(i)}
+a pointer to default theme, or NULL if this is not initialized 
+\end{DoxyReturn}
+\Hypertarget{lv__theme__default_8c_aedb38e1c1f4b3410aacf52ffdbde2e5b}\label{lv__theme__default_8c_aedb38e1c1f4b3410aacf52ffdbde2e5b} 
+\index{lv\_theme\_default.c@{lv\_theme\_default.c}!lv\_theme\_default\_init@{lv\_theme\_default\_init}}
+\index{lv\_theme\_default\_init@{lv\_theme\_default\_init}!lv\_theme\_default.c@{lv\_theme\_default.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_default\_init()}{lv\_theme\_default\_init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+theme\+\_\+default\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\+\_\+display\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{disp,  }\item[{\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}}]{color\+\_\+primary,  }\item[{\mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}}}]{color\+\_\+secondary,  }\item[{bool}]{dark,  }\item[{const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{font }\end{DoxyParamCaption})}
+
+Initialize the theme 
+\begin{DoxyParams}{Parametri}
+{\em disp} & pointer to display \\
+\hline
+{\em color\+\_\+primary} & the primary color of the theme \\
+\hline
+{\em color\+\_\+secondary} & the secondary color for the theme \\
+\hline
+{\em dark} & \\
+\hline
+{\em font} & pointer to a font to use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+a pointer to reference this theme later 
+\end{DoxyReturn}
+\Hypertarget{lv__theme__default_8c_a0c6f8ca7dac961072a65f0d7f3487519}\label{lv__theme__default_8c_a0c6f8ca7dac961072a65f0d7f3487519} 
+\index{lv\_theme\_default.c@{lv\_theme\_default.c}!lv\_theme\_default\_is\_inited@{lv\_theme\_default\_is\_inited}}
+\index{lv\_theme\_default\_is\_inited@{lv\_theme\_default\_is\_inited}!lv\_theme\_default.c@{lv\_theme\_default.c}}
+\doxysubsubsection{\texorpdfstring{lv\_theme\_default\_is\_inited()}{lv\_theme\_default\_is\_inited()}}
+{\footnotesize\ttfamily bool lv\+\_\+theme\+\_\+default\+\_\+is\+\_\+inited (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Check if default theme is initialized \begin{DoxyReturn}{Rezultat(i)}
+true if default theme is initialized, false otherwise 
+\end{DoxyReturn}

@@ -1,0 +1,59 @@
+\doxysection{Datoteka managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+lvgl\+\_\+port/test\+\_\+apps/simd/main/lv\+\_\+blend/include/lv\+\_\+math.h}
+\hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h}{}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h}\index{managed\_components/espressif\_\_esp\_lvgl\_port/test\_apps/simd/main/lv\_blend/include/lv\_math.h@{managed\_components/espressif\_\_esp\_lvgl\_port/test\_apps/simd/main/lv\_blend/include/lv\_math.h}}
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+math.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+math.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_ab075eda3daab5b70cb8dac91262f8f34}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_ab075eda3daab5b70cb8dac91262f8f34} 
+\#define {\bfseries LV\+\_\+\+MIN}(a,  b)~((a) $<$ (b) ? (a) \+: (b))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a154a3997460dfd67b0c9046669826675}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a154a3997460dfd67b0c9046669826675} 
+\#define {\bfseries LV\+\_\+\+MIN3}(a,  b,  c)~(LV\+\_\+\+MIN(LV\+\_\+\+MIN(a,b), c))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a01d445c6a4e0877b74c65656ca6362ba}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a01d445c6a4e0877b74c65656ca6362ba} 
+\#define {\bfseries LV\+\_\+\+MIN4}(a,  b,  c,  d)~(LV\+\_\+\+MIN(LV\+\_\+\+MIN(a,b), LV\+\_\+\+MIN(c,d)))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a98104674a4e75ac624c0db433a05123d}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a98104674a4e75ac624c0db433a05123d} 
+\#define {\bfseries LV\+\_\+\+MAX}(a,  b)~((a) $>$ (b) ? (a) \+: (b))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a1abec57ef844d316a06ab94273dbd6f9}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a1abec57ef844d316a06ab94273dbd6f9} 
+\#define {\bfseries LV\+\_\+\+MAX3}(a,  b,  c)~(LV\+\_\+\+MAX(LV\+\_\+\+MAX(a,b), c))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a8d7b48eb396c8cd919423e6181d32685}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a8d7b48eb396c8cd919423e6181d32685} 
+\#define {\bfseries LV\+\_\+\+MAX4}(a,  b,  c,  d)~(LV\+\_\+\+MAX(LV\+\_\+\+MAX(a,b), LV\+\_\+\+MAX(c,d)))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_aaf8df40105306934f0860e27115dbb21}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_aaf8df40105306934f0860e27115dbb21} 
+\#define {\bfseries LV\+\_\+\+CLAMP}(min,  val,  max)~(LV\+\_\+\+MAX(min, (LV\+\_\+\+MIN(val, max))))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_aef0e81b884181be0cbe0db42d0f03078}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_aef0e81b884181be0cbe0db42d0f03078} 
+\#define {\bfseries LV\+\_\+\+ABS}(x)~((x) $>$ 0 ? (x) \+: (-\/(x)))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_adc2b31deb356de457f73815eda7df646}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_adc2b31deb356de457f73815eda7df646} 
+\#define {\bfseries LV\+\_\+\+UDIV255}(x)~(((x) \texorpdfstring{$\ast$}{*} 0x8081U) $>$$>$ 0x17)
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a0a7eef80ee92c461b2c523774400f212}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a0a7eef80ee92c461b2c523774400f212} 
+\#define {\bfseries LV\+\_\+\+IS\+\_\+\+SIGNED}(t)~(((t)(-\/1)) $<$ ((t)0))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_ac51b8abda3462a38121f3ed430b9a47b}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_ac51b8abda3462a38121f3ed430b9a47b} 
+\#define {\bfseries LV\+\_\+\+UMAX\+\_\+\+OF}(t)~(((0x1\+ULL $<$$<$ ((sizeof(t) \texorpdfstring{$\ast$}{*} 8ULL) -\/ 1ULL)) -\/ 1ULL) \texorpdfstring{$\vert$}{|} (0x\+FULL $<$$<$ ((sizeof(t) \texorpdfstring{$\ast$}{*} 8ULL) -\/ 4ULL)))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a46ef2d9cc1f80e5c344ac2d972d73609}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a46ef2d9cc1f80e5c344ac2d972d73609} 
+\#define {\bfseries LV\+\_\+\+SMAX\+\_\+\+OF}(t)~(((0x1\+ULL $<$$<$ ((sizeof(t) \texorpdfstring{$\ast$}{*} 8ULL) -\/ 1ULL)) -\/ 1ULL) \texorpdfstring{$\vert$}{|} (0x7\+ULL $<$$<$ ((sizeof(t) \texorpdfstring{$\ast$}{*} 8ULL) -\/ 4ULL)))
+\item 
+\Hypertarget{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a4b7bd6ec4f53cff919614e8f6d668cd0}\label{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__math_8h_a4b7bd6ec4f53cff919614e8f6d668cd0} 
+\#define {\bfseries LV\+\_\+\+MAX\+\_\+\+OF}(t)~((unsigned long)(LV\+\_\+\+IS\+\_\+\+SIGNED(t) ? LV\+\_\+\+SMAX\+\_\+\+OF(t) \+: LV\+\_\+\+UMAX\+\_\+\+OF(t)))
+\end{DoxyCompactItemize}

@@ -1,0 +1,557 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/drivers/nuttx/mock/nuttx\+\_\+video\+\_\+fb.h}
+\hypertarget{nuttx__video__fb_8h}{}\label{nuttx__video__fb_8h}\index{managed\_components/lvgl\_\_lvgl/src/drivers/nuttx/mock/nuttx\_video\_fb.h@{managed\_components/lvgl\_\_lvgl/src/drivers/nuttx/mock/nuttx\_video\_fb.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}nuttx\+\_\+video\+\_\+fb.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko nuttx\+\_\+video\+\_\+fb.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{nuttx__video__fb_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{nuttx__video__fb_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Strukture}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfb__videoinfo__s}{fb\+\_\+videoinfo\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structfb__planeinfo__s}{fb\+\_\+planeinfo\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{nuttx__video__fb_8h_a9952892c656608ccfee75827c9522555}\label{nuttx__video__fb_8h_a9952892c656608ccfee75827c9522555} 
+\#define {\bfseries \+\_\+\+FBIOC}(x)~(x)
+\item 
+\Hypertarget{nuttx__video__fb_8h_a60932f1a6dcc8562c0f46487791cace8}\label{nuttx__video__fb_8h_a60932f1a6dcc8562c0f46487791cace8} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y1}~0         /\texorpdfstring{$\ast$}{*} BPP=1, monochrome \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_aeb5b40368918e13412dba59058e691c3}\label{nuttx__video__fb_8h_aeb5b40368918e13412dba59058e691c3} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y2}~1         /\texorpdfstring{$\ast$}{*} BPP=2, 2-\/bit uncompressed greyscale \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_adcd94c12228792a71cb9e6b8dd648c71}\label{nuttx__video__fb_8h_adcd94c12228792a71cb9e6b8dd648c71} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y4}~2         /\texorpdfstring{$\ast$}{*} BPP=4, 4-\/bit uncompressed greyscale \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a43c2a90c7da5106a27f356767d88978e}\label{nuttx__video__fb_8h_a43c2a90c7da5106a27f356767d88978e} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y8}~3         /\texorpdfstring{$\ast$}{*} BPP=8, 8-\/bit uncompressed greyscale \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_aa0b22eb1200e8dd2400e4871ac493001}\label{nuttx__video__fb_8h_aa0b22eb1200e8dd2400e4871ac493001} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y16}~4         /\texorpdfstring{$\ast$}{*} BPP=16, 16-\/bit uncompressed greyscale \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a42ecd2234e17ab2b9af5ecb80c5ecd56}\label{nuttx__video__fb_8h_a42ecd2234e17ab2b9af5ecb80c5ecd56} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+GREY}~FB\+\_\+\+FMT\+\_\+\+Y8 /\texorpdfstring{$\ast$}{*} BPP=8 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ae9c013af56e7783601246a6968f9b3f6}\label{nuttx__video__fb_8h_ae9c013af56e7783601246a6968f9b3f6} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y800}~FB\+\_\+\+FMT\+\_\+\+Y8 /\texorpdfstring{$\ast$}{*} BPP=8 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a0f6e8c709a3c880417d726a4082d238b}\label{nuttx__video__fb_8h_a0f6e8c709a3c880417d726a4082d238b} 
+\#define {\bfseries FB\+\_\+\+ISMONO}(f)~(((f) $>$= FB\+\_\+\+FMT\+\_\+\+Y1) \&\& (f) $<$= FB\+\_\+\+FMT\+\_\+\+Y16)
+\item 
+\Hypertarget{nuttx__video__fb_8h_a88b2e42e2058a8869b0e29616027ea3d}\label{nuttx__video__fb_8h_a88b2e42e2058a8869b0e29616027ea3d} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB4}~5           /\texorpdfstring{$\ast$}{*} BPP=4 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a58e71c715573260f0019ccb60113b373}\label{nuttx__video__fb_8h_a58e71c715573260f0019ccb60113b373} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB8}~6           /\texorpdfstring{$\ast$}{*} BPP=8 RGB palette index \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a726f80944ec8f48c4a0328bba830fd62}\label{nuttx__video__fb_8h_a726f80944ec8f48c4a0328bba830fd62} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB8\+\_\+222}~7           /\texorpdfstring{$\ast$}{*} BPP=8  R=2, G=2, B=2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ab36ce2a23d935cbebf5348308b16bb48}\label{nuttx__video__fb_8h_ab36ce2a23d935cbebf5348308b16bb48} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB8\+\_\+332}~8           /\texorpdfstring{$\ast$}{*} BPP=8  R=3, G=3, B=2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a80c2a7b79803efebfb8b4043e7b0de84}\label{nuttx__video__fb_8h_a80c2a7b79803efebfb8b4043e7b0de84} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB12\+\_\+444}~9           /\texorpdfstring{$\ast$}{*} BPP=12 R=4, G=4, B=4 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_aadec929424acc648f91dadb472960004}\label{nuttx__video__fb_8h_aadec929424acc648f91dadb472960004} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB16\+\_\+555}~10          /\texorpdfstring{$\ast$}{*} BPP=16 R=5, G=5, B=5 (1 unused bit) \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a29ac7e107cb2fa4c6c1d7e1c948ea74c}\label{nuttx__video__fb_8h_a29ac7e107cb2fa4c6c1d7e1c948ea74c} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB16\+\_\+565}~11          /\texorpdfstring{$\ast$}{*} BPP=16 R=5, G=6, B=5 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a93ecb528fb2c64300fa48e8e14eef379}\label{nuttx__video__fb_8h_a93ecb528fb2c64300fa48e8e14eef379} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB24}~12          /\texorpdfstring{$\ast$}{*} BPP=24 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a7943b284c135ba2d0e525070e4a01d6d}\label{nuttx__video__fb_8h_a7943b284c135ba2d0e525070e4a01d6d} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGB32}~13          /\texorpdfstring{$\ast$}{*} BPP=32 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a9e1b2c56e16e31acc2e4835e4acc6b51}\label{nuttx__video__fb_8h_a9e1b2c56e16e31acc2e4835e4acc6b51} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBRLE4}~14          /\texorpdfstring{$\ast$}{*} BPP=4 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ad7cb4b65ac1639c0e88c74e4aa424199}\label{nuttx__video__fb_8h_ad7cb4b65ac1639c0e88c74e4aa424199} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBRLE8}~15          /\texorpdfstring{$\ast$}{*} BPP=8 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a988e94e06150b84b889d38fab2833d1b}\label{nuttx__video__fb_8h_a988e94e06150b84b889d38fab2833d1b} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBRAW}~16          /\texorpdfstring{$\ast$}{*} BPP=? \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a1cae4e8c4801aec8ba83de7b939b2afc}\label{nuttx__video__fb_8h_a1cae4e8c4801aec8ba83de7b939b2afc} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBBTFLD16}~17          /\texorpdfstring{$\ast$}{*} BPP=16 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a83cfa2279c84d4f7b6440014f09b4068}\label{nuttx__video__fb_8h_a83cfa2279c84d4f7b6440014f09b4068} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBBTFLD24}~18          /\texorpdfstring{$\ast$}{*} BPP=24 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_aebfe7c37ed9468ae3fbccd7b0e53b204}\label{nuttx__video__fb_8h_aebfe7c37ed9468ae3fbccd7b0e53b204} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBBTFLD32}~19          /\texorpdfstring{$\ast$}{*} BPP=32 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a19f6d5c2fda44ecb7bdb2cb5c9763aca}\label{nuttx__video__fb_8h_a19f6d5c2fda44ecb7bdb2cb5c9763aca} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBA16}~20          /\texorpdfstring{$\ast$}{*} BPP=16 Raw RGB with alpha \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a6560a17b9bf7dad1b444e54e3704eaa2}\label{nuttx__video__fb_8h_a6560a17b9bf7dad1b444e54e3704eaa2} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBA32}~21          /\texorpdfstring{$\ast$}{*} BPP=32 Raw RGB with alpha \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a093d197ff414f68655315a8154f13b47}\label{nuttx__video__fb_8h_a093d197ff414f68655315a8154f13b47} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBT16}~22          /\texorpdfstring{$\ast$}{*} BPP=16 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a3e2585330b7f11e63cfdfdc354256936}\label{nuttx__video__fb_8h_a3e2585330b7f11e63cfdfdc354256936} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+RGBT32}~23          /\texorpdfstring{$\ast$}{*} BPP=32 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a0d70c0a3c417f0023e3531c0f18b4095}\label{nuttx__video__fb_8h_a0d70c0a3c417f0023e3531c0f18b4095} 
+\#define {\bfseries FB\+\_\+\+ISRGB}(f)~(((f) $>$= FB\+\_\+\+FMT\+\_\+\+RGB4) \&\& (f) $<$= FB\+\_\+\+FMT\+\_\+\+RGBT32)
+\item 
+\Hypertarget{nuttx__video__fb_8h_aa9063ee523a82de0fdebf7f470d83e8f}\label{nuttx__video__fb_8h_aa9063ee523a82de0fdebf7f470d83e8f} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+AYUV}~24          /\texorpdfstring{$\ast$}{*} BPP=32  Combined YUV and alpha \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a21e071128740200d7f52cf80b9bb4aea}{FB\+\_\+\+FMT\+\_\+\+CLJR}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a81d5681818e8ef8f32cbe30e5a008020}{FB\+\_\+\+FMT\+\_\+\+CYUV}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_a511a18b0690f68ee7972857013660b0a}\label{nuttx__video__fb_8h_a511a18b0690f68ee7972857013660b0a} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+IRAW}~27          /\texorpdfstring{$\ast$}{*} BPP=?   Intel uncompressed YUV \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a1a9281ea81b8fe40b2da25da30f4b9f4}{FB\+\_\+\+FMT\+\_\+\+IUYV}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_ab33e7b24c9cae677e5dfe26174f0f883}{FB\+\_\+\+FMT\+\_\+\+IY41}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_a450db709fb3beadcb12e151c1d61ac1d}\label{nuttx__video__fb_8h_a450db709fb3beadcb12e151c1d61ac1d} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+IYU2}~30          /\texorpdfstring{$\ast$}{*} BPP=24 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a01332c16464c0d4df5050572c3add690}{FB\+\_\+\+FMT\+\_\+\+HDYC}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a7a8c7b30684d60aaf9bf58a9fa1eae49}{FB\+\_\+\+FMT\+\_\+\+UYVP}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_a2a78b83274e6194df2c606f12d0a0d55}\label{nuttx__video__fb_8h_a2a78b83274e6194df2c606f12d0a0d55} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+UYVY}~33          /\texorpdfstring{$\ast$}{*} BPP=16  YUV 4\+:2\+:2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_af7b478c6baf2d38f6f665cb2c347f298}\label{nuttx__video__fb_8h_af7b478c6baf2d38f6f665cb2c347f298} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+UYNV}~FB\+\_\+\+FMT\+\_\+\+UYVY /\texorpdfstring{$\ast$}{*} BPP=16  \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ad7b2271df6a801daedb66fb7f7b18acb}\label{nuttx__video__fb_8h_ad7b2271df6a801daedb66fb7f7b18acb} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y422}~FB\+\_\+\+FMT\+\_\+\+UYVY /\texorpdfstring{$\ast$}{*} BPP=16  \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a16f010720590fc2d251e6996f4662a91}\label{nuttx__video__fb_8h_a16f010720590fc2d251e6996f4662a91} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+V210}~34          /\texorpdfstring{$\ast$}{*} BPP=32  10-\/bit 4\+:2\+:2 YCr\+Cb \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_aa3bb0249ab8a9d27828290306b6a248a}\label{nuttx__video__fb_8h_aa3bb0249ab8a9d27828290306b6a248a} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+V422}~35          /\texorpdfstring{$\ast$}{*} BPP=16  Upside down version of UYVY \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a9bbf4f67707d5dd9f1e17ef3d5e73bb3}\label{nuttx__video__fb_8h_a9bbf4f67707d5dd9f1e17ef3d5e73bb3} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+V655}~36          /\texorpdfstring{$\ast$}{*} BPP=16? 16-\/bit YUV 4\+:2\+:2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_af9fed5fca5f1f04503f46b77bf65d7a6}\label{nuttx__video__fb_8h_af9fed5fca5f1f04503f46b77bf65d7a6} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+VYUY}~37          /\texorpdfstring{$\ast$}{*} BPP=?   ATI Packed YUV Data \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_af064a811a3bd3c25e677c35295005680}\label{nuttx__video__fb_8h_af064a811a3bd3c25e677c35295005680} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+YUYV}~38          /\texorpdfstring{$\ast$}{*} BPP=16  YUV 4\+:2\+:2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a4cc928b79d653b859d9e1b6916045e69}\label{nuttx__video__fb_8h_a4cc928b79d653b859d9e1b6916045e69} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+YUY2}~FB\+\_\+\+FMT\+\_\+\+YUYV /\texorpdfstring{$\ast$}{*} BPP=16  YUV 4\+:2\+:2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ac28c38ef979a8025c43e1c593715d37b}\label{nuttx__video__fb_8h_ac28c38ef979a8025c43e1c593715d37b} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+YUNV}~FB\+\_\+\+FMT\+\_\+\+YUYV /\texorpdfstring{$\ast$}{*} BPP=16  YUV 4\+:2\+:2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a742af95de4172a972d83a1faabe22fc0}\label{nuttx__video__fb_8h_a742af95de4172a972d83a1faabe22fc0} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+YVYU}~39          /\texorpdfstring{$\ast$}{*} BPP=16  YUV 4\+:2\+:2 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ae6333a6d084e343ed764cab20cf4eaeb}\label{nuttx__video__fb_8h_ae6333a6d084e343ed764cab20cf4eaeb} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y41P}~40          /\texorpdfstring{$\ast$}{*} BPP=12  YUV 4\+:1\+:1 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_adcde5ef4ec841cda19748a0256483eb6}\label{nuttx__video__fb_8h_adcde5ef4ec841cda19748a0256483eb6} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y411}~41          /\texorpdfstring{$\ast$}{*} BPP=12  YUV 4\+:1\+:1 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a64e3dec8903da438be814a58bc7aa583}\label{nuttx__video__fb_8h_a64e3dec8903da438be814a58bc7aa583} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y211}~42          /\texorpdfstring{$\ast$}{*} BPP=8  \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a4233300c4d029aef6d03bf9ae2552181}\label{nuttx__video__fb_8h_a4233300c4d029aef6d03bf9ae2552181} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y41T}~43          /\texorpdfstring{$\ast$}{*} BPP=12  Y41P LSB for transparency \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a1df9886c4d9b16d5ad4f5f48b97e193e}\label{nuttx__video__fb_8h_a1df9886c4d9b16d5ad4f5f48b97e193e} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y42T}~44          /\texorpdfstring{$\ast$}{*} BPP=16  UYVY LSB for transparency \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_afbbc5243acd50db53ebf849a16f45276}\label{nuttx__video__fb_8h_afbbc5243acd50db53ebf849a16f45276} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+YUVP}~45          /\texorpdfstring{$\ast$}{*} BPP=24? YCb\+Cr 4\+:2\+:2 Y0\+U0\+Y1\+V0 order \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_aa6bc068ae2c70768885e4327add27b07}\label{nuttx__video__fb_8h_aa6bc068ae2c70768885e4327add27b07} 
+\#define {\bfseries FB\+\_\+\+ISYUVPACKED}(f)~(((f) $>$= FB\+\_\+\+FMT\+\_\+\+AYUV) \&\& (f) $<$= FB\+\_\+\+FMT\+\_\+\+YUVP)
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a696f2e1f104707a2b2f917b6c9a4ed03}{FB\+\_\+\+FMT\+\_\+\+YVU9}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_ac738a1d22a6c629e98fcb677c100b704}\label{nuttx__video__fb_8h_ac738a1d22a6c629e98fcb677c100b704} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+YUV9}~47          /\texorpdfstring{$\ast$}{*} BPP=9? \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a5fa393136b8f889643ef0a55847fb8f0}{FB\+\_\+\+FMT\+\_\+\+IF09}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_aabc9d9e203275d60255771c392584be4}{FB\+\_\+\+FMT\+\_\+\+YV16}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a7d6a88a03101a2a0aca5377d2fd01c8e}{FB\+\_\+\+FMT\+\_\+\+YV12}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a43b917acce8ce3ce044e305db4ef13cb}{FB\+\_\+\+FMT\+\_\+\+I420}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_a2e0479e7aef62dfafc0ae4d78b5a3ccf}\label{nuttx__video__fb_8h_a2e0479e7aef62dfafc0ae4d78b5a3ccf} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+IYUV}~FB\+\_\+\+FMT\+\_\+\+I420 /\texorpdfstring{$\ast$}{*} BPP=12 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a221439a4ab80d10492a63b49e146565f}{FB\+\_\+\+FMT\+\_\+\+NV12}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_aca925def7ca0f18565d952588bddc361}\label{nuttx__video__fb_8h_aca925def7ca0f18565d952588bddc361} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+NV21}~53          /\texorpdfstring{$\ast$}{*} BPP=12  NV12 with UV reversed \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a2342d49eb4f36c0e45da92fcd0ca07a8}{FB\+\_\+\+FMT\+\_\+\+IMC1}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a6fc8d52d254113099cbc3b9b7e76d252}{FB\+\_\+\+FMT\+\_\+\+IMC2}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_ad57da7a6bb66a19806c7edb649a5751a}{FB\+\_\+\+FMT\+\_\+\+IMC3}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a597724c51f2d1f684273d0c71308b495}{FB\+\_\+\+FMT\+\_\+\+IMC4}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a2ce5a5e0eddaf2cb1e2a9d9b9fc6815c}{FB\+\_\+\+FMT\+\_\+\+CLPL}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_a7f170c6c96c9e4d80fc8d968e1d6b6a3}\label{nuttx__video__fb_8h_a7f170c6c96c9e4d80fc8d968e1d6b6a3} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y41B}~59          /\texorpdfstring{$\ast$}{*} BPP=12?  4\+:1\+:1 planar. \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a19683810da4b1b278e05e26702ce5bd3}\label{nuttx__video__fb_8h_a19683810da4b1b278e05e26702ce5bd3} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+Y42B}~60          /\texorpdfstring{$\ast$}{*} BPP=16?  YUV 4\+:2\+:2 planar. \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a6602497720c3bfae8df1c1411942781b}\label{nuttx__video__fb_8h_a6602497720c3bfae8df1c1411942781b} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+CXY1}~61          /\texorpdfstring{$\ast$}{*} BPP=12 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ae9acd43983f725eb94cff032621f70d0}\label{nuttx__video__fb_8h_ae9acd43983f725eb94cff032621f70d0} 
+\#define {\bfseries FB\+\_\+\+FMT\+\_\+\+CXY2}~62          /\texorpdfstring{$\ast$}{*} BPP=16 \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_ae1fd25d5b56832e15cb154b7a94b4bba}\label{nuttx__video__fb_8h_ae1fd25d5b56832e15cb154b7a94b4bba} 
+\#define {\bfseries FB\+\_\+\+ISYUVPLANAR}(f)~(((f) $>$= FB\+\_\+\+FMT\+\_\+\+YVU9) \&\& (f) $<$= FB\+\_\+\+FMT\+\_\+\+CXY2)
+\item 
+\Hypertarget{nuttx__video__fb_8h_acfdb77e19a955ea242e475d86b506d41}\label{nuttx__video__fb_8h_acfdb77e19a955ea242e475d86b506d41} 
+\#define {\bfseries FB\+\_\+\+ISYUV}(f)~(FB\+\_\+\+ISYUVPACKED(f) \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} FB\+\_\+\+ISYUVPLANAR(f))
+\item 
+\Hypertarget{nuttx__video__fb_8h_a873955c2b4ad74c2bf51e368930608eb}\label{nuttx__video__fb_8h_a873955c2b4ad74c2bf51e368930608eb} 
+\#define {\bfseries FB\+\_\+\+NO\+\_\+\+OVERLAY}~-\/1
+\item 
+\Hypertarget{nuttx__video__fb_8h_a7ea5c243e9106817fa51fd13b533d3f6}\label{nuttx__video__fb_8h_a7ea5c243e9106817fa51fd13b533d3f6} 
+\#define {\bfseries FBIOGET\+\_\+\+VIDEOINFO}~\+\_\+\+FBIOC(0x0001)  /\texorpdfstring{$\ast$}{*} Get color plane info \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a102ad1acbc09036b3a4943a513760ef4}\label{nuttx__video__fb_8h_a102ad1acbc09036b3a4943a513760ef4} 
+\#define {\bfseries FBIOGET\+\_\+\+PLANEINFO}~\+\_\+\+FBIOC(0x0002)  /\texorpdfstring{$\ast$}{*} Get video plane info \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a655e64697eccd72a469ce5be0b62c66a}{FBIOSET\+\_\+\+POWER}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_aa82373734ca838805bac603c22618f3a}{FBIOGET\+\_\+\+POWER}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a8767937829eea72715f4234ad643b632}{FBIOSET\+\_\+\+FRAMERATE}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a5929791f89d7cf377a2c378d541e366e}{FBIOGET\+\_\+\+FRAMERATE}}
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_aecf4c24ba1829e6b29e97cccdb8502b5}{FBIOPAN\+\_\+\+DISPLAY}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_ae38bf8967e4700c8ea49026b2aca7d96}\label{nuttx__video__fb_8h_ae38bf8967e4700c8ea49026b2aca7d96} 
+\#define {\bfseries FBIOPAN\+\_\+\+CLEAR}~\+\_\+\+FBIOC(0x0019)  /\texorpdfstring{$\ast$}{*} Pan clear \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{nuttx__video__fb_8h_a7370e1fe2f6362888d85ab34810325d5}{FBIOSET\+\_\+\+VSYNCOFFSET}}
+\item 
+\Hypertarget{nuttx__video__fb_8h_a140bb702dad2959090d3117088b3b412}\label{nuttx__video__fb_8h_a140bb702dad2959090d3117088b3b412} 
+\#define {\bfseries FBIOGET\+\_\+\+VSCREENINFO}~\+\_\+\+FBIOC(0x001b)  /\texorpdfstring{$\ast$}{*} Get video variable info \texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{nuttx__video__fb_8h_a692fc640698d6b00cd291f2b1ce1b1b8}\label{nuttx__video__fb_8h_a692fc640698d6b00cd291f2b1ce1b1b8} 
+\#define {\bfseries FBIOGET\+\_\+\+FSCREENINFO}~\+\_\+\+FBIOC(0x001c)  /\texorpdfstring{$\ast$}{*} Get video fix info \texorpdfstring{$\ast$}{*}/
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{nuttx__video__fb_8h_acf4bc3e298c520d74de09d0d533e2d46}\label{nuttx__video__fb_8h_acf4bc3e298c520d74de09d0d533e2d46} 
+typedef uint16\+\_\+t {\bfseries fb\+\_\+coord\+\_\+t}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{nuttx__video__fb_8h_a21e071128740200d7f52cf80b9bb4aea}\label{nuttx__video__fb_8h_a21e071128740200d7f52cf80b9bb4aea} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_CLJR@{FB\_FMT\_CLJR}}
+\index{FB\_FMT\_CLJR@{FB\_FMT\_CLJR}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_CLJR}{FB\_FMT\_CLJR}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+CLJR}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 25\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=8\ \ \ 4\ pixels\ packed\ into\ a\ uint32\_t.}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ YUV\ 4:1:1\ with\ l<\ 8\ bits}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ per\ YUV\ sample\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a2ce5a5e0eddaf2cb1e2a9d9b9fc6815c}\label{nuttx__video__fb_8h_a2ce5a5e0eddaf2cb1e2a9d9b9fc6815c} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_CLPL@{FB\_FMT\_CLPL}}
+\index{FB\_FMT\_CLPL@{FB\_FMT\_CLPL}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_CLPL}{FB\_FMT\_CLPL}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+CLPL}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 58\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ YV12\ but\ including\ a\ level}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ of\ indirection.\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a81d5681818e8ef8f32cbe30e5a008020}\label{nuttx__video__fb_8h_a81d5681818e8ef8f32cbe30e5a008020} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_CYUV@{FB\_FMT\_CYUV}}
+\index{FB\_FMT\_CYUV@{FB\_FMT\_CYUV}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_CYUV}{FB\_FMT\_CYUV}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+CYUV}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 26\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=16\ \ UYVY\ except\ that\ height\ is}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ reversed\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a01332c16464c0d4df5050572c3add690}\label{nuttx__video__fb_8h_a01332c16464c0d4df5050572c3add690} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_HDYC@{FB\_FMT\_HDYC}}
+\index{FB\_FMT\_HDYC@{FB\_FMT\_HDYC}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_HDYC}{FB\_FMT\_HDYC}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+HDYC}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 31\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=16\ \ UYVY\ except\ uses\ the\ BT709}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ color\ space\ \ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a43b917acce8ce3ce044e305db4ef13cb}\label{nuttx__video__fb_8h_a43b917acce8ce3ce044e305db4ef13cb} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_I420@{FB\_FMT\_I420}}
+\index{FB\_FMT\_I420@{FB\_FMT\_I420}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_I420}{FB\_FMT\_I420}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+I420}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 51\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ 8-\/bit\ Y\ followed\ by\ 8-\/bit}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ 2x2\ UV\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a5fa393136b8f889643ef0a55847fb8f0}\label{nuttx__video__fb_8h_a5fa393136b8f889643ef0a55847fb8f0} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_IF09@{FB\_FMT\_IF09}}
+\index{FB\_FMT\_IF09@{FB\_FMT\_IF09}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_IF09}{FB\_FMT\_IF09}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+IF09}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 48\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=9.5\ YVU9\ +\ 4x4\ plane\ of\ delta}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ relative\ to\ tframe.\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a2342d49eb4f36c0e45da92fcd0ca07a8}\label{nuttx__video__fb_8h_a2342d49eb4f36c0e45da92fcd0ca07a8} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_IMC1@{FB\_FMT\_IMC1}}
+\index{FB\_FMT\_IMC1@{FB\_FMT\_IMC1}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_IMC1}{FB\_FMT\_IMC1}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+IMC1}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 54\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ YV12\ except\ UV\ planes\ same}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ stride\ as\ Y\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a6fc8d52d254113099cbc3b9b7e76d252}\label{nuttx__video__fb_8h_a6fc8d52d254113099cbc3b9b7e76d252} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_IMC2@{FB\_FMT\_IMC2}}
+\index{FB\_FMT\_IMC2@{FB\_FMT\_IMC2}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_IMC2}{FB\_FMT\_IMC2}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+IMC2}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 55\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ IMC1\ except\ UV\ lines}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ interleaved\ at\ half\ stride}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ boundaries\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_ad57da7a6bb66a19806c7edb649a5751a}\label{nuttx__video__fb_8h_ad57da7a6bb66a19806c7edb649a5751a} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_IMC3@{FB\_FMT\_IMC3}}
+\index{FB\_FMT\_IMC3@{FB\_FMT\_IMC3}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_IMC3}{FB\_FMT\_IMC3}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+IMC3}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 56\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ As\ IMC1\ except\ that\ UV}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ swapped\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a597724c51f2d1f684273d0c71308b495}\label{nuttx__video__fb_8h_a597724c51f2d1f684273d0c71308b495} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_IMC4@{FB\_FMT\_IMC4}}
+\index{FB\_FMT\_IMC4@{FB\_FMT\_IMC4}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_IMC4}{FB\_FMT\_IMC4}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+IMC4}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 57\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ As\ IMC2\ \ except\ that\ UV}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ swapped\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a1a9281ea81b8fe40b2da25da30f4b9f4}\label{nuttx__video__fb_8h_a1a9281ea81b8fe40b2da25da30f4b9f4} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_IUYV@{FB\_FMT\_IUYV}}
+\index{FB\_FMT\_IUYV@{FB\_FMT\_IUYV}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_IUYV}{FB\_FMT\_IUYV}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+IUYV}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 28\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=16\ \ Interlaced\ UYVY\ (line\ order}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ 0,2,4,..,\ 1,3,5...)\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_ab33e7b24c9cae677e5dfe26174f0f883}\label{nuttx__video__fb_8h_ab33e7b24c9cae677e5dfe26174f0f883} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_IY41@{FB\_FMT\_IY41}}
+\index{FB\_FMT\_IY41@{FB\_FMT\_IY41}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_IY41}{FB\_FMT\_IY41}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+IY41}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 29\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ Interlaced\ Y41P\ (line\ order}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ 0,2,4,..,\ 1,3,5...)\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a221439a4ab80d10492a63b49e146565f}\label{nuttx__video__fb_8h_a221439a4ab80d10492a63b49e146565f} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_NV12@{FB\_FMT\_NV12}}
+\index{FB\_FMT\_NV12@{FB\_FMT\_NV12}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_NV12}{FB\_FMT\_NV12}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+NV12}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 52\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ 8-\/bit\ Y\ followed\ by\ an}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ interleaved\ 2x2\ UV\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a7a8c7b30684d60aaf9bf58a9fa1eae49}\label{nuttx__video__fb_8h_a7a8c7b30684d60aaf9bf58a9fa1eae49} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_UYVP@{FB\_FMT\_UYVP}}
+\index{FB\_FMT\_UYVP@{FB\_FMT\_UYVP}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_UYVP}{FB\_FMT\_UYVP}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+UYVP}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 32\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=24?\ YCbCr\ 4:2:2,\ 10-\/bits\ per}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ component\ in\ U0Y0V0Y1\ order\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a7d6a88a03101a2a0aca5377d2fd01c8e}\label{nuttx__video__fb_8h_a7d6a88a03101a2a0aca5377d2fd01c8e} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_YV12@{FB\_FMT\_YV12}}
+\index{FB\_FMT\_YV12@{FB\_FMT\_YV12}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_YV12}{FB\_FMT\_YV12}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+YV12}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 50\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=12\ \ 8-\/bit\ Y\ followed\ by\ 8-\/bit}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ 2x2\ VU\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_aabc9d9e203275d60255771c392584be4}\label{nuttx__video__fb_8h_aabc9d9e203275d60255771c392584be4} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_YV16@{FB\_FMT\_YV16}}
+\index{FB\_FMT\_YV16@{FB\_FMT\_YV16}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_YV16}{FB\_FMT\_YV16}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+YV16}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 49\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=16\ \ 8-\/bit\ Y\ followed\ by\ 8-\/bit}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ 2x1\ VU\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a696f2e1f104707a2b2f917b6c9a4ed03}\label{nuttx__video__fb_8h_a696f2e1f104707a2b2f917b6c9a4ed03} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FB\_FMT\_YVU9@{FB\_FMT\_YVU9}}
+\index{FB\_FMT\_YVU9@{FB\_FMT\_YVU9}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FB\_FMT\_YVU9}{FB\_FMT\_YVU9}}
+{\footnotesize\ttfamily \#define FB\+\_\+\+FMT\+\_\+\+YVU9}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 46\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ BPP=9\ \ \ 8-\/bit\ Y\ followed\ by\ 8-\/bit}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ 4x4\ VU\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a5929791f89d7cf377a2c378d541e366e}\label{nuttx__video__fb_8h_a5929791f89d7cf377a2c378d541e366e} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FBIOGET\_FRAMERATE@{FBIOGET\_FRAMERATE}}
+\index{FBIOGET\_FRAMERATE@{FBIOGET\_FRAMERATE}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FBIOGET\_FRAMERATE}{FBIOGET\_FRAMERATE}}
+{\footnotesize\ttfamily \#define FBIOGET\+\_\+\+FRAMERATE}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_FBIOC(0x0017)\ \ \textcolor{comment}{/*\ Get\ frame\ rate}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Argument:\ \ \ \ \ \ \ \ \ \ \ \ int*\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_aa82373734ca838805bac603c22618f3a}\label{nuttx__video__fb_8h_aa82373734ca838805bac603c22618f3a} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FBIOGET\_POWER@{FBIOGET\_POWER}}
+\index{FBIOGET\_POWER@{FBIOGET\_POWER}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FBIOGET\_POWER}{FBIOGET\_POWER}}
+{\footnotesize\ttfamily \#define FBIOGET\+\_\+\+POWER}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_FBIOC(0x0015)\ \ \textcolor{comment}{/*\ Get\ panel\ current\ power}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Argument:\ \ \ \ \ \ \ \ \ \ \ \ int*\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_aecf4c24ba1829e6b29e97cccdb8502b5}\label{nuttx__video__fb_8h_aecf4c24ba1829e6b29e97cccdb8502b5} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FBIOPAN\_DISPLAY@{FBIOPAN\_DISPLAY}}
+\index{FBIOPAN\_DISPLAY@{FBIOPAN\_DISPLAY}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FBIOPAN\_DISPLAY}{FBIOPAN\_DISPLAY}}
+{\footnotesize\ttfamily \#define FBIOPAN\+\_\+\+DISPLAY}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_FBIOC(0x0018)\ \ \textcolor{comment}{/*\ Pan\ display}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Argument:\ read-\/only\ struct}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ \ \ \ \ \ \ \ \ \ \ fb\_planeinfo\_s*\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a8767937829eea72715f4234ad643b632}\label{nuttx__video__fb_8h_a8767937829eea72715f4234ad643b632} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FBIOSET\_FRAMERATE@{FBIOSET\_FRAMERATE}}
+\index{FBIOSET\_FRAMERATE@{FBIOSET\_FRAMERATE}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FBIOSET\_FRAMERATE}{FBIOSET\_FRAMERATE}}
+{\footnotesize\ttfamily \#define FBIOSET\+\_\+\+FRAMERATE}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_FBIOC(0x0016)\ \ \textcolor{comment}{/*\ Set\ frame\ rate}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Argument:\ \ \ \ \ \ \ \ \ \ \ \ \ int\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a655e64697eccd72a469ce5be0b62c66a}\label{nuttx__video__fb_8h_a655e64697eccd72a469ce5be0b62c66a} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FBIOSET\_POWER@{FBIOSET\_POWER}}
+\index{FBIOSET\_POWER@{FBIOSET\_POWER}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FBIOSET\_POWER}{FBIOSET\_POWER}}
+{\footnotesize\ttfamily \#define FBIOSET\+\_\+\+POWER}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_FBIOC(0x0014)\ \ \textcolor{comment}{/*\ Set\ panel\ power}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Argument:\ \ \ \ \ \ \ \ \ \ \ \ \ int\ */}}
+
+\end{DoxyCode}
+\Hypertarget{nuttx__video__fb_8h_a7370e1fe2f6362888d85ab34810325d5}\label{nuttx__video__fb_8h_a7370e1fe2f6362888d85ab34810325d5} 
+\index{nuttx\_video\_fb.h@{nuttx\_video\_fb.h}!FBIOSET\_VSYNCOFFSET@{FBIOSET\_VSYNCOFFSET}}
+\index{FBIOSET\_VSYNCOFFSET@{FBIOSET\_VSYNCOFFSET}!nuttx\_video\_fb.h@{nuttx\_video\_fb.h}}
+\doxysubsubsection{\texorpdfstring{FBIOSET\_VSYNCOFFSET}{FBIOSET\_VSYNCOFFSET}}
+{\footnotesize\ttfamily \#define FBIOSET\+\_\+\+VSYNCOFFSET}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_FBIOC(0x001a)\ \ \textcolor{comment}{/*\ Set\ VSync\ offset\ in\ usec}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ Argument:\ \ \ \ \ \ \ \ \ \ \ \ \ int\ */}}
+
+\end{DoxyCode}

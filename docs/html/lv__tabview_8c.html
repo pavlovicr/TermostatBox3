@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka managed_components/lvgl__lvgl/src/widgets/tabview/lv_tabview.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_e9f8e557d5343d9e0f422cb5bf98db87.html">widgets</a></li><li class="navelem"><a class="el" href="dir_3ae1091aed439351ad68608be915becb.html">tabview</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Strukture</a> &#124;
+<a href="#define-members">Makro deklaracije</a> &#124;
+<a href="#func-members">Funkcije</a> &#124;
+<a href="#var-members">Spremenljivke</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka lv_tabview.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="lv__tabview__private_8h_source.html">lv_tabview_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__obj__class__private_8h_source.html">../../core/lv_obj_class_private.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="src_2lvgl_8h_source.html">../../lvgl.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lvgl____lvgl_2src_2misc_2lv__assert_8h_source.html">../../misc/lv_assert.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="lv__indev__private_8h_source.html">../../indev/lv_indev_private.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "lv_tabview.c" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv_tabview.c. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="lv__tabview_8c__incl.png" border="0" usemap="#amanaged__components_2lvgl____lvgl_2src_2widgets_2tabview_2lv__tabview_8c" alt=""/></div>
+<map name="amanaged__components_2lvgl____lvgl_2src_2widgets_2tabview_2lv__tabview_8c" id="amanaged__components_2lvgl____lvgl_2src_2widgets_2tabview_2lv__tabview_8c">
+<area shape="rect" title=" " alt="" coords="639,5,810,60"/>
+<area shape="rect" href="lv__tabview__private_8h.html" title=" " alt="" coords="57,203,216,229"/>
+<area shape="poly" title=" " alt="" coords="640,46,498,69,419,87,342,111,292,130,244,154,167,198,165,194,242,149,290,126,340,105,418,82,497,64,639,41"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__assert_8h.html" title=" " alt="" coords="3114,460,3207,485"/>
+<area shape="poly" title=" " alt="" coords="810,32,1414,42,1846,55,2308,77,2758,108,2965,128,3152,152,3316,178,3449,209,3503,225,3547,243,3582,262,3605,282,3622,306,3628,328,3625,349,3613,367,3595,383,3571,398,3510,422,3436,441,3358,454,3221,470,3221,465,3357,449,3435,435,3508,417,3569,393,3592,379,3609,364,3620,347,3622,329,3617,308,3601,286,3579,266,3545,248,3501,230,3448,214,3315,184,3152,157,2964,134,2758,114,2308,82,1846,61,1414,47,810,37"/>
+<area shape="rect" href="lv__obj__class__private_8h.html" title=" " alt="" coords="353,108,510,148"/>
+<area shape="poly" title=" " alt="" coords="643,63,505,106,503,101,641,58"/>
+<area shape="rect" href="src_2lvgl_8h.html" title=" " alt="" coords="2257,115,2339,141"/>
+<area shape="poly" title=" " alt="" coords="811,36,2243,121,2243,126,810,42"/>
+<area shape="rect" href="lv__indev__private_8h.html" title=" " alt="" coords="654,196,795,236"/>
+<area shape="poly" title=" " alt="" coords="727,60,727,182,722,182,722,60"/>
+<area shape="rect" href="lv__obj__private_8h.html" title=" " alt="" coords="33,291,216,317"/>
+<area shape="poly" title=" " alt="" coords="138,229,131,278,126,277,133,228"/>
+<area shape="rect" href="lv__tabview_8h.html" title=" " alt="" coords="342,291,446,317"/>
+<area shape="poly" title=" " alt="" coords="172,226,348,284,346,289,171,231"/>
+<area shape="rect" href="lv__ext__data_8h.html" title=" " alt="" coords="125,460,282,485"/>
+<area shape="poly" title=" " alt="" coords="133,316,195,447,190,449,128,318"/>
+<area shape="rect" href="lv__obj_8h.html" title=" " alt="" coords="1253,379,1327,405"/>
+<area shape="poly" title=" " alt="" coords="216,311,330,321,862,360,1240,385,1240,390,862,366,330,327,216,317"/>
+<area shape="rect" href="lv__conf__internal_8h.html" title=" " alt="" coords="2769,783,2920,808"/>
+<area shape="poly" title=" " alt="" coords="217,483,270,533,356,604,409,641,467,677,527,708,589,732,626,738,695,744,914,755,1559,772,2755,790,2755,796,1559,777,914,760,695,749,626,743,588,737,525,713,464,681,406,646,353,608,266,537,213,487"/>
+<area shape="poly" title=" " alt="" coords="1254,402,1152,422,1028,455,970,475,923,499,891,525,882,538,879,552,879,635,883,662,893,682,909,696,929,706,982,718,1043,732,1085,741,1149,748,1332,762,1567,772,1833,779,2368,788,2756,791,2756,796,2367,793,1833,785,1567,777,1331,767,1149,754,1084,746,1042,737,981,724,928,711,906,700,889,685,878,664,874,636,874,552,877,536,887,521,920,494,968,471,1026,450,1151,417,1253,397"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html" title=" " alt="" coords="2126,702,2262,727"/>
+<area shape="poly" title=" " alt="" coords="1306,403,1361,458,1384,491,1397,519,1412,544,1438,571,1483,602,1522,620,1619,644,1753,672,1888,691,2012,702,2113,708,2112,713,2012,707,1887,696,1752,677,1618,649,1520,625,1481,607,1435,575,1408,548,1393,521,1379,493,1357,462,1302,407"/>
+<area shape="rect" href="lv__area_8h.html" title=" " alt="" coords="1448,541,1577,566"/>
+<area shape="poly" title=" " alt="" coords="1316,403,1361,426,1412,458,1456,494,1493,529,1490,532,1453,498,1409,462,1359,431,1313,407"/>
+<area shape="poly" title=" " alt="" coords="1327,394,1526,409,1869,425,2335,442,3101,467,3100,472,2335,447,1869,430,1526,415,1327,399"/>
+<area shape="rect" href="lv__obj__class_8h.html" title=" " alt="" coords="1139,460,1252,485"/>
+<area shape="poly" title=" " alt="" coords="1278,407,1222,453,1219,449,1274,403"/>
+<area shape="rect" href="lv__obj__property_8h.html" title=" " alt="" coords="1189,541,1322,566"/>
+<area shape="poly" title=" " alt="" coords="1290,405,1263,528,1258,527,1285,404"/>
+<area shape="rect" href="lv__group_8h.html" title=" " alt="" coords="1581,460,1716,485"/>
+<area shape="poly" title=" " alt="" coords="1327,399,1584,454,1583,460,1326,404"/>
+<area shape="poly" title=" " alt="" coords="2263,722,2756,781,2755,786,2262,727"/>
+<area shape="poly" title=" " alt="" coords="1517,566,1523,600,1537,647,1561,694,1578,715,1598,732,1649,744,1759,754,2090,771,2756,790,2756,795,2090,776,1759,759,1649,749,1596,737,1574,719,1557,697,1532,649,1518,601,1511,567"/>
+<area shape="poly" title=" " alt="" coords="1531,564,1596,604,1639,626,1684,644,1798,674,1915,693,2023,704,2113,709,2112,714,2023,709,1914,698,1797,679,1683,649,1637,631,1593,609,1528,569"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__math_8h.html" title=" " alt="" coords="979,621,1065,647"/>
+<area shape="poly" title=" " alt="" coords="1448,567,1085,624,1079,625,1078,620,1084,619,1447,562"/>
+<area shape="poly" title=" " alt="" coords="1028,646,1047,691,1064,714,1086,732,1112,740,1164,746,1328,758,1818,776,2359,786,2756,791,2756,796,2358,791,1817,781,1328,764,1163,752,1111,745,1084,737,1060,718,1043,693,1023,648"/>
+<area shape="poly" title=" " alt="" coords="1066,637,1136,644,1694,683,2113,707,2112,712,1694,688,1135,649,1065,643"/>
+<area shape="poly" title=" " alt="" coords="3162,486,3152,534,3130,604,3113,641,3092,677,3066,710,3034,737,2981,764,2926,782,2924,777,2979,759,3031,732,3062,706,3088,674,3109,639,3125,602,3147,533,3157,485"/>
+<area shape="rect" href="lvgl____lvgl_2src_2misc_2lv__log_8h.html" title=" " alt="" coords="3019,621,3092,647"/>
+<area shape="poly" title=" " alt="" coords="3155,487,3122,535,3072,611,3068,608,3117,532,3150,484"/>
+<area shape="rect" href="lv__mem_8h.html" title=" " alt="" coords="3175,541,3314,566"/>
+<area shape="poly" title=" " alt="" coords="3175,484,3224,529,3221,533,3171,487"/>
+<area shape="poly" title=" " alt="" coords="3054,648,3036,690,3021,715,3001,737,2959,764,2914,781,2913,776,2957,759,2998,733,3017,712,3031,688,3049,646"/>
+<area shape="poly" title=" " alt="" coords="3019,642,2949,649,2276,709,2275,704,2949,644,3018,637"/>
+<area shape="poly" title=" " alt="" coords="3268,564,3291,579,3313,599,3326,622,3327,635,3323,648,3299,684,3271,706,3238,721,3196,737,3130,760,3061,776,2934,792,2934,787,3060,770,3128,755,3195,732,3236,716,3269,701,3295,680,3318,646,3322,634,3321,623,3309,602,3288,583,3265,568"/>
+<area shape="poly" title=" " alt="" coords="3234,568,3181,610,3145,632,3106,649,3034,667,2939,681,2706,701,2466,711,2276,715,2276,710,2466,706,2706,695,2938,676,3033,662,3104,644,3142,627,3178,605,3230,564"/>
+<area shape="rect" href="lvgl____lvgl_2src_2stdlib_2lv__string_8h.html" title=" " alt="" coords="3218,621,3309,647"/>
+<area shape="poly" title=" " alt="" coords="3250,566,3260,607,3255,609,3245,567"/>
+<area shape="poly" title=" " alt="" coords="3256,649,3213,692,3183,717,3150,737,3096,759,3040,774,2935,791,2934,786,3039,769,3095,754,3148,732,3180,712,3210,688,3252,645"/>
+<area shape="poly" title=" " alt="" coords="3218,647,3200,649,2935,676,2674,695,2276,714,2276,708,2674,690,2935,671,3199,644,3218,641"/>
+<area shape="poly" title=" " alt="" coords="1191,487,1175,527,1173,550,1179,572,1203,604,1230,621,1262,632,1303,644,1373,660,1465,673,1692,693,1926,704,2112,709,2112,715,1926,709,1692,698,1465,679,1372,665,1301,649,1260,638,1227,626,1199,608,1174,575,1168,551,1170,526,1186,485"/>
+<area shape="poly" title=" " alt="" coords="1242,483,1454,535,1453,540,1241,488"/>
+<area shape="poly" title=" " alt="" coords="1206,484,1240,528,1236,531,1202,487"/>
+<area shape="poly" title=" " alt="" coords="1264,565,1294,606,1316,627,1342,644,1406,666,1492,682,1595,694,1707,703,1932,711,2112,712,2112,717,1932,716,1707,708,1595,700,1491,688,1404,671,1340,649,1313,631,1290,609,1260,568"/>
+<area shape="poly" title=" " alt="" coords="1650,486,1645,534,1644,569,1648,597,1660,622,1685,645,1722,666,1770,686,1826,704,1890,719,2034,744,2193,763,2355,776,2510,784,2756,791,2755,796,2510,790,2355,781,2193,768,2034,750,1888,724,1824,709,1768,691,1720,671,1682,649,1656,625,1643,599,1639,569,1639,533,1644,485"/>
+<area shape="poly" title=" " alt="" coords="1717,480,1764,498,1786,513,1803,532,1810,553,1803,575,1794,588,1782,598,1757,614,1741,629,1740,636,1745,645,1769,663,1805,677,1851,689,1902,697,2012,707,2113,711,2112,716,2012,713,1901,702,1849,694,1804,682,1767,667,1741,648,1735,637,1736,626,1754,610,1779,594,1790,584,1798,572,1805,553,1798,535,1782,517,1762,503,1715,485"/>
+<area shape="poly" title=" " alt="" coords="436,314,489,335,546,367,571,388,591,412,605,440,610,471,610,635,614,665,626,686,644,700,668,709,729,720,797,732,847,741,921,749,1132,762,1403,772,1709,780,2321,788,2756,791,2756,796,2321,794,1709,785,1403,778,1131,767,920,754,846,746,796,737,728,725,667,714,642,705,622,689,609,667,605,636,605,472,600,441,587,415,567,392,543,371,487,340,434,319"/>
+<area shape="poly" title=" " alt="" coords="429,314,459,321,558,337,643,347,788,355,933,358,1120,369,1240,382,1240,387,1119,375,933,363,787,360,642,352,557,343,458,327,428,319"/>
+<area shape="poly" title=" " alt="" coords="430,314,459,321,523,332,577,337,672,340,765,345,820,354,883,369,939,393,1033,438,1222,532,1219,537,1031,443,937,398,881,375,819,359,765,350,671,345,577,343,522,337,458,327,428,319"/>
+<area shape="poly" title=" " alt="" coords="407,150,367,184,328,229,314,253,306,277,307,300,319,322,342,344,374,363,414,381,460,396,568,422,688,440,813,453,933,461,1125,468,1125,473,932,467,812,458,687,445,567,427,459,401,412,386,372,368,339,348,315,326,302,302,301,277,309,251,323,226,363,181,404,146"/>
+<area shape="poly" title=" " alt="" coords="2340,127,2682,132,2930,141,3194,155,3446,176,3559,190,3660,207,3744,226,3808,248,3849,273,3861,287,3865,302,3865,635,3865,692,3858,715,3838,737,3819,747,3788,756,3699,771,3582,781,3446,789,3163,796,2934,797,2934,792,3163,791,3446,783,3582,776,3699,765,3787,751,3817,742,3835,733,3853,712,3860,691,3859,635,3859,303,3856,289,3846,277,3806,252,3742,231,3659,212,3558,195,3445,181,3194,160,2930,146,2682,138,2339,132"/>
+<area shape="rect" href="lvgl_8h.html" title=" " alt="" coords="2263,203,2333,229"/>
+<area shape="poly" title=" " alt="" coords="2301,141,2301,189,2295,189,2295,141"/>
+<area shape="poly" title=" " alt="" coords="2263,220,2150,223,1984,232,1791,252,1692,267,1596,287,1542,304,1488,326,1338,378,1337,373,1486,322,1540,299,1595,281,1691,262,1791,247,1984,227,2150,218,2262,215"/>
+<area shape="poly" title=" " alt="" coords="2263,221,2046,228,1730,242,1429,261,1319,273,1257,286,1203,326,1102,406,1003,489,955,535,950,553,955,572,971,594,991,612,988,616,967,598,950,574,944,553,950,532,999,485,1098,402,1199,321,1254,282,1319,268,1429,256,1730,236,2046,223,2262,216"/>
+<area shape="poly" title=" " alt="" coords="2334,214,2483,215,2693,223,2802,232,2903,244,2989,260,3051,282,3081,299,3101,317,3116,340,3130,371,3134,392,3130,413,3118,438,3105,461,3079,541,3063,609,3058,607,3074,540,3100,459,3114,435,3125,411,3129,392,3125,373,3112,342,3097,320,3078,303,3049,286,2987,265,2902,249,2802,237,2693,229,2483,221,2334,220"/>
+<area shape="poly" title=" " alt="" coords="2334,215,2528,217,2803,226,2940,234,3061,246,3152,262,3183,271,3202,282,3225,309,3241,340,3251,374,3257,409,3258,476,3252,528,3247,527,3253,476,3252,410,3246,375,3236,342,3221,312,3199,286,3181,276,3151,267,3060,251,2940,240,2803,231,2527,222,2334,220"/>
+<area shape="poly" title=" " alt="" coords="2334,215,2513,218,2775,228,2912,236,3041,247,3151,262,3233,281,3296,297,3350,312,3372,323,3390,339,3401,361,3405,390,3405,474,3402,498,3394,520,3367,560,3332,592,3299,616,3295,612,3329,588,3363,556,3389,518,3397,497,3399,474,3399,391,3396,362,3385,342,3369,327,3348,317,3294,302,3232,287,3150,268,3041,253,2912,241,2775,233,2513,223,2334,220"/>
+<area shape="poly" title=" " alt="" coords="2263,220,2148,222,1995,231,1918,239,1848,251,1790,266,1749,286,1734,300,1724,313,1714,342,1708,375,1692,413,1668,450,1664,447,1688,411,1702,374,1709,341,1719,311,1730,296,1746,282,1788,261,1847,245,1918,234,1995,225,2148,217,2263,215"/>
+<area shape="poly" title=" " alt="" coords="2263,220,1938,222,1414,231,1131,240,863,251,632,267,459,287,441,290,440,285,458,281,631,262,863,246,1131,234,1414,226,1938,217,2263,215"/>
+<area shape="rect" href="lv__version_8h.html" title=" " alt="" coords="3490,291,3591,317"/>
+<area shape="poly" title=" " alt="" coords="2334,214,2510,214,2790,220,2954,228,3127,240,3301,258,3472,281,3491,285,3490,291,3471,287,3301,263,3126,246,2954,233,2790,225,2510,219,2334,219"/>
+<area shape="rect" href="lv__init_8h.html" title=" " alt="" coords="3435,621,3532,647"/>
+<area shape="poly" title=" " alt="" coords="2334,214,2528,214,2816,220,2967,228,3109,241,3230,258,3279,269,3319,281,3370,299,3413,317,3431,329,3444,344,3452,365,3455,391,3455,474,3463,547,3478,608,3473,609,3458,548,3450,474,3450,391,3447,366,3439,347,3427,333,3411,321,3368,304,3317,287,3278,274,3229,263,3108,246,2967,234,2816,226,2528,219,2334,220"/>
+<area shape="rect" href="lv__sprintf_8h.html" title=" " alt="" coords="2746,621,2893,647"/>
+<area shape="poly" title=" " alt="" coords="2334,215,2391,219,2463,229,2541,249,2580,264,2616,282,2656,314,2701,363,2742,415,2771,459,2789,498,2803,538,2818,607,2813,608,2797,540,2784,500,2766,461,2738,419,2697,366,2652,318,2613,286,2577,268,2540,254,2462,234,2391,224,2334,220"/>
+<area shape="rect" href="lv__timer_8h.html" title=" " alt="" coords="2513,460,2600,485"/>
+<area shape="poly" title=" " alt="" coords="2334,214,2415,217,2526,226,2650,246,2713,262,2774,281,2818,297,2853,312,2882,334,2908,371,2916,393,2915,403,2908,414,2887,430,2856,441,2776,453,2689,458,2614,463,2614,458,2689,452,2776,447,2855,436,2884,425,2904,410,2910,401,2911,393,2904,373,2879,337,2850,316,2816,302,2772,287,2712,267,2649,251,2525,231,2415,222,2334,220"/>
+<area shape="rect" href="lv__tick_8h.html" title=" " alt="" coords="2882,541,2999,566"/>
+<area shape="poly" title=" " alt="" coords="2334,216,2472,221,2663,232,2854,252,2933,265,2991,281,3044,304,3089,330,3105,347,3114,366,3116,388,3108,413,3089,435,3052,467,2968,534,2965,530,3049,463,3086,431,3104,411,3111,387,3109,367,3100,350,3085,334,3042,308,2989,287,2931,270,2853,257,2663,237,2471,226,2334,221"/>
+<area shape="rect" href="lv__array_8h.html" title=" " alt="" coords="2018,621,2103,647"/>
+<area shape="poly" title=" " alt="" coords="2263,230,2214,249,2157,279,2101,320,2078,345,2059,373,2046,403,2039,435,2036,501,2044,561,2056,608,2050,609,2039,562,2031,501,2034,434,2041,402,2054,371,2074,342,2098,316,2154,275,2212,245,2261,225"/>
+<area shape="rect" href="lv__async_8h.html" title=" " alt="" coords="965,541,1114,566"/>
+<area shape="poly" title=" " alt="" coords="2263,221,2054,227,1752,240,1464,260,1360,272,1301,286,1129,462,1062,533,1058,529,1126,458,1298,282,1359,267,1464,254,1752,235,2054,222,2263,216"/>
+<area shape="rect" href="lv__anim__timeline_8h.html" title=" " alt="" coords="814,291,1019,317"/>
+<area shape="poly" title=" " alt="" coords="2262,220,2075,225,1773,235,1409,255,1033,287,994,292,993,287,1032,281,1408,250,1773,230,2075,219,2262,215"/>
+<area shape="rect" href="lv__profiler__builtin_8h.html" title=" " alt="" coords="3485,695,3631,735"/>
+<area shape="poly" title=" " alt="" coords="2334,215,2611,221,3026,234,3413,254,3543,267,3584,274,3605,282,3626,306,3633,330,3631,391,3631,555,3627,591,3615,627,3583,685,3578,682,3610,625,3622,590,3626,554,3626,391,3628,331,3621,308,3602,286,3582,279,3542,272,3412,259,3026,239,2611,227,2333,221"/>
+<area shape="rect" href="lv__rb_8h.html" title=" " alt="" coords="2969,379,3093,405"/>
+<area shape="poly" title=" " alt="" coords="2333,215,2465,217,2647,226,2740,234,2826,246,2899,261,2951,282,2975,299,2995,322,3023,366,3018,368,2991,325,2972,303,2949,286,2897,266,2825,251,2739,239,2646,231,2465,222,2333,220"/>
+<area shape="rect" href="lv__utils_8h.html" title=" " alt="" coords="2178,621,2317,647"/>
+<area shape="poly" title=" " alt="" coords="2303,229,2309,271,2307,324,2292,385,2271,430,2250,474,2234,534,2234,572,2242,608,2236,609,2229,573,2229,533,2245,472,2266,428,2287,383,2302,324,2303,271,2298,230"/>
+<area shape="rect" href="lv__iter_8h.html" title=" " alt="" coords="2624,460,2756,485"/>
+<area shape="poly" title=" " alt="" coords="2334,215,2385,219,2449,230,2516,250,2548,264,2578,282,2618,319,2649,364,2671,409,2685,446,2680,448,2666,411,2644,366,2614,322,2575,286,2546,269,2514,255,2447,235,2384,225,2333,220"/>
+<area shape="rect" href="lv__circle__buf_8h.html" title=" " alt="" coords="1653,533,1788,573"/>
+<area shape="poly" title=" " alt="" coords="2263,221,2132,227,1952,239,1773,258,1700,271,1646,287,1606,302,1575,317,1551,339,1529,373,1520,405,1526,432,1545,458,1572,483,1606,508,1645,526,1642,531,1604,512,1568,487,1541,461,1521,434,1514,405,1524,371,1546,335,1572,313,1603,297,1644,281,1699,266,1772,253,1952,234,2132,222,2262,216"/>
+<area shape="rect" href="lv__tree_8h.html" title=" " alt="" coords="1755,621,1892,647"/>
+<area shape="poly" title=" " alt="" coords="2262,221,2172,227,2058,239,1949,258,1906,271,1876,286,1856,304,1845,323,1833,372,1827,475,1826,607,1821,607,1822,475,1827,372,1840,321,1852,301,1873,282,1904,266,1947,253,2057,233,2172,222,2262,216"/>
+<area shape="rect" href="lv__os_8h.html" title=" " alt="" coords="1842,460,1965,485"/>
+<area shape="poly" title=" " alt="" coords="2263,222,2204,228,2128,239,2045,258,1964,286,1924,303,1893,318,1867,339,1845,373,1839,392,1845,411,1858,432,1876,449,1872,453,1854,435,1840,413,1834,392,1840,371,1863,335,1890,313,1922,298,1962,282,2044,253,2127,234,2203,223,2262,217"/>
+<area shape="rect" href="lv__refr_8h.html" title=" " alt="" coords="2411,291,2542,317"/>
+<area shape="poly" title=" " alt="" coords="2323,226,2441,283,2439,288,2321,231"/>
+<area shape="rect" href="lv__display_8h.html" title=" " alt="" coords="2463,379,2624,405"/>
+<area shape="poly" title=" " alt="" coords="2334,219,2392,227,2458,240,2518,258,2541,269,2556,282,2566,303,2567,325,2557,367,2552,366,2562,325,2561,304,2552,286,2538,274,2516,263,2457,245,2391,232,2333,224"/>
+<area shape="rect" href="lv__observer_8h.html" title=" " alt="" coords="471,291,635,317"/>
+<area shape="poly" title=" " alt="" coords="2263,221,1500,241,1009,261,803,273,648,287,617,291,616,286,647,281,802,268,1009,255,1500,235,2263,215"/>
+<area shape="rect" href="lv__indev_8h.html" title=" " alt="" coords="1537,379,1677,405"/>
+<area shape="poly" title=" " alt="" coords="2263,221,2140,224,1974,235,1811,254,1746,269,1698,286,1674,304,1653,325,1622,369,1617,366,1648,322,1670,299,1696,282,1744,263,1810,249,1974,229,2140,219,2262,215"/>
+<area shape="rect" href="lv__indev__gesture_8h_source.html" title=" " alt="" coords="1044,284,1184,324"/>
+<area shape="poly" title=" " alt="" coords="2263,220,2097,224,1837,233,1524,253,1362,268,1204,287,1198,287,1197,282,1203,281,1362,263,1524,248,1836,228,2097,218,2262,215"/>
+<area shape="rect" href="lv__gridnav_8h.html" title=" " alt="" coords="1311,291,1475,317"/>
+<area shape="poly" title=" " alt="" coords="2263,223,1967,247,1545,287,1489,293,1488,288,1544,281,1967,242,2263,217"/>
+<area shape="rect" href="lv__font_8h.html" title=" " alt="" coords="2091,460,2212,485"/>
+<area shape="poly" title=" " alt="" coords="2301,229,2298,263,2291,311,2276,364,2250,414,2224,438,2195,456,2192,452,2221,434,2245,410,2271,362,2286,310,2293,262,2295,229"/>
+<area shape="rect" href="lv__binfont__loader_8h.html" title=" " alt="" coords="3655,695,3824,735"/>
+<area shape="poly" title=" " alt="" coords="2334,214,2606,214,3017,221,3226,229,3412,241,3555,258,3604,269,3635,282,3686,319,3703,339,3717,360,3727,383,3733,409,3738,471,3738,555,3741,681,3735,681,3733,555,3733,471,3728,410,3722,385,3712,362,3699,342,3682,323,3633,286,3602,274,3554,263,3411,246,3226,234,3017,226,2606,220,2334,220"/>
+<area shape="rect" href="lv__font__fmt__txt_8h.html" title=" " alt="" coords="1854,372,1993,412"/>
+<area shape="poly" title=" " alt="" coords="2263,221,2211,226,2146,236,2078,256,2013,286,1992,302,1973,322,1943,361,1939,358,1969,318,1988,298,2010,282,2076,251,2145,231,2210,220,2262,216"/>
+<area shape="rect" href="lv__imgfont_8h.html" title=" " alt="" coords="2751,372,2893,412"/>
+<area shape="poly" title=" " alt="" coords="2334,217,2425,224,2541,237,2654,256,2699,268,2733,282,2756,298,2776,318,2807,358,2802,362,2772,321,2752,302,2730,286,2698,273,2653,261,2541,243,2424,230,2334,222"/>
+<area shape="rect" href="lv__font__manager_8h.html" title=" " alt="" coords="2068,372,2235,412"/>
+<area shape="poly" title=" " alt="" coords="2291,230,2178,363,2174,360,2286,227"/>
+<area shape="rect" href="lv__animimage_8h.html" title=" " alt="" coords="2243,533,2417,573"/>
+<area shape="poly" title=" " alt="" coords="2311,227,2329,252,2345,283,2356,348,2356,414,2350,473,2341,520,2336,519,2345,472,2351,413,2351,348,2340,285,2325,255,2307,231"/>
+<area shape="poly" title=" " alt="" coords="3482,648,3459,693,3441,717,3417,737,3379,753,3327,766,3197,784,3057,793,2934,796,2934,791,3057,788,3197,779,3326,761,3377,748,3414,732,3437,713,3455,690,3477,646"/>
+<area shape="poly" title=" " alt="" coords="3435,642,3321,649,2276,711,2276,706,3321,644,3435,636"/>
+<area shape="poly" title=" " alt="" coords="2746,647,2276,706,2275,701,2746,642"/>
+<area shape="poly" title=" " alt="" coords="2569,484,2827,770,2823,774,2565,487"/>
+<area shape="poly" title=" " alt="" coords="2561,485,2564,517,2562,561,2552,608,2541,630,2527,649,2509,661,2485,672,2421,689,2347,702,2276,710,2276,705,2346,696,2419,684,2483,667,2507,657,2523,645,2537,627,2547,606,2557,561,2559,518,2556,486"/>
+<area shape="poly" title=" " alt="" coords="2601,480,2872,535,2871,541,2600,485"/>
+<area shape="poly" title=" " alt="" coords="2944,566,2943,603,2935,647,2921,684,2902,718,2865,773,2860,770,2897,715,2916,681,2930,646,2938,602,2939,566"/>
+<area shape="poly" title=" " alt="" coords="2943,567,2934,608,2923,630,2906,649,2872,662,2811,674,2639,693,2442,705,2277,713,2276,708,2442,700,2638,687,2810,669,2870,657,2903,644,2919,627,2929,606,2937,566"/>
+<area shape="poly" title=" " alt="" coords="2082,645,2164,693,2161,697,2079,649"/>
+<area shape="poly" title=" " alt="" coords="1054,564,1109,605,1147,627,1187,644,1267,663,1374,678,1500,689,1635,697,1904,707,2112,710,2112,716,1903,713,1635,703,1499,694,1373,683,1266,668,1185,649,1144,632,1106,610,1051,568"/>
+<area shape="rect" href="lv__anim_8h.html" title=" " alt="" coords="783,379,869,405"/>
+<area shape="poly" title=" " alt="" coords="906,319,851,371,847,367,903,315"/>
+<area shape="poly" title=" " alt="" coords="783,401,296,462,296,457,782,396"/>
+<area shape="poly" title=" " alt="" coords="822,406,795,467,783,509,778,552,778,635,781,658,788,676,799,689,814,700,853,716,900,732,946,743,1015,753,1213,769,1469,780,1758,787,2338,792,2755,792,2755,797,2338,798,1758,792,1469,785,1213,774,1014,758,945,749,899,737,851,721,811,705,795,693,783,679,775,660,773,635,773,552,778,508,790,466,817,404"/>
+<area shape="poly" title=" " alt="" coords="869,390,947,391,1048,400,1158,421,1213,437,1266,458,1308,483,1336,510,1362,539,1398,571,1454,614,1479,630,1515,644,1565,657,1632,669,1796,687,1968,700,2112,707,2112,713,1968,705,1795,692,1631,674,1564,662,1513,649,1477,634,1451,618,1395,575,1358,543,1332,513,1305,487,1264,462,1212,442,1157,426,1047,405,946,397,869,395"/>
+<area shape="poly" title=" " alt="" coords="831,404,840,436,856,480,879,528,911,571,941,596,976,614,973,618,939,600,907,575,874,531,851,482,835,438,826,406"/>
+<area shape="poly" title=" " alt="" coords="870,393,2500,466,2500,471,870,398"/>
+<area shape="poly" title=" " alt="" coords="3486,734,3466,737,3321,756,3175,772,2934,791,2933,786,3174,766,3320,751,3466,732,3485,729"/>
+<area shape="poly" title=" " alt="" coords="3017,407,2952,453,2849,519,2722,590,2654,622,2586,649,2505,673,2422,691,2276,710,2275,705,2421,685,2504,668,2584,644,2652,617,2720,585,2846,514,2949,448,3014,403"/>
+<area shape="poly" title=" " alt="" coords="3052,403,3131,450,3129,455,3049,407"/>
+<area shape="poly" title=" " alt="" coords="2242,648,2212,692,2208,689,2237,645"/>
+<area shape="poly" title=" " alt="" coords="2682,487,2642,535,2619,569,2603,598,2584,624,2553,649,2503,668,2431,685,2276,708,2276,702,2430,680,2501,663,2550,644,2581,620,2598,595,2614,566,2637,532,2678,484"/>
+<area shape="poly" title=" " alt="" coords="1710,575,1694,611,1693,629,1700,645,1719,655,1756,665,1866,683,1995,696,2113,706,2112,711,1995,702,1865,688,1755,671,1717,660,1696,648,1688,630,1689,609,1705,572"/>
+<area shape="poly" title=" " alt="" coords="1878,644,2127,697,2126,702,1877,649"/>
+<area shape="poly" title=" " alt="" coords="1907,485,1910,517,1918,560,1936,606,1948,626,1964,645,1997,669,2035,687,2074,699,2113,706,2112,711,2073,704,2033,692,1994,674,1960,649,1944,630,1931,608,1913,561,1904,518,1901,486"/>
+<area shape="poly" title=" " alt="" coords="2411,312,1526,375,1340,389,1340,384,1526,369,2411,307"/>
+<area shape="poly" title=" " alt="" coords="2474,318,2454,373,2449,403,2448,429,2451,475,2450,521,2444,546,2432,575,2417,599,2398,621,2352,657,2302,683,2255,700,2253,695,2300,678,2349,652,2394,617,2413,596,2428,572,2439,544,2445,520,2445,475,2442,429,2444,402,2449,371,2469,316"/>
+<area shape="poly" title=" " alt="" coords="2488,315,2528,366,2524,370,2484,318"/>
+<area shape="poly" title=" " alt="" coords="2536,406,2520,431,2505,461,2498,489,2496,514,2501,559,2503,581,2501,603,2493,625,2476,649,2443,669,2393,685,2276,707,2275,701,2392,680,2441,664,2472,645,2488,623,2496,602,2498,581,2496,560,2491,514,2492,488,2500,459,2515,428,2532,403"/>
+<area shape="poly" title=" " alt="" coords="2463,402,2131,428,1957,445,1831,463,1705,496,1562,539,1561,534,1704,491,1830,457,1957,440,2131,423,2463,396"/>
+<area shape="poly" title=" " alt="" coords="2548,404,2555,446,2550,447,2543,405"/>
+<area shape="poly" title=" " alt="" coords="530,319,241,456,239,452,528,314"/>
+<area shape="poly" title=" " alt="" coords="606,314,648,321,780,339,883,349,1120,369,1240,382,1240,388,1119,375,883,354,779,344,647,327,605,319"/>
+<area shape="poly" title=" " alt="" coords="1603,406,1529,530,1524,527,1598,403"/>
+<area shape="poly" title=" " alt="" coords="1616,404,1639,447,1634,449,1611,406"/>
+<area shape="poly" title=" " alt="" coords="1678,396,2500,464,2499,469,1677,402"/>
+<area shape="poly" title=" " alt="" coords="1154,322,1256,371,1253,376,1152,326"/>
+<area shape="poly" title=" " alt="" coords="1381,319,1316,372,1313,368,1377,315"/>
+<area shape="poly" title=" " alt="" coords="2160,484,2188,526,2209,550,2233,571,2265,588,2322,611,2482,670,2798,776,2796,781,2480,675,2320,616,2263,593,2230,576,2205,554,2184,530,2156,487"/>
+<area shape="poly" title=" " alt="" coords="2149,486,2139,525,2136,549,2138,573,2158,637,2183,689,2178,691,2153,639,2133,574,2131,549,2134,524,2144,485"/>
+<area shape="poly" title=" " alt="" coords="2091,483,1642,536,1591,543,1591,538,1642,531,2090,478"/>
+<area shape="poly" title=" " alt="" coords="3655,736,3644,737,3446,760,3248,776,2934,793,2934,788,3248,771,3445,754,3643,732,3654,730"/>
+<area shape="poly" title=" " alt="" coords="1945,411,1964,433,1979,459,1988,487,1991,512,1987,558,1985,579,1986,601,1993,622,2008,645,2030,666,2056,681,2114,701,2112,706,2054,686,2027,670,2004,648,1988,624,1981,602,1980,579,1981,558,1985,513,1983,488,1974,461,1959,436,1941,414"/>
+<area shape="poly" title=" " alt="" coords="1979,409,2106,453,2104,458,1977,415"/>
+<area shape="poly" title=" " alt="" coords="2894,401,3086,431,3172,446,3220,457,3283,484,3306,503,3328,532,3339,555,3343,575,3343,621,3345,634,3343,647,3328,679,3311,702,3289,720,3258,737,3198,756,3114,771,2934,791,2934,785,3113,766,3197,751,3256,732,3286,715,3307,698,3324,677,3338,646,3340,634,3338,622,3338,575,3334,556,3324,535,3302,506,3280,489,3219,463,3170,451,3085,436,2893,406"/>
+<area shape="poly" title=" " alt="" coords="2751,404,2226,465,2225,460,2750,399"/>
+<area shape="poly" title=" " alt="" coords="2154,412,2154,446,2149,446,2149,412"/>
+<area shape="poly" title=" " alt="" coords="2338,573,2341,609,2339,629,2331,648,2317,666,2299,680,2260,700,2257,695,2296,675,2313,662,2326,645,2334,628,2336,609,2333,574"/>
+<area shape="poly" title=" " alt="" coords="654,221,489,227,290,238,195,247,114,257,54,271,34,278,23,286,10,309,11,333,24,356,46,379,106,421,166,452,163,457,103,426,43,383,20,359,6,334,5,308,19,282,32,273,52,266,113,252,194,241,289,233,489,222,654,216"/>
+<area shape="poly" title=" " alt="" coords="654,221,566,226,469,237,384,257,353,270,332,286,324,304,326,313,332,322,353,333,394,344,514,362,652,376,769,385,769,390,652,381,513,367,393,349,351,338,328,326,321,315,319,304,328,282,350,265,383,252,468,232,566,221,654,216"/>
+<area shape="poly" title=" " alt="" coords="796,215,956,219,1157,229,1351,249,1430,263,1488,282,1520,299,1549,322,1592,367,1588,370,1545,326,1517,304,1486,286,1428,269,1350,254,1157,235,956,224,796,221"/>
+<area shape="poly" title=" " alt="" coords="796,230,1031,281,1030,286,795,235"/>
+<area shape="rect" href="lv__indev__scroll_8h.html" title=" " alt="" coords="659,291,790,317"/>
+<area shape="poly" title=" " alt="" coords="727,236,727,277,722,277,722,236"/>
+<area shape="poly" title=" " alt="" coords="769,314,803,321,1048,360,1240,383,1239,388,1047,365,802,327,768,319"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Strukture</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlv__tabview__create__info__t.html">lv_tabview_create_info_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Makro deklaracije</h2></td></tr>
+<tr class="memitem:a9be806f23ad96997f1d62c1a6dfabe05" id="r_a9be806f23ad96997f1d62c1a6dfabe05"><td class="memItemLeft" align="right" valign="top"><a id="a9be806f23ad96997f1d62c1a6dfabe05" name="a9be806f23ad96997f1d62c1a6dfabe05"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>MY_CLASS</b>&#160;&#160;&#160;(&amp;lv_tabview_class)</td></tr>
+<tr class="separator:a9be806f23ad96997f1d62c1a6dfabe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a5000b5c5aa9193ce16d9a8411eebf1d9" id="r_a5000b5c5aa9193ce16d9a8411eebf1d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a5000b5c5aa9193ce16d9a8411eebf1d9">lv_tabview_create</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *parent)</td></tr>
+<tr class="separator:a5000b5c5aa9193ce16d9a8411eebf1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7561c0b343421571ef89c2eebd286b05" id="r_a7561c0b343421571ef89c2eebd286b05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a7561c0b343421571ef89c2eebd286b05">lv_tabview_add_tab</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, const char *name)</td></tr>
+<tr class="separator:a7561c0b343421571ef89c2eebd286b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30c2ec8274c8e793b2680582831b0823" id="r_a30c2ec8274c8e793b2680582831b0823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a30c2ec8274c8e793b2680582831b0823">lv_tabview_set_tab_text</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, uint32_t idx, const char *new_name)</td></tr>
+<tr class="separator:a30c2ec8274c8e793b2680582831b0823"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6046c6847a9a5493cd4f93efb2cdcd16" id="r_a6046c6847a9a5493cd4f93efb2cdcd16"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a6046c6847a9a5493cd4f93efb2cdcd16">lv_tabview_set_active</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, uint32_t idx, lv_anim_enable_t anim_en)</td></tr>
+<tr class="separator:a6046c6847a9a5493cd4f93efb2cdcd16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce312a382406915e8cc98c2a5b231c7" id="r_a5ce312a382406915e8cc98c2a5b231c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a5ce312a382406915e8cc98c2a5b231c7">lv_tabview_set_tab_bar_position</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, lv_dir_t dir)</td></tr>
+<tr class="separator:a5ce312a382406915e8cc98c2a5b231c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fa4876f6cffb3eac10c2e7583267e06" id="r_a5fa4876f6cffb3eac10c2e7583267e06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a5fa4876f6cffb3eac10c2e7583267e06">lv_tabview_set_tab_bar_size</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, int32_t size)</td></tr>
+<tr class="separator:a5fa4876f6cffb3eac10c2e7583267e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c968b1693a4e9ad96e179f2183ab421" id="r_a5c968b1693a4e9ad96e179f2183ab421"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a5c968b1693a4e9ad96e179f2183ab421">lv_tabview_get_tab_active</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a5c968b1693a4e9ad96e179f2183ab421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4b3fb34016debe3cdcbe4c79e89fd46" id="r_af4b3fb34016debe3cdcbe4c79e89fd46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#af4b3fb34016debe3cdcbe4c79e89fd46">lv_tabview_get_tab_button</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj, int32_t idx)</td></tr>
+<tr class="separator:af4b3fb34016debe3cdcbe4c79e89fd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729d9e13a9e31a9db7bd4c78c697e545" id="r_a729d9e13a9e31a9db7bd4c78c697e545"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a729d9e13a9e31a9db7bd4c78c697e545">lv_tabview_get_tab_count</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:a729d9e13a9e31a9db7bd4c78c697e545"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7710b4519ce4d4ca122486adff4f58f" id="r_ad7710b4519ce4d4ca122486adff4f58f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#ad7710b4519ce4d4ca122486adff4f58f">lv_tabview_get_content</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *tv)</td></tr>
+<tr class="separator:ad7710b4519ce4d4ca122486adff4f58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a407215f6f97f1f0ff6ccd9eafb2cfcf0" id="r_a407215f6f97f1f0ff6ccd9eafb2cfcf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a407215f6f97f1f0ff6ccd9eafb2cfcf0">lv_tabview_get_tab_bar</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *tv)</td></tr>
+<tr class="separator:a407215f6f97f1f0ff6ccd9eafb2cfcf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4c4e36be50effb73ea28df2b79a90ed" id="r_ad4c4e36be50effb73ea28df2b79a90ed"><td class="memItemLeft" align="right" valign="top">lv_dir_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#ad4c4e36be50effb73ea28df2b79a90ed">lv_tabview_get_tab_bar_position</a> (<a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *obj)</td></tr>
+<tr class="separator:ad4c4e36be50effb73ea28df2b79a90ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Spremenljivke</h2></td></tr>
+<tr class="memitem:a47648a87446697e43c6eab994a8bbd45" id="r_a47648a87446697e43c6eab994a8bbd45"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct__lv__obj__class__t.html">lv_obj_class_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lv__tabview_8c.html#a47648a87446697e43c6eab994a8bbd45">lv_tabview_class</a></td></tr>
+<tr class="separator:a47648a87446697e43c6eab994a8bbd45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="a7561c0b343421571ef89c2eebd286b05" name="a7561c0b343421571ef89c2eebd286b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7561c0b343421571ef89c2eebd286b05">&#9670;&#160;</a></span>lv_tabview_add_tab()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_tabview_add_tab </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Add a tab to the tabview </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+    <tr><td class="paramname">name</td><td>the name of the tab, it will be displayed on the tab bar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the widget where the content of the tab can be created </dd></dl>
+
+</div>
+</div>
+<a id="a5000b5c5aa9193ce16d9a8411eebf1d9" name="a5000b5c5aa9193ce16d9a8411eebf1d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5000b5c5aa9193ce16d9a8411eebf1d9">&#9670;&#160;</a></span>lv_tabview_create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_tabview_create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>parent</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a tabview widget </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>pointer to a parent widget </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the created tabview </dd></dl>
+
+</div>
+</div>
+<a id="ad7710b4519ce4d4ca122486adff4f58f" name="ad7710b4519ce4d4ca122486adff4f58f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7710b4519ce4d4ca122486adff4f58f">&#9670;&#160;</a></span>lv_tabview_get_content()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_tabview_get_content </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the widget where the container of each tab is created </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the main container widget </dd></dl>
+
+</div>
+</div>
+<a id="a5c968b1693a4e9ad96e179f2183ab421" name="a5c968b1693a4e9ad96e179f2183ab421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c968b1693a4e9ad96e179f2183ab421">&#9670;&#160;</a></span>lv_tabview_get_tab_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_tabview_get_tab_active </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the current tab's index </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the zero based index of the current tab </dd></dl>
+
+</div>
+</div>
+<a id="a407215f6f97f1f0ff6ccd9eafb2cfcf0" name="a407215f6f97f1f0ff6ccd9eafb2cfcf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a407215f6f97f1f0ff6ccd9eafb2cfcf0">&#9670;&#160;</a></span>lv_tabview_get_tab_bar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_tabview_get_tab_bar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the tab bar where the buttons are created </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the tab bar </dd></dl>
+
+</div>
+</div>
+<a id="ad4c4e36be50effb73ea28df2b79a90ed" name="ad4c4e36be50effb73ea28df2b79a90ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4c4e36be50effb73ea28df2b79a90ed">&#9670;&#160;</a></span>lv_tabview_get_tab_bar_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">lv_dir_t lv_tabview_get_tab_bar_position </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the position of the tab bar </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>LV_DIR_TOP/BOTTOM/LEFT/RIGHT </dd></dl>
+
+</div>
+</div>
+<a id="af4b3fb34016debe3cdcbe4c79e89fd46" name="af4b3fb34016debe3cdcbe4c79e89fd46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4b3fb34016debe3cdcbe4c79e89fd46">&#9670;&#160;</a></span>lv_tabview_get_tab_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> * lv_tabview_get_tab_button </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get a given tab button by index </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+    <tr><td class="paramname">idx</td><td>zero based index of the tab button to get. &lt; 0 means start counting tab button from the back (-1 is the last tab button) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>pointer to the tab button, or NULL if the index was out of range </dd></dl>
+
+</div>
+</div>
+<a id="a729d9e13a9e31a9db7bd4c78c697e545" name="a729d9e13a9e31a9db7bd4c78c697e545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729d9e13a9e31a9db7bd4c78c697e545">&#9670;&#160;</a></span>lv_tabview_get_tab_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t lv_tabview_get_tab_count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get the number of tabs </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>the number of tabs </dd></dl>
+
+</div>
+</div>
+<a id="a6046c6847a9a5493cd4f93efb2cdcd16" name="a6046c6847a9a5493cd4f93efb2cdcd16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6046c6847a9a5493cd4f93efb2cdcd16">&#9670;&#160;</a></span>lv_tabview_set_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_tabview_set_active </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_anim_enable_t&#160;</td>
+          <td class="paramname"><em>anim_en</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Show a tab </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+    <tr><td class="paramname">idx</td><td>the index of the tab to show </td></tr>
+    <tr><td class="paramname">anim_en</td><td>LV_ANIM_ON/OFF </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5ce312a382406915e8cc98c2a5b231c7" name="a5ce312a382406915e8cc98c2a5b231c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ce312a382406915e8cc98c2a5b231c7">&#9670;&#160;</a></span>lv_tabview_set_tab_bar_position()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_tabview_set_tab_bar_position </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">lv_dir_t&#160;</td>
+          <td class="paramname"><em>dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the position of the tab bar </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+    <tr><td class="paramname">dir</td><td>LV_DIR_TOP/BOTTOM/LEFT/RIGHT </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5fa4876f6cffb3eac10c2e7583267e06" name="a5fa4876f6cffb3eac10c2e7583267e06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fa4876f6cffb3eac10c2e7583267e06">&#9670;&#160;</a></span>lv_tabview_set_tab_bar_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_tabview_set_tab_bar_size </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Set the width or height of the tab bar </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to tabview widget </td></tr>
+    <tr><td class="paramname">size</td><td>size of the tab bar in pixels or percentage. will be used as width or height based on the position of the tab bar) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a30c2ec8274c8e793b2680582831b0823" name="a30c2ec8274c8e793b2680582831b0823"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c2ec8274c8e793b2680582831b0823">&#9670;&#160;</a></span>lv_tabview_set_tab_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lv_tabview_set_tab_text </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158">lv_obj_t</a> *&#160;</td>
+          <td class="paramname"><em>obj</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>idx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>new_name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Change the name of the tab </p><dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">obj</td><td>pointer to a tabview widget </td></tr>
+    <tr><td class="paramname">idx</td><td>the index of the tab to rename </td></tr>
+    <tr><td class="paramname">new_name</td><td>the new name as a string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Opis spremenljivke</h2>
+<a id="a47648a87446697e43c6eab994a8bbd45" name="a47648a87446697e43c6eab994a8bbd45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47648a87446697e43c6eab994a8bbd45">&#9670;&#160;</a></span>lv_tabview_class</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="struct__lv__obj__class__t.html">lv_obj_class_t</a> lv_tabview_class</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Začetna vrednost / definicija :</b><div class="fragment"><div class="line">= {</div>
+<div class="line">    .constructor_cb = lv_tabview_constructor,</div>
+<div class="line">    .event_cb = lv_tabview_event,</div>
+<div class="line">    .width_def = LV_PCT(100),</div>
+<div class="line">    .height_def = LV_PCT(100),</div>
+<div class="line">    .base_class = &amp;<a class="code hl_variable" href="lv__obj_8c.html#a424ca3b432ad82f98c4b05950b597d44">lv_obj_class</a>,</div>
+<div class="line">    .instance_size = <span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct__lv__tabview__t.html">lv_tabview_t</a>),</div>
+<div class="line">    .name = <span class="stringliteral">&quot;lv_tabview&quot;</span>,</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="ttc" id="alv__obj_8c_html_a424ca3b432ad82f98c4b05950b597d44"><div class="ttname"><a href="lv__obj_8c.html#a424ca3b432ad82f98c4b05950b597d44">lv_obj_class</a></div><div class="ttdeci">const lv_obj_class_t lv_obj_class</div><div class="ttdef"><b>Definition</b> lv_obj.c:213</div></div>
+<div class="ttc" id="astruct__lv__tabview__t_html"><div class="ttname"><a href="struct__lv__tabview__t.html">_lv_tabview_t</a></div><div class="ttdef"><b>Definition</b> lv_tabview_private.h:34</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

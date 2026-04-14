@@ -1,0 +1,592 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/image/lv\+\_\+image.c}
+\hypertarget{lv__image_8c}{}\label{lv__image_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/image/lv\_image.c@{managed\_components/lvgl\_\_lvgl/src/widgets/image/lv\_image.c}}
+{\ttfamily \#include "{}lv\+\_\+image\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+area\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+image\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+event\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+draw\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+image.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+image.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__image_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__image_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__image_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+image\+\_\+class)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__image_8c_a19767f394f06e2931b825411cdabedfc}{lv\+\_\+image\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__image_8c_abd50066a66f6c4496c5d9149dbb67cfd}{lv\+\_\+image\+\_\+set\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const void \texorpdfstring{$\ast$}{*}src)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a2556dee0857301c58903994a0379d56f}{lv\+\_\+image\+\_\+set\+\_\+offset\+\_\+x}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t x)
+\item 
+void \mbox{\hyperlink{lv__image_8c_ac7998867ee1906f521933e42e1b59881}{lv\+\_\+image\+\_\+set\+\_\+offset\+\_\+y}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t y)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a5bf09354c5930b6439d1a3a8f5d2c3d5}{lv\+\_\+image\+\_\+set\+\_\+rotation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t angle)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a67a1fbec226fe89d64034412c4395396}{lv\+\_\+image\+\_\+set\+\_\+pivot}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t x, int32\+\_\+t y)
+\item 
+void \mbox{\hyperlink{lv__image_8c_aedf9512e2b2a35852ce942f0d23b38e5}{lv\+\_\+image\+\_\+set\+\_\+pivot\+\_\+x}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t x)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a921913bfa67cc005e23e522f4d5fe77c}{lv\+\_\+image\+\_\+set\+\_\+pivot\+\_\+y}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t y)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a835b51316c0fd1ad178750bc584325c9}{lv\+\_\+image\+\_\+set\+\_\+scale}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t zoom)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a30e9e2819121a2837fb41c5949e04c6d}{lv\+\_\+image\+\_\+set\+\_\+scale\+\_\+x}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t zoom)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a724053fb18ca0c9b369a194e01983251}{lv\+\_\+image\+\_\+set\+\_\+scale\+\_\+y}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t zoom)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a040f643991899a525775347b50bef7d5}{lv\+\_\+image\+\_\+set\+\_\+blend\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__style_8h_a2e4fe7f18d18a05b245ee4a1fdaca0f9}{lv\+\_\+blend\+\_\+mode\+\_\+t}} blend\+\_\+mode)
+\item 
+void \mbox{\hyperlink{lv__image_8c_acba54b03f184b8b755e2d49d46e645e4}{lv\+\_\+image\+\_\+set\+\_\+antialias}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool antialias)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a70c8836e7792340467c1c1adf94c5fef}{lv\+\_\+image\+\_\+set\+\_\+inner\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__image_8h_a335db70445bbeb42fd8583708d3596ab}{lv\+\_\+image\+\_\+align\+\_\+t}} align)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a4a6cef2755b0e964e99c649dce13a6cd}{lv\+\_\+image\+\_\+set\+\_\+bitmap\+\_\+map\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}src)
+\item 
+const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__image_8c_aeb25385faf1b999884ee70613b37a736}{lv\+\_\+image\+\_\+get\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a41b50446bc38a1bddaae40bcee1e3b96}{lv\+\_\+image\+\_\+get\+\_\+offset\+\_\+x}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a8a1c79313cd7225886765880fa16036c}{lv\+\_\+image\+\_\+get\+\_\+offset\+\_\+y}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a89efd4e77502d4800825eaf3078f15e9}{lv\+\_\+image\+\_\+get\+\_\+rotation}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__image_8c_a3196f2ab2389e054e7ea64ad50a60992}{lv\+\_\+image\+\_\+get\+\_\+pivot}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}pivot)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a877b44c48b3aa28a88cf87899720391a}{lv\+\_\+image\+\_\+get\+\_\+scale}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a3f776e96bb5d3ddd3b19f73fe74c94cc}{lv\+\_\+image\+\_\+get\+\_\+scale\+\_\+x}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a85e12367f284171569b3cdd101388f8c}{lv\+\_\+image\+\_\+get\+\_\+scale\+\_\+y}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a19b5c68275871398727e61d59e6009f0}{lv\+\_\+image\+\_\+get\+\_\+src\+\_\+width}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a61e4dbac9ad17f2b9ecacf96bffac1ae}{lv\+\_\+image\+\_\+get\+\_\+src\+\_\+height}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a7e8762ef7aebccdf44ae0812df41b90c}{lv\+\_\+image\+\_\+get\+\_\+transformed\+\_\+width}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+int32\+\_\+t \mbox{\hyperlink{lv__image_8c_a7719bd490303148644f1079255a1e745}{lv\+\_\+image\+\_\+get\+\_\+transformed\+\_\+height}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__style_8h_a2e4fe7f18d18a05b245ee4a1fdaca0f9}{lv\+\_\+blend\+\_\+mode\+\_\+t}} \mbox{\hyperlink{lv__image_8c_ab2fedf19c035c5fc0d44eaa17269aa80}{lv\+\_\+image\+\_\+get\+\_\+blend\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__image_8c_a2c4e9008cc3c1d435f0791e99548c918}{lv\+\_\+image\+\_\+get\+\_\+antialias}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lv__image_8h_a335db70445bbeb42fd8583708d3596ab}{lv\+\_\+image\+\_\+align\+\_\+t}} \mbox{\hyperlink{lv__image_8c_aee112e4f565e97511eb42f9bbe8c1aa2}{lv\+\_\+image\+\_\+get\+\_\+inner\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__image_8c_acf9003b9130335b3d51b922b060abc75}{lv\+\_\+image\+\_\+get\+\_\+bitmap\+\_\+map\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__image_8c_a2e51c200fb7b531ceb954ea1cdf6712d}{lv\+\_\+image\+\_\+bind\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__image_8c_a3900c26e912914e25c94eb4aa3c59808}{lv\+\_\+image\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__image_8c_a2e51c200fb7b531ceb954ea1cdf6712d}\label{lv__image_8c_a2e51c200fb7b531ceb954ea1cdf6712d} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_bind\_src@{lv\_image\_bind\_src}}
+\index{lv\_image\_bind\_src@{lv\_image\_bind\_src}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_bind\_src()}{lv\_image\_bind\_src()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+image\+\_\+bind\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+
+Bind a pointer Subject to an Image\textquotesingle{}s source. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to Image \\
+\hline
+{\em subject} & pointer to Subject \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to newly-\/created Observer 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a19767f394f06e2931b825411cdabedfc}\label{lv__image_8c_a19767f394f06e2931b825411cdabedfc} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_create@{lv\_image\_create}}
+\index{lv\_image\_create@{lv\_image\_create}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_create()}{lv\_image\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+image\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create an image object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created image 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a2c4e9008cc3c1d435f0791e99548c918}\label{lv__image_8c_a2c4e9008cc3c1d435f0791e99548c918} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_antialias@{lv\_image\_get\_antialias}}
+\index{lv\_image\_get\_antialias@{lv\_image\_get\_antialias}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_antialias()}{lv\_image\_get\_antialias()}}
+{\footnotesize\ttfamily bool lv\+\_\+image\+\_\+get\+\_\+antialias (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get whether the transformations (rotate, zoom) are anti-\/aliased or not 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: anti-\/aliased; false\+: not anti-\/aliased 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_acf9003b9130335b3d51b922b060abc75}\label{lv__image_8c_acf9003b9130335b3d51b922b060abc75} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_bitmap\_map\_src@{lv\_image\_get\_bitmap\_map\_src}}
+\index{lv\_image\_get\_bitmap\_map\_src@{lv\_image\_get\_bitmap\_map\_src}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_bitmap\_map\_src()}{lv\_image\_get\_bitmap\_map\_src()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+image\+\_\+get\+\_\+bitmap\+\_\+map\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the bitmap mask source. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+an \doxylink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t} bitmap mask source. 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_ab2fedf19c035c5fc0d44eaa17269aa80}\label{lv__image_8c_ab2fedf19c035c5fc0d44eaa17269aa80} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_blend\_mode@{lv\_image\_get\_blend\_mode}}
+\index{lv\_image\_get\_blend\_mode@{lv\_image\_get\_blend\_mode}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_blend\_mode()}{lv\_image\_get\_blend\_mode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__style_8h_a2e4fe7f18d18a05b245ee4a1fdaca0f9}{lv\+\_\+blend\+\_\+mode\+\_\+t}} lv\+\_\+image\+\_\+get\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the current blend mode of the image 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the current blend mode 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_aee112e4f565e97511eb42f9bbe8c1aa2}\label{lv__image_8c_aee112e4f565e97511eb42f9bbe8c1aa2} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_inner\_align@{lv\_image\_get\_inner\_align}}
+\index{lv\_image\_get\_inner\_align@{lv\_image\_get\_inner\_align}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_inner\_align()}{lv\_image\_get\_inner\_align()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lv__image_8h_a335db70445bbeb42fd8583708d3596ab}{lv\+\_\+image\+\_\+align\+\_\+t}} lv\+\_\+image\+\_\+get\+\_\+inner\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the size mode of the image 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+element of {\ttfamily lv\+\_\+image\+\_\+align\+\_\+t} 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a41b50446bc38a1bddaae40bcee1e3b96}\label{lv__image_8c_a41b50446bc38a1bddaae40bcee1e3b96} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_offset\_x@{lv\_image\_get\_offset\_x}}
+\index{lv\_image\_get\_offset\_x@{lv\_image\_get\_offset\_x}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_offset\_x()}{lv\_image\_get\_offset\_x()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+offset\+\_\+x (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the offset\textquotesingle{}s x attribute of the image object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+offset X value. 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a8a1c79313cd7225886765880fa16036c}\label{lv__image_8c_a8a1c79313cd7225886765880fa16036c} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_offset\_y@{lv\_image\_get\_offset\_y}}
+\index{lv\_image\_get\_offset\_y@{lv\_image\_get\_offset\_y}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_offset\_y()}{lv\_image\_get\_offset\_y()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+offset\+\_\+y (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the offset\textquotesingle{}s y attribute of the image object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+offset Y value. 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a3196f2ab2389e054e7ea64ad50a60992}\label{lv__image_8c_a3196f2ab2389e054e7ea64ad50a60992} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_pivot@{lv\_image\_get\_pivot}}
+\index{lv\_image\_get\_pivot@{lv\_image\_get\_pivot}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_pivot()}{lv\_image\_get\_pivot()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+get\+\_\+pivot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{pivot }\end{DoxyParamCaption})}
+
+Get the pivot (rotation center) of the image. If pivot is set with LV\+\_\+\+PCT, convert it to px before return. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em pivot} & store the rotation center here \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a89efd4e77502d4800825eaf3078f15e9}\label{lv__image_8c_a89efd4e77502d4800825eaf3078f15e9} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_rotation@{lv\_image\_get\_rotation}}
+\index{lv\_image\_get\_rotation@{lv\_image\_get\_rotation}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_rotation()}{lv\_image\_get\_rotation()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the rotation of the image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+rotation in 0.\+1 degrees (0..3600) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Opomba}
+if image\+\_\+align is {\ttfamily LV\+\_\+\+IMAGE\+\_\+\+ALIGN\+\_\+\+STRETCH} or {\ttfamily LV\+\_\+\+IMAGE\+\_\+\+ALIGN\+\_\+\+FIT} rotation will be set to 0 automatically. 
+\end{DoxyNote}
+\Hypertarget{lv__image_8c_a877b44c48b3aa28a88cf87899720391a}\label{lv__image_8c_a877b44c48b3aa28a88cf87899720391a} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_scale@{lv\_image\_get\_scale}}
+\index{lv\_image\_get\_scale@{lv\_image\_get\_scale}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_scale()}{lv\_image\_get\_scale()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the zoom factor of the image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+zoom factor (256\+: no zoom) 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a3f776e96bb5d3ddd3b19f73fe74c94cc}\label{lv__image_8c_a3f776e96bb5d3ddd3b19f73fe74c94cc} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_scale\_x@{lv\_image\_get\_scale\_x}}
+\index{lv\_image\_get\_scale\_x@{lv\_image\_get\_scale\_x}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_scale\_x()}{lv\_image\_get\_scale\_x()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+scale\+\_\+x (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the horizontal zoom factor of the image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+zoom factor (256\+: no zoom) 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a85e12367f284171569b3cdd101388f8c}\label{lv__image_8c_a85e12367f284171569b3cdd101388f8c} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_scale\_y@{lv\_image\_get\_scale\_y}}
+\index{lv\_image\_get\_scale\_y@{lv\_image\_get\_scale\_y}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_scale\_y()}{lv\_image\_get\_scale\_y()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+scale\+\_\+y (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the vertical zoom factor of the image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+zoom factor (256\+: no zoom) 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_aeb25385faf1b999884ee70613b37a736}\label{lv__image_8c_aeb25385faf1b999884ee70613b37a736} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_src@{lv\_image\_get\_src}}
+\index{lv\_image\_get\_src@{lv\_image\_get\_src}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_src()}{lv\_image\_get\_src()}}
+{\footnotesize\ttfamily const void \texorpdfstring{$\ast$}{*} lv\+\_\+image\+\_\+get\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the source of the image 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the image source (symbol, file name or \+::lv-\/img\+\_\+dsc\+\_\+t for C arrays) 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a61e4dbac9ad17f2b9ecacf96bffac1ae}\label{lv__image_8c_a61e4dbac9ad17f2b9ecacf96bffac1ae} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_src\_height@{lv\_image\_get\_src\_height}}
+\index{lv\_image\_get\_src\_height@{lv\_image\_get\_src\_height}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_src\_height()}{lv\_image\_get\_src\_height()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+src\+\_\+height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the height of an image before any transformations. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & Pointer to an image object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+The height of the image. 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a19b5c68275871398727e61d59e6009f0}\label{lv__image_8c_a19b5c68275871398727e61d59e6009f0} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_src\_width@{lv\_image\_get\_src\_width}}
+\index{lv\_image\_get\_src\_width@{lv\_image\_get\_src\_width}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_src\_width()}{lv\_image\_get\_src\_width()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+src\+\_\+width (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the width of an image before any transformations. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & Pointer to an image object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+The width of the image. 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a7719bd490303148644f1079255a1e745}\label{lv__image_8c_a7719bd490303148644f1079255a1e745} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_transformed\_height@{lv\_image\_get\_transformed\_height}}
+\index{lv\_image\_get\_transformed\_height@{lv\_image\_get\_transformed\_height}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_transformed\_height()}{lv\_image\_get\_transformed\_height()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+transformed\+\_\+height (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the transformed height of an image object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & Pointer to an image object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+The transformed height of the image. 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_a7e8762ef7aebccdf44ae0812df41b90c}\label{lv__image_8c_a7e8762ef7aebccdf44ae0812df41b90c} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_get\_transformed\_width@{lv\_image\_get\_transformed\_width}}
+\index{lv\_image\_get\_transformed\_width@{lv\_image\_get\_transformed\_width}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_get\_transformed\_width()}{lv\_image\_get\_transformed\_width()}}
+{\footnotesize\ttfamily int32\+\_\+t lv\+\_\+image\+\_\+get\+\_\+transformed\+\_\+width (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the transformed width of an image object. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & Pointer to an image object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+The transformed width of the image. 
+\end{DoxyReturn}
+\Hypertarget{lv__image_8c_acba54b03f184b8b755e2d49d46e645e4}\label{lv__image_8c_acba54b03f184b8b755e2d49d46e645e4} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_antialias@{lv\_image\_set\_antialias}}
+\index{lv\_image\_set\_antialias@{lv\_image\_set\_antialias}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_antialias()}{lv\_image\_set\_antialias()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+antialias (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{antialias }\end{DoxyParamCaption})}
+
+Enable/disable anti-\/aliasing for the transformations (rotate, zoom) or not. The quality is better with anti-\/aliasing looks better but slower. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em antialias} & true\+: anti-\/aliased; false\+: not anti-\/aliased \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a4a6cef2755b0e964e99c649dce13a6cd}\label{lv__image_8c_a4a6cef2755b0e964e99c649dce13a6cd} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_bitmap\_map\_src@{lv\_image\_set\_bitmap\_map\_src}}
+\index{lv\_image\_set\_bitmap\_map\_src@{lv\_image\_set\_bitmap\_map\_src}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_bitmap\_map\_src()}{lv\_image\_set\_bitmap\_map\_src()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+bitmap\+\_\+map\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+Set an A8 bitmap mask for the image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em src} & an \doxylink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t} bitmap mask source. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a040f643991899a525775347b50bef7d5}\label{lv__image_8c_a040f643991899a525775347b50bef7d5} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_blend\_mode@{lv\_image\_set\_blend\_mode}}
+\index{lv\_image\_set\_blend\_mode@{lv\_image\_set\_blend\_mode}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_blend\_mode()}{lv\_image\_set\_blend\_mode()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+blend\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__style_8h_a2e4fe7f18d18a05b245ee4a1fdaca0f9}{lv\+\_\+blend\+\_\+mode\+\_\+t}}}]{blend\+\_\+mode }\end{DoxyParamCaption})}
+
+Set the blend mode of an image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em blend\+\_\+mode} & the new blend mode \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a70c8836e7792340467c1c1adf94c5fef}\label{lv__image_8c_a70c8836e7792340467c1c1adf94c5fef} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_inner\_align@{lv\_image\_set\_inner\_align}}
+\index{lv\_image\_set\_inner\_align@{lv\_image\_set\_inner\_align}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_inner\_align()}{lv\_image\_set\_inner\_align()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+inner\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__image_8h_a335db70445bbeb42fd8583708d3596ab}{lv\+\_\+image\+\_\+align\+\_\+t}}}]{align }\end{DoxyParamCaption})}
+
+Set the image object size mode. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em align} & the new align mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+if image\+\_\+align is {\ttfamily LV\+\_\+\+IMAGE\+\_\+\+ALIGN\+\_\+\+STRETCH} or {\ttfamily LV\+\_\+\+IMAGE\+\_\+\+ALIGN\+\_\+\+FIT} rotation, scale and pivot will be overwritten and controlled internally. 
+\end{DoxyNote}
+\Hypertarget{lv__image_8c_a2556dee0857301c58903994a0379d56f}\label{lv__image_8c_a2556dee0857301c58903994a0379d56f} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_offset\_x@{lv\_image\_set\_offset\_x}}
+\index{lv\_image\_set\_offset\_x@{lv\_image\_set\_offset\_x}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_offset\_x()}{lv\_image\_set\_offset\_x()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+offset\+\_\+x (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+Set an offset for the source of an image so the image will be displayed from the new origin. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image \\
+\hline
+{\em x} & the new offset along x axis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_ac7998867ee1906f521933e42e1b59881}\label{lv__image_8c_ac7998867ee1906f521933e42e1b59881} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_offset\_y@{lv\_image\_set\_offset\_y}}
+\index{lv\_image\_set\_offset\_y@{lv\_image\_set\_offset\_y}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_offset\_y()}{lv\_image\_set\_offset\_y()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+offset\+\_\+y (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+Set an offset for the source of an image. so the image will be displayed from the new origin. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image \\
+\hline
+{\em y} & the new offset along y axis. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a67a1fbec226fe89d64034412c4395396}\label{lv__image_8c_a67a1fbec226fe89d64034412c4395396} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_pivot@{lv\_image\_set\_pivot}}
+\index{lv\_image\_set\_pivot@{lv\_image\_set\_pivot}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_pivot()}{lv\_image\_set\_pivot()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+pivot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{x,  }\item[{int32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+Set the rotation center of the image. The image will be rotated around this point. x, y can be set with value of LV\+\_\+\+PCT, lv\+\_\+image\+\_\+get\+\_\+pivot will return the true pixel coordinate of pivot in this case. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em x} & rotation center x of the image \\
+\hline
+{\em y} & rotation center y of the image \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_aedf9512e2b2a35852ce942f0d23b38e5}\label{lv__image_8c_aedf9512e2b2a35852ce942f0d23b38e5} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_pivot\_x@{lv\_image\_set\_pivot\_x}}
+\index{lv\_image\_set\_pivot\_x@{lv\_image\_set\_pivot\_x}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_pivot\_x()}{lv\_image\_set\_pivot\_x()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+pivot\+\_\+x (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{x }\end{DoxyParamCaption})}
+
+Set the rotation horizontal center of the image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em x} & rotation center x of the image, or \doxylink{lv__area_8c_aaab45f4752db2db4f70fd48a8d8d50d0}{lv\+\_\+pct()} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a921913bfa67cc005e23e522f4d5fe77c}\label{lv__image_8c_a921913bfa67cc005e23e522f4d5fe77c} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_pivot\_y@{lv\_image\_set\_pivot\_y}}
+\index{lv\_image\_set\_pivot\_y@{lv\_image\_set\_pivot\_y}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_pivot\_y()}{lv\_image\_set\_pivot\_y()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+pivot\+\_\+y (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+Set the rotation vertical center of the image. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em y} & rotation center y of the image, or \doxylink{lv__area_8c_aaab45f4752db2db4f70fd48a8d8d50d0}{lv\+\_\+pct()} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a5bf09354c5930b6439d1a3a8f5d2c3d5}\label{lv__image_8c_a5bf09354c5930b6439d1a3a8f5d2c3d5} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_rotation@{lv\_image\_set\_rotation}}
+\index{lv\_image\_set\_rotation@{lv\_image\_set\_rotation}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_rotation()}{lv\_image\_set\_rotation()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+rotation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{angle }\end{DoxyParamCaption})}
+
+Set the rotation angle of the image. The image will be rotated around the set pivot set by {\ttfamily \doxylink{lv__image_8h_a67a1fbec226fe89d64034412c4395396}{lv\+\_\+image\+\_\+set\+\_\+pivot()}} Note that indexed and alpha only images can\textquotesingle{}t be transformed. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em angle} & rotation in degree with 0.\+1 degree resolution (0..3600\+: clock wise) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Opomba}
+if image\+\_\+align is {\ttfamily LV\+\_\+\+IMAGE\+\_\+\+ALIGN\+\_\+\+STRETCH} or {\ttfamily LV\+\_\+\+IMAGE\+\_\+\+ALIGN\+\_\+\+FIT} rotation will be set to 0 automatically. 
+\end{DoxyNote}
+\Hypertarget{lv__image_8c_a835b51316c0fd1ad178750bc584325c9}\label{lv__image_8c_a835b51316c0fd1ad178750bc584325c9} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_scale@{lv\_image\_set\_scale}}
+\index{lv\_image\_set\_scale@{lv\_image\_set\_scale}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_scale()}{lv\_image\_set\_scale()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{zoom }\end{DoxyParamCaption})}
+
+Set the zoom factor of the image. Note that indexed and alpha only images can\textquotesingle{}t be transformed. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em zoom} & the zoom factor. Example values\+:
+\begin{DoxyItemize}
+\item 256 or LV\+\_\+\+SCALE\+\_\+\+NONE\+: no zoom
+\item \texorpdfstring{$<$}{<}256\+: scale down
+\item \texorpdfstring{$>$}{>}256\+: scale up
+\item 128\+: half size
+\item 512\+: double size 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a30e9e2819121a2837fb41c5949e04c6d}\label{lv__image_8c_a30e9e2819121a2837fb41c5949e04c6d} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_scale\_x@{lv\_image\_set\_scale\_x}}
+\index{lv\_image\_set\_scale\_x@{lv\_image\_set\_scale\_x}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_scale\_x()}{lv\_image\_set\_scale\_x()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+scale\+\_\+x (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{zoom }\end{DoxyParamCaption})}
+
+Set the horizontal zoom factor of the image. Note that indexed and alpha only images can\textquotesingle{}t be transformed. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em zoom} & the zoom factor. Example values\+:
+\begin{DoxyItemize}
+\item 256 or LV\+\_\+\+SCALE\+\_\+\+NONE\+: no zoom
+\item \texorpdfstring{$<$}{<}256\+: scale down
+\item \texorpdfstring{$>$}{>}256\+: scale up
+\item 128\+: half size
+\item 512\+: double size 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_a724053fb18ca0c9b369a194e01983251}\label{lv__image_8c_a724053fb18ca0c9b369a194e01983251} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_scale\_y@{lv\_image\_set\_scale\_y}}
+\index{lv\_image\_set\_scale\_y@{lv\_image\_set\_scale\_y}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_scale\_y()}{lv\_image\_set\_scale\_y()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+scale\+\_\+y (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{zoom }\end{DoxyParamCaption})}
+
+Set the vertical zoom factor of the image. Note that indexed and alpha only images can\textquotesingle{}t be transformed. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em zoom} & the zoom factor. Example values\+:
+\begin{DoxyItemize}
+\item 256 or LV\+\_\+\+SCALE\+\_\+\+NONE\+: no zoom
+\item \texorpdfstring{$<$}{<}256\+: scale down
+\item \texorpdfstring{$>$}{>}256\+: scale up
+\item 128\+: half size
+\item 512\+: double size 
+\end{DoxyItemize}\\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__image_8c_abd50066a66f6c4496c5d9149dbb67cfd}\label{lv__image_8c_abd50066a66f6c4496c5d9149dbb67cfd} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_set\_src@{lv\_image\_set\_src}}
+\index{lv\_image\_set\_src@{lv\_image\_set\_src}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_set\_src()}{lv\_image\_set\_src()}}
+{\footnotesize\ttfamily void lv\+\_\+image\+\_\+set\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
+
+Set the image data to display on the object 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an image object \\
+\hline
+{\em src} & 1) pointer to an \doxylink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t} descriptor (converted by LVGL\textquotesingle{}s image converter) (e.\+g. \&my\+\_\+img) or 2) path to an image file (e.\+g. "{}\+S\+:/dir/img.\+bin"{})or 3) a SYMBOL (e.\+g. LV\+\_\+\+SYMBOL\+\_\+\+OK) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__image_8c_a3900c26e912914e25c94eb4aa3c59808}\label{lv__image_8c_a3900c26e912914e25c94eb4aa3c59808} 
+\index{lv\_image.c@{lv\_image.c}!lv\_image\_class@{lv\_image\_class}}
+\index{lv\_image\_class@{lv\_image\_class}!lv\_image.c@{lv\_image.c}}
+\doxysubsubsection{\texorpdfstring{lv\_image\_class}{lv\_image\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+image\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_image\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_image\_destructor,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_image\_event,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ LV\_SIZE\_CONTENT,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__image__t}{lv\_image\_t}}),}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_image"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

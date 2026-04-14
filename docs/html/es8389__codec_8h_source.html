@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: managed_components/espressif__esp_codec_dev/device/include/es8389_codec.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_f4a2867ba7786a073a355b3494ec8cdc.html">espressif__esp_codec_dev</a></li><li class="navelem"><a class="el" href="dir_159a237394bb44ed9a4d80a39f891a12.html">device</a></li><li class="navelem"><a class="el" href="dir_b8de65bd37a3778c2322de9a2c07d10a.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">es8389_codec.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * SPDX-FileCopyrightText: 2025 Espressif Systems (Shanghai) CO LTD</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef _ES8389_CODEC_H_</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define _ES8389_CODEC_H_</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;audio_codec_if.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;audio_codec_ctrl_if.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;audio_codec_gpio_if.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;esp_codec_dev_vol.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define ES8389_CODEC_DEFAULT_ADDR (0x20)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html">   24</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a83fa19498cf3a379a5294386e139dc2d">   25</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structaudio__codec__ctrl__if__t.html">audio_codec_ctrl_if_t</a> *<a class="code hl_variable" href="structes8389__codec__cfg__t.html#a83fa19498cf3a379a5294386e139dc2d">ctrl_if</a>;     </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a6279c52f47bd34df5e3e7d534053b009">   26</a></span>    <span class="keyword">const</span> <a class="code hl_struct" href="structaudio__codec__gpio__if__t.html">audio_codec_gpio_if_t</a> *<a class="code hl_variable" href="structes8389__codec__cfg__t.html#a6279c52f47bd34df5e3e7d534053b009">gpio_if</a>;     </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a7123626898391464dabd7dfa6d99fc61">   27</a></span>    esp_codec_dec_work_mode_t    <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a7123626898391464dabd7dfa6d99fc61">codec_mode</a>;  </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a1b4992ed27734db1d30e0c326620a355">   28</a></span>    int16_t                      <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a1b4992ed27734db1d30e0c326620a355">pa_pin</a>;      </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a5d2bbe45dc7cdedcc87f66793b778e0c">   29</a></span>    <span class="keywordtype">bool</span>                         <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a5d2bbe45dc7cdedcc87f66793b778e0c">pa_reverted</a>; </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a403b411cc531f9e4574bafe68ff8e20a">   30</a></span>    <span class="keywordtype">bool</span>                         <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a403b411cc531f9e4574bafe68ff8e20a">master_mode</a>; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#aac6f8d12e12256299a5d710adc222a1a">   31</a></span>    <span class="keywordtype">bool</span>                         <a class="code hl_variable" href="structes8389__codec__cfg__t.html#aac6f8d12e12256299a5d710adc222a1a">use_mclk</a>;    </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a1af291781412f124db8629d53ce3773d">   32</a></span>    <span class="keywordtype">bool</span>                         <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a1af291781412f124db8629d53ce3773d">digital_mic</a>; </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a990e8da063c93fa08809b7647dcf5dfc">   33</a></span>    <span class="keywordtype">bool</span>                         <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a990e8da063c93fa08809b7647dcf5dfc">invert_mclk</a>; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#ab3f0b70e0238617a196ce4cef4cea046">   34</a></span>    <span class="keywordtype">bool</span>                         <a class="code hl_variable" href="structes8389__codec__cfg__t.html#ab3f0b70e0238617a196ce4cef4cea046">invert_sclk</a>; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a0628973ca0f7a5314840545438d14b60">   35</a></span>    <a class="code hl_struct" href="structesp__codec__dev__hw__gain__t.html">esp_codec_dev_hw_gain_t</a>      <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a0628973ca0f7a5314840545438d14b60">hw_gain</a>;     </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#a075373a5a0ec3125d256ef8e813f99f7">   36</a></span>    <span class="keywordtype">bool</span>                         <a class="code hl_variable" href="structes8389__codec__cfg__t.html#a075373a5a0ec3125d256ef8e813f99f7">no_dac_ref</a>;  </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structes8389__codec__cfg__t.html#add71bbc9ed9faf4de4c4bb9c44023b15">   40</a></span>    uint16_t                     <a class="code hl_variable" href="structes8389__codec__cfg__t.html#add71bbc9ed9faf4de4c4bb9c44023b15">mclk_div</a>;    </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>} <a class="code hl_struct" href="structes8389__codec__cfg__t.html">es8389_codec_cfg_t</a>;</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">const</span> <a class="code hl_struct" href="structaudio__codec__if__t.html">audio_codec_if_t</a> *es8389_codec_new(<a class="code hl_struct" href="structes8389__codec__cfg__t.html">es8389_codec_cfg_t</a> *codec_cfg);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="astructaudio__codec__ctrl__if__t_html"><div class="ttname"><a href="structaudio__codec__ctrl__if__t.html">audio_codec_ctrl_if_t</a></div><div class="ttdoc">Audio codec control interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_ctrl_if.h:20</div></div>
+<div class="ttc" id="astructaudio__codec__gpio__if__t_html"><div class="ttname"><a href="structaudio__codec__gpio__if__t.html">audio_codec_gpio_if_t</a></div><div class="ttdoc">Codec GPIO interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_gpio_if.h:36</div></div>
+<div class="ttc" id="astructaudio__codec__if__t_html"><div class="ttname"><a href="structaudio__codec__if__t.html">audio_codec_if_t</a></div><div class="ttdoc">Structure for codec interface.</div><div class="ttdef"><b>Definition</b> audio_codec_if.h:20</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html"><div class="ttname"><a href="structes8389__codec__cfg__t.html">es8389_codec_cfg_t</a></div><div class="ttdoc">ES8389 codec configuration.</div><div class="ttdef"><b>Definition</b> es8389_codec.h:24</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a0628973ca0f7a5314840545438d14b60"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a0628973ca0f7a5314840545438d14b60">es8389_codec_cfg_t::hw_gain</a></div><div class="ttdeci">esp_codec_dev_hw_gain_t hw_gain</div><div class="ttdef"><b>Definition</b> es8389_codec.h:35</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a075373a5a0ec3125d256ef8e813f99f7"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a075373a5a0ec3125d256ef8e813f99f7">es8389_codec_cfg_t::no_dac_ref</a></div><div class="ttdeci">bool no_dac_ref</div><div class="ttdef"><b>Definition</b> es8389_codec.h:36</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a1af291781412f124db8629d53ce3773d"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a1af291781412f124db8629d53ce3773d">es8389_codec_cfg_t::digital_mic</a></div><div class="ttdeci">bool digital_mic</div><div class="ttdef"><b>Definition</b> es8389_codec.h:32</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a1b4992ed27734db1d30e0c326620a355"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a1b4992ed27734db1d30e0c326620a355">es8389_codec_cfg_t::pa_pin</a></div><div class="ttdeci">int16_t pa_pin</div><div class="ttdef"><b>Definition</b> es8389_codec.h:28</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a403b411cc531f9e4574bafe68ff8e20a"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a403b411cc531f9e4574bafe68ff8e20a">es8389_codec_cfg_t::master_mode</a></div><div class="ttdeci">bool master_mode</div><div class="ttdef"><b>Definition</b> es8389_codec.h:30</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a5d2bbe45dc7cdedcc87f66793b778e0c"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a5d2bbe45dc7cdedcc87f66793b778e0c">es8389_codec_cfg_t::pa_reverted</a></div><div class="ttdeci">bool pa_reverted</div><div class="ttdef"><b>Definition</b> es8389_codec.h:29</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a6279c52f47bd34df5e3e7d534053b009"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a6279c52f47bd34df5e3e7d534053b009">es8389_codec_cfg_t::gpio_if</a></div><div class="ttdeci">const audio_codec_gpio_if_t * gpio_if</div><div class="ttdef"><b>Definition</b> es8389_codec.h:26</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a7123626898391464dabd7dfa6d99fc61"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a7123626898391464dabd7dfa6d99fc61">es8389_codec_cfg_t::codec_mode</a></div><div class="ttdeci">esp_codec_dec_work_mode_t codec_mode</div><div class="ttdef"><b>Definition</b> es8389_codec.h:27</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a83fa19498cf3a379a5294386e139dc2d"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a83fa19498cf3a379a5294386e139dc2d">es8389_codec_cfg_t::ctrl_if</a></div><div class="ttdeci">const audio_codec_ctrl_if_t * ctrl_if</div><div class="ttdef"><b>Definition</b> es8389_codec.h:25</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_a990e8da063c93fa08809b7647dcf5dfc"><div class="ttname"><a href="structes8389__codec__cfg__t.html#a990e8da063c93fa08809b7647dcf5dfc">es8389_codec_cfg_t::invert_mclk</a></div><div class="ttdeci">bool invert_mclk</div><div class="ttdef"><b>Definition</b> es8389_codec.h:33</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_aac6f8d12e12256299a5d710adc222a1a"><div class="ttname"><a href="structes8389__codec__cfg__t.html#aac6f8d12e12256299a5d710adc222a1a">es8389_codec_cfg_t::use_mclk</a></div><div class="ttdeci">bool use_mclk</div><div class="ttdef"><b>Definition</b> es8389_codec.h:31</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_ab3f0b70e0238617a196ce4cef4cea046"><div class="ttname"><a href="structes8389__codec__cfg__t.html#ab3f0b70e0238617a196ce4cef4cea046">es8389_codec_cfg_t::invert_sclk</a></div><div class="ttdeci">bool invert_sclk</div><div class="ttdef"><b>Definition</b> es8389_codec.h:34</div></div>
+<div class="ttc" id="astructes8389__codec__cfg__t_html_add71bbc9ed9faf4de4c4bb9c44023b15"><div class="ttname"><a href="structes8389__codec__cfg__t.html#add71bbc9ed9faf4de4c4bb9c44023b15">es8389_codec_cfg_t::mclk_div</a></div><div class="ttdeci">uint16_t mclk_div</div><div class="ttdef"><b>Definition</b> es8389_codec.h:40</div></div>
+<div class="ttc" id="astructesp__codec__dev__hw__gain__t_html"><div class="ttname"><a href="structesp__codec__dev__hw__gain__t.html">esp_codec_dev_hw_gain_t</a></div><div class="ttdoc">Codec hardware gain setting Notes: Hardware gain generally consists of 2 parts.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_vol.h:73</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,93 @@
+\doxysection{Datoteka managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+lcd\+\_\+touch\+\_\+tt21100/include/esp\+\_\+lcd\+\_\+touch\+\_\+tt21100.h}
+\hypertarget{esp__lcd__touch__tt21100_8h}{}\label{esp__lcd__touch__tt21100_8h}\index{managed\_components/espressif\_\_esp\_lcd\_touch\_tt21100/include/esp\_lcd\_touch\_tt21100.h@{managed\_components/espressif\_\_esp\_lcd\_touch\_tt21100/include/esp\_lcd\_touch\_tt21100.h}}
+
+
+ESP LCD touch\+: TT21100.  
+
+
+{\ttfamily \#include "{}esp\+\_\+lcd\+\_\+touch.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}esp\+\_\+lcd\+\_\+touch\+\_\+tt21100.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko esp\+\_\+lcd\+\_\+touch\+\_\+tt21100.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{esp__lcd__touch__tt21100_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{esp__lcd__touch__tt21100_8h_ae68c52c42d9271454e00f4f9bc029f9a}\label{esp__lcd__touch__tt21100_8h_ae68c52c42d9271454e00f4f9bc029f9a} 
+\#define {\bfseries ESP\+\_\+\+LCD\+\_\+\+TOUCH\+\_\+\+IO\+\_\+\+I2\+C\+\_\+\+TT21100\+\_\+\+ADDRESS}~(0x24)
+\begin{DoxyCompactList}\small\item\em I2C address of the TT21100 controller. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{esp__lcd__touch__tt21100_8h_a4f4ced45eaeae61d18fc850b7d6166db}{ESP\+\_\+\+LCD\+\_\+\+TOUCH\+\_\+\+IO\+\_\+\+I2\+C\+\_\+\+TT21100\+\_\+\+CONFIG}}()
+\begin{DoxyCompactList}\small\item\em Touch IO configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{esp__lcd__touch__tt21100_8h_af36fda374a632885f3c4d9d733ef3b52}{esp\+\_\+lcd\+\_\+touch\+\_\+new\+\_\+i2c\+\_\+tt21100}} (const esp\+\_\+lcd\+\_\+panel\+\_\+io\+\_\+handle\+\_\+t io, const \mbox{\hyperlink{structesp__lcd__touch__config__t}{esp\+\_\+lcd\+\_\+touch\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}config, \mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} \texorpdfstring{$\ast$}{*}out\+\_\+touch)
+\begin{DoxyCompactList}\small\item\em Create a new TT21100 touch driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+ESP LCD touch\+: TT21100. 
+
+
+
+\doxysubsection{Opis makro definicije}
+\Hypertarget{esp__lcd__touch__tt21100_8h_a4f4ced45eaeae61d18fc850b7d6166db}\label{esp__lcd__touch__tt21100_8h_a4f4ced45eaeae61d18fc850b7d6166db} 
+\index{esp\_lcd\_touch\_tt21100.h@{esp\_lcd\_touch\_tt21100.h}!ESP\_LCD\_TOUCH\_IO\_I2C\_TT21100\_CONFIG@{ESP\_LCD\_TOUCH\_IO\_I2C\_TT21100\_CONFIG}}
+\index{ESP\_LCD\_TOUCH\_IO\_I2C\_TT21100\_CONFIG@{ESP\_LCD\_TOUCH\_IO\_I2C\_TT21100\_CONFIG}!esp\_lcd\_touch\_tt21100.h@{esp\_lcd\_touch\_tt21100.h}}
+\doxysubsubsection{\texorpdfstring{ESP\_LCD\_TOUCH\_IO\_I2C\_TT21100\_CONFIG}{ESP\_LCD\_TOUCH\_IO\_I2C\_TT21100\_CONFIG}}
+{\footnotesize\ttfamily \#define ESP\+\_\+\+LCD\+\_\+\+TOUCH\+\_\+\+IO\+\_\+\+I2\+C\+\_\+\+TT21100\+\_\+\+CONFIG(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Vrednost\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .scl\_speed\_hz\ =\ 100000,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .dev\_addr\ =\ \mbox{\hyperlink{esp__lcd__touch__tt21100_8h_ae68c52c42d9271454e00f4f9bc029f9a}{ESP\_LCD\_TOUCH\_IO\_I2C\_TT21100\_ADDRESS}},\ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .control\_phase\_bytes\ =\ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .dc\_bit\_offset\ =\ 0,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .lcd\_cmd\_bits\ =\ 16,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .flags\ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ .disable\_control\_phase\ =\ 1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+Touch IO configuration structure. 
+
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{esp__lcd__touch__tt21100_8h_af36fda374a632885f3c4d9d733ef3b52}\label{esp__lcd__touch__tt21100_8h_af36fda374a632885f3c4d9d733ef3b52} 
+\index{esp\_lcd\_touch\_tt21100.h@{esp\_lcd\_touch\_tt21100.h}!esp\_lcd\_touch\_new\_i2c\_tt21100@{esp\_lcd\_touch\_new\_i2c\_tt21100}}
+\index{esp\_lcd\_touch\_new\_i2c\_tt21100@{esp\_lcd\_touch\_new\_i2c\_tt21100}!esp\_lcd\_touch\_tt21100.h@{esp\_lcd\_touch\_tt21100.h}}
+\doxysubsubsection{\texorpdfstring{esp\_lcd\_touch\_new\_i2c\_tt21100()}{esp\_lcd\_touch\_new\_i2c\_tt21100()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t esp\+\_\+lcd\+\_\+touch\+\_\+new\+\_\+i2c\+\_\+tt21100 (\begin{DoxyParamCaption}\item[{const esp\+\_\+lcd\+\_\+panel\+\_\+io\+\_\+handle\+\_\+t}]{io,  }\item[{const \mbox{\hyperlink{structesp__lcd__touch__config__t}{esp\+\_\+lcd\+\_\+touch\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{config,  }\item[{\mbox{\hyperlink{structesp__lcd__touch__s}{esp\+\_\+lcd\+\_\+touch\+\_\+handle\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{out\+\_\+touch }\end{DoxyParamCaption})}
+
+
+
+Create a new TT21100 touch driver. 
+
+\begin{DoxyNote}{Opomba}
+The I2C communication should be initialized before use this function.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parametri}
+{\em io} & LCD/\+Touch panel IO handle \\
+\hline
+{\em config} & Touch configuration \\
+\hline
+{\em out\+\_\+touch} & Touch instance handle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK on success
+\item ESP\+\_\+\+ERR\+\_\+\+NO\+\_\+\+MEM if there is no memory for allocating main structure 
+\end{DoxyItemize}
+\end{DoxyReturn}

@@ -1,0 +1,646 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/textarea/lv\+\_\+textarea.c}
+\hypertarget{lv__textarea_8c}{}\label{lv__textarea_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/textarea/lv\_textarea.c@{managed\_components/lvgl\_\_lvgl/src/widgets/textarea/lv\_textarea.c}}
+{\ttfamily \#include "{}lv\+\_\+textarea\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../label/lv\+\_\+label\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+group.\+h"{}}\newline
+{\ttfamily \#include "{}../../core/lv\+\_\+refr.\+h"{}}\newline
+{\ttfamily \#include "{}../../indev/lv\+\_\+indev.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+anim\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../misc/lv\+\_\+math.\+h"{}}\newline
+{\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+textarea.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+textarea.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__textarea_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Makro deklaracije}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__textarea_8c_a9be806f23ad96997f1d62c1a6dfabe05}\label{lv__textarea_8c_a9be806f23ad96997f1d62c1a6dfabe05} 
+\#define {\bfseries MY\+\_\+\+CLASS}~(\&lv\+\_\+textarea\+\_\+class)
+\item 
+\Hypertarget{lv__textarea_8c_ad772f2f390a7f51dcdda26bf0006a2af}\label{lv__textarea_8c_ad772f2f390a7f51dcdda26bf0006a2af} 
+\#define {\bfseries LV\+\_\+\+TEXTAREA\+\_\+\+DEF\+\_\+\+CURSOR\+\_\+\+BLINK\+\_\+\+TIME}~400 /\texorpdfstring{$\ast$}{*}ms\texorpdfstring{$\ast$}{*}/
+\item 
+\Hypertarget{lv__textarea_8c_af2829e781a12742e55614458b1e8572c}\label{lv__textarea_8c_af2829e781a12742e55614458b1e8572c} 
+\#define {\bfseries LV\+\_\+\+TEXTAREA\+\_\+\+PWD\+\_\+\+BULLET\+\_\+\+UNICODE}~0x2022
+\item 
+\Hypertarget{lv__textarea_8c_ac133fd8ddc5a5eb95292335c4c3444a2}\label{lv__textarea_8c_ac133fd8ddc5a5eb95292335c4c3444a2} 
+\#define {\bfseries IGNORE\+\_\+\+KERNING}~\textquotesingle{}\textbackslash{}0\textquotesingle{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__textarea_8c_ac9d2e7a81c0c6aac74614db3feac832c}{lv\+\_\+textarea\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_ad588512e6e393024062306c369014040}{lv\+\_\+textarea\+\_\+add\+\_\+char}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t c)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a5c675b8c0c2d366ce1b04182ff52606a}{lv\+\_\+textarea\+\_\+add\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}txt)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_afe229a95292d38b72df740a31b672408}{lv\+\_\+textarea\+\_\+delete\+\_\+char}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a9bb633f0e983ea2bfbfad4ebf2da112b}{lv\+\_\+textarea\+\_\+delete\+\_\+char\+\_\+forward}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a08adbdd5ba257b71e3b1bbda0f722700}{lv\+\_\+textarea\+\_\+set\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}txt)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a09f9449e1f83d3f77e075dc982f9e6a7}{lv\+\_\+textarea\+\_\+set\+\_\+placeholder\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}txt)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_af3da83ebd09f5f59e89de8c682267e26}{lv\+\_\+textarea\+\_\+set\+\_\+cursor\+\_\+pos}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t pos)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a5b98f5314187fb4cb878f96aef4f390f}{lv\+\_\+textarea\+\_\+set\+\_\+cursor\+\_\+click\+\_\+pos}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_ad667bc93313ee673183b30396aceba67}{lv\+\_\+textarea\+\_\+set\+\_\+password\+\_\+mode}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a5502acc494bf47b5125df2af6da40e05}{lv\+\_\+textarea\+\_\+set\+\_\+password\+\_\+bullet}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}bullet)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_ac18b5648b95741dc3ae9c305cf14301e}{lv\+\_\+textarea\+\_\+set\+\_\+one\+\_\+line}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_ad22627f685c20a24dd228d4020d61433}{lv\+\_\+textarea\+\_\+set\+\_\+accepted\+\_\+chars}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}list)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a868c89231f8a63e9e5a1fb72b1196d51}{lv\+\_\+textarea\+\_\+set\+\_\+accepted\+\_\+chars\+\_\+static}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}list)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_ac82c6b9187cd91bc8122c7a6ab205e72}{lv\+\_\+textarea\+\_\+set\+\_\+max\+\_\+length}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t num)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_af49fbc6b5fdad658e5f4f2f4b6166eb3}{lv\+\_\+textarea\+\_\+set\+\_\+insert\+\_\+replace}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const char \texorpdfstring{$\ast$}{*}txt)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a0b6b1216a417df6f37984a91cb671965}{lv\+\_\+textarea\+\_\+set\+\_\+text\+\_\+selection}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, bool en)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a644c24266643278034a4e428076503a7}{lv\+\_\+textarea\+\_\+set\+\_\+password\+\_\+show\+\_\+time}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t time)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a3a131270dd523b080c9a1542f1f26b05}{lv\+\_\+textarea\+\_\+set\+\_\+align}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}} align)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__textarea_8c_abebded565ef81dcfc22405f0a4462c8c}{lv\+\_\+textarea\+\_\+get\+\_\+text}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__textarea_8c_a74787567c7e59b16ce7bcfb7cd5f4662}{lv\+\_\+textarea\+\_\+get\+\_\+placeholder\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__textarea_8c_a89129552c399724482f12d9ec9074e03}{lv\+\_\+textarea\+\_\+get\+\_\+label}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__textarea_8c_a9d32423942c831913625bc895eec284b}{lv\+\_\+textarea\+\_\+get\+\_\+cursor\+\_\+pos}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__textarea_8c_ac2df6217bce4b8fee2eb479e725982e3}{lv\+\_\+textarea\+\_\+get\+\_\+cursor\+\_\+click\+\_\+pos}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__textarea_8c_a0da1826580fd6b75556a76cdf8faa957}{lv\+\_\+textarea\+\_\+get\+\_\+password\+\_\+mode}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__textarea_8c_a396982d50755b4f0ec4ae886ddb8df32}{lv\+\_\+textarea\+\_\+get\+\_\+password\+\_\+bullet}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__textarea_8c_a85aff0a0aa3698128cbd4fd518026c19}{lv\+\_\+textarea\+\_\+get\+\_\+one\+\_\+line}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__textarea_8c_a8ed8ebc765cc0b8c8befdf4507178462}{lv\+\_\+textarea\+\_\+get\+\_\+accepted\+\_\+chars}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__textarea_8c_ab19822f2323f9b0d4e7af9cd51819927}{lv\+\_\+textarea\+\_\+get\+\_\+max\+\_\+length}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__textarea_8c_a4644c96ce9e1bc2474cd0aca6ca45e09}{lv\+\_\+textarea\+\_\+text\+\_\+is\+\_\+selected}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+bool \mbox{\hyperlink{lv__textarea_8c_aafa5bde651b595f2617724da499ce86d}{lv\+\_\+textarea\+\_\+get\+\_\+text\+\_\+selection}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__textarea_8c_a39823314059febade2246a318ba3d150}{lv\+\_\+textarea\+\_\+get\+\_\+password\+\_\+show\+\_\+time}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__textarea_8c_a601df9b565fe24f9189a57e100359072}{lv\+\_\+textarea\+\_\+get\+\_\+current\+\_\+char}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_ad8b58c73f450910c7d90d712bf01f20c}{lv\+\_\+textarea\+\_\+clear\+\_\+selection}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_abaa40a276709b15f6f2665c80768169d}{lv\+\_\+textarea\+\_\+cursor\+\_\+right}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_a33bbd65e6e6f13843a4235d8d499abc9}{lv\+\_\+textarea\+\_\+cursor\+\_\+left}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_af75903c4f9fc256af5a70505683b02c8}{lv\+\_\+textarea\+\_\+cursor\+\_\+down}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\item 
+void \mbox{\hyperlink{lv__textarea_8c_abc9d92ffe4f5ab02c82d1ccb3b6a4e4c}{lv\+\_\+textarea\+\_\+cursor\+\_\+up}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Spremenljivke}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} \mbox{\hyperlink{lv__textarea_8c_a9eeb4c1eeea4587dac9732166dace7ea}{lv\+\_\+textarea\+\_\+class}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__textarea_8c_ad588512e6e393024062306c369014040}\label{lv__textarea_8c_ad588512e6e393024062306c369014040} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_add\_char@{lv\_textarea\_add\_char}}
+\index{lv\_textarea\_add\_char@{lv\_textarea\_add\_char}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_add\_char()}{lv\_textarea\_add\_char()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+add\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{c }\end{DoxyParamCaption})}
+
+Insert a character to the current cursor position. To add a wide char, e.\+g. \textquotesingle{}Á\textquotesingle{} use `lv\+\_\+text\+\_\+encoded\+\_\+conv\+\_\+wc(\textquotesingle{}Á')` 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em c} & a character (e.\+g. \textquotesingle{}a') \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a5c675b8c0c2d366ce1b04182ff52606a}\label{lv__textarea_8c_a5c675b8c0c2d366ce1b04182ff52606a} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_add\_text@{lv\_textarea\_add\_text}}
+\index{lv\_textarea\_add\_text@{lv\_textarea\_add\_text}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_add\_text()}{lv\_textarea\_add\_text()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+add\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{txt }\end{DoxyParamCaption})}
+
+Insert a text to the current cursor position 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em txt} & a \textquotesingle{}\textbackslash{}0\textquotesingle{} terminated string to insert \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_ad8b58c73f450910c7d90d712bf01f20c}\label{lv__textarea_8c_ad8b58c73f450910c7d90d712bf01f20c} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_clear\_selection@{lv\_textarea\_clear\_selection}}
+\index{lv\_textarea\_clear\_selection@{lv\_textarea\_clear\_selection}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_clear\_selection()}{lv\_textarea\_clear\_selection()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+clear\+\_\+selection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Clear the selection on the text area. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_ac9d2e7a81c0c6aac74614db3feac832c}\label{lv__textarea_8c_ac9d2e7a81c0c6aac74614db3feac832c} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_create@{lv\_textarea\_create}}
+\index{lv\_textarea\_create@{lv\_textarea\_create}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_create()}{lv\_textarea\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+textarea\+\_\+create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+
+Create a text area object 
+\begin{DoxyParams}{Parametri}
+{\em parent} & pointer to an object, it will be the parent of the new text area \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created text area 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_af75903c4f9fc256af5a70505683b02c8}\label{lv__textarea_8c_af75903c4f9fc256af5a70505683b02c8} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_cursor\_down@{lv\_textarea\_cursor\_down}}
+\index{lv\_textarea\_cursor\_down@{lv\_textarea\_cursor\_down}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_cursor\_down()}{lv\_textarea\_cursor\_down()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+cursor\+\_\+down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Move the cursor one line down 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a33bbd65e6e6f13843a4235d8d499abc9}\label{lv__textarea_8c_a33bbd65e6e6f13843a4235d8d499abc9} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_cursor\_left@{lv\_textarea\_cursor\_left}}
+\index{lv\_textarea\_cursor\_left@{lv\_textarea\_cursor\_left}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_cursor\_left()}{lv\_textarea\_cursor\_left()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+cursor\+\_\+left (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Move the cursor one character left 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_abaa40a276709b15f6f2665c80768169d}\label{lv__textarea_8c_abaa40a276709b15f6f2665c80768169d} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_cursor\_right@{lv\_textarea\_cursor\_right}}
+\index{lv\_textarea\_cursor\_right@{lv\_textarea\_cursor\_right}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_cursor\_right()}{lv\_textarea\_cursor\_right()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+cursor\+\_\+right (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Move the cursor one character right 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_abc9d92ffe4f5ab02c82d1ccb3b6a4e4c}\label{lv__textarea_8c_abc9d92ffe4f5ab02c82d1ccb3b6a4e4c} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_cursor\_up@{lv\_textarea\_cursor\_up}}
+\index{lv\_textarea\_cursor\_up@{lv\_textarea\_cursor\_up}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_cursor\_up()}{lv\_textarea\_cursor\_up()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+cursor\+\_\+up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Move the cursor one line up 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_afe229a95292d38b72df740a31b672408}\label{lv__textarea_8c_afe229a95292d38b72df740a31b672408} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_delete\_char@{lv\_textarea\_delete\_char}}
+\index{lv\_textarea\_delete\_char@{lv\_textarea\_delete\_char}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_delete\_char()}{lv\_textarea\_delete\_char()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+delete\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Delete a the left character from the current cursor position 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a9bb633f0e983ea2bfbfad4ebf2da112b}\label{lv__textarea_8c_a9bb633f0e983ea2bfbfad4ebf2da112b} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_delete\_char\_forward@{lv\_textarea\_delete\_char\_forward}}
+\index{lv\_textarea\_delete\_char\_forward@{lv\_textarea\_delete\_char\_forward}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_delete\_char\_forward()}{lv\_textarea\_delete\_char\_forward()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+delete\+\_\+char\+\_\+forward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Delete the right character from the current cursor position 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a8ed8ebc765cc0b8c8befdf4507178462}\label{lv__textarea_8c_a8ed8ebc765cc0b8c8befdf4507178462} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_accepted\_chars@{lv\_textarea\_get\_accepted\_chars}}
+\index{lv\_textarea\_get\_accepted\_chars@{lv\_textarea\_get\_accepted\_chars}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_accepted\_chars()}{lv\_textarea\_get\_accepted\_chars()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+textarea\+\_\+get\+\_\+accepted\+\_\+chars (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a list of accepted characters. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+list of accented characters. 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a601df9b565fe24f9189a57e100359072}\label{lv__textarea_8c_a601df9b565fe24f9189a57e100359072} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_current\_char@{lv\_textarea\_get\_current\_char}}
+\index{lv\_textarea\_get\_current\_char@{lv\_textarea\_get\_current\_char}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_current\_char()}{lv\_textarea\_get\_current\_char()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+textarea\+\_\+get\+\_\+current\+\_\+char (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get a the character from the current cursor position 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+a the character or 0 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_ac2df6217bce4b8fee2eb479e725982e3}\label{lv__textarea_8c_ac2df6217bce4b8fee2eb479e725982e3} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_cursor\_click\_pos@{lv\_textarea\_get\_cursor\_click\_pos}}
+\index{lv\_textarea\_get\_cursor\_click\_pos@{lv\_textarea\_get\_cursor\_click\_pos}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_cursor\_click\_pos()}{lv\_textarea\_get\_cursor\_click\_pos()}}
+{\footnotesize\ttfamily bool lv\+\_\+textarea\+\_\+get\+\_\+cursor\+\_\+click\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get whether the cursor click positioning is enabled or not. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: enable click positions; false\+: disable 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a9d32423942c831913625bc895eec284b}\label{lv__textarea_8c_a9d32423942c831913625bc895eec284b} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_cursor\_pos@{lv\_textarea\_get\_cursor\_pos}}
+\index{lv\_textarea\_get\_cursor\_pos@{lv\_textarea\_get\_cursor\_pos}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_cursor\_pos()}{lv\_textarea\_get\_cursor\_pos()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+textarea\+\_\+get\+\_\+cursor\+\_\+pos (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the current cursor position in character index 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the cursor position 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a89129552c399724482f12d9ec9074e03}\label{lv__textarea_8c_a89129552c399724482f12d9ec9074e03} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_label@{lv\_textarea\_get\_label}}
+\index{lv\_textarea\_get\_label@{lv\_textarea\_get\_label}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_label()}{lv\_textarea\_get\_label()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+textarea\+\_\+get\+\_\+label (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the label of a text area 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the label object 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_ab19822f2323f9b0d4e7af9cd51819927}\label{lv__textarea_8c_ab19822f2323f9b0d4e7af9cd51819927} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_max\_length@{lv\_textarea\_get\_max\_length}}
+\index{lv\_textarea\_get\_max\_length@{lv\_textarea\_get\_max\_length}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_max\_length()}{lv\_textarea\_get\_max\_length()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+textarea\+\_\+get\+\_\+max\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get max length of a Text Area. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the maximal number of characters to be add 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a85aff0a0aa3698128cbd4fd518026c19}\label{lv__textarea_8c_a85aff0a0aa3698128cbd4fd518026c19} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_one\_line@{lv\_textarea\_get\_one\_line}}
+\index{lv\_textarea\_get\_one\_line@{lv\_textarea\_get\_one\_line}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_one\_line()}{lv\_textarea\_get\_one\_line()}}
+{\footnotesize\ttfamily bool lv\+\_\+textarea\+\_\+get\+\_\+one\+\_\+line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the one line configuration attribute 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: one line configuration is enabled, false\+: disabled 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a396982d50755b4f0ec4ae886ddb8df32}\label{lv__textarea_8c_a396982d50755b4f0ec4ae886ddb8df32} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_password\_bullet@{lv\_textarea\_get\_password\_bullet}}
+\index{lv\_textarea\_get\_password\_bullet@{lv\_textarea\_get\_password\_bullet}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_password\_bullet()}{lv\_textarea\_get\_password\_bullet()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+textarea\+\_\+get\+\_\+password\+\_\+bullet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the replacement characters to show in password mode 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the replacement text 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a0da1826580fd6b75556a76cdf8faa957}\label{lv__textarea_8c_a0da1826580fd6b75556a76cdf8faa957} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_password\_mode@{lv\_textarea\_get\_password\_mode}}
+\index{lv\_textarea\_get\_password\_mode@{lv\_textarea\_get\_password\_mode}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_password\_mode()}{lv\_textarea\_get\_password\_mode()}}
+{\footnotesize\ttfamily bool lv\+\_\+textarea\+\_\+get\+\_\+password\+\_\+mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the password mode attribute 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: password mode is enabled, false\+: disabled 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a39823314059febade2246a318ba3d150}\label{lv__textarea_8c_a39823314059febade2246a318ba3d150} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_password\_show\_time@{lv\_textarea\_get\_password\_show\_time}}
+\index{lv\_textarea\_get\_password\_show\_time@{lv\_textarea\_get\_password\_show\_time}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_password\_show\_time()}{lv\_textarea\_get\_password\_show\_time()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+textarea\+\_\+get\+\_\+password\+\_\+show\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Set how long show the password before changing it to \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+show time in milliseconds. 0\+: hide immediately. 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_a74787567c7e59b16ce7bcfb7cd5f4662}\label{lv__textarea_8c_a74787567c7e59b16ce7bcfb7cd5f4662} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_placeholder\_text@{lv\_textarea\_get\_placeholder\_text}}
+\index{lv\_textarea\_get\_placeholder\_text@{lv\_textarea\_get\_placeholder\_text}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_placeholder\_text()}{lv\_textarea\_get\_placeholder\_text()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+textarea\+\_\+get\+\_\+placeholder\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the placeholder text of a text area 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the text 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_abebded565ef81dcfc22405f0a4462c8c}\label{lv__textarea_8c_abebded565ef81dcfc22405f0a4462c8c} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_text@{lv\_textarea\_get\_text}}
+\index{lv\_textarea\_get\_text@{lv\_textarea\_get\_text}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_text()}{lv\_textarea\_get\_text()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} lv\+\_\+textarea\+\_\+get\+\_\+text (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Get the text of a text area. In password mode it gives the real text (not \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{}s). 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the text 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_aafa5bde651b595f2617724da499ce86d}\label{lv__textarea_8c_aafa5bde651b595f2617724da499ce86d} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_get\_text\_selection@{lv\_textarea\_get\_text\_selection}}
+\index{lv\_textarea\_get\_text\_selection@{lv\_textarea\_get\_text\_selection}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_get\_text\_selection()}{lv\_textarea\_get\_text\_selection()}}
+{\footnotesize\ttfamily bool lv\+\_\+textarea\+\_\+get\+\_\+text\+\_\+selection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Find whether selection mode is enabled. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: selection mode is enabled, false\+: disabled 
+\end{DoxyReturn}
+\Hypertarget{lv__textarea_8c_ad22627f685c20a24dd228d4020d61433}\label{lv__textarea_8c_ad22627f685c20a24dd228d4020d61433} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_accepted\_chars@{lv\_textarea\_set\_accepted\_chars}}
+\index{lv\_textarea\_set\_accepted\_chars@{lv\_textarea\_set\_accepted\_chars}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_accepted\_chars()}{lv\_textarea\_set\_accepted\_chars()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+accepted\+\_\+chars (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+Set a list of characters. Only these characters will be accepted by the text area 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em list} & list of characters. A copy is saved. Example\+: "{}+-\/.,0123456789"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a868c89231f8a63e9e5a1fb72b1196d51}\label{lv__textarea_8c_a868c89231f8a63e9e5a1fb72b1196d51} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_accepted\_chars\_static@{lv\_textarea\_set\_accepted\_chars\_static}}
+\index{lv\_textarea\_set\_accepted\_chars\_static@{lv\_textarea\_set\_accepted\_chars\_static}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_accepted\_chars\_static()}{lv\_textarea\_set\_accepted\_chars\_static()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+accepted\+\_\+chars\+\_\+static (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+Set a list of characters. Only these characters will be accepted by the text area 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em list} & list of characters. Only the pointer is saved. Example\+: "{}+-\/.,0123456789"{} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a3a131270dd523b080c9a1542f1f26b05}\label{lv__textarea_8c_a3a131270dd523b080c9a1542f1f26b05} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_align@{lv\_textarea\_set\_align}}
+\index{lv\_textarea\_set\_align@{lv\_textarea\_set\_align}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_align()}{lv\_textarea\_set\_align()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+align (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t}}}]{align }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Zastarelo}
+\item[\mbox{\hyperlink{deprecated__deprecated000004}{Zastarelo}}]Use the normal text\+\_\+align style property instead Set the label\textquotesingle{}s alignment. It sets where the label is aligned (in one line mode it can be smaller than the text area) and how the lines of the area align in case of multiline text area \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em align} & the align mode from \doxylink{lv__text_8h_add1fdfe7b1242667692b64ae435311ef}{lv\+\_\+text\+\_\+align\+\_\+t} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a5b98f5314187fb4cb878f96aef4f390f}\label{lv__textarea_8c_a5b98f5314187fb4cb878f96aef4f390f} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_cursor\_click\_pos@{lv\_textarea\_set\_cursor\_click\_pos}}
+\index{lv\_textarea\_set\_cursor\_click\_pos@{lv\_textarea\_set\_cursor\_click\_pos}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_cursor\_click\_pos()}{lv\_textarea\_set\_cursor\_click\_pos()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+cursor\+\_\+click\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Enable/\+Disable the positioning of the cursor by clicking the text on the text area. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em en} & true\+: enable click positions; false\+: disable \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_af3da83ebd09f5f59e89de8c682267e26}\label{lv__textarea_8c_af3da83ebd09f5f59e89de8c682267e26} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_cursor\_pos@{lv\_textarea\_set\_cursor\_pos}}
+\index{lv\_textarea\_set\_cursor\_pos@{lv\_textarea\_set\_cursor\_pos}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_cursor\_pos()}{lv\_textarea\_set\_cursor\_pos()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+cursor\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{pos }\end{DoxyParamCaption})}
+
+Set the cursor position 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em pos} & the new cursor position in character index \texorpdfstring{$<$}{<} 0 \+: index from the end of the text LV\+\_\+\+TEXTAREA\+\_\+\+CURSOR\+\_\+\+LAST\+: go after the last character \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_af49fbc6b5fdad658e5f4f2f4b6166eb3}\label{lv__textarea_8c_af49fbc6b5fdad658e5f4f2f4b6166eb3} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_insert\_replace@{lv\_textarea\_set\_insert\_replace}}
+\index{lv\_textarea\_set\_insert\_replace@{lv\_textarea\_set\_insert\_replace}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_insert\_replace()}{lv\_textarea\_set\_insert\_replace()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+insert\+\_\+replace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{txt }\end{DoxyParamCaption})}
+
+In {\ttfamily LV\+\_\+\+EVENT\+\_\+\+INSERT} the text which planned to be inserted can be replaced by another text. It can be used to add automatic formatting to the text area. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em txt} & pointer to a new string to insert. If {\ttfamily "{}"{}} no text will be added. The variable must be live after the {\ttfamily event\+\_\+cb} exists. (Should be {\ttfamily global} or {\ttfamily static}) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_ac82c6b9187cd91bc8122c7a6ab205e72}\label{lv__textarea_8c_ac82c6b9187cd91bc8122c7a6ab205e72} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_max\_length@{lv\_textarea\_set\_max\_length}}
+\index{lv\_textarea\_set\_max\_length@{lv\_textarea\_set\_max\_length}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_max\_length()}{lv\_textarea\_set\_max\_length()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+max\+\_\+length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{num }\end{DoxyParamCaption})}
+
+Set max length of a Text Area. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em num} & the maximal number of characters can be added ({\ttfamily lv\+\_\+textarea\+\_\+set\+\_\+text} ignores it) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_ac18b5648b95741dc3ae9c305cf14301e}\label{lv__textarea_8c_ac18b5648b95741dc3ae9c305cf14301e} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_one\_line@{lv\_textarea\_set\_one\_line}}
+\index{lv\_textarea\_set\_one\_line@{lv\_textarea\_set\_one\_line}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_one\_line()}{lv\_textarea\_set\_one\_line()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+one\+\_\+line (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Configure the text area to one line or back to normal 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em en} & true\+: one line, false\+: normal \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a5502acc494bf47b5125df2af6da40e05}\label{lv__textarea_8c_a5502acc494bf47b5125df2af6da40e05} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_password\_bullet@{lv\_textarea\_set\_password\_bullet}}
+\index{lv\_textarea\_set\_password\_bullet@{lv\_textarea\_set\_password\_bullet}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_password\_bullet()}{lv\_textarea\_set\_password\_bullet()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+password\+\_\+bullet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{bullet }\end{DoxyParamCaption})}
+
+Set the replacement characters to show in password mode 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em bullet} & pointer to the replacement text \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_ad667bc93313ee673183b30396aceba67}\label{lv__textarea_8c_ad667bc93313ee673183b30396aceba67} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_password\_mode@{lv\_textarea\_set\_password\_mode}}
+\index{lv\_textarea\_set\_password\_mode@{lv\_textarea\_set\_password\_mode}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_password\_mode()}{lv\_textarea\_set\_password\_mode()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+password\+\_\+mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Enable/\+Disable password mode 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em en} & true\+: enable, false\+: disable \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a644c24266643278034a4e428076503a7}\label{lv__textarea_8c_a644c24266643278034a4e428076503a7} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_password\_show\_time@{lv\_textarea\_set\_password\_show\_time}}
+\index{lv\_textarea\_set\_password\_show\_time@{lv\_textarea\_set\_password\_show\_time}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_password\_show\_time()}{lv\_textarea\_set\_password\_show\_time()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+password\+\_\+show\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{time }\end{DoxyParamCaption})}
+
+Set how long show the password before changing it to \textquotesingle{}\texorpdfstring{$\ast$}{*}\textquotesingle{} 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em time} & show time in milliseconds. 0\+: hide immediately. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a09f9449e1f83d3f77e075dc982f9e6a7}\label{lv__textarea_8c_a09f9449e1f83d3f77e075dc982f9e6a7} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_placeholder\_text@{lv\_textarea\_set\_placeholder\_text}}
+\index{lv\_textarea\_set\_placeholder\_text@{lv\_textarea\_set\_placeholder\_text}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_placeholder\_text()}{lv\_textarea\_set\_placeholder\_text()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+placeholder\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{txt }\end{DoxyParamCaption})}
+
+Set the placeholder text of a text area 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em txt} & pointer to the text \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a08adbdd5ba257b71e3b1bbda0f722700}\label{lv__textarea_8c_a08adbdd5ba257b71e3b1bbda0f722700} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_text@{lv\_textarea\_set\_text}}
+\index{lv\_textarea\_set\_text@{lv\_textarea\_set\_text}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_text()}{lv\_textarea\_set\_text()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{txt }\end{DoxyParamCaption})}
+
+Set the text of a text area 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em txt} & pointer to the text \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a0b6b1216a417df6f37984a91cb671965}\label{lv__textarea_8c_a0b6b1216a417df6f37984a91cb671965} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_set\_text\_selection@{lv\_textarea\_set\_text\_selection}}
+\index{lv\_textarea\_set\_text\_selection@{lv\_textarea\_set\_text\_selection}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_set\_text\_selection()}{lv\_textarea\_set\_text\_selection()}}
+{\footnotesize\ttfamily void lv\+\_\+textarea\+\_\+set\+\_\+text\+\_\+selection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{bool}]{en }\end{DoxyParamCaption})}
+
+Enable/disable selection mode. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+{\em en} & true or false to enable/disable selection mode \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__textarea_8c_a4644c96ce9e1bc2474cd0aca6ca45e09}\label{lv__textarea_8c_a4644c96ce9e1bc2474cd0aca6ca45e09} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_text\_is\_selected@{lv\_textarea\_text\_is\_selected}}
+\index{lv\_textarea\_text\_is\_selected@{lv\_textarea\_text\_is\_selected}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_text\_is\_selected()}{lv\_textarea\_text\_is\_selected()}}
+{\footnotesize\ttfamily bool lv\+\_\+textarea\+\_\+text\+\_\+is\+\_\+selected (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
+
+Find whether text is selected or not. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to a text area object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+whether text is selected or not 
+\end{DoxyReturn}
+
+
+\doxysubsection{Opis spremenljivke}
+\Hypertarget{lv__textarea_8c_a9eeb4c1eeea4587dac9732166dace7ea}\label{lv__textarea_8c_a9eeb4c1eeea4587dac9732166dace7ea} 
+\index{lv\_textarea.c@{lv\_textarea.c}!lv\_textarea\_class@{lv\_textarea\_class}}
+\index{lv\_textarea\_class@{lv\_textarea\_class}!lv\_textarea.c@{lv\_textarea.c}}
+\doxysubsubsection{\texorpdfstring{lv\_textarea\_class}{lv\_textarea\_class}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}} lv\+\_\+textarea\+\_\+class}
+
+{\bfseries Začetna vrednost / definicija \+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .constructor\_cb\ =\ lv\_textarea\_constructor,}
+\DoxyCodeLine{\ \ \ \ .destructor\_cb\ =\ lv\_textarea\_destructor,}
+\DoxyCodeLine{\ \ \ \ .event\_cb\ =\ lv\_textarea\_event,}
+\DoxyCodeLine{\ \ \ \ .group\_def\ =\ LV\_OBJ\_CLASS\_GROUP\_DEF\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .width\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}}\ *\ 2,}
+\DoxyCodeLine{\ \ \ \ .height\_def\ =\ \mbox{\hyperlink{lv__conf__cmsis_8h_aadf0386c6d60d0c07153b38654f6b6d3}{LV\_DPI\_DEF}},}
+\DoxyCodeLine{\ \ \ \ .editable\ =\ LV\_OBJ\_CLASS\_EDITABLE\_TRUE,}
+\DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__textarea__t}{lv\_textarea\_t}}),}
+\DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
+\DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_textarea"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

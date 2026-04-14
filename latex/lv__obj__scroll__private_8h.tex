@@ -1,0 +1,45 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/core/lv\+\_\+obj\+\_\+scroll\+\_\+private.h}
+\hypertarget{lv__obj__scroll__private_8h}{}\label{lv__obj__scroll__private_8h}\index{managed\_components/lvgl\_\_lvgl/src/core/lv\_obj\_scroll\_private.h@{managed\_components/lvgl\_\_lvgl/src/core/lv\_obj\_scroll\_private.h}}
+{\ttfamily \#include "{}lv\+\_\+obj\+\_\+scroll.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+obj\+\_\+scroll\+\_\+private.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+obj\+\_\+scroll\+\_\+private.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__obj__scroll__private_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. 
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__obj__scroll__private_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__obj__scroll__private_8h_ab3781241f089438af08af20c6227bd77}{lv\+\_\+obj\+\_\+scroll\+\_\+by\+\_\+raw}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, int32\+\_\+t x, int32\+\_\+t y)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__obj__scroll__private_8h_ab3781241f089438af08af20c6227bd77}\label{lv__obj__scroll__private_8h_ab3781241f089438af08af20c6227bd77} 
+\index{lv\_obj\_scroll\_private.h@{lv\_obj\_scroll\_private.h}!lv\_obj\_scroll\_by\_raw@{lv\_obj\_scroll\_by\_raw}}
+\index{lv\_obj\_scroll\_by\_raw@{lv\_obj\_scroll\_by\_raw}!lv\_obj\_scroll\_private.h@{lv\_obj\_scroll\_private.h}}
+\doxysubsubsection{\texorpdfstring{lv\_obj\_scroll\_by\_raw()}{lv\_obj\_scroll\_by\_raw()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+obj\+\_\+scroll\+\_\+by\+\_\+raw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{int32\+\_\+t}]{x,  }\item[{int32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+Low level function to scroll by given x and y coordinates. {\ttfamily LV\+\_\+\+EVENT\+\_\+\+SCROLL} is sent. 
+\begin{DoxyParams}{Parametri}
+{\em obj} & pointer to an object to scroll \\
+\hline
+{\em x} & pixels to scroll horizontally \\
+\hline
+{\em y} & pixels to scroll vertically \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+{\ttfamily LV\+\_\+\+RESULT\+\_\+\+INVALID}\+: to object was deleted in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+SCROLL}; {\ttfamily LV\+\_\+\+RESULT\+\_\+\+OK}\+: if the object is still valid 
+\end{DoxyReturn}

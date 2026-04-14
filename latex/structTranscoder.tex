@@ -1,0 +1,33 @@
+\doxysection{ Struktura Transcoder\texorpdfstring{$<$}{<} Source\+Encoding, Target\+Encoding \texorpdfstring{$>$}{>}}
+\hypertarget{structTranscoder}{}\label{structTranscoder}\index{Transcoder$<$ SourceEncoding, TargetEncoding $>$@{Transcoder$<$ SourceEncoding, TargetEncoding $>$}}
+
+
+Encoding conversion.  
+
+
+
+
+{\ttfamily \#include $<$encodings.\+h$>$}
+
+\doxysubsubsection*{Statične javne metode in atributi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structTranscoder_a0ea2edfe35784ebf1063921d2bd5fb66}\label{structTranscoder_a0ea2edfe35784ebf1063921d2bd5fb66} 
+{\footnotesize template$<$typename Input\+Stream , typename Output\+Stream $>$ }\\static RAPIDJSON\+\_\+\+FORCEINLINE bool {\bfseries Transcode} (Input\+Stream \&is, Output\+Stream \&os)
+\begin{DoxyCompactList}\small\item\em Take one Unicode codepoint from source encoding, convert it to target encoding and put it to the output stream. \end{DoxyCompactList}\item 
+\Hypertarget{structTranscoder_a16345a912c679b2ea197328eb1444f82}\label{structTranscoder_a16345a912c679b2ea197328eb1444f82} 
+{\footnotesize template$<$typename Input\+Stream , typename Output\+Stream $>$ }\\static RAPIDJSON\+\_\+\+FORCEINLINE bool {\bfseries Transcode\+Unsafe} (Input\+Stream \&is, Output\+Stream \&os)
+\item 
+\Hypertarget{structTranscoder_a8a64aa837f7962894a99f63232472543}\label{structTranscoder_a8a64aa837f7962894a99f63232472543} 
+{\footnotesize template$<$typename Input\+Stream , typename Output\+Stream $>$ }\\static RAPIDJSON\+\_\+\+FORCEINLINE bool {\bfseries Validate} (Input\+Stream \&is, Output\+Stream \&os)
+\begin{DoxyCompactList}\small\item\em Validate one Unicode codepoint from an encoded stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+\subsubsection*{template$<$typename Source\+Encoding, typename Target\+Encoding$>$\newline
+struct Transcoder$<$ Source\+Encoding, Target\+Encoding $>$}
+Encoding conversion. 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/libs/thorvg/rapidjson/encodings.\+h\end{DoxyCompactItemize}

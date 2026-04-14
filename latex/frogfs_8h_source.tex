@@ -1,0 +1,115 @@
+\doxysection{frogfs.\+h}
+\hypertarget{frogfs_8h_source}{}\label{frogfs_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/frogfs/include/frogfs/frogfs.h@{managed\_components/lvgl\_\_lvgl/src/libs/frogfs/include/frogfs/frogfs.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ This\ Source\ Code\ Form\ is\ subject\ to\ the\ terms\ of\ the\ Mozilla\ Public}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ License,\ v.\ 2.0.\ If\ a\ copy\ of\ the\ MPL\ was\ not\ distributed\ with\ this}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ file,\ You\ can\ obtain\ one\ at\ http://mozilla.org/MPL/2.0/.\ */}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../../../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ LV\_STDDEF\_INCLUDE}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ LV\_STDINT\_INCLUDE}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}frogfs\_types.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ FROGFS\_MAGIC\ 0x474F5246\ }}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ FROGFS\_VER\_MAJOR\ 1}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ FROGFS\_VER\_MINOR\ 0}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ FROGFS\_OPEN\_RAW\ (1\ <<\ 0)}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ frogfs\_entry\_type\_t\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ FROGFS\_ENTRY\_TYPE\_DIR,}
+\DoxyCodeLine{00042\ \ \ \ \ FROGFS\_ENTRY\_TYPE\_FILE,}
+\DoxyCodeLine{00043\ \}\ frogfs\_entry\_type\_t;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ frogfs\_comp\_algo\_t\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ FROGFS\_COMP\_ALGO\_NONE,}
+\DoxyCodeLine{00050\ \ \ \ \ FROGFS\_COMP\_ALGO\_ZLIB,}
+\DoxyCodeLine{00051\ \ \ \ \ FROGFS\_COMP\_ALGO\_HEATSHRINK,}
+\DoxyCodeLine{00052\ \ \ \ \ FROGFS\_COMP\_ALGO\_GZIP,}
+\DoxyCodeLine{00053\ \}\ frogfs\_comp\_algo\_t;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfrogfs__config__t}{frogfs\_config\_t}}\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{structfrogfs__config__t_a32d47ba166df02bbf933007f3c659d97}{addr}};\ }
+\DoxyCodeLine{00060\ \}\ \mbox{\hyperlink{structfrogfs__config__t}{frogfs\_config\_t}};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }frogfs\_fs\_t\ frogfs\_fs\_t;}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfrogfs__stat__t}{frogfs\_stat\_t}}\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ frogfs\_entry\_type\_t\ \mbox{\hyperlink{structfrogfs__stat__t_a28cc950848a3be7073a14351bb70b240}{type}};\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfrogfs__stat__t_af22af82c677ca1d48ce6a7787e027835}{size}};\ }
+\DoxyCodeLine{00073\ \ \ \ \ frogfs\_comp\_algo\_t\ \mbox{\hyperlink{structfrogfs__stat__t_ac5be132c20bbb757710b5e1222e09e94}{compression}};\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structfrogfs__stat__t_a55850f07ca98165fdb3615423c34ba0f}{compressed\_sz}};\ }
+\DoxyCodeLine{00075\ \}\ \mbox{\hyperlink{structfrogfs__stat__t}{frogfs\_stat\_t}};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}};}
+\DoxyCodeLine{00081\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}}\ \mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}};}
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ \mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#if\ !defined(FROGFS\_PRIVATE\_STRUCTS)}}
+\DoxyCodeLine{00088\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}}\ \{}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keyword}{const}\ frogfs\_fs\_t\ *\mbox{\hyperlink{structfrogfs__dh__t_ad83e7d326214c6af5e62efe8ea59a878}{fs}};\ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *\mbox{\hyperlink{structfrogfs__dh__t_ad2529082883dfd37725dfb6426338db5}{entry}};\ }
+\DoxyCodeLine{00091\ \};}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{const}\ frogfs\_fs\_t\ *\mbox{\hyperlink{structfrogfs__fh__t_a1dc69757cdfc686b2eb4b42d0504c731}{fs}};\ }
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *\mbox{\hyperlink{structfrogfs__fh__t_a940c5742808c192bf5c94e48555ee6ad}{entry}};\ }
+\DoxyCodeLine{00099\ \};}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ frogfs\_fs\_t\ *frogfs\_init(\textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__config__t}{frogfs\_config\_t}}\ *conf);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ frogfs\_deinit(frogfs\_fs\_t\ *fs);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *frogfs\_get\_entry(\textcolor{keyword}{const}\ frogfs\_fs\_t\ *fs,}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{char}\ *frogfs\_get\_name(\textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *entry);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{char}\ *frogfs\_get\_path(\textcolor{keyword}{const}\ frogfs\_fs\_t\ *fs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *entry);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{int}\ frogfs\_is\_dir(\textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *entry);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{int}\ frogfs\_is\_file(\textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *entry);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00161\ \textcolor{keywordtype}{void}\ frogfs\_stat(\textcolor{keyword}{const}\ frogfs\_fs\_t\ *fs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *entry,}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structfrogfs__stat__t}{frogfs\_stat\_t}}\ *st);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00171\ \mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ *frogfs\_open(\textcolor{keyword}{const}\ frogfs\_fs\_t\ *fs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *entry,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ flags);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00178\ \textcolor{keywordtype}{void}\ frogfs\_close(\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ *fh);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ \textcolor{keywordtype}{int}\ frogfs\_is\_raw(\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ *fh);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00195\ ssize\_t\ frogfs\_read(\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ *fh,\ \textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00204\ ssize\_t\ frogfs\_seek(\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ *fh,\ \textcolor{keywordtype}{long}\ offset,\ \textcolor{keywordtype}{int}\ mode);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00211\ \textcolor{keywordtype}{size\_t}\ frogfs\_tell(\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ *fh);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00219\ \textcolor{keywordtype}{size\_t}\ frogfs\_access(\mbox{\hyperlink{structfrogfs__fh__t}{frogfs\_fh\_t}}\ *fh,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ **buf);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00227\ \mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}}\ *frogfs\_opendir(frogfs\_fs\_t\ *fs,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *entry);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00233\ \textcolor{keywordtype}{void}\ frogfs\_closedir(\mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}}\ *dh);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00241\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structfrogfs__entry__t}{frogfs\_entry\_t}}\ *frogfs\_readdir(\mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}}\ *dh);}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00249\ \textcolor{keywordtype}{void}\ frogfs\_seekdir(\mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}}\ *dh,\ \textcolor{keywordtype}{long}\ loc);}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00256\ \textcolor{keywordtype}{long}\ frogfs\_telldir(\mbox{\hyperlink{structfrogfs__dh__t}{frogfs\_dh\_t}}\ *dh);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00259\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

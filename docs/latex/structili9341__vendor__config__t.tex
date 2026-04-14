@@ -1,0 +1,50 @@
+\doxysection{ Struktura ili9341\+\_\+vendor\+\_\+config\+\_\+t}
+\hypertarget{structili9341__vendor__config__t}{}\label{structili9341__vendor__config__t}\index{ili9341\_vendor\_config\_t@{ili9341\_vendor\_config\_t}}
+
+
+LCD panel vendor configuration.  
+
+
+
+
+{\ttfamily \#include $<$esp\+\_\+lcd\+\_\+ili9341.\+h$>$}
+
+
+
+Kolaboracijski diagram razreda ili9341\+\_\+vendor\+\_\+config\+\_\+t\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{structili9341__vendor__config__t__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Javni atributi}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{structili9341__lcd__init__cmd__t}{ili9341\+\_\+lcd\+\_\+init\+\_\+cmd\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structili9341__vendor__config__t_a39937f042bf77fb7523d7207c87dab2c}{init\+\_\+cmds}}
+\item 
+\Hypertarget{structili9341__vendor__config__t_a855a146b4bcf4b7322ab3d195bdf4215}\label{structili9341__vendor__config__t_a855a146b4bcf4b7322ab3d195bdf4215} 
+uint16\+\_\+t {\bfseries init\+\_\+cmds\+\_\+size}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+LCD panel vendor configuration. 
+
+\begin{DoxyNote}{Opomba}
+This structure needs to be passed to the {\ttfamily vendor\+\_\+config} field in {\ttfamily esp\+\_\+lcd\+\_\+panel\+\_\+dev\+\_\+config\+\_\+t}. 
+\end{DoxyNote}
+
+
+\doxysubsection{Opis atributov}
+\Hypertarget{structili9341__vendor__config__t_a39937f042bf77fb7523d7207c87dab2c}\label{structili9341__vendor__config__t_a39937f042bf77fb7523d7207c87dab2c} 
+\index{ili9341\_vendor\_config\_t@{ili9341\_vendor\_config\_t}!init\_cmds@{init\_cmds}}
+\index{init\_cmds@{init\_cmds}!ili9341\_vendor\_config\_t@{ili9341\_vendor\_config\_t}}
+\doxysubsubsection{\texorpdfstring{init\_cmds}{init\_cmds}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structili9341__lcd__init__cmd__t}{ili9341\+\_\+lcd\+\_\+init\+\_\+cmd\+\_\+t}}\texorpdfstring{$\ast$}{*} ili9341\+\_\+vendor\+\_\+config\+\_\+t\+::init\+\_\+cmds}
+
+Pointer to initialization commands array. Set to NULL if using default commands. The array should be declared as {\ttfamily static const} and positioned outside the function. Please refer to {\ttfamily vendor\+\_\+specific\+\_\+init\+\_\+default} in source file. 
+
+Opis strukture je zgrajen na podlagi naslednje datoteke \+:\begin{DoxyCompactItemize}
+\item 
+managed\+\_\+components/espressif\+\_\+\+\_\+esp\+\_\+lcd\+\_\+ili9341/include/\mbox{\hyperlink{esp__lcd__ili9341_8h}{esp\+\_\+lcd\+\_\+ili9341.\+h}}\end{DoxyCompactItemize}

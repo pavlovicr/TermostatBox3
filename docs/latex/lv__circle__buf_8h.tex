@@ -1,0 +1,354 @@
+\doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/misc/lv\+\_\+circle\+\_\+buf.h}
+\hypertarget{lv__circle__buf_8h}{}\label{lv__circle__buf_8h}\index{managed\_components/lvgl\_\_lvgl/src/misc/lv\_circle\_buf.h@{managed\_components/lvgl\_\_lvgl/src/misc/lv\_circle\_buf.h}}
+{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+circle\+\_\+buf.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+circle\+\_\+buf.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{lv__circle__buf_8h__incl}
+\end{center}
+\end{figure}
+Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lv__circle__buf_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Uporabniško definirani tipi}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{lv__circle__buf_8h_a784f9292d1ad91ab7c73adfce868e897}\label{lv__circle__buf_8h_a784f9292d1ad91ab7c73adfce868e897} 
+typedef bool(\texorpdfstring{$\ast$}{*} {\bfseries lv\+\_\+circle\+\_\+buf\+\_\+fill\+\_\+cb\+\_\+t}) (void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t buff\+\_\+len, int32\+\_\+t index, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__circle__buf_8h_a2c33f53635bc489e8183155769abd149}{lv\+\_\+circle\+\_\+buf\+\_\+create}} (uint32\+\_\+t capacity, uint32\+\_\+t element\+\_\+size)
+\item 
+\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__circle__buf_8h_a96d5c082b84b25213d818f585963c1b1}{lv\+\_\+circle\+\_\+buf\+\_\+create\+\_\+from\+\_\+buf}} (void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t capacity, uint32\+\_\+t element\+\_\+size)
+\item 
+\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__circle__buf_8h_af3b8be8f448f87365547021f34503e04}{lv\+\_\+circle\+\_\+buf\+\_\+create\+\_\+from\+\_\+array}} (const \mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}array)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__circle__buf_8h_a118a0df9b198ea0a3e0e0ed4e9ba8b73}{lv\+\_\+circle\+\_\+buf\+\_\+resize}} (\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf, uint32\+\_\+t capacity)
+\item 
+void \mbox{\hyperlink{lv__circle__buf_8h_a426f6b4f08a12aa74a4a5815ea59daf7}{lv\+\_\+circle\+\_\+buf\+\_\+destroy}} (\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__circle__buf_8h_a81be0d553345dee3d5d2e2f944acaf89}{lv\+\_\+circle\+\_\+buf\+\_\+size}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__circle__buf_8h_aee2667a10de3ddf10cf4170cb8314a79}{lv\+\_\+circle\+\_\+buf\+\_\+capacity}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__circle__buf_8h_acd6613d2bb78e9def1782d629d66ff6b}{lv\+\_\+circle\+\_\+buf\+\_\+remain}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+bool \mbox{\hyperlink{lv__circle__buf_8h_ad7223a59589c915cb38625b5c4826965}{lv\+\_\+circle\+\_\+buf\+\_\+is\+\_\+empty}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+bool \mbox{\hyperlink{lv__circle__buf_8h_adb4da086cf2f290e1d3a304aaef4eab7}{lv\+\_\+circle\+\_\+buf\+\_\+is\+\_\+full}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+void \mbox{\hyperlink{lv__circle__buf_8h_a29713a7b731555a6e11b3d914ec18670}{lv\+\_\+circle\+\_\+buf\+\_\+reset}} (\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__circle__buf_8h_af514c36eded14fd8a0891e24d87ab6a5}{lv\+\_\+circle\+\_\+buf\+\_\+head}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__circle__buf_8h_a8d06d3d7c16eee27ec77cdcf089454cb}{lv\+\_\+circle\+\_\+buf\+\_\+tail}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__circle__buf_8h_a4f23e062f70ace6ec657f0b009ea43a9}{lv\+\_\+circle\+\_\+buf\+\_\+read}} (\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf, void \texorpdfstring{$\ast$}{*}data)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__circle__buf_8h_a4db6e310d0ce66848742c47a0621c78b}{lv\+\_\+circle\+\_\+buf\+\_\+write}} (\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf, const void \texorpdfstring{$\ast$}{*}data)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{lv__circle__buf_8h_aef1119ff4c057955a43c072b67350132}{lv\+\_\+circle\+\_\+buf\+\_\+fill}} (\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf, uint32\+\_\+t count, lv\+\_\+circle\+\_\+buf\+\_\+fill\+\_\+cb\+\_\+t fill\+\_\+cb, void \texorpdfstring{$\ast$}{*}user\+\_\+data)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__circle__buf_8h_a181bb688864fdacc38318dcd4fcc2ec1}{lv\+\_\+circle\+\_\+buf\+\_\+skip}} (\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__circle__buf_8h_a711bdfe70fb501ffc2958b99fe786ab7}{lv\+\_\+circle\+\_\+buf\+\_\+peek}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf, void \texorpdfstring{$\ast$}{*}data)
+\item 
+\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__circle__buf_8h_a375dd05578038524621e12233019a839}{lv\+\_\+circle\+\_\+buf\+\_\+peek\+\_\+at}} (const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}circle\+\_\+buf, uint32\+\_\+t index, void \texorpdfstring{$\ast$}{*}data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{lv__circle__buf_8h_aee2667a10de3ddf10cf4170cb8314a79}\label{lv__circle__buf_8h_aee2667a10de3ddf10cf4170cb8314a79} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_capacity@{lv\_circle\_buf\_capacity}}
+\index{lv\_circle\_buf\_capacity@{lv\_circle\_buf\_capacity}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_capacity()}{lv\_circle\_buf\_capacity()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+circle\+\_\+buf\+\_\+capacity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Get the capacity of the buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the maximum number of elements in the buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a2c33f53635bc489e8183155769abd149}\label{lv__circle__buf_8h_a2c33f53635bc489e8183155769abd149} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_create@{lv\_circle\_buf\_create}}
+\index{lv\_circle\_buf\_create@{lv\_circle\_buf\_create}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_create()}{lv\_circle\_buf\_create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+circle\+\_\+buf\+\_\+create (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{capacity,  }\item[{uint32\+\_\+t}]{element\+\_\+size }\end{DoxyParamCaption})}
+
+Create a circle buffer 
+\begin{DoxyParams}{Parametri}
+{\em capacity} & the maximum number of elements in the buffer \\
+\hline
+{\em element\+\_\+size} & the size of an element in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_af3b8be8f448f87365547021f34503e04}\label{lv__circle__buf_8h_af3b8be8f448f87365547021f34503e04} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_create\_from\_array@{lv\_circle\_buf\_create\_from\_array}}
+\index{lv\_circle\_buf\_create\_from\_array@{lv\_circle\_buf\_create\_from\_array}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_create\_from\_array()}{lv\_circle\_buf\_create\_from\_array()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+circle\+\_\+buf\+\_\+create\+\_\+from\+\_\+array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{array }\end{DoxyParamCaption})}
+
+Create a circle buffer from an existing array 
+\begin{DoxyParams}{Parametri}
+{\em array} & pointer to an array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a96d5c082b84b25213d818f585963c1b1}\label{lv__circle__buf_8h_a96d5c082b84b25213d818f585963c1b1} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_create\_from\_buf@{lv\_circle\_buf\_create\_from\_buf}}
+\index{lv\_circle\_buf\_create\_from\_buf@{lv\_circle\_buf\_create\_from\_buf}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_create\_from\_buf()}{lv\_circle\_buf\_create\_from\_buf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+circle\+\_\+buf\+\_\+create\+\_\+from\+\_\+buf (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buf,  }\item[{uint32\+\_\+t}]{capacity,  }\item[{uint32\+\_\+t}]{element\+\_\+size }\end{DoxyParamCaption})}
+
+Create a circle buffer from an existing buffer 
+\begin{DoxyParams}{Parametri}
+{\em buf} & pointer to a buffer \\
+\hline
+{\em capacity} & the maximum number of elements in the buffer \\
+\hline
+{\em element\+\_\+size} & the size of an element in bytes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the created buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a426f6b4f08a12aa74a4a5815ea59daf7}\label{lv__circle__buf_8h_a426f6b4f08a12aa74a4a5815ea59daf7} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_destroy@{lv\_circle\_buf\_destroy}}
+\index{lv\_circle\_buf\_destroy@{lv\_circle\_buf\_destroy}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_destroy()}{lv\_circle\_buf\_destroy()}}
+{\footnotesize\ttfamily void lv\+\_\+circle\+\_\+buf\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Destroy a circle buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lv__circle__buf_8h_aef1119ff4c057955a43c072b67350132}\label{lv__circle__buf_8h_aef1119ff4c057955a43c072b67350132} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_fill@{lv\_circle\_buf\_fill}}
+\index{lv\_circle\_buf\_fill@{lv\_circle\_buf\_fill}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_fill()}{lv\_circle\_buf\_fill()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+circle\+\_\+buf\+\_\+fill (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf,  }\item[{uint32\+\_\+t}]{count,  }\item[{lv\+\_\+circle\+\_\+buf\+\_\+fill\+\_\+cb\+\_\+t}]{fill\+\_\+cb,  }\item[{void \texorpdfstring{$\ast$}{*}}]{user\+\_\+data }\end{DoxyParamCaption})}
+
+Fill the buffer with values 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+{\em count} & the number of values to fill \\
+\hline
+{\em fill\+\_\+cb} & the callback function to fill the buffer \\
+\hline
+{\em user\+\_\+data} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the number of values filled 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_af514c36eded14fd8a0891e24d87ab6a5}\label{lv__circle__buf_8h_af514c36eded14fd8a0891e24d87ab6a5} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_head@{lv\_circle\_buf\_head}}
+\index{lv\_circle\_buf\_head@{lv\_circle\_buf\_head}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_head()}{lv\_circle\_buf\_head()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+circle\+\_\+buf\+\_\+head (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Get the head of the buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the head of the buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_ad7223a59589c915cb38625b5c4826965}\label{lv__circle__buf_8h_ad7223a59589c915cb38625b5c4826965} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_is\_empty@{lv\_circle\_buf\_is\_empty}}
+\index{lv\_circle\_buf\_is\_empty@{lv\_circle\_buf\_is\_empty}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_is\_empty()}{lv\_circle\_buf\_is\_empty()}}
+{\footnotesize\ttfamily bool lv\+\_\+circle\+\_\+buf\+\_\+is\+\_\+empty (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Check if the buffer is empty 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: the buffer is empty; false\+: the buffer is not empty 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_adb4da086cf2f290e1d3a304aaef4eab7}\label{lv__circle__buf_8h_adb4da086cf2f290e1d3a304aaef4eab7} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_is\_full@{lv\_circle\_buf\_is\_full}}
+\index{lv\_circle\_buf\_is\_full@{lv\_circle\_buf\_is\_full}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_is\_full()}{lv\_circle\_buf\_is\_full()}}
+{\footnotesize\ttfamily bool lv\+\_\+circle\+\_\+buf\+\_\+is\+\_\+full (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Check if the buffer is full 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+true\+: the buffer is full; false\+: the buffer is not full 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a711bdfe70fb501ffc2958b99fe786ab7}\label{lv__circle__buf_8h_a711bdfe70fb501ffc2958b99fe786ab7} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_peek@{lv\_circle\_buf\_peek}}
+\index{lv\_circle\_buf\_peek@{lv\_circle\_buf\_peek}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_peek()}{lv\_circle\_buf\_peek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+circle\+\_\+buf\+\_\+peek (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+Peek a value 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+{\em data} & pointer to a variable to store the peeked value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the value is peeked; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the value is not peeked 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a375dd05578038524621e12233019a839}\label{lv__circle__buf_8h_a375dd05578038524621e12233019a839} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_peek\_at@{lv\_circle\_buf\_peek\_at}}
+\index{lv\_circle\_buf\_peek\_at@{lv\_circle\_buf\_peek\_at}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_peek\_at()}{lv\_circle\_buf\_peek\_at()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+circle\+\_\+buf\+\_\+peek\+\_\+at (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf,  }\item[{uint32\+\_\+t}]{index,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+Peek a value at an index 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+{\em index} & the index of the value to peek, if the index is greater than the size of the buffer, it will return looply. \\
+\hline
+{\em data} & pointer to a variable to store the peeked value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the value is peeked; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the value is not peeked 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a4f23e062f70ace6ec657f0b009ea43a9}\label{lv__circle__buf_8h_a4f23e062f70ace6ec657f0b009ea43a9} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_read@{lv\_circle\_buf\_read}}
+\index{lv\_circle\_buf\_read@{lv\_circle\_buf\_read}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_read()}{lv\_circle\_buf\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+circle\+\_\+buf\+\_\+read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+Read a value 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+{\em data} & pointer to a variable to store the read value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the value is read; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the value is not read 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_acd6613d2bb78e9def1782d629d66ff6b}\label{lv__circle__buf_8h_acd6613d2bb78e9def1782d629d66ff6b} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_remain@{lv\_circle\_buf\_remain}}
+\index{lv\_circle\_buf\_remain@{lv\_circle\_buf\_remain}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_remain()}{lv\_circle\_buf\_remain()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+circle\+\_\+buf\+\_\+remain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Get the remaining space in the buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the number of elements that can be written to the buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a29713a7b731555a6e11b3d914ec18670}\label{lv__circle__buf_8h_a29713a7b731555a6e11b3d914ec18670} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_reset@{lv\_circle\_buf\_reset}}
+\index{lv\_circle\_buf\_reset@{lv\_circle\_buf\_reset}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_reset()}{lv\_circle\_buf\_reset()}}
+{\footnotesize\ttfamily void lv\+\_\+circle\+\_\+buf\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Reset the buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the buffer is reset; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the buffer is not reset 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a118a0df9b198ea0a3e0e0ed4e9ba8b73}\label{lv__circle__buf_8h_a118a0df9b198ea0a3e0e0ed4e9ba8b73} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_resize@{lv\_circle\_buf\_resize}}
+\index{lv\_circle\_buf\_resize@{lv\_circle\_buf\_resize}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_resize()}{lv\_circle\_buf\_resize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+circle\+\_\+buf\+\_\+resize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf,  }\item[{uint32\+\_\+t}]{capacity }\end{DoxyParamCaption})}
+
+Resize the buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to a buffer \\
+\hline
+{\em capacity} & the new capacity of the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the buffer is resized; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the buffer is not resized 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a81be0d553345dee3d5d2e2f944acaf89}\label{lv__circle__buf_8h_a81be0d553345dee3d5d2e2f944acaf89} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_size@{lv\_circle\_buf\_size}}
+\index{lv\_circle\_buf\_size@{lv\_circle\_buf\_size}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_size()}{lv\_circle\_buf\_size()}}
+{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+circle\+\_\+buf\+\_\+size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Get the size of the buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+the number of elements in the buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a181bb688864fdacc38318dcd4fcc2ec1}\label{lv__circle__buf_8h_a181bb688864fdacc38318dcd4fcc2ec1} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_skip@{lv\_circle\_buf\_skip}}
+\index{lv\_circle\_buf\_skip@{lv\_circle\_buf\_skip}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_skip()}{lv\_circle\_buf\_skip()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+circle\+\_\+buf\+\_\+skip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Skip a value 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the value is skipped; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the value is not skipped 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a8d06d3d7c16eee27ec77cdcf089454cb}\label{lv__circle__buf_8h_a8d06d3d7c16eee27ec77cdcf089454cb} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_tail@{lv\_circle\_buf\_tail}}
+\index{lv\_circle\_buf\_tail@{lv\_circle\_buf\_tail}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_tail()}{lv\_circle\_buf\_tail()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+circle\+\_\+buf\+\_\+tail (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf }\end{DoxyParamCaption})}
+
+Get the tail of the buffer 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+pointer to the tail of the buffer 
+\end{DoxyReturn}
+\Hypertarget{lv__circle__buf_8h_a4db6e310d0ce66848742c47a0621c78b}\label{lv__circle__buf_8h_a4db6e310d0ce66848742c47a0621c78b} 
+\index{lv\_circle\_buf.h@{lv\_circle\_buf.h}!lv\_circle\_buf\_write@{lv\_circle\_buf\_write}}
+\index{lv\_circle\_buf\_write@{lv\_circle\_buf\_write}!lv\_circle\_buf.h@{lv\_circle\_buf.h}}
+\doxysubsubsection{\texorpdfstring{lv\_circle\_buf\_write()}{lv\_circle\_buf\_write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+circle\+\_\+buf\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__circle__buf__t}{lv\+\_\+circle\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{circle\+\_\+buf,  }\item[{const void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+Write a value 
+\begin{DoxyParams}{Parametri}
+{\em circle\+\_\+buf} & pointer to buffer \\
+\hline
+{\em data} & pointer to the value to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+LV\+\_\+\+RESULT\+\_\+\+OK\+: the value is written; LV\+\_\+\+RESULT\+\_\+\+INVALID\+: the value is not written 
+\end{DoxyReturn}
