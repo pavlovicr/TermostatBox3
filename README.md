@@ -1,4 +1,26 @@
+
+<p align="center">
+  <img src="images/arlekino-joker.jpg" width="100">
+</p>
+
+<p align="center">
+  <img src="images/esp32s3-BOX-3.png" width="100">
+</p>
+<p align="center">
+  <img src="images/AHT30.png" width="100">
+</p>
+<p align="center">
+  <img src="images/ili9341.png" width="100">
+</p>
+
+
+
+
+
 # 🌡️ WiFi Sobni Termostat — ESP32-S3-Box-3 + Shelly 2PM Gen3
+
+
+
 
 Pametni sobni termostat z zaslonom na dotik, ki temelji na ESP32-S3-Box-3 in prek WiFi omrežja krmili Shelly 2PM Gen3 stikalo za vklop/izklop grelnega sistema.
 
