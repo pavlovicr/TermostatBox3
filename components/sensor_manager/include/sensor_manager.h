@@ -15,9 +15,9 @@ typedef struct {
 } sensor_data_t;
 
 /**
- * @brief Initialize sensor manager and AHT21 sensor
+ * @brief Initialize sensor manager and AHT30 sensor
  * 
- * Initializes I2C bus and AHT21 sensor on ESP32-S3
+ * Initializes I2C bus and AHT30 sensor on ESP32-S3
  * I2C configuration:
  * - SCL: GPIO40
  * - SDA: GPIO41
@@ -29,9 +29,9 @@ typedef struct {
 esp_err_t sensor_manager_init(void);
 
 /**
- * @brief Read temperature and humidity from AHT21
+ * @brief Read temperature and humidity from AHT30
  * 
- * Triggers measurement and reads data from AHT21 sensor
+ * Triggers measurement and reads data from AHT30 sensor
  * 
  * @param data Pointer to sensor_data_t structure to store results
  * @return ESP_OK on success, error code otherwise

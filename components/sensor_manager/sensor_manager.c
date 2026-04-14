@@ -1,3 +1,12 @@
+/**
+ * @file sensor_manager.c
+ * @brief Sensor Manager implementacija za AHT30 senzor
+ *
+ * Ta modul omogoča:
+ * - inicializacijo I2C vodila
+ * - komunikacijo z AHT30 senzorjem
+ * - branje temperature in vlage
+ */
 
 #include "sensor_manager.h"
 #include "driver/i2c_master.h"
@@ -8,36 +17,46 @@
 
 static const char *TAG = "sensor_manager";
 
-// I2C Konfiguracija GPIO za SCL in SDA
-#define I2C_MASTER_SCL_IO           40      // GPIO40 for SCL
-#define I2C_MASTER_SDA_IO           41      // GPIO41 for SDA
-#define I2C_MASTER_FREQ_HZ          100000  // data sheet, 100kHz je max hitrost za standar mode
+/** @brief GPIO pin za I2C SCL */
+#define I2C_MASTER_SCL_IO           40      
+/** @brief GPIO pin za I2C SDA */
+#define I2C_MASTER_SDA_IO           41  
+/** @brief Frekvenca I2C vodila */
+#define I2C_MASTER_FREQ_HZ          100000  
+/** @brief Timeout za I2C operacije v milisekundah */
 #define I2C_MASTER_TIMEOUT_MS       1000
 
-// AHT21 Konfiguracija senzorja
-#define AHT21_I2C_ADDR              0x38 // data sheet AHT21  
-#define AHT21_CMD_INIT              0xBE // data sheet AHT21
-#define AHT21_CMD_TRIGGER           0xAC // data sheet AHT21
-#define AHT21_CMD_SOFT_RESET        0xBA //data sheet AH21 , posebni ukaz I2C, ki resetira napravo, brez ponovnega vklopa in izklopa
-#define AHT21_MEASUREMENT_DELAY_MS  80      // Time to wait for measurement
+/** @brief Adresa AHT30 senzorja na I2C vodilu */
+#define AHT30_I2C_ADDR              0x38 
+/** @brief Ukaz za inicializacijo AHT30 senzorja */  
+#define AHT30_CMD_INIT              0xBE 
+/** @brief Ukaz za zagon meritve */
+#define AHT30_CMD_TRIGGER           0xAC 
+/** @brief Ukaz za mehki reset.Resetira napravo, brez ponovnega vklopa in izklopa */
+#define AHT30_CMD_SOFT_RESET        0xBA 
+/** @brief Čas, ki ga je potrebno počakati po sprožitvi merjenja, da so podatki pripravljeni */
+#define AHT30_MEASUREMENT_DELAY_MS  80      
 
-// I2C Master Handle
+/** @brief Handle za I2C master bus */
 static i2c_master_bus_handle_t i2c_bus_handle = NULL;
-static i2c_master_dev_handle_t aht21_dev_handle = NULL;
-static bool initialized = false;
+/** @brief Handle za AHT30 senzor */
+static i2c_master_dev_handle_t aht30_dev_handle = NULL;
 
-/*
-Inicializacija  I2C master bus
- */
-static esp_err_t init_i2c_bus(void) //napravimo inicializacijsko funkcijo 
+/** @brief Flag, ki označuje ali je senzor manager inicializiran */
+static bool initialized = false;
+/** @brief Funkcija za inicializacijo I2C vodila */
+static esp_err_t init_i2c_bus(void)  
 {
-    i2c_master_bus_config_t bus_config = {  //konfiguracija master bus
+    /** @brief Konfiguracija I2C master bus */
+    i2c_master_bus_config_t bus_config = {  
          .i2c_port = I2C_NUM_0,
         .sda_io_num = I2C_MASTER_SDA_IO,
         .scl_io_num = I2C_MASTER_SCL_IO,
         .clk_source = I2C_CLK_SRC_DEFAULT,
+        /** @brief Število ignoriranih glitchev */
         .glitch_ignore_cnt = 7,
-        .flags.enable_internal_pullup = true,//omogoči notranji pullup 
+        /** @brief Flag za omogočanje notranjega pullup upora */
+        .flags.enable_internal_pullup = true, 
     };
 
     esp_err_t ret = i2c_new_master_bus(&bus_config, &i2c_bus_handle); //inicializacija master bus
@@ -52,23 +71,23 @@ static esp_err_t init_i2c_bus(void) //napravimo inicializacijsko funkcijo
 }
 
 /*
- Dodajanje senzorja AHT21 na I2C bus
+ Dodajanje senzorja AHT30 na I2C bus
 */
-static esp_err_t add_aht21_device(void)//napravimo funkcijo s katero bomo dodali napravo 
+static esp_err_t add_aht30_device(void)//napravimo funkcijo s katero bomo dodali napravo 
 {
     i2c_device_config_t dev_config = { //konfiguracija
-        .dev_addr_length = I2C_ADDR_BIT_LEN_7, //iz data sheet AHT21
-        .device_address = AHT21_I2C_ADDR,
+        .dev_addr_length = I2C_ADDR_BIT_LEN_7, //iz data sheet AHT30
+        .device_address = AHT30_I2C_ADDR,
         .scl_speed_hz = I2C_MASTER_FREQ_HZ,
     };
 
-    esp_err_t ret = i2c_master_bus_add_device(i2c_bus_handle, &dev_config, &aht21_dev_handle);//inicializacija AHT21
+    esp_err_t ret = i2c_master_bus_add_device(i2c_bus_handle, &dev_config, &aht30_dev_handle);//inicializacija AHT30
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Napaka pri prikljucevanju AHT21 na bus: %s", esp_err_to_name(ret));
+        ESP_LOGE(TAG, "Napaka pri prikljucevanju AHT30 na bus: %s", esp_err_to_name(ret));
         return ret;//ret je return 
     }
 
-    ESP_LOGI(TAG, "AHT21 senzor dodan na bus na adresi 0x%02X", AHT21_I2C_ADDR);
+    ESP_LOGI(TAG, "AHT30 senzor dodan na bus na adresi 0x%02X", AHT30_I2C_ADDR);
     return ESP_OK;
 }
 
@@ -77,58 +96,58 @@ Sedaj, ko je senzor na vodilu mu lahko pošljemo vrednosti, ki jih bo prebral, s
 Iz data sheets izhaja , da je senzor sposoben sprejemat sporočila od masterja v 100-500 ms 
 po priključitvi na napajanje 2.V-5.5V
 */
-static esp_err_t aht21_soft_reset(void) //napravimo funkcijo za pošiljanje in resetiranje 
+static esp_err_t aht30_soft_reset(void) //napravimo funkcijo za pošiljanje in resetiranje 
 {
-    uint8_t cmd = AHT21_CMD_SOFT_RESET;//mehki reset za ponastavitev
-    esp_err_t ret = i2c_master_transmit(aht21_dev_handle, &cmd, 1, I2C_MASTER_TIMEOUT_MS); //write ukaz
+    uint8_t cmd = AHT30_CMD_SOFT_RESET;//mehki reset za ponastavitev
+    esp_err_t ret = i2c_master_transmit(aht30_dev_handle, &cmd, 1, I2C_MASTER_TIMEOUT_MS); //write ukaz
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Napaka pri posiljanju reset vrednosti: %s", esp_err_to_name(ret));
         return ret;//ret je return 
     }
     
     vTaskDelay(pdMS_TO_TICKS(20));  // Malo počaklaj , da bo reset končan.
-    ESP_LOGI(TAG, "AHT21 soft reset zakljucen");
+    ESP_LOGI(TAG, "AHT30 soft reset zakljucen");
     return ESP_OK;
 }
 
 /*
-Pošljimo senzorju AHT21 še paket z vrednostmi za inicializacijo senzorja. Podatki  
+Pošljimo senzorju AHT30 še paket z vrednostmi za inicializacijo senzorja. Podatki  
 so navedeni v data sheet. 0xBE, 0x08, 0x00  
 */
-static esp_err_t aht21_init(void) //napravimo še funkcijo za pošiljanje inicializacijskih podatkov v napravo
+static esp_err_t aht30_init(void) //napravimo še funkcijo za pošiljanje inicializacijskih podatkov v napravo
 {
     // Send initialization command: 0xBE, 0x08, 0x00
-    uint8_t init_cmd[3] = {AHT21_CMD_INIT, 0x08, 0x00};
-    esp_err_t ret = i2c_master_transmit(aht21_dev_handle, init_cmd, 3, I2C_MASTER_TIMEOUT_MS);
+    uint8_t init_cmd[3] = {AHT30_CMD_INIT, 0x08, 0x00};
+    esp_err_t ret = i2c_master_transmit(aht30_dev_handle, init_cmd, 3, I2C_MASTER_TIMEOUT_MS);
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Inicializacija AHT21 ni uspela: %s", esp_err_to_name(ret));
+        ESP_LOGE(TAG, "Inicializacija AHT30 ni uspela: %s", esp_err_to_name(ret));
         return ret;//ret je return 
     }
     
     vTaskDelay(pdMS_TO_TICKS(10));  // Počakaj na inicializacijo
-    ESP_LOGI(TAG, "AHT21 inicializacija uspesna");
+    ESP_LOGI(TAG, "AHT30 inicializacija uspesna");
     return ESP_OK;
 }
 
 /*
-Sprožimo(trigger) merjenje (measurement) in branje data iz AHT21 tako , da mu pošljemo
+Sprožimo(trigger) merjenje (measurement) in branje data iz AHT30 tako , da mu pošljemo
 vrednosti iz data sheet  0xAC, 0x33, 0x00
 */
-static esp_err_t aht21_read_raw(uint8_t *data, size_t len)
+static esp_err_t aht30_read_raw(uint8_t *data, size_t len)
 {
     // Trigger measurement: 0xAC, 0x33, 0x00  
-    uint8_t trigger_cmd[3] = {AHT21_CMD_TRIGGER, 0x33, 0x00};
-    esp_err_t ret = i2c_master_transmit(aht21_dev_handle, trigger_cmd, 3, I2C_MASTER_TIMEOUT_MS);
+    uint8_t trigger_cmd[3] = {AHT30_CMD_TRIGGER, 0x33, 0x00};
+    esp_err_t ret = i2c_master_transmit(aht30_dev_handle, trigger_cmd, 3, I2C_MASTER_TIMEOUT_MS);
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Napaka pri prozenju merjenj: %s", esp_err_to_name(ret));
         return ret;
     }
 
     // Počakamo , da se merjenje zaključi
-    vTaskDelay(pdMS_TO_TICKS(AHT21_MEASUREMENT_DELAY_MS));
+    vTaskDelay(pdMS_TO_TICKS(AHT30_MEASUREMENT_DELAY_MS));
 
     // Read 7 bytes of data
-    ret = i2c_master_receive(aht21_dev_handle, data, len, I2C_MASTER_TIMEOUT_MS);
+    ret = i2c_master_receive(aht30_dev_handle, data, len, I2C_MASTER_TIMEOUT_MS);
     if (ret != ESP_OK) {
         ESP_LOGE(TAG, "Napaka pri branju measurement data: %s", esp_err_to_name(ret));
         return ret;
@@ -140,7 +159,7 @@ static esp_err_t aht21_read_raw(uint8_t *data, size_t len)
 /*
 Konvertiranje raw(surovih) data v temperaturo in vlago
 */
-static void aht21_convert_data(uint8_t *raw_data, sensor_data_t *data)
+static void aht30_convert_data(uint8_t *raw_data, sensor_data_t *data)
 {
     // Preveri ali je senzor zaseden (bit 7 od statusnega byte)
     if (raw_data[0] & 0x80) {
@@ -187,30 +206,30 @@ esp_err_t sensor_manager_init(void)
         return ret;
     }
 
-    // Dodajanje AHT21 senzorja
-    ret = add_aht21_device();
+    // Dodajanje AHT30 senzorja
+    ret = add_aht30_device();
     if (ret != ESP_OK) {
         i2c_del_master_bus(i2c_bus_handle);
         i2c_bus_handle = NULL;
         return ret;
     }
 
-    // Soft reset AHT21
-    ret = aht21_soft_reset();
+    // Soft reset AHT30
+    ret = aht30_soft_reset();
     if (ret != ESP_OK) {
-        i2c_master_bus_rm_device(aht21_dev_handle);
+        i2c_master_bus_rm_device(aht30_dev_handle);
         i2c_del_master_bus(i2c_bus_handle);
-        aht21_dev_handle = NULL;
+        aht30_dev_handle = NULL;
         i2c_bus_handle = NULL;
         return ret;
     }
 
-    // Inicializacija AHT21
-    ret = aht21_init();
+    // Inicializacija AHT30
+    ret = aht30_init();
     if (ret != ESP_OK) {
-        i2c_master_bus_rm_device(aht21_dev_handle);
+        i2c_master_bus_rm_device(aht30_dev_handle);
         i2c_del_master_bus(i2c_bus_handle);
-        aht21_dev_handle = NULL;
+        aht30_dev_handle = NULL;
         i2c_bus_handle = NULL;
         return ret;
     }
@@ -238,13 +257,13 @@ esp_err_t sensor_manager_read(sensor_data_t *data)
 
     // Read raw data (7 bytes)
     uint8_t raw_data[7];
-    esp_err_t ret = aht21_read_raw(raw_data, sizeof(raw_data));
+    esp_err_t ret = aht30_read_raw(raw_data, sizeof(raw_data));
     if (ret != ESP_OK) {
         return ret;
     }
 
     // Konvertiraj raw data v temperaturo in vlago
-    aht21_convert_data(raw_data, data);
+    aht30_convert_data(raw_data, data);
 
     if (!data->valid) {
         ESP_LOGW(TAG, "Sensor data not valid");
@@ -266,12 +285,12 @@ esp_err_t sensor_manager_deinit(void)
     esp_err_t ret = ESP_OK;
 
     // Remove device
-    if (aht21_dev_handle != NULL) {
-        ret = i2c_master_bus_rm_device(aht21_dev_handle);
+    if (aht30_dev_handle != NULL) {
+        ret = i2c_master_bus_rm_device(aht30_dev_handle);
         if (ret != ESP_OK) {
-            ESP_LOGE(TAG, "Failed to remove AHT21 device: %s", esp_err_to_name(ret));
+            ESP_LOGE(TAG, "Failed to remove AHT30 device: %s", esp_err_to_name(ret));
         }
-        aht21_dev_handle = NULL;
+        aht30_dev_handle = NULL;
     }
 
     // Delete bus
