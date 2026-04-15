@@ -1,27 +1,22 @@
+# Senzor manager (sensor_manager)
+
+
+## Hardware: 
+
+Verzija : ESP32-S3-SENSOR-01_V1.1
+
 <p align="center">
-  <img src="docs/images/arlekino-joker.jpg" width="100">
+  <img src="images/SENSOR.jpg" width="100">
 </p>
 
 <p align="center">
-  <img src="images/esp32s3-BOX-3.png" width="100">
+  <img src="images/ESP32-S3-BOX-3-SENSOR" width="100">
 </p>
+
 <p align="center">
-  <img src="docs/images/AHT30.png" width="100">
-</p>
-<p align="center">
-  <img src="images/ili9341.png" width="100">
+  <img src="images/AHT30.png" width="100">
 </p>
 
-
-
-
-
-
-
-
-# Termostat Box 3
-
-A thermostat application for the ESP32-BOX-3 development board that displays temperature and humidity readings from an AHT21 sensor on an LCD screen.
 
 ## Features
 
