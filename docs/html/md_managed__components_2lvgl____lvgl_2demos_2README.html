@@ -72,8 +72,8 @@ $(function() {
   <div class="headertitle"><div class="title">Demos for LVGL</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md468"></a> </p>
-<h1><a class="anchor" id="autotoc_md469"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md401"></a> </p>
+<h1><a class="anchor" id="autotoc_md402"></a>
 Add the examples to your projects</h1>
 <ol type="1">
 <li>demos can be found in the 'demos' folder once you clone the lvgl.</li>
@@ -112,8 +112,13 @@ Add the examples to your projects</h1>
 <div class="line"><span class="comment">/* Smart-phone like multi-language demo */</span></div>
 <div class="line"><span class="preprocessor">#define LV_USE_DEMO_MULTILANG       0</span></div>
 <div class="line"> </div>
+<div class="line"><span class="comment">/* Widget transformation demo */</span></div>
+<div class="line"><span class="preprocessor">#define LV_USE_DEMO_TRANSFORM       0</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* Demonstrate scroll settings */</span></div>
+<div class="line"><span class="preprocessor">#define LV_USE_DEMO_SCROLL          0</span></div>
 <div class="line">...</div>
-<div class="ttc" id="alv__conf__internal_8h_html_a5a2e25637c9d93546539f093574eafc1"><div class="ttname"><a href="lv__conf__internal_8h.html#a5a2e25637c9d93546539f093574eafc1">LV_USE_DEMO_WIDGETS</a></div><div class="ttdeci">#define LV_USE_DEMO_WIDGETS</div><div class="ttdef"><b>Definition</b> lv_conf_internal.h:4650</div></div>
+<div class="ttc" id="alv__conf__internal_8h_html_a5a2e25637c9d93546539f093574eafc1"><div class="ttname"><a href="lv__conf__internal_8h.html#a5a2e25637c9d93546539f093574eafc1">LV_USE_DEMO_WIDGETS</a></div><div class="ttdeci">#define LV_USE_DEMO_WIDGETS</div><div class="ttdef"><b>Definition</b> lv_conf_internal.h:4523</div></div>
 </div><!-- fragment --><ol type="1">
 <li>If your development environment or toolchain does not add source files inside '<em><b>lvgl</b></em>' folder automatically, ensure the <code>demos</code> folder is included for compilation.</li>
 <li>Include "***demos/lv_demos.h***" in your application source file, for example:</li>
@@ -123,7 +128,7 @@ Add the examples to your projects</h1>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="lv__demos_8h.html">demos/lv_demos.h</a>&quot;</span></div>
 <div class="line">...</div>
 <div class="ttc" id="alv__demos_8h_html"><div class="ttname"><a href="lv__demos_8h.html">lv_demos.h</a></div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md470"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md403"></a>
 Configure Demos Entry</h1>
 <p>"demos/lv_demos.c" provides <code>lv_demos_create</code> and <code>lv_demos_show_help</code> to simplify the creation of demos.</p>
 <p>If you build your main program named <code>lv_demos</code>, then you can run the widgets demo by running <code>lv_demos widgets</code> and the benchmark demo by running <code>lv_demos benchmark 1</code>.</p>
@@ -172,37 +177,37 @@ Configure Demos Entry</h1>
 <div class="line">}</div>
 <div class="ttc" id="aesp__lvgl__port__compatibility_8h_html_a42bbe6593a4e291e9a7271748f34427a"><div class="ttname"><a href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a></div><div class="ttdeci">lv_disp_t lv_display_t</div><div class="ttdoc">Backward compatibility with LVGL 8.</div><div class="ttdef"><b>Definition</b> esp_lvgl_port_compatibility.h:21</div></div>
 <div class="ttc" id="alv__conf__cmsis_8h_html_a275e078fe8dab052c6c281d5229a6ef5"><div class="ttname"><a href="lv__conf__cmsis_8h.html#a275e078fe8dab052c6c281d5229a6ef5">LV_DEF_REFR_PERIOD</a></div><div class="ttdeci">#define LV_DEF_REFR_PERIOD</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:90</div></div>
-<div class="ttc" id="alv__demos_8c_html_a7e7bc20d41cb5c263c1f11470669f98e"><div class="ttname"><a href="lv__demos_8c.html#a7e7bc20d41cb5c263c1f11470669f98e">lv_demos_create</a></div><div class="ttdeci">bool lv_demos_create(char *info[], int size)</div><div class="ttdef"><b>Definition</b> lv_demos.c:81</div></div>
-<div class="ttc" id="alv__demos_8c_html_a918d300927a970d39eac6909dd3ded28"><div class="ttname"><a href="lv__demos_8c.html#a918d300927a970d39eac6909dd3ded28">lv_demos_show_help</a></div><div class="ttdeci">void lv_demos_show_help(void)</div><div class="ttdef"><b>Definition</b> lv_demos.c:116</div></div>
-<div class="ttc" id="alv__init_8c_html_a302a9934e9b77badac7f527b5116a156"><div class="ttname"><a href="lv__init_8c.html#a302a9934e9b77badac7f527b5116a156">lv_deinit</a></div><div class="ttdeci">void lv_deinit(void)</div><div class="ttdef"><b>Definition</b> lv_init.c:423</div></div>
-<div class="ttc" id="alv__init_8c_html_a666fa58edac1e61856b2a00fe60308a0"><div class="ttname"><a href="lv__init_8c.html#a666fa58edac1e61856b2a00fe60308a0">lv_init</a></div><div class="ttdeci">void lv_init(void)</div><div class="ttdef"><b>Definition</b> lv_init.c:179</div></div>
+<div class="ttc" id="alv__demos_8c_html_a7e7bc20d41cb5c263c1f11470669f98e"><div class="ttname"><a href="lv__demos_8c.html#a7e7bc20d41cb5c263c1f11470669f98e">lv_demos_create</a></div><div class="ttdeci">bool lv_demos_create(char *info[], int size)</div><div class="ttdef"><b>Definition</b> lv_demos.c:75</div></div>
+<div class="ttc" id="alv__demos_8c_html_a918d300927a970d39eac6909dd3ded28"><div class="ttname"><a href="lv__demos_8c.html#a918d300927a970d39eac6909dd3ded28">lv_demos_show_help</a></div><div class="ttdeci">void lv_demos_show_help(void)</div><div class="ttdef"><b>Definition</b> lv_demos.c:110</div></div>
+<div class="ttc" id="alv__init_8c_html_a302a9934e9b77badac7f527b5116a156"><div class="ttname"><a href="lv__init_8c.html#a302a9934e9b77badac7f527b5116a156">lv_deinit</a></div><div class="ttdeci">void lv_deinit(void)</div><div class="ttdef"><b>Definition</b> lv_init.c:422</div></div>
+<div class="ttc" id="alv__init_8c_html_a666fa58edac1e61856b2a00fe60308a0"><div class="ttname"><a href="lv__init_8c.html#a666fa58edac1e61856b2a00fe60308a0">lv_init</a></div><div class="ttdeci">void lv_init(void)</div><div class="ttdef"><b>Definition</b> lv_init.c:178</div></div>
 <div class="ttc" id="alv__timer_8c_html_adb5cfb35b8a8ffe081b95c92b29c7c8c"><div class="ttname"><a href="lv__timer_8c.html#adb5cfb35b8a8ffe081b95c92b29c7c8c">lv_timer_handler</a></div><div class="ttdeci">LV_ATTRIBUTE_TIMER_HANDLER uint32_t lv_timer_handler(void)</div><div class="ttdef"><b>Definition</b> lv_timer.c:63</div></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md471"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md404"></a>
 Demos</h1>
-<h2><a class="anchor" id="autotoc_md472"></a>
+<h2><a class="anchor" id="autotoc_md405"></a>
 Widgets</h2>
 <p>Shows how the widgets look like out of the box using the built-in material theme.</p>
 <p>See in <a href="https://github.com/lvgl/lvgl/tree/master/demos/widgets">widgets</a> folder.</p>
 <p><img src="widgets/screenshot1.png" alt="Basic demo to show the widgets of LVGL" class="inline"/></p>
 <p>For running this demo properly, please make sure <b>LV_MEM_SIZE</b> is at least <b>38KB</b> (and <b>48KB</b> is recommended):</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#define LV_MEM_SIZE    (38ul * 1024ul)</span></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md473"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md406"></a>
 Music player</h2>
 <p>The music player demo shows what kind of modern, smartphone-like user interfaces can be created on LVGL. It works the best with display with 480x272 or 272x480 resolution.</p>
 <p>See in <a href="https://github.com/lvgl/lvgl/tree/master/demos/music">music</a> folder.</p>
 <p><img src="music/screenshot1.gif" alt="Music player demo with LVGL" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md474"></a>
+<h2><a class="anchor" id="autotoc_md407"></a>
 Keypad and encoder</h2>
 <p>LVGL allows you to control the widgets with a keypad and/or encoder without a touchpad. This demo shows how to handle buttons, drop-down lists, rollers, sliders, switches, and text inputs without touchpad. Learn more about the touchpad-less usage of LVGL <a href="https://docs.lvgl.io/master/overview/indev.html#keypad-and-encoder">here</a>.</p>
 <p>See in <a href="https://github.com/lvgl/lvgl/tree/master/demos/keypad_encoder">keypad_encoder</a> folder.</p>
 <p><img src="keypad_encoder/screenshot1.png" alt="Keypad and encoder navigation in LVGL embedded GUI library" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md475"></a>
+<h2><a class="anchor" id="autotoc_md408"></a>
 Benchmark</h2>
 <p>A demo to measure the performance of LVGL or to compare different settings. See in <a href="https://github.com/lvgl/lvgl/tree/master/demos/benchmark">benchmark</a> folder. <img src="benchmark/screenshot1.png" alt="Benchmark demo with LVGL embedded GUI library" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md476"></a>
+<h2><a class="anchor" id="autotoc_md409"></a>
 Stress</h2>
 <p>A stress test for LVGL. It contains a lot of object creation, deletion, animations, style usage, and so on. It can be used if there is any memory corruption during heavy usage or any memory leaks. See in <a href="https://github.com/lvgl/lvgl/tree/master/demos/stress">stress</a> folder. <img src="stress/screenshot1.png" alt="Stress test for LVGL" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md477"></a>
+<h1><a class="anchor" id="autotoc_md410"></a>
 Contributing</h1>
 <p>For contribution and coding style guidelines, please refer to the file docs/CONTRIBUTING.md in the main LVGL repo:   <a href="https://github.com/lvgl/lvgl">https://github.com/lvgl/lvgl</a> </p>
 </div></div><!-- contents -->

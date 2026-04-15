@@ -6,8 +6,8 @@
 \DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ GLAD\_EGL\_H\_}}
 \DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ GLAD\_EGL\_H\_}}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}../../../../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}../../../lv\_opengles\_egl.h"{}}}
+\DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ LV\_USE\_EGL}}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ GLAD\_EGL}}
@@ -447,196 +447,198 @@
 \DoxyCodeLine{00470\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ GLAD\_EGL\_KHR\_image\_base;}
 \DoxyCodeLine{00471\ \textcolor{preprocessor}{\#define\ EGL\_KHR\_platform\_gbm\ 1}}
 \DoxyCodeLine{00472\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ GLAD\_EGL\_KHR\_platform\_gbm;}
-\DoxyCodeLine{00473\ \textcolor{preprocessor}{\#define\ EGL\_KHR\_reusable\_sync\ 1}}
-\DoxyCodeLine{00474\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ GLAD\_EGL\_KHR\_reusable\_sync;}
-\DoxyCodeLine{00475\ }
-\DoxyCodeLine{00476\ }
-\DoxyCodeLine{00477\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLBINDAPIPROC)(EGLenum\ api);}
-\DoxyCodeLine{00478\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLBINDTEXIMAGEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ buffer);}
-\DoxyCodeLine{00479\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLCHOOSECONFIGPROC)(EGLDisplay\ dpy,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list,\ EGLConfig\ *\ configs,\ EGLint\ config\_size,\ EGLint\ *\ num\_config);}
-\DoxyCodeLine{00480\ \textcolor{keyword}{typedef}\ EGLint\ (GLAD\_API\_PTR\ *PFNEGLCLIENTWAITSYNCPROC)(EGLDisplay\ dpy,\ EGLSync\ sync,\ EGLint\ flags,\ EGLTime\ timeout);}
-\DoxyCodeLine{00481\ \textcolor{keyword}{typedef}\ EGLint\ (GLAD\_API\_PTR\ *PFNEGLCLIENTWAITSYNCKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync,\ EGLint\ flags,\ EGLTimeKHR\ timeout);}
-\DoxyCodeLine{00482\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLCOPYBUFFERSPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLNativePixmapType\ target);}
-\DoxyCodeLine{00483\ \textcolor{keyword}{typedef}\ EGLContext\ (GLAD\_API\_PTR\ *PFNEGLCREATECONTEXTPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLContext\ share\_context,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00484\ \textcolor{keyword}{typedef}\ EGLImage\ (GLAD\_API\_PTR\ *PFNEGLCREATEIMAGEPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx,\ EGLenum\ target,\ EGLClientBuffer\ buffer,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
-\DoxyCodeLine{00485\ \textcolor{keyword}{typedef}\ EGLImageKHR\ (GLAD\_API\_PTR\ *PFNEGLCREATEIMAGEKHRPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx,\ EGLenum\ target,\ EGLClientBuffer\ buffer,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00486\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPBUFFERFROMCLIENTBUFFERPROC)(EGLDisplay\ dpy,\ EGLenum\ buftype,\ EGLClientBuffer\ buffer,\ EGLConfig\ config,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00487\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPBUFFERSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00488\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPIXMAPSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLNativePixmapType\ pixmap,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00489\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMPIXMAPSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_pixmap,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
-\DoxyCodeLine{00490\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMPIXMAPSURFACEEXTPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_pixmap,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00491\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMWINDOWSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_window,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
-\DoxyCodeLine{00492\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMWINDOWSURFACEEXTPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_window,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00493\ \textcolor{keyword}{typedef}\ EGLSync\ (GLAD\_API\_PTR\ *PFNEGLCREATESYNCPROC)(EGLDisplay\ dpy,\ EGLenum\ type,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
-\DoxyCodeLine{00494\ \textcolor{keyword}{typedef}\ EGLSyncKHR\ (GLAD\_API\_PTR\ *PFNEGLCREATESYNC64KHRPROC)(EGLDisplay\ dpy,\ EGLenum\ type,\ \textcolor{keyword}{const}\ EGLAttribKHR\ *\ attrib\_list);}
-\DoxyCodeLine{00495\ \textcolor{keyword}{typedef}\ EGLSyncKHR\ (GLAD\_API\_PTR\ *PFNEGLCREATESYNCKHRPROC)(EGLDisplay\ dpy,\ EGLenum\ type,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00496\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEWINDOWSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLNativeWindowType\ win,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00497\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYCONTEXTPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx);}
-\DoxyCodeLine{00498\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYIMAGEPROC)(EGLDisplay\ dpy,\ EGLImage\ image);}
-\DoxyCodeLine{00499\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYIMAGEKHRPROC)(EGLDisplay\ dpy,\ EGLImageKHR\ image);}
-\DoxyCodeLine{00500\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYSURFACEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface);}
-\DoxyCodeLine{00501\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYSYNCPROC)(EGLDisplay\ dpy,\ EGLSync\ sync);}
-\DoxyCodeLine{00502\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYSYNCKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync);}
-\DoxyCodeLine{00503\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETCONFIGATTRIBPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLint\ attribute,\ EGLint\ *\ value);}
-\DoxyCodeLine{00504\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETCONFIGSPROC)(EGLDisplay\ dpy,\ EGLConfig\ *\ configs,\ EGLint\ config\_size,\ EGLint\ *\ num\_config);}
-\DoxyCodeLine{00505\ \textcolor{keyword}{typedef}\ EGLContext\ (GLAD\_API\_PTR\ *PFNEGLGETCURRENTCONTEXTPROC)(void);}
-\DoxyCodeLine{00506\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETCURRENTDISPLAYPROC)(void);}
-\DoxyCodeLine{00507\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLGETCURRENTSURFACEPROC)(EGLint\ readdraw);}
-\DoxyCodeLine{00508\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETDISPLAYPROC)(EGLNativeDisplayType\ display\_id);}
-\DoxyCodeLine{00509\ \textcolor{keyword}{typedef}\ EGLint\ (GLAD\_API\_PTR\ *PFNEGLGETERRORPROC)(void);}
-\DoxyCodeLine{00510\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETPLATFORMDISPLAYPROC)(EGLenum\ platform,\ \textcolor{keywordtype}{void}\ *\ native\_display,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
-\DoxyCodeLine{00511\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETPLATFORMDISPLAYEXTPROC)(EGLenum\ platform,\ \textcolor{keywordtype}{void}\ *\ native\_display,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
-\DoxyCodeLine{00512\ \textcolor{keyword}{typedef}\ \_\_eglMustCastToProperFunctionPointerType\ (GLAD\_API\_PTR\ *PFNEGLGETPROCADDRESSPROC)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ procname);}
-\DoxyCodeLine{00513\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETSYNCATTRIBPROC)(EGLDisplay\ dpy,\ EGLSync\ sync,\ EGLint\ attribute,\ EGLAttrib\ *\ value);}
-\DoxyCodeLine{00514\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETSYNCATTRIBKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync,\ EGLint\ attribute,\ EGLint\ *\ value);}
-\DoxyCodeLine{00515\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLINITIALIZEPROC)(EGLDisplay\ dpy,\ EGLint\ *\ major,\ EGLint\ *\ minor);}
-\DoxyCodeLine{00516\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLMAKECURRENTPROC)(EGLDisplay\ dpy,\ EGLSurface\ draw,\ EGLSurface\ read,\ EGLContext\ ctx);}
-\DoxyCodeLine{00517\ \textcolor{keyword}{typedef}\ EGLenum\ (GLAD\_API\_PTR\ *PFNEGLQUERYAPIPROC)(void);}
-\DoxyCodeLine{00518\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYCONTEXTPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx,\ EGLint\ attribute,\ EGLint\ *\ value);}
-\DoxyCodeLine{00519\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYDMABUFFORMATSEXTPROC)(EGLDisplay\ dpy,\ EGLint\ max\_formats,\ EGLint\ *\ formats,\ EGLint\ *\ num\_formats);}
-\DoxyCodeLine{00520\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYDMABUFMODIFIERSEXTPROC)(EGLDisplay\ dpy,\ EGLint\ format,\ EGLint\ max\_modifiers,\ EGLuint64KHR\ *\ modifiers,\ EGLBoolean\ *\ external\_only,\ EGLint\ *\ num\_modifiers);}
-\DoxyCodeLine{00521\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ (GLAD\_API\_PTR\ *PFNEGLQUERYSTRINGPROC)(EGLDisplay\ dpy,\ EGLint\ name);}
-\DoxyCodeLine{00522\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYSURFACEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ attribute,\ EGLint\ *\ value);}
-\DoxyCodeLine{00523\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLRELEASETEXIMAGEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ buffer);}
-\DoxyCodeLine{00524\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLRELEASETHREADPROC)(void);}
-\DoxyCodeLine{00525\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSIGNALSYNCKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync,\ EGLenum\ mode);}
-\DoxyCodeLine{00526\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSURFACEATTRIBPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ attribute,\ EGLint\ value);}
-\DoxyCodeLine{00527\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSWAPBUFFERSPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface);}
-\DoxyCodeLine{00528\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSWAPINTERVALPROC)(EGLDisplay\ dpy,\ EGLint\ interval);}
-\DoxyCodeLine{00529\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLTERMINATEPROC)(EGLDisplay\ dpy);}
-\DoxyCodeLine{00530\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITCLIENTPROC)(void);}
-\DoxyCodeLine{00531\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITGLPROC)(void);}
-\DoxyCodeLine{00532\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITNATIVEPROC)(EGLint\ engine);}
-\DoxyCodeLine{00533\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITSYNCPROC)(EGLDisplay\ dpy,\ EGLSync\ sync,\ EGLint\ flags);}
-\DoxyCodeLine{00534\ }
-\DoxyCodeLine{00535\ GLAD\_API\_CALL\ PFNEGLBINDAPIPROC\ glad\_eglBindAPI;}
-\DoxyCodeLine{00536\ \textcolor{preprocessor}{\#define\ eglBindAPI\ glad\_eglBindAPI}}
-\DoxyCodeLine{00537\ GLAD\_API\_CALL\ PFNEGLBINDTEXIMAGEPROC\ glad\_eglBindTexImage;}
-\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#define\ eglBindTexImage\ glad\_eglBindTexImage}}
-\DoxyCodeLine{00539\ GLAD\_API\_CALL\ PFNEGLCHOOSECONFIGPROC\ glad\_eglChooseConfig;}
-\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#define\ eglChooseConfig\ glad\_eglChooseConfig}}
-\DoxyCodeLine{00541\ GLAD\_API\_CALL\ PFNEGLCLIENTWAITSYNCPROC\ glad\_eglClientWaitSync;}
-\DoxyCodeLine{00542\ \textcolor{preprocessor}{\#define\ eglClientWaitSync\ glad\_eglClientWaitSync}}
-\DoxyCodeLine{00543\ GLAD\_API\_CALL\ PFNEGLCLIENTWAITSYNCKHRPROC\ glad\_eglClientWaitSyncKHR;}
-\DoxyCodeLine{00544\ \textcolor{preprocessor}{\#define\ eglClientWaitSyncKHR\ glad\_eglClientWaitSyncKHR}}
-\DoxyCodeLine{00545\ GLAD\_API\_CALL\ PFNEGLCOPYBUFFERSPROC\ glad\_eglCopyBuffers;}
-\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#define\ eglCopyBuffers\ glad\_eglCopyBuffers}}
-\DoxyCodeLine{00547\ GLAD\_API\_CALL\ PFNEGLCREATECONTEXTPROC\ glad\_eglCreateContext;}
-\DoxyCodeLine{00548\ \textcolor{preprocessor}{\#define\ eglCreateContext\ glad\_eglCreateContext}}
-\DoxyCodeLine{00549\ GLAD\_API\_CALL\ PFNEGLCREATEIMAGEPROC\ glad\_eglCreateImage;}
-\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#define\ eglCreateImage\ glad\_eglCreateImage}}
-\DoxyCodeLine{00551\ GLAD\_API\_CALL\ PFNEGLCREATEIMAGEKHRPROC\ glad\_eglCreateImageKHR;}
-\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#define\ eglCreateImageKHR\ glad\_eglCreateImageKHR}}
-\DoxyCodeLine{00553\ GLAD\_API\_CALL\ PFNEGLCREATEPBUFFERFROMCLIENTBUFFERPROC\ glad\_eglCreatePbufferFromClientBuffer;}
-\DoxyCodeLine{00554\ \textcolor{preprocessor}{\#define\ eglCreatePbufferFromClientBuffer\ glad\_eglCreatePbufferFromClientBuffer}}
-\DoxyCodeLine{00555\ GLAD\_API\_CALL\ PFNEGLCREATEPBUFFERSURFACEPROC\ glad\_eglCreatePbufferSurface;}
-\DoxyCodeLine{00556\ \textcolor{preprocessor}{\#define\ eglCreatePbufferSurface\ glad\_eglCreatePbufferSurface}}
-\DoxyCodeLine{00557\ GLAD\_API\_CALL\ PFNEGLCREATEPIXMAPSURFACEPROC\ glad\_eglCreatePixmapSurface;}
-\DoxyCodeLine{00558\ \textcolor{preprocessor}{\#define\ eglCreatePixmapSurface\ glad\_eglCreatePixmapSurface}}
-\DoxyCodeLine{00559\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMPIXMAPSURFACEPROC\ glad\_eglCreatePlatformPixmapSurface;}
-\DoxyCodeLine{00560\ \textcolor{preprocessor}{\#define\ eglCreatePlatformPixmapSurface\ glad\_eglCreatePlatformPixmapSurface}}
-\DoxyCodeLine{00561\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMPIXMAPSURFACEEXTPROC\ glad\_eglCreatePlatformPixmapSurfaceEXT;}
-\DoxyCodeLine{00562\ \textcolor{preprocessor}{\#define\ eglCreatePlatformPixmapSurfaceEXT\ glad\_eglCreatePlatformPixmapSurfaceEXT}}
-\DoxyCodeLine{00563\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMWINDOWSURFACEPROC\ glad\_eglCreatePlatformWindowSurface;}
-\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#define\ eglCreatePlatformWindowSurface\ glad\_eglCreatePlatformWindowSurface}}
-\DoxyCodeLine{00565\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMWINDOWSURFACEEXTPROC\ glad\_eglCreatePlatformWindowSurfaceEXT;}
-\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#define\ eglCreatePlatformWindowSurfaceEXT\ glad\_eglCreatePlatformWindowSurfaceEXT}}
-\DoxyCodeLine{00567\ GLAD\_API\_CALL\ PFNEGLCREATESYNCPROC\ glad\_eglCreateSync;}
-\DoxyCodeLine{00568\ \textcolor{preprocessor}{\#define\ eglCreateSync\ glad\_eglCreateSync}}
-\DoxyCodeLine{00569\ GLAD\_API\_CALL\ PFNEGLCREATESYNC64KHRPROC\ glad\_eglCreateSync64KHR;}
-\DoxyCodeLine{00570\ \textcolor{preprocessor}{\#define\ eglCreateSync64KHR\ glad\_eglCreateSync64KHR}}
-\DoxyCodeLine{00571\ GLAD\_API\_CALL\ PFNEGLCREATESYNCKHRPROC\ glad\_eglCreateSyncKHR;}
-\DoxyCodeLine{00572\ \textcolor{preprocessor}{\#define\ eglCreateSyncKHR\ glad\_eglCreateSyncKHR}}
-\DoxyCodeLine{00573\ GLAD\_API\_CALL\ PFNEGLCREATEWINDOWSURFACEPROC\ glad\_eglCreateWindowSurface;}
-\DoxyCodeLine{00574\ \textcolor{preprocessor}{\#define\ eglCreateWindowSurface\ glad\_eglCreateWindowSurface}}
-\DoxyCodeLine{00575\ GLAD\_API\_CALL\ PFNEGLDESTROYCONTEXTPROC\ glad\_eglDestroyContext;}
-\DoxyCodeLine{00576\ \textcolor{preprocessor}{\#define\ eglDestroyContext\ glad\_eglDestroyContext}}
-\DoxyCodeLine{00577\ GLAD\_API\_CALL\ PFNEGLDESTROYIMAGEPROC\ glad\_eglDestroyImage;}
-\DoxyCodeLine{00578\ \textcolor{preprocessor}{\#define\ eglDestroyImage\ glad\_eglDestroyImage}}
-\DoxyCodeLine{00579\ GLAD\_API\_CALL\ PFNEGLDESTROYIMAGEKHRPROC\ glad\_eglDestroyImageKHR;}
-\DoxyCodeLine{00580\ \textcolor{preprocessor}{\#define\ eglDestroyImageKHR\ glad\_eglDestroyImageKHR}}
-\DoxyCodeLine{00581\ GLAD\_API\_CALL\ PFNEGLDESTROYSURFACEPROC\ glad\_eglDestroySurface;}
-\DoxyCodeLine{00582\ \textcolor{preprocessor}{\#define\ eglDestroySurface\ glad\_eglDestroySurface}}
-\DoxyCodeLine{00583\ GLAD\_API\_CALL\ PFNEGLDESTROYSYNCPROC\ glad\_eglDestroySync;}
-\DoxyCodeLine{00584\ \textcolor{preprocessor}{\#define\ eglDestroySync\ glad\_eglDestroySync}}
-\DoxyCodeLine{00585\ GLAD\_API\_CALL\ PFNEGLDESTROYSYNCKHRPROC\ glad\_eglDestroySyncKHR;}
-\DoxyCodeLine{00586\ \textcolor{preprocessor}{\#define\ eglDestroySyncKHR\ glad\_eglDestroySyncKHR}}
-\DoxyCodeLine{00587\ GLAD\_API\_CALL\ PFNEGLGETCONFIGATTRIBPROC\ glad\_eglGetConfigAttrib;}
-\DoxyCodeLine{00588\ \textcolor{preprocessor}{\#define\ eglGetConfigAttrib\ glad\_eglGetConfigAttrib}}
-\DoxyCodeLine{00589\ GLAD\_API\_CALL\ PFNEGLGETCONFIGSPROC\ glad\_eglGetConfigs;}
-\DoxyCodeLine{00590\ \textcolor{preprocessor}{\#define\ eglGetConfigs\ glad\_eglGetConfigs}}
-\DoxyCodeLine{00591\ GLAD\_API\_CALL\ PFNEGLGETCURRENTCONTEXTPROC\ glad\_eglGetCurrentContext;}
-\DoxyCodeLine{00592\ \textcolor{preprocessor}{\#define\ eglGetCurrentContext\ glad\_eglGetCurrentContext}}
-\DoxyCodeLine{00593\ GLAD\_API\_CALL\ PFNEGLGETCURRENTDISPLAYPROC\ glad\_eglGetCurrentDisplay;}
-\DoxyCodeLine{00594\ \textcolor{preprocessor}{\#define\ eglGetCurrentDisplay\ glad\_eglGetCurrentDisplay}}
-\DoxyCodeLine{00595\ GLAD\_API\_CALL\ PFNEGLGETCURRENTSURFACEPROC\ glad\_eglGetCurrentSurface;}
-\DoxyCodeLine{00596\ \textcolor{preprocessor}{\#define\ eglGetCurrentSurface\ glad\_eglGetCurrentSurface}}
-\DoxyCodeLine{00597\ GLAD\_API\_CALL\ PFNEGLGETDISPLAYPROC\ glad\_eglGetDisplay;}
-\DoxyCodeLine{00598\ \textcolor{preprocessor}{\#define\ eglGetDisplay\ glad\_eglGetDisplay}}
-\DoxyCodeLine{00599\ GLAD\_API\_CALL\ PFNEGLGETERRORPROC\ glad\_eglGetError;}
-\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#define\ eglGetError\ glad\_eglGetError}}
-\DoxyCodeLine{00601\ GLAD\_API\_CALL\ PFNEGLGETPLATFORMDISPLAYPROC\ glad\_eglGetPlatformDisplay;}
-\DoxyCodeLine{00602\ \textcolor{preprocessor}{\#define\ eglGetPlatformDisplay\ glad\_eglGetPlatformDisplay}}
-\DoxyCodeLine{00603\ GLAD\_API\_CALL\ PFNEGLGETPLATFORMDISPLAYEXTPROC\ glad\_eglGetPlatformDisplayEXT;}
-\DoxyCodeLine{00604\ \textcolor{preprocessor}{\#define\ eglGetPlatformDisplayEXT\ glad\_eglGetPlatformDisplayEXT}}
-\DoxyCodeLine{00605\ GLAD\_API\_CALL\ PFNEGLGETPROCADDRESSPROC\ glad\_eglGetProcAddress;}
-\DoxyCodeLine{00606\ \textcolor{preprocessor}{\#define\ eglGetProcAddress\ glad\_eglGetProcAddress}}
-\DoxyCodeLine{00607\ GLAD\_API\_CALL\ PFNEGLGETSYNCATTRIBPROC\ glad\_eglGetSyncAttrib;}
-\DoxyCodeLine{00608\ \textcolor{preprocessor}{\#define\ eglGetSyncAttrib\ glad\_eglGetSyncAttrib}}
-\DoxyCodeLine{00609\ GLAD\_API\_CALL\ PFNEGLGETSYNCATTRIBKHRPROC\ glad\_eglGetSyncAttribKHR;}
-\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#define\ eglGetSyncAttribKHR\ glad\_eglGetSyncAttribKHR}}
-\DoxyCodeLine{00611\ GLAD\_API\_CALL\ PFNEGLINITIALIZEPROC\ glad\_eglInitialize;}
-\DoxyCodeLine{00612\ \textcolor{preprocessor}{\#define\ eglInitialize\ glad\_eglInitialize}}
-\DoxyCodeLine{00613\ GLAD\_API\_CALL\ PFNEGLMAKECURRENTPROC\ glad\_eglMakeCurrent;}
-\DoxyCodeLine{00614\ \textcolor{preprocessor}{\#define\ eglMakeCurrent\ glad\_eglMakeCurrent}}
-\DoxyCodeLine{00615\ GLAD\_API\_CALL\ PFNEGLQUERYAPIPROC\ glad\_eglQueryAPI;}
-\DoxyCodeLine{00616\ \textcolor{preprocessor}{\#define\ eglQueryAPI\ glad\_eglQueryAPI}}
-\DoxyCodeLine{00617\ GLAD\_API\_CALL\ PFNEGLQUERYCONTEXTPROC\ glad\_eglQueryContext;}
-\DoxyCodeLine{00618\ \textcolor{preprocessor}{\#define\ eglQueryContext\ glad\_eglQueryContext}}
-\DoxyCodeLine{00619\ GLAD\_API\_CALL\ PFNEGLQUERYDMABUFFORMATSEXTPROC\ glad\_eglQueryDmaBufFormatsEXT;}
-\DoxyCodeLine{00620\ \textcolor{preprocessor}{\#define\ eglQueryDmaBufFormatsEXT\ glad\_eglQueryDmaBufFormatsEXT}}
-\DoxyCodeLine{00621\ GLAD\_API\_CALL\ PFNEGLQUERYDMABUFMODIFIERSEXTPROC\ glad\_eglQueryDmaBufModifiersEXT;}
-\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#define\ eglQueryDmaBufModifiersEXT\ glad\_eglQueryDmaBufModifiersEXT}}
-\DoxyCodeLine{00623\ GLAD\_API\_CALL\ PFNEGLQUERYSTRINGPROC\ glad\_eglQueryString;}
-\DoxyCodeLine{00624\ \textcolor{preprocessor}{\#define\ eglQueryString\ glad\_eglQueryString}}
-\DoxyCodeLine{00625\ GLAD\_API\_CALL\ PFNEGLQUERYSURFACEPROC\ glad\_eglQuerySurface;}
-\DoxyCodeLine{00626\ \textcolor{preprocessor}{\#define\ eglQuerySurface\ glad\_eglQuerySurface}}
-\DoxyCodeLine{00627\ GLAD\_API\_CALL\ PFNEGLRELEASETEXIMAGEPROC\ glad\_eglReleaseTexImage;}
-\DoxyCodeLine{00628\ \textcolor{preprocessor}{\#define\ eglReleaseTexImage\ glad\_eglReleaseTexImage}}
-\DoxyCodeLine{00629\ GLAD\_API\_CALL\ PFNEGLRELEASETHREADPROC\ glad\_eglReleaseThread;}
-\DoxyCodeLine{00630\ \textcolor{preprocessor}{\#define\ eglReleaseThread\ glad\_eglReleaseThread}}
-\DoxyCodeLine{00631\ GLAD\_API\_CALL\ PFNEGLSIGNALSYNCKHRPROC\ glad\_eglSignalSyncKHR;}
-\DoxyCodeLine{00632\ \textcolor{preprocessor}{\#define\ eglSignalSyncKHR\ glad\_eglSignalSyncKHR}}
-\DoxyCodeLine{00633\ GLAD\_API\_CALL\ PFNEGLSURFACEATTRIBPROC\ glad\_eglSurfaceAttrib;}
-\DoxyCodeLine{00634\ \textcolor{preprocessor}{\#define\ eglSurfaceAttrib\ glad\_eglSurfaceAttrib}}
-\DoxyCodeLine{00635\ GLAD\_API\_CALL\ PFNEGLSWAPBUFFERSPROC\ glad\_eglSwapBuffers;}
-\DoxyCodeLine{00636\ \textcolor{preprocessor}{\#define\ eglSwapBuffers\ glad\_eglSwapBuffers}}
-\DoxyCodeLine{00637\ GLAD\_API\_CALL\ PFNEGLSWAPINTERVALPROC\ glad\_eglSwapInterval;}
-\DoxyCodeLine{00638\ \textcolor{preprocessor}{\#define\ eglSwapInterval\ glad\_eglSwapInterval}}
-\DoxyCodeLine{00639\ GLAD\_API\_CALL\ PFNEGLTERMINATEPROC\ glad\_eglTerminate;}
-\DoxyCodeLine{00640\ \textcolor{preprocessor}{\#define\ eglTerminate\ glad\_eglTerminate}}
-\DoxyCodeLine{00641\ GLAD\_API\_CALL\ PFNEGLWAITCLIENTPROC\ glad\_eglWaitClient;}
-\DoxyCodeLine{00642\ \textcolor{preprocessor}{\#define\ eglWaitClient\ glad\_eglWaitClient}}
-\DoxyCodeLine{00643\ GLAD\_API\_CALL\ PFNEGLWAITGLPROC\ glad\_eglWaitGL;}
-\DoxyCodeLine{00644\ \textcolor{preprocessor}{\#define\ eglWaitGL\ glad\_eglWaitGL}}
-\DoxyCodeLine{00645\ GLAD\_API\_CALL\ PFNEGLWAITNATIVEPROC\ glad\_eglWaitNative;}
-\DoxyCodeLine{00646\ \textcolor{preprocessor}{\#define\ eglWaitNative\ glad\_eglWaitNative}}
-\DoxyCodeLine{00647\ GLAD\_API\_CALL\ PFNEGLWAITSYNCPROC\ glad\_eglWaitSync;}
-\DoxyCodeLine{00648\ \textcolor{preprocessor}{\#define\ eglWaitSync\ glad\_eglWaitSync}}
-\DoxyCodeLine{00649\ }
-\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00473\ \textcolor{preprocessor}{\#define\ EGL\_KHR\_platform\_wayland\ 1}}
+\DoxyCodeLine{00474\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ GLAD\_EGL\_KHR\_platform\_wayland;}
+\DoxyCodeLine{00475\ \textcolor{preprocessor}{\#define\ EGL\_KHR\_reusable\_sync\ 1}}
+\DoxyCodeLine{00476\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ GLAD\_EGL\_KHR\_reusable\_sync;}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ }
+\DoxyCodeLine{00479\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLBINDAPIPROC)(EGLenum\ api);}
+\DoxyCodeLine{00480\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLBINDTEXIMAGEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ buffer);}
+\DoxyCodeLine{00481\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLCHOOSECONFIGPROC)(EGLDisplay\ dpy,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list,\ EGLConfig\ *\ configs,\ EGLint\ config\_size,\ EGLint\ *\ num\_config);}
+\DoxyCodeLine{00482\ \textcolor{keyword}{typedef}\ EGLint\ (GLAD\_API\_PTR\ *PFNEGLCLIENTWAITSYNCPROC)(EGLDisplay\ dpy,\ EGLSync\ sync,\ EGLint\ flags,\ EGLTime\ timeout);}
+\DoxyCodeLine{00483\ \textcolor{keyword}{typedef}\ EGLint\ (GLAD\_API\_PTR\ *PFNEGLCLIENTWAITSYNCKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync,\ EGLint\ flags,\ EGLTimeKHR\ timeout);}
+\DoxyCodeLine{00484\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLCOPYBUFFERSPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLNativePixmapType\ target);}
+\DoxyCodeLine{00485\ \textcolor{keyword}{typedef}\ EGLContext\ (GLAD\_API\_PTR\ *PFNEGLCREATECONTEXTPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLContext\ share\_context,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00486\ \textcolor{keyword}{typedef}\ EGLImage\ (GLAD\_API\_PTR\ *PFNEGLCREATEIMAGEPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx,\ EGLenum\ target,\ EGLClientBuffer\ buffer,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
+\DoxyCodeLine{00487\ \textcolor{keyword}{typedef}\ EGLImageKHR\ (GLAD\_API\_PTR\ *PFNEGLCREATEIMAGEKHRPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx,\ EGLenum\ target,\ EGLClientBuffer\ buffer,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00488\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPBUFFERFROMCLIENTBUFFERPROC)(EGLDisplay\ dpy,\ EGLenum\ buftype,\ EGLClientBuffer\ buffer,\ EGLConfig\ config,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00489\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPBUFFERSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00490\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPIXMAPSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLNativePixmapType\ pixmap,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00491\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMPIXMAPSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_pixmap,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
+\DoxyCodeLine{00492\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMPIXMAPSURFACEEXTPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_pixmap,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00493\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMWINDOWSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_window,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
+\DoxyCodeLine{00494\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEPLATFORMWINDOWSURFACEEXTPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ \textcolor{keywordtype}{void}\ *\ native\_window,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00495\ \textcolor{keyword}{typedef}\ EGLSync\ (GLAD\_API\_PTR\ *PFNEGLCREATESYNCPROC)(EGLDisplay\ dpy,\ EGLenum\ type,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
+\DoxyCodeLine{00496\ \textcolor{keyword}{typedef}\ EGLSyncKHR\ (GLAD\_API\_PTR\ *PFNEGLCREATESYNC64KHRPROC)(EGLDisplay\ dpy,\ EGLenum\ type,\ \textcolor{keyword}{const}\ EGLAttribKHR\ *\ attrib\_list);}
+\DoxyCodeLine{00497\ \textcolor{keyword}{typedef}\ EGLSyncKHR\ (GLAD\_API\_PTR\ *PFNEGLCREATESYNCKHRPROC)(EGLDisplay\ dpy,\ EGLenum\ type,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00498\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLCREATEWINDOWSURFACEPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLNativeWindowType\ win,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00499\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYCONTEXTPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx);}
+\DoxyCodeLine{00500\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYIMAGEPROC)(EGLDisplay\ dpy,\ EGLImage\ image);}
+\DoxyCodeLine{00501\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYIMAGEKHRPROC)(EGLDisplay\ dpy,\ EGLImageKHR\ image);}
+\DoxyCodeLine{00502\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYSURFACEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface);}
+\DoxyCodeLine{00503\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYSYNCPROC)(EGLDisplay\ dpy,\ EGLSync\ sync);}
+\DoxyCodeLine{00504\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLDESTROYSYNCKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync);}
+\DoxyCodeLine{00505\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETCONFIGATTRIBPROC)(EGLDisplay\ dpy,\ EGLConfig\ config,\ EGLint\ attribute,\ EGLint\ *\ value);}
+\DoxyCodeLine{00506\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETCONFIGSPROC)(EGLDisplay\ dpy,\ EGLConfig\ *\ configs,\ EGLint\ config\_size,\ EGLint\ *\ num\_config);}
+\DoxyCodeLine{00507\ \textcolor{keyword}{typedef}\ EGLContext\ (GLAD\_API\_PTR\ *PFNEGLGETCURRENTCONTEXTPROC)(void);}
+\DoxyCodeLine{00508\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETCURRENTDISPLAYPROC)(void);}
+\DoxyCodeLine{00509\ \textcolor{keyword}{typedef}\ EGLSurface\ (GLAD\_API\_PTR\ *PFNEGLGETCURRENTSURFACEPROC)(EGLint\ readdraw);}
+\DoxyCodeLine{00510\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETDISPLAYPROC)(EGLNativeDisplayType\ display\_id);}
+\DoxyCodeLine{00511\ \textcolor{keyword}{typedef}\ EGLint\ (GLAD\_API\_PTR\ *PFNEGLGETERRORPROC)(void);}
+\DoxyCodeLine{00512\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETPLATFORMDISPLAYPROC)(EGLenum\ platform,\ \textcolor{keywordtype}{void}\ *\ native\_display,\ \textcolor{keyword}{const}\ EGLAttrib\ *\ attrib\_list);}
+\DoxyCodeLine{00513\ \textcolor{keyword}{typedef}\ EGLDisplay\ (GLAD\_API\_PTR\ *PFNEGLGETPLATFORMDISPLAYEXTPROC)(EGLenum\ platform,\ \textcolor{keywordtype}{void}\ *\ native\_display,\ \textcolor{keyword}{const}\ EGLint\ *\ attrib\_list);}
+\DoxyCodeLine{00514\ \textcolor{keyword}{typedef}\ \_\_eglMustCastToProperFunctionPointerType\ (GLAD\_API\_PTR\ *PFNEGLGETPROCADDRESSPROC)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ procname);}
+\DoxyCodeLine{00515\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETSYNCATTRIBPROC)(EGLDisplay\ dpy,\ EGLSync\ sync,\ EGLint\ attribute,\ EGLAttrib\ *\ value);}
+\DoxyCodeLine{00516\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLGETSYNCATTRIBKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync,\ EGLint\ attribute,\ EGLint\ *\ value);}
+\DoxyCodeLine{00517\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLINITIALIZEPROC)(EGLDisplay\ dpy,\ EGLint\ *\ major,\ EGLint\ *\ minor);}
+\DoxyCodeLine{00518\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLMAKECURRENTPROC)(EGLDisplay\ dpy,\ EGLSurface\ draw,\ EGLSurface\ read,\ EGLContext\ ctx);}
+\DoxyCodeLine{00519\ \textcolor{keyword}{typedef}\ EGLenum\ (GLAD\_API\_PTR\ *PFNEGLQUERYAPIPROC)(void);}
+\DoxyCodeLine{00520\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYCONTEXTPROC)(EGLDisplay\ dpy,\ EGLContext\ ctx,\ EGLint\ attribute,\ EGLint\ *\ value);}
+\DoxyCodeLine{00521\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYDMABUFFORMATSEXTPROC)(EGLDisplay\ dpy,\ EGLint\ max\_formats,\ EGLint\ *\ formats,\ EGLint\ *\ num\_formats);}
+\DoxyCodeLine{00522\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYDMABUFMODIFIERSEXTPROC)(EGLDisplay\ dpy,\ EGLint\ format,\ EGLint\ max\_modifiers,\ EGLuint64KHR\ *\ modifiers,\ EGLBoolean\ *\ external\_only,\ EGLint\ *\ num\_modifiers);}
+\DoxyCodeLine{00523\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ (GLAD\_API\_PTR\ *PFNEGLQUERYSTRINGPROC)(EGLDisplay\ dpy,\ EGLint\ name);}
+\DoxyCodeLine{00524\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLQUERYSURFACEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ attribute,\ EGLint\ *\ value);}
+\DoxyCodeLine{00525\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLRELEASETEXIMAGEPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ buffer);}
+\DoxyCodeLine{00526\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLRELEASETHREADPROC)(void);}
+\DoxyCodeLine{00527\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSIGNALSYNCKHRPROC)(EGLDisplay\ dpy,\ EGLSyncKHR\ sync,\ EGLenum\ mode);}
+\DoxyCodeLine{00528\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSURFACEATTRIBPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface,\ EGLint\ attribute,\ EGLint\ value);}
+\DoxyCodeLine{00529\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSWAPBUFFERSPROC)(EGLDisplay\ dpy,\ EGLSurface\ surface);}
+\DoxyCodeLine{00530\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLSWAPINTERVALPROC)(EGLDisplay\ dpy,\ EGLint\ interval);}
+\DoxyCodeLine{00531\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLTERMINATEPROC)(EGLDisplay\ dpy);}
+\DoxyCodeLine{00532\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITCLIENTPROC)(void);}
+\DoxyCodeLine{00533\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITGLPROC)(void);}
+\DoxyCodeLine{00534\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITNATIVEPROC)(EGLint\ engine);}
+\DoxyCodeLine{00535\ \textcolor{keyword}{typedef}\ EGLBoolean\ (GLAD\_API\_PTR\ *PFNEGLWAITSYNCPROC)(EGLDisplay\ dpy,\ EGLSync\ sync,\ EGLint\ flags);}
+\DoxyCodeLine{00536\ }
+\DoxyCodeLine{00537\ GLAD\_API\_CALL\ PFNEGLBINDAPIPROC\ glad\_eglBindAPI;}
+\DoxyCodeLine{00538\ \textcolor{preprocessor}{\#define\ eglBindAPI\ glad\_eglBindAPI}}
+\DoxyCodeLine{00539\ GLAD\_API\_CALL\ PFNEGLBINDTEXIMAGEPROC\ glad\_eglBindTexImage;}
+\DoxyCodeLine{00540\ \textcolor{preprocessor}{\#define\ eglBindTexImage\ glad\_eglBindTexImage}}
+\DoxyCodeLine{00541\ GLAD\_API\_CALL\ PFNEGLCHOOSECONFIGPROC\ glad\_eglChooseConfig;}
+\DoxyCodeLine{00542\ \textcolor{preprocessor}{\#define\ eglChooseConfig\ glad\_eglChooseConfig}}
+\DoxyCodeLine{00543\ GLAD\_API\_CALL\ PFNEGLCLIENTWAITSYNCPROC\ glad\_eglClientWaitSync;}
+\DoxyCodeLine{00544\ \textcolor{preprocessor}{\#define\ eglClientWaitSync\ glad\_eglClientWaitSync}}
+\DoxyCodeLine{00545\ GLAD\_API\_CALL\ PFNEGLCLIENTWAITSYNCKHRPROC\ glad\_eglClientWaitSyncKHR;}
+\DoxyCodeLine{00546\ \textcolor{preprocessor}{\#define\ eglClientWaitSyncKHR\ glad\_eglClientWaitSyncKHR}}
+\DoxyCodeLine{00547\ GLAD\_API\_CALL\ PFNEGLCOPYBUFFERSPROC\ glad\_eglCopyBuffers;}
+\DoxyCodeLine{00548\ \textcolor{preprocessor}{\#define\ eglCopyBuffers\ glad\_eglCopyBuffers}}
+\DoxyCodeLine{00549\ GLAD\_API\_CALL\ PFNEGLCREATECONTEXTPROC\ glad\_eglCreateContext;}
+\DoxyCodeLine{00550\ \textcolor{preprocessor}{\#define\ eglCreateContext\ glad\_eglCreateContext}}
+\DoxyCodeLine{00551\ GLAD\_API\_CALL\ PFNEGLCREATEIMAGEPROC\ glad\_eglCreateImage;}
+\DoxyCodeLine{00552\ \textcolor{preprocessor}{\#define\ eglCreateImage\ glad\_eglCreateImage}}
+\DoxyCodeLine{00553\ GLAD\_API\_CALL\ PFNEGLCREATEIMAGEKHRPROC\ glad\_eglCreateImageKHR;}
+\DoxyCodeLine{00554\ \textcolor{preprocessor}{\#define\ eglCreateImageKHR\ glad\_eglCreateImageKHR}}
+\DoxyCodeLine{00555\ GLAD\_API\_CALL\ PFNEGLCREATEPBUFFERFROMCLIENTBUFFERPROC\ glad\_eglCreatePbufferFromClientBuffer;}
+\DoxyCodeLine{00556\ \textcolor{preprocessor}{\#define\ eglCreatePbufferFromClientBuffer\ glad\_eglCreatePbufferFromClientBuffer}}
+\DoxyCodeLine{00557\ GLAD\_API\_CALL\ PFNEGLCREATEPBUFFERSURFACEPROC\ glad\_eglCreatePbufferSurface;}
+\DoxyCodeLine{00558\ \textcolor{preprocessor}{\#define\ eglCreatePbufferSurface\ glad\_eglCreatePbufferSurface}}
+\DoxyCodeLine{00559\ GLAD\_API\_CALL\ PFNEGLCREATEPIXMAPSURFACEPROC\ glad\_eglCreatePixmapSurface;}
+\DoxyCodeLine{00560\ \textcolor{preprocessor}{\#define\ eglCreatePixmapSurface\ glad\_eglCreatePixmapSurface}}
+\DoxyCodeLine{00561\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMPIXMAPSURFACEPROC\ glad\_eglCreatePlatformPixmapSurface;}
+\DoxyCodeLine{00562\ \textcolor{preprocessor}{\#define\ eglCreatePlatformPixmapSurface\ glad\_eglCreatePlatformPixmapSurface}}
+\DoxyCodeLine{00563\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMPIXMAPSURFACEEXTPROC\ glad\_eglCreatePlatformPixmapSurfaceEXT;}
+\DoxyCodeLine{00564\ \textcolor{preprocessor}{\#define\ eglCreatePlatformPixmapSurfaceEXT\ glad\_eglCreatePlatformPixmapSurfaceEXT}}
+\DoxyCodeLine{00565\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMWINDOWSURFACEPROC\ glad\_eglCreatePlatformWindowSurface;}
+\DoxyCodeLine{00566\ \textcolor{preprocessor}{\#define\ eglCreatePlatformWindowSurface\ glad\_eglCreatePlatformWindowSurface}}
+\DoxyCodeLine{00567\ GLAD\_API\_CALL\ PFNEGLCREATEPLATFORMWINDOWSURFACEEXTPROC\ glad\_eglCreatePlatformWindowSurfaceEXT;}
+\DoxyCodeLine{00568\ \textcolor{preprocessor}{\#define\ eglCreatePlatformWindowSurfaceEXT\ glad\_eglCreatePlatformWindowSurfaceEXT}}
+\DoxyCodeLine{00569\ GLAD\_API\_CALL\ PFNEGLCREATESYNCPROC\ glad\_eglCreateSync;}
+\DoxyCodeLine{00570\ \textcolor{preprocessor}{\#define\ eglCreateSync\ glad\_eglCreateSync}}
+\DoxyCodeLine{00571\ GLAD\_API\_CALL\ PFNEGLCREATESYNC64KHRPROC\ glad\_eglCreateSync64KHR;}
+\DoxyCodeLine{00572\ \textcolor{preprocessor}{\#define\ eglCreateSync64KHR\ glad\_eglCreateSync64KHR}}
+\DoxyCodeLine{00573\ GLAD\_API\_CALL\ PFNEGLCREATESYNCKHRPROC\ glad\_eglCreateSyncKHR;}
+\DoxyCodeLine{00574\ \textcolor{preprocessor}{\#define\ eglCreateSyncKHR\ glad\_eglCreateSyncKHR}}
+\DoxyCodeLine{00575\ GLAD\_API\_CALL\ PFNEGLCREATEWINDOWSURFACEPROC\ glad\_eglCreateWindowSurface;}
+\DoxyCodeLine{00576\ \textcolor{preprocessor}{\#define\ eglCreateWindowSurface\ glad\_eglCreateWindowSurface}}
+\DoxyCodeLine{00577\ GLAD\_API\_CALL\ PFNEGLDESTROYCONTEXTPROC\ glad\_eglDestroyContext;}
+\DoxyCodeLine{00578\ \textcolor{preprocessor}{\#define\ eglDestroyContext\ glad\_eglDestroyContext}}
+\DoxyCodeLine{00579\ GLAD\_API\_CALL\ PFNEGLDESTROYIMAGEPROC\ glad\_eglDestroyImage;}
+\DoxyCodeLine{00580\ \textcolor{preprocessor}{\#define\ eglDestroyImage\ glad\_eglDestroyImage}}
+\DoxyCodeLine{00581\ GLAD\_API\_CALL\ PFNEGLDESTROYIMAGEKHRPROC\ glad\_eglDestroyImageKHR;}
+\DoxyCodeLine{00582\ \textcolor{preprocessor}{\#define\ eglDestroyImageKHR\ glad\_eglDestroyImageKHR}}
+\DoxyCodeLine{00583\ GLAD\_API\_CALL\ PFNEGLDESTROYSURFACEPROC\ glad\_eglDestroySurface;}
+\DoxyCodeLine{00584\ \textcolor{preprocessor}{\#define\ eglDestroySurface\ glad\_eglDestroySurface}}
+\DoxyCodeLine{00585\ GLAD\_API\_CALL\ PFNEGLDESTROYSYNCPROC\ glad\_eglDestroySync;}
+\DoxyCodeLine{00586\ \textcolor{preprocessor}{\#define\ eglDestroySync\ glad\_eglDestroySync}}
+\DoxyCodeLine{00587\ GLAD\_API\_CALL\ PFNEGLDESTROYSYNCKHRPROC\ glad\_eglDestroySyncKHR;}
+\DoxyCodeLine{00588\ \textcolor{preprocessor}{\#define\ eglDestroySyncKHR\ glad\_eglDestroySyncKHR}}
+\DoxyCodeLine{00589\ GLAD\_API\_CALL\ PFNEGLGETCONFIGATTRIBPROC\ glad\_eglGetConfigAttrib;}
+\DoxyCodeLine{00590\ \textcolor{preprocessor}{\#define\ eglGetConfigAttrib\ glad\_eglGetConfigAttrib}}
+\DoxyCodeLine{00591\ GLAD\_API\_CALL\ PFNEGLGETCONFIGSPROC\ glad\_eglGetConfigs;}
+\DoxyCodeLine{00592\ \textcolor{preprocessor}{\#define\ eglGetConfigs\ glad\_eglGetConfigs}}
+\DoxyCodeLine{00593\ GLAD\_API\_CALL\ PFNEGLGETCURRENTCONTEXTPROC\ glad\_eglGetCurrentContext;}
+\DoxyCodeLine{00594\ \textcolor{preprocessor}{\#define\ eglGetCurrentContext\ glad\_eglGetCurrentContext}}
+\DoxyCodeLine{00595\ GLAD\_API\_CALL\ PFNEGLGETCURRENTDISPLAYPROC\ glad\_eglGetCurrentDisplay;}
+\DoxyCodeLine{00596\ \textcolor{preprocessor}{\#define\ eglGetCurrentDisplay\ glad\_eglGetCurrentDisplay}}
+\DoxyCodeLine{00597\ GLAD\_API\_CALL\ PFNEGLGETCURRENTSURFACEPROC\ glad\_eglGetCurrentSurface;}
+\DoxyCodeLine{00598\ \textcolor{preprocessor}{\#define\ eglGetCurrentSurface\ glad\_eglGetCurrentSurface}}
+\DoxyCodeLine{00599\ GLAD\_API\_CALL\ PFNEGLGETDISPLAYPROC\ glad\_eglGetDisplay;}
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#define\ eglGetDisplay\ glad\_eglGetDisplay}}
+\DoxyCodeLine{00601\ GLAD\_API\_CALL\ PFNEGLGETERRORPROC\ glad\_eglGetError;}
+\DoxyCodeLine{00602\ \textcolor{preprocessor}{\#define\ eglGetError\ glad\_eglGetError}}
+\DoxyCodeLine{00603\ GLAD\_API\_CALL\ PFNEGLGETPLATFORMDISPLAYPROC\ glad\_eglGetPlatformDisplay;}
+\DoxyCodeLine{00604\ \textcolor{preprocessor}{\#define\ eglGetPlatformDisplay\ glad\_eglGetPlatformDisplay}}
+\DoxyCodeLine{00605\ GLAD\_API\_CALL\ PFNEGLGETPLATFORMDISPLAYEXTPROC\ glad\_eglGetPlatformDisplayEXT;}
+\DoxyCodeLine{00606\ \textcolor{preprocessor}{\#define\ eglGetPlatformDisplayEXT\ glad\_eglGetPlatformDisplayEXT}}
+\DoxyCodeLine{00607\ GLAD\_API\_CALL\ PFNEGLGETPROCADDRESSPROC\ glad\_eglGetProcAddress;}
+\DoxyCodeLine{00608\ \textcolor{preprocessor}{\#define\ eglGetProcAddress\ glad\_eglGetProcAddress}}
+\DoxyCodeLine{00609\ GLAD\_API\_CALL\ PFNEGLGETSYNCATTRIBPROC\ glad\_eglGetSyncAttrib;}
+\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#define\ eglGetSyncAttrib\ glad\_eglGetSyncAttrib}}
+\DoxyCodeLine{00611\ GLAD\_API\_CALL\ PFNEGLGETSYNCATTRIBKHRPROC\ glad\_eglGetSyncAttribKHR;}
+\DoxyCodeLine{00612\ \textcolor{preprocessor}{\#define\ eglGetSyncAttribKHR\ glad\_eglGetSyncAttribKHR}}
+\DoxyCodeLine{00613\ GLAD\_API\_CALL\ PFNEGLINITIALIZEPROC\ glad\_eglInitialize;}
+\DoxyCodeLine{00614\ \textcolor{preprocessor}{\#define\ eglInitialize\ glad\_eglInitialize}}
+\DoxyCodeLine{00615\ GLAD\_API\_CALL\ PFNEGLMAKECURRENTPROC\ glad\_eglMakeCurrent;}
+\DoxyCodeLine{00616\ \textcolor{preprocessor}{\#define\ eglMakeCurrent\ glad\_eglMakeCurrent}}
+\DoxyCodeLine{00617\ GLAD\_API\_CALL\ PFNEGLQUERYAPIPROC\ glad\_eglQueryAPI;}
+\DoxyCodeLine{00618\ \textcolor{preprocessor}{\#define\ eglQueryAPI\ glad\_eglQueryAPI}}
+\DoxyCodeLine{00619\ GLAD\_API\_CALL\ PFNEGLQUERYCONTEXTPROC\ glad\_eglQueryContext;}
+\DoxyCodeLine{00620\ \textcolor{preprocessor}{\#define\ eglQueryContext\ glad\_eglQueryContext}}
+\DoxyCodeLine{00621\ GLAD\_API\_CALL\ PFNEGLQUERYDMABUFFORMATSEXTPROC\ glad\_eglQueryDmaBufFormatsEXT;}
+\DoxyCodeLine{00622\ \textcolor{preprocessor}{\#define\ eglQueryDmaBufFormatsEXT\ glad\_eglQueryDmaBufFormatsEXT}}
+\DoxyCodeLine{00623\ GLAD\_API\_CALL\ PFNEGLQUERYDMABUFMODIFIERSEXTPROC\ glad\_eglQueryDmaBufModifiersEXT;}
+\DoxyCodeLine{00624\ \textcolor{preprocessor}{\#define\ eglQueryDmaBufModifiersEXT\ glad\_eglQueryDmaBufModifiersEXT}}
+\DoxyCodeLine{00625\ GLAD\_API\_CALL\ PFNEGLQUERYSTRINGPROC\ glad\_eglQueryString;}
+\DoxyCodeLine{00626\ \textcolor{preprocessor}{\#define\ eglQueryString\ glad\_eglQueryString}}
+\DoxyCodeLine{00627\ GLAD\_API\_CALL\ PFNEGLQUERYSURFACEPROC\ glad\_eglQuerySurface;}
+\DoxyCodeLine{00628\ \textcolor{preprocessor}{\#define\ eglQuerySurface\ glad\_eglQuerySurface}}
+\DoxyCodeLine{00629\ GLAD\_API\_CALL\ PFNEGLRELEASETEXIMAGEPROC\ glad\_eglReleaseTexImage;}
+\DoxyCodeLine{00630\ \textcolor{preprocessor}{\#define\ eglReleaseTexImage\ glad\_eglReleaseTexImage}}
+\DoxyCodeLine{00631\ GLAD\_API\_CALL\ PFNEGLRELEASETHREADPROC\ glad\_eglReleaseThread;}
+\DoxyCodeLine{00632\ \textcolor{preprocessor}{\#define\ eglReleaseThread\ glad\_eglReleaseThread}}
+\DoxyCodeLine{00633\ GLAD\_API\_CALL\ PFNEGLSIGNALSYNCKHRPROC\ glad\_eglSignalSyncKHR;}
+\DoxyCodeLine{00634\ \textcolor{preprocessor}{\#define\ eglSignalSyncKHR\ glad\_eglSignalSyncKHR}}
+\DoxyCodeLine{00635\ GLAD\_API\_CALL\ PFNEGLSURFACEATTRIBPROC\ glad\_eglSurfaceAttrib;}
+\DoxyCodeLine{00636\ \textcolor{preprocessor}{\#define\ eglSurfaceAttrib\ glad\_eglSurfaceAttrib}}
+\DoxyCodeLine{00637\ GLAD\_API\_CALL\ PFNEGLSWAPBUFFERSPROC\ glad\_eglSwapBuffers;}
+\DoxyCodeLine{00638\ \textcolor{preprocessor}{\#define\ eglSwapBuffers\ glad\_eglSwapBuffers}}
+\DoxyCodeLine{00639\ GLAD\_API\_CALL\ PFNEGLSWAPINTERVALPROC\ glad\_eglSwapInterval;}
+\DoxyCodeLine{00640\ \textcolor{preprocessor}{\#define\ eglSwapInterval\ glad\_eglSwapInterval}}
+\DoxyCodeLine{00641\ GLAD\_API\_CALL\ PFNEGLTERMINATEPROC\ glad\_eglTerminate;}
+\DoxyCodeLine{00642\ \textcolor{preprocessor}{\#define\ eglTerminate\ glad\_eglTerminate}}
+\DoxyCodeLine{00643\ GLAD\_API\_CALL\ PFNEGLWAITCLIENTPROC\ glad\_eglWaitClient;}
+\DoxyCodeLine{00644\ \textcolor{preprocessor}{\#define\ eglWaitClient\ glad\_eglWaitClient}}
+\DoxyCodeLine{00645\ GLAD\_API\_CALL\ PFNEGLWAITGLPROC\ glad\_eglWaitGL;}
+\DoxyCodeLine{00646\ \textcolor{preprocessor}{\#define\ eglWaitGL\ glad\_eglWaitGL}}
+\DoxyCodeLine{00647\ GLAD\_API\_CALL\ PFNEGLWAITNATIVEPROC\ glad\_eglWaitNative;}
+\DoxyCodeLine{00648\ \textcolor{preprocessor}{\#define\ eglWaitNative\ glad\_eglWaitNative}}
+\DoxyCodeLine{00649\ GLAD\_API\_CALL\ PFNEGLWAITSYNCPROC\ glad\_eglWaitSync;}
+\DoxyCodeLine{00650\ \textcolor{preprocessor}{\#define\ eglWaitSync\ glad\_eglWaitSync}}
 \DoxyCodeLine{00651\ }
 \DoxyCodeLine{00652\ }
 \DoxyCodeLine{00653\ }
-\DoxyCodeLine{00654\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ gladLoadEGLUserPtr(EGLDisplay\ display,\ GLADuserptrloadfunc\ load,\ \textcolor{keywordtype}{void}\ *userptr);}
-\DoxyCodeLine{00655\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ gladLoadEGL(EGLDisplay\ display,\ GLADloadfunc\ load);}
-\DoxyCodeLine{00656\ }
-\DoxyCodeLine{00657\ }
-\DoxyCodeLine{00658\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00659\ \}}
-\DoxyCodeLine{00660\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00661\ }
-\DoxyCodeLine{00662\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_EGL*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00663\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00654\ }
+\DoxyCodeLine{00655\ }
+\DoxyCodeLine{00656\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ gladLoadEGLUserPtr(EGLDisplay\ display,\ GLADuserptrloadfunc\ load,\ \textcolor{keywordtype}{void}\ *userptr);}
+\DoxyCodeLine{00657\ GLAD\_API\_CALL\ \textcolor{keywordtype}{int}\ gladLoadEGL(EGLDisplay\ display,\ GLADloadfunc\ load);}
+\DoxyCodeLine{00658\ }
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00660\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00661\ \}}
+\DoxyCodeLine{00662\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00663\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_EGL*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00664\ }
+\DoxyCodeLine{00665\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -1,8 +1,8 @@
 \chapter{Relinker}
 \hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2relinker}{}\label{md_managed__components_2espressif____cmake__utilities_2docs_2relinker}\index{Relinker@{Relinker}}
-\label{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md97}%
-\Hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md97}%
- In ESP-\/\+IDF, some functions are put in SRAM when link stage, the reason is that some functions are critical, we need to put them in SRAM to speed up the program, or the functions will be executed when the cache is disabled. But actually, some functions can be put into Flash, here, we provide a script to let the user set the functions which are located in SRAM by default to put them into Flash, in order to save more SRAM which can be used as heap region later. This happens in the linker stage, so we call it as relinker.\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md98}{}\doxysection{\texorpdfstring{Use}{Use}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md98}
+\label{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md91}%
+\Hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md91}%
+ In ESP-\/\+IDF, some functions are put in SRAM when link stage, the reason is that some functions are critical, we need to put them in SRAM to speed up the program, or the functions will be executed when the cache is disabled. But actually, some functions can be put into Flash, here, we provide a script to let the user set the functions which are located in SRAM by default to put them into Flash, in order to save more SRAM which can be used as heap region later. This happens in the linker stage, so we call it as relinker.\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md92}{}\doxysection{\texorpdfstring{Use}{Use}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md92}
 In order to use this feature, you need to include the needed CMake file in your project\textquotesingle{}s CMake\+Lists.\+txt after {\ttfamily project(\+XXXX)}.
 
 
@@ -28,7 +28,7 @@ Here are the default configuration files in the folder {\ttfamily cmake\+\_\+uti
 
 \begin{quote}
 Note\+: Currently only esp32c2 is supported. \end{quote}
-\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md99}{}\doxysection{\texorpdfstring{Configuration Files}{Configuration Files}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md99}
+\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md93}{}\doxysection{\texorpdfstring{Configuration Files}{Configuration Files}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2relinker_autotoc_md93}
 You can refer to the files in the directory of {\ttfamily cmake\+\_\+utilities/scripts/relinker/examples/esp32c2}\+:
 
 

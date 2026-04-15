@@ -1,8 +1,8 @@
 \chapter{How to Create CMSIS-\/\+Pack}
 \hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README}{}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README}\index{How to Create CMSIS-\/Pack@{How to Create CMSIS-\/Pack}}
-\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md549}%
-\Hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md549}%
-\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md550}{}\doxysection{\texorpdfstring{STEP 1 Update \textquotesingle{}lv\+\_\+conf\+\_\+cmsis.\+h\textquotesingle{}}{STEP 1 Update 'lv\_conf\_cmsis.h'}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md550}
+\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md476}%
+\Hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md476}%
+\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md477}{}\doxysection{\texorpdfstring{STEP 1 Update \textquotesingle{}lv\+\_\+conf\+\_\+cmsis.\+h\textquotesingle{}}{STEP 1 Update 'lv\_conf\_cmsis.h'}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md477}
 
 \begin{DoxyEnumerate}
 \item Copy the {\bfseries{\doxylink{lv__conf__template_8h_source}{lv\+\_\+conf\+\_\+template.\+h}}} to \textquotesingle{}{\bfseries{cmsis-\/pack}}\textquotesingle{} directory
@@ -41,8 +41,8 @@ remove the misleading guide above this code segment.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ LV\_CONF\_CMSIS\_H}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#define\ LV\_CONF\_CMSIS\_H}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ LV\_CONF\_H}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ LV\_CONF\_H}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{preprocessor}{\#if\ defined(\_RTE\_)}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}RTE\_Components.h"{}}}
@@ -65,11 +65,14 @@ remove the misleading guide above this code segment.
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+MUSIC
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+FLEX\+\_\+\+LAYOUT
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+MULTILANG
+\item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+TRANSFORM
+\item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+SCROLL
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+VECTOR\+\_\+\+GRAPHIC
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+EBIKE
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+HIGH\+\_\+\+RES
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+SMARTWATCH
 \item LV\+\_\+\+USE\+\_\+\+DEMO\+\_\+\+GLTF
+\item LV\+\_\+\+USE\+\_\+\+DRAW\+\_\+\+VGLITE
 \item LV\+\_\+\+USE\+\_\+\+DRAW\+\_\+\+VG\+\_\+\+LITE
 \item LV\+\_\+\+USE\+\_\+\+PXP
 \item LV\+\_\+\+USE\+\_\+\+FS\+\_\+\+FROGFS
@@ -84,8 +87,6 @@ remove the misleading guide above this code segment.
 \item LV\+\_\+\+USE\+\_\+\+DRAW\+\_\+\+DAVE2D
 \item LV\+\_\+\+USE\+\_\+\+DRAW\+\_\+\+DMA2D
 \item LV\+\_\+\+USE\+\_\+\+DRAW\+\_\+\+EVE
-\item LV\+\_\+\+USE\+\_\+\+DRAW\+\_\+\+NANOVG
-\item LV\+\_\+\+USE\+\_\+\+NANOVG
 \item LV\+\_\+\+USE\+\_\+\+PPA
 \item LV\+\_\+\+USE\+\_\+\+NV3007
 \item LV\+\_\+\+USE\+\_\+\+NXP\+\_\+\+ELCDIF
@@ -105,7 +106,8 @@ remove the misleading guide above this code segment.
 \item LV\+\_\+\+USE\+\_\+\+ST\+\_\+\+LTDC
 \item LV\+\_\+\+USE\+\_\+\+FT81X
 \item LV\+\_\+\+USE\+\_\+\+ILI9341
-\item LV\+\_\+\+USE\+\_\+\+RENESAS\+\_\+\+GLCDC
+\item LV\+\_\+\+USE\+\_\+\+RENESAS\+\_\+\+GLCDC ~\newline
+
 \item LV\+\_\+\+USE\+\_\+\+NEMA\+\_\+\+GFX
 \item LV\+\_\+\+USE\+\_\+\+SVG
 \end{DoxyItemize}
@@ -135,7 +137,6 @@ remove the misleading guide above this code segment.
 \item \#define LV\+\_\+\+USE\+\_\+\+RLE 0
 \item \#define LV\+\_\+\+USE\+\_\+\+TJPGD 0
 \item \#define LV\+\_\+\+USE\+\_\+\+LIBJPEG\+\_\+\+TURBO 0
-\item \#define LV\+\_\+\+USE\+\_\+\+LIBWEBP 0
 \item \#define LV\+\_\+\+USE\+\_\+\+GIF 0
 \item \#define LV\+\_\+\+USE\+\_\+\+BARCODE 0
 \item \#define LV\+\_\+\+USE\+\_\+\+QRCODE 0
@@ -144,8 +145,9 @@ remove the misleading guide above this code segment.
 \item \#define LV\+\_\+\+USE\+\_\+\+RLOTTIE 0
 \item \#define LV\+\_\+\+USE\+\_\+\+FFMPEG 0
 \item \#define LV\+\_\+\+USE\+\_\+\+FONT\+\_\+\+MANAGER 0
+\item \#define LV\+\_\+\+USE\+\_\+\+XML 0
 \end{DoxyItemize}
-\item update the definition of following macros\+: {\ttfamily LV\+\_\+\+USE\+\_\+\+VECTOR\+\_\+\+GRAPHIC}, {\ttfamily LV\+\_\+\+USE\+\_\+\+THORVG\+\_\+\+INTERNAL} and {\ttfamily LV\+\_\+\+USE\+\_\+\+THORVG\+\_\+\+EXTERNAL} as
+\item update the definition of following macros\+: {\ttfamily LV\+\_\+\+USE\+\_\+\+VECTOR\+\_\+\+GRAPHIC}, {\ttfamily LV\+\_\+\+USE\+\_\+\+THORVE\+\_\+\+INTERNAL} and {\ttfamily LV\+\_\+\+USE\+\_\+\+THORVE\+\_\+\+EXTERNAL} as
 
 
 \begin{DoxyCode}{0}
@@ -165,9 +167,9 @@ remove the misleading guide above this code segment.
 \item update the definition of following macros\+: {\ttfamily LV\+\_\+\+USE\+\_\+\+LZ4}, {\ttfamily LV\+\_\+\+USE\+\_\+\+LZ4\+\_\+\+INTERNAL} and {\ttfamily LV\+\_\+\+USE\+\_\+\+LZ4\+\_\+\+EXTERNAL} as
 
 \`{}\`{}\`{}c /\texorpdfstring{$\ast$}{*}\+Enable LZ4 compress/decompress lib\texorpdfstring{$\ast$}{*}/ \#ifndef LV\+\_\+\+USE\+\_\+\+LZ4 
-\end{DoxyEnumerate}\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md551}{}\doxysection{\texorpdfstring{define LV\+\_\+\+USE\+\_\+\+LZ4  0}{define LV\_USE\_LZ4  0}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md551}
-/\texorpdfstring{$\ast$}{*}\+Use lvgl built-\/in LZ4 lib\texorpdfstring{$\ast$}{*}/ \hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md552}{}\doxysection{\texorpdfstring{define LV\+\_\+\+USE\+\_\+\+LZ4\+\_\+\+INTERNAL  0}{define LV\_USE\_LZ4\_INTERNAL  0}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md552}
-/\texorpdfstring{$\ast$}{*}\+Use external LZ4 library\texorpdfstring{$\ast$}{*}/ \hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md553}{}\doxysection{\texorpdfstring{define LV\+\_\+\+USE\+\_\+\+LZ4\+\_\+\+EXTERNAL  0}{define LV\_USE\_LZ4\_EXTERNAL  0}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md553}
+\end{DoxyEnumerate}\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md478}{}\doxysection{\texorpdfstring{define LV\+\_\+\+USE\+\_\+\+LZ4  0}{define LV\_USE\_LZ4  0}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md478}
+/\texorpdfstring{$\ast$}{*}\+Use lvgl built-\/in LZ4 lib\texorpdfstring{$\ast$}{*}/ \hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md479}{}\doxysection{\texorpdfstring{define LV\+\_\+\+USE\+\_\+\+LZ4\+\_\+\+INTERNAL  0}{define LV\_USE\_LZ4\_INTERNAL  0}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md479}
+/\texorpdfstring{$\ast$}{*}\+Use external LZ4 library\texorpdfstring{$\ast$}{*}/ \hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md480}{}\doxysection{\texorpdfstring{define LV\+\_\+\+USE\+\_\+\+LZ4\+\_\+\+EXTERNAL  0}{define LV\_USE\_LZ4\_EXTERNAL  0}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md480}
 \#endif \`{}\`{}\`{}
 
 
@@ -249,7 +251,7 @@ with\+:
 
 \begin{DoxyEnumerate}
 \item rename \textquotesingle{}{\bfseries{\doxylink{lv__conf__template_8h_source}{lv\+\_\+conf\+\_\+template.\+h}}}\textquotesingle{} to \textquotesingle{}{\bfseries{\doxylink{lv__conf__cmsis_8h}{lv\+\_\+conf\+\_\+cmsis.\+h}}}\textquotesingle{}.
-\end{DoxyEnumerate}\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md554}{}\doxysubsection{\texorpdfstring{STEP 2 Check, Update and Run the \textquotesingle{}gen\+\_\+pack.\+sh\textquotesingle{}}{STEP 2 Check, Update and Run the 'gen\_pack.sh'}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md554}
+\end{DoxyEnumerate}\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md481}{}\doxysubsection{\texorpdfstring{STEP 2 Check, Update and Run the \textquotesingle{}gen\+\_\+pack.\+sh\textquotesingle{}}{STEP 2 Check, Update and Run the 'gen\_pack.sh'}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md481}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{if\ [\ \`{}uname\ -\/s`\ =\ "{}Linux"{}\ ]}
@@ -265,7 +267,7 @@ with\+:
 \DoxyCodeLine{echo\ "{}\ "{}}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md555}{}\doxysubsubsection{\texorpdfstring{A. For Windows users}{A. For Windows users}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md555}
+\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md482}{}\doxysubsubsection{\texorpdfstring{A. For Windows users}{A. For Windows users}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md482}
 Update the \textquotesingle{}{\bfseries{CMSIS\+\_\+\+PACK\+\_\+\+PATH}}\textquotesingle{} accordingly (Usually just replace the name gabriel with your own windows account name is sufficient.).
 
 Update the \textquotesingle{}{\bfseries{PATH\+\_\+\+TO\+\_\+\+ADD}}\textquotesingle{} to point to the installation folders of {\bfseries{7Zip}} and {\bfseries{xmllint}}.
@@ -279,7 +281,7 @@ enter the following command\+:
 \DoxyCodeLine{./gen\_pack.sh}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md556}{}\doxysubsubsection{\texorpdfstring{B. For Linux Users}{B. For Linux Users}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md556}
+\hypertarget{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md483}{}\doxysubsubsection{\texorpdfstring{B. For Linux Users}{B. For Linux Users}}\label{md_managed__components_2lvgl____lvgl_2env__support_2cmsis-pack_2README_autotoc_md483}
 Update \textquotesingle{}{\bfseries{PATH\+\_\+\+TO\+\_\+\+ADD}}\textquotesingle{} if necessary.
 
 go to the {\bfseries{cmsis-\/pack}} folder.

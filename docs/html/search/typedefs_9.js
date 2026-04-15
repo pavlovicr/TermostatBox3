@@ -30,13 +30,11 @@ var searchData=
   ['lv_5fimage_5fdecoder_5fget_5farea_5fcb_5ft_27',['lv_image_decoder_get_area_cb_t',['../lv__image__decoder_8h.html#af0c1649b619ba226d14872edf9567dcb',1,'lv_image_decoder.h']]],
   ['lv_5fimage_5fdecoder_5finfo_5ff_5ft_28',['lv_image_decoder_info_f_t',['../lv__image__decoder_8h.html#a07f95f8a66abb46a0f7d2658b1b9abcd',1,'lv_image_decoder.h']]],
   ['lv_5fimage_5fdecoder_5fopen_5ff_5ft_29',['lv_image_decoder_open_f_t',['../lv__image__decoder_8h.html#a32cc9c90c0a191a222d3b20018e23837',1,'lv_image_decoder.h']]],
-  ['lv_5findev_5fkey_5fremap_5fcb_5ft_30',['lv_indev_key_remap_cb_t',['../lv__indev_8h.html#ad10747dee156924346c5613b4f4cf15a',1,'lv_indev.h']]],
-  ['lv_5fll_5fnode_5ft_31',['lv_ll_node_t',['../lv__ll_8h.html#aaaf22c8c1939f8ea17c80be0b1e9f299',1,'lv_ll.h']]],
-  ['lv_5fobj_5ft_32',['lv_obj_t',['../lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158',1,'lv_types.h']]],
-  ['lv_5fobserver_5fcb_5ft_33',['lv_observer_cb_t',['../lv__observer_8h.html#a4fe2f04cd9e8e9c1895d0dc514f6cef5',1,'lv_observer.h']]],
-  ['lv_5fspan_5fcoords_5ft_34',['lv_span_coords_t',['../lv__span_8h.html#a4e3d6d5c1bd5310507b5481c98461b98',1,'lv_span.h']]],
-  ['lv_5fstyle_5fselector_5ft_35',['lv_style_selector_t',['../lv__obj__style_8h.html#aa0a048ecb0f26f9a0976809d5ec35693',1,'lv_obj_style.h']]],
-  ['lv_5ftimer_5fcb_5ft_36',['lv_timer_cb_t',['../lv__timer_8h.html#abe734badf4cb07f041541ba627282c7f',1,'lv_timer.h']]],
-  ['lv_5ftimer_5fhandler_5fresume_5fcb_5ft_37',['lv_timer_handler_resume_cb_t',['../lv__timer_8h.html#a0735c7731e190c96870582eda3c2c6ab',1,'lv_timer.h']]],
-  ['lvgl_5fport_5frounder_5fcb_5ft_38',['lvgl_port_rounder_cb_t',['../esp__lvgl__port__disp_8h.html#a2172289795e39d6512520a620e2f67b0',1,'esp_lvgl_port_disp.h']]]
+  ['lv_5fll_5fnode_5ft_30',['lv_ll_node_t',['../lv__ll_8h.html#aaaf22c8c1939f8ea17c80be0b1e9f299',1,'lv_ll.h']]],
+  ['lv_5fobj_5ft_31',['lv_obj_t',['../lvgl____lvgl_2src_2misc_2lv__types_8h.html#a01de9a127bcf589bd7d0c695a429b158',1,'lv_types.h']]],
+  ['lv_5fobserver_5fcb_5ft_32',['lv_observer_cb_t',['../lv__observer_8h.html#a4fe2f04cd9e8e9c1895d0dc514f6cef5',1,'lv_observer.h']]],
+  ['lv_5fspan_5fcoords_5ft_33',['lv_span_coords_t',['../lv__span_8h.html#a4e3d6d5c1bd5310507b5481c98461b98',1,'lv_span.h']]],
+  ['lv_5fstyle_5fselector_5ft_34',['lv_style_selector_t',['../lv__obj__style_8h.html#aa0a048ecb0f26f9a0976809d5ec35693',1,'lv_obj_style.h']]],
+  ['lv_5ftimer_5fcb_5ft_35',['lv_timer_cb_t',['../lv__timer_8h.html#abe734badf4cb07f041541ba627282c7f',1,'lv_timer.h']]],
+  ['lv_5ftimer_5fhandler_5fresume_5fcb_5ft_36',['lv_timer_handler_resume_cb_t',['../lv__timer_8h.html#a0735c7731e190c96870582eda3c2c6ab',1,'lv_timer.h']]]
 ];

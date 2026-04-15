@@ -50,45 +50,41 @@
 \DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00051\ }
 \DoxyCodeLine{00052\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_LITTLEFS}}
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}lfs.h"{}}}
-\DoxyCodeLine{00054\ \textcolor{keyword}{struct\ }lfs;}
-\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ lv\_littlefs\_set\_handler(\textcolor{keyword}{struct}\ lfs\ *\ lfs);}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ lv\_fs\_littlefs\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00053\ \textcolor{keyword}{struct\ }lfs;}
+\DoxyCodeLine{00054\ \textcolor{keywordtype}{void}\ lv\_littlefs\_set\_handler(\textcolor{keyword}{struct}\ lfs\ *);}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ lv\_fs\_littlefs\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_ARDUINO\_ESP\_LITTLEFS}}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ lv\_fs\_arduino\_esp\_littlefs\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_ARDUINO\_SD}}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ lv\_fs\_arduino\_sd\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00073\ \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\_fs\_res\_t}}\ lv\_fs\_littlefs\_register\_drive(lfs\_t\ *\ lfs,\ \textcolor{keywordtype}{char}\ letter);}
-\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_ARDUINO\_ESP\_LITTLEFS}}
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ lv\_fs\_arduino\_esp\_littlefs\_init(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_ARDUINO\_SD}}
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ lv\_fs\_arduino\_sd\_init(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_UEFI}}
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ lv\_fs\_uefi\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_FROGFS}}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ lv\_fs\_frogfs\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ lv\_fs\_frogfs\_deinit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00082\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_fs\_frogfs\_register\_blob(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ blob,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ path\_prefix);}
 \DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_UEFI}}
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ lv\_fs\_uefi\_init(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#if\ LV\_USE\_FS\_FROGFS}}
-\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ lv\_fs\_frogfs\_init(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ lv\_fs\_frogfs\_deinit(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00100\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_fs\_frogfs\_register\_blob(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ blob,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ path\_prefix);}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ lv\_fs\_frogfs\_unregister\_blob(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ path\_prefix);}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_FS\_FROGFS*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00110\ }
-\DoxyCodeLine{00111\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00112\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00113\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00116\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
-\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_FSDRV\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ lv\_fs\_frogfs\_unregister\_blob(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ path\_prefix);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_FS\_FROGFS*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00098\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_FSDRV\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TermostatBox3: managed_components/lvgl__lvgl/src/libs/gif/AnimatedGIF.h izvorna koda</title>
+<title>TermostatBox3: managed_components/lvgl__lvgl/src/libs/gif/AnimatedGIF/src/AnimatedGIF.h izvorna koda</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -74,7 +74,7 @@ $(document).ready(function() { init_codefold(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_048b45341ae6d63bbcc98d0ebf394f8f.html">libs</a></li><li class="navelem"><a class="el" href="dir_2c1b52e7d4dbb62459ad4a0bfabd6343.html">gif</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_230ff1e69d1001871a4401f345fc5388.html">managed_components</a></li><li class="navelem"><a class="el" href="dir_2fdfbf37d75ca188ed896a3a27a4d79e.html">lvgl__lvgl</a></li><li class="navelem"><a class="el" href="dir_dd74e403408ebf6bbaca21cc8244bdd4.html">src</a></li><li class="navelem"><a class="el" href="dir_048b45341ae6d63bbcc98d0ebf394f8f.html">libs</a></li><li class="navelem"><a class="el" href="dir_2c1b52e7d4dbb62459ad4a0bfabd6343.html">gif</a></li><li class="navelem"><a class="el" href="dir_8f90da303030317e1c3bfba4e1811310.html">AnimatedGIF</a></li><li class="navelem"><a class="el" href="dir_9afd357d601fdf9dec7b3fd5491d7e35.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -96,11 +96,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef __ANIMATEDGIF__</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define __ANIMATEDGIF__</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../../lv_conf_internal.h&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#if LV_USE_GIF</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;../../misc/lv_fs.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;../../../../misc/lv_fs.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;../../../../lv_conf_internal.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include LV_STDINT_INCLUDE</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include LV_LIMITS_INCLUDE</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;../../../../stdlib/lv_string.h&quot;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">//</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">// GIF Animator</span></div>
@@ -199,23 +199,28 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>   GIF_ERROR_MEMORY</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword">typedef</span> <span class="keyword">struct </span>gif_file_tag</div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="};">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="structgif__file__tag.html">  119</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structgif__file__tag.html">gif_file_tag</a></div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  int32_t iPos; <span class="comment">// current file position</span></div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  int32_t iSize; <span class="comment">// file size</span></div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  uint8_t *pData; <span class="comment">// memory file pointer</span></div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <a class="code hl_struct" href="structlv__fs__file__t.html">lv_fs_file_t</a> fHandle; <span class="comment">// class pointer to File/SdFat or whatever you want</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>} GIFFILE;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>} <a class="code hl_struct" href="structgif__file__tag.html">GIFFILE</a>;</div>
+</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">typedef</span> <span class="keyword">struct </span>gif_info_tag</div>
+<div class="foldopen" id="foldopen00127" data-start="{" data-end="};">
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="structgif__info__tag.html">  127</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structgif__info__tag.html">gif_info_tag</a></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>{</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  int32_t iFrameCount; <span class="comment">// total frames in file</span></div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  int32_t iDuration; <span class="comment">// duration of animation in milliseconds</span></div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  int32_t iMaxDelay; <span class="comment">// maximum frame delay</span></div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  int32_t iMinDelay; <span class="comment">// minimum frame delay</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>} GIFINFO;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>} <a class="code hl_struct" href="structgif__info__tag.html">GIFINFO</a>;</div>
+</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">typedef</span> <span class="keyword">struct </span>gif_draw_tag</div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="};">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="structgif__draw__tag.html">  135</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structgif__draw__tag.html">gif_draw_tag</a></div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>{</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">int</span> iX, iY; <span class="comment">// Corner offset of this frame on the canvas</span></div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">int</span> y; <span class="comment">// current line being drawn (0 = top line of image)</span></div>
@@ -231,12 +236,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    uint8_t ucBackground; <span class="comment">// background color</span></div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    uint8_t ucPaletteType; <span class="comment">// type of palette entries</span></div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    uint8_t ucIsGlobalPalette; <span class="comment">// Flag to indicate that a global palette, rather than a local palette is being used</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>} GIFDRAW;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>} <a class="code hl_struct" href="structgif__draw__tag.html">GIFDRAW</a>;</div>
+</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">// Callback function prototypes</span></div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">typedef</span> int32_t (GIF_READ_CALLBACK)(GIFFILE *pFile, uint8_t *pBuf, int32_t iLen);</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">typedef</span> int32_t (GIF_SEEK_CALLBACK)(GIFFILE *pFile, int32_t iPosition);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword">typedef</span> void (GIF_DRAW_CALLBACK)(GIFDRAW *pDraw);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">typedef</span> int32_t (GIF_READ_CALLBACK)(<a class="code hl_struct" href="structgif__file__tag.html">GIFFILE</a> *pFile, uint8_t *pBuf, int32_t iLen);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">typedef</span> int32_t (GIF_SEEK_CALLBACK)(<a class="code hl_struct" href="structgif__file__tag.html">GIFFILE</a> *pFile, int32_t iPosition);</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword">typedef</span> void (GIF_DRAW_CALLBACK)(<a class="code hl_struct" href="structgif__draw__tag.html">GIFDRAW</a> *pDraw);</div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> * (GIF_OPEN_CALLBACK)(<span class="keyword">const</span> <span class="keywordtype">char</span> *szFilename, int32_t *pFileSize);</div>
 <div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">typedef</span> void (GIF_CLOSE_CALLBACK)(<a class="code hl_struct" href="structlv__fs__file__t.html">lv_fs_file_t</a> *pHandle);</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> * (GIF_ALLOC_CALLBACK)(uint32_t iSize);</div>
@@ -244,7 +250,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">//</span></div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">// our private structure to hold a GIF image decode state</span></div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">//</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">typedef</span> <span class="keyword">struct </span>gif_image_tag</div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="};">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="structgif__image__tag.html">  164</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structgif__image__tag.html">gif_image_tag</a></div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>{</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    uint16_t iWidth, iHeight, iCanvasWidth, iCanvasHeight;</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    uint16_t iX, iY; <span class="comment">// GIF corner offset</span></div>
@@ -266,7 +273,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    GIF_DRAW_CALLBACK *pfnDraw;</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    GIF_OPEN_CALLBACK *pfnOpen;</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    GIF_CLOSE_CALLBACK *pfnClose;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    GIFFILE GIFFile;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <a class="code hl_struct" href="structgif__file__tag.html">GIFFILE</a> GIFFile;</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordtype">void</span> *pUser;</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *pFrameBuffer;</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *pTurboBuffer;</div>
@@ -279,21 +286,22 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> usGIFTable[1&lt;&lt;MAX_CODE_SIZE];</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ucGIFPixels[(PIXEL_LAST*2)];</div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ucLineBuf[MAX_WIDTH]; <span class="comment">// current line</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>} GIFIMAGE;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>} <a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a>;</div>
+</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">// C interface</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">int</span> GIF_openRAM(GIFIMAGE *pGIF, uint8_t *pData, <span class="keywordtype">int</span> iDataSize, GIF_DRAW_CALLBACK *pfnDraw);</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordtype">int</span> GIF_openFile(GIFIMAGE *pGIF, <span class="keyword">const</span> <span class="keywordtype">char</span> *szFilename, GIF_DRAW_CALLBACK *pfnDraw);</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">void</span> GIF_close(GIFIMAGE *pGIF);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> GIF_begin(GIFIMAGE *pGIF, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ucPaletteType);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">void</span> GIF_reset(GIFIMAGE *pGIF);</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">int</span> GIF_playFrame(GIFIMAGE *pGIF, <span class="keywordtype">int</span> *delayMilliseconds, <span class="keywordtype">void</span> *pUser);</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordtype">int</span> GIF_getCanvasWidth(GIFIMAGE *pGIF);</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keywordtype">int</span> GIF_getCanvasHeight(GIFIMAGE *pGIF);</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">int</span> GIF_getComment(GIFIMAGE *pGIF, <span class="keywordtype">char</span> *destBuffer);</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordtype">int</span> GIF_getInfo(GIFIMAGE *pGIF, GIFINFO *pInfo);</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordtype">int</span> GIF_getLastError(GIFIMAGE *pGIF);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">int</span> GIF_getLoopCount(GIFIMAGE *pGIF);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">int</span> GIF_openRAM(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF, uint8_t *pData, <span class="keywordtype">int</span> iDataSize, GIF_DRAW_CALLBACK *pfnDraw);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordtype">int</span> GIF_openFile(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF, <span class="keyword">const</span> <span class="keywordtype">char</span> *szFilename, GIF_DRAW_CALLBACK *pfnDraw);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">void</span> GIF_close(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">void</span> GIF_begin(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> ucPaletteType);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">void</span> GIF_reset(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">int</span> GIF_playFrame(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF, <span class="keywordtype">int</span> *delayMilliseconds, <span class="keywordtype">void</span> *pUser);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordtype">int</span> GIF_getCanvasWidth(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keywordtype">int</span> GIF_getCanvasHeight(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF);</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">int</span> GIF_getComment(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF, <span class="keywordtype">char</span> *destBuffer);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordtype">int</span> GIF_getInfo(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF, <a class="code hl_struct" href="structgif__info__tag.html">GIFINFO</a> *pInfo);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordtype">int</span> GIF_getLastError(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">int</span> GIF_getLoopCount(<a class="code hl_struct" href="structgif__image__tag.html">GIFIMAGE</a> *pGIF);</div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="preprocessor">#define REGISTER_WIDTH 32</span></div>
 <div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="preprocessor">#ifdef ALLOWS_UNALIGNED</span></div>
@@ -307,10 +315,12 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="preprocessor">#define BIGINT int32_t</span></div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="preprocessor">#define BIGUINT uint32_t</span></div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">#endif </span><span class="comment">// LV_USE_GIF</span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#endif </span><span class="comment">// __ANIMATEDGIF__</span></div>
-<div class="ttc" id="astructlv__fs__file__t_html"><div class="ttname"><a href="structlv__fs__file__t.html">lv_fs_file_t</a></div><div class="ttdef"><b>Definition</b> lv_fs.h:91</div></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="preprocessor">#endif </span><span class="comment">// __ANIMATEDGIF__</span></div>
+<div class="ttc" id="astructgif__draw__tag_html"><div class="ttname"><a href="structgif__draw__tag.html">gif_draw_tag</a></div><div class="ttdef"><b>Definition</b> AnimatedGIF.h:136</div></div>
+<div class="ttc" id="astructgif__file__tag_html"><div class="ttname"><a href="structgif__file__tag.html">gif_file_tag</a></div><div class="ttdef"><b>Definition</b> AnimatedGIF.h:120</div></div>
+<div class="ttc" id="astructgif__image__tag_html"><div class="ttname"><a href="structgif__image__tag.html">gif_image_tag</a></div><div class="ttdef"><b>Definition</b> AnimatedGIF.h:165</div></div>
+<div class="ttc" id="astructgif__info__tag_html"><div class="ttname"><a href="structgif__info__tag.html">gif_info_tag</a></div><div class="ttdef"><b>Definition</b> AnimatedGIF.h:128</div></div>
+<div class="ttc" id="astructlv__fs__file__t_html"><div class="ttname"><a href="structlv__fs__file__t.html">lv_fs_file_t</a></div><div class="ttdef"><b>Definition</b> lv_fs.h:88</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -72,71 +72,36 @@ $(function() {
   <div class="headertitle"><div class="title">Changelog</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md216"></a> </p>
-<h1><a class="anchor" id="autotoc_md217"></a>
-v1.5.7</h1>
-<h2><a class="anchor" id="autotoc_md218"></a>
-Feature</h2>
-<ul>
-<li>Added support for resolving TX I2S handle from RX pair channel when only RX handle is provided in full duplex mode.</li>
-<li>Added slot bit width reconfiguration when peer codec on the same I2S port already runs with wider slots.</li>
-<li>Added channel gain setting for ES8389</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md219"></a>
-Bug Fixed</h2>
-<ul>
-<li>Fixed 2ch TDM record wrongly for default right alignment comparing with STD mode.</li>
-<li>Enhanced compatible check for multiple instance of codec_dev use same I2S port.<ul>
-<li>Peer lookup prefers another data_if on the same port with only RX or only TX; if none, it matches the same data_if that has both RX and TX.</li>
-</ul>
-</li>
-<li>Fixed incorrect ES8389 microphone gain table</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md220"></a>
-v1.5.6</h1>
-<h2><a class="anchor" id="autotoc_md221"></a>
-Bug Fixed</h2>
-<ul>
-<li>Fixed es8311 pop issue when init again without close</li>
-<li>Fixed the esp_adc dependency issue</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md222"></a>
-v1.5.5</h1>
-<h2><a class="anchor" id="autotoc_md223"></a>
-Feature</h2>
-<ul>
-<li>Added internal ADC microphone data interface support through <code>audio_codec_new_adc_data</code>.</li>
-<li>Added dummy codec support for PA-only speaker designs, allowing <code>esp_codec_dev_open/close</code> to control PA automatically.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md224"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md201"></a> </p>
+<h1><a class="anchor" id="autotoc_md202"></a>
 v1.5.4</h1>
-<h2><a class="anchor" id="autotoc_md225"></a>
+<h2><a class="anchor" id="autotoc_md203"></a>
 Feature</h2>
 <ul>
 <li>Added support for I2S clock source configuration, primarily for low-power applications</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md226"></a>
+<h2><a class="anchor" id="autotoc_md204"></a>
 Bug Fixed</h2>
 <ul>
 <li>Fixed header dependency issue for compatibility with ESP-IDF v6.0</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md227"></a>
+<h1><a class="anchor" id="autotoc_md205"></a>
 v1.5.3</h1>
-<h2><a class="anchor" id="autotoc_md228"></a>
+<h2><a class="anchor" id="autotoc_md206"></a>
 Bug Fixed</h2>
 <ul>
 <li>Fixed the ES8389 no-sound playback issue.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md229"></a>
+<h1><a class="anchor" id="autotoc_md207"></a>
 v1.5.2</h1>
-<h2><a class="anchor" id="autotoc_md230"></a>
+<h2><a class="anchor" id="autotoc_md208"></a>
 Bug Fixed</h2>
 <ul>
 <li>Fixed race condition when duplex I2S used by multiple data interface and run open in parallel.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md231"></a>
+<h1><a class="anchor" id="autotoc_md209"></a>
 v1.5.1</h1>
-<h2><a class="anchor" id="autotoc_md232"></a>
+<h2><a class="anchor" id="autotoc_md210"></a>
 Bug Fixed</h2>
 <ul>
 <li>Fixed the register configuration for es8311 when playing 8kHz audio without using MCLK.</li>
@@ -145,133 +110,133 @@ Bug Fixed</h2>
 <li>Added support for duplex I2S TX and RX use multiple codecs (data_if use same port with one channel only).</li>
 <li>Added <code>esp_codec_dev_dump_reg</code> to dump codec registers.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md233"></a>
+<h1><a class="anchor" id="autotoc_md211"></a>
 v1.5.0</h1>
-<h2><a class="anchor" id="autotoc_md234"></a>
-Refactor</h2>
+<h2><a class="anchor" id="autotoc_md212"></a>
+Refactor:</h2>
 <ul>
 <li>Clean up the component dependency, no longer depend on the <code>driver</code> component</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md235"></a>
+<h1><a class="anchor" id="autotoc_md213"></a>
 v1.4.0</h1>
-<h2><a class="anchor" id="autotoc_md236"></a>
+<h2><a class="anchor" id="autotoc_md214"></a>
 Bug Fixed</h2>
 <ul>
 <li>Fixed name error in some macro definitions for ES7210.</li>
 <li>Fixed link error for <code>vol_range</code> redefinition.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md237"></a>
+<h1><a class="anchor" id="autotoc_md215"></a>
 v1.3.6</h1>
-<h2><a class="anchor" id="autotoc_md238"></a>
+<h2><a class="anchor" id="autotoc_md216"></a>
 Feature</h2>
 <ul>
 <li>Added support for CJC8910 codec.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md239"></a>
+<h2><a class="anchor" id="autotoc_md217"></a>
 Bug Fixed</h2>
 <ul>
 <li>Added missing ES8389 include in <code><a class="el" href="esp__codec__dev__defaults_8h_source.html">esp_codec_dev_defaults.h</a></code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md240"></a>
+<h1><a class="anchor" id="autotoc_md218"></a>
 v1.3.5</h1>
-<h2><a class="anchor" id="autotoc_md241"></a>
+<h2><a class="anchor" id="autotoc_md219"></a>
 Feature</h2>
 <ul>
 <li>Added support for ES8389 codec，see detail datasheet <a href="http://www.everest-semi.com/pdf/ES8389%20PB.pdf">ES8389</a></li>
 <li>Added read/write register APIs</li>
 <li>Disabled <code>CONFIG_CODEC_I2C_BACKWARD_COMPATIBLE</code> by default. For ESP-IDF v5.x users who wish to continue using the legacy <code>i2c_driver_xx</code> APIs, please enable this option manually.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md242"></a>
+<h2><a class="anchor" id="autotoc_md220"></a>
 Bug Fixes</h2>
 <ul>
 <li>Fixed I2S PDM play noise issue</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md243"></a>
+<h1><a class="anchor" id="autotoc_md221"></a>
 v1.3.4</h1>
-<h2><a class="anchor" id="autotoc_md244"></a>
+<h2><a class="anchor" id="autotoc_md222"></a>
 Bug Fixes</h2>
 <ul>
 <li>Enhance ES8311 I2C noise immunity</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md245"></a>
+<h1><a class="anchor" id="autotoc_md223"></a>
 v1.3.3</h1>
-<h2><a class="anchor" id="autotoc_md246"></a>
+<h2><a class="anchor" id="autotoc_md224"></a>
 Bug Fixes</h2>
 <ul>
 <li>Fix codec without mute API, set mute wrong behavior</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md247"></a>
+<h1><a class="anchor" id="autotoc_md225"></a>
 v1.3.2</h1>
-<h2><a class="anchor" id="autotoc_md248"></a>
+<h2><a class="anchor" id="autotoc_md226"></a>
 Bug Fixes</h2>
 <ul>
 <li>Fix <code>ES8374</code> volume register set error</li>
 <li>Fix <code>ES8388</code> microphone volume gain set incorrect</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md249"></a>
+<h1><a class="anchor" id="autotoc_md227"></a>
 v1.3.1</h1>
-<h2><a class="anchor" id="autotoc_md250"></a>
+<h2><a class="anchor" id="autotoc_md228"></a>
 Features</h2>
 <ul>
 <li>Fix condition <code>CODEC_I2C_BACKWARD_COMPATIBLE</code> reversed</li>
 <li>Fix <code>CODEC_I2C_BACKWARD_COMPATIBLE</code> set to false build error</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md251"></a>
+<h1><a class="anchor" id="autotoc_md229"></a>
 v1.3.0</h1>
-<h2><a class="anchor" id="autotoc_md252"></a>
+<h2><a class="anchor" id="autotoc_md230"></a>
 Features</h2>
 <ul>
 <li>Add configuration <code>CODEC_I2C_BACKWARD_COMPATIBLE</code> in Kconfig to allow use of the old I2C driver. Default is set to <code>y</code> for backward compatibility. To use the new I2C driver, set it to <code>n</code> instead.</li>
 <li>Fix send I2C address low byte firstly</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md253"></a>
+<h1><a class="anchor" id="autotoc_md231"></a>
 v1.2.0</h1>
-<h2><a class="anchor" id="autotoc_md254"></a>
+<h2><a class="anchor" id="autotoc_md232"></a>
 Features</h2>
 <ul>
 <li>Add IDF v5.3 support Using new i2c driver <code>esp_driver_i2c</code>, add <code>bus_handle</code> configuration for <code><a class="el" href="structaudio__codec__i2c__cfg__t.html" title="Codec I2C configuration.">audio_codec_i2c_cfg_t</a></code>. User need create the <code>bus_handle</code> using API <code>i2c_new_master_bus</code> instead of <code>i2c_driver_install</code>.</li>
 <li>Change test code to standalone application, user can directly build it under folder <a href="test_apps/codec_dev_test">codec_dev_test</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md255"></a>
+<h2><a class="anchor" id="autotoc_md233"></a>
 Bug Fixes</h2>
 <ul>
 <li>Fix I2S work in PDM mode record or play mono channel audio wrongly</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md256"></a>
+<h1><a class="anchor" id="autotoc_md234"></a>
 v1.1.0</h1>
-<h2><a class="anchor" id="autotoc_md257"></a>
+<h2><a class="anchor" id="autotoc_md235"></a>
 Features</h2>
 <ul>
 <li>Add driver for AW88298, see detail datasheet <a href="https://datasheetspdf.com/download_new.php?id=1513778">AW88298</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md258"></a>
+<h2><a class="anchor" id="autotoc_md236"></a>
 Bug Fixes</h2>
 <ul>
 <li>Fix ES8311 playback fade in for long time</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md259"></a>
+<h1><a class="anchor" id="autotoc_md237"></a>
 v1.0.3</h1>
-<h2><a class="anchor" id="autotoc_md260"></a>
+<h2><a class="anchor" id="autotoc_md238"></a>
 Bug Fixes</h2>
 <ul>
 <li>Fix I2S TX and RX work in share mode, need enable TX before RX</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md261"></a>
+<h1><a class="anchor" id="autotoc_md239"></a>
 v1.0.2</h1>
-<h2><a class="anchor" id="autotoc_md262"></a>
+<h2><a class="anchor" id="autotoc_md240"></a>
 Features</h2>
 <ul>
 <li>Add I2S TDM support</li>
 <li>Add API to <code>esp_codec_dev_set_in_channel_gain</code> to set input channel gain dependently</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md263"></a>
+<h1><a class="anchor" id="autotoc_md241"></a>
 v1.0.1</h1>
-<h2><a class="anchor" id="autotoc_md264"></a>
+<h2><a class="anchor" id="autotoc_md242"></a>
 Bug Fixes</h2>
 <ul>
 <li>Fix ES8388 volume register set incorrectly</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md265"></a>
+<h1><a class="anchor" id="autotoc_md243"></a>
 v1.0.0</h1>
 <ul>
 <li>Initial version of <code>esp_codec_dev</code> </li>

@@ -92,174 +92,115 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;fastgltf/math.hpp&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;fastgltf/util.hpp&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;fastgltf/types.hpp&gt;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;fastgltf/tools.hpp&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;../gltf_data/lv_gltf_data_internal.hpp&quot;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">namespace </span>fastgltf</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>FASTGLTF_EXPORT <span class="keyword">inline</span> <span class="keyword">auto</span> getFastLocalTransformMatrix(<span class="keyword">const</span> Node &amp; node)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span>fastgltf</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>FASTGLTF_EXPORT <span class="keyword">template</span> &lt;<span class="keyword">typename</span> AssetType, <span class="keyword">typename</span> Callback&gt;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#if FASTGLTF_HAS_CONCEPTS</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">requires</span> std::same_as&lt;std::remove_cvref_t&lt;AssetType&gt;, Asset&gt; &amp;&amp;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::is_invocable_v&lt;Callback, fastgltf::Node &amp;, std::string &amp;,</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>                std::string &amp;, std::size_t, std::size_t&gt;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> namegen_iterate_scene_nodes(AssetType &amp;&amp;asset,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>                     std::size_t sceneIndex,</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>                     Callback callback)</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">return</span> visit_exhaustive(visitor {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        [&amp;](<span class="keyword">const</span> math::fmat4x4 &amp; matrix)</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">return</span> matrix;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        },</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        [&amp;](<span class="keyword">const</span> TRS &amp; trs)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            math::fmat4x4 matrix = math::fmat4x4();</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            <span class="keywordtype">float</span> sx = trs.scale[0], sy = trs.scale[1], sz = trs.scale[2];</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordtype">float</span> qx = trs.rotation[0], qy = trs.rotation[1], qz = trs.rotation[2], qw = trs.rotation[3];</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <span class="keywordtype">float</span> x2 = qx + qx, y2 = qy + qy, z2 = qz + qz;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordtype">float</span> xx = qx * x2, xy = qx * y2, xz = qx * z2;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordtype">float</span> yy = qy * y2, yz = qy * z2, zz = qz * z2;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordtype">float</span> wx = qw * x2, wy = qw * y2, wz = qw * z2;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            matrix[0][0] = (1 - (yy + zz)) * sx;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            matrix[0][1] = (xy + wz) * sx;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            matrix[0][2] = (xz - wy) * sx;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            matrix[1][0] = (xy - wz) * sy;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            matrix[1][1] = (1 - (xx + zz)) * sy;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            matrix[1][2] = (yz + wx) * sy;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            matrix[2][0] = (xz + wy) * sz;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            matrix[2][1] = (yz - wx) * sz;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            matrix[2][2] = (1 - (xx + yy)) * sz;</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            matrix[3][0] = trs.translation[0];</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            matrix[3][1] = trs.translation[1];</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            matrix[3][2] = trs.translation[2];</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            matrix[0][3] = 0.f;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            matrix[1][3] = 0.f;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            matrix[2][3] = 0.f;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            matrix[3][3] = 1.f;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">return</span> matrix;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }, node.transform);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>}</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>FASTGLTF_EXPORT <span class="keyword">inline</span> <span class="keywordtype">void</span> removeScale(fastgltf::math::fmat4x4 &amp; matrix)</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">auto</span> scale = math::fvec3(length(matrix.col(0)), length(matrix.col(1)), length(matrix.col(2)));</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span>((fabs(scale.x()) &gt; 0.00001f) &amp;&amp; (fabs(scale.y()) &gt; 0.00001f) &amp;&amp; (fabs(scale.z()) &gt; 0.00001f)) {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        matrix.col(0) /= scale.x();</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        matrix.col(1) /= scale.y();</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        matrix.col(2) /= scale.z();</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>FASTGLTF_EXPORT <span class="keyword">template</span> &lt;<span class="keyword">typename</span> AssetType, <span class="keyword">typename</span> Callback&gt;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#if FASTGLTF_HAS_CONCEPTS</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">requires</span> std::same_as&lt;std::remove_cvref_t&lt;AssetType&gt;, Asset&gt; &amp;&amp;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    std::is_invocable_v&lt;Callback, fastgltf::Node &amp;, std::string &amp;,</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    std::string &amp;, std::size_t, std::size_t&gt;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">void</span> namegen_iterate_scene_nodes(AssetType &amp;&amp;asset,</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                                 std::size_t sceneIndex,</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                                 Callback callback)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">auto</span> &amp; scene = asset.scenes[sceneIndex];</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::string _id = std::string(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    std::string _ip = std::string(<span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">if</span>(asset.scenes.size() &gt; 1) {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        _id = <span class="stringliteral">&quot;scene_&quot;</span> + std::to_string(sceneIndex);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        _ip = std::to_string(sceneIndex);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">auto</span> function = [&amp;](std::size_t nodeIndex, std::string &amp; parentId,</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                        std::string &amp; parentIp, std::size_t __child_index,</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">auto</span> &amp; self) -&gt; <span class="keywordtype">void</span> {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        assert(asset.nodes.size() &gt; nodeIndex);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keyword">auto</span> &amp; node = asset.nodes[nodeIndex];</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        std::string _nodeId =</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        parentId + std::string(<span class="stringliteral">&quot;/&quot;</span>) + std::string(node.name);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        std::string _nodeIp = parentIp + std::string(<span class="stringliteral">&quot;.&quot;</span>) +</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        std::to_string(__child_index);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        std::invoke(callback, node, _nodeId, _nodeIp, nodeIndex,</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                    __child_index);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        std::size_t ____child_index = 0;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp; child : node.children) {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            self(child, _nodeId, _nodeIp, ____child_index, self);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            ____child_index += 1;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        }</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    };</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    std::size_t child_index = 0;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp; sceneNode : scene.nodeIndices) {</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        function(sceneNode, _id, _ip, child_index, function);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        child_index += 1;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">auto</span> &amp;scene = asset.scenes[sceneIndex];</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::string _id = std::string(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::string _ip = std::string(<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordflow">if</span> (asset.scenes.size() &gt; 1) {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        _id = <span class="stringliteral">&quot;scene_&quot;</span> + std::to_string(sceneIndex);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        _ip = std::to_string(sceneIndex);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">auto</span> function = [&amp;](std::size_t nodeIndex, std::string &amp;parentId,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                std::string &amp;parentIp, std::size_t __child_index,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <span class="keyword">auto</span> &amp;self) -&gt; <span class="keywordtype">void</span> {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        assert(asset.nodes.size() &gt; nodeIndex);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">auto</span> &amp;node = asset.nodes[nodeIndex];</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        std::string _nodeId =</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            parentId + std::string(<span class="stringliteral">&quot;/&quot;</span>) + std::string(node.name);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        std::string _nodeIp = parentIp + std::string(<span class="stringliteral">&quot;.&quot;</span>) +</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                      std::to_string(__child_index);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        std::invoke(callback, node, _nodeId, _nodeIp, nodeIndex,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                __child_index);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        std::size_t ____child_index = 0;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;child : node.children) {</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            self(child, _nodeId, _nodeIp, ____child_index, self);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            ____child_index += 1;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    };</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::size_t child_index = 0;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;sceneNode : scene.nodeIndices) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        function(sceneNode, _id, _ip, child_index, function);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        child_index += 1;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>FASTGLTF_EXPORT <span class="keyword">template</span> &lt;<span class="keyword">typename</span> AssetType, <span class="keyword">typename</span> Callback&gt;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#if FASTGLTF_HAS_CONCEPTS</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">requires</span> std::same_as&lt;std::remove_cvref_t&lt;AssetType&gt;, Asset&gt; &amp;&amp;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    std::is_invocable_v&lt;Callback, fastgltf::Node &amp;, fastgltf::math::fmat4x4 &amp;, fastgltf::math::fmat4x4 &amp;&gt;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    findlight_iterate_scene_nodes(AssetType &amp;&amp;asset, std::size_t sceneIndex,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                      math::fmat4x4 *initial, Callback callback)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">auto</span> &amp;scene = asset.scenes[sceneIndex];</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">auto</span> function = [&amp;](std::size_t nodeIndex,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                math::fmat4x4 &amp;parentWorldMatrix,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <span class="keyword">auto</span> &amp;self) -&gt; <span class="keywordtype">void</span> {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        assert(asset.nodes.size() &gt; nodeIndex);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">auto</span> &amp;node = asset.nodes[nodeIndex];</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keyword">auto</span> _localMat = getTransformMatrix(node, math::fmat4x4());</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        std::invoke(callback, node, parentWorldMatrix, _localMat);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;child : node.children) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            math::fmat4x4 _parentWorldTemp =</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                parentWorldMatrix * _localMat;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            self(child, _parentWorldTemp, self);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    };</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;sceneNode : scene.nodeIndices) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">auto</span> tmat2 = fastgltf::math::fmat4x4(*initial);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        function(sceneNode, tmat2, function);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>FASTGLTF_EXPORT <span class="keyword">template</span> &lt;<span class="keyword">typename</span> AssetType, <span class="keyword">typename</span> Callback&gt;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#if FASTGLTF_HAS_CONCEPTS</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keyword">requires</span> std::same_as&lt;std::remove_cvref_t&lt;AssetType&gt;, Asset&gt;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    &amp;&amp; std::is_invocable_v&lt;Callback, fastgltf::Node &amp;, fastgltf::math::fmat4x4 &amp;, fastgltf::math::fmat4x4 &amp;&gt;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">inline</span> <span class="keywordtype">void</span> custom_iterate_scene_nodes(AssetType&amp;&amp; asset, std::size_t sceneIndex, math::fmat4x4 * initial,</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                                     Callback callback)</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">auto</span> &amp; scene = asset.scenes[sceneIndex];</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">auto</span> &amp; nodes = asset.nodes;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keyword">auto</span> function = [&amp;](std::size_t nodeIndex, math::fmat4x4 &amp; parentWorldMatrix, <span class="keyword">auto</span> &amp; self) -&gt; <span class="keywordtype">void</span> {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="comment">//assert(asset.nodes.size() &gt; nodeIndex);</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keyword">auto</span> &amp; node = nodes[nodeIndex];</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keyword">auto</span> _localMat = getTransformMatrix(node, math::fmat4x4());</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        std::invoke(callback, node, parentWorldMatrix, _localMat);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        uint32_t num_children = node.children.size();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">if</span>(num_children &gt; 0) {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            math::fmat4x4 _parentWorldTemp = parentWorldMatrix * _localMat;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">if</span>(num_children &gt; 1) {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                math::fmat4x4 per_child_copy = math::fmat4x4(_parentWorldTemp);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp; child : node.children) self(child, per_child_copy, self);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                self(node.children[0], _parentWorldTemp,  self);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        }</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    };</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="comment">// auto tempmat = fastgltf::math::fmat4x4(*initial);</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="comment">//for (auto&amp; sceneNode : scene.nodeIndices) function(sceneNode, &amp;tempmat, function);</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp; sceneNode : scene.nodeIndices) function(sceneNode, *initial, function);</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>FASTGLTF_EXPORT <span class="keyword">template</span> &lt;<span class="keyword">typename</span> AssetType, <span class="keyword">typename</span> Callback&gt;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="preprocessor">#if FASTGLTF_HAS_CONCEPTS</span></div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">requires</span> std::same_as&lt;std::remove_cvref_t&lt;AssetType&gt;, Asset&gt; &amp;&amp;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    std::is_invocable_v&lt;Callback, fastgltf::Node &amp;, fastgltf::math::fmat4x4 &amp;, fastgltf::math::fmat4x4 &amp;&gt;</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">void</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>findlight_iterate_scene_nodes(AssetType &amp;&amp;asset, std::size_t sceneIndex,</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                              math::fmat4x4 * initial, Callback callback)</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>{</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keyword">auto</span> &amp; scene = asset.scenes[sceneIndex];</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keyword">auto</span> function = [&amp;](std::size_t nodeIndex,</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                        math::fmat4x4 &amp; parentWorldMatrix,</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">auto</span> &amp; self) -&gt; <span class="keywordtype">void</span> {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        assert(asset.nodes.size() &gt; nodeIndex);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keyword">auto</span> &amp; node = asset.nodes[nodeIndex];</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keyword">auto</span> _localMat = getFastLocalTransformMatrix(node);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        std::invoke(callback, node, parentWorldMatrix, _localMat);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp; child : node.children) {</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            math::fmat4x4 _parentWorldTemp =</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            parentWorldMatrix * _localMat;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            self(child, _parentWorldTemp, self);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        }</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    };</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp; sceneNode : scene.nodeIndices) {</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keyword">auto</span> tmat2 = fastgltf::math::fmat4x4(*initial);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        function(sceneNode, tmat2, function);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>}</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>FASTGLTF_EXPORT <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Callback&gt;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">inline</span> <span class="keywordtype">void</span> custom_iterate_scene_nodes(lv_gltf_model_t * model, std::size_t sceneIndex, math::fmat4x4 * initial,</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                                       Callback callback)</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>{</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keyword">auto</span> &amp; scene = model-&gt;asset.scenes[sceneIndex];</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keyword">auto</span> invoke_cb = [&amp;](std::size_t node_index, math::fmat4x4 &amp; parent_world_matrix,</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">auto</span> &amp; self) -&gt; <span class="keywordtype">void</span> {</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        lv_gltf_model_node_t * node = (lv_gltf_model_node_t *)<a class="code hl_function" href="lv__array_8c.html#a8c9d9c729d1e7883ba1302a52f461113">lv_array_at</a>(&amp;model-&gt;nodes, node_index);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        fastgltf::Node &amp; fastgltf_node = *node-&gt;fastgltf_node;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        LV_ASSERT(node-&gt;fastgltf_node == &amp;fastgltf_node);</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keyword">auto</span> local_matrix = getFastLocalTransformMatrix(fastgltf_node);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        std::invoke(callback, node, parent_world_matrix, local_matrix);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        uint32_t num_children = fastgltf_node.children.size();</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">if</span>(num_children == 0) {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        }</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        math::fmat4x4 new_parent_world_matrix = parent_world_matrix * local_matrix;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">if</span>(num_children == 1)</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        {</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            self(fastgltf_node.children[0], new_parent_world_matrix,  self);</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        math::fmat4x4 parent_world_matrix_tmp_copy = math::fmat4x4(new_parent_world_matrix);</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <span class="keywordflow">for</span>(<span class="keyword">auto</span> &amp; child : fastgltf_node.children)</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            self(child, parent_world_matrix_tmp_copy, self);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    };</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0 ; i &lt; scene.nodeIndices.size(); ++i) {</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        invoke_cb(scene.nodeIndices[i], *initial, invoke_cb);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    }</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>}</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">#endif </span><span class="comment">/*LV_USE_GLTF*/</span><span class="preprocessor"></span></div>
-<div class="ttc" id="alv__array_8c_html_a8c9d9c729d1e7883ba1302a52f461113"><div class="ttname"><a href="lv__array_8c.html#a8c9d9c729d1e7883ba1302a52f461113">lv_array_at</a></div><div class="ttdeci">void * lv_array_at(const lv_array_t *array, uint32_t index)</div><div class="ttdef"><b>Definition</b> lv_array.c:228</div></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>}</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="preprocessor">#endif </span><span class="comment">/*LV_USE_GLTF*/</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

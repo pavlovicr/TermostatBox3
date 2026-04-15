@@ -1,12 +1,12 @@
 \chapter{ESP Codec Device}
 \hypertarget{md_managed__components_2espressif____esp__codec__dev_2README}{}\label{md_managed__components_2espressif____esp__codec__dev_2README}\index{ESP Codec Device@{ESP Codec Device}}
-\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md266}%
-\Hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md266}%
+\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md244}%
+\Hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md244}%
 
 \begin{DoxyItemize}
 \item \href{https://components.espressif.com/components/espressif/esp_codec_dev}{\texttt{ }}
 \item \doxysectlink{md_managed__components_2espressif____esp__codec__dev_2README__CN}{中文版本}{0}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md267}{}\doxysection{\texorpdfstring{General Information}{General Information}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md267}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md245}{}\doxysection{\texorpdfstring{General Information}{General Information}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md245}
 {\ttfamily esp\+\_\+codec\+\_\+dev} is a driver component for audio codec devices. Following features are supported currently\+:
 \begin{DoxyItemize}
 \item Support driver for common audio codec devices
@@ -14,8 +14,6 @@
 \item Add unified abstract interface to operate on codec device
 \item Support customized codec realization based on provided interface
 \item Easy-\/to-\/use high-\/level API for playback and recording
-\item Support ADC microphone capture through internal ADC data interface ({\ttfamily audio\+\_\+codec\+\_\+new\+\_\+adc\+\_\+data})
-\item Support dummy codec for PA-\/only speaker designs ({\ttfamily dummy\+\_\+codec\+\_\+new}), enabling automatic PA control via {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+open/close}
 \item Support for volume adjustment in software when it is not supported in hardware
 \item Support customized volume curve and customized volume control
 \item Easy to port to other platform after replacing codes under \href{./platform}{\texttt{ platform}}
@@ -46,7 +44,7 @@ ES7243E   &N   &Y    \\\cline{1-3}
 ES8156   &N   &Y    \\\cline{1-3}
 CJC8910   &Y   &Y   \\\cline{1-3}
 \end{longtabu}
-\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md268}{}\doxysection{\texorpdfstring{Architecture overview}{Architecture overview}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md268}
+\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md246}{}\doxysection{\texorpdfstring{Architecture overview}{Architecture overview}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md246}
 Hardware connection and software architecture are introduced respectively by taking the codec device (ES8311) as an example. ~\newline
  The hardware connection diagram between the codec device (ES8311) and the main IC (ESP32-\/\+S3) is as below\+: 
 \begin{DoxyCode}{0}
@@ -167,7 +165,7 @@ In software architecture, the above hardware behavior is abstracted as\+:
  Commonly used data channels include I2S, SPI, etc
 \end{DoxyItemize}
 
-{\ttfamily esp\+\_\+codec\+\_\+dev} provides users with convenient high-\/level API to implement playback and recording functions. It is composed of {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}}. {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} abstracts codec control operations and constructed by specified codec configuration (configured by {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} through {\ttfamily \doxylink{structes8311__codec__cfg__t}{es8311\+\_\+codec\+\_\+cfg\+\_\+t}}). {\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} abstracts the IO control to adapt to the main control IO or the expansion chip IO, and called inside the codec to match the unique set timing.\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md269}{}\doxysection{\texorpdfstring{DAC Volume setting}{DAC Volume setting}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md269}
+{\ttfamily esp\+\_\+codec\+\_\+dev} provides users with convenient high-\/level API to implement playback and recording functions. It is composed of {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}}. {\ttfamily \doxylink{structaudio__codec__if__t}{audio\+\_\+codec\+\_\+if\+\_\+t}} abstracts codec control operations and constructed by specified codec configuration (configured by {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} through {\ttfamily \doxylink{structes8311__codec__cfg__t}{es8311\+\_\+codec\+\_\+cfg\+\_\+t}}). {\ttfamily \doxylink{structaudio__codec__gpio__if__t}{audio\+\_\+codec\+\_\+gpio\+\_\+if\+\_\+t}} abstracts the IO control to adapt to the main control IO or the expansion chip IO, and called inside the codec to match the unique set timing.\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md247}{}\doxysection{\texorpdfstring{DAC Volume setting}{DAC Volume setting}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md247}
 Volume setting is realized by common API\+: {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+out\+\_\+vol}. ~\newline
  {\ttfamily esp\+\_\+codec\+\_\+dev} supports the following volume setup methods\+:
 \begin{DoxyEnumerate}
@@ -177,7 +175,7 @@ Volume setting is realized by common API\+: {\ttfamily esp\+\_\+codec\+\_\+dev\+
 \end{DoxyEnumerate}
 
 The default volume range is 0 -\/ 100. Volume \mbox{[}1\+:100\mbox{]} is mapped to \mbox{[}-\/49.\+5 dB\+:0 dB\mbox{]} with the scale being 0.\+5 dB. Volume 0 is mapped to -\/96 dB. To change this mapping, you can define your own volume curve through API {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+set\+\_\+vol\+\_\+curve}. The volume curve is an array of {\ttfamily \doxylink{structesp__codec__dev__vol__map__t}{esp\+\_\+codec\+\_\+dev\+\_\+vol\+\_\+map\+\_\+t}} which uses linear interpolation to calculate the decibel value at a certain volume point internally (please sort volume maps in advance). ~\newline
- To balance the speaker\textquotesingle{}s loudness across different platforms when playing the same content, you need to know some mechanism of the audio gain. In short, audio gain consists of two parts\+: software gain (adjustable) and hardware gain (fixed). Software gain can be adjusted by changing the input PCM data level or setting the codec volume register. The hardware gain is affected by the peripheral circuit, mainly by the amplification efficiency of the analog signal. The typical impact parameter of hardware gain is extracted into {\ttfamily \doxylink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}}, which can be configured to codec devices to ensure loudness consistency. For more details, please refer to the comments in \href{include/esp_codec_dev_vol.h}{\texttt{ esp\+\_\+codec\+\_\+dev\+\_\+vol.\+h}}.\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md270}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md270}
+ To balance the speaker\textquotesingle{}s loudness across different platforms when playing the same content, you need to know some mechanism of the audio gain. In short, audio gain consists of two parts\+: software gain (adjustable) and hardware gain (fixed). Software gain can be adjusted by changing the input PCM data level or setting the codec volume register. The hardware gain is affected by the peripheral circuit, mainly by the amplification efficiency of the analog signal. The typical impact parameter of hardware gain is extracted into {\ttfamily \doxylink{structesp__codec__dev__hw__gain__t}{esp\+\_\+codec\+\_\+dev\+\_\+hw\+\_\+gain\+\_\+t}}, which can be configured to codec devices to ensure loudness consistency. For more details, please refer to the comments in \href{include/esp_codec_dev_vol.h}{\texttt{ esp\+\_\+codec\+\_\+dev\+\_\+vol.\+h}}.\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md248}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md248}
 The steps below take the ES8311 codec as an example to illustrate how to play and record audio.
 \begin{DoxyEnumerate}
 \item Install the driver for codec control and data bus referring to \href{test_apps/codec_dev_test/main/test_board.c}{\texttt{ test\+\_\+board.\+c}} ~\newline
@@ -247,15 +245,7 @@ The steps below take the ES8311 codec as an example to illustrate how to play an
 
 \end{DoxyCode}
 
-\end{DoxyEnumerate}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md271}{}\doxysubsection{\texorpdfstring{Use ADC mic and dummy codec (no external codec chip)}{Use ADC mic and dummy codec (no external codec chip)}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md271}
-For boards that use an internal ADC microphone and a speaker PA without an external codec chip\+:
-
-
-\begin{DoxyItemize}
-\item Use {\ttfamily audio\+\_\+codec\+\_\+new\+\_\+adc\+\_\+data} as the input data interface for ADC capture.
-\item Use {\ttfamily dummy\+\_\+codec\+\_\+new} with {\ttfamily pa\+\_\+pin} configured to bind PA power control to codec lifecycle.
-\item Then {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+open()} / {\ttfamily esp\+\_\+codec\+\_\+dev\+\_\+close()} can still automatically enable/disable PA.
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md272}{}\doxysection{\texorpdfstring{How to customize for new codec device}{How to customize for new codec device}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md272}
+\end{DoxyEnumerate}\hypertarget{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md249}{}\doxysection{\texorpdfstring{How to customize for new codec device}{How to customize for new codec device}}\label{md_managed__components_2espressif____esp__codec__dev_2README_autotoc_md249}
 
 \begin{DoxyEnumerate}
 \item Implement {\ttfamily \doxylink{structaudio__codec__ctrl__if__t}{audio\+\_\+codec\+\_\+ctrl\+\_\+if\+\_\+t}} and {\ttfamily \doxylink{structaudio__codec__data__if__t}{audio\+\_\+codec\+\_\+data\+\_\+if\+\_\+t}} ~\newline

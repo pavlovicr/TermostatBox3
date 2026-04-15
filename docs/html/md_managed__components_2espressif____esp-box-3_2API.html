@@ -72,14 +72,14 @@ $(function() {
   <div class="headertitle"><div class="title">API Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md103"></a> </p><div align="center"></div><div align="center">| :1234: CAPABILITIES | :floppy_disk: SD CARD AND SPIFFS | :musical_note: AUDIO | :pager: DISPLAY AND TOUCH | :radio_button: BUTTONS | :electric_plug: USB | :video_game: SENSORS | | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: |</div><div align="center"></div><h1><a class="anchor" id="autotoc_md104"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md97"></a> </p><div align="center"></div><div align="center">| :1234: CAPABILITIES | :floppy_disk: SD CARD AND SPIFFS | :musical_note: AUDIO | :pager: DISPLAY AND TOUCH | :radio_button: BUTTONS | :electric_plug: USB | | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: | :----------------------&mdash;: |</div><div align="center"></div><h1><a class="anchor" id="autotoc_md98"></a>
 Overview</h1>
 <p>This document provides an overview of the ESP-BSP (Board Support Package) API as implemented by this board.</p>
 <p>While the ESP-BSP framework defines a unified API shared across multiple boards, this documentation focuses only on the APIs supported by the current board. Any APIs not applicable to this board's hardware are excluded or may not be functional.</p>
 <p>The goal of this document is to make it easier for developers to understand the available APIs and how to use them consistently across different boards.</p>
-<h1><a class="anchor" id="autotoc_md105"></a>
+<h1><a class="anchor" id="autotoc_md99"></a>
 General</h1>
-<h2><a class="anchor" id="autotoc_md106"></a>
+<h2><a class="anchor" id="autotoc_md100"></a>
 Pinout</h2>
 <p>Each BSP defines a set of macros for default pin assignments used by its hardware peripherals. These macros allow users to configure or reference standard interfaces like I2C, SPI, LCD, audio, or SD cards easily.</p>
 <ul>
@@ -93,7 +93,7 @@ Pinout</h2>
 <blockquote class="doxtable">
 <p>&zwj;[!NOTE] Not all boards support all interfaces. You should always check if the related capability macro (e.g., BSP_CAPS_SDCARD) is defined. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md107"></a>
+<h2><a class="anchor" id="autotoc_md101"></a>
 I2C</h2>
 <p>Some devices included in BSPs (e.g., sensors, displays, audio codecs) communicate via the I2C interface. In many cases, I2C is initialized automatically as part of the device setup. However, you can manually initialize or deinitialize the I2C peripheral using the following API:</p>
 <div class="fragment"><div class="line">/* Initialize the default I2C bus used by the BSP */</div>
@@ -108,7 +108,7 @@ I2C</h2>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;[!NOTE] The BSP ensures that I2C initialization is performed only once, even if called multiple times. This helps avoid conflicts when multiple components rely on the same I2C bus. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md108"></a>
+<h2><a class="anchor" id="autotoc_md102"></a>
 ADC</h2>
 <p>Some devices included in BSPs (such as buttons, battery monitoring, etc.) use the ADC peripheral. In most cases, the ADC is automatically initialized as part of the specific device setup. However, you can manually initialize the ADC using the following API:</p>
 <div class="fragment"><div class="line">/* Initialize the ADC peripheral */</div>
@@ -118,7 +118,7 @@ ADC</h2>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;[!NOTE] The BSP ensures the ADC is initialized only once, even if <code>bsp_adc_initialize()</code> is called multiple times. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md109"></a>
+<h2><a class="anchor" id="autotoc_md103"></a>
 Features</h2>
 <p>Some boards support enabling or disabling specific hardware features (such as LCD, SD card, camera, etc.) to reduce power consumption or manage shared resources. The BSP provides a unified API to control these features:</p>
 <div class="fragment"><div class="line">/* Enable the LCD feature */</div>
@@ -140,12 +140,12 @@ Features</h2>
 <blockquote class="doxtable">
 <p>&zwj;[!TIP] Disabling unused features can help reduce power consumption, especially in battery-powered applications. </p>
 </blockquote>
-<h1><a class="anchor" id="autotoc_md110"></a>
+<h1><a class="anchor" id="autotoc_md104"></a>
 Identification</h1>
 <p>Each BSP defines an identifier macro in the form of <code>BSP_BOARD_*</code>.</p>
-<h2><a class="anchor" id="autotoc_md111"></a>
+<h2><a class="anchor" id="autotoc_md105"></a>
 Board Name API Reference</h2>
-<h1><a class="anchor" id="autotoc_md112"></a>
+<h1><a class="anchor" id="autotoc_md106"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -154,12 +154,12 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_BOARD\_ESP\_BOX\_3** <br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md113"></a>
+<h1><a class="anchor" id="autotoc_md107"></a>
 :1234: Capabilities</h1>
 <p>Each BSP defines a set of capability macros that indicate which features are supported. The list may look like this. You can use these macros to conditionally compile code depending on feature availability.</p>
-<h2><a class="anchor" id="autotoc_md114"></a>
+<h2><a class="anchor" id="autotoc_md108"></a>
 Capabilities API Reference</h2>
-<h1><a class="anchor" id="autotoc_md115"></a>
+<h1><a class="anchor" id="autotoc_md109"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -180,21 +180,18 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_CAPS\_DISPLAY** 1<br  />
     </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_CAPS\_HUMITURE** 1<br  />
-    </td></tr>
-<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_CAPS\_IMU** 1<br  />
     </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_CAPS\_SDCARD** 1<br  />
     </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_CAPS\_TOUCH** 1<br  />
    </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md116"></a>
+<h2><a class="anchor" id="autotoc_md110"></a>
 PMOD API Reference</h2>
-<h1><a class="anchor" id="autotoc_md117"></a>
+<h1><a class="anchor" id="autotoc_md111"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -248,9 +245,9 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_PMOD2\_IO8** GPIO_NUM_43<br  />
    </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md118"></a>
+<h2><a class="anchor" id="autotoc_md112"></a>
 I2C API Reference</h2>
-<h1><a class="anchor" id="autotoc_md119"></a>
+<h1><a class="anchor" id="autotoc_md113"></a>
 Functions</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -265,17 +262,11 @@ Functions</h1>
 <td class="markdownTableBodyRight">esp_err_t   </td><td class="markdownTableBodyLeft">**bsp\_i2c\_init** (void) <br  />
 <em>Init I2C driver.</em>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md120"></a>
+<h1><a class="anchor" id="autotoc_md114"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Type   </th><th class="markdownTableHeadLeft">Name    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_I2C\_DOCK\_SCL** (GPIO_NUM_40)<br  />
-    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_I2C\_DOCK\_SDA** (GPIO_NUM_41)<br  />
-    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_I2C\_NUM** CONFIG_BSP_I2C_NUM<br  />
     </td></tr>
@@ -286,44 +277,44 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_I2C\_SDA** (GPIO_NUM_8)<br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md121"></a>
+<h1><a class="anchor" id="autotoc_md115"></a>
 Functions Documentation</h1>
-<h2><a class="anchor" id="autotoc_md122"></a>
+<h2><a class="anchor" id="autotoc_md116"></a>
 function &lt;tt&gt;bsp_i2c_deinit&lt;/tt&gt;</h2>
 <p><em>Deinit I2C driver and free its resources.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g01__i2c.html#gaa6817a14a21673842bdc988aedf23bcd">bsp_i2c_deinit</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g01__i2c_html_gaa6817a14a21673842bdc988aedf23bcd"><div class="ttname"><a href="group__g01__i2c.html#gaa6817a14a21673842bdc988aedf23bcd">bsp_i2c_deinit</a></div><div class="ttdeci">esp_err_t bsp_i2c_deinit(void)</div><div class="ttdoc">Deinit I2C driver and free its resources.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:163</div></div>
+<div class="ttc" id="agroup__g01__i2c_html_gaa6817a14a21673842bdc988aedf23bcd"><div class="ttname"><a href="group__g01__i2c.html#gaa6817a14a21673842bdc988aedf23bcd">bsp_i2c_deinit</a></div><div class="ttdeci">esp_err_t bsp_i2c_deinit(void)</div><div class="ttdoc">Deinit I2C driver and free its resources.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:139</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK On success</li>
 <li>ESP_ERR_INVALID_ARG I2C parameter error </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md123"></a>
+<h2><a class="anchor" id="autotoc_md117"></a>
 function &lt;tt&gt;bsp_i2c_get_handle&lt;/tt&gt;</h2>
 <p><em>Get I2C driver handle.</em> </p><div class="fragment"><div class="line">i2c_master_bus_handle_t <a class="code hl_function" href="group__g01__i2c.html#ga7379e225eb4230551bdb96d2ed2dabca">bsp_i2c_get_handle</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g01__i2c_html_ga7379e225eb4230551bdb96d2ed2dabca"><div class="ttname"><a href="group__g01__i2c.html#ga7379e225eb4230551bdb96d2ed2dabca">bsp_i2c_get_handle</a></div><div class="ttdeci">i2c_master_bus_handle_t bsp_i2c_get_handle(void)</div><div class="ttdoc">Get I2C driver handle.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:171</div></div>
+<div class="ttc" id="agroup__g01__i2c_html_ga7379e225eb4230551bdb96d2ed2dabca"><div class="ttname"><a href="group__g01__i2c.html#ga7379e225eb4230551bdb96d2ed2dabca">bsp_i2c_get_handle</a></div><div class="ttdeci">i2c_master_bus_handle_t bsp_i2c_get_handle(void)</div><div class="ttdoc">Get I2C driver handle.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:146</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <ul>
 <li>I2C handle </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md124"></a>
+<h2><a class="anchor" id="autotoc_md118"></a>
 function &lt;tt&gt;bsp_i2c_init&lt;/tt&gt;</h2>
 <p><em>Init I2C driver.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g01__i2c.html#gafb504c284aa8a47f2ffee89038bd5b98">bsp_i2c_init</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g01__i2c_html_gafb504c284aa8a47f2ffee89038bd5b98"><div class="ttname"><a href="group__g01__i2c.html#gafb504c284aa8a47f2ffee89038bd5b98">bsp_i2c_init</a></div><div class="ttdeci">esp_err_t bsp_i2c_init(void)</div><div class="ttdoc">Init I2C driver.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:126</div></div>
+<div class="ttc" id="agroup__g01__i2c_html_gafb504c284aa8a47f2ffee89038bd5b98"><div class="ttname"><a href="group__g01__i2c.html#gafb504c284aa8a47f2ffee89038bd5b98">bsp_i2c_init</a></div><div class="ttdeci">esp_err_t bsp_i2c_init(void)</div><div class="ttdoc">Init I2C driver.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:120</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK On success</li>
 <li>ESP_ERR_INVALID_ARG I2C parameter error</li>
 <li>ESP_FAIL I2C driver installation error</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md125"></a>
+<h1><a class="anchor" id="autotoc_md119"></a>
 :floppy_disk: SD Card and SPIFFS</h1>
-<h2><a class="anchor" id="autotoc_md126"></a>
+<h2><a class="anchor" id="autotoc_md120"></a>
 SPIFFS Initialization / Deinitialization</h2>
 <p>Each BSP provides a simple API for mounting and unmounting the SPI Flash File System (SPIFFS).</p>
 <div class="fragment"><div class="line">/* Mount SPIFFS to the virtual file system */</div>
@@ -333,7 +324,7 @@ SPIFFS Initialization / Deinitialization</h2>
 <div class="line"> </div>
 <div class="line">/* Unmount SPIFFS from the virtual file system */</div>
 <div class="line">bsp_spiffs_unmount();</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md127"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md121"></a>
 SD Card Initialization / Deinitialization</h2>
 <p>The BSP offers a flexible API for working with SD cards. In addition to the default mount and unmount functions, you can also use a configuration structure or access preconfigured <code>host</code> and <code>slot</code> structures.</p>
 <p>Mount with Default Configuration</p>
@@ -355,7 +346,7 @@ SD Card Initialization / Deinitialization</h2>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;[!NOTE] Not all BSPs support both SDMMC and SPI modes. Check the board documentation to see which interfaces are available. If an unsupported interface is used, the API will return <code>ESP_ERR_NOT_SUPPORTED</code> error. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md128"></a>
+<h2><a class="anchor" id="autotoc_md122"></a>
 After Mounting</h2>
 <p>Once the SD card or SPIFFS is mounted, you can use standard file I/O functions (<code>fopen</code>, <code>fread</code>, <code>fwrite</code>, <code>fclose</code>, etc.) provided by ESP-IDF's VFS (Virtual File System).</p>
 <p>To print basic SD card information (after mounting), you can use: </p><div class="fragment"><div class="line">sdmmc_card_t *sdcard = bsp_sdcard_get_handle();</div>
@@ -363,9 +354,9 @@ After Mounting</h2>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;[!TIP] The <a class="el" href="group__g02__storage.html#ga544da06689f3934a3235502772a8164c" title="Get SD card handle.">bsp_sdcard_get_handle()</a> function returns a pointer to the sdmmc_card_t structure, which contains detailed information about the connected SD card. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md129"></a>
+<h2><a class="anchor" id="autotoc_md123"></a>
 SD Card and SPIFFS API Reference</h2>
-<h1><a class="anchor" id="autotoc_md130"></a>
+<h1><a class="anchor" id="autotoc_md124"></a>
 Structures and Types</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -374,7 +365,7 @@ Structures and Types</h1>
 <td class="markdownTableBodyRight">struct   </td><td class="markdownTableBodyLeft">**bsp\_sdcard\_cfg\_t** <br  />
 <em>BSP SD card configuration structure.</em>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md131"></a>
+<h1><a class="anchor" id="autotoc_md125"></a>
 Functions</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -413,7 +404,7 @@ Functions</h1>
 <td class="markdownTableBodyRight">esp_err_t   </td><td class="markdownTableBodyLeft">**bsp\_spiffs\_unmount** (void) <br  />
 <em>Unmount SPIFFS from virtual file system.</em>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md132"></a>
+<h1><a class="anchor" id="autotoc_md126"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -464,9 +455,9 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_SPIFFS\_MOUNT\_POINT** CONFIG_BSP_SPIFFS_MOUNT_POINT<br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md133"></a>
+<h1><a class="anchor" id="autotoc_md127"></a>
 Structures and Types Documentation</h1>
-<h2><a class="anchor" id="autotoc_md134"></a>
+<h2><a class="anchor" id="autotoc_md128"></a>
 struct &lt;tt&gt;bsp_sdcard_cfg_t&lt;/tt&gt;</h2>
 <p><em>BSP SD card configuration structure.</em></p>
 <p>Variables:</p>
@@ -482,46 +473,46 @@ struct &lt;tt&gt;bsp_sdcard_cfg_t&lt;/tt&gt;</h2>
 <li>union **bsp\_sdcard\_cfg\_t** slot <br  />
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md135"></a>
+<h1><a class="anchor" id="autotoc_md129"></a>
 Functions Documentation</h1>
-<h2><a class="anchor" id="autotoc_md136"></a>
+<h2><a class="anchor" id="autotoc_md130"></a>
 function &lt;tt&gt;bsp_sdcard_get_handle&lt;/tt&gt;</h2>
 <p><em>Get SD card handle.</em> </p><div class="fragment"><div class="line">sdmmc_card_t * <a class="code hl_function" href="group__g02__storage.html#ga544da06689f3934a3235502772a8164c">bsp_sdcard_get_handle</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_ga544da06689f3934a3235502772a8164c"><div class="ttname"><a href="group__g02__storage.html#ga544da06689f3934a3235502772a8164c">bsp_sdcard_get_handle</a></div><div class="ttdeci">sdmmc_card_t * bsp_sdcard_get_handle(void)</div><div class="ttdoc">Get SD card handle.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:215</div></div>
+<div class="ttc" id="agroup__g02__storage_html_ga544da06689f3934a3235502772a8164c"><div class="ttname"><a href="group__g02__storage.html#ga544da06689f3934a3235502772a8164c">bsp_sdcard_get_handle</a></div><div class="ttdeci">sdmmc_card_t * bsp_sdcard_get_handle(void)</div><div class="ttdoc">Get SD card handle.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:190</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <p>SD card handle </p>
-<h2><a class="anchor" id="autotoc_md137"></a>
+<h2><a class="anchor" id="autotoc_md131"></a>
 function &lt;tt&gt;bsp_sdcard_get_sdmmc_host&lt;/tt&gt;</h2>
 <p><em>Get SD card MMC host config.</em> </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__g02__storage.html#ga23edbd6330f928a6aa428805569c55bd">bsp_sdcard_get_sdmmc_host</a> (</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> slot,</div>
 <div class="line">    sdmmc_host_t *config</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_ga23edbd6330f928a6aa428805569c55bd"><div class="ttname"><a href="group__g02__storage.html#ga23edbd6330f928a6aa428805569c55bd">bsp_sdcard_get_sdmmc_host</a></div><div class="ttdeci">void bsp_sdcard_get_sdmmc_host(const int slot, sdmmc_host_t *config)</div><div class="ttdoc">Get SD card MMC host config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:220</div></div>
+<div class="ttc" id="agroup__g02__storage_html_ga23edbd6330f928a6aa428805569c55bd"><div class="ttname"><a href="group__g02__storage.html#ga23edbd6330f928a6aa428805569c55bd">bsp_sdcard_get_sdmmc_host</a></div><div class="ttdeci">void bsp_sdcard_get_sdmmc_host(const int slot, sdmmc_host_t *config)</div><div class="ttdoc">Get SD card MMC host config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:195</div></div>
 </div><!-- fragment --><p><b>Parameters:</b></p>
 <ul>
 <li><code>slot</code> SD card slot</li>
 <li><code>config</code> Structure which will be filled </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md138"></a>
+<h2><a class="anchor" id="autotoc_md132"></a>
 function &lt;tt&gt;bsp_sdcard_get_sdspi_host&lt;/tt&gt;</h2>
 <p><em>Get SD card SPI host config.</em> </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__g02__storage.html#ga5abfdbb971b7836c8741c770917262b1">bsp_sdcard_get_sdspi_host</a> (</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> slot,</div>
 <div class="line">    sdmmc_host_t *config</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_ga5abfdbb971b7836c8741c770917262b1"><div class="ttname"><a href="group__g02__storage.html#ga5abfdbb971b7836c8741c770917262b1">bsp_sdcard_get_sdspi_host</a></div><div class="ttdeci">void bsp_sdcard_get_sdspi_host(const int slot, sdmmc_host_t *config)</div><div class="ttdoc">Get SD card SPI host config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:229</div></div>
+<div class="ttc" id="agroup__g02__storage_html_ga5abfdbb971b7836c8741c770917262b1"><div class="ttname"><a href="group__g02__storage.html#ga5abfdbb971b7836c8741c770917262b1">bsp_sdcard_get_sdspi_host</a></div><div class="ttdeci">void bsp_sdcard_get_sdspi_host(const int slot, sdmmc_host_t *config)</div><div class="ttdoc">Get SD card SPI host config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:204</div></div>
 </div><!-- fragment --><p><b>Parameters:</b></p>
 <ul>
 <li><code>slot</code> SD card slot</li>
 <li><code>config</code> Structure which will be filled </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md139"></a>
+<h2><a class="anchor" id="autotoc_md133"></a>
 function &lt;tt&gt;bsp_sdcard_mount&lt;/tt&gt;</h2>
 <p><em>Mount microSD card to virtual file system.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g02__storage.html#ga5560065f8b54fe0756b84b1e899e6377">bsp_sdcard_mount</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_ga5560065f8b54fe0756b84b1e899e6377"><div class="ttname"><a href="group__g02__storage.html#ga5560065f8b54fe0756b84b1e899e6377">bsp_sdcard_mount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_mount(void)</div><div class="ttdoc">Mount microSD card to virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:374</div></div>
+<div class="ttc" id="agroup__g02__storage_html_ga5560065f8b54fe0756b84b1e899e6377"><div class="ttname"><a href="group__g02__storage.html#ga5560065f8b54fe0756b84b1e899e6377">bsp_sdcard_mount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_mount(void)</div><div class="ttdoc">Mount microSD card to virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:349</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK on success</li>
@@ -530,25 +521,25 @@ function &lt;tt&gt;bsp_sdcard_mount&lt;/tt&gt;</h2>
 <li>ESP_FAIL if partition can not be mounted</li>
 <li>other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md140"></a>
+<h2><a class="anchor" id="autotoc_md134"></a>
 function &lt;tt&gt;bsp_sdcard_sdmmc_get_slot&lt;/tt&gt;</h2>
 <p><em>Get SD card MMC slot config.</em> </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__g02__storage.html#gae633008e9dcfbccd0258578f1d2b317a">bsp_sdcard_sdmmc_get_slot</a> (</div>
 <div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> slot,</div>
 <div class="line">    sdmmc_slot_config_t *config</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_gae633008e9dcfbccd0258578f1d2b317a"><div class="ttname"><a href="group__g02__storage.html#gae633008e9dcfbccd0258578f1d2b317a">bsp_sdcard_sdmmc_get_slot</a></div><div class="ttdeci">void bsp_sdcard_sdmmc_get_slot(const int slot, sdmmc_slot_config_t *config)</div><div class="ttdoc">Get SD card MMC slot config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:239</div></div>
+<div class="ttc" id="agroup__g02__storage_html_gae633008e9dcfbccd0258578f1d2b317a"><div class="ttname"><a href="group__g02__storage.html#gae633008e9dcfbccd0258578f1d2b317a">bsp_sdcard_sdmmc_get_slot</a></div><div class="ttdeci">void bsp_sdcard_sdmmc_get_slot(const int slot, sdmmc_slot_config_t *config)</div><div class="ttdoc">Get SD card MMC slot config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:214</div></div>
 </div><!-- fragment --><p><b>Parameters:</b></p>
 <ul>
 <li><code>slot</code> SD card slot</li>
 <li><code>config</code> Structure which will be filled </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md141"></a>
+<h2><a class="anchor" id="autotoc_md135"></a>
 function &lt;tt&gt;bsp_sdcard_sdmmc_mount&lt;/tt&gt;</h2>
 <p><em>Mount microSD card to virtual file system (MMC mode)</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g02__storage.html#gaa8a01e03e7801c3ba65dfd868c10a52f">bsp_sdcard_sdmmc_mount</a> (</div>
 <div class="line">    <a class="code hl_struct" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *cfg</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_gaa8a01e03e7801c3ba65dfd868c10a52f"><div class="ttname"><a href="group__g02__storage.html#gaa8a01e03e7801c3ba65dfd868c10a52f">bsp_sdcard_sdmmc_mount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_sdmmc_mount(bsp_sdcard_cfg_t *cfg)</div><div class="ttdoc">Mount microSD card to virtual file system (MMC mode)</div><div class="ttdef"><b>Definition</b> esp-box-3.c:272</div></div>
-<div class="ttc" id="astructbsp__sdcard__cfg__t_html"><div class="ttname"><a href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a></div><div class="ttdoc">BSP SD card configuration structure.</div><div class="ttdef"><b>Definition</b> esp-box-3.h:371</div></div>
+<div class="ttc" id="agroup__g02__storage_html_gaa8a01e03e7801c3ba65dfd868c10a52f"><div class="ttname"><a href="group__g02__storage.html#gaa8a01e03e7801c3ba65dfd868c10a52f">bsp_sdcard_sdmmc_mount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_sdmmc_mount(bsp_sdcard_cfg_t *cfg)</div><div class="ttdoc">Mount microSD card to virtual file system (MMC mode)</div><div class="ttdef"><b>Definition</b> esp-box-3.c:247</div></div>
+<div class="ttc" id="astructbsp__sdcard__cfg__t_html"><div class="ttname"><a href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a></div><div class="ttdoc">BSP SD card configuration structure.</div><div class="ttdef"><b>Definition</b> esp-box-3.h:366</div></div>
 </div><!-- fragment --><p><b>Parameters:</b></p>
 <ul>
 <li><code>cfg</code> SD card configuration</li>
@@ -561,24 +552,24 @@ function &lt;tt&gt;bsp_sdcard_sdmmc_mount&lt;/tt&gt;</h2>
 <li>ESP_FAIL if partition cannot be mounted</li>
 <li>other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md142"></a>
+<h2><a class="anchor" id="autotoc_md136"></a>
 function &lt;tt&gt;bsp_sdcard_sdspi_get_slot&lt;/tt&gt;</h2>
 <p><em>Get SD card SPI slot config.</em> </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__g02__storage.html#ga90a00ff32d12e77b321985c84d358cf6">bsp_sdcard_sdspi_get_slot</a> (</div>
 <div class="line">    <span class="keyword">const</span> spi_host_device_t spi_host,</div>
 <div class="line">    sdspi_device_config_t *config</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_ga90a00ff32d12e77b321985c84d358cf6"><div class="ttname"><a href="group__g02__storage.html#ga90a00ff32d12e77b321985c84d358cf6">bsp_sdcard_sdspi_get_slot</a></div><div class="ttdeci">void bsp_sdcard_sdspi_get_slot(const spi_host_device_t spi_host, sdspi_device_config_t *config)</div><div class="ttdoc">Get SD card SPI slot config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:257</div></div>
+<div class="ttc" id="agroup__g02__storage_html_ga90a00ff32d12e77b321985c84d358cf6"><div class="ttname"><a href="group__g02__storage.html#ga90a00ff32d12e77b321985c84d358cf6">bsp_sdcard_sdspi_get_slot</a></div><div class="ttdeci">void bsp_sdcard_sdspi_get_slot(const spi_host_device_t spi_host, sdspi_device_config_t *config)</div><div class="ttdoc">Get SD card SPI slot config.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:232</div></div>
 </div><!-- fragment --><p><b>Parameters:</b></p>
 <ul>
 <li><code>spi_host</code> SPI host ID</li>
 <li><code>config</code> Structure which will be filled </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md143"></a>
+<h2><a class="anchor" id="autotoc_md137"></a>
 function &lt;tt&gt;bsp_sdcard_sdspi_mount&lt;/tt&gt;</h2>
 <p><em>Mount microSD card to virtual file system (SPI mode)</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g02__storage.html#ga4a0df6fcd3272a1ca89206872d897142">bsp_sdcard_sdspi_mount</a> (</div>
 <div class="line">    <a class="code hl_struct" href="structbsp__sdcard__cfg__t.html">bsp_sdcard_cfg_t</a> *cfg</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_ga4a0df6fcd3272a1ca89206872d897142"><div class="ttname"><a href="group__g02__storage.html#ga4a0df6fcd3272a1ca89206872d897142">bsp_sdcard_sdspi_mount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_sdspi_mount(bsp_sdcard_cfg_t *cfg)</div><div class="ttdoc">Mount microSD card to virtual file system (SPI mode)</div><div class="ttdef"><b>Definition</b> esp-box-3.c:317</div></div>
+<div class="ttc" id="agroup__g02__storage_html_ga4a0df6fcd3272a1ca89206872d897142"><div class="ttname"><a href="group__g02__storage.html#ga4a0df6fcd3272a1ca89206872d897142">bsp_sdcard_sdspi_mount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_sdspi_mount(bsp_sdcard_cfg_t *cfg)</div><div class="ttdoc">Mount microSD card to virtual file system (SPI mode)</div><div class="ttdef"><b>Definition</b> esp-box-3.c:292</div></div>
 </div><!-- fragment --><p><b>Parameters:</b></p>
 <ul>
 <li><code>cfg</code> SD card configuration</li>
@@ -591,12 +582,12 @@ function &lt;tt&gt;bsp_sdcard_sdspi_mount&lt;/tt&gt;</h2>
 <li>ESP_FAIL if partition cannot be mounted</li>
 <li>other error codes from SDMMC or SPI drivers, SDMMC protocol, or FATFS drivers </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md144"></a>
+<h2><a class="anchor" id="autotoc_md138"></a>
 function &lt;tt&gt;bsp_sdcard_unmount&lt;/tt&gt;</h2>
 <p><em>Unmount micorSD card from virtual file system.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g02__storage.html#gab22f98cd53a08f8d0713097bbed2d2c0">bsp_sdcard_unmount</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_gab22f98cd53a08f8d0713097bbed2d2c0"><div class="ttname"><a href="group__g02__storage.html#gab22f98cd53a08f8d0713097bbed2d2c0">bsp_sdcard_unmount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_unmount(void)</div><div class="ttdoc">Unmount micorSD card from virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:380</div></div>
+<div class="ttc" id="agroup__g02__storage_html_gab22f98cd53a08f8d0713097bbed2d2c0"><div class="ttname"><a href="group__g02__storage.html#gab22f98cd53a08f8d0713097bbed2d2c0">bsp_sdcard_unmount</a></div><div class="ttdeci">esp_err_t bsp_sdcard_unmount(void)</div><div class="ttdoc">Unmount micorSD card from virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:355</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK on success</li>
@@ -606,12 +597,12 @@ function &lt;tt&gt;bsp_sdcard_unmount&lt;/tt&gt;</h2>
 <li>ESP_FAIL if partition can not be mounted</li>
 <li>other error codes from wear levelling library, SPI flash driver, or FATFS drivers </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md145"></a>
+<h2><a class="anchor" id="autotoc_md139"></a>
 function &lt;tt&gt;bsp_spiffs_mount&lt;/tt&gt;</h2>
 <p><em>Mount SPIFFS to virtual file system.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g02__storage.html#gac9a93112f87090d2f5e2e11d24e93232">bsp_spiffs_mount</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_gac9a93112f87090d2f5e2e11d24e93232"><div class="ttname"><a href="group__g02__storage.html#gac9a93112f87090d2f5e2e11d24e93232">bsp_spiffs_mount</a></div><div class="ttdeci">esp_err_t bsp_spiffs_mount(void)</div><div class="ttdoc">Mount SPIFFS to virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:182</div></div>
+<div class="ttc" id="agroup__g02__storage_html_gac9a93112f87090d2f5e2e11d24e93232"><div class="ttname"><a href="group__g02__storage.html#gac9a93112f87090d2f5e2e11d24e93232">bsp_spiffs_mount</a></div><div class="ttdeci">esp_err_t bsp_spiffs_mount(void)</div><div class="ttdoc">Mount SPIFFS to virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:157</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK on success</li>
@@ -620,12 +611,12 @@ function &lt;tt&gt;bsp_spiffs_mount&lt;/tt&gt;</h2>
 <li>ESP_FAIL if partition can not be mounted</li>
 <li>other error codes </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md146"></a>
+<h2><a class="anchor" id="autotoc_md140"></a>
 function &lt;tt&gt;bsp_spiffs_unmount&lt;/tt&gt;</h2>
 <p><em>Unmount SPIFFS from virtual file system.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g02__storage.html#ga0c392bdd27b40fb9de95391d9063325c">bsp_spiffs_unmount</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g02__storage_html_ga0c392bdd27b40fb9de95391d9063325c"><div class="ttname"><a href="group__g02__storage.html#ga0c392bdd27b40fb9de95391d9063325c">bsp_spiffs_unmount</a></div><div class="ttdeci">esp_err_t bsp_spiffs_unmount(void)</div><div class="ttdoc">Unmount SPIFFS from virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:210</div></div>
+<div class="ttc" id="agroup__g02__storage_html_ga0c392bdd27b40fb9de95391d9063325c"><div class="ttname"><a href="group__g02__storage.html#ga0c392bdd27b40fb9de95391d9063325c">bsp_spiffs_unmount</a></div><div class="ttdeci">esp_err_t bsp_spiffs_unmount(void)</div><div class="ttdoc">Unmount SPIFFS from virtual file system.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:185</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK on success</li>
@@ -635,9 +626,9 @@ function &lt;tt&gt;bsp_spiffs_unmount&lt;/tt&gt;</h2>
 <li>ESP_FAIL if partition can not be mounted</li>
 <li>other error codes</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md147"></a>
+<h1><a class="anchor" id="autotoc_md141"></a>
 :musical_note: Audio</h1>
-<h2><a class="anchor" id="autotoc_md148"></a>
+<h2><a class="anchor" id="autotoc_md142"></a>
 Initialization</h2>
 <p>Before using speaker or microphone features, the audio codec must be initialized.</p>
 <div class="fragment"><div class="line">/* Initialize the speaker codec */</div>
@@ -649,9 +640,9 @@ Initialization</h2>
 <blockquote class="doxtable">
 <p>&zwj;[!NOTE] Some BSPs may only support playback (speaker) or only input (microphone). Use the capability macros (<code>BSP_CAPS_AUDIO</code>, <code>BSP_CAPS_AUDIO_SPEAKER</code>, <code>BSP_CAPS_AUDIO_MIC</code>) to check supported features. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md149"></a>
+<h2><a class="anchor" id="autotoc_md143"></a>
 Example of audio usage</h2>
-<h3><a class="anchor" id="autotoc_md150"></a>
+<h3><a class="anchor" id="autotoc_md144"></a>
 Speaker</h3>
 <p>Below is an example of audio playback using the speaker (source data not included):</p>
 <div class="fragment"><div class="line">/* Set volume to 50% */</div>
@@ -676,7 +667,7 @@ Speaker</h3>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;[!TIP] Audio data must be in raw PCM format. Use a decoder if playing compressed formats (e.g., WAV, MP3). </p>
 </blockquote>
-<h3><a class="anchor" id="autotoc_md151"></a>
+<h3><a class="anchor" id="autotoc_md145"></a>
 Microphone</h3>
 <p>Below is an example of recording audio using the microphone (destination buffer not included):</p>
 <div class="fragment"><div class="line">/* Set input gain (optional) */</div>
@@ -698,9 +689,9 @@ Microphone</h3>
 <div class="line"> </div>
 <div class="line">/* Close stream when done */</div>
 <div class="line">esp_codec_dev_close(mic_codec_dev);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md152"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md146"></a>
 Audio API Reference</h2>
-<h1><a class="anchor" id="autotoc_md153"></a>
+<h1><a class="anchor" id="autotoc_md147"></a>
 Functions</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -718,7 +709,7 @@ Functions</h1>
 <td class="markdownTableBodyRight">esp_err_t   </td><td class="markdownTableBodyLeft">**bsp\_audio\_init** (const i2s_std_config_t *i2s_config) <br  />
 <em>Init audio.</em>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md154"></a>
+<h1><a class="anchor" id="autotoc_md148"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -745,25 +736,25 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_POWER\_AMP\_IO** (GPIO_NUM_46)<br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md155"></a>
+<h1><a class="anchor" id="autotoc_md149"></a>
 Functions Documentation</h1>
-<h2><a class="anchor" id="autotoc_md156"></a>
+<h2><a class="anchor" id="autotoc_md150"></a>
 function &lt;tt&gt;bsp_audio_codec_microphone_init&lt;/tt&gt;</h2>
 <p><em>Initialize microphone codec device.</em> </p><div class="fragment"><div class="line">esp_codec_dev_handle_t <a class="code hl_function" href="group__g03__audio.html#gad7ce449cdaa2fbac88496acc1770bb35">bsp_audio_codec_microphone_init</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g03__audio_html_gad7ce449cdaa2fbac88496acc1770bb35"><div class="ttname"><a href="group__g03__audio.html#gad7ce449cdaa2fbac88496acc1770bb35">bsp_audio_codec_microphone_init</a></div><div class="ttdeci">esp_codec_dev_handle_t bsp_audio_codec_microphone_init(void)</div><div class="ttdoc">Initialize microphone codec device.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:448</div></div>
+<div class="ttc" id="agroup__g03__audio_html_gad7ce449cdaa2fbac88496acc1770bb35"><div class="ttname"><a href="group__g03__audio.html#gad7ce449cdaa2fbac88496acc1770bb35">bsp_audio_codec_microphone_init</a></div><div class="ttdeci">esp_codec_dev_handle_t bsp_audio_codec_microphone_init(void)</div><div class="ttdoc">Initialize microphone codec device.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:423</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <p>Pointer to codec device handle or NULL when error occurred </p>
-<h2><a class="anchor" id="autotoc_md157"></a>
+<h2><a class="anchor" id="autotoc_md151"></a>
 function &lt;tt&gt;bsp_audio_codec_speaker_init&lt;/tt&gt;</h2>
 <p><em>Initialize speaker codec device.</em> </p><div class="fragment"><div class="line">esp_codec_dev_handle_t <a class="code hl_function" href="group__g03__audio.html#ga8d613375571e64ce7e65c87997900752">bsp_audio_codec_speaker_init</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g03__audio_html_ga8d613375571e64ce7e65c87997900752"><div class="ttname"><a href="group__g03__audio.html#ga8d613375571e64ce7e65c87997900752">bsp_audio_codec_speaker_init</a></div><div class="ttdeci">esp_codec_dev_handle_t bsp_audio_codec_speaker_init(void)</div><div class="ttdoc">Initialize speaker codec device.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:397</div></div>
+<div class="ttc" id="agroup__g03__audio_html_ga8d613375571e64ce7e65c87997900752"><div class="ttname"><a href="group__g03__audio.html#ga8d613375571e64ce7e65c87997900752">bsp_audio_codec_speaker_init</a></div><div class="ttdeci">esp_codec_dev_handle_t bsp_audio_codec_speaker_init(void)</div><div class="ttdoc">Initialize speaker codec device.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:372</div></div>
 </div><!-- fragment --><p><b>Returns:</b></p>
 <p>Pointer to codec device handle or NULL when error occurred </p>
-<h2><a class="anchor" id="autotoc_md158"></a>
+<h2><a class="anchor" id="autotoc_md152"></a>
 function &lt;tt&gt;bsp_audio_get_codec_itf&lt;/tt&gt;</h2>
 <p><em>Get codec I2S interface (initialized in bsp_audio_init)</em> </p><div class="fragment"><div class="line"><span class="keyword">const</span> <a class="code hl_struct" href="structaudio__codec__data__if__t.html">audio_codec_data_if_t</a> * <a class="code hl_function" href="group__g03__audio.html#gae4b89fc97eebedb191e6a831281fe113">bsp_audio_get_codec_itf</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
@@ -774,7 +765,7 @@ function &lt;tt&gt;bsp_audio_get_codec_itf&lt;/tt&gt;</h2>
 <ul>
 <li>Pointer to codec I2S interface handle or NULL when error occurred </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md159"></a>
+<h2><a class="anchor" id="autotoc_md153"></a>
 function &lt;tt&gt;bsp_audio_init&lt;/tt&gt;</h2>
 <p><em>Init audio.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g03__audio.html#gafa64ce8ee16cae683e6e875f4fdc61bb">bsp_audio_init</a> (</div>
 <div class="line">    <span class="keyword">const</span> i2s_std_config_t *i2s_config</div>
@@ -795,9 +786,9 @@ function &lt;tt&gt;bsp_audio_init&lt;/tt&gt;</h2>
 <li>ESP_ERR_NO_MEM No memory for storing the channel information</li>
 <li>ESP_ERR_INVALID_STATE This channel has not initialized or already started</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md160"></a>
+<h1><a class="anchor" id="autotoc_md154"></a>
 :pager: Display and Touch</h1>
-<h2><a class="anchor" id="autotoc_md161"></a>
+<h2><a class="anchor" id="autotoc_md155"></a>
 Initialization</h2>
 <p>ESP-BSP provides two ways to initialize the <b>display</b>, <b>touch</b> and <b>LVGL</b>.</p>
 <p>Simple method:</p>
@@ -817,7 +808,7 @@ Initialization</h2>
 <div class="line">/* Initialize display, touch, and LVGL */</div>
 <div class="line">lv_display_t display = bsp_display_start_with_config(&amp;cfg);</div>
 </div><!-- fragment --><p>After initialization, you can use the <a href="https://docs.lvgl.io/master/">LVGL</a> API or LVGL Port API.</p>
-<h2><a class="anchor" id="autotoc_md162"></a>
+<h2><a class="anchor" id="autotoc_md156"></a>
 Initialization without LVGL - NoGLIB BSP</h2>
 <p>To initialize the LCD without LVGL, use:</p>
 <div class="fragment"><div class="line">esp_lcd_panel_handle_t panel_handle;</div>
@@ -830,7 +821,7 @@ Initialization without LVGL - NoGLIB BSP</h2>
 <div class="fragment"><div class="line">esp_lcd_touch_handle_t tp;</div>
 <div class="line">bsp_touch_new(NULL, &amp;tp);</div>
 </div><!-- fragment --><p>After initialization, you can use the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/lcd/index.html">ESP-LCD</a> API and ESP-LCD Touch API.</p>
-<h2><a class="anchor" id="autotoc_md163"></a>
+<h2><a class="anchor" id="autotoc_md157"></a>
 Set Brightness</h2>
 <div class="fragment"><div class="line">/* Set display brightness to 100% */</div>
 <div class="line">bsp_display_backlight_on();</div>
@@ -843,7 +834,7 @@ Set Brightness</h2>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;[!NOTE] Some boards do not support changing brightness. They return an <code>ESP_ERR_NOT_SUPPORTED</code> error. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md164"></a>
+<h2><a class="anchor" id="autotoc_md158"></a>
 LVGL API Usage (only when initialized with LVGL)</h2>
 <p>All LVGL calls must be protected using lock/unlock:</p>
 <div class="fragment"><div class="line">/* Wait until other tasks finish screen operations */</div>
@@ -854,7 +845,7 @@ LVGL API Usage (only when initialized with LVGL)</h2>
 <div class="line">...</div>
 <div class="line">/* Unlock after screen operations are done */</div>
 <div class="line">bsp_display_unlock();</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md165"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md159"></a>
 Screen rotation (only when initialized with LVGL)</h2>
 <div class="fragment"><div class="line">bsp_display_lock(0);</div>
 <div class="line">/* Rotate display to 90 */</div>
@@ -863,7 +854,7 @@ Screen rotation (only when initialized with LVGL)</h2>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>&zwj;[!NOTE] Some LCDs do not support hardware rotation and instead use software rotation, which consumes more memory. </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md166"></a>
+<h2><a class="anchor" id="autotoc_md160"></a>
 Available constants</h2>
 <p>Constants like screen resolution, pin configuration, and other options are defined in the BSP header files (<code>{bsp_name}.h</code>, <code><a class="el" href="display_8h.html" title="BSP LCD.">display.h</a></code>, <code><a class="el" href="touch_8h.html" title="BSP Touchscreen.">touch.h</a></code>). Below are some of the most relevant predefined constants:</p>
 <ul>
@@ -871,9 +862,9 @@ Available constants</h2>
 <li><code>BSP_LCD_V_RES</code> - Vertical resolution in pixels</li>
 <li><code>BSP_LCD_SPI_NUM</code> - SPI bus used by the LCD (if applicable)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md167"></a>
+<h2><a class="anchor" id="autotoc_md161"></a>
 Display and Touch API Reference</h2>
-<h1><a class="anchor" id="autotoc_md168"></a>
+<h1><a class="anchor" id="autotoc_md162"></a>
 Structures and Types</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -888,7 +879,7 @@ Structures and Types</h1>
 <td class="markdownTableBodyRight">struct   </td><td class="markdownTableBodyLeft">**bsp\_touch\_config\_t** <br  />
 <em>BSP touch configuration structure.</em>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md169"></a>
+<h1><a class="anchor" id="autotoc_md163"></a>
 Functions</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -936,7 +927,7 @@ Functions</h1>
 <td class="markdownTableBodyRight">esp_err_t   </td><td class="markdownTableBodyLeft">**bsp\_touch\_new** (const **bsp\_touch\_config\_t** *config, esp_lcd_touch_handle_t *ret_touch) <br  />
 <em>Create new touchscreen.</em>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md170"></a>
+<h1><a class="anchor" id="autotoc_md164"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -993,9 +984,9 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**ESP\_LCD\_COLOR\_FORMAT\_RGB888** (2)<br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md171"></a>
+<h1><a class="anchor" id="autotoc_md165"></a>
 Structures and Types Documentation</h1>
-<h2><a class="anchor" id="autotoc_md172"></a>
+<h2><a class="anchor" id="autotoc_md166"></a>
 struct &lt;tt&gt;bsp_display_cfg_t&lt;/tt&gt;</h2>
 <p><em>BSP display configuration structure.</em></p>
 <p>Variables:</p>
@@ -1013,7 +1004,7 @@ True, if should be allocated two buffers</li>
 <li><a class="el" href="structlvgl__port__cfg__t.html" title="Init configuration structure.">lvgl_port_cfg_t</a> lvgl_port_cfg <br  />
 LVGL port configuration</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md173"></a>
+<h2><a class="anchor" id="autotoc_md167"></a>
 struct &lt;tt&gt;bsp_display_config_t&lt;/tt&gt;</h2>
 <p><em>BSP display configuration structure.</em></p>
 <p>Variables:</p>
@@ -1021,7 +1012,7 @@ struct &lt;tt&gt;bsp_display_config_t&lt;/tt&gt;</h2>
 <li>int max_transfer_sz <br  />
 Maximum transfer size, in bytes.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md174"></a>
+<h2><a class="anchor" id="autotoc_md168"></a>
 struct &lt;tt&gt;bsp_touch_config_t&lt;/tt&gt;</h2>
 <p><em>BSP touch configuration structure.</em></p>
 <p>Variables:</p>
@@ -1029,50 +1020,50 @@ struct &lt;tt&gt;bsp_touch_config_t&lt;/tt&gt;</h2>
 <li>void * dummy <br  />
 Prepared for future use.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md175"></a>
+<h1><a class="anchor" id="autotoc_md169"></a>
 Functions Documentation</h1>
-<h2><a class="anchor" id="autotoc_md176"></a>
+<h2><a class="anchor" id="autotoc_md170"></a>
 function &lt;tt&gt;bsp_display_backlight_off&lt;/tt&gt;</h2>
 <p><em>Turn off display backlight.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#gaa09e452cc60dcb24bb2ba980669610de">bsp_display_backlight_off</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_gaa09e452cc60dcb24bb2ba980669610de"><div class="ttname"><a href="group__g04__display.html#gaa09e452cc60dcb24bb2ba980669610de">bsp_display_backlight_off</a></div><div class="ttdeci">esp_err_t bsp_display_backlight_off(void)</div><div class="ttdoc">Turn off display backlight.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:530</div></div>
+<div class="ttc" id="agroup__g04__display_html_gaa09e452cc60dcb24bb2ba980669610de"><div class="ttname"><a href="group__g04__display.html#gaa09e452cc60dcb24bb2ba980669610de">bsp_display_backlight_off</a></div><div class="ttdeci">esp_err_t bsp_display_backlight_off(void)</div><div class="ttdoc">Turn off display backlight.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:505</div></div>
 </div><!-- fragment --><p>Brightness is controlled with PWM signal to a pin controlling backlight. Brightness must be already initialized by calling **bsp\_display\_brightness\_init()** or**bsp\_display\_new()**</p>
 <p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK On success</li>
 <li>ESP_ERR_INVALID_ARG Parameter error </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md177"></a>
+<h2><a class="anchor" id="autotoc_md171"></a>
 function &lt;tt&gt;bsp_display_backlight_on&lt;/tt&gt;</h2>
 <p><em>Turn on display backlight.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#ga17e487e96d85995e5de4aab309d290b2">bsp_display_backlight_on</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_ga17e487e96d85995e5de4aab309d290b2"><div class="ttname"><a href="group__g04__display.html#ga17e487e96d85995e5de4aab309d290b2">bsp_display_backlight_on</a></div><div class="ttdeci">esp_err_t bsp_display_backlight_on(void)</div><div class="ttdoc">Turn on display backlight.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:535</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga17e487e96d85995e5de4aab309d290b2"><div class="ttname"><a href="group__g04__display.html#ga17e487e96d85995e5de4aab309d290b2">bsp_display_backlight_on</a></div><div class="ttdeci">esp_err_t bsp_display_backlight_on(void)</div><div class="ttdoc">Turn on display backlight.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:510</div></div>
 </div><!-- fragment --><p>Brightness is controlled with PWM signal to a pin controlling backlight. Brightness must be already initialized by calling **bsp\_display\_brightness\_init()** or**bsp\_display\_new()**</p>
 <p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK On success</li>
 <li>ESP_ERR_INVALID_ARG Parameter error </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md178"></a>
+<h2><a class="anchor" id="autotoc_md172"></a>
 function &lt;tt&gt;bsp_display_brightness_init&lt;/tt&gt;</h2>
 <p><em>Initialize display's brightness.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#gaa917c022925dd941b2fd68cac525a309">bsp_display_brightness_init</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_gaa917c022925dd941b2fd68cac525a309"><div class="ttname"><a href="group__g04__display.html#gaa917c022925dd941b2fd68cac525a309">bsp_display_brightness_init</a></div><div class="ttdeci">esp_err_t bsp_display_brightness_init(void)</div><div class="ttdoc">Initialize display's brightness.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:487</div></div>
+<div class="ttc" id="agroup__g04__display_html_gaa917c022925dd941b2fd68cac525a309"><div class="ttname"><a href="group__g04__display.html#gaa917c022925dd941b2fd68cac525a309">bsp_display_brightness_init</a></div><div class="ttdeci">esp_err_t bsp_display_brightness_init(void)</div><div class="ttdoc">Initialize display's brightness.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:462</div></div>
 </div><!-- fragment --><p>Brightness is controlled with PWM signal to a pin controlling backlight.</p>
 <p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK On success</li>
 <li>ESP_ERR_INVALID_ARG Parameter error </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md179"></a>
+<h2><a class="anchor" id="autotoc_md173"></a>
 function &lt;tt&gt;bsp_display_brightness_set&lt;/tt&gt;</h2>
 <p><em>Set display's brightness.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#ga12c7b53be5b337029f2d1aacce916d1c">bsp_display_brightness_set</a> (</div>
 <div class="line">    <span class="keywordtype">int</span> brightness_percent</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_ga12c7b53be5b337029f2d1aacce916d1c"><div class="ttname"><a href="group__g04__display.html#ga12c7b53be5b337029f2d1aacce916d1c">bsp_display_brightness_set</a></div><div class="ttdeci">esp_err_t bsp_display_brightness_set(int brightness_percent)</div><div class="ttdoc">Set display's brightness.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:513</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga12c7b53be5b337029f2d1aacce916d1c"><div class="ttname"><a href="group__g04__display.html#ga12c7b53be5b337029f2d1aacce916d1c">bsp_display_brightness_set</a></div><div class="ttdeci">esp_err_t bsp_display_brightness_set(int brightness_percent)</div><div class="ttdoc">Set display's brightness.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:488</div></div>
 </div><!-- fragment --><p>Brightness is controlled with PWM signal to a pin controlling backlight. Brightness must be already initialized by calling **bsp\_display\_brightness\_init()** or**bsp\_display\_new()**</p>
 <p><b>Parameters:</b></p>
 <ul>
@@ -1083,47 +1074,47 @@ function &lt;tt&gt;bsp_display_brightness_set&lt;/tt&gt;</h2>
 <li>ESP_OK On success</li>
 <li>ESP_ERR_INVALID_ARG Parameter error </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md180"></a>
+<h2><a class="anchor" id="autotoc_md174"></a>
 function &lt;tt&gt;bsp_display_enter_sleep&lt;/tt&gt;</h2>
 <p><em>Set display enter sleep mode.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#ga4bb816859abde4dcf196ca41b380a94a">bsp_display_enter_sleep</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_ga4bb816859abde4dcf196ca41b380a94a"><div class="ttname"><a href="group__g04__display.html#ga4bb816859abde4dcf196ca41b380a94a">bsp_display_enter_sleep</a></div><div class="ttdeci">esp_err_t bsp_display_enter_sleep(void)</div><div class="ttdoc">Set display enter sleep mode.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:809</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga4bb816859abde4dcf196ca41b380a94a"><div class="ttname"><a href="group__g04__display.html#ga4bb816859abde4dcf196ca41b380a94a">bsp_display_enter_sleep</a></div><div class="ttdeci">esp_err_t bsp_display_enter_sleep(void)</div><div class="ttdoc">Set display enter sleep mode.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:781</div></div>
 </div><!-- fragment --><p>All the display (LCD, backlight, touch) will enter sleep mode.</p>
 <p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK on success</li>
 <li>ESP_ERR_NOT_SUPPORTED if this function is not supported by the panel </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md181"></a>
+<h2><a class="anchor" id="autotoc_md175"></a>
 function &lt;tt&gt;bsp_display_exit_sleep&lt;/tt&gt;</h2>
 <p><em>Set display exit sleep mode.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#ga4528c90bb660dfe358849b9c379d7ca9">bsp_display_exit_sleep</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_ga4528c90bb660dfe358849b9c379d7ca9"><div class="ttname"><a href="group__g04__display.html#ga4528c90bb660dfe358849b9c379d7ca9">bsp_display_exit_sleep</a></div><div class="ttdeci">esp_err_t bsp_display_exit_sleep(void)</div><div class="ttdoc">Set display exit sleep mode.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:817</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga4528c90bb660dfe358849b9c379d7ca9"><div class="ttname"><a href="group__g04__display.html#ga4528c90bb660dfe358849b9c379d7ca9">bsp_display_exit_sleep</a></div><div class="ttdeci">esp_err_t bsp_display_exit_sleep(void)</div><div class="ttdoc">Set display exit sleep mode.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:789</div></div>
 </div><!-- fragment --><p>All the display (LCD, backlight, touch) will exit sleep mode.</p>
 <p><b>Returns:</b></p>
 <ul>
 <li>ESP_OK on success</li>
 <li>ESP_ERR_NOT_SUPPORTED if this function is not supported by the panel </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md182"></a>
+<h2><a class="anchor" id="autotoc_md176"></a>
 function &lt;tt&gt;bsp_display_get_input_dev&lt;/tt&gt;</h2>
 <p><em>Get pointer to input device (touch, buttons, ...)</em> </p><div class="fragment"><div class="line"><a class="code hl_struct" href="struct__lv__indev__t.html">lv_indev_t</a> * <a class="code hl_function" href="group__g04__display.html#gaa358520a1c77dbf054e73757e48dea9a">bsp_display_get_input_dev</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_gaa358520a1c77dbf054e73757e48dea9a"><div class="ttname"><a href="group__g04__display.html#gaa358520a1c77dbf054e73757e48dea9a">bsp_display_get_input_dev</a></div><div class="ttdeci">lv_indev_t * bsp_display_get_input_dev(void)</div><div class="ttdoc">Get pointer to input device (touch, buttons, ...)</div><div class="ttdef"><b>Definition</b> esp-box-3.c:789</div></div>
-<div class="ttc" id="astruct__lv__indev__t_html"><div class="ttname"><a href="struct__lv__indev__t.html">_lv_indev_t</a></div><div class="ttdef"><b>Definition</b> lv_indev_private.h:31</div></div>
+<div class="ttc" id="agroup__g04__display_html_gaa358520a1c77dbf054e73757e48dea9a"><div class="ttname"><a href="group__g04__display.html#gaa358520a1c77dbf054e73757e48dea9a">bsp_display_get_input_dev</a></div><div class="ttdeci">lv_indev_t * bsp_display_get_input_dev(void)</div><div class="ttdoc">Get pointer to input device (touch, buttons, ...)</div><div class="ttdef"><b>Definition</b> esp-box-3.c:761</div></div>
+<div class="ttc" id="astruct__lv__indev__t_html"><div class="ttname"><a href="struct__lv__indev__t.html">_lv_indev_t</a></div><div class="ttdef"><b>Definition</b> lv_indev_private.h:30</div></div>
 </div><!-- fragment --><p><b>Note:</b></p>
 <p>The LVGL input device is initialized in **bsp\_display\_start()** function.</p>
 <p><b>Returns:</b></p>
 <p>Pointer to LVGL input device or NULL when not initialized </p>
-<h2><a class="anchor" id="autotoc_md183"></a>
+<h2><a class="anchor" id="autotoc_md177"></a>
 function &lt;tt&gt;bsp_display_lock&lt;/tt&gt;</h2>
 <p><em>Take LVGL mutex.</em> </p><div class="fragment"><div class="line"><span class="keywordtype">bool</span> <a class="code hl_function" href="group__g04__display.html#ga8f9276ddd28d9427995f513d36aed139">bsp_display_lock</a> (</div>
 <div class="line">    uint32_t timeout_ms</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_ga8f9276ddd28d9427995f513d36aed139"><div class="ttname"><a href="group__g04__display.html#ga8f9276ddd28d9427995f513d36aed139">bsp_display_lock</a></div><div class="ttdeci">bool bsp_display_lock(uint32_t timeout_ms)</div><div class="ttdoc">Take LVGL mutex.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:799</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga8f9276ddd28d9427995f513d36aed139"><div class="ttname"><a href="group__g04__display.html#ga8f9276ddd28d9427995f513d36aed139">bsp_display_lock</a></div><div class="ttdeci">bool bsp_display_lock(uint32_t timeout_ms)</div><div class="ttdoc">Take LVGL mutex.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:771</div></div>
 </div><!-- fragment --><p><b>Parameters:</b></p>
 <ul>
 <li><code>timeout_ms</code> Timeout in [ms]. 0 will block indefinitely.</li>
@@ -1132,14 +1123,14 @@ function &lt;tt&gt;bsp_display_lock&lt;/tt&gt;</h2>
 <p>true Mutex was taken</p>
 <p><b>Returns:</b></p>
 <p>false Mutex was NOT taken </p>
-<h2><a class="anchor" id="autotoc_md184"></a>
+<h2><a class="anchor" id="autotoc_md178"></a>
 function &lt;tt&gt;bsp_display_new&lt;/tt&gt;</h2>
 <p><em>Create new display panel.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#ga351d7157db337483dafe16ea3cf67969">bsp_display_new</a> (</div>
 <div class="line">    <span class="keyword">const</span> <a class="code hl_struct" href="structbsp__display__config__t.html">bsp_display_config_t</a> *config,</div>
 <div class="line">    esp_lcd_panel_handle_t *ret_panel,</div>
 <div class="line">    esp_lcd_panel_io_handle_t *ret_io</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_ga351d7157db337483dafe16ea3cf67969"><div class="ttname"><a href="group__g04__display.html#ga351d7157db337483dafe16ea3cf67969">bsp_display_new</a></div><div class="ttdeci">esp_err_t bsp_display_new(const bsp_display_config_t *config, esp_lcd_panel_handle_t *ret_panel, esp_lcd_panel_io_handle_t *ret_io)</div><div class="ttdoc">Create new display panel.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:554</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga351d7157db337483dafe16ea3cf67969"><div class="ttname"><a href="group__g04__display.html#ga351d7157db337483dafe16ea3cf67969">bsp_display_new</a></div><div class="ttdeci">esp_err_t bsp_display_new(const bsp_display_config_t *config, esp_lcd_panel_handle_t *ret_panel, esp_lcd_panel_io_handle_t *ret_io)</div><div class="ttdoc">Create new display panel.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:529</div></div>
 <div class="ttc" id="astructbsp__display__config__t_html"><div class="ttname"><a href="structbsp__display__config__t.html">bsp_display_config_t</a></div><div class="ttdoc">BSP display configuration structure.</div><div class="ttdef"><b>Definition</b> display.h:48</div></div>
 </div><!-- fragment --><p>For maximum flexibility, this function performs only reset and initialization of the display. You must turn on the display explicitly by calling esp_lcd_panel_disp_on_off(). The display's backlight is not turned on either. You can use bsp_display_backlight_on/off(), **bsp\_display\_brightness\_set()** (on supported boards) or implement your own backlight control.</p>
 <p>If you want to free resources allocated by this function, you can use esp_lcd API, ie.:</p>
@@ -1157,36 +1148,36 @@ function &lt;tt&gt;bsp_display_new&lt;/tt&gt;</h2>
 <li>ESP_OK On success</li>
 <li>Else esp_lcd failure </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md185"></a>
+<h2><a class="anchor" id="autotoc_md179"></a>
 function &lt;tt&gt;bsp_display_rotate&lt;/tt&gt;</h2>
 <p><em>Rotate screen.</em> </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__g04__display.html#ga444b52fd41e46fc4d98fbb90b66a654c">bsp_display_rotate</a> (</div>
 <div class="line">    <a class="code hl_typedef" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> *disp,</div>
 <div class="line">    lv_disp_rotation_t rotation</div>
 <div class="line">) </div>
 <div class="ttc" id="aesp__lvgl__port__compatibility_8h_html_a42bbe6593a4e291e9a7271748f34427a"><div class="ttname"><a href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a></div><div class="ttdeci">lv_disp_t lv_display_t</div><div class="ttdoc">Backward compatibility with LVGL 8.</div><div class="ttdef"><b>Definition</b> esp_lvgl_port_compatibility.h:21</div></div>
-<div class="ttc" id="agroup__g04__display_html_ga444b52fd41e46fc4d98fbb90b66a654c"><div class="ttname"><a href="group__g04__display.html#ga444b52fd41e46fc4d98fbb90b66a654c">bsp_display_rotate</a></div><div class="ttdeci">void bsp_display_rotate(lv_display_t *disp, lv_disp_rotation_t rotation)</div><div class="ttdoc">Rotate screen.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:794</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga444b52fd41e46fc4d98fbb90b66a654c"><div class="ttname"><a href="group__g04__display.html#ga444b52fd41e46fc4d98fbb90b66a654c">bsp_display_rotate</a></div><div class="ttdeci">void bsp_display_rotate(lv_display_t *disp, lv_disp_rotation_t rotation)</div><div class="ttdoc">Rotate screen.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:766</div></div>
 </div><!-- fragment --><p>Display must be already initialized by calling **bsp\_display\_start()**</p>
 <p><b>Parameters:</b></p>
 <ul>
 <li><code>disp</code> Pointer to LVGL display</li>
 <li><code>rotation</code> Angle of the display rotation </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md186"></a>
+<h2><a class="anchor" id="autotoc_md180"></a>
 function &lt;tt&gt;bsp_display_start&lt;/tt&gt;</h2>
 <p><em>Initialize display.</em> </p><div class="fragment"><div class="line"><a class="code hl_typedef" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> * <a class="code hl_function" href="group__g04__display.html#gae4275824d225d70a382b86178f39450c">bsp_display_start</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_gae4275824d225d70a382b86178f39450c"><div class="ttname"><a href="group__g04__display.html#gae4275824d225d70a382b86178f39450c">bsp_display_start</a></div><div class="ttdeci">lv_display_t * bsp_display_start(void)</div><div class="ttdoc">Initialize display.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:757</div></div>
+<div class="ttc" id="agroup__g04__display_html_gae4275824d225d70a382b86178f39450c"><div class="ttname"><a href="group__g04__display.html#gae4275824d225d70a382b86178f39450c">bsp_display_start</a></div><div class="ttdeci">lv_display_t * bsp_display_start(void)</div><div class="ttdoc">Initialize display.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:729</div></div>
 </div><!-- fragment --><p>This function initializes SPI, display controller and starts LVGL handling task. LCD backlight must be enabled separately by calling **bsp\_display\_brightness\_set()**</p>
 <p><b>Returns:</b></p>
 <p>Pointer to LVGL display or NULL when error occurred </p>
-<h2><a class="anchor" id="autotoc_md187"></a>
+<h2><a class="anchor" id="autotoc_md181"></a>
 function &lt;tt&gt;bsp_display_start_with_config&lt;/tt&gt;</h2>
 <p><em>Initialize display.</em> </p><div class="fragment"><div class="line"><a class="code hl_typedef" href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a> * <a class="code hl_function" href="group__g04__display.html#gaff98dc9c5df3ce94267754f35face5d2">bsp_display_start_with_config</a> (</div>
 <div class="line">    <span class="keyword">const</span> <a class="code hl_struct" href="structbsp__display__cfg__t.html">bsp_display_cfg_t</a> *cfg</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_gaff98dc9c5df3ce94267754f35face5d2"><div class="ttname"><a href="group__g04__display.html#gaff98dc9c5df3ce94267754f35face5d2">bsp_display_start_with_config</a></div><div class="ttdeci">lv_display_t * bsp_display_start_with_config(const bsp_display_cfg_t *cfg)</div><div class="ttdoc">Initialize display.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:775</div></div>
-<div class="ttc" id="astructbsp__display__cfg__t_html"><div class="ttname"><a href="structbsp__display__cfg__t.html">bsp_display_cfg_t</a></div><div class="ttdoc">BSP display configuration structure.</div><div class="ttdef"><b>Definition</b> esp-box-3.h:499</div></div>
+<div class="ttc" id="agroup__g04__display_html_gaff98dc9c5df3ce94267754f35face5d2"><div class="ttname"><a href="group__g04__display.html#gaff98dc9c5df3ce94267754f35face5d2">bsp_display_start_with_config</a></div><div class="ttdeci">lv_display_t * bsp_display_start_with_config(const bsp_display_cfg_t *cfg)</div><div class="ttdoc">Initialize display.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:747</div></div>
+<div class="ttc" id="astructbsp__display__cfg__t_html"><div class="ttname"><a href="structbsp__display__cfg__t.html">bsp_display_cfg_t</a></div><div class="ttdoc">BSP display configuration structure.</div><div class="ttdef"><b>Definition</b> esp-box-3.h:494</div></div>
 </div><!-- fragment --><p>This function initializes SPI, display controller and starts LVGL handling task. LCD backlight must be enabled separately by calling **bsp\_display\_brightness\_set()**</p>
 <p><b>Parameters:</b></p>
 <ul>
@@ -1194,19 +1185,19 @@ function &lt;tt&gt;bsp_display_start_with_config&lt;/tt&gt;</h2>
 </ul>
 <p><b>Returns:</b></p>
 <p>Pointer to LVGL display or NULL when error occurred </p>
-<h2><a class="anchor" id="autotoc_md188"></a>
+<h2><a class="anchor" id="autotoc_md182"></a>
 function &lt;tt&gt;bsp_display_unlock&lt;/tt&gt;</h2>
 <p><em>Give LVGL mutex.</em> </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__g04__display.html#gac08779b1b61a813af6d9c96a4b54740d">bsp_display_unlock</a> (</div>
 <div class="line">    <span class="keywordtype">void</span></div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_gac08779b1b61a813af6d9c96a4b54740d"><div class="ttname"><a href="group__g04__display.html#gac08779b1b61a813af6d9c96a4b54740d">bsp_display_unlock</a></div><div class="ttdeci">void bsp_display_unlock(void)</div><div class="ttdoc">Give LVGL mutex.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:804</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md189"></a>
+<div class="ttc" id="agroup__g04__display_html_gac08779b1b61a813af6d9c96a4b54740d"><div class="ttname"><a href="group__g04__display.html#gac08779b1b61a813af6d9c96a4b54740d">bsp_display_unlock</a></div><div class="ttdeci">void bsp_display_unlock(void)</div><div class="ttdoc">Give LVGL mutex.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:776</div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md183"></a>
 function &lt;tt&gt;bsp_touch_new&lt;/tt&gt;</h2>
 <p><em>Create new touchscreen.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g04__display.html#ga4f2a60cbdb3279f6c82f1809ba3773b7">bsp_touch_new</a> (</div>
 <div class="line">    <span class="keyword">const</span> <a class="code hl_struct" href="structbsp__touch__config__t.html">bsp_touch_config_t</a> *config,</div>
 <div class="line">    <a class="code hl_struct" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> *ret_touch</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g04__display_html_ga4f2a60cbdb3279f6c82f1809ba3773b7"><div class="ttname"><a href="group__g04__display.html#ga4f2a60cbdb3279f6c82f1809ba3773b7">bsp_touch_new</a></div><div class="ttdeci">esp_err_t bsp_touch_new(const bsp_touch_config_t *config, esp_lcd_touch_handle_t *ret_touch)</div><div class="ttdoc">Create new touchscreen.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:692</div></div>
+<div class="ttc" id="agroup__g04__display_html_ga4f2a60cbdb3279f6c82f1809ba3773b7"><div class="ttname"><a href="group__g04__display.html#ga4f2a60cbdb3279f6c82f1809ba3773b7">bsp_touch_new</a></div><div class="ttdeci">esp_err_t bsp_touch_new(const bsp_touch_config_t *config, esp_lcd_touch_handle_t *ret_touch)</div><div class="ttdoc">Create new touchscreen.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:663</div></div>
 <div class="ttc" id="astructbsp__touch__config__t_html"><div class="ttname"><a href="structbsp__touch__config__t.html">bsp_touch_config_t</a></div><div class="ttdoc">BSP touch configuration structure.</div><div class="ttdef"><b>Definition</b> touch.h:32</div></div>
 <div class="ttc" id="astructesp__lcd__touch__s_html"><div class="ttname"><a href="structesp__lcd__touch__s.html">esp_lcd_touch_s</a></div><div class="ttdoc">Declare of Touch Type.</div><div class="ttdef"><b>Definition</b> esp_lcd_touch.h:97</div></div>
 </div><!-- fragment --><p>If you want to free resources allocated by this function, you can use esp_lcd_touch API, ie.:</p>
@@ -1221,7 +1212,7 @@ function &lt;tt&gt;bsp_touch_new&lt;/tt&gt;</h2>
 <li>ESP_OK On success</li>
 <li>Else esp_lcd_touch failure</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md190"></a>
+<h1><a class="anchor" id="autotoc_md184"></a>
 :radio_button: Buttons</h1>
 <p>Most boards include one or more user buttons. The BSP provides a simple API to initialize and use them. Internally, it utilizes the <a href="https://components.espressif.com/components/espressif/button/">button</a> component for event handling and debouncing.</p>
 <div class="fragment"><div class="line">/* Initialize all available buttons */</div>
@@ -1245,9 +1236,9 @@ function &lt;tt&gt;bsp_touch_new&lt;/tt&gt;</h2>
 <li>The callback can be registered for different button events, such as <code>BUTTON_PRESS_DOWN</code>, <code>BUTTON_PRESS_UP</code>, or <code>BUTTON_LONG_PRESS_START</code>, <code>BUTTON_DOUBLE_CLICK</code>, ...</li>
 <li>Button features (e.g. long-press support, active level) are configured automatically by the BSP.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md191"></a>
+<h2><a class="anchor" id="autotoc_md185"></a>
 Buttons API Reference</h2>
-<h1><a class="anchor" id="autotoc_md192"></a>
+<h1><a class="anchor" id="autotoc_md186"></a>
 Structures and Types</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1256,7 +1247,7 @@ Structures and Types</h1>
 <td class="markdownTableBodyRight">enum   </td><td class="markdownTableBodyLeft">**bsp\_button\_t** <br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md193"></a>
+<h1><a class="anchor" id="autotoc_md187"></a>
 Functions</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1265,7 +1256,7 @@ Functions</h1>
 <td class="markdownTableBodyRight">esp_err_t   </td><td class="markdownTableBodyLeft">**bsp\_iot\_button\_create** (button_handle_t btn_array, int *btn_cnt, int btn_array_size) <br  />
 <em>Initialize all buttons.</em>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md194"></a>
+<h1><a class="anchor" id="autotoc_md188"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1277,9 +1268,9 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_BUTTON\_MUTE\_IO** (GPIO_NUM_1)<br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md195"></a>
+<h1><a class="anchor" id="autotoc_md189"></a>
 Structures and Types Documentation</h1>
-<h2><a class="anchor" id="autotoc_md196"></a>
+<h2><a class="anchor" id="autotoc_md190"></a>
 enum &lt;tt&gt;bsp_button_t&lt;/tt&gt;</h2>
 <div class="fragment"><div class="line"><span class="keyword">enum</span> bsp_button_t {</div>
 <div class="line">    BSP_BUTTON_CONFIG = 0,</div>
@@ -1287,16 +1278,16 @@ enum &lt;tt&gt;bsp_button_t&lt;/tt&gt;</h2>
 <div class="line">    BSP_BUTTON_MAIN,</div>
 <div class="line">    BSP_BUTTON_NUM</div>
 <div class="line">};</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md197"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md191"></a>
 Functions Documentation</h1>
-<h2><a class="anchor" id="autotoc_md198"></a>
+<h2><a class="anchor" id="autotoc_md192"></a>
 function &lt;tt&gt;bsp_iot_button_create&lt;/tt&gt;</h2>
 <p><em>Initialize all buttons.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g05__buttons.html#ga709ba5c932018eb218885bb20b27c6c0">bsp_iot_button_create</a> (</div>
 <div class="line">    <a class="code hl_struct" href="structbutton__dev__t.html">button_handle_t</a> btn_array,</div>
 <div class="line">    <span class="keywordtype">int</span> *btn_cnt,</div>
 <div class="line">    <span class="keywordtype">int</span> btn_array_size</div>
 <div class="line">) </div>
-<div class="ttc" id="agroup__g05__buttons_html_ga709ba5c932018eb218885bb20b27c6c0"><div class="ttname"><a href="group__g05__buttons.html#ga709ba5c932018eb218885bb20b27c6c0">bsp_iot_button_create</a></div><div class="ttdeci">esp_err_t bsp_iot_button_create(button_handle_t btn_array[], int *btn_cnt, int btn_array_size)</div><div class="ttdoc">Initialize all buttons.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:839</div></div>
+<div class="ttc" id="agroup__g05__buttons_html_ga709ba5c932018eb218885bb20b27c6c0"><div class="ttname"><a href="group__g05__buttons.html#ga709ba5c932018eb218885bb20b27c6c0">bsp_iot_button_create</a></div><div class="ttdeci">esp_err_t bsp_iot_button_create(button_handle_t btn_array[], int *btn_cnt, int btn_array_size)</div><div class="ttdoc">Initialize all buttons.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:811</div></div>
 <div class="ttc" id="astructbutton__dev__t_html"><div class="ttname"><a href="structbutton__dev__t.html">button_dev_t</a></div><div class="ttdoc">Structs to record individual key parameters.</div><div class="ttdef"><b>Definition</b> iot_button.c:69</div></div>
 </div><!-- fragment --><p>Returned button handlers must be used with espressif/button component API</p>
 <p><b>Note:</b></p>
@@ -1313,7 +1304,7 @@ function &lt;tt&gt;bsp_iot_button_create&lt;/tt&gt;</h2>
 <li>ESP_ERR_INVALID_ARG btn_array is too small or NULL</li>
 <li>ESP_FAIL Underlaying iot_button_create failed</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md199"></a>
+<h1><a class="anchor" id="autotoc_md193"></a>
 :electric_plug: USB</h1>
 <p>Boards with USB support define macros for USB pins, such as <code>BSP_USB_POS</code> and <code>BSP_USB_NEG</code>, and may also provide control APIs for enabling or disabling USB functionality.</p>
 <div class="fragment"><div class="line">/* Initialize USB in device mode and enable power */</div>
@@ -1326,9 +1317,9 @@ function &lt;tt&gt;bsp_iot_button_create&lt;/tt&gt;</h2>
 <p>&zwj;[!NOTE] Not all BSPs implement USB support or provide power control. Refer to the board's documentation and the BSP header files for available functions and supported modes. </p>
 </blockquote>
 <p>For more USB-related APIs and configuration options, check the corresponding BSP header files.</p>
-<h2><a class="anchor" id="autotoc_md200"></a>
+<h2><a class="anchor" id="autotoc_md194"></a>
 USB API Reference</h2>
-<h1><a class="anchor" id="autotoc_md201"></a>
+<h1><a class="anchor" id="autotoc_md195"></a>
 Macros</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1340,87 +1331,6 @@ Macros</h1>
 <td class="markdownTableBodyRight">define   </td><td class="markdownTableBodyLeft">**BSP\_USB\_POS** (GPIO_NUM_20)<br  />
    </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md202"></a>
-:video_game: Sensors</h1>
-<p>Boards with integrated sensors (e.g., IMUs, environmental sensors) are abstracted using the sensor hub component. The BSP project provides APIs for initializing each sensor and it is up to the integrating platform to provide configuration of the data acquisition and callback handlers.</p>
-<p>For practical usage examples and supported sensors on your board, refer to the relevant examples in the BSP repository, such as:</p><ul>
-<li><code>sensors</code> (for reading sensor data)</li>
-<li>TODO: <code>display_rotation</code> (for IMU setup and orientation control)</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md203"></a>
-Usage</h2>
-<p>Create a handler function for sensor hub events </p><div class="fragment"><div class="line"> c</div>
-<div class="line">void sensor_event_handler(void *handler_args, esp_event_base_t base, int32_t id, void *event_data)</div>
-<div class="line">{</div>
-<div class="line">    ...</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>Set up a sensor configuration and initialize it </p><div class="fragment"><div class="line"> c</div>
-<div class="line">bsp_sensor_config_t imu_config = {</div>
-<div class="line">    .type = IMU_ID,</div>
-<div class="line">    .mode = MODE_POLLING,</div>
-<div class="line">    .period = 1000</div>
-<div class="line">};</div>
-<div class="line">ESP_ERROR_CHECK(bsp_sensor_init(&amp;imu_config, &amp;imu_sensor_handle));</div>
-</div><!-- fragment --><p>Associate an event handler with the configured sensor </p><div class="fragment"><div class="line"> c</div>
-<div class="line">iot_sensor_handler_register(imu_sensor_handle, sensor_event_handler, NULL);</div>
-</div><!-- fragment --><p>Start the sensor data acquisition </p><div class="fragment"><div class="line"> c</div>
-<div class="line">iot_sensor_start(imu_sensor_handle);</div>
-</div><!-- fragment --><p><b>Notes:</b></p><ul>
-<li>More information can be found in <a href="https://docs.espressif.com/projects/esp-iot-solution/en/latest/sensors/sensor_hub.html">sensor hub documentation page</a>.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md204"></a>
-Sensors API Reference</h2>
-<h1><a class="anchor" id="autotoc_md205"></a>
-Structures and Types</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadRight">Type   </th><th class="markdownTableHeadLeft">Name    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">struct   </td><td class="markdownTableBodyLeft">**bsp\_sensor\_config\_t** <br  />
-<em>BSP sensor configuration structure.</em>   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md206"></a>
-Functions</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadRight">Type   </th><th class="markdownTableHeadLeft">Name    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">esp_err_t   </td><td class="markdownTableBodyLeft">**bsp\_sensor\_init** (const **bsp\_sensor\_config\_t** *cfg, sensor_handle_t *sensor_handle) <br  />
-<em>Initialize a sensor.</em>   </td></tr>
-</table>
-<h1><a class="anchor" id="autotoc_md207"></a>
-Structures and Types Documentation</h1>
-<h2><a class="anchor" id="autotoc_md208"></a>
-struct &lt;tt&gt;bsp_sensor_config_t&lt;/tt&gt;</h2>
-<p><em>BSP sensor configuration structure.</em></p>
-<p>Variables:</p>
-<ul>
-<li>sensor_mode_t mode <br  />
-</li>
-<li>uint16_t period <br  />
-</li>
-<li>sensor_type_t type <br  />
-</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md209"></a>
-Functions Documentation</h1>
-<h2><a class="anchor" id="autotoc_md210"></a>
-function &lt;tt&gt;bsp_sensor_init&lt;/tt&gt;</h2>
-<p><em>Initialize a sensor.</em> </p><div class="fragment"><div class="line">esp_err_t <a class="code hl_function" href="group__g10__sensors.html#ga78df0851c9634f986cefa631bb0f93dd">bsp_sensor_init</a> (</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_struct" href="structbsp__sensor__config__t.html">bsp_sensor_config_t</a> *cfg,</div>
-<div class="line">    sensor_handle_t *sensor_handle</div>
-<div class="line">) </div>
-<div class="ttc" id="agroup__g10__sensors_html_ga78df0851c9634f986cefa631bb0f93dd"><div class="ttname"><a href="group__g10__sensors.html#ga78df0851c9634f986cefa631bb0f93dd">bsp_sensor_init</a></div><div class="ttdeci">esp_err_t bsp_sensor_init(const bsp_sensor_config_t *cfg, sensor_handle_t *sensor_handle)</div><div class="ttdoc">Initialize a sensor.</div><div class="ttdef"><b>Definition</b> esp-box-3.c:869</div></div>
-<div class="ttc" id="astructbsp__sensor__config__t_html"><div class="ttname"><a href="structbsp__sensor__config__t.html">bsp_sensor_config_t</a></div><div class="ttdoc">BSP sensor configuration structure.</div><div class="ttdef"><b>Definition</b> esp-box-3.h:633</div></div>
-</div><!-- fragment --><p><b>Parameters:</b></p>
-<ul>
-<li><code>cfg</code> Pointer to the sensor configuration</li>
-<li><code>sensor_handle</code> Pointer to the outgoing sensor handle</li>
-</ul>
-<p><b>Returns:</b></p>
-<ul>
-<li>ESP_OK on success, otherwise returns ESP_ERR_xxx </li>
-</ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->

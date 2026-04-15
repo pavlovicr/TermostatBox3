@@ -7,7 +7,7 @@ var searchData=
   ['v_5fstride_4',['v_stride',['../structvg__lite__yuvinfo.html#aba5c998201c08bb7c00bb48fdbadb50f',1,'vg_lite_yuvinfo']]],
   ['val_5freversed_5',['val_reversed',['../struct__lv__bar__t.html#a533cb6bae56205fdd39bcce8040b7dc2',1,'_lv_bar_t']]],
   ['valid_5fx_6',['valid_x',['../struct__lv__textarea__t.html#a34e62074b75ea8c642dd501c1af93a22',1,'_lv_textarea_t']]],
-  ['value_7',['value',['../struct__lv__subject__t.html#a9126584057901420d30c1ae84e68eb5e',1,'_lv_subject_t::value'],['../classGenericMember.html#aad3cfa4f9e8b9018068c8bc865723083',1,'GenericMember::value'],['../struct__lv__arc__t.html#a9acf37c02467406a2900978e78483227',1,'_lv_arc_t::value']]],
+  ['value_7',['value',['../classGenericMember.html#aad3cfa4f9e8b9018068c8bc865723083',1,'GenericMember::value'],['../structlv__subject__t.html#abf49d471822d95eb473e476a666dc12b',1,'lv_subject_t::value'],['../struct__lv__arc__t.html#a9acf37c02467406a2900978e78483227',1,'_lv_arc_t::value']]],
   ['value_5fto_5fset_8',['value_to_set',['../struct__lv__slider__t.html#a14fe80bf995cfa5ec43cdb967b35e231',1,'_lv_slider_t']]],
   ['valuecount_9',['valueCount',['../structWriter_1_1Level.html#a4a09e5fda49d0d57b2adc041203f244f',1,'Writer::Level']]],
   ['var_10',['var',['../struct__lv__anim__t.html#a4b0b0f57a3d67af5bdaaa79ec0f96773',1,'_lv_anim_t']]],
@@ -19,6 +19,5 @@ var searchData=
   ['version_16',['version',['../structnema__vg__font__t.html#a7c6704d9133e0f78565e5230d0dfced0',1,'nema_vg_font_t']]],
   ['vol_17',['vol',['../structesp__codec__dev__vol__map__t.html#a8754d37dca31dc9f199632131904985d',1,'esp_codec_dev_vol_map_t']]],
   ['vol_5fmap_18',['vol_map',['../structesp__codec__dev__vol__curve__t.html#ab8f896e126985bef66b358dd55c764d6',1,'esp_codec_dev_vol_curve_t']]],
-  ['voltage_19',['voltage',['../structsensor__data__t.html#aac6efdb0976be507901dc5a9fb117a15',1,'sensor_data_t']]],
-  ['vres_20',['vres',['../structlvgl__port__display__cfg__t.html#adb630a7ddfdd3e679143bce8aa1a03e9',1,'lvgl_port_display_cfg_t']]]
+  ['vres_19',['vres',['../structlvgl__port__display__cfg__t.html#adb630a7ddfdd3e679143bce8aa1a03e9',1,'lvgl_port_display_cfg_t']]]
 ];

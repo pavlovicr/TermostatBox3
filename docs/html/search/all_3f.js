@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['客制化编解码器设备_0',['客制化编解码器设备',['../md_managed__components_2espressif____esp__codec__dev_2README__CN.html#autotoc_md279',1,'']]]
+  ['平台支持_0',['📦️ 平台支持',['../md_managed__components_2lvgl____lvgl_2docs_2README__zh.html#autotoc_md467',1,'']]]
 ];

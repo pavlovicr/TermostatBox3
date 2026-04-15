@@ -22,7 +22,7 @@
 \DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_array.h"{}}}
 \DoxyCodeLine{00023\ }
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#if\ LV\_USE\_VG\_LITE\_THORVG}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}../../debugging/vg\_lite\_tvg/vg\_lite.h"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}../../others/vg\_lite\_tvg/vg\_lite.h"{}}}
 \DoxyCodeLine{00026\ \textcolor{preprocessor}{\#else}}
 \DoxyCodeLine{00027\ \textcolor{preprocessor}{\#if\ LV\_USE\_VG\_LITE\_DRIVER}}
 \DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}../../libs/vg\_lite\_driver/inc/vg\_lite.h"{}}}
@@ -42,7 +42,7 @@
 \DoxyCodeLine{00042\ \textcolor{keyword}{struct\ }\_lv\_vg\_lite\_pending\_t;}
 \DoxyCodeLine{00043\ \textcolor{keyword}{struct\ }\_lv\_vg\_lite\_grad\_ctx\_t;}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_draw\_vg\_lite\_unit\_t\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{struct\ }\_lv\_draw\_vg\_lite\_unit\_t\ \{}
 \DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__unit__t}{lv\_draw\_unit\_t}}\ base\_unit;}
 \DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__task__t}{lv\_draw\_task\_t}}\ *\ task\_act;}
 \DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ current\_scissor\_area;}
@@ -53,32 +53,30 @@
 \DoxyCodeLine{00053\ }
 \DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{struct__lv__cache__t}{lv\_cache\_t}}\ *\ stroke\_cache;}
 \DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{struct__lv__cache__t}{lv\_cache\_t}}\ *\ bitmap\_font\_cache;}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{struct\ }\_lv\_vg\_lite\_pending\_t\ *\ bitmap\_font\_pending;}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{struct\ }\_lv\_vg\_lite\_pending\_t\ *\ letter\_pending;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ uint16\_t\ flush\_count;}
-\DoxyCodeLine{00061\ \ \ \ \ uint16\_t\ letter\_count;}
-\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{structvg__lite__buffer}{vg\_lite\_buffer\_t}}\ target\_buffer;}
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{structvg__lite__matrix}{vg\_lite\_matrix\_t}}\ global\_matrix;}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{struct\ }\_lv\_vg\_lite\_path\_t\ *\ global\_path;}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ path\_in\_use;}
-\DoxyCodeLine{00066\ \}\ lv\_draw\_vg\_lite\_unit\_t;}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00070\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00073\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00074\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{struct\ }\_lv\_vg\_lite\_pending\_t\ *\ bitmap\_font\_pending;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ uint16\_t\ flush\_count;}
+\DoxyCodeLine{00059\ \ \ \ \ uint16\_t\ letter\_count;}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{structvg__lite__buffer}{vg\_lite\_buffer\_t}}\ target\_buffer;}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{structvg__lite__matrix}{vg\_lite\_matrix\_t}}\ global\_matrix;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{struct\ }\_lv\_vg\_lite\_path\_t\ *\ global\_path;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ path\_in\_use;}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_DRAW\_VG\_LITE*/}\textcolor{preprocessor}{}}
 \DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_DRAW\_VG\_LITE*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00079\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_VG\_LITE\_TYPE\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00077\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_VG\_LITE\_TYPE\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

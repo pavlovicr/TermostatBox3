@@ -33,16 +33,16 @@
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBJ\_PROPERTY}}
 \DoxyCodeLine{00035\ \textcolor{keyword}{enum}\ \_lv\_property\_dropdown\_id\_t\ \{}
-\DoxyCodeLine{00036\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ TEXT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_TEXT,\ \ \ 0),}
-\DoxyCodeLine{00037\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ OPTIONS,\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_TEXT,\ \ \ 1),}
-\DoxyCodeLine{00038\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ OPTION\_COUNT,\ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ 2),}
-\DoxyCodeLine{00039\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ SELECTED,\ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ 3),}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ LV\_PROPERTY\_ID(DROPDOWN,\ SELECTED\_STR,\ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_TEXT,\ \ \ 4),}}
-\DoxyCodeLine{00041\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ DIR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ 5),}
-\DoxyCodeLine{00042\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ SYMBOL,\ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_IMGSRC,\ 6),}
-\DoxyCodeLine{00043\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ SELECTED\_HIGHLIGHT,\ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ 7),}
-\DoxyCodeLine{00044\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ LIST,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_OBJ,\ \ \ \ 8),}
-\DoxyCodeLine{00045\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ IS\_OPEN,\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_BOOL,\ \ \ 9),}
+\DoxyCodeLine{00036\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ TEXT,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_TEXT,\ \ 0),}
+\DoxyCodeLine{00037\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ OPTIONS,\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_TEXT,\ \ 1),}
+\DoxyCodeLine{00038\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ OPTION\_COUNT,\ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ 2),}
+\DoxyCodeLine{00039\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ SELECTED,\ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ 3),}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ LV\_PROPERTY\_ID(DROPDOWN,\ SELECTED\_STR,\ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_TEXT,\ \ 4),}}
+\DoxyCodeLine{00041\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ DIR,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ 5),}
+\DoxyCodeLine{00042\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ SYMBOL,\ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_TEXT,\ \ 6),}
+\DoxyCodeLine{00043\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ SELECTED\_HIGHLIGHT,\ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ 7),}
+\DoxyCodeLine{00044\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ LIST,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_OBJ,\ \ \ 8),}
+\DoxyCodeLine{00045\ \ \ \ \ LV\_PROPERTY\_ID(DROPDOWN,\ IS\_OPEN,\ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_BOOL,\ \ 9),}
 \DoxyCodeLine{00046\ \ \ \ \ LV\_PROPERTY\_DROPDOWN\_END,}
 \DoxyCodeLine{00047\ \};}
 \DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
@@ -60,75 +60,73 @@
 \DoxyCodeLine{00065\ \textcolor{comment}{\ *\ Setter\ functions}}
 \DoxyCodeLine{00066\ \textcolor{comment}{\ *====================*/}}
 \DoxyCodeLine{00067\ }
-\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a079da305a870983e61f4ba85c532542c}{lv\_dropdown\_set\_text}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ text);}
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_aaea6087e3da15bb22176d33531bb5dd9}{lv\_dropdown\_set\_text}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ txt);}
 \DoxyCodeLine{00076\ }
-\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_aca93aec852d5ce5760e4868877ff2785}{lv\_dropdown\_set\_text\_static}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ text);}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00092\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_ad00b981639dc0b8a4001c90a1d8a56c7}{lv\_dropdown\_set\_options}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ options);}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a7696e2ad568946dfbac414de0c4ed12b}{lv\_dropdown\_set\_options\_static}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ options);}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a5294b94963e1ec9359e3fe117d6d7c27}{lv\_dropdown\_add\_option}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ option,\ uint32\_t\ pos);}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a75a9a06cc301e32f08339d328ff213cb}{lv\_dropdown\_clear\_options}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_aadb4615405d0481db642cda610cbdf41}{lv\_dropdown\_set\_selected}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ sel\_opt);}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a3adabc80b73c0b36f4aef3cd0e709a08}{lv\_dropdown\_set\_dir}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_dir\_t\ dir);}
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_ad00b981639dc0b8a4001c90a1d8a56c7}{lv\_dropdown\_set\_options}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ options);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a7696e2ad568946dfbac414de0c4ed12b}{lv\_dropdown\_set\_options\_static}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ options);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a5294b94963e1ec9359e3fe117d6d7c27}{lv\_dropdown\_add\_option}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ option,\ uint32\_t\ pos);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a75a9a06cc301e32f08339d328ff213cb}{lv\_dropdown\_clear\_options}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_aadb4615405d0481db642cda610cbdf41}{lv\_dropdown\_set\_selected}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ sel\_opt);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a3adabc80b73c0b36f4aef3cd0e709a08}{lv\_dropdown\_set\_dir}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_dir\_t\ dir);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_ae094b64d9d44116f46ab254c8f956c1c}{lv\_dropdown\_set\_symbol}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ symbol);}
 \DoxyCodeLine{00129\ }
-\DoxyCodeLine{00137\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_ae094b64d9d44116f46ab254c8f956c1c}{lv\_dropdown\_set\_symbol}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}\ *\ symbol);}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a327251f0c12cea1cdc39c01b00c03b92}{lv\_dropdown\_set\_selected\_highlight}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keywordtype}{bool}\ en);}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \textcolor{comment}{/*=====================}}
-\DoxyCodeLine{00147\ \textcolor{comment}{\ *\ Getter\ functions}}
-\DoxyCodeLine{00148\ \textcolor{comment}{\ *====================*/}}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00155\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__dropdown_8h_a7d33b4a951d1d87c3d329f5e6815d791}{lv\_dropdown\_get\_list}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00162\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__dropdown_8h_a7c42fc3b52890692398f6d80abb1749c}{lv\_dropdown\_get\_text}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00169\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__dropdown_8h_a77c886ca7c228f5bfd32f56fa9bc78aa}{lv\_dropdown\_get\_options}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00170\ }
-\DoxyCodeLine{00176\ uint32\_t\ \mbox{\hyperlink{lv__dropdown_8h_a1692c9e7c5cd2b286c659d9bd3acfb06}{lv\_dropdown\_get\_selected}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00177\ }
-\DoxyCodeLine{00183\ uint32\_t\ \mbox{\hyperlink{lv__dropdown_8h_a3d8e0a7a434bb22cf23671d17892f083}{lv\_dropdown\_get\_option\_count}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00184\ }
-\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_aefeba4ae1a0b1af394ebc850702be613}{lv\_dropdown\_get\_selected\_str}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keywordtype}{char}\ *\ buf,\ uint32\_t\ buf\_size);}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00199\ int32\_t\ \mbox{\hyperlink{lv__dropdown_8h_a1fa7ef4d251d39bdd68baf3284fdb299}{lv\_dropdown\_get\_option\_index}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ option);}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00206\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__dropdown_8h_af950a1701591afb579297f5653625eb7}{lv\_dropdown\_get\_symbol}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00207\ }
-\DoxyCodeLine{00213\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lv__dropdown_8h_a37d97249d38e68fc0f44a491c38f36e1}{lv\_dropdown\_get\_selected\_highlight}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00220\ lv\_dir\_t\ \mbox{\hyperlink{lv__dropdown_8h_a8cf3f964156f5502187cebfd612ddf34}{lv\_dropdown\_get\_dir}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00222\ \textcolor{comment}{/*=====================}}
-\DoxyCodeLine{00223\ \textcolor{comment}{\ *\ Other\ functions}}
-\DoxyCodeLine{00224\ \textcolor{comment}{\ *====================*/}}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00230\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_abc47202ceef699f04323e9ae2878d7a2}{lv\_dropdown\_open}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ dropdown\_obj);}
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00236\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a1e8078986b69017e6f4c89adfa96a40d}{lv\_dropdown\_close}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00237\ }
-\DoxyCodeLine{00243\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lv__dropdown_8h_a4206fa2c3d80ce141a32ac71ab90e876}{lv\_dropdown\_is\_open}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00244\ }
-\DoxyCodeLine{00245\ }
-\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBSERVER}}
-\DoxyCodeLine{00253\ \mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ \mbox{\hyperlink{lv__dropdown_8h_af32ee89a899d796f3ccb141fac43864e}{lv\_dropdown\_bind\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ *\ subject);}
-\DoxyCodeLine{00254\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00255\ }
-\DoxyCodeLine{00256\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00257\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00258\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00259\ }
-\DoxyCodeLine{00260\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_DROPDOWN*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00261\ }
-\DoxyCodeLine{00262\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00263\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00265\ }
-\DoxyCodeLine{00266\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DROPDOWN\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00135\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a327251f0c12cea1cdc39c01b00c03b92}{lv\_dropdown\_set\_selected\_highlight}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keywordtype}{bool}\ en);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__dropdown_8h_a7d33b4a951d1d87c3d329f5e6815d791}{lv\_dropdown\_get\_list}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__dropdown_8h_a7c42fc3b52890692398f6d80abb1749c}{lv\_dropdown\_get\_text}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__dropdown_8h_a77c886ca7c228f5bfd32f56fa9bc78aa}{lv\_dropdown\_get\_options}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ uint32\_t\ \mbox{\hyperlink{lv__dropdown_8h_a1692c9e7c5cd2b286c659d9bd3acfb06}{lv\_dropdown\_get\_selected}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00174\ uint32\_t\ \mbox{\hyperlink{lv__dropdown_8h_a3d8e0a7a434bb22cf23671d17892f083}{lv\_dropdown\_get\_option\_count}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00182\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_aefeba4ae1a0b1af394ebc850702be613}{lv\_dropdown\_get\_selected\_str}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keywordtype}{char}\ *\ buf,\ uint32\_t\ buf\_size);}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00190\ int32\_t\ \mbox{\hyperlink{lv__dropdown_8h_a1fa7ef4d251d39bdd68baf3284fdb299}{lv\_dropdown\_get\_option\_index}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ option);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00197\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__dropdown_8h_af950a1701591afb579297f5653625eb7}{lv\_dropdown\_get\_symbol}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00204\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lv__dropdown_8h_a37d97249d38e68fc0f44a491c38f36e1}{lv\_dropdown\_get\_selected\_highlight}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00211\ lv\_dir\_t\ \mbox{\hyperlink{lv__dropdown_8h_a8cf3f964156f5502187cebfd612ddf34}{lv\_dropdown\_get\_dir}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00214\ \textcolor{comment}{\ *\ Other\ functions}}
+\DoxyCodeLine{00215\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00221\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_abc47202ceef699f04323e9ae2878d7a2}{lv\_dropdown\_open}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ dropdown\_obj);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00227\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__dropdown_8h_a1e8078986b69017e6f4c89adfa96a40d}{lv\_dropdown\_close}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00234\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lv__dropdown_8h_a4206fa2c3d80ce141a32ac71ab90e876}{lv\_dropdown\_is\_open}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBSERVER}}
+\DoxyCodeLine{00244\ \mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ \mbox{\hyperlink{lv__dropdown_8h_af32ee89a899d796f3ccb141fac43864e}{lv\_dropdown\_bind\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{structlv__subject__t}{lv\_subject\_t}}\ *\ subject);}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00247\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00248\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00249\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_DROPDOWN*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00254\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DROPDOWN\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -13,131 +13,126 @@
 \DoxyCodeLine{00013\ \textcolor{comment}{/*********************}}
 \DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
 \DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../misc/lv\_ext\_data.h"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__indev_8h}{lv\_indev.h}}"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../misc/lv\_anim.h"{}}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__indev__scroll_8h}{lv\_indev\_scroll.h}}"{}}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}lv\_indev\_gesture.h"{}}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
-\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
-\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ LV\_INDEV\_VECT\_HIST\_SIZE\ 8}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__indev__t}{\_lv\_indev\_t}}\ \{}
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#if\ LV\_USE\_EXT\_DATA}}
-\DoxyCodeLine{00033\ \ \ \ \ lv\_ext\_data\_t\ ext\_data;}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_a11213c9864502e382d5f19b9e6b2de5b}{lv\_indev\_type\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_acb3e9043e90701bb136af0386d2b36ce}{type}};}
-\DoxyCodeLine{00037\ }
-\DoxyCodeLine{00039\ \ \ \ \ lv\_indev\_read\_cb\_t\ \mbox{\hyperlink{struct__lv__indev__t_acb7016e1bcd56ba20c455d90ef8b3652}{read\_cb}};}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__indev_8h}{lv\_indev.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../misc/lv\_anim.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__indev__scroll_8h}{lv\_indev\_scroll.h}}"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}lv\_indev\_gesture.h"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ LV\_INDEV\_VECT\_HIST\_SIZE\ 8}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__indev__t}{\_lv\_indev\_t}}\ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_a11213c9864502e382d5f19b9e6b2de5b}{lv\_indev\_type\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_acb3e9043e90701bb136af0386d2b36ce}{type}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00035\ \ \ \ \ lv\_indev\_read\_cb\_t\ \mbox{\hyperlink{struct__lv__indev__t_acb7016e1bcd56ba20c455d90ef8b3652}{read\_cb}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_adbec5d9bfdaf2cfdcb84190c851ddce8}{state}};\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_af9b8c9cda799fa224cc854830fddad63}{prev\_state}};\ }
+\DoxyCodeLine{00039\ \ \ \ \ lv\_indev\_mode\_t\ mode;}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_adbec5d9bfdaf2cfdcb84190c851ddce8}{state}};\ }
-\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_af9b8c9cda799fa224cc854830fddad63}{prev\_state}};\ }
-\DoxyCodeLine{00043\ \ \ \ \ lv\_indev\_mode\_t\ mode;}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{/*Flags*/}}
-\DoxyCodeLine{00046\ \ \ \ \ uint8\_t\ long\_pr\_sent\ :\ 1;}
-\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ reset\_query\ :\ 1;}
-\DoxyCodeLine{00048\ \ \ \ \ uint8\_t\ enabled\ :\ 1;}
-\DoxyCodeLine{00049\ \ \ \ \ uint8\_t\ wait\_until\_release\ :\ 1;}
-\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ stop\_processing\_query\ :\ 1;}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct__lv__indev__t_a9955411ea88fcf65c2a3bcabfcd9546f}{timestamp}};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00053\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct__lv__indev__t_a6ca689e0e93d8394198d8242ec4700be}{pr\_timestamp}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00054\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct__lv__indev__t_a725637d706b299e06290ba3458131ff6}{longpr\_rep\_timestamp}};\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ driver\_data;}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{struct__lv__indev__t_a0850d7a69d9a8662928c9b7f335c636b}{user\_data}};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_a2b1f9dad31df44d73a600ac65fb62aa3}{disp}};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{struct__lv__timer__t}{lv\_timer\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_ae9c724f0845670db17e985744a7f0142}{read\_timer}};}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00066\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_a9ba882a96a654a7549b2c056d013b59f}{scroll\_limit}};}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00069\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_ae6064d445011523b0467952cc38cce50}{scroll\_throw}};}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00072\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_a61eef1cd1ad217c891c8a6317aececb0}{gesture\_min\_velocity}};}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00075\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_ab4946c44abc99283aac62a2c49fa2814}{gesture\_min\_distance}};}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00078\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct__lv__indev__t_ac91d896e181efc044461693fbde6418e}{long\_press\_time}};}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00081\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct__lv__indev__t_ad304d4a419e0e4d4d010c7b843855284}{long\_press\_repeat\_time}};}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00084\ \ \ \ \ int32\_t\ rotary\_sensitivity;}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Pointer\ and\ button\ data*/}}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_afc5aaa8907f95305f747aa881d01cf5e}{act\_point}};\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_ab56ae11a6e823f636d9378f64431a640}{last\_point}};\ }
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_a2ed4b5af727afef83b3094ada4f87b3a}{last\_raw\_point}};\ }
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_a05d67217d683d46ac1a4f787c8bf15cf}{vect}};\ }
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ vect\_hist[LV\_INDEV\_VECT\_HIST\_SIZE];}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ vect\_hist\_timestamp[LV\_INDEV\_VECT\_HIST\_SIZE];}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ uint8\_t\ \ \ \ vect\_hist\_index;}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ scroll\_sum;\ \textcolor{comment}{/*Count\ the\ dragged\ pixels\ to\ check\ LV\_INDEV\_DEF\_SCROLL\_LIMIT*/}}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ scroll\_throw\_vect;}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ scroll\_throw\_vect\_ori;}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ act\_obj;\ \ \ \ \ \ \textcolor{comment}{/*The\ object\ being\ pressed*/}}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ scroll\_obj;\ \ \ \textcolor{comment}{/*The\ object\ being\ scrolled*/}}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ last\_pressed;\ \textcolor{comment}{/*The\ lastly\ pressed\ object*/}}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ last\_hovered;\ \textcolor{comment}{/*The\ lastly\ hovered\ object*/}}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ scroll\_area;}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ gesture\_sum;\ \textcolor{comment}{/*Count\ the\ gesture\ pixels\ to\ check\ LV\_INDEV\_DEF\_GESTURE\_LIMIT*/}}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ int32\_t\ diff;}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Short\ click\ streaks*/}}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ uint8\_t\ short\_click\_streak;}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ last\_short\_click\_point;}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ uint32\_t\ last\_short\_click\_timestamp;}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Flags*/}}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ uint8\_t\ scroll\_dir\ :\ 4;}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ uint8\_t\ gesture\_dir\ :\ 4;}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ uint8\_t\ gesture\_sent\ :\ 1;}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ uint8\_t\ press\_moved\ :\ 1;}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ uint8\_t\ pressed\ :\ 1;}
-\DoxyCodeLine{00115\ \ \ \ \ \}\ pointer;}
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Keypad\ data*/}}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ last\_state;}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ uint32\_t\ last\_key;}
-\DoxyCodeLine{00120\ \ \ \ \ \}\ keypad;}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_af804a12f857771c9fcac8a2f3e77013b}{cursor}};\ \ \ \ \ }
-\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{struct__lv__group__t}{lv\_group\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_afb2d6450c802ddb55527dc6a257a97fc}{group}};\ \ \ }
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_aa7c40dc6d671c802427db39a7181237b}{btn\_points}};\ }
-\DoxyCodeLine{00126\ \ \ \ \ \mbox{\hyperlink{structlv__event__list__t}{lv\_event\_list\_t}}\ event\_list;}
-\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{struct__lv__anim__t}{lv\_anim\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_a0731e39ca40f50c9caa298f4700d103b}{scroll\_throw\_anim}};}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_ad10747dee156924346c5613b4f4cf15a}{lv\_indev\_key\_remap\_cb\_t}}\ key\_remap\_cb;}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#if\ LV\_USE\_GESTURE\_RECOGNITION}}
-\DoxyCodeLine{00133\ \ \ \ \ lv\_indev\_gesture\_recognizer\_t\ recognizers[LV\_INDEV\_GESTURE\_CNT];}
-\DoxyCodeLine{00134\ \ \ \ \ lv\_indev\_gesture\_type\_t\ cur\_gesture;}
-\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ gesture\_data[LV\_INDEV\_GESTURE\_CNT];}
-\DoxyCodeLine{00136\ \ \ \ \ lv\_indev\_gesture\_type\_t\ gesture\_type[LV\_INDEV\_GESTURE\_CNT];}
-\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00138\ \};}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00141\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00142\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00150\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__indev__private_8h_a0dff2220423ac66e07ec0c664d1ae392}{lv\_indev\_find\_scroll\_obj}}(\mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ indev);}
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00154\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00155\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00158\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_INDEV\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{/*Flags*/}}
+\DoxyCodeLine{00042\ \ \ \ \ uint8\_t\ long\_pr\_sent\ :\ 1;}
+\DoxyCodeLine{00043\ \ \ \ \ uint8\_t\ reset\_query\ :\ 1;}
+\DoxyCodeLine{00044\ \ \ \ \ uint8\_t\ enabled\ :\ 1;}
+\DoxyCodeLine{00045\ \ \ \ \ uint8\_t\ wait\_until\_release\ :\ 1;}
+\DoxyCodeLine{00046\ \ \ \ \ uint8\_t\ stop\_processing\_query\ :\ 1;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct__lv__indev__t_a9955411ea88fcf65c2a3bcabfcd9546f}{timestamp}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct__lv__indev__t_a6ca689e0e93d8394198d8242ec4700be}{pr\_timestamp}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct__lv__indev__t_a725637d706b299e06290ba3458131ff6}{longpr\_rep\_timestamp}};\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ driver\_data;}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{struct__lv__indev__t_a0850d7a69d9a8662928c9b7f335c636b}{user\_data}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_a2b1f9dad31df44d73a600ac65fb62aa3}{disp}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{struct__lv__timer__t}{lv\_timer\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_ae9c724f0845670db17e985744a7f0142}{read\_timer}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00062\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_a9ba882a96a654a7549b2c056d013b59f}{scroll\_limit}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00065\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_ae6064d445011523b0467952cc38cce50}{scroll\_throw}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00068\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_a61eef1cd1ad217c891c8a6317aececb0}{gesture\_min\_velocity}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00071\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct__lv__indev__t_a2df40db357ca18acccc6067d885f4081}{gesture\_limit}};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00074\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct__lv__indev__t_ac91d896e181efc044461693fbde6418e}{long\_press\_time}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00077\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct__lv__indev__t_ad304d4a419e0e4d4d010c7b843855284}{long\_press\_repeat\_time}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00080\ \ \ \ \ int32\_t\ rotary\_sensitivity;}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Pointer\ and\ button\ data*/}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_afc5aaa8907f95305f747aa881d01cf5e}{act\_point}};\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_ab56ae11a6e823f636d9378f64431a640}{last\_point}};\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_a2ed4b5af727afef83b3094ada4f87b3a}{last\_raw\_point}};\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ \mbox{\hyperlink{struct__lv__indev__t_a05d67217d683d46ac1a4f787c8bf15cf}{vect}};\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ vect\_hist[LV\_INDEV\_VECT\_HIST\_SIZE];}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ uint32\_t\ \ \ vect\_hist\_timestamp[LV\_INDEV\_VECT\_HIST\_SIZE];}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ uint8\_t\ \ \ \ vect\_hist\_index;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ scroll\_sum;\ \textcolor{comment}{/*Count\ the\ dragged\ pixels\ to\ check\ LV\_INDEV\_DEF\_SCROLL\_LIMIT*/}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ scroll\_throw\_vect;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ scroll\_throw\_vect\_ori;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ act\_obj;\ \ \ \ \ \ \textcolor{comment}{/*The\ object\ being\ pressed*/}}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ last\_obj;\ \ \ \ \ \textcolor{comment}{/*The\ last\ object\ which\ was\ pressed*/}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ scroll\_obj;\ \ \ \textcolor{comment}{/*The\ object\ being\ scrolled*/}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ last\_pressed;\ \textcolor{comment}{/*The\ lastly\ pressed\ object*/}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ last\_hovered;\ \textcolor{comment}{/*The\ lastly\ hovered\ object*/}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ scroll\_area;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ gesture\_sum;\ \textcolor{comment}{/*Count\ the\ gesture\ pixels\ to\ check\ LV\_INDEV\_DEF\_GESTURE\_LIMIT*/}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ int32\_t\ diff;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Short\ click\ streaks*/}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ uint8\_t\ short\_click\_streak;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ last\_short\_click\_point;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ uint32\_t\ last\_short\_click\_timestamp;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Flags*/}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ uint8\_t\ scroll\_dir\ :\ 4;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ uint8\_t\ gesture\_dir\ :\ 4;}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ uint8\_t\ gesture\_sent\ :\ 1;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ uint8\_t\ press\_moved\ :\ 1;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ uint8\_t\ pressed\ :\ 1;}
+\DoxyCodeLine{00112\ \ \ \ \ \}\ pointer;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Keypad\ data*/}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ last\_state;}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ uint32\_t\ last\_key;}
+\DoxyCodeLine{00117\ \ \ \ \ \}\ keypad;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_af804a12f857771c9fcac8a2f3e77013b}{cursor}};\ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{struct__lv__group__t}{lv\_group\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_afb2d6450c802ddb55527dc6a257a97fc}{group}};\ \ \ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ *\ \mbox{\hyperlink{struct__lv__indev__t_aa7c40dc6d671c802427db39a7181237b}{btn\_points}};\ }
+\DoxyCodeLine{00123\ \ \ \ \ \mbox{\hyperlink{structlv__event__list__t}{lv\_event\_list\_t}}\ event\_list;}
+\DoxyCodeLine{00124\ \ \ \ \ \mbox{\hyperlink{struct__lv__anim__t}{lv\_anim\_t}}\ *\ scroll\_throw\_anim;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#if\ LV\_USE\_GESTURE\_RECOGNITION}}
+\DoxyCodeLine{00127\ \ \ \ \ lv\_indev\_gesture\_recognizer\_t\ recognizers[LV\_INDEV\_GESTURE\_CNT];}
+\DoxyCodeLine{00128\ \ \ \ \ lv\_indev\_gesture\_type\_t\ cur\_gesture;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ gesture\_data[LV\_INDEV\_GESTURE\_CNT];}
+\DoxyCodeLine{00130\ \ \ \ \ lv\_indev\_gesture\_type\_t\ gesture\_type[LV\_INDEV\_GESTURE\_CNT];}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00144\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__indev__private_8h_a0dff2220423ac66e07ec0c664d1ae392}{lv\_indev\_find\_scroll\_obj}}(\mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ indev);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00152\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_INDEV\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

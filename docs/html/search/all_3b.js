@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['レイアウト内のチェックボックス_0',['レイアウト内のチェックボックス',['../md_managed__components_2lvgl____lvgl_2docs_2README__jp.html#autotoc_md526',1,'']]]
+  ['客制化编解码器设备_0',['客制化编解码器设备',['../md_managed__components_2espressif____esp__codec__dev_2README__CN.html#autotoc_md255',1,'']]]
 ];

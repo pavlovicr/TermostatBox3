@@ -114,7 +114,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html">   34</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct__lv__dropdown__t.html">_lv_dropdown_t</a> {</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> obj;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#a70301476502bc339b6bbf4a2c3c8c0cb">   36</a></span>    <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * <a class="code hl_variable" href="struct__lv__dropdown__t.html#a70301476502bc339b6bbf4a2c3c8c0cb">list</a>;                </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#ad789b0948f9d4b9b071cb12cb148cef7">   37</a></span>    <span class="keywordtype">char</span> * <a class="code hl_variable" href="struct__lv__dropdown__t.html#ad789b0948f9d4b9b071cb12cb148cef7">text</a>;                    </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#ab81480d08e513cdd6beffaa20088bee4">   37</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * <a class="code hl_variable" href="struct__lv__dropdown__t.html#ab81480d08e513cdd6beffaa20088bee4">text</a>;              </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#ab7007bee14781f240049af1f49381414">   38</a></span>    <span class="keyword">const</span> <span class="keywordtype">void</span> * <a class="code hl_variable" href="struct__lv__dropdown__t.html#ab7007bee14781f240049af1f49381414">symbol</a>;            </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#ab198b782a10644c5c6ed15b372d24529">   39</a></span>    <span class="keywordtype">char</span> * <a class="code hl_variable" href="struct__lv__dropdown__t.html#ab198b782a10644c5c6ed15b372d24529">options</a>;                 </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#a690af2f7f1db3f628646fd6d88845d39">   40</a></span>    uint32_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#a690af2f7f1db3f628646fd6d88845d39">option_cnt</a>;            </div>
@@ -122,49 +122,47 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#af51f357698b572ae887a82424ab8225b">   42</a></span>    uint32_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#af51f357698b572ae887a82424ab8225b">sel_opt_id_orig</a>;       </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#a0c2a01fd13ce26501bd65733a23d6574">   43</a></span>    uint32_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#a0c2a01fd13ce26501bd65733a23d6574">pr_opt_id</a>;             </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#a2303700c2ae57a0febe16e23fba899c6">   44</a></span>    uint8_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#a2303700c2ae57a0febe16e23fba899c6">dir</a>               : 4;  </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#a3b3b39fcca6a3e3e2ff5b30a2d1b06a7">   45</a></span>    uint8_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#a3b3b39fcca6a3e3e2ff5b30a2d1b06a7">static_options</a>    : 1;  </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#a807fab1c7df84a56e7298c5b9e1f3ced">   45</a></span>    uint8_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#a807fab1c7df84a56e7298c5b9e1f3ced">static_txt</a>        : 1;  </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#aa1c4de62cc6f519d77790a83e3168fda">   46</a></span>    uint8_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#aa1c4de62cc6f519d77790a83e3168fda">selected_highlight</a>: 1;  </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__t.html#a896dcdcb0b91497a7c9d1824d28f93e3">   47</a></span>    uint8_t <a class="code hl_variable" href="struct__lv__dropdown__t.html#a896dcdcb0b91497a7c9d1824d28f93e3">static_text</a>       : 1;  </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>};</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__list__t.html">   50</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct__lv__dropdown__list__t.html">_lv_dropdown_list_t</a> {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> obj;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * dropdown;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>};</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct__lv__dropdown__list__t.html">   49</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct__lv__dropdown__list__t.html">_lv_dropdown_list_t</a> {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> obj;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * dropdown;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>};</div>
 </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/**********************</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> **********************/</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/**********************</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> *      MACROS</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> **********************/</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#endif </span><span class="comment">/* LV_USE_DROPDOWN != 0 */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif </span><span class="comment">/*LV_DROPDOWN_PRIVATE_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif </span><span class="comment">/* LV_USE_DROPDOWN != 0 */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">/*LV_DROPDOWN_PRIVATE_H*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="alv__dropdown_8h_html"><div class="ttname"><a href="lv__dropdown_8h.html">lv_dropdown.h</a></div></div>
-<div class="ttc" id="astruct__lv__dropdown__list__t_html"><div class="ttname"><a href="struct__lv__dropdown__list__t.html">_lv_dropdown_list_t</a></div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:50</div></div>
+<div class="ttc" id="astruct__lv__dropdown__list__t_html"><div class="ttname"><a href="struct__lv__dropdown__list__t.html">_lv_dropdown_list_t</a></div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:49</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html"><div class="ttname"><a href="struct__lv__dropdown__t.html">_lv_dropdown_t</a></div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:34</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_a0c2a01fd13ce26501bd65733a23d6574"><div class="ttname"><a href="struct__lv__dropdown__t.html#a0c2a01fd13ce26501bd65733a23d6574">_lv_dropdown_t::pr_opt_id</a></div><div class="ttdeci">uint32_t pr_opt_id</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:43</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_a2303700c2ae57a0febe16e23fba899c6"><div class="ttname"><a href="struct__lv__dropdown__t.html#a2303700c2ae57a0febe16e23fba899c6">_lv_dropdown_t::dir</a></div><div class="ttdeci">uint8_t dir</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:44</div></div>
-<div class="ttc" id="astruct__lv__dropdown__t_html_a3b3b39fcca6a3e3e2ff5b30a2d1b06a7"><div class="ttname"><a href="struct__lv__dropdown__t.html#a3b3b39fcca6a3e3e2ff5b30a2d1b06a7">_lv_dropdown_t::static_options</a></div><div class="ttdeci">uint8_t static_options</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:45</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_a690af2f7f1db3f628646fd6d88845d39"><div class="ttname"><a href="struct__lv__dropdown__t.html#a690af2f7f1db3f628646fd6d88845d39">_lv_dropdown_t::option_cnt</a></div><div class="ttdeci">uint32_t option_cnt</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:40</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_a70301476502bc339b6bbf4a2c3c8c0cb"><div class="ttname"><a href="struct__lv__dropdown__t.html#a70301476502bc339b6bbf4a2c3c8c0cb">_lv_dropdown_t::list</a></div><div class="ttdeci">lv_obj_t * list</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:36</div></div>
-<div class="ttc" id="astruct__lv__dropdown__t_html_a896dcdcb0b91497a7c9d1824d28f93e3"><div class="ttname"><a href="struct__lv__dropdown__t.html#a896dcdcb0b91497a7c9d1824d28f93e3">_lv_dropdown_t::static_text</a></div><div class="ttdeci">uint8_t static_text</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:47</div></div>
+<div class="ttc" id="astruct__lv__dropdown__t_html_a807fab1c7df84a56e7298c5b9e1f3ced"><div class="ttname"><a href="struct__lv__dropdown__t.html#a807fab1c7df84a56e7298c5b9e1f3ced">_lv_dropdown_t::static_txt</a></div><div class="ttdeci">uint8_t static_txt</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:45</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_a9354f28bbcbe10c9ac7eac192b72fc0a"><div class="ttname"><a href="struct__lv__dropdown__t.html#a9354f28bbcbe10c9ac7eac192b72fc0a">_lv_dropdown_t::sel_opt_id</a></div><div class="ttdeci">uint32_t sel_opt_id</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:41</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_aa1c4de62cc6f519d77790a83e3168fda"><div class="ttname"><a href="struct__lv__dropdown__t.html#aa1c4de62cc6f519d77790a83e3168fda">_lv_dropdown_t::selected_highlight</a></div><div class="ttdeci">uint8_t selected_highlight</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:46</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_ab198b782a10644c5c6ed15b372d24529"><div class="ttname"><a href="struct__lv__dropdown__t.html#ab198b782a10644c5c6ed15b372d24529">_lv_dropdown_t::options</a></div><div class="ttdeci">char * options</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:39</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_ab7007bee14781f240049af1f49381414"><div class="ttname"><a href="struct__lv__dropdown__t.html#ab7007bee14781f240049af1f49381414">_lv_dropdown_t::symbol</a></div><div class="ttdeci">const void * symbol</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:38</div></div>
-<div class="ttc" id="astruct__lv__dropdown__t_html_ad789b0948f9d4b9b071cb12cb148cef7"><div class="ttname"><a href="struct__lv__dropdown__t.html#ad789b0948f9d4b9b071cb12cb148cef7">_lv_dropdown_t::text</a></div><div class="ttdeci">char * text</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:37</div></div>
+<div class="ttc" id="astruct__lv__dropdown__t_html_ab81480d08e513cdd6beffaa20088bee4"><div class="ttname"><a href="struct__lv__dropdown__t.html#ab81480d08e513cdd6beffaa20088bee4">_lv_dropdown_t::text</a></div><div class="ttdeci">const char * text</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:37</div></div>
 <div class="ttc" id="astruct__lv__dropdown__t_html_af51f357698b572ae887a82424ab8225b"><div class="ttname"><a href="struct__lv__dropdown__t.html#af51f357698b572ae887a82424ab8225b">_lv_dropdown_t::sel_opt_id_orig</a></div><div class="ttdeci">uint32_t sel_opt_id_orig</div><div class="ttdef"><b>Definition</b> lv_dropdown_private.h:42</div></div>
 <div class="ttc" id="astruct__lv__obj__t_html"><div class="ttname"><a href="struct__lv__obj__t.html">_lv_obj_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_private.h:55</div></div>
 </div><!-- fragment --></div><!-- contents -->

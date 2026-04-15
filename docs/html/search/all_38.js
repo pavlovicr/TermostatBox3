@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['サンプル_0',['🤖 サンプル',['../md_managed__components_2lvgl____lvgl_2docs_2README__jp.html#autotoc_md523',1,'']]]
+  ['レイアウト内のチェックボックス_0',['レイアウト内のチェックボックス',['../md_managed__components_2lvgl____lvgl_2docs_2README__jp.html#autotoc_md453',1,'']]]
 ];

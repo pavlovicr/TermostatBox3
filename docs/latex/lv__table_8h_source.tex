@@ -15,102 +15,93 @@
 \DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00016\ }
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../label/lv\_label.h"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../../core/lv\_obj\_property.h"{}}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ LV\_USE\_TABLE\ !=\ 0}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{comment}{/*Testing\ of\ dependencies*/}}
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#if\ LV\_USE\_LABEL\ ==\ 0}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#error\ "{}lv\_table:\ lv\_label\ is\ required.\ Enable\ it\ in\ lv\_conf.h\ (LV\_USE\_LABEL\ 1)"{}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \textcolor{comment}{/*********************}}
-\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ *********************/}}
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ LV\_TABLE\_CELL\_NONE\ 0XFFFF}}
-\DoxyCodeLine{00031\ \mbox{\hyperlink{lv__conf__cmsis_8h_ad9dbfeb90679a5db213a80f3e8d61b28}{LV\_EXPORT\_CONST\_INT}}(LV\_TABLE\_CELL\_NONE);}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00034\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
-\DoxyCodeLine{00035\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_NONE\ \ \ \ \ \ \ \ =\ 0\ <<\ 0,}
-\DoxyCodeLine{00039\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_MERGE\_RIGHT\ =\ 1\ <<\ 0,}
-\DoxyCodeLine{00040\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_TEXT\_CROP\ \ \ =\ 1\ <<\ 1,}
-\DoxyCodeLine{00041\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_1\ \ \ \ =\ 1\ <<\ 4,}
-\DoxyCodeLine{00042\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_2\ \ \ \ =\ 1\ <<\ 5,}
-\DoxyCodeLine{00043\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_3\ \ \ \ =\ 1\ <<\ 6,}
-\DoxyCodeLine{00044\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_4\ \ \ \ =\ 1\ <<\ 7,}
-\DoxyCodeLine{00045\ \}\ lv\_table\_cell\_ctrl\_t;}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__class__t}{lv\_obj\_class\_t}}\ lv\_table\_class;}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBJ\_PROPERTY}}
-\DoxyCodeLine{00050\ \textcolor{keyword}{enum}\ \_lv\_property\_table\_id\_t\ \{}
-\DoxyCodeLine{00051\ \ \ \ \ LV\_PROPERTY\_ID(TABLE,\ ROW\_COUNT,\ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ 0),}
-\DoxyCodeLine{00052\ \ \ \ \ LV\_PROPERTY\_ID(TABLE,\ COLUMN\_COUNT,\ LV\_PROPERTY\_TYPE\_INT,\ 1),}
-\DoxyCodeLine{00053\ \ \ \ \ LV\_PROPERTY\_TABLE\_END,}
-\DoxyCodeLine{00054\ \};}
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00059\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00066\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__table_8h_a82e9898115534ebfce431eb100cf2186}{lv\_table\_create}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ parent);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00068\ \textcolor{comment}{/*=====================}}
-\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ Setter\ functions}}
-\DoxyCodeLine{00070\ \textcolor{comment}{\ *====================*/}}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a0cdd714aa2f27c648a57831745bc88ce}{lv\_table\_set\_cell\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ txt);}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a429fc1028e603e9229a72544f3e0d6f9}{lv\_table\_set\_cell\_value\_fmt}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ fmt,}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...)\ LV\_FORMAT\_ATTRIBUTE(4,\ 5);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a4369defc54d5ec411ab0e0faff9ab8ec}{lv\_table\_set\_row\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row\_cnt);}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a8bbce75377afaa0f9aab16d820af27c7}{lv\_table\_set\_column\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ col\_cnt);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a245ed180c06a8513efe8c16ccd8bed6b}{lv\_table\_set\_column\_width}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ col\_id,\ int32\_t\ w);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_TABLE\ !=\ 0}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*Testing\ of\ dependencies*/}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#if\ LV\_USE\_LABEL\ ==\ 0}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#error\ "{}lv\_table:\ lv\_label\ is\ required.\ Enable\ it\ in\ lv\_conf.h\ (LV\_USE\_LABEL\ 1)"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ LV\_TABLE\_CELL\_NONE\ 0XFFFF}}
+\DoxyCodeLine{00030\ \mbox{\hyperlink{lv__conf__cmsis_8h_ad9dbfeb90679a5db213a80f3e8d61b28}{LV\_EXPORT\_CONST\_INT}}(LV\_TABLE\_CELL\_NONE);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_NONE\ \ \ \ \ \ \ \ =\ 0\ <<\ 0,}
+\DoxyCodeLine{00038\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_MERGE\_RIGHT\ =\ 1\ <<\ 0,}
+\DoxyCodeLine{00039\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_TEXT\_CROP\ \ \ =\ 1\ <<\ 1,}
+\DoxyCodeLine{00040\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_1\ \ \ \ =\ 1\ <<\ 4,}
+\DoxyCodeLine{00041\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_2\ \ \ \ =\ 1\ <<\ 5,}
+\DoxyCodeLine{00042\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_3\ \ \ \ =\ 1\ <<\ 6,}
+\DoxyCodeLine{00043\ \ \ \ \ LV\_TABLE\_CELL\_CTRL\_CUSTOM\_4\ \ \ \ =\ 1\ <<\ 7,}
+\DoxyCodeLine{00044\ \}\ lv\_table\_cell\_ctrl\_t;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__class__t}{lv\_obj\_class\_t}}\ lv\_table\_class;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__table_8h_a82e9898115534ebfce431eb100cf2186}{lv\_table\_create}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ parent);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ Setter\ functions}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a0cdd714aa2f27c648a57831745bc88ce}{lv\_table\_set\_cell\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ txt);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a429fc1028e603e9229a72544f3e0d6f9}{lv\_table\_set\_cell\_value\_fmt}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ fmt,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ...)\ LV\_FORMAT\_ATTRIBUTE(4,\ 5);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a4369defc54d5ec411ab0e0faff9ab8ec}{lv\_table\_set\_row\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row\_cnt);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a8bbce75377afaa0f9aab16d820af27c7}{lv\_table\_set\_column\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ col\_cnt);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00104\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a245ed180c06a8513efe8c16ccd8bed6b}{lv\_table\_set\_column\_width}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ col\_id,\ int32\_t\ w);}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a7d275b3535752945c6ba148ac6394744}{lv\_table\_set\_cell\_ctrl}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ lv\_table\_cell\_ctrl\_t\ ctrl);}
 \DoxyCodeLine{00114\ }
-\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a7d275b3535752945c6ba148ac6394744}{lv\_table\_set\_cell\_ctrl}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ lv\_table\_cell\_ctrl\_t\ ctrl);}
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a003d6ef4a4cc83731648116def1fc4f1}{lv\_table\_clear\_cell\_ctrl}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ lv\_table\_cell\_ctrl\_t\ ctrl);}
 \DoxyCodeLine{00123\ }
-\DoxyCodeLine{00131\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a003d6ef4a4cc83731648116def1fc4f1}{lv\_table\_clear\_cell\_ctrl}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ lv\_table\_cell\_ctrl\_t\ ctrl);}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_add7ded3caf53f651101cb913aa410d2a}{lv\_table\_set\_cell\_user\_data}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint16\_t\ row,\ uint16\_t\ col,\ \textcolor{keywordtype}{void}\ *\ user\_data);}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a77fe6d4703e9630ed87b0190ee95e753}{lv\_table\_set\_selected\_cell}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint16\_t\ row,\ uint16\_t\ col);}
-\DoxyCodeLine{00152\ }
-\DoxyCodeLine{00153\ \textcolor{comment}{/*=====================}}
-\DoxyCodeLine{00154\ \textcolor{comment}{\ *\ Getter\ functions}}
-\DoxyCodeLine{00155\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_add7ded3caf53f651101cb913aa410d2a}{lv\_table\_set\_cell\_user\_data}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint16\_t\ row,\ uint16\_t\ col,\ \textcolor{keywordtype}{void}\ *\ user\_data);}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a77fe6d4703e9630ed87b0190ee95e753}{lv\_table\_set\_selected\_cell}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint16\_t\ row,\ uint16\_t\ col);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00155\ const\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__table_8h_a005bc78b3edf3ea05f2125eeed2f1d91}{lv\_table\_get\_cell\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col);}
 \DoxyCodeLine{00156\ }
-\DoxyCodeLine{00164\ const\ \textcolor{keywordtype}{char}\ *\ \mbox{\hyperlink{lv__table_8h_a005bc78b3edf3ea05f2125eeed2f1d91}{lv\_table\_get\_cell\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col);}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00171\ uint32\_t\ \mbox{\hyperlink{lv__table_8h_ae3b536e864ac674034d14ea0f3d3d3ab}{lv\_table\_get\_row\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00178\ uint32\_t\ \mbox{\hyperlink{lv__table_8h_a7779525496f450a3a4042d90d7c75b55}{lv\_table\_get\_column\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00186\ int32\_t\ \mbox{\hyperlink{lv__table_8h_abfd88953080a08bc86d7b990e76973be}{lv\_table\_get\_column\_width}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ col);}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00196\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lv__table_8h_a8ef6a34db3d3a5ccfffe1998d11823e5}{lv\_table\_has\_cell\_ctrl}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ lv\_table\_cell\_ctrl\_t\ ctrl);}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00204\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a2877b73f257c01ae7019f15de8eb049b}{lv\_table\_get\_selected\_cell}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ *\ row,\ uint32\_t\ *\ col);}
-\DoxyCodeLine{00205\ }
-\DoxyCodeLine{00212\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{lv__table_8h_aace3bf5b468de84b45b520c01e6bcf7f}{lv\_table\_get\_cell\_user\_data}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint16\_t\ row,\ uint16\_t\ col);}
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00215\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00216\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00218\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_TABLE*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00221\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00222\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00223\ }
-\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_TABLE\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00162\ uint32\_t\ \mbox{\hyperlink{lv__table_8h_ae3b536e864ac674034d14ea0f3d3d3ab}{lv\_table\_get\_row\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00169\ uint32\_t\ \mbox{\hyperlink{lv__table_8h_a7779525496f450a3a4042d90d7c75b55}{lv\_table\_get\_column\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00177\ int32\_t\ \mbox{\hyperlink{lv__table_8h_abfd88953080a08bc86d7b990e76973be}{lv\_table\_get\_column\_width}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ col);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00187\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{lv__table_8h_a8ef6a34db3d3a5ccfffe1998d11823e5}{lv\_table\_has\_cell\_ctrl}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ row,\ uint32\_t\ col,\ lv\_table\_cell\_ctrl\_t\ ctrl);}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00195\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__table_8h_a2877b73f257c01ae7019f15de8eb049b}{lv\_table\_get\_selected\_cell}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ *\ row,\ uint32\_t\ *\ col);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00203\ \textcolor{keywordtype}{void}\ *\ \mbox{\hyperlink{lv__table_8h_aace3bf5b468de84b45b520c01e6bcf7f}{lv\_table\_get\_cell\_user\_data}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint16\_t\ row,\ uint16\_t\ col);}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00206\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00207\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_TABLE*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00212\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_TABLE\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

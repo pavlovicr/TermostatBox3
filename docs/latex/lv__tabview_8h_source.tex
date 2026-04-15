@@ -15,68 +15,51 @@
 \DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
 \DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../core/lv\_obj.h"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}../../core/lv\_obj\_property.h"{}}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#if\ LV\_USE\_TABVIEW}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
-\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
-\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__class__t}{lv\_obj\_class\_t}}\ lv\_tabview\_class;}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBJ\_PROPERTY}}
-\DoxyCodeLine{00029\ \textcolor{keyword}{enum}\ \_lv\_property\_tabview\_id\_t\ \{}
-\DoxyCodeLine{00030\ \ \ \ \ LV\_PROPERTY\_ID(TABVIEW,\ TAB\_ACTIVE,\ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ 0),}
-\DoxyCodeLine{00031\ \ \ \ \ LV\_PROPERTY\_ID(TABVIEW,\ TAB\_BAR\_POSITION,\ LV\_PROPERTY\_TYPE\_INT,\ 1),}
-\DoxyCodeLine{00032\ \ \ \ \ LV\_PROPERTY\_TABVIEW\_END,}
-\DoxyCodeLine{00033\ \};}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00037\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00038\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00045\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_a5000b5c5aa9193ce16d9a8411eebf1d9}{lv\_tabview\_create}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ parent);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00053\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_a7561c0b343421571ef89c2eebd286b05}{lv\_tabview\_add\_tab}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name);}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00061\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a30c2ec8274c8e793b2680582831b0823}{lv\_tabview\_set\_tab\_text}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ idx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ new\_name);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#if\ LV\_USE\_TRANSLATION}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00071\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ lv\_tabview\_set\_tab\_translation\_tag(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ tag);}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a6046c6847a9a5493cd4f93efb2cdcd16}{lv\_tabview\_set\_active}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ idx,\ lv\_anim\_enable\_t\ anim\_en);}
-\DoxyCodeLine{00082\ }
-\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a5ce312a382406915e8cc98c2a5b231c7}{lv\_tabview\_set\_tab\_bar\_position}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_dir\_t\ dir);}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a5fa4876f6cffb3eac10c2e7583267e06}{lv\_tabview\_set\_tab\_bar\_size}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ size);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00103\ uint32\_t\ \mbox{\hyperlink{lv__tabview_8h_a729d9e13a9e31a9db7bd4c78c697e545}{lv\_tabview\_get\_tab\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00110\ uint32\_t\ \mbox{\hyperlink{lv__tabview_8h_a5c968b1693a4e9ad96e179f2183ab421}{lv\_tabview\_get\_tab\_active}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00119\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_af4b3fb34016debe3cdcbe4c79e89fd46}{lv\_tabview\_get\_tab\_button}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ idx);}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00126\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_a18dd299f4c087233be32edf14d67f88f}{lv\_tabview\_get\_content}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00133\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_ad9d9b5eb77352526dfbe47b2174e149a}{lv\_tabview\_get\_tab\_bar}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00140\ lv\_dir\_t\ \mbox{\hyperlink{lv__tabview_8h_ad4c4e36be50effb73ea28df2b79a90ed}{lv\_tabview\_get\_tab\_bar\_position}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00141\ }
-\DoxyCodeLine{00142\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00143\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00144\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_TABVIEW*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00147\ }
-\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00149\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_TABVIEW\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_TABVIEW}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__class__t}{lv\_obj\_class\_t}}\ lv\_tabview\_class;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_a5000b5c5aa9193ce16d9a8411eebf1d9}{lv\_tabview\_create}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ parent);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00044\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_a7561c0b343421571ef89c2eebd286b05}{lv\_tabview\_add\_tab}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a9bbbe473bf619ba17fed1e8122b60563}{lv\_tabview\_rename\_tab}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ idx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ new\_name);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a6046c6847a9a5493cd4f93efb2cdcd16}{lv\_tabview\_set\_active}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ idx,\ lv\_anim\_enable\_t\ anim\_en);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a5ce312a382406915e8cc98c2a5b231c7}{lv\_tabview\_set\_tab\_bar\_position}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_dir\_t\ dir);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__tabview_8h_a5fa4876f6cffb3eac10c2e7583267e06}{lv\_tabview\_set\_tab\_bar\_size}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ size);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00082\ uint32\_t\ \mbox{\hyperlink{lv__tabview_8h_a729d9e13a9e31a9db7bd4c78c697e545}{lv\_tabview\_get\_tab\_count}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ uint32\_t\ \mbox{\hyperlink{lv__tabview_8h_a5c968b1693a4e9ad96e179f2183ab421}{lv\_tabview\_get\_tab\_active}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00098\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_af4b3fb34016debe3cdcbe4c79e89fd46}{lv\_tabview\_get\_tab\_button}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ idx);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00105\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_a18dd299f4c087233be32edf14d67f88f}{lv\_tabview\_get\_content}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__tabview_8h_ad9d9b5eb77352526dfbe47b2174e149a}{lv\_tabview\_get\_tab\_bar}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_TABVIEW*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00121\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_TABVIEW\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

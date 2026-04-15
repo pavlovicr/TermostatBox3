@@ -72,11 +72,11 @@ $(function() {
   <div class="headertitle"><div class="title">ESP Codec Device</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md266"></a></p><ul>
+<div class="textblock"><p><a class="anchor" id="autotoc_md244"></a></p><ul>
 <li><a href="https://components.espressif.com/components/espressif/esp_codec_dev"><img src="https://components.espressif.com/components/espressif/esp_codec_dev/badge.svg" alt="Component Registry" style="pointer-events: none;" class="inline"/></a></li>
 <li><a class="el" href="md_managed__components_2espressif____esp__codec__dev_2README__CN.html">中文版本</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md267"></a>
+<h1><a class="anchor" id="autotoc_md245"></a>
 General Information</h1>
 <p><code>esp_codec_dev</code> is a driver component for audio codec devices. Following features are supported currently:</p><ul>
 <li>Support driver for common audio codec devices</li>
@@ -84,8 +84,6 @@ General Information</h1>
 <li>Add unified abstract interface to operate on codec device</li>
 <li>Support customized codec realization based on provided interface</li>
 <li>Easy-to-use high-level API for playback and recording</li>
-<li>Support ADC microphone capture through internal ADC data interface (<code>audio_codec_new_adc_data</code>)</li>
-<li>Support dummy codec for PA-only speaker designs (<code>dummy_codec_new</code>), enabling automatic PA control via <code>esp_codec_dev_open/close</code></li>
 <li>Support for volume adjustment in software when it is not supported in hardware</li>
 <li>Support customized volume curve and customized volume control</li>
 <li>Easy to port to other platform after replacing codes under <a href="./platform">platform</a></li>
@@ -119,7 +117,7 @@ General Information</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">CJC8910   </td><td class="markdownTableBodyLeft">Y   </td><td class="markdownTableBodyLeft">Y   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md268"></a>
+<h1><a class="anchor" id="autotoc_md246"></a>
 Architecture overview</h1>
 <p>Hardware connection and software architecture are introduced respectively by taking the codec device (ES8311) as an example. <br  />
  The hardware connection diagram between the codec device (ES8311) and the main IC (ESP32-S3) is as below: </p><div class="fragment"><div class="line">graph LR;</div>
@@ -225,7 +223,7 @@ Architecture overview</h1>
  Commonly used data channels include I2S, SPI, etc</li>
 </ul>
 <p><code>esp_codec_dev</code> provides users with convenient high-level API to implement playback and recording functions. It is composed of <code><a class="el" href="structaudio__codec__data__if__t.html" title="Audio codec data interface structure.">audio_codec_data_if_t</a></code> and <code><a class="el" href="structaudio__codec__if__t.html" title="Structure for codec interface.">audio_codec_if_t</a></code>. <code><a class="el" href="structaudio__codec__if__t.html" title="Structure for codec interface.">audio_codec_if_t</a></code> abstracts codec control operations and constructed by specified codec configuration (configured by <code><a class="el" href="structaudio__codec__ctrl__if__t.html" title="Audio codec control interface structure.">audio_codec_ctrl_if_t</a></code> and <code><a class="el" href="structaudio__codec__gpio__if__t.html" title="Codec GPIO interface structure.">audio_codec_gpio_if_t</a></code> through <code><a class="el" href="structes8311__codec__cfg__t.html" title="ES8311 codec configuration.">es8311_codec_cfg_t</a></code>). <code><a class="el" href="structaudio__codec__gpio__if__t.html" title="Codec GPIO interface structure.">audio_codec_gpio_if_t</a></code> abstracts the IO control to adapt to the main control IO or the expansion chip IO, and called inside the codec to match the unique set timing.</p>
-<h1><a class="anchor" id="autotoc_md269"></a>
+<h1><a class="anchor" id="autotoc_md247"></a>
 DAC Volume setting</h1>
 <p>Volume setting is realized by common API: <code>esp_codec_dev_set_out_vol</code>. <br  />
  <code>esp_codec_dev</code> supports the following volume setup methods:</p><ol type="1">
@@ -235,7 +233,7 @@ DAC Volume setting</h1>
 </ol>
 <p>The default volume range is 0 - 100. Volume [1:100] is mapped to [-49.5 dB:0 dB] with the scale being 0.5 dB. Volume 0 is mapped to -96 dB. To change this mapping, you can define your own volume curve through API <code>esp_codec_dev_set_vol_curve</code>. The volume curve is an array of <code><a class="el" href="structesp__codec__dev__vol__map__t.html" title="Codec volume map to decibel.">esp_codec_dev_vol_map_t</a></code> which uses linear interpolation to calculate the decibel value at a certain volume point internally (please sort volume maps in advance). <br  />
  To balance the speaker's loudness across different platforms when playing the same content, you need to know some mechanism of the audio gain. In short, audio gain consists of two parts: software gain (adjustable) and hardware gain (fixed). Software gain can be adjusted by changing the input PCM data level or setting the codec volume register. The hardware gain is affected by the peripheral circuit, mainly by the amplification efficiency of the analog signal. The typical impact parameter of hardware gain is extracted into <code><a class="el" href="structesp__codec__dev__hw__gain__t.html" title="Codec hardware gain setting Notes: Hardware gain generally consists of 2 parts.">esp_codec_dev_hw_gain_t</a></code>, which can be configured to codec devices to ensure loudness consistency. For more details, please refer to the comments in <a href="include/esp_codec_dev_vol.h">esp_codec_dev_vol.h</a>.</p>
-<h1><a class="anchor" id="autotoc_md270"></a>
+<h1><a class="anchor" id="autotoc_md248"></a>
 Usage</h1>
 <p>The steps below take the ES8311 codec as an example to illustrate how to play and record audio.</p><ol type="1">
 <li>Install the driver for codec control and data bus referring to <a href="test_apps/codec_dev_test/main/test_board.c">test_board.c</a> <br  />
@@ -258,10 +256,10 @@ Usage</h1>
 <div class="ttc" id="astructaudio__codec__ctrl__if__t_html"><div class="ttname"><a href="structaudio__codec__ctrl__if__t.html">audio_codec_ctrl_if_t</a></div><div class="ttdoc">Audio codec control interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_ctrl_if.h:20</div></div>
 <div class="ttc" id="astructaudio__codec__data__if__t_html"><div class="ttname"><a href="structaudio__codec__data__if__t.html">audio_codec_data_if_t</a></div><div class="ttdoc">Audio codec data interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_data_if.h:20</div></div>
 <div class="ttc" id="astructaudio__codec__gpio__if__t_html"><div class="ttname"><a href="structaudio__codec__gpio__if__t.html">audio_codec_gpio_if_t</a></div><div class="ttdoc">Codec GPIO interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_gpio_if.h:36</div></div>
-<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html">audio_codec_i2c_cfg_t</a></div><div class="ttdoc">Codec I2C configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:64</div></div>
-<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html_a9d87b479bdb9d284a4917bf025ba0293"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html#a9d87b479bdb9d284a4917bf025ba0293">audio_codec_i2c_cfg_t::addr</a></div><div class="ttdeci">uint8_t addr</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:66</div></div>
-<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html">audio_codec_i2s_cfg_t</a></div><div class="ttdoc">Codec I2S configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:73</div></div>
-<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html_ad3c05b2d576039a5430ba5e85f6ff5e8"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html#ad3c05b2d576039a5430ba5e85f6ff5e8">audio_codec_i2s_cfg_t::rx_handle</a></div><div class="ttdeci">void * rx_handle</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:75</div></div>
+<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html">audio_codec_i2c_cfg_t</a></div><div class="ttdoc">Codec I2C configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:57</div></div>
+<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html_a9d87b479bdb9d284a4917bf025ba0293"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html#a9d87b479bdb9d284a4917bf025ba0293">audio_codec_i2c_cfg_t::addr</a></div><div class="ttdeci">uint8_t addr</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:59</div></div>
+<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html">audio_codec_i2s_cfg_t</a></div><div class="ttdoc">Codec I2S configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:66</div></div>
+<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html_ad3c05b2d576039a5430ba5e85f6ff5e8"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html#ad3c05b2d576039a5430ba5e85f6ff5e8">audio_codec_i2s_cfg_t::rx_handle</a></div><div class="ttdeci">void * rx_handle</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:68</div></div>
 </div><!-- fragment --></li>
 <li>Create the codec interface based on control interface and codec-specified configuration <br  />
  <div class="fragment"><div class="line"><a class="code hl_struct" href="structes8311__codec__cfg__t.html">es8311_codec_cfg_t</a> es8311_cfg = {</div>
@@ -303,15 +301,7 @@ Usage</h1>
 <div class="ttc" id="astructesp__codec__dev__sample__info__t_html"><div class="ttname"><a href="structesp__codec__dev__sample__info__t.html">esp_codec_dev_sample_info_t</a></div><div class="ttdoc">Codec audio sample information Notes: channel_mask is used to filter wanted channels in driver side w...</div><div class="ttdef"><b>Definition</b> esp_codec_dev_types.h:52</div></div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md271"></a>
-Use ADC mic and dummy codec (no external codec chip)</h2>
-<p>For boards that use an internal ADC microphone and a speaker PA without an external codec chip:</p>
-<ul>
-<li>Use <code>audio_codec_new_adc_data</code> as the input data interface for ADC capture.</li>
-<li>Use <code>dummy_codec_new</code> with <code>pa_pin</code> configured to bind PA power control to codec lifecycle.</li>
-<li>Then <code>esp_codec_dev_open()</code> / <code>esp_codec_dev_close()</code> can still automatically enable/disable PA.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md272"></a>
+<h1><a class="anchor" id="autotoc_md249"></a>
 How to customize for new codec device</h1>
 <ol type="1">
 <li>Implement <code><a class="el" href="structaudio__codec__ctrl__if__t.html" title="Audio codec control interface structure.">audio_codec_ctrl_if_t</a></code> and <code><a class="el" href="structaudio__codec__data__if__t.html" title="Audio codec data interface structure.">audio_codec_data_if_t</a></code> <br  />

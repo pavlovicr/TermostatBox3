@@ -28,6 +28,10 @@ var searchData=
   ['genericvalue_3c_20encodingtype_2c_20crtallocator_20_3e_25',['GenericValue&lt; EncodingType, CrtAllocator &gt;',['../classGenericValue.html',1,'']]],
   ['genericvalue_3c_20rapidjson_3a_3aencoding_2c_20rapidjson_3a_3aallocator_20_3e_26',['GenericValue&lt; rapidjson::Encoding, rapidjson::Allocator &gt;',['../classGenericValue.html',1,'']]],
   ['genericvalue_3c_20sourceencoding_2c_20crtallocator_20_3e_27',['GenericValue&lt; SourceEncoding, CrtAllocator &gt;',['../classGenericValue.html',1,'']]],
-  ['group_28',['GROUP',['../classdoxygen__xml_1_1GROUP.html',1,'doxygen_xml']]],
-  ['grow_5fdsc_5ft_29',['grow_dsc_t',['../structgrow__dsc__t.html',1,'']]]
+  ['gif_5fdraw_5ftag_28',['gif_draw_tag',['../structgif__draw__tag.html',1,'']]],
+  ['gif_5ffile_5ftag_29',['gif_file_tag',['../structgif__file__tag.html',1,'']]],
+  ['gif_5fimage_5ftag_30',['gif_image_tag',['../structgif__image__tag.html',1,'']]],
+  ['gif_5finfo_5ftag_31',['gif_info_tag',['../structgif__info__tag.html',1,'']]],
+  ['group_32',['GROUP',['../classdoxygen__xml_1_1GROUP.html',1,'doxygen_xml']]],
+  ['grow_5fdsc_5ft_33',['grow_dsc_t',['../structgrow__dsc__t.html',1,'']]]
 ];

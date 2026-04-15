@@ -72,8 +72,8 @@ $(function() {
   <div class="headertitle"><div class="title">Tests for LVGL</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md637"></a> </p>
-<h1><a class="anchor" id="autotoc_md638"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md542"></a> </p>
+<h1><a class="anchor" id="autotoc_md543"></a>
 Test types available</h1>
 <ul>
 <li><b>Unit Tests</b>: Standard functional tests in <code>src/test_cases/</code> with screenshot comparison capabilities</li>
@@ -81,7 +81,7 @@ Test types available</h1>
 <li><b>Emulated Benchmarks</b>: Automated <code>lv_demo_benchmark</code> runs in ARM emulation to prevent performance regressions</li>
 </ul>
 <p>All of the tests are automatically ran in LVGL's CI.</p>
-<h1><a class="anchor" id="autotoc_md639"></a>
+<h1><a class="anchor" id="autotoc_md544"></a>
 Quick start</h1>
 <ul>
 <li><b>Local Testing</b>: Run <code>./tests/main.py test</code> (after <code>scripts/install-prerequisites.sh</code>)</li>
@@ -90,9 +90,9 @@ Quick start</h1>
 <li><b>Benchmark Testing</b>: Use <code>./tests/benchmark_emu.py run</code> for emulated performance benchmarks (requires Docker + Linux)</li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md641"></a>
+<h1><a class="anchor" id="autotoc_md546"></a>
 Running locally</h1>
-<h2><a class="anchor" id="autotoc_md642"></a>
+<h2><a class="anchor" id="autotoc_md547"></a>
 Local</h2>
 <ol type="1">
 <li>Install requirements by:</li>
@@ -105,7 +105,7 @@ Local</h2>
 <li>You can re-generate the test images by adding option <code>--update-image</code>. It relies on scripts/LVGLImage.py, which requires pngquant and pypng. You can run below command firstly and follow instructions in logs to install them. <code>./tests/main.py --update-image test</code> Note that different version of pngquant may generate different images. As of now the generated image on CI uses pngquant 2.13.1-1.</li>
 </ol>
 <p>For full information on running tests run: <code>./tests/main.py --help</code>.</p>
-<h2><a class="anchor" id="autotoc_md643"></a>
+<h2><a class="anchor" id="autotoc_md548"></a>
 Docker</h2>
 <p>To run the tests in an environment matching the CI setup:</p>
 <ol type="1">
@@ -117,10 +117,10 @@ Docker</h2>
 </ol>
 <div class="fragment"><div class="line">docker run --rm -it -v $(pwd):/work lvgl_test_env &quot;./tests/main.py&quot;</div>
 </div><!-- fragment --><p>This ensures you are testing in a consistent environment with the same dependencies as the CI pipeline.</p>
-<h1><a class="anchor" id="autotoc_md644"></a>
+<h1><a class="anchor" id="autotoc_md549"></a>
 Running automatically</h1>
 <p>GitHub's CI automatically runs these tests on pushes and pull requests to <code>master</code> and <code>release/v8.*</code> branches.</p>
-<h1><a class="anchor" id="autotoc_md645"></a>
+<h1><a class="anchor" id="autotoc_md550"></a>
 Directory structure</h1>
 <ul>
 <li><code>src</code> Source files of the tests<ul>
@@ -134,12 +134,12 @@ Directory structure</h1>
 <li><code>report</code> - Coverage report. Generated if the <code>report</code> flag was passed to <code>./main.py</code></li>
 <li><code>unity</code> Source files of the test engine</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md646"></a>
+<h1><a class="anchor" id="autotoc_md551"></a>
 Add new tests</h1>
-<h2><a class="anchor" id="autotoc_md647"></a>
+<h2><a class="anchor" id="autotoc_md552"></a>
 Create new test file</h2>
 <p>New test needs to be added into the <code>src/test_cases</code> folder. The name of the files should look like <code>test_&lt;name&gt;.c</code>. The basic skeleton of a test file copy <code>_test_template.c</code>.</p>
-<h2><a class="anchor" id="autotoc_md648"></a>
+<h2><a class="anchor" id="autotoc_md553"></a>
 Asserts</h2>
 <p>See the list of asserts <a href="https://github.com/ThrowTheSwitch/Unity/blob/master/docs/UnityAssertionsReference.md">here</a>.</p>
 <p>There are some custom, LVGL specific asserts:</p><ul>
@@ -150,15 +150,15 @@ Asserts</h2>
 </li>
 <li><code>TEST_ASSERT_EQUAL_COLOR(color1, color2)</code> Compare two colors.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md649"></a>
+<h1><a class="anchor" id="autotoc_md554"></a>
 Performance Tests</h1>
-<h2><a class="anchor" id="autotoc_md650"></a>
+<h2><a class="anchor" id="autotoc_md555"></a>
 Requirements</h2>
 <ul>
 <li><b>Docker</b></li>
 <li><b>Linux host machine</b> (WSL <em>may</em> work but is untested)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md651"></a>
+<h2><a class="anchor" id="autotoc_md556"></a>
 Running Tests</h2>
 <p>The performance tests are run inside a Docker container that launches an ARM emulated environment using QEMU to ensure consistent timing across machines. Each test runs on a lightweight ARM-based OS (<a href="https://github.com/smartobjectoriented/so3">SO3</a>) within this emulated environment.</p>
 <p>To run the tests:</p>
@@ -174,10 +174,10 @@ Running Tests</h2>
 <p>For full usage options, run:</p>
 <div class="fragment"><div class="line">./perf.py --help</div>
 </div><!-- fragment --><p>You can also run this script by passing a performance test config to the <code>main.py</code> script. The performance tests configs can be found inside the <a href="./perf.py"><code>perf.py</code></a> file</p>
-<h1><a class="anchor" id="autotoc_md652"></a>
+<h1><a class="anchor" id="autotoc_md557"></a>
 Emulated benchmarks</h1>
 <p>In addition to unit and performance tests, LVGL automatically runs the <code>lv_demo_benchmark</code> inside the same ARM emulated environment mentionned in the previous section through CI to prevent unintentional slowdowns.</p>
-<h2><a class="anchor" id="autotoc_md653"></a>
+<h2><a class="anchor" id="autotoc_md558"></a>
 Requirements</h2>
 <ul>
 <li><b>Docker</b></li>

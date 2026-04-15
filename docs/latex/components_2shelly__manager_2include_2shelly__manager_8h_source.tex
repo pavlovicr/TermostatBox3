@@ -1,0 +1,31 @@
+\doxysection{shelly\+\_\+manager.\+h}
+\hypertarget{components_2shelly__manager_2include_2shelly__manager_8h_source}{}\label{components_2shelly__manager_2include_2shelly__manager_8h_source}\index{components/shelly\_manager/include/shelly\_manager.h@{components/shelly\_manager/include/shelly\_manager.h}}
+\mbox{\hyperlink{components_2shelly__manager_2include_2shelly__manager_8h}{dokumenacija tekoče datoteke.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ SHELLY\_MANAGER\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ SHELLY\_MANAGER\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}esp\_err.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{bool}\ output\_0;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Relay\ 0\ status\ (ON/OFF)}}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{bool}\ output\_1;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Relay\ 1\ status}}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{float}\ power\_0;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Power\ consumption\ channel\ 0\ (W)}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{float}\ power\_1;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Power\ consumption\ channel\ 1\ (W)}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{float}\ temperature;\ \ \ \ \ \ \textcolor{comment}{//\ Internal\ temperature\ (°C)}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ online;\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Je\ Shelly\ dosegljiv}}
+\DoxyCodeLine{00021\ \}\ \mbox{\hyperlink{structshelly__status__t}{shelly\_status\_t}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00028\ esp\_err\_t\ \mbox{\hyperlink{components_2shelly__manager_2include_2shelly__manager_8h_a5f251aab585b065570abef74d164745d}{shelly\_manager\_init}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *ip\_address);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00036\ esp\_err\_t\ \mbox{\hyperlink{components_2shelly__manager_2include_2shelly__manager_8h_ac53636660eb6981d394a57478ff6aeb0}{shelly\_manager\_set\_relay}}(uint8\_t\ channel,\ \textcolor{keywordtype}{bool}\ on);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ esp\_err\_t\ \mbox{\hyperlink{components_2shelly__manager_2include_2shelly__manager_8h_a8dcfca3ecc2df21888ae4e068be164a8}{shelly\_manager\_get\_status}}(\mbox{\hyperlink{structshelly__status__t}{shelly\_status\_t}}\ *status);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{components_2shelly__manager_2include_2shelly__manager_8h_a00090829e03e8089a45482f2349dd662}{shelly\_manager\_set\_ip}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *ip\_address);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SHELLY\_MANAGER\_H}}
+
+\end{DoxyCode}

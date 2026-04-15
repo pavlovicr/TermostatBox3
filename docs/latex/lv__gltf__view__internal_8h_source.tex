@@ -25,170 +25,116 @@
 \DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
 \DoxyCodeLine{00026\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{comment}{/*\ ::Gamma\ Presets::}}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ Standard\ Gamma\ value\ is\ 2.2}}
-\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ Values\ range\ from\ 0.5\ to\ 3.5,\ roughly\ speaking,\ with}}
-\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ reasonable\ results\ between\ the\ 1.5\ and\ 2.8\ levels.}}
-\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ The\ value\ must\ be\ enclosed\ with\ quotes,\ as\ a\ string\ literal.}}
-\DoxyCodeLine{00033\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_GAMMA\_BRIGHTEST\ "{}3.5"{}}}
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_GAMMA\_BRIGHTER\ \ "{}3.0"{}}}
-\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_GAMMA\_BRIGHT\ \ \ \ "{}2.6"{}}}
-\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_GAMMA\_STANDARD\ \ "{}2.2"{}}}
-\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_GAMMA\_DARK\ \ \ \ \ \ "{}1.8"{}}}
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_GAMMA\_DARKER\ \ \ \ "{}1.3"{}}}
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_GAMMA\_DARKEST\ \ \ "{}0.8"{}}}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_DISTANCE\_SCALE\_FACTOR\ 2.5f}}
-\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ LV\_GLTF\_TRANSMISSION\_PASS\_SIZE\ 256}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \textcolor{comment}{/*\ Apply\ defaults\ below\ if\ not\ set\ explicitly\ */}}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{comment}{/*\ Tone-\/mapping\ is\ not\ applied\ if\ linear\ output\ is\ enabled.}}
-\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ Linear\ output\ is\ the\ default.}}
-\DoxyCodeLine{00049\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#ifndef\ LV\_GLTF\_LINEAR\_OUTPUT}}
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_GLTF\_LINEAR\_OUTPUT\ 1}}
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{comment}{/*\ If\ tone-\/mapping\ is\ applied,\ this\ adjusts\ the\ brightness}}
-\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ and\ color\ range\ of\ the\ output.\ Use\ stringified\ values.}}
-\DoxyCodeLine{00056\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#ifndef\ LV\_GLTF\_TONEMAP\_GAMMA}}
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ \#define\ LV\_GLTF\_TONEMAP\_GAMMA\ LV\_GLTF\_GAMMA\_STANDARD}}
-\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
-\DoxyCodeLine{00063\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*\ \_\_cplusplus*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00071\ \ \ \ \ uint32\_t\ texture;}
-\DoxyCodeLine{00072\ \ \ \ \ uint32\_t\ renderbuffer;}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ framebuffer;}
-\DoxyCodeLine{00074\ \}\ lv\_gltf\_renwin\_state\_t;}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ \ }\{}
-\DoxyCodeLine{00077\ \ \ \ \ lv\_gltf\_renwin\_state\_t\ render\_state;}
-\DoxyCodeLine{00078\ \ \ \ \ lv\_gltf\_renwin\_state\_t\ opaque\_render\_state;}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ uint64\_t\ opaque\_frame\_buffer\_width;}
-\DoxyCodeLine{00081\ \ \ \ \ uint64\_t\ opaque\_frame\_buffer\_height;}
-\DoxyCodeLine{00082\ \ \ \ \ uint32\_t\ material\_variant;}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ render\_state\_ready;}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{bool}\ render\_opaque\_buffer;}
-\DoxyCodeLine{00085\ \}\ lv\_gltf\_view\_state\_t;}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{float}\ pitch;}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{float}\ yaw;}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{float}\ distance;}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{float}\ fov;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ vertical\ FOV,\ in\ degrees.\ \ If\ this\ is\ zero,\ the\ view\ will\ be\ orthographic\ (non-\/perspective)}}
-\DoxyCodeLine{00092\ \ \ \ \ int32\_t\ render\_width;\ \ \ \ \ \ \ \textcolor{comment}{//\ If\ anti-\/aliasing\ is\ not\ applied\ this\ frame,\ these\ are\ the\ same\ as\ width/height,\ if\ antialiasing}}
-\DoxyCodeLine{00093\ \ \ \ \ int32\_t\ render\_height;\ \ \ \ \ \ \textcolor{comment}{//\ is\ enabled,\ these\ are\ width/height\ *\ antialias\ upscale\ power\ (currently\ 2.0)}}
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{float}\ focal\_x;}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{float}\ focal\_y;}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{float}\ focal\_z;}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{bool}\ frame\_was\_antialiased;}
-\DoxyCodeLine{00098\ \ \ \ \ int32\_t\ animation\_speed\_ratio;}
-\DoxyCodeLine{00099\ \ \ \ \ lv\_gltf\_aa\_mode\_t\ aa\_mode;}
-\DoxyCodeLine{00100\ \ \ \ \ lv\_gltf\_bg\_mode\_t\ bg\_mode;}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{float}\ blur\_bg;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{float}\ env\_pow;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ exposure;\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00104\ \}\ lv\_gltf\_view\_desc\_t;}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{/*\ Blend\ state\ */}}
-\DoxyCodeLine{00108\ \ \ \ \ GLboolean\ blend\_enabled;}
-\DoxyCodeLine{00109\ \ \ \ \ GLint\ blend\_src;}
-\DoxyCodeLine{00110\ \ \ \ \ GLint\ blend\_dst;}
-\DoxyCodeLine{00111\ \ \ \ \ GLint\ blend\_equation;}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{comment}{/*\ Depth\ state\ */}}
-\DoxyCodeLine{00114\ \ \ \ \ GLboolean\ depth\_test\_enabled;}
-\DoxyCodeLine{00115\ \ \ \ \ GLboolean\ depth\_mask;}
-\DoxyCodeLine{00116\ \ \ \ \ GLint\ depth\_func;}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{/*\ Face\ culling\ state\ */}}
-\DoxyCodeLine{00119\ \ \ \ \ GLboolean\ cull\_face\_enabled;}
-\DoxyCodeLine{00120\ \ \ \ \ GLint\ cull\_face\_mode;}
-\DoxyCodeLine{00121\ \ \ \ \ GLint\ front\_face;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*\ \_\_cplusplus*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00039\ \ \ \ \ uint32\_t\ texture;}
+\DoxyCodeLine{00040\ \ \ \ \ uint32\_t\ renderbuffer;}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ framebuffer;}
+\DoxyCodeLine{00042\ \}\ lv\_gltf\_renwin\_state\_t;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ \ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ lv\_gltf\_renwin\_state\_t\ render\_state;}
+\DoxyCodeLine{00046\ \ \ \ \ lv\_gltf\_renwin\_state\_t\ opaque\_render\_state;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ uint64\_t\ opaque\_frame\_buffer\_width;}
+\DoxyCodeLine{00049\ \ \ \ \ uint64\_t\ opaque\_frame\_buffer\_height;}
+\DoxyCodeLine{00050\ \ \ \ \ uint32\_t\ material\_variant;}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ render\_state\_ready;}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{bool}\ render\_opaque\_buffer;}
+\DoxyCodeLine{00053\ \}\ lv\_gltf\_view\_state\_t;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ pitch;}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ yaw;}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ distance;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{float}\ fov;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ The\ vertical\ FOV,\ in\ degrees.\ \ If\ this\ is\ zero,\ the\ view\ will\ be\ orthographic\ (non-\/perspective)}}
+\DoxyCodeLine{00060\ \ \ \ \ int32\_t\ render\_width;\ \ \ \ \ \ \ \textcolor{comment}{//\ If\ anti-\/aliasing\ is\ not\ applied\ this\ frame,\ these\ are\ the\ same\ as\ width/height,\ if\ antialiasing}}
+\DoxyCodeLine{00061\ \ \ \ \ int32\_t\ render\_height;\ \ \ \ \ \ \textcolor{comment}{//\ is\ enabled,\ these\ are\ width/height\ *\ antialias\ upscale\ power\ (currently\ 2.0)}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{float}\ focal\_x;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{float}\ focal\_y;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ focal\_z;}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ frame\_was\_antialiased;}
+\DoxyCodeLine{00066\ \ \ \ \ int32\_t\ animation\_speed\_ratio;}
+\DoxyCodeLine{00067\ \ \ \ \ lv\_gltf\_aa\_mode\_t\ aa\_mode;}
+\DoxyCodeLine{00068\ \ \ \ \ lv\_gltf\_bg\_mode\_t\ bg\_mode;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{float}\ blur\_bg;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ env\_pow;\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{float}\ exposure;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00072\ \}\ lv\_gltf\_view\_desc\_t;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00075\ \ \ \ \ GLboolean\ blend\_enabled;}
+\DoxyCodeLine{00076\ \ \ \ \ GLint\ blend\_src;}
+\DoxyCodeLine{00077\ \ \ \ \ GLint\ blend\_dst;}
+\DoxyCodeLine{00078\ \ \ \ \ GLint\ blend\_equation;}
+\DoxyCodeLine{00079\ \ \ \ \ GLfloat\ clear\_depth;}
+\DoxyCodeLine{00080\ \ \ \ \ GLfloat\ clear\_color[4];}
+\DoxyCodeLine{00081\ \}\ lv\_opengl\_state\_t;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00084\ \ \ \ \ uint32\_t\ diffuse;}
+\DoxyCodeLine{00085\ \ \ \ \ uint32\_t\ specular;}
+\DoxyCodeLine{00086\ \ \ \ \ uint32\_t\ sheen;}
+\DoxyCodeLine{00087\ \ \ \ \ uint32\_t\ ggxLut;}
+\DoxyCodeLine{00088\ \ \ \ \ uint32\_t\ charlie\_lut;}
+\DoxyCodeLine{00089\ \ \ \ \ uint32\_t\ mip\_count;}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{float}\ ibl\_intensity\_scale;}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{float}\ angle;}
+\DoxyCodeLine{00092\ \}\ lv\_gltf\_view\_env\_textures\_t;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00095\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#include\ <fastgltf/math.hpp>}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#include\ <fastgltf/types.hpp>}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{struct\ }\_lv\_gltf\_t\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ lv\_3dtexture\_t\ texture;}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{struct__lv__array__t}{lv\_array\_t}}\ models;}
+\DoxyCodeLine{00105\ \ \ \ \ lv\_gltf\_view\_state\_t\ state;}
+\DoxyCodeLine{00106\ \ \ \ \ lv\_gltf\_view\_desc\_t\ desc;}
+\DoxyCodeLine{00107\ \ \ \ \ lv\_gltf\_view\_desc\_t\ last\_desc;}
+\DoxyCodeLine{00108\ \ \ \ \ lv\_opengl\_shader\_manager\_t\ shader\_manager;}
+\DoxyCodeLine{00109\ \ \ \ \ lv\_gltf\_view\_env\_textures\_t\ env\_textures;}
+\DoxyCodeLine{00110\ \ \ \ \ fastgltf::math::fmat4x4\ view\_matrix;}
+\DoxyCodeLine{00111\ \ \ \ \ fastgltf::math::fmat4x4\ projection\_matrix;}
+\DoxyCodeLine{00112\ \ \ \ \ fastgltf::math::fmat4x4\ view\_projection\_matrix;}
+\DoxyCodeLine{00113\ \ \ \ \ fastgltf::math::fvec3\ camera\_pos;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ std::map<int32\_t,\ std::map<fastgltf::Node\ *,\ fastgltf::math::fmat4x4>>\ ibm\_by\_skin\_then\_node;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00120\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00121\ \textcolor{comment}{\ **********************/}}
 \DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{/*\ Stencil\ state\ */}}
-\DoxyCodeLine{00124\ \ \ \ \ GLboolean\ stencil\_test\_enabled;}
-\DoxyCodeLine{00125\ \ \ \ \ GLuint\ stencil\_mask;}
-\DoxyCodeLine{00126\ \ \ \ \ GLint\ stencil\_func;}
-\DoxyCodeLine{00127\ \ \ \ \ GLint\ stencil\_ref;}
-\DoxyCodeLine{00128\ \ \ \ \ GLuint\ stencil\_value\_mask;}
-\DoxyCodeLine{00129\ }
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{/*\ Buffer\ bindings\ */}}
-\DoxyCodeLine{00131\ \ \ \ \ GLuint\ current\_vao;}
-\DoxyCodeLine{00132\ \ \ \ \ GLuint\ current\_vbo;}
-\DoxyCodeLine{00133\ \ \ \ \ GLuint\ current\_ibo;}
-\DoxyCodeLine{00134\ \ \ \ \ GLuint\ current\_program;}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{/*\ Texture\ state\ */}}
-\DoxyCodeLine{00137\ \ \ \ \ GLint\ active\_texture;}
-\DoxyCodeLine{00138\ \ \ \ \ GLuint\ bound\_texture\_2d;}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \ \ \ \ \textcolor{comment}{/*\ Viewport\ and\ scissor\ */}}
-\DoxyCodeLine{00141\ \ \ \ \ GLint\ viewport[4];}
-\DoxyCodeLine{00142\ \ \ \ \ GLboolean\ scissor\_test\_enabled;}
-\DoxyCodeLine{00143\ \ \ \ \ GLint\ scissor\_box[4];}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{/*\ Clear\ values\ */}}
-\DoxyCodeLine{00146\ \ \ \ \ GLfloat\ clear\_depth;}
-\DoxyCodeLine{00147\ \ \ \ \ GLfloat\ clear\_color[4];}
-\DoxyCodeLine{00148\ \}\ lv\_opengl\_state\_t;}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00152\ \}}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#include\ <fastgltf/math.hpp>}}
-\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#include\ <fastgltf/types.hpp>}}
-\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#include\ <map>}}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \textcolor{keyword}{struct\ }\_lv\_gltf\_t\ \{}
-\DoxyCodeLine{00160\ \ \ \ \ lv\_3dtexture\_t\ texture;}
-\DoxyCodeLine{00161\ \ \ \ \ \mbox{\hyperlink{struct__lv__array__t}{lv\_array\_t}}\ models;}
-\DoxyCodeLine{00162\ \ \ \ \ lv\_gltf\_view\_state\_t\ state;}
-\DoxyCodeLine{00163\ \ \ \ \ lv\_gltf\_view\_desc\_t\ desc;}
-\DoxyCodeLine{00164\ \ \ \ \ lv\_gltf\_view\_desc\_t\ last\_desc;}
-\DoxyCodeLine{00165\ \ \ \ \ lv\_opengl\_shader\_manager\_t\ shader\_manager;}
-\DoxyCodeLine{00166\ \ \ \ \ lv\_gltf\_environment\_t\ *\ environment;}
-\DoxyCodeLine{00167\ \ \ \ \ fastgltf::math::fmat4x4\ view\_matrix;}
-\DoxyCodeLine{00168\ \ \ \ \ fastgltf::math::fmat4x4\ projection\_matrix;}
-\DoxyCodeLine{00169\ \ \ \ \ fastgltf::math::fmat4x4\ view\_projection\_matrix;}
-\DoxyCodeLine{00170\ \ \ \ \ fastgltf::math::fvec3\ camera\_pos;}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00172\ \ \ \ \ std::map<int32\_t,\ std::map<fastgltf::Node\ *,\ fastgltf::math::fmat4x4>>\ ibm\_by\_skin\_then\_node;}
-\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{bool}\ owns\_environment;}
-\DoxyCodeLine{00174\ \};}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00176\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00177\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00178\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ GLuint\ lv\_gltf\_view\_render(lv\_gltf\_t\ *\ viewer);}
-\DoxyCodeLine{00181\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_gltf\_view\_shader\_injest\_discover\_defines(\mbox{\hyperlink{struct__lv__array__t}{lv\_array\_t}}\ *\ result,\ lv\_gltf\_model\_t\ *\ data,}
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fastgltf::Node\ *\ node,}
-\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fastgltf::Primitive\ *\ prim);}
-\DoxyCodeLine{00184\ }
-\DoxyCodeLine{00185\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00186\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00187\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00188\ }
-\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*\ \_\_cplusplus*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00190\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GLTF*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00191\ }
-\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GLTF\_VIEW\_INTERNAL\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00123\ GLuint\ lv\_gltf\_view\_render(lv\_gltf\_t\ *\ viewer);}
+\DoxyCodeLine{00124\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_gltf\_view\_shader\_injest\_discover\_defines(\mbox{\hyperlink{struct__lv__array__t}{lv\_array\_t}}\ *\ result,\ lv\_gltf\_model\_t\ *\ data,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fastgltf::Node\ *\ node,}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fastgltf::Primitive\ *\ prim);}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ lv\_gltf\_shaderset\_t\ lv\_gltf\_view\_shader\_compile\_program(lv\_gltf\_t\ *\ view,\ \textcolor{keyword}{const}\ lv\_opengl\_shader\_define\_t\ *\ defines,}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif}\textcolor{comment}{/*\ \_\_cplusplus*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GLTF*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GLTF\_VIEW\_INTERNAL\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

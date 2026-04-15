@@ -133,9 +133,6 @@ tuple&#160;</td><td class="memItemRight" valign="bottom"><b>on_windows</b> = (( 
 <tr class="separator:a1bf01fb642ceba16af0efc36a1202a49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4eaa91081e9140e0a91897a525f6cd0" id="r_ac4eaa91081e9140e0a91897a525f6cd0"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceapi__doc__builder.html#ac4eaa91081e9140e0a91897a525f6cd0">doxy_src_file_ext_list</a></td></tr>
 <tr class="separator:ac4eaa91081e9140e0a91897a525f6cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa98bbc04ad5cb0e1b4c2cdd1810a356f" id="r_aa98bbc04ad5cb0e1b4c2cdd1810a356f"><td class="memItemLeft" align="right" valign="top"><a id="aa98bbc04ad5cb0e1b4c2cdd1810a356f" name="aa98bbc04ad5cb0e1b4c2cdd1810a356f"></a>
-list&#160;</td><td class="memItemRight" valign="bottom"><b>_cfg_exclude_list</b> = ['lv_conf_internal.h']</td></tr>
-<tr class="separator:aa98bbc04ad5cb0e1b4c2cdd1810a356f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a700e8cde60980d7a35d8e9e22fd5f230" id="r_a700e8cde60980d7a35d8e9e22fd5f230"><td class="memItemLeft" align="right" valign="top"><a id="a700e8cde60980d7a35d8e9e22fd5f230" name="a700e8cde60980d7a35d8e9e22fd5f230"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>_re_api_section_sep</b> = re.compile(r'(?mi)^API *\r?\n^\*\*\*\s*')</td></tr>
 <tr class="separator:a700e8cde60980d7a35d8e9e22fd5f230"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,11 +185,11 @@ Create and provide links to API pages in LVGL doc build.
 
 Uses doxygen_xml.py module to:
 
-- Prep and run Doxygen,
+- Prep and run Doxygen
 - make Doxygen XML output available, and
 - make Doxygen-documented symbols from the C code available.
 
-Because these 5 files are acceptable in a C project:
+Because these 3 files are acceptable in a C project:
 
 1.  ./path/to/one/aaa.c
 2.  ./path/to/one/aaa.h
@@ -205,19 +202,19 @@ we see that:
 - duplicate filename stems ('aaa' above) are acceptable, and
 - they must not only be differentiated by their extensions, but also by their path.
 
-On the other hand, Sphinx link target names for :ref:`link_ref_name` link
-target names must be unique throughout a document project.  Since API pages are
+On the other hand, Sphinx link reference names for :ref:`link_ref_name` link
+references must be unique throughout a document project.  Since API pages are
 generated from C source files, to make this effective, they must include:
 
 A.  at least part of the path,
 B.  filename stem, and
 C.  extension
 
-in the link target names.  Prior to 11-Aug-2025, link target names were formed
+in the link reference names.  Prior to 11-Aug-2025, link reference names were formed
 using ONLY the filename stem.  This created a conflict when an example of #4 above
 appeared in the LVGL code, and caused a doc-build failure because the API-page link
-target names to #2 and #4 were identical, and Sphinx (correctly) does not allow
-that.  So after 11-Aug-2025, these link target names are now differentiated via all 3
+reference names to #2 and #4 were identical, and Sphinx (correctly) does not allow
+that.  So after 11-Aug-2025, these link reference names are now differentiated all 3
 of A, B and C above.
 
 .. note::

@@ -73,11 +73,11 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>| Supported Targets | ESP32 | ESP32-C2 | ESP32-C3 | ESP32-C6 | ESP32-H2 | ESP32-P4 | ESP32-S2 | ESP32-S3 | | --------------&mdash; | --&mdash; | -----&mdash; | -----&mdash; | -----&mdash; | -----&mdash; | -----&mdash; | -----&mdash; | -----&mdash; |</p>
-<h1><a class="anchor" id="autotoc_md371"></a>
+<h1><a class="anchor" id="autotoc_md341"></a>
 I2C OLED example</h1>
 <p><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/peripherals/lcd.html">esp_lcd</a> supports I2C interfaced OLED LCD, whose color depth is usually 1bpp.</p>
 <p>This example shows how to make use of the SSD1306 panel driver from <code>esp_lcd</code> component to facilitate the porting of LVGL library. In the end, example will display a scrolling text on the OLED screen.</p>
-<h2><a class="anchor" id="autotoc_md372"></a>
+<h2><a class="anchor" id="autotoc_md342"></a>
 LVGL Version</h2>
 <p>This example is using the <b>LVGL8</b> version. For use it with LVGL9 version, please delete file <a href="sdkconfig.defaults">sdkconfig.defaults</a> and change version to <code>"^9"</code> on this line in <a href="main/idf_component.yml">idf_component.yml</a> file: </p><div class="fragment"><div class="line">lvgl/lvgl: &quot;^8&quot;</div>
 </div><!-- fragment --><p>NOTE: When you are changing LVGL versions, please remove these files and folders before new build:</p><ul>
@@ -86,16 +86,16 @@ LVGL Version</h2>
 <li>dependencies.lock</li>
 <li>sdkconfig</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md373"></a>
+<h2><a class="anchor" id="autotoc_md343"></a>
 How to use the example</h2>
-<h3><a class="anchor" id="autotoc_md374"></a>
+<h3><a class="anchor" id="autotoc_md344"></a>
 Hardware Required</h3>
 <ul>
 <li>An ESP development board</li>
 <li>An SSD1306 OLED LCD, with I2C interface</li>
 <li>An USB cable for power supply and programming</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md375"></a>
+<h3><a class="anchor" id="autotoc_md345"></a>
 Hardware Connection</h3>
 <p>The connection between ESP Board and the LCD is as follows:</p>
 <div class="fragment"><div class="line">      ESP Board                       OLED LCD (I2C)</div>
@@ -109,13 +109,13 @@ Hardware Connection</h3>
 <div class="line">|               SCL+--------------+SCL                |</div>
 <div class="line">+------------------+              +-------------------+</div>
 </div><!-- fragment --><p>The GPIO number used by this example can be changed in <a href="main/i2c_oled_example_main.c">lvgl_example_main.c</a>. Please pay attention to the I2C hardware device address as well, you should refer to your module's spec and schematic to determine that address.</p>
-<h3><a class="anchor" id="autotoc_md376"></a>
+<h3><a class="anchor" id="autotoc_md346"></a>
 Build and Flash</h3>
 <p>Run <code>idf.py -p PORT build flash monitor</code> to build, flash and monitor the project. A scrolling text will show up on the LCD as expected.</p>
 <p>The first time you run <code>idf.py</code> for the example will cost extra time as the build system needs to address the component dependencies and downloads the missing components from registry into <code>managed_components</code> folder.</p>
 <p>(To exit the serial monitor, type <code>Ctrl-]</code>.)</p>
 <p>See the <a href="https://docs.espressif.com/projects/esp-idf/en/latest/get-started/index.html">Getting Started Guide</a> for full steps to configure and use ESP-IDF to build projects.</p>
-<h3><a class="anchor" id="autotoc_md377"></a>
+<h3><a class="anchor" id="autotoc_md347"></a>
 Example Output</h3>
 <div class="fragment"><div class="line">...</div>
 <div class="line">I (0) cpu_start: Starting scheduler on APP CPU.</div>

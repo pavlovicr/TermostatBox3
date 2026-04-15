@@ -26,19 +26,19 @@
 \href{https://lvgl.io}{\texttt{ אתר}} \texorpdfstring{$\vert$}{|} \href{https://pro.lvgl.io}{\texttt{ עורך LVGL Pro}} \texorpdfstring{$\vert$}{|} \href{https://docs.lvgl.io/}{\texttt{ תיעוד}} \texorpdfstring{$\vert$}{|} \href{https://forum.lvgl.io}{\texttt{ פורום}} \texorpdfstring{$\vert$}{|} \href{https://lvgl.io/demos}{\texttt{ דוגמאות}} \texorpdfstring{$\vert$}{|} \href{https://lvgl.io/services}{\texttt{ שירותים}} 
 
 ~\newline
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md506}{}\doxysubsection{\texorpdfstring{📒 סקירה}{📒 סקירה}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md506}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md433}{}\doxysubsection{\texorpdfstring{📒 סקירה}{📒 סקירה}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md433}
 {\bfseries{LVGL}} היא ספריית UI חינמית וקוד פתוח שמאפשרת ליצור ממשקי משתמש גרפיים לכל MCU או MPU מכל ספק ועל כל פלטפורמה.
 
 {\bfseries{דרישות}}\+: ל־\+LVGL אין תלות חיצונית, מה שמקל על הידור לכל יעד מודרני, החל מ־\+MCU קטנים ועד MPU מבוססי Linux מרובי ליבות עם תמיכת 3D. עבור UI פשוט דרושים רק \texorpdfstring{$\sim$}{\string~}100kB RAM, כ\texorpdfstring{$\sim$}{\string~}200–300kB Flash ומאגר רינדור בגודל 1/10 מגודל המסך.
 
 {\bfseries{להתחלה מהירה}}\+: בחרו פרויקט מוכן ל־\+VSCode,‏ Eclipse או כל סביבת פיתוח אחרת ונסו את LVGL על המחשב. קוד ה־\+UI של LVGL בלתי תלוי בפלטפורמה, ולכן ניתן להשתמש באותו קוד גם ביעדים משובצים.
 
-{\bfseries{LVGL Pro}} הוא מארז כלים מלא לבנייה, בדיקה, שיתוף והפצה מהירה יותר של UI. הוא כולל עורך XML ליצירה ולבדיקה מהירה של רכיבים לשימוש חוזר, ייצוא קוד C או טעינת קובצי XML בזמן ריצה. מידע נוסף באתר.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md507}{}\doxysubsection{\texorpdfstring{💡 יכולות}{💡 יכולות}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md507}
+{\bfseries{LVGL Pro}} הוא מארז כלים מלא לבנייה, בדיקה, שיתוף והפצה מהירה יותר של UI. הוא כולל עורך XML ליצירה ולבדיקה מהירה של רכיבים לשימוש חוזר, ייצוא קוד C או טעינת קובצי XML בזמן ריצה. מידע נוסף באתר.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md434}{}\doxysubsection{\texorpdfstring{💡 יכולות}{💡 יכולות}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md434}
 {\bfseries{חינמית וניידת}}
 \begin{DoxyItemize}
 \item ספריית C מלאה (תואמת ++C) ללא תלות חיצונית.
 \item ניתנת לקימפול לכל MCU או MPU, עם כל (RT)OS. תומכת ב־\+Make,‏ CMake וב־globbing פשוט.
-\item תמיכה במסכי מונוכרום, e\+Paper,‏ OLED או TFT, ואף במסכים של מחשבים. ראו \href{https://docs.lvgl.io/master/main-modules/display/index.html}{\texttt{ תצוגות}}
+\item תמיכה במסכי מונוכרום, e\+Paper,‏ OLED או TFT, ואף במסכים של מחשבים. ראו \href{https://docs.lvgl.io/master/details/main-modules/display/index.html}{\texttt{ תצוגות}}
 \item רישיון MIT המקל על שימוש מסחרי.
 \item נדרשים רק 32kB RAM ו־128kB Flash, מאגר מסגרת, ולפחות מאגר רינדור בגודל 1/10 מגודל המסך.
 \item מערכת הפעלה, זיכרון חיצוני ו־\+GPU נתמכים אך אינם נדרשים.
@@ -46,45 +46,45 @@
 
 {\bfseries{וידג\textquotesingle{}טים, סגנונות, פריסות ועוד}}
 \begin{DoxyItemize}
-\item יותר מ־30 \href{https://docs.lvgl.io/master/widgets/index.html}{\texttt{ וידג\textquotesingle{}טים}} מובנים\+: Button, Label, Slider, Chart, Keyboard, Meter, Arc, Table ועוד רבים.
-\item \href{https://docs.lvgl.io/master/common-widget-features/styles/index.html}{\texttt{ מערכת סגנונות}} גמישה עם כ\texorpdfstring{$\sim$}{\string~}100 מאפייני עיצוב להתאמה של כל חלקי הווידג\textquotesingle{}טים בכל מצב.
-\item מנועי פריסה בסגנון \href{https://docs.lvgl.io/master/common-widget-features/layouts/flex.html}{\texttt{ Flexbox}} ו־\href{https://docs.lvgl.io/master/common-widget-features/layouts/grid.html}{\texttt{ Grid}} למיקום וגודל רספונסיביים.
+\item יותר מ־30 \href{https://docs.lvgl.io/master/details/widgets/index.html}{\texttt{ וידג\textquotesingle{}טים}} מובנים\+: Button, Label, Slider, Chart, Keyboard, Meter, Arc, Table ועוד רבים.
+\item \href{https://docs.lvgl.io/master/details/common-widget-features/styles/index.html}{\texttt{ מערכת סגנונות}} גמישה עם כ\texorpdfstring{$\sim$}{\string~}100 מאפייני עיצוב להתאמה של כל חלקי הווידג\textquotesingle{}טים בכל מצב.
+\item מנועי פריסה בסגנון \href{https://docs.lvgl.io/master/details/common-widget-features/layouts/flex.html}{\texttt{ Flexbox}} ו־\href{https://docs.lvgl.io/master/details/common-widget-features/layouts/grid.html}{\texttt{ Grid}} למיקום וגודל רספונסיביים.
 \item טקסט מעובד בקידוד UTF-\/8 עם תמיכה במערכות כתיבה סינית/יפנית/קוריאנית, תאית, הינדי, ערבית ופרסית.
-\item \href{https://docs.lvgl.io/master/main-modules/observer/index.html}{\texttt{ קישורי נתונים}} לחיבור קל בין ה־\+UI ליישום.
+\item \href{https://docs.lvgl.io/master/details/auxiliary-modules/observer/index.html}{\texttt{ קישורי נתונים}} לחיבור קל בין ה־\+UI ליישום.
 \item מנוע רינדור עם תמיכה באנימציות, החלקת קצוות, שקיפות, גלילה חלקה, צללים, טרנספורמציות תמונה ועוד.
-\item \href{https://docs.lvgl.io/master/libs/gltf.html}{\texttt{ מנוע רינדור 3D חזק}} להצגת \href{https://sketchfab.com/}{\texttt{ מודלי gl\+TF}} עם Open\+GL.
-\item תמיכה בעכבר, משטח מגע, לוח מקשים, מקלדת, כפתורים חיצוניים ואנקודר \href{https://docs.lvgl.io/master/main-modules/indev.html}{\texttt{ התקני קלט}}.
-\item תמיכה ב\href{https://docs.lvgl.io/master/main-modules/display/overview.html\#how-many-displays-can-lvgl-use}{\texttt{ מסכים מרובים}}.
-\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md508}{}\doxysubsection{\texorpdfstring{📦️ תמיכת פלטפורמות}{📦️ תמיכת פלטפורמות}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md508}
+\item \href{https://docs.lvgl.io/master/details/libs/gltf.html}{\texttt{ מנוע רינדור 3D חזק}} להצגת \href{https://sketchfab.com/}{\texttt{ מודלי gl\+TF}} עם Open\+GL.
+\item תמיכה בעכבר, משטח מגע, לוח מקשים, מקלדת, כפתורים חיצוניים ואנקודר \href{https://docs.lvgl.io/master/details/main-modules/indev.html}{\texttt{ התקני קלט}}.
+\item תמיכה ב\href{https://docs.lvgl.io/master/details/main-modules/display/overview.html\#how-many-displays-can-lvgl-use}{\texttt{ מסכים מרובים}}.
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md435}{}\doxysubsection{\texorpdfstring{📦️ תמיכת פלטפורמות}{📦️ תמיכת פלטפורמות}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md435}
 ל־\+LVGL אין תלות חיצונית, ולכן ניתן לקמפל אותה בקלות לכל התקן. היא זמינה גם במנהלי חבילות רבים ובמערכות RTOS\+:
 
 
 \begin{DoxyItemize}
-\item \href{https://docs.lvgl.io/master/integration/framework/arduino.html}{\texttt{ ספריית Arduino}}
+\item \href{https://docs.lvgl.io/master/details/integration/framework/arduino.html}{\texttt{ ספריית Arduino}}
 \item \href{https://registry.platformio.org/libraries/lvgl/lvgl}{\texttt{ חבילת Platform\+IO}}
-\item \href{https://docs.lvgl.io/master/integration/os/zephyr.html}{\texttt{ ספריית Zephyr}}
+\item \href{https://docs.lvgl.io/master/details/integration/os/zephyr.html}{\texttt{ ספריית Zephyr}}
 \item \href{https://components.espressif.com/components/lvgl/lvgl}{\texttt{ רכיב ESP-\/\+IDF ‏(\+ESP32)}}
 \item \href{https://www.nxp.com/design/software/embedded-software/lvgl-open-source-graphics-library:LITTLEVGL-OPEN-SOURCE-GRAPHICS-LIBRARY}{\texttt{ רכיב NXP MCUXpresso}}
-\item \href{https://docs.lvgl.io/master/integration/os/nuttx.html}{\texttt{ ספריית NuttX}}
-\item \href{https://docs.lvgl.io/master/integration/os/rt-thread.html}{\texttt{ RT-\/\+Thread RTOS}}
+\item \href{https://docs.lvgl.io/master/details/integration/os/nuttx.html}{\texttt{ ספריית NuttX}}
+\item \href{https://docs.lvgl.io/master/details/integration/os/rt-thread.html}{\texttt{ RT-\/\+Thread RTOS}}
 \item CMSIS-\/\+Pack
 \item \href{https://doc.riot-os.org/group__pkg__lvgl.html\#details}{\texttt{ חבילת RIOT OS}}
-\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md509}{}\doxysubsection{\texorpdfstring{🚀 עורך LVGL Pro}{🚀 עורך LVGL Pro}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md509}
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md436}{}\doxysubsection{\texorpdfstring{🚀 עורך LVGL Pro}{🚀 עורך LVGL Pro}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md436}
 LVGL Pro הוא מארז כלים מלא לבנייה, בדיקה, שיתוף והפצה יעילים של UI משובץ.
 
 הוא מורכב מארבעה כלים המשולבים זה בזה\+:
 
 
 \begin{DoxyEnumerate}
-\item {\bfseries{עורך XML}}\+: הלב של LVGL Pro. יישום שולחני לבניית רכיבים ומסכים ב־\+XML, ניהול קישורי נתונים, תרגומים, אנימציות, בדיקות ועוד. קראו עוד על \href{https://docs.lvgl.io/master/xml/xml/index.html}{\texttt{ פורמט ה־\+XML}} ועל \href{https://docs.lvgl.io/master/xml/editor/index.html}{\texttt{ העורך}}.
+\item {\bfseries{עורך XML}}\+: הלב של LVGL Pro. יישום שולחני לבניית רכיבים ומסכים ב־\+XML, ניהול קישורי נתונים, תרגומים, אנימציות, בדיקות ועוד. קראו עוד על \href{https://docs.lvgl.io/master/details/xml/xml/index.html}{\texttt{ פורמט ה־\+XML}} ועל \href{https://docs.lvgl.io/master/details/xml/editor/index.html}{\texttt{ העורך}}.
 \item {\bfseries{מציג מקוון}}\+: הריצו את העורך בדפדפן, פתחו פרויקטים מ־\+Git\+Hub ושיתפו בקלות בלי להקים סביבת פיתוח. בקרו ב־\href{https://viewer.lvgl.io}{\texttt{ https\+://viewer.\+lvgl.\+io}}.
-\item {\bfseries{כלי CLI}}\+: הפקת קוד C והרצת בדיקות ב־\+CI/\+CD. פרטים \href{https://docs.lvgl.io/master/xml/tools/cli.html}{\texttt{ כאן}}.
-\item {\bfseries{תוסף Figma}}\+: סנכרון וחילוץ סגנונות ישירות מ־\+Figma. מידע נוסף \href{https://docs.lvgl.io/master/xml/tools/figma.html}{\texttt{ כאן}}.
+\item {\bfseries{כלי CLI}}\+: הפקת קוד C והרצת בדיקות ב־\+CI/\+CD. פרטים \href{https://docs.lvgl.io/master/details/xml/tools/cli.html}{\texttt{ כאן}}.
+\item {\bfseries{תוסף Figma}}\+: סנכרון וחילוץ סגנונות ישירות מ־\+Figma. מידע נוסף \href{https://docs.lvgl.io/master/details/xml/tools/figma.html}{\texttt{ כאן}}.
 \end{DoxyEnumerate}
 
 ביחד, הכלים מאפשרים לבנות UI ביעילות, לבדוק באמינות ולשתף פעולה עם צוותים ולקוחות.
 
-מידע נוסף\+: \href{https://pro.lvgl.io}{\texttt{ https\+://pro.\+lvgl.\+io}}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md510}{}\doxysubsection{\texorpdfstring{🤝 שירותים מסחריים}{🤝 שירותים מסחריים}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md510}
+מידע נוסף\+: \href{https://pro.lvgl.io}{\texttt{ https\+://pro.\+lvgl.\+io}}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md437}{}\doxysubsection{\texorpdfstring{🤝 שירותים מסחריים}{🤝 שירותים מסחריים}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md437}
 חברת LVGL LLC מספקת מגוון שירותים מסחריים לסיוע בפיתוח UI. עם יותר מ־15 שנות ניסיון בתחום הממשקים והגרפיקה, נוכל לקדם את ה־\+UI של המוצר שלכם לרמה הבאה.
 
 
@@ -97,7 +97,7 @@ LVGL Pro הוא מארז כלים מלא לבנייה, בדיקה, שיתוף ו
 
 עיינו ב\href{https://lvgl.io/demos}{\texttt{ דוגמאות}} שלנו לע参考. למידע נוסף ראו את \href{https://lvgl.io/services}{\texttt{ עמוד השירותים}}.
 
-\href{https://lvgl.io/\#contact}{\texttt{ צרו קשר}} וספרו לנו כיצד נוכל לעזור.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md511}{}\doxysubsection{\texorpdfstring{🧑‍💻 שילוב LVGL}{🧑‍💻 שילוב LVGL}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md511}
+\href{https://lvgl.io/\#contact}{\texttt{ צרו קשר}} וספרו לנו כיצד נוכל לעזור.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md438}{}\doxysubsection{\texorpdfstring{🧑‍💻 שילוב LVGL}{🧑‍💻 שילוב LVGL}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md438}
 שילוב LVGL פשוט מאוד. הוסיפו אותו לפרויקט וקומפלו כמו קבצים אחרים. כדי להגדיר, העתיקו את {\ttfamily \doxylink{lv__conf__template_8h_source}{lv\+\_\+conf\+\_\+template.\+h}} ל־{\ttfamily lv\+\_\+conf.\+h}, הפעילו את ה־{\ttfamily \#if 0} הראשון והתאימו את ההגדרות לפי הצורך. (בדרך כלל ברירת המחדל מספקת.) ניתן גם להשתמש ב־\+LVGL עם Kconfig כשזמין.
 
 לאחר מכן אפשר לאתחל את LVGL וליצור התקני תצוגה וקלט כך\+:
@@ -169,10 +169,10 @@ LVGL Pro הוא מארז כלים מלא לבנייה, בדיקה, שיתוף ו
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md512}{}\doxysubsection{\texorpdfstring{🤖 דוגמאות}{🤖 דוגמאות}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md512}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md439}{}\doxysubsection{\texorpdfstring{🤖 דוגמאות}{🤖 דוגמאות}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md439}
 מעל 100 דוגמאות זמינות ב־https\+://docs.lvgl.\+io/master/examples.html
 
-המציג המקוון כולל גם מדריכים ללימוד XML\+: ‏https\+://viewer.lvgl.\+io/\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md513}{}\doxysubsubsection{\texorpdfstring{כפתור Hello World עם אירוע}{כפתור Hello World עם אירוע}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md513}
+המציג המקוון כולל גם מדריכים ללימוד XML\+: ‏https\+://viewer.lvgl.\+io/\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md440}{}\doxysubsubsection{\texorpdfstring{כפתור Hello World עם אירוע}{כפתור Hello World עם אירוע}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md440}
 
 
 
@@ -220,7 +220,7 @@ LVGL Pro הוא מארז כלים מלא לבנייה, בדיקה, שיתוף ו
 
 
 \end{adjustwidth}
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md514}{}\doxysubsubsection{\texorpdfstring{מחוון מעוצב עם קישור נתונים}{מחוון מעוצב עם קישור נתונים}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md514}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md441}{}\doxysubsubsection{\texorpdfstring{מחוון מעוצב עם קישור נתונים}{מחוון מעוצב עם קישור נתונים}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md441}
 
 
 
@@ -230,14 +230,14 @@ LVGL Pro הוא מארז כלים מלא לבנייה, בדיקה, שיתוף ו
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ my\_observer\_cb(\mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ observer,\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ *\ subject)}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ my\_observer\_cb(\mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ observer,\ \mbox{\hyperlink{structlv__subject__t}{lv\_subject\_t}}\ *\ subject)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Slider\ value:\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{lv__observer_8c_ac1aa82930b9f6a7a8e732491267c9b4a}{lv\_subject\_get\_int}}(subject));}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{[...]}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ subject\_value;}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{structlv__subject__t}{lv\_subject\_t}}\ subject\_value;}
 \DoxyCodeLine{\mbox{\hyperlink{lv__observer_8c_aa33dde3e61e5511b138ff16fe879424e}{lv\_subject\_init\_int}}(\&subject\_value,\ 35);}
 \DoxyCodeLine{\mbox{\hyperlink{lv__observer_8c_a94b37d504317a6375c1a5bd0d808412d}{lv\_subject\_add\_observer}}(\&subject\_value,\ my\_observer\_cb,\ NULL);}
 \DoxyCodeLine{}
@@ -296,7 +296,7 @@ LVGL Pro הוא מארז כלים מלא לבנייה, בדיקה, שיתוף ו
 
 
 \end{adjustwidth}
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md515}{}\doxysubsubsection{\texorpdfstring{תיבות סימון בפריסה}{תיבות סימון בפריסה}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md515}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md442}{}\doxysubsubsection{\texorpdfstring{תיבות סימון בפריסה}{תיבות סימון בפריסה}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md442}
 
 
 
@@ -359,7 +359,7 @@ LVGL Pro הוא מארז כלים מלא לבנייה, בדיקה, שיתוף ו
 
 
 \end{adjustwidth}
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md516}{}\doxysubsection{\texorpdfstring{🌟 תרומה}{🌟 תרומה}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md516}
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md443}{}\doxysubsection{\texorpdfstring{🌟 תרומה}{🌟 תרומה}}\label{md_managed__components_2lvgl____lvgl_2docs_2README__he_autotoc_md443}
 LVGL הוא פרויקט פתוח ותרומות מתקבלות בברכה. אפשר לתרום בדרכים רבות\+: לשתף על הפרויקט שלכם, לכתוב דוגמאות, לשפר את התיעוד, לתקן תקלות ואפילו לארח פרויקט משלכם תחת ארגון LVGL.
 
 לתיאור מפורט של אפשרויות התרומה, בקרו בפרק \href{https://docs.lvgl.io/master/contributing/index.html}{\texttt{ Contributing}} בתיעוד.

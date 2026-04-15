@@ -27,23 +27,22 @@ typedef uint32\+\_\+t \mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a097680
 \begin{DoxyCompactItemize}
 \item 
 enum \mbox{\hyperlink{lv__obj__style_8h_a1a992070c236042354cd579c43c4f5e5}{lv\+\_\+state\+\_\+t}} \{ \newline
-{\bfseries LV\+\_\+\+STATE\+\_\+\+DEFAULT} = 0
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+ALT} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+CHECKED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+FOCUSED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+{\bfseries LV\+\_\+\+STATE\+\_\+\+DEFAULT} = 0x0000
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+CHECKED} = 0x0001
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+FOCUSED} = 0x0002
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+FOCUS\+\_\+\+KEY} = 0x0004
 , \newline
-{\bfseries LV\+\_\+\+STATE\+\_\+\+FOCUS\+\_\+\+KEY} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+EDITED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+HOVERED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+PRESSED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 7
+{\bfseries LV\+\_\+\+STATE\+\_\+\+EDITED} = 0x0008
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+HOVERED} = 0x0010
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+PRESSED} = 0x0020
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+SCROLLED} = 0x0040
 , \newline
-{\bfseries LV\+\_\+\+STATE\+\_\+\+SCROLLED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 8
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+DISABLED} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 9
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+1} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 12
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+2} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 13
+{\bfseries LV\+\_\+\+STATE\+\_\+\+DISABLED} = 0x0080
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+1} = 0x1000
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+2} = 0x2000
+, {\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+3} = 0x4000
 , \newline
-{\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+3} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 14
-, {\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+4} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 15
+{\bfseries LV\+\_\+\+STATE\+\_\+\+USER\+\_\+4} = 0x8000
 , \mbox{\hyperlink{lv__obj__style_8h_a1a992070c236042354cd579c43c4f5e5a801cebe920a9b6b4d341e8eab3d19780}{LV\+\_\+\+STATE\+\_\+\+ANY}} = 0x\+FFFF
  \}
 \item 
@@ -75,8 +74,6 @@ void \mbox{\hyperlink{lv__obj__style_8h_a3697842a0a9f7cfa1933bc92ab85dc6b}{lv\+\
 bool \mbox{\hyperlink{lv__obj__style_8h_a75192d67d3406926d100e63a0cdee000}{lv\+\_\+obj\+\_\+replace\+\_\+style}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}old\+\_\+style, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}new\+\_\+style, \mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}} selector)
 \item 
 void \mbox{\hyperlink{lv__obj__style_8h_a77c068aaa6ebb0470eba85bc904e20aa}{lv\+\_\+obj\+\_\+remove\+\_\+style}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style, \mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}} selector)
-\item 
-void \mbox{\hyperlink{lv__obj__style_8h_ae083acaf4a572f2d660bed0bf6f7b28a}{lv\+\_\+obj\+\_\+remove\+\_\+theme}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}} selector)
 \item 
 void \mbox{\hyperlink{lv__obj__style_8h_a331a3302010cebbd6bba3c392a129b18}{lv\+\_\+obj\+\_\+remove\+\_\+style\+\_\+all}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \item 
@@ -115,10 +112,6 @@ void \mbox{\hyperlink{lv__obj__style_8h_a4140039b26c41b651bc8909b388f9042}{lv\+\
 \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} \mbox{\hyperlink{lv__obj__style_8h_a9b2f896e4af234cba4c10eb1575e86f9}{lv\+\_\+obj\+\_\+style\+\_\+apply\+\_\+recolor}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}} part, \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} color)
 \item 
 \mbox{\hyperlink{structlv__color32__t}{lv\+\_\+color32\+\_\+t}} \mbox{\hyperlink{lv__obj__style_8h_a8288e5829fea998309afb9f48b31f706}{lv\+\_\+obj\+\_\+get\+\_\+style\+\_\+recolor\+\_\+recursive}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}} part)
-\item 
-\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__style_8h_a5436c7682fdcf24aa95e4951ca4bce21}{lv\+\_\+obj\+\_\+bind\+\_\+style}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}style, \mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}} selector, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject, int32\+\_\+t ref\+\_\+value)
-\item 
-\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__style_8h_aff17104c2959c13b89ddaa2f0bb05da3}{lv\+\_\+obj\+\_\+bind\+\_\+style\+\_\+prop}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, lv\+\_\+style\+\_\+prop\+\_\+t prop, \mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}} selector, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
 \end{DoxyCompactItemize}
 
 
@@ -243,49 +236,7 @@ Examples\+:
 \DoxyCodeLine{\mbox{\hyperlink{lv__obj__style_8c_a3697842a0a9f7cfa1933bc92ab85dc6b}{lv\_obj\_add\_style}}(btn,\ \&btn\_red,\ LV\_STATE\_PRESSED);\ \textcolor{comment}{//Overwrite\ only\ some\ colors\ to\ red\ when\ pressed}}
 
 \end{DoxyCode}
- \Hypertarget{lv__obj__style_8h_a5436c7682fdcf24aa95e4951ca4bce21}\label{lv__obj__style_8h_a5436c7682fdcf24aa95e4951ca4bce21} 
-\index{lv\_obj\_style.h@{lv\_obj\_style.h}!lv\_obj\_bind\_style@{lv\_obj\_bind\_style}}
-\index{lv\_obj\_bind\_style@{lv\_obj\_bind\_style}!lv\_obj\_style.h@{lv\_obj\_style.h}}
-\doxysubsubsection{\texorpdfstring{lv\_obj\_bind\_style()}{lv\_obj\_bind\_style()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+obj\+\_\+bind\+\_\+style (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{structlv__style__t}{lv\+\_\+style\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{style,  }\item[{\mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}}}]{selector,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject,  }\item[{int32\+\_\+t}]{ref\+\_\+value }\end{DoxyParamCaption})}
-
-Disable a style if a subject\textquotesingle{}s value is not equal to a reference value 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to Widget \\
-\hline
-{\em style} & pointer to a style \\
-\hline
-{\em selector} & pointer to a selector \\
-\hline
-{\em subject} & pointer to Subject \\
-\hline
-{\em ref\+\_\+value} & reference value to compare Subject\textquotesingle{}s value with \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-pointer to newly-\/created Observer 
-\end{DoxyReturn}
-\Hypertarget{lv__obj__style_8h_aff17104c2959c13b89ddaa2f0bb05da3}\label{lv__obj__style_8h_aff17104c2959c13b89ddaa2f0bb05da3} 
-\index{lv\_obj\_style.h@{lv\_obj\_style.h}!lv\_obj\_bind\_style\_prop@{lv\_obj\_bind\_style\_prop}}
-\index{lv\_obj\_bind\_style\_prop@{lv\_obj\_bind\_style\_prop}!lv\_obj\_style.h@{lv\_obj\_style.h}}
-\doxysubsubsection{\texorpdfstring{lv\_obj\_bind\_style\_prop()}{lv\_obj\_bind\_style\_prop()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+obj\+\_\+bind\+\_\+style\+\_\+prop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{lv\+\_\+style\+\_\+prop\+\_\+t}]{prop,  }\item[{\mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}}}]{selector,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
-
-Connect a subject\textquotesingle{}s value to a style property of a widget. 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to a Widget \\
-\hline
-{\em prop} & a style property \\
-\hline
-{\em selector} & a selector for which the property should be added, e.\+g. {\ttfamily LV\+\_\+\+PART\+\_\+\+KNOB \texorpdfstring{$\vert$}{|} LV\+\_\+\+STATE\+\_\+\+PRESSED} \\
-\hline
-{\em subject} & pointer a Subject to which value the property should be bound \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-pointer to newly-\/created Observer 
-\end{DoxyReturn}
-\Hypertarget{lv__obj__style_8h_aff37096e213941e398c8be8d141a7cf8}\label{lv__obj__style_8h_aff37096e213941e398c8be8d141a7cf8} 
+ \Hypertarget{lv__obj__style_8h_aff37096e213941e398c8be8d141a7cf8}\label{lv__obj__style_8h_aff37096e213941e398c8be8d141a7cf8} 
 \index{lv\_obj\_style.h@{lv\_obj\_style.h}!lv\_obj\_enable\_style\_refresh@{lv\_obj\_enable\_style\_refresh}}
 \index{lv\_obj\_enable\_style\_refresh@{lv\_obj\_enable\_style\_refresh}!lv\_obj\_style.h@{lv\_obj\_style.h}}
 \doxysubsubsection{\texorpdfstring{lv\_obj\_enable\_style\_refresh()}{lv\_obj\_enable\_style\_refresh()}}
@@ -460,19 +411,6 @@ Examples\+:
 Remove all styles from an object 
 \begin{DoxyParams}{Parametri}
 {\em obj} & pointer to an object \\
-\hline
-\end{DoxyParams}
-\Hypertarget{lv__obj__style_8h_ae083acaf4a572f2d660bed0bf6f7b28a}\label{lv__obj__style_8h_ae083acaf4a572f2d660bed0bf6f7b28a} 
-\index{lv\_obj\_style.h@{lv\_obj\_style.h}!lv\_obj\_remove\_theme@{lv\_obj\_remove\_theme}}
-\index{lv\_obj\_remove\_theme@{lv\_obj\_remove\_theme}!lv\_obj\_style.h@{lv\_obj\_style.h}}
-\doxysubsubsection{\texorpdfstring{lv\_obj\_remove\_theme()}{lv\_obj\_remove\_theme()}}
-{\footnotesize\ttfamily void lv\+\_\+obj\+\_\+remove\+\_\+theme (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__obj__style_8h_aa0a048ecb0f26f9a0976809d5ec35693}{lv\+\_\+style\+\_\+selector\+\_\+t}}}]{selector }\end{DoxyParamCaption})}
-
-Remove all styles added by a theme from a widget 
-\begin{DoxyParams}{Parametri}
-{\em selector} & OR-\/ed values of states and a part to remove only styles with matching selectors. LV\+\_\+\+STATE\+\_\+\+ANY and LV\+\_\+\+PART\+\_\+\+ANY can be used \\
-\hline
-{\em obj} & pointer to a widget \\
 \hline
 \end{DoxyParams}
 \Hypertarget{lv__obj__style_8h_a75192d67d3406926d100e63a0cdee000}\label{lv__obj__style_8h_a75192d67d3406926d100e63a0cdee000} 

@@ -3,7 +3,6 @@
 {\ttfamily \#include "{}../misc/lv\+\_\+types.\+h"{}}\newline
 {\ttfamily \#include "{}../misc/lv\+\_\+event.\+h"{}}\newline
 {\ttfamily \#include "{}../indev/lv\+\_\+indev.\+h"{}}\newline
-{\ttfamily \#include "{}lv\+\_\+obj\+\_\+style.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+obj\+\_\+event.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+obj\+\_\+event.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -78,8 +77,6 @@ const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{
 void \mbox{\hyperlink{lv__obj__event_8h_a164f8baaeac9e3e2a77410de2175147c}{lv\+\_\+event\+\_\+set\+\_\+cover\+\_\+res}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e, \mbox{\hyperlink{lv__obj__event_8h_ab574311d5f23b50737c863f8c6259a41}{lv\+\_\+cover\+\_\+res\+\_\+t}} res)
 \item 
 \mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__obj__event_8h_a05d64da0f1a9fbcafa70fde9d7100a87}{lv\+\_\+event\+\_\+get\+\_\+draw\+\_\+task}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
-\item 
-\mbox{\hyperlink{lv__obj__style_8h_a1a992070c236042354cd579c43c4f5e5}{lv\+\_\+state\+\_\+t}} \mbox{\hyperlink{lv__obj__event_8h_aa153ebf35d5fd8442e303d4d37bfbd8a}{lv\+\_\+event\+\_\+get\+\_\+prev\+\_\+state}} (\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}e)
 \end{DoxyCompactItemize}
 
 
@@ -204,20 +201,6 @@ Get the old area of the object before its size was changed. Can be used in {\ttf
 \end{DoxyParams}
 \begin{DoxyReturn}{Rezultat(i)}
 the old absolute area of the object or NULL if called on an unrelated event 
-\end{DoxyReturn}
-\Hypertarget{lv__obj__event_8h_aa153ebf35d5fd8442e303d4d37bfbd8a}\label{lv__obj__event_8h_aa153ebf35d5fd8442e303d4d37bfbd8a} 
-\index{lv\_obj\_event.h@{lv\_obj\_event.h}!lv\_event\_get\_prev\_state@{lv\_event\_get\_prev\_state}}
-\index{lv\_event\_get\_prev\_state@{lv\_event\_get\_prev\_state}!lv\_obj\_event.h@{lv\_obj\_event.h}}
-\doxysubsubsection{\texorpdfstring{lv\_event\_get\_prev\_state()}{lv\_event\_get\_prev\_state()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{lv__obj__style_8h_a1a992070c236042354cd579c43c4f5e5}{lv\+\_\+state\+\_\+t}} lv\+\_\+event\+\_\+get\+\_\+prev\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__event__t}{lv\+\_\+event\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{e }\end{DoxyParamCaption})}
-
-Get the previous state before the state change. Can be used in {\ttfamily LV\+\_\+\+EVENT\+\_\+\+STATE\+\_\+\+CHANGED} event 
-\begin{DoxyParams}{Parametri}
-{\em e} & pointer to an event \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-the previous state 
 \end{DoxyReturn}
 \Hypertarget{lv__obj__event_8h_a6d9e6435bcd0c82612e8eac2b9d7b43f}\label{lv__obj__event_8h_a6d9e6435bcd0c82612e8eac2b9d7b43f} 
 \index{lv\_obj\_event.h@{lv\_obj\_event.h}!lv\_event\_get\_rotary\_diff@{lv\_event\_get\_rotary\_diff}}

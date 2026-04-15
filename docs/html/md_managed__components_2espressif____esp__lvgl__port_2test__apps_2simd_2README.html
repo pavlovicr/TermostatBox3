@@ -72,9 +72,9 @@ $(function() {
   <div class="headertitle"><div class="title">HW Acceleration using SIMD assembly instructions</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md409"></a> Test app accommodates two types of tests: `functionality test` and `benchmark test`. Both tests are provided per each function written in assembly (typically per each assembly file). Both test apps use a hard copy of LVGL blending API, representing an ANSI implementation of the LVGL blending functions. The hard copy is present in <a href="main/lv_blend/"><code>lv_blend</code></a> folder.</p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md379"></a> Test app accommodates two types of tests: `functionality test` and `benchmark test`. Both tests are provided per each function written in assembly (typically per each assembly file). Both test apps use a hard copy of LVGL blending API, representing an ANSI implementation of the LVGL blending functions. The hard copy is present in <a href="main/lv_blend/"><code>lv_blend</code></a> folder.</p>
 <p>Assembly source files could be found in the <a href="../../src/lvgl9/simd/"><code>lvgl_port</code></a> component. Header file with the assembly function prototypes is provided into the LVGL using Kconfig option <code>LV_DRAW_SW_ASM_CUSTOM_INCLUDE</code> and can be found in the <a href="../../include/esp_lvgl_port_lv_blend.h"><code>lvgl_port/include</code></a></p>
-<h1><a class="anchor" id="autotoc_md410"></a>
+<h1><a class="anchor" id="autotoc_md380"></a>
 Benchmark results for LV Fill functions (memset)</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -96,7 +96,7 @@ Benchmark results for LV Fill functions (memset)</h1>
 <li>this data was obtained by running benchmark tests on 128x128 16 byte aligned matrix (ideal case) and 127x127 1 byte aligned matrix (worst case)</li>
 <li>the values represent cycles per sample to perform simple fill of the matrix on esp32s3</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md411"></a>
+<h1><a class="anchor" id="autotoc_md381"></a>
 Benchmark results for LV Image functions (memcpy)</h1>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -114,7 +114,7 @@ Benchmark results for LV Image functions (memcpy)</h1>
 <li>this data was obtained by running benchmark tests on 128x128 16 byte aligned matrix (ideal case) and 127x128 1 byte aligned matrix (worst case)</li>
 <li>the values represent cycles per sample to perform memory copy between two matrices on esp32s3</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md412"></a>
+<h1><a class="anchor" id="autotoc_md382"></a>
 Functionality test</h1>
 <ul>
 <li>Tests, whether the HW accelerated assembly version of an LVGL function provides the same results as the ANSI version</li>
@@ -128,7 +128,7 @@ Functionality test</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md413"></a>
+<h1><a class="anchor" id="autotoc_md383"></a>
 Benchmark test</h1>
 <ul>
 <li>Tests, whether the HW accelerated assembly version of an LVGL function provides a performance increase over the ANSI version</li>
@@ -141,10 +141,10 @@ Benchmark test</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md414"></a>
+<h1><a class="anchor" id="autotoc_md384"></a>
 Run the test app</h1>
 <p>The test app is intended to be used only with esp32 and esp32s3 </p><pre class="fragment">idf.py build
-</pre> <h1><a class="anchor" id="autotoc_md415"></a>
+</pre> <h1><a class="anchor" id="autotoc_md385"></a>
 Example output</h1>
 <div class="fragment"><div class="line">I (302) main_task: Started on CPU0</div>
 <div class="line">I (322) main_task: Calling app_main()</div>
@@ -169,7 +169,7 @@ Example output</h1>
 <div class="line">(6) &quot;LV Image benchmark RGB565 blend to RGB565&quot; [image][benchmark][RGB565]</div>
 <div class="line"> </div>
 <div class="line">Enter test for running.</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md416"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md386"></a>
 Example of a functionality test run</h2>
 <div class="fragment"><div class="line">Running Test fill functionality ARGB8888...</div>
 <div class="line">I (81512) LV Fill Functionality: running test for ARGB8888 color format</div>
@@ -180,7 +180,7 @@ Example of a functionality test run</h2>
 <div class="line">./main/test_lv_fill_functionality.c:102:Test fill functionality ARGB8888:PASS</div>
 <div class="line">Test ran in 3242ms</div>
 </div><!-- fragment --><p> The test gives a simple FAIL/PASS result after comparison of the two DUTs results. Also gives us an information about how many combinations (input parameters) the functionality test run with, <code>31824</code> in this case.</p>
-<h2><a class="anchor" id="autotoc_md417"></a>
+<h2><a class="anchor" id="autotoc_md387"></a>
 Example of a benchmark test run</h2>
 <div class="fragment"><div class="line">Running LV Fill benchmark ARGB8888...</div>
 <div class="line">I (163492) LV Fill Benchmark: running test for ARGB8888 color format</div>

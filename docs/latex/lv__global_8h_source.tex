@@ -28,11 +28,11 @@
 \DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}../misc/lv\_style.h"{}}}
 \DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}../misc/lv\_timer.h"{}}}
 \DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}../osal/lv\_os\_private.h"{}}}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}../debugging/sysmon/lv\_sysmon.h"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}../others/sysmon/lv\_sysmon.h"{}}}
 \DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}../stdlib/builtin/lv\_tlsf.h"{}}}
 \DoxyCodeLine{00033\ }
 \DoxyCodeLine{00034\ \textcolor{preprocessor}{\#if\ LV\_USE\_FONT\_COMPRESSED}}
-\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}../font/fmt\_txt/lv\_font\_fmt\_txt\_private.h"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}../font/lv\_font\_fmt\_txt\_private.h"{}}}
 \DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00037\ }
 \DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}../tick/lv\_tick.h"{}}}
@@ -48,8 +48,8 @@
 \DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}../draw/sw/lv\_draw\_sw\_private.h"{}}}
 \DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}../draw/sw/lv\_draw\_sw\_mask\_private.h"{}}}
 \DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}../stdlib/builtin/lv\_tlsf\_private.h"{}}}
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}../debugging/sysmon/lv\_sysmon\_private.h"{}}}
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}../debugging/test/lv\_test\_private.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}../others/sysmon/lv\_sysmon\_private.h"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}../others/test/lv\_test\_private.h"{}}}
 \DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}../layouts/lv\_layout\_private.h"{}}}
 \DoxyCodeLine{00054\ }
 \DoxyCodeLine{00055\ \textcolor{comment}{/*********************}}
@@ -265,37 +265,43 @@
 \DoxyCodeLine{00274\ \ \ \ \ lv\_evdev\_discovery\_t\ *\ evdev\_discovery;}
 \DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00276\ }
-\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_EVE}}
-\DoxyCodeLine{00278\ \ \ \ \ lv\_draw\_eve\_unit\_t\ *\ draw\_eve\_unit;}
-\DoxyCodeLine{00279\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00280\ \}\ \mbox{\hyperlink{struct__lv__global__t}{lv\_global\_t}};}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00282\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00283\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00284\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00285\ }
-\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#if\ LV\_ENABLE\_GLOBAL\_CUSTOM}}
-\DoxyCodeLine{00287\ \textcolor{preprocessor}{\#include\ LV\_GLOBAL\_CUSTOM\_INCLUDE}}
-\DoxyCodeLine{00288\ }
-\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#ifndef\ LV\_GLOBAL\_CUSTOM}}
-\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#define\ LV\_GLOBAL\_CUSTOM()\ lv\_global\_default()}}
-\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#define\ LV\_GLOBAL\_DEFAULT()\ LV\_GLOBAL\_CUSTOM()}}
-\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00294\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct__lv__global__t}{lv\_global\_t}}\ lv\_global;}
-\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#define\ LV\_GLOBAL\_DEFAULT()\ (\&lv\_global)}}
-\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00297\ }
-\DoxyCodeLine{00298\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00299\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00300\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#if\ LV\_ENABLE\_GLOBAL\_CUSTOM}}
-\DoxyCodeLine{00306\ \mbox{\hyperlink{struct__lv__global__t}{lv\_global\_t}}\ *\ lv\_global\_default(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00309\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00310\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00311\ }
-\DoxyCodeLine{00312\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GLOBAL\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#if\ LV\_USE\_XML}}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ xml\_path\_prefix;}
+\DoxyCodeLine{00279\ \ \ \ \ uint32\_t\ lv\_event\_xml\_store\_timeline;}
+\DoxyCodeLine{00280\ \ \ \ \ \mbox{\hyperlink{structlv__ll__t}{lv\_ll\_t}}\ xml\_loads;}
+\DoxyCodeLine{00281\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#if\ LV\_USE\_DRAW\_EVE}}
+\DoxyCodeLine{00284\ \ \ \ \ lv\_draw\_eve\_unit\_t\ *\ draw\_eve\_unit;}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00286\ \}\ \mbox{\hyperlink{struct__lv__global__t}{lv\_global\_t}};}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00289\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00290\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\#if\ LV\_ENABLE\_GLOBAL\_CUSTOM}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#include\ LV\_GLOBAL\_CUSTOM\_INCLUDE}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#ifndef\ LV\_GLOBAL\_CUSTOM}}
+\DoxyCodeLine{00296\ \textcolor{preprocessor}{\#define\ LV\_GLOBAL\_CUSTOM()\ lv\_global\_default()}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00298\ \textcolor{preprocessor}{\#define\ LV\_GLOBAL\_DEFAULT()\ LV\_GLOBAL\_CUSTOM()}}
+\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00300\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct__lv__global__t}{lv\_global\_t}}\ lv\_global;}
+\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#define\ LV\_GLOBAL\_DEFAULT()\ (\&lv\_global)}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00305\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00306\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\#if\ LV\_ENABLE\_GLOBAL\_CUSTOM}}
+\DoxyCodeLine{00312\ \mbox{\hyperlink{struct__lv__global__t}{lv\_global\_t}}\ *\ lv\_global\_default(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00313\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00315\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00318\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_GLOBAL\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

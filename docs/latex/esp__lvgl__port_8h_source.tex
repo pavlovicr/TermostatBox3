@@ -30,52 +30,51 @@
 \DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
 \DoxyCodeLine{00035\ \ \ \ \ LVGL\_PORT\_EVENT\_DISPLAY\ =\ 0x01,}
 \DoxyCodeLine{00036\ \ \ \ \ LVGL\_PORT\_EVENT\_TOUCH\ \ \ =\ 0x02,}
-\DoxyCodeLine{00037\ \ \ \ \ LVGL\_PORT\_EVENT\_ENCODER\ =\ 0x04,}
-\DoxyCodeLine{00038\ \ \ \ \ LVGL\_PORT\_EVENT\_USER\ \ \ \ =\ 0x80,}
-\DoxyCodeLine{00039\ \}\ \mbox{\hyperlink{esp__lvgl__port_8h_a34ad53402c81112aa0106d687d9b2bda}{lvgl\_port\_event\_type\_t}};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{esp__lvgl__port_8h_a34ad53402c81112aa0106d687d9b2bda}{lvgl\_port\_event\_type\_t}}\ type;}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ *param;}
-\DoxyCodeLine{00047\ \}\ \mbox{\hyperlink{structlvgl__port__event__t}{lvgl\_port\_event\_t}};}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_aa97bac87d5cbb0aff1bf5a99c119b974}{task\_priority}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_a9f92d6b1d30549f14823494abea59311}{task\_stack}};\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_a9c86802261f81f874e260380c2cc2404}{task\_affinity}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_a06758c59c3f2e684711f5134cf6e041f}{task\_max\_sleep\_ms}};\ \ \ \ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structlvgl__port__cfg__t_ac4d78f116c915ab6fc47680090f0d14b}{task\_stack\_caps}};\ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_af032266e87a0e0ad95ff9994b17d8ad0}{timer\_period\_ms}};\ \ \ \ \ \ }
-\DoxyCodeLine{00059\ \}\ \mbox{\hyperlink{structlvgl__port__cfg__t}{lvgl\_port\_cfg\_t}};}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ ESP\_LVGL\_PORT\_INIT\_CONFIG()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00066\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_priority\ =\ 4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_stack\ =\ 7168,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_affinity\ =\ -\/1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_max\_sleep\_ms\ =\ 500,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_stack\_caps\ =\ MALLOC\_CAP\_INTERNAL\ |\ MALLOC\_CAP\_DEFAULT,\ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .timer\_period\_ms\ =\ 5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \}}}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00086\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a97a0bb5556894a2b1dfee7082e0deee0}{lvgl\_port\_init}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlvgl__port__cfg__t}{lvgl\_port\_cfg\_t}}\ *cfg);}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00098\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a1cba3f393e6eed2f9355adf048ff8731}{lvgl\_port\_deinit}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00108\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{esp__lvgl__port_8h_ab0618b4d7a46e737754e4fbbd6d517b6}{lvgl\_port\_lock}}(uint32\_t\ timeout\_ms);}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{esp__lvgl__port_8h_acb85e62799c27b08e115bfdd2633ca71}{lvgl\_port\_unlock}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00123\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{esp__lvgl__port_8h_a0eefc1fda6f79b96aee7b6c85e1f599e}{lvgl\_port\_flush\_ready}}(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *disp);}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00133\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a9cfeb7dbf076234c161573bb3807c5c4}{lvgl\_port\_stop}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00143\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a2fcf5cb771b29505bb1ea167001d910e}{lvgl\_port\_resume}}(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00157\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_abacc8a32c06c18b06b984b9332167c0e}{lvgl\_port\_task\_wake}}(\mbox{\hyperlink{esp__lvgl__port_8h_a34ad53402c81112aa0106d687d9b2bda}{lvgl\_port\_event\_type\_t}}\ event,\ \textcolor{keywordtype}{void}\ *param);}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00160\ \}}
-\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00037\ \ \ \ \ LVGL\_PORT\_EVENT\_USER\ \ \ \ =\ 0x80,}
+\DoxyCodeLine{00038\ \}\ \mbox{\hyperlink{esp__lvgl__port_8h_a34ad53402c81112aa0106d687d9b2bda}{lvgl\_port\_event\_type\_t}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{esp__lvgl__port_8h_a34ad53402c81112aa0106d687d9b2bda}{lvgl\_port\_event\_type\_t}}\ type;}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{void}\ *param;}
+\DoxyCodeLine{00046\ \}\ \mbox{\hyperlink{structlvgl__port__event__t}{lvgl\_port\_event\_t}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_aa97bac87d5cbb0aff1bf5a99c119b974}{task\_priority}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_a9f92d6b1d30549f14823494abea59311}{task\_stack}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_a9c86802261f81f874e260380c2cc2404}{task\_affinity}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_a06758c59c3f2e684711f5134cf6e041f}{task\_max\_sleep\_ms}};\ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{structlvgl__port__cfg__t_ac4d78f116c915ab6fc47680090f0d14b}{task\_stack\_caps}};\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structlvgl__port__cfg__t_af032266e87a0e0ad95ff9994b17d8ad0}{timer\_period\_ms}};\ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \}\ \mbox{\hyperlink{structlvgl__port__cfg__t}{lvgl\_port\_cfg\_t}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ ESP\_LVGL\_PORT\_INIT\_CONFIG()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_priority\ =\ 4,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_stack\ =\ 7168,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_affinity\ =\ -\/1,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_max\_sleep\_ms\ =\ 500,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .task\_stack\_caps\ =\ MALLOC\_CAP\_INTERNAL\ |\ MALLOC\_CAP\_DEFAULT,\ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ .timer\_period\_ms\ =\ 5,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00085\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a97a0bb5556894a2b1dfee7082e0deee0}{lvgl\_port\_init}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structlvgl__port__cfg__t}{lvgl\_port\_cfg\_t}}\ *cfg);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00097\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a1cba3f393e6eed2f9355adf048ff8731}{lvgl\_port\_deinit}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{esp__lvgl__port_8h_ab0618b4d7a46e737754e4fbbd6d517b6}{lvgl\_port\_lock}}(uint32\_t\ timeout\_ms);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{esp__lvgl__port_8h_acb85e62799c27b08e115bfdd2633ca71}{lvgl\_port\_unlock}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00122\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{esp__lvgl__port_8h_a0eefc1fda6f79b96aee7b6c85e1f599e}{lvgl\_port\_flush\_ready}}(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *disp);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00132\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a9cfeb7dbf076234c161573bb3807c5c4}{lvgl\_port\_stop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00142\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_a2fcf5cb771b29505bb1ea167001d910e}{lvgl\_port\_resume}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00156\ esp\_err\_t\ \mbox{\hyperlink{esp__lvgl__port_8h_abacc8a32c06c18b06b984b9332167c0e}{lvgl\_port\_task\_wake}}(\mbox{\hyperlink{esp__lvgl__port_8h_a34ad53402c81112aa0106d687d9b2bda}{lvgl\_port\_event\_type\_t}}\ event,\ \textcolor{keywordtype}{void}\ *param);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00159\ \}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

@@ -8,7 +8,7 @@
 {\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+event\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+draw\+\_\+private.\+h"{}}\newline
-{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../others/observer/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+image.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+image.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
 \begin{figure}[H]
@@ -88,7 +88,7 @@ bool \mbox{\hyperlink{lv__image_8c_a2c4e9008cc3c1d435f0791e99548c918}{lv\+\_\+im
 \item 
 const \mbox{\hyperlink{structlv__image__dsc__t}{lv\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__image_8c_acf9003b9130335b3d51b922b060abc75}{lv\+\_\+image\+\_\+get\+\_\+bitmap\+\_\+map\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \item 
-\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__image_8c_a2e51c200fb7b531ceb954ea1cdf6712d}{lv\+\_\+image\+\_\+bind\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__image_8c_a2e51c200fb7b531ceb954ea1cdf6712d}{lv\+\_\+image\+\_\+bind\+\_\+src}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Spremenljivke}
 \begin{DoxyCompactItemize}
@@ -102,7 +102,7 @@ const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}
 \index{lv\_image.c@{lv\_image.c}!lv\_image\_bind\_src@{lv\_image\_bind\_src}}
 \index{lv\_image\_bind\_src@{lv\_image\_bind\_src}!lv\_image.c@{lv\_image.c}}
 \doxysubsubsection{\texorpdfstring{lv\_image\_bind\_src()}{lv\_image\_bind\_src()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+image\+\_\+bind\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+image\+\_\+bind\+\_\+src (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
 
 Bind a pointer Subject to an Image\textquotesingle{}s source. 
 \begin{DoxyParams}{Parametri}
@@ -585,6 +585,17 @@ Set the image data to display on the object
 \DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__image__t}{lv\_image\_t}}),}
 \DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
 \DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_image"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\}}
 

@@ -72,8 +72,8 @@ $(function() {
   <div class="headertitle"><div class="title">LCD &amp; LVGL Performance</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md354"></a> This document provides steps, how to set up your LCD and LVGL port for the best performance and comparison of different settings. All settings and measurements are valid for Espressif's chips. Examples in <a href="https://github.com/espressif/esp-bsp">ESP-BSP</a> are ready to use with the best performance.</p>
-<h1><a class="anchor" id="autotoc_md355"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md324"></a> This document provides steps, how to set up your LCD and LVGL port for the best performance and comparison of different settings. All settings and measurements are valid for Espressif's chips. Examples in <a href="https://github.com/espressif/esp-bsp">ESP-BSP</a> are ready to use with the best performance.</p>
+<h1><a class="anchor" id="autotoc_md325"></a>
 Performance metrics</h1>
 <p>In this document we will use following metrics for performance evaluation:</p>
 <ol type="1">
@@ -81,11 +81,11 @@ Performance metrics</h1>
 <li>Use LVGL's <a href="https://github.com/lvgl/lvgl/tree/v8.3.6/demos/benchmark">lv_demo_benchmark()</a> -test suite- to measure Frames per second (weighted FPS).</li>
 <li>Use LVGL's <a href="https://github.com/lvgl/lvgl/tree/v8.3.6/demos/music">lv_demo_music()</a> -demo application- to measure Frames per second (average FPS).</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md356"></a>
+<h1><a class="anchor" id="autotoc_md326"></a>
 Settings on ESP32 chips which have impact on LCD and LVGL performance</h1>
 <p>Following options and settings have impact on LCD performance (FPS). Some options yield only small difference in FPS (e.g. ~1 FPS), and some of them are more significant. Usually it depends on complexity of the graphical application (number of widgets...), resources (CPU time, RAM available...) and size of screen (definition and color depth).</p>
 <p>Another set of key parametes are hardware related (graphical IO, frame buffer location), which are not yet covered in this document.</p>
-<h2><a class="anchor" id="autotoc_md357"></a>
+<h2><a class="anchor" id="autotoc_md327"></a>
 LVGL Buffer configuration</h2>
 <p><b>This is by far the most significant setting.</b> Users are encouraged to focus on correct frame buffer configuration before moving ahead with other optimizations.</p>
 <p>On the other hand, the frame buffer(s) will consume significant portion of your RAM. In the graph below, you can see different frame buffer settings and resulting FPS:</p>
@@ -97,19 +97,19 @@ LVGL Buffer configuration</h2>
 <li>Frame buffer size &lt;10% will have severe negative effect on performance</li>
 </ul>
 <p><em>Note:</em> The measurements are valid for frame buffer in internal SRAM. Placing the frame buffer into external PSRAM will yield worse results.</p>
-<h2><a class="anchor" id="autotoc_md358"></a>
+<h2><a class="anchor" id="autotoc_md328"></a>
 Compiler optimization level</h2>
 <p>Recommended level is "Performance" for good results. The "Performance" setting causes the compiled code to be larger and faster.</p>
 <ul>
 <li><code>CONFIG_COMPILER_OPTIMIZATION_PERF=y</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md359"></a>
+<h2><a class="anchor" id="autotoc_md329"></a>
 CPU frequency</h2>
 <p>The CPU frequency has a big impact on LCD performance. The recommended value is maximum -&gt; 240 MHz.</p>
 <ul>
 <li><code>CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md360"></a>
+<h2><a class="anchor" id="autotoc_md330"></a>
 Flash frequency and mode</h2>
 <p>The flash clock frequency and mode (bus width) has a big impact on LCD performance. Your choices will be limited by your hardware flash configuration. The higher the frequency and bus width, the better.</p>
 <ul>
@@ -117,25 +117,25 @@ Flash frequency and mode</h2>
 <li><code>CONFIG_ESPTOOLPY_FLASHMODE_QIO=y</code> or <code>CONFIG_ESPTOOLPY_OCT_FLASH</code> on supported chips</li>
 </ul>
 <p>More information about SPI Flash configuration can be found in <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/flash_psram_config.html">ESP-IDF Programming Guide</a>.</p>
-<h2><a class="anchor" id="autotoc_md361"></a>
+<h2><a class="anchor" id="autotoc_md331"></a>
 Fast LVGL memory</h2>
 <p>This option puts the most frequently used LVGL functions into IRAM for execution speed up.</p>
 <ul>
 <li><code>CONFIG_LV_ATTRIBUTE_FAST_MEM_USE_IRAM=y</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md362"></a>
+<h2><a class="anchor" id="autotoc_md332"></a>
 Affinity main task to second core</h2>
 <p>The main LVGL task can be processed on the second core of the CPU. It can increase performance. (It is available only on dual-core chips)</p>
 <ul>
 <li><code>CONFIG_ESP_MAIN_TASK_AFFINITY_CPU1=y</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md363"></a>
+<h2><a class="anchor" id="autotoc_md333"></a>
 Using esp-idf &lt;tt&gt;memcpy&lt;/tt&gt; and &lt;tt&gt;memset&lt;/tt&gt; instead LVGL's configuration</h2>
 <p>Native esp-idf implementation are a little (~1-3 FPS) faster (only for LVGL8).</p>
 <ul>
 <li><code>CONFIG_LV_MEMCPY_MEMSET_STD=y</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md364"></a>
+<h2><a class="anchor" id="autotoc_md334"></a>
 Default LVGL display refresh period</h2>
 <p>This setting can improve subjective performance during screen transitions (scrolling, etc.).</p>
 <p>LVGL8</p><ul>
@@ -144,10 +144,10 @@ Default LVGL display refresh period</h2>
 <p>LVGL9</p><ul>
 <li><code>CONFIG_LV_DEF_REFR_PERIOD=10</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md365"></a>
+<h1><a class="anchor" id="autotoc_md335"></a>
 Example FPS improvement vs graphical settings</h1>
 <p>The LVGL9 benchmark demo uses a different algorithm for measuring FPS. In this case, we used the same algorithm for measurement in LVGL8 for comparison.</p>
-<h2><a class="anchor" id="autotoc_md366"></a>
+<h2><a class="anchor" id="autotoc_md336"></a>
 RGB LCD, PSRAM (octal) with GDMA - ESP32-S3-LCD-EV-BOARD</h2>
 <p><img src="https://github.com/espressif/esp-bsp/blob/master/docu/pics/esp32-s3-lcd-ev-board_800x480.png?raw=true" alt="" align="right" width="300px" class="inline"/></p>
 <p>Default settings:</p><ul>
@@ -187,7 +187,7 @@ RGB LCD, PSRAM (octal) with GDMA - ESP32-S3-LCD-EV-BOARD</h2>
 <p>16   </p>
 <p>11   </p>
 <p>+ (<code>CONFIG_LV_DISP_DEF_REFR_PERIOD=10</code> / <code>CONFIG_LV_DEF_REFR_PERIOD=10</code>)   </p>
-<h2><a class="anchor" id="autotoc_md367"></a>
+<h2><a class="anchor" id="autotoc_md337"></a>
 Parallel 8080 LCD (only for LVGL8)</h2>
 <p><img src="https://github.com/espressif/esp-bsp/blob/master/docu/pics/7inch-Capacitive-Touch-LCD-C_l.jpg?raw=true" alt="" align="right" width="300px" class="inline"/></p>
 <p>Default settings:</p><ul>
@@ -203,7 +203,7 @@ Parallel 8080 LCD (only for LVGL8)</h2>
 * Flash mode: DIO
 * LVGL display refresh period: 30 ms
 
-@subsubsection autotoc_md368 Internal RAM with DMA
+@subsubsection autotoc_md338 Internal RAM with DMA
 
 &lt;table class="markdownTable"&gt;
   &lt;tr class="markdownTableHead"&gt;    &lt;th class="markdownTableHeadCenter"&gt; Average FPS   </li>
@@ -228,7 +228,7 @@ Parallel 8080 LCD (only for LVGL8)</h2>
 <p>41   </p>
 <p>55   </p>
 <p>+ (<code>CONFIG_LV_DISP_DEF_REFR_PERIOD=10</code>)   </p>
-<h3><a class="anchor" id="autotoc_md369"></a>
+<h3><a class="anchor" id="autotoc_md339"></a>
 PSRAM (QUAD) without DMA</h3>
 <p>Default changes:</p><ul>
 <li>LCD IO clock: 2 MHz</li>
@@ -255,7 +255,7 @@ PSRAM (QUAD) without DMA</h3>
 <td class="markdownTableBodyCenter">31   </td><td class="markdownTableBodyCenter">23   </td><td class="markdownTableBodyNone">+ LCD clock: 10 MHz [^1]   </td></tr>
 </table>
 <p>[^1]: This is not working in default and sometimes in fast changes on screen is not working properly.</p>
-<h1><a class="anchor" id="autotoc_md370"></a>
+<h1><a class="anchor" id="autotoc_md340"></a>
 Conclusion</h1>
 <p>The graphical performance depends on a lot of things and settings, many of which affect the whole system (Compiler, Flash, CPU, PSRAM configuration...). The user should primarily focus on trade-off between frame-buffer(s) size and RAM consumption of the buffer, before optimizing the design further.</p>
 <p>Other configuration options not covered in this document are:</p><ul>

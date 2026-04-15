@@ -14,69 +14,62 @@
 \DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
 \DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__ext__data_8h}{lv\_ext\_data.h}}"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__event_8h}{lv\_event.h}}"{}}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{comment}{/*********************}}
-\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
-\DoxyCodeLine{00022\ \textcolor{comment}{\ *********************/}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
-\DoxyCodeLine{00026\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__event__dsc__t}{\_lv\_event\_dsc\_t}}\ \{}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#if\ LV\_USE\_EXT\_DATA}}
-\DoxyCodeLine{00030\ \ \ \ \ lv\_ext\_data\_t\ ext\_data;}
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00032\ \ \ \ \ lv\_event\_cb\_t\ cb;}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ user\_data;}
-\DoxyCodeLine{00034\ \ \ \ \ uint32\_t\ filter;}
-\DoxyCodeLine{00035\ \};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__event__t}{\_lv\_event\_t}}\ \{}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ current\_target;}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ original\_target;}
-\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\_event\_code\_t}}\ code;}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ user\_data;}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ param;}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ prev;}
-\DoxyCodeLine{00044\ \ \ \ \ uint8\_t\ deleted\ :\ 1;}
-\DoxyCodeLine{00045\ \ \ \ \ uint8\_t\ stop\_processing\ :\ 1;}
-\DoxyCodeLine{00046\ \ \ \ \ uint8\_t\ stop\_bubbling\ :\ 1;}
-\DoxyCodeLine{00047\ \ \ \ \ uint8\_t\ stop\_trickling\ :\ 1;}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#if\ LV\_USE\_EXT\_DATA}}
-\DoxyCodeLine{00049\ \ \ \ \ lv\_ext\_data\_t\ ext\_data;}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00051\ \};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00055\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00056\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00059\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00060\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{keywordtype}{void}\ lv\_event\_push(\mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ e);}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ lv\_event\_pop(\mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ e);}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_event\_push\_and\_send(\mbox{\hyperlink{structlv__event__list__t}{lv\_event\_list\_t}}\ *\ event\_list,\ \mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\_event\_code\_t}}\ code,\ \textcolor{keywordtype}{void}\ *\ original\_target,}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ param);}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__event_8h}{lv\_event.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__event__dsc__t}{\_lv\_event\_dsc\_t}}\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ lv\_event\_cb\_t\ cb;}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ user\_data;}
+\DoxyCodeLine{00030\ \ \ \ \ uint32\_t\ filter;}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct__lv__event__t}{\_lv\_event\_t}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ current\_target;}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ original\_target;}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\_event\_code\_t}}\ code;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ user\_data;}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ param;}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ prev;}
+\DoxyCodeLine{00040\ \ \ \ \ uint8\_t\ deleted\ :\ 1;}
+\DoxyCodeLine{00041\ \ \ \ \ uint8\_t\ stop\_processing\ :\ 1;}
+\DoxyCodeLine{00042\ \ \ \ \ uint8\_t\ stop\_bubbling\ :\ 1;}
+\DoxyCodeLine{00043\ \ \ \ \ uint8\_t\ stop\_trickling\ :\ 1;}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ lv\_event\_push(\mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ e);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ lv\_event\_pop(\mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ e);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_event\_push\_and\_send(\mbox{\hyperlink{structlv__event__list__t}{lv\_event\_list\_t}}\ *\ event\_list,\ \mbox{\hyperlink{lv__event_8h_a34581e6a5056b169f0a229f3e51c7771}{lv\_event\_code\_t}}\ code,\ \textcolor{keywordtype}{void}\ *\ original\_target,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ param);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__event__private_8h_ad194ae55123e71f27b5d2fb4df200bde}{lv\_event\_mark\_deleted}}(\textcolor{keywordtype}{void}\ *\ target);}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00075\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__event__private_8h_ad194ae55123e71f27b5d2fb4df200bde}{lv\_event\_mark\_deleted}}(\textcolor{keywordtype}{void}\ *\ target);}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00078\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00079\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00082\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_EVENT\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00070\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00075\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_EVENT\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -1,8 +1,8 @@
 \chapter{Demos for LVGL}
 \hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README}{}\label{md_managed__components_2lvgl____lvgl_2demos_2README}\index{Demos for LVGL@{Demos for LVGL}}
-\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md468}%
-\Hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md468}%
- \hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md469}{}\doxysection{\texorpdfstring{Add the examples to your projects}{Add the examples to your projects}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md469}
+\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md401}%
+\Hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md401}%
+ \hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md402}{}\doxysection{\texorpdfstring{Add the examples to your projects}{Add the examples to your projects}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md402}
 
 \begin{DoxyEnumerate}
 \item demos can be found in the \textquotesingle{}demos\textquotesingle{} folder once you clone the lvgl.
@@ -44,6 +44,11 @@
 \DoxyCodeLine{\textcolor{comment}{/*\ Smart-\/phone\ like\ multi-\/language\ demo\ */}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ LV\_USE\_DEMO\_MULTILANG\ \ \ \ \ \ \ 0}}
 \DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*\ Widget\ transformation\ demo\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ LV\_USE\_DEMO\_TRANSFORM\ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*\ Demonstrate\ scroll\ settings\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ LV\_USE\_DEMO\_SCROLL\ \ \ \ \ \ \ \ \ \ 0}}
 \DoxyCodeLine{...}
 
 \end{DoxyCode}
@@ -63,7 +68,7 @@
 \DoxyCodeLine{...}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md470}{}\doxysection{\texorpdfstring{Configure Demos Entry}{Configure Demos Entry}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md470}
+\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md403}{}\doxysection{\texorpdfstring{Configure Demos Entry}{Configure Demos Entry}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md403}
 "{}demos/lv\+\_\+demos.\+c"{} provides {\ttfamily lv\+\_\+demos\+\_\+create} and {\ttfamily lv\+\_\+demos\+\_\+show\+\_\+help} to simplify the creation of demos.
 
 If you build your main program named {\ttfamily lv\+\_\+demos}, then you can run the widgets demo by running {\ttfamily lv\+\_\+demos widgets} and the benchmark demo by running {\ttfamily lv\+\_\+demos benchmark 1}.
@@ -116,8 +121,8 @@ For example\+:
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md471}{}\doxysection{\texorpdfstring{Demos}{Demos}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md471}
-\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md472}{}\doxysubsection{\texorpdfstring{Widgets}{Widgets}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md472}
+\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md404}{}\doxysection{\texorpdfstring{Demos}{Demos}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md404}
+\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md405}{}\doxysubsection{\texorpdfstring{Widgets}{Widgets}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md405}
 Shows how the widgets look like out of the box using the built-\/in material theme.
 
 See in \href{https://github.com/lvgl/lvgl/tree/master/demos/widgets}{\texttt{ widgets}} folder.
@@ -131,17 +136,17 @@ For running this demo properly, please make sure {\bfseries{LV\+\_\+\+MEM\+\_\+\
 \DoxyCodeLine{\textcolor{preprocessor}{\#define\ LV\_MEM\_SIZE\ \ \ \ (38ul\ *\ 1024ul)}}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md473}{}\doxysubsection{\texorpdfstring{Music player}{Music player}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md473}
+\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md406}{}\doxysubsection{\texorpdfstring{Music player}{Music player}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md406}
 The music player demo shows what kind of modern, smartphone-\/like user interfaces can be created on LVGL. It works the best with display with 480x272 or 272x480 resolution.
 
 See in \href{https://github.com/lvgl/lvgl/tree/master/demos/music}{\texttt{ music}} folder.
 
-\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md474}{}\doxysubsection{\texorpdfstring{Keypad and encoder}{Keypad and encoder}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md474}
+\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md407}{}\doxysubsection{\texorpdfstring{Keypad and encoder}{Keypad and encoder}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md407}
 LVGL allows you to control the widgets with a keypad and/or encoder without a touchpad. This demo shows how to handle buttons, drop-\/down lists, rollers, sliders, switches, and text inputs without touchpad. Learn more about the touchpad-\/less usage of LVGL \href{https://docs.lvgl.io/master/overview/indev.html\#keypad-and-encoder}{\texttt{ here}}.
 
 See in \href{https://github.com/lvgl/lvgl/tree/master/demos/keypad_encoder}{\texttt{ keypad\+\_\+encoder}} folder.
 
-\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md475}{}\doxysubsection{\texorpdfstring{Benchmark}{Benchmark}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md475}
-A demo to measure the performance of LVGL or to compare different settings. See in \href{https://github.com/lvgl/lvgl/tree/master/demos/benchmark}{\texttt{ benchmark}} folder. \hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md476}{}\doxysubsection{\texorpdfstring{Stress}{Stress}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md476}
-A stress test for LVGL. It contains a lot of object creation, deletion, animations, style usage, and so on. It can be used if there is any memory corruption during heavy usage or any memory leaks. See in \href{https://github.com/lvgl/lvgl/tree/master/demos/stress}{\texttt{ stress}} folder. \hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md477}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md477}
+\hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md408}{}\doxysubsection{\texorpdfstring{Benchmark}{Benchmark}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md408}
+A demo to measure the performance of LVGL or to compare different settings. See in \href{https://github.com/lvgl/lvgl/tree/master/demos/benchmark}{\texttt{ benchmark}} folder. \hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md409}{}\doxysubsection{\texorpdfstring{Stress}{Stress}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md409}
+A stress test for LVGL. It contains a lot of object creation, deletion, animations, style usage, and so on. It can be used if there is any memory corruption during heavy usage or any memory leaks. See in \href{https://github.com/lvgl/lvgl/tree/master/demos/stress}{\texttt{ stress}} folder. \hypertarget{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md410}{}\doxysection{\texorpdfstring{Contributing}{Contributing}}\label{md_managed__components_2lvgl____lvgl_2demos_2README_autotoc_md410}
 For contribution and coding style guidelines, please refer to the file docs/\+CONTRIBUTING.\+md in the main LVGL repo\+:   \href{https://github.com/lvgl/lvgl}{\texttt{ https\+://github.\+com/lvgl/lvgl}} 

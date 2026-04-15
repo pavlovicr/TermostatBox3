@@ -14,86 +14,38 @@
 \DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
 \DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_types.h"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__sdl__window_8h}{lv\_sdl\_window.h}}"{}}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_SDL}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../opengles/lv\_opengles\_egl\_private.h"{}}}
-\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}../opengles/lv\_opengles\_texture\_private.h"{}}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ LV\_SDL\_INCLUDE\_PATH}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_SDL}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ LV\_SDL\_INCLUDE\_PATH}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{comment}{/*********************}}
-\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
-\DoxyCodeLine{00028\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00026\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ **********************/}}
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
 \DoxyCodeLine{00032\ \textcolor{comment}{\ **********************/}}
 \DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ backend\_data;}
-\DoxyCodeLine{00036\ \ \ \ \ SDL\_Window\ *\ window;}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ zoom;}
-\DoxyCodeLine{00038\ \ \ \ \ uint8\_t\ ignore\_size\_chg;}
-\DoxyCodeLine{00039\ \}\ lv\_sdl\_window\_t;}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ lv\_sdl\_backend\_set\_display\_data(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ display,\ \textcolor{keywordtype}{void}\ *\ backend\_display\_data);}
-\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ *\ lv\_sdl\_backend\_get\_display\_data(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ display);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ int32\_t\ lv\_sdl\_window\_get\_horizontal\_resolution(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ display);}
-\DoxyCodeLine{00045\ int32\_t\ lv\_sdl\_window\_get\_vertical\_resolution(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ display);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ (*lv\_sdl\_backend\_init\_display\_t)(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ (*lv\_sdl\_backend\_resize\_display\_t)(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ (*lv\_sdl\_backend\_redraw\_t)(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ SDL\_Renderer\ *\ (*lv\_sdl\_backend\_get\_renderer\_t)(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ void\ (*lv\_sdl\_backend\_deinit\_display\_t)(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00054\ \ \ \ \ lv\_sdl\_backend\_init\_display\_t\ init\_display;}
-\DoxyCodeLine{00055\ \ \ \ \ lv\_sdl\_backend\_resize\_display\_t\ resize\_display;}
-\DoxyCodeLine{00056\ \ \ \ \ lv\_sdl\_backend\_deinit\_display\_t\ deinit\_display;}
-\DoxyCodeLine{00057\ \ \ \ \ lv\_sdl\_backend\_redraw\_t\ redraw;}
-\DoxyCodeLine{00058\ \ \ \ \ lv\_sdl\_backend\_get\_renderer\_t\ get\_renderer;}
-\DoxyCodeLine{00059\ \}\ lv\_sdl\_backend\_ops\_t;}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ lv\_sdl\_backend\_ops\_t\ lv\_sdl\_backend\_ops;}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00065\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{keywordtype}{void}\ lv\_sdl\_keyboard\_handler(SDL\_Event\ *\ event);}
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ lv\_sdl\_mouse\_handler(SDL\_Event\ *\ event);}
-\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ lv\_sdl\_mousewheel\_handler(SDL\_Event\ *\ event);}
-\DoxyCodeLine{00070\ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ lv\_sdl\_get\_disp\_from\_win\_id(uint32\_t\ win\_id);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#if\ LV\_SDL\_USE\_EGL}}
-\DoxyCodeLine{00074\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_sdl\_egl\_init(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00075\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_sdl\_egl\_resize(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ lv\_sdl\_egl\_deinit(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#elif\ LV\_USE\_DRAW\_SDL}}
-\DoxyCodeLine{00078\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_sdl\_texture\_init(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00079\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_sdl\_texture\_resize(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ lv\_sdl\_texture\_deinit(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00082\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_sdl\_sw\_init(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00083\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_sdl\_sw\_resize(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ lv\_sdl\_sw\_deinit(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00088\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00089\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_SDL*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00094\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
-\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_SDL\_PRIVATE\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ lv\_sdl\_keyboard\_handler(SDL\_Event\ *\ event);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ lv\_sdl\_mouse\_handler(SDL\_Event\ *\ event);}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{void}\ lv\_sdl\_mousewheel\_handler(SDL\_Event\ *\ event);}
+\DoxyCodeLine{00037\ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ lv\_sdl\_get\_disp\_from\_win\_id(uint32\_t\ win\_id);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_SDL*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00046\ \}\ \textcolor{comment}{/*\ extern\ "{}C"{}\ */}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_SDL\_PRIVATE\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

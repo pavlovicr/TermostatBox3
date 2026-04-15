@@ -7,7 +7,6 @@
 {\ttfamily \#include "{}../draw/lv\+\_\+draw\+\_\+line.\+h"{}}\newline
 {\ttfamily \#include "{}../draw/lv\+\_\+draw\+\_\+arc.\+h"{}}\newline
 {\ttfamily \#include "{}../draw/lv\+\_\+draw\+\_\+triangle.\+h"{}}\newline
-{\ttfamily \#include "{}../draw/lv\+\_\+draw\+\_\+blur.\+h"{}}\newline
 {\ttfamily \#include "{}lv\+\_\+obj\+\_\+style.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+obj\+\_\+draw.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+obj\+\_\+draw.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
 \begin{figure}[H]
@@ -43,8 +42,6 @@ void \mbox{\hyperlink{lv__obj__draw_8h_aa38b6c174158ce6197359277f2ec015d}{lv\+\_
 void \mbox{\hyperlink{lv__obj__draw_8h_a915a9f2b45183ca7646b0c201d53a541}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+line\+\_\+dsc}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}} part, \mbox{\hyperlink{structlv__draw__line__dsc__t}{lv\+\_\+draw\+\_\+line\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
 \item 
 void \mbox{\hyperlink{lv__obj__draw_8h_ad968fd82ccab3769004e5918d81d7b71}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+arc\+\_\+dsc}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}} part, \mbox{\hyperlink{structlv__draw__arc__dsc__t}{lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
-\item 
-void \mbox{\hyperlink{lv__obj__draw_8h_a2110df0961d77ddd567bcf4144753c26}{lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+blur\+\_\+dsc}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}} part, \mbox{\hyperlink{structlv__draw__blur__dsc__t}{lv\+\_\+draw\+\_\+blur\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc)
 \item 
 int32\+\_\+t \mbox{\hyperlink{lv__obj__draw_8h_af662e18db56d0eb7158852672c294a58}{lv\+\_\+obj\+\_\+calculate\+\_\+ext\+\_\+draw\+\_\+size}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}} part)
 \item 
@@ -105,21 +102,6 @@ Initialize an arc draw descriptor from an object\textquotesingle{}s styles in it
 {\em part} & part of the object, e.\+g. {\ttfamily LV\+\_\+\+PART\+\_\+\+MAIN}, {\ttfamily LV\+\_\+\+PART\+\_\+\+SCROLLBAR}, {\ttfamily LV\+\_\+\+PART\+\_\+\+KNOB}, etc \\
 \hline
 {\em draw\+\_\+dsc} & the descriptor to initialize. Should be initialized with {\ttfamily lv\+\_\+draw\+\_\+arc\+\_\+dsc\+\_\+init(draw\+\_\+dsc)}. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{lv__obj__draw_8h_a2110df0961d77ddd567bcf4144753c26}\label{lv__obj__draw_8h_a2110df0961d77ddd567bcf4144753c26} 
-\index{lv\_obj\_draw.h@{lv\_obj\_draw.h}!lv\_obj\_init\_draw\_blur\_dsc@{lv\_obj\_init\_draw\_blur\_dsc}}
-\index{lv\_obj\_init\_draw\_blur\_dsc@{lv\_obj\_init\_draw\_blur\_dsc}!lv\_obj\_draw.h@{lv\_obj\_draw.h}}
-\doxysubsubsection{\texorpdfstring{lv\_obj\_init\_draw\_blur\_dsc()}{lv\_obj\_init\_draw\_blur\_dsc()}}
-{\footnotesize\ttfamily void lv\+\_\+obj\+\_\+init\+\_\+draw\+\_\+blur\+\_\+dsc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{lv__obj__style_8h_a257703cf7a0b9e5501dd50339a5a4e74}{lv\+\_\+part\+\_\+t}}}]{part,  }\item[{\mbox{\hyperlink{structlv__draw__blur__dsc__t}{lv\+\_\+draw\+\_\+blur\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{draw\+\_\+dsc }\end{DoxyParamCaption})}
-
-Initialize a blur draw descriptor from an object\textquotesingle{}s styles in its current state. draw\+\_\+dsc-\/\texorpdfstring{$>$}{>}radius will only be calculated if it\textquotesingle{}s 0 initially. Radius can be set before calling this function to avoid getting it twice. 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to an object \\
-\hline
-{\em part} & part of the object, e.\+g. {\ttfamily LV\+\_\+\+PART\+\_\+\+MAIN}, {\ttfamily LV\+\_\+\+PART\+\_\+\+SCROLLBAR}, {\ttfamily LV\+\_\+\+PART\+\_\+\+KNOB}, etc \\
-\hline
-{\em draw\+\_\+dsc} & the descriptor to initialize. Should be initialized with {\ttfamily lv\+\_\+draw\+\_\+blur\+\_\+dsc\+\_\+init(draw\+\_\+dsc)}. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{lv__obj__draw_8h_aa38b6c174158ce6197359277f2ec015d}\label{lv__obj__draw_8h_aa38b6c174158ce6197359277f2ec015d} 

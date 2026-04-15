@@ -113,54 +113,43 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><a class="code hl_define" href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a> <span class="keyword">extern</span> <span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__class__t.html">lv_obj_class_t</a> lv_led_class;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#if LV_USE_OBJ_PROPERTY</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">enum</span> _lv_property_led_id_t {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    LV_PROPERTY_ID(LED, COLOR,      LV_PROPERTY_TYPE_COLOR, 0),</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    LV_PROPERTY_ID(LED, BRIGHTNESS, LV_PROPERTY_TYPE_INT,   1),</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    LV_PROPERTY_LED_END,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/**********************</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> **********************/</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * <a class="code hl_function" href="lv__led_8h.html#a40719c040bfdaf2613800e7fc071f261">lv_led_create</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * parent);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#adcb73765a212a3657b94dfbb1f356a4e">lv_led_set_color</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led, <a class="code hl_struct" href="structlv__color__t.html">lv_color_t</a> color);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#aae3d2358e13d839b676e86724882b367">lv_led_set_brightness</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led, uint8_t bright);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#a29176b376b05945604a98150e91317d8">lv_led_on</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#a269e53138fac07c5923a405ea000fe00">lv_led_off</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#a4b4fc36afa23d2c740e38b00eaa132fe">lv_led_toggle</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>uint8_t <a class="code hl_function" href="lv__led_8h.html#a8256e356ea084bd46ae837e9539a9f56">lv_led_get_brightness</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><a class="code hl_struct" href="structlv__color__t.html">lv_color_t</a> <a class="code hl_function" href="lv__led_8h.html#a63276854419103ae10fc1933c5c7d44c">lv_led_get_color</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">/**********************</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> *      MACROS</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> **********************/</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#endif </span><span class="comment">/*LV_USE_LED*/</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="preprocessor">#endif </span><span class="comment">/*LV_LED_H*/</span><span class="preprocessor"></span></div>
-<div class="ttc" id="alv__conf__cmsis_8h_html_a52a21700fe5946c140157ebf74459a46"><div class="ttname"><a href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a></div><div class="ttdeci">#define LV_ATTRIBUTE_EXTERN_DATA</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:630</div></div>
-<div class="ttc" id="alv__led_8h_html_a269e53138fac07c5923a405ea000fe00"><div class="ttname"><a href="lv__led_8h.html#a269e53138fac07c5923a405ea000fe00">lv_led_off</a></div><div class="ttdeci">void lv_led_off(lv_obj_t *led)</div><div class="ttdef"><b>Definition</b> lv_led.c:111</div></div>
-<div class="ttc" id="alv__led_8h_html_a29176b376b05945604a98150e91317d8"><div class="ttname"><a href="lv__led_8h.html#a29176b376b05945604a98150e91317d8">lv_led_on</a></div><div class="ttdeci">void lv_led_on(lv_obj_t *led)</div><div class="ttdef"><b>Definition</b> lv_led.c:106</div></div>
-<div class="ttc" id="alv__led_8h_html_a40719c040bfdaf2613800e7fc071f261"><div class="ttname"><a href="lv__led_8h.html#a40719c040bfdaf2613800e7fc071f261">lv_led_create</a></div><div class="ttdeci">lv_obj_t * lv_led_create(lv_obj_t *parent)</div><div class="ttdef"><b>Definition</b> lv_led.c:72</div></div>
-<div class="ttc" id="alv__led_8h_html_a4b4fc36afa23d2c740e38b00eaa132fe"><div class="ttname"><a href="lv__led_8h.html#a4b4fc36afa23d2c740e38b00eaa132fe">lv_led_toggle</a></div><div class="ttdeci">void lv_led_toggle(lv_obj_t *led)</div><div class="ttdef"><b>Definition</b> lv_led.c:116</div></div>
-<div class="ttc" id="alv__led_8h_html_a63276854419103ae10fc1933c5c7d44c"><div class="ttname"><a href="lv__led_8h.html#a63276854419103ae10fc1933c5c7d44c">lv_led_get_color</a></div><div class="ttdeci">lv_color_t lv_led_get_color(const lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_led.c:137</div></div>
-<div class="ttc" id="alv__led_8h_html_a8256e356ea084bd46ae837e9539a9f56"><div class="ttname"><a href="lv__led_8h.html#a8256e356ea084bd46ae837e9539a9f56">lv_led_get_brightness</a></div><div class="ttdeci">uint8_t lv_led_get_brightness(const lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_led.c:129</div></div>
-<div class="ttc" id="alv__led_8h_html_aae3d2358e13d839b676e86724882b367"><div class="ttname"><a href="lv__led_8h.html#aae3d2358e13d839b676e86724882b367">lv_led_set_brightness</a></div><div class="ttdeci">void lv_led_set_brightness(lv_obj_t *led, uint8_t bright)</div><div class="ttdef"><b>Definition</b> lv_led.c:93</div></div>
-<div class="ttc" id="alv__led_8h_html_adcb73765a212a3657b94dfbb1f356a4e"><div class="ttname"><a href="lv__led_8h.html#adcb73765a212a3657b94dfbb1f356a4e">lv_led_set_color</a></div><div class="ttdeci">void lv_led_set_color(lv_obj_t *led, lv_color_t color)</div><div class="ttdef"><b>Definition</b> lv_led.c:84</div></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * <a class="code hl_function" href="lv__led_8h.html#a40719c040bfdaf2613800e7fc071f261">lv_led_create</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * parent);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#adcb73765a212a3657b94dfbb1f356a4e">lv_led_set_color</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led, <a class="code hl_struct" href="structlv__color__t.html">lv_color_t</a> color);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#aae3d2358e13d839b676e86724882b367">lv_led_set_brightness</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led, uint8_t bright);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#a29176b376b05945604a98150e91317d8">lv_led_on</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#a269e53138fac07c5923a405ea000fe00">lv_led_off</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__led_8h.html#a4b4fc36afa23d2c740e38b00eaa132fe">lv_led_toggle</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * led);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>uint8_t <a class="code hl_function" href="lv__led_8h.html#a8256e356ea084bd46ae837e9539a9f56">lv_led_get_brightness</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">/*LV_USE_LED*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">/*LV_LED_H*/</span><span class="preprocessor"></span></div>
+<div class="ttc" id="alv__conf__cmsis_8h_html_a52a21700fe5946c140157ebf74459a46"><div class="ttname"><a href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a></div><div class="ttdeci">#define LV_ATTRIBUTE_EXTERN_DATA</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:588</div></div>
+<div class="ttc" id="alv__led_8h_html_a269e53138fac07c5923a405ea000fe00"><div class="ttname"><a href="lv__led_8h.html#a269e53138fac07c5923a405ea000fe00">lv_led_off</a></div><div class="ttdeci">void lv_led_off(lv_obj_t *led)</div><div class="ttdef"><b>Definition</b> lv_led.c:95</div></div>
+<div class="ttc" id="alv__led_8h_html_a29176b376b05945604a98150e91317d8"><div class="ttname"><a href="lv__led_8h.html#a29176b376b05945604a98150e91317d8">lv_led_on</a></div><div class="ttdeci">void lv_led_on(lv_obj_t *led)</div><div class="ttdef"><b>Definition</b> lv_led.c:90</div></div>
+<div class="ttc" id="alv__led_8h_html_a40719c040bfdaf2613800e7fc071f261"><div class="ttname"><a href="lv__led_8h.html#a40719c040bfdaf2613800e7fc071f261">lv_led_create</a></div><div class="ttdeci">lv_obj_t * lv_led_create(lv_obj_t *parent)</div><div class="ttdef"><b>Definition</b> lv_led.c:56</div></div>
+<div class="ttc" id="alv__led_8h_html_a4b4fc36afa23d2c740e38b00eaa132fe"><div class="ttname"><a href="lv__led_8h.html#a4b4fc36afa23d2c740e38b00eaa132fe">lv_led_toggle</a></div><div class="ttdeci">void lv_led_toggle(lv_obj_t *led)</div><div class="ttdef"><b>Definition</b> lv_led.c:100</div></div>
+<div class="ttc" id="alv__led_8h_html_a8256e356ea084bd46ae837e9539a9f56"><div class="ttname"><a href="lv__led_8h.html#a8256e356ea084bd46ae837e9539a9f56">lv_led_get_brightness</a></div><div class="ttdeci">uint8_t lv_led_get_brightness(const lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_led.c:113</div></div>
+<div class="ttc" id="alv__led_8h_html_aae3d2358e13d839b676e86724882b367"><div class="ttname"><a href="lv__led_8h.html#aae3d2358e13d839b676e86724882b367">lv_led_set_brightness</a></div><div class="ttdeci">void lv_led_set_brightness(lv_obj_t *led, uint8_t bright)</div><div class="ttdef"><b>Definition</b> lv_led.c:77</div></div>
+<div class="ttc" id="alv__led_8h_html_adcb73765a212a3657b94dfbb1f356a4e"><div class="ttname"><a href="lv__led_8h.html#adcb73765a212a3657b94dfbb1f356a4e">lv_led_set_color</a></div><div class="ttdeci">void lv_led_set_color(lv_obj_t *led, lv_color_t color)</div><div class="ttdef"><b>Definition</b> lv_led.c:68</div></div>
 <div class="ttc" id="astruct__lv__obj__class__t_html"><div class="ttname"><a href="struct__lv__obj__class__t.html">_lv_obj_class_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_class_private.h:31</div></div>
 <div class="ttc" id="astruct__lv__obj__t_html"><div class="ttname"><a href="struct__lv__obj__t.html">_lv_obj_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_private.h:55</div></div>
 <div class="ttc" id="astructlv__color__t_html"><div class="ttname"><a href="structlv__color__t.html">lv_color_t</a></div><div class="ttdef"><b>Definition</b> lv_color.h:89</div></div>

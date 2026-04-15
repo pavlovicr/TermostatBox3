@@ -72,11 +72,11 @@ $(function() {
   <div class="headertitle"><div class="title">ESP Codec Device</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md273"></a></p><ul>
+<div class="textblock"><p><a class="anchor" id="autotoc_md250"></a></p><ul>
 <li><a href="https://components.espressif.com/components/espressif/esp_codec_dev"><img src="https://components.espressif.com/components/espressif/esp_codec_dev/badge.svg" alt="组件注册" style="pointer-events: none;" class="inline"/></a></li>
 <li><a class="el" href="md_README.html">English version</a></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md274"></a>
+<h1><a class="anchor" id="autotoc_md251"></a>
 概要</h1>
 <p><code>esp_codec_dev</code> 是为音频编解码器设备提供驱动的组件，目前支持以下功能:</p><ul>
 <li>提供常用音频编解码器设备的驱动</li>
@@ -84,8 +84,6 @@ $(function() {
 <li>提供统一的抽象化接口来操作编解码器设备</li>
 <li>支持客户定制化编解码器设备 (仅需实例化提供的接口)</li>
 <li>为播放和录音提供易用的上层 API</li>
-<li>支持通过内部 ADC 数据接口采集 ADC 麦克风 (<code>audio_codec_new_adc_data</code>)</li>
-<li>支持 PA-only 扬声器场景使用 dummy codec (<code>dummy_codec_new</code>)，并通过 <code>esp_codec_dev_open/close</code> 自动控制 PA</li>
 <li>支持软件音量调节 (硬件不支持音量调节时)</li>
 <li>支持定制化音量曲线以及音量控制实现</li>
 <li>兼容多平台仅需替换 <a href="./platform">platform</a></li>
@@ -118,7 +116,7 @@ $(function() {
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">CJC8910   </td><td class="markdownTableBodyLeft">Y   </td><td class="markdownTableBodyLeft">Y   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md275"></a>
+<h1><a class="anchor" id="autotoc_md252"></a>
 架构预览</h1>
 <p>以编解码器设备 (ES8311) 为例，下面分别介绍硬件框图和软件架构。 编解码器设备 (ES8311) 和主芯片(ESP32-S3) 之间的硬件连接简图如下: </p><div class="fragment"><div class="line">graph LR;</div>
 <div class="line">    subgraph &quot;麦克风&quot;</div>
@@ -217,7 +215,7 @@ $(function() {
 <li><code><a class="el" href="structaudio__codec__data__if__t.html" title="Audio codec data interface structure.">audio_codec_data_if_t</a></code> 数据接口： 主要提供 <code>read</code> 和 <code>write</code> API 用来交换音频数据 常用数据通道包括 I2S， SPI 等</li>
 </ul>
 <p><code>esp_codec_dev</code> 为用户提供便捷的上层 API 来实现播放和录音功能。它是由 <code><a class="el" href="structaudio__codec__data__if__t.html" title="Audio codec data interface structure.">audio_codec_data_if_t</a></code> 和 <code><a class="el" href="structaudio__codec__if__t.html" title="Structure for codec interface.">audio_codec_if_t</a></code> 组成。<code><a class="el" href="structaudio__codec__if__t.html" title="Structure for codec interface.">audio_codec_if_t</a></code> 对编解码器控制操作进行抽象，通过编解码器特有的配置参数构建（由 <code><a class="el" href="structaudio__codec__ctrl__if__t.html" title="Audio codec control interface structure.">audio_codec_ctrl_if_t</a></code> 和<code><a class="el" href="structaudio__codec__gpio__if__t.html" title="Codec GPIO interface structure.">audio_codec_gpio_if_t</a></code> 通过 <code><a class="el" href="structes8311__codec__cfg__t.html" title="ES8311 codec configuration.">es8311_codec_cfg_t</a></code> 进行配置）。<code><a class="el" href="structaudio__codec__gpio__if__t.html" title="Codec GPIO interface structure.">audio_codec_gpio_if_t</a></code> 对 IO 控制进行抽象，以适配主控 IO 或者扩展芯片 IO， 在编解码器内部进行调用用以匹配特有的设定时序。</p>
-<h1><a class="anchor" id="autotoc_md276"></a>
+<h1><a class="anchor" id="autotoc_md253"></a>
 解码器音量设定</h1>
 <p>音量统一通过 API <code>esp_codec_dev_set_out_vol</code> 进行设定。 <code>esp_codec_dev</code> 支持以下音量设定实现:</p><ol type="1">
 <li>通过调节音量寄存器实现</li>
@@ -226,7 +224,7 @@ $(function() {
 </ol>
 <p>默认的音量调节区间是 0 - 100，音量 100 对应为 0 dB，每个刻度对应 0.5 dB，音量 0 被特殊映射为 -96 dB。用户可以通过 <code>esp_codec_dev_set_vol_curve</code> 设定音量曲线来改变这一行为。音量曲线是音量映射 <code><a class="el" href="structesp__codec__dev__vol__map__t.html" title="Codec volume map to decibel.">esp_codec_dev_vol_map_t</a></code> 的数组，通过线性插值的方法来计算每一个音量对应的 dB 值 (请预先将音量映射排好序)。</p>
 <p>为了平衡在不同平台上播放相同内容的响度差异，需要了解音频增益的相关机制。简单说来音频增益包括软件增益 （可调节）和硬件增益 (不可调节) 两部分。软件增益可以通过改变音频数据的幅值或者改变音量寄存器实现。硬件增益受外围电路的影响，主要取决于模拟信号的放大系数。实现中选取了典型的影响参数 <code><a class="el" href="structesp__codec__dev__hw__gain__t.html" title="Codec hardware gain setting Notes: Hardware gain generally consists of 2 parts.">esp_codec_dev_hw_gain_t</a></code>，作为配置参数进行配置，以抵消平台间响度差异，详情可参考代码注释 <a href="include/esp_codec_dev_vol.h">esp_codec_dev_vol.h</a>。</p>
-<h1><a class="anchor" id="autotoc_md277"></a>
+<h1><a class="anchor" id="autotoc_md254"></a>
 使用方法</h1>
 <p>以 ES8311 为例，下面将演示播放和录音的具体步骤</p><ol type="1">
 <li>为编解码器设备的控制和数据总线安装驱动，可参考<a href="test_apps/codec_dev_test/main/test_board.c">test_board.c</a> <div class="fragment"><div class="line">ut_i2c_init(0);</div>
@@ -247,10 +245,10 @@ $(function() {
 <div class="ttc" id="astructaudio__codec__ctrl__if__t_html"><div class="ttname"><a href="structaudio__codec__ctrl__if__t.html">audio_codec_ctrl_if_t</a></div><div class="ttdoc">Audio codec control interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_ctrl_if.h:20</div></div>
 <div class="ttc" id="astructaudio__codec__data__if__t_html"><div class="ttname"><a href="structaudio__codec__data__if__t.html">audio_codec_data_if_t</a></div><div class="ttdoc">Audio codec data interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_data_if.h:20</div></div>
 <div class="ttc" id="astructaudio__codec__gpio__if__t_html"><div class="ttname"><a href="structaudio__codec__gpio__if__t.html">audio_codec_gpio_if_t</a></div><div class="ttdoc">Codec GPIO interface structure.</div><div class="ttdef"><b>Definition</b> audio_codec_gpio_if.h:36</div></div>
-<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html">audio_codec_i2c_cfg_t</a></div><div class="ttdoc">Codec I2C configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:64</div></div>
-<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html_a9d87b479bdb9d284a4917bf025ba0293"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html#a9d87b479bdb9d284a4917bf025ba0293">audio_codec_i2c_cfg_t::addr</a></div><div class="ttdeci">uint8_t addr</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:66</div></div>
-<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html">audio_codec_i2s_cfg_t</a></div><div class="ttdoc">Codec I2S configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:73</div></div>
-<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html_ad3c05b2d576039a5430ba5e85f6ff5e8"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html#ad3c05b2d576039a5430ba5e85f6ff5e8">audio_codec_i2s_cfg_t::rx_handle</a></div><div class="ttdeci">void * rx_handle</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:75</div></div>
+<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html">audio_codec_i2c_cfg_t</a></div><div class="ttdoc">Codec I2C configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:57</div></div>
+<div class="ttc" id="astructaudio__codec__i2c__cfg__t_html_a9d87b479bdb9d284a4917bf025ba0293"><div class="ttname"><a href="structaudio__codec__i2c__cfg__t.html#a9d87b479bdb9d284a4917bf025ba0293">audio_codec_i2c_cfg_t::addr</a></div><div class="ttdeci">uint8_t addr</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:59</div></div>
+<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html">audio_codec_i2s_cfg_t</a></div><div class="ttdoc">Codec I2S configuration.</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:66</div></div>
+<div class="ttc" id="astructaudio__codec__i2s__cfg__t_html_ad3c05b2d576039a5430ba5e85f6ff5e8"><div class="ttname"><a href="structaudio__codec__i2s__cfg__t.html#ad3c05b2d576039a5430ba5e85f6ff5e8">audio_codec_i2s_cfg_t::rx_handle</a></div><div class="ttdeci">void * rx_handle</div><div class="ttdef"><b>Definition</b> esp_codec_dev_defaults.h:68</div></div>
 </div><!-- fragment --></li>
 <li>基于控制接口和 ES8311 特有的配置实现 <code><a class="el" href="structaudio__codec__if__t.html" title="Structure for codec interface.">audio_codec_if_t</a></code> 接口 <div class="fragment"><div class="line"><a class="code hl_struct" href="structes8311__codec__cfg__t.html">es8311_codec_cfg_t</a> es8311_cfg = {</div>
 <div class="line">    .<a class="code hl_variable" href="structes8311__codec__cfg__t.html#a1eee056f7211c85f7e54f40e05af8540">codec_mode</a> = ESP_CODEC_DEV_WORK_MODE_BOTH,</div>
@@ -290,15 +288,7 @@ $(function() {
 <div class="ttc" id="astructesp__codec__dev__sample__info__t_html"><div class="ttname"><a href="structesp__codec__dev__sample__info__t.html">esp_codec_dev_sample_info_t</a></div><div class="ttdoc">Codec audio sample information Notes: channel_mask is used to filter wanted channels in driver side w...</div><div class="ttdef"><b>Definition</b> esp_codec_dev_types.h:52</div></div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md278"></a>
-使用 ADC mic 和 dummy codec（无外部 codec 芯片）</h2>
-<p>对于使用内部 ADC 麦克风，且扬声器仅有 PA、没有外部 codec 芯片的板级设计：</p>
-<ul>
-<li>使用 <code>audio_codec_new_adc_data</code> 作为 ADC 录音数据接口。</li>
-<li>使用 <code>dummy_codec_new</code> 并配置 <code>pa_pin</code>，将 PA 电源控制绑定到 codec 生命周期。</li>
-<li>这样依然可以通过 <code>esp_codec_dev_open()</code> / <code>esp_codec_dev_close()</code> 自动开关 PA。</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md279"></a>
+<h1><a class="anchor" id="autotoc_md255"></a>
 客制化编解码器设备</h1>
 <ol type="1">
 <li>实现接口 <code><a class="el" href="structaudio__codec__ctrl__if__t.html" title="Audio codec control interface structure.">audio_codec_ctrl_if_t</a></code> 和 <code><a class="el" href="structaudio__codec__data__if__t.html" title="Audio codec data interface structure.">audio_codec_data_if_t</a></code> 如果使用 I2C 总线作控制，I2S 总线做数据传输，可以使用默认的接口实现： <code>audio_codec_new_i2c_ctrl</code> 和 <code>audio_codec_new_i2s_data</code></li>

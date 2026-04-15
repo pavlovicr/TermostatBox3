@@ -1,5 +1,5 @@
 \doxysection{Animated\+GIF.\+h}
-\hypertarget{AnimatedGIF_8h_source}{}\label{AnimatedGIF_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/gif/AnimatedGIF.h@{managed\_components/lvgl\_\_lvgl/src/libs/gif/AnimatedGIF.h}}
+\hypertarget{AnimatedGIF_8h_source}{}\label{AnimatedGIF_8h_source}\index{managed\_components/lvgl\_\_lvgl/src/libs/gif/AnimatedGIF/src/AnimatedGIF.h@{managed\_components/lvgl\_\_lvgl/src/libs/gif/AnimatedGIF/src/AnimatedGIF.h}}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ 2020\ BitBank\ Software,\ Inc.\ All\ Rights\ Reserved.}}
@@ -17,11 +17,11 @@
 \DoxyCodeLine{00013\ \textcolor{preprocessor}{\#ifndef\ \_\_ANIMATEDGIF\_\_}}
 \DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ \_\_ANIMATEDGIF\_\_}}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
-\DoxyCodeLine{00017\ }
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_GIF}}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_fs.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}../../../../misc/lv\_fs.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../../../lv\_conf\_internal.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ LV\_STDINT\_INCLUDE}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ LV\_LIMITS\_INCLUDE}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}../../../../stdlib/lv\_string.h"{}}}
 \DoxyCodeLine{00021\ }
 \DoxyCodeLine{00022\ \textcolor{comment}{//}}
 \DoxyCodeLine{00023\ \textcolor{comment}{//\ GIF\ Animator}}
@@ -120,23 +120,23 @@
 \DoxyCodeLine{00116\ \ \ \ GIF\_ERROR\_MEMORY}
 \DoxyCodeLine{00117\ \};}
 \DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }gif\_file\_tag}
+\DoxyCodeLine{00119\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgif__file__tag}{gif\_file\_tag}}}
 \DoxyCodeLine{00120\ \{}
 \DoxyCodeLine{00121\ \ \ int32\_t\ iPos;\ \textcolor{comment}{//\ current\ file\ position}}
 \DoxyCodeLine{00122\ \ \ int32\_t\ iSize;\ \textcolor{comment}{//\ file\ size}}
 \DoxyCodeLine{00123\ \ \ uint8\_t\ *pData;\ \textcolor{comment}{//\ memory\ file\ pointer}}
 \DoxyCodeLine{00124\ \ \ \mbox{\hyperlink{structlv__fs__file__t}{lv\_fs\_file\_t}}\ fHandle;\ \textcolor{comment}{//\ class\ pointer\ to\ File/SdFat\ or\ whatever\ you\ want}}
-\DoxyCodeLine{00125\ \}\ GIFFILE;}
+\DoxyCodeLine{00125\ \}\ \mbox{\hyperlink{structgif__file__tag}{GIFFILE}};}
 \DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }gif\_info\_tag}
+\DoxyCodeLine{00127\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgif__info__tag}{gif\_info\_tag}}}
 \DoxyCodeLine{00128\ \{}
 \DoxyCodeLine{00129\ \ \ int32\_t\ iFrameCount;\ \textcolor{comment}{//\ total\ frames\ in\ file}}
 \DoxyCodeLine{00130\ \ \ int32\_t\ iDuration;\ \textcolor{comment}{//\ duration\ of\ animation\ in\ milliseconds}}
 \DoxyCodeLine{00131\ \ \ int32\_t\ iMaxDelay;\ \textcolor{comment}{//\ maximum\ frame\ delay}}
 \DoxyCodeLine{00132\ \ \ int32\_t\ iMinDelay;\ \textcolor{comment}{//\ minimum\ frame\ delay}}
-\DoxyCodeLine{00133\ \}\ GIFINFO;}
+\DoxyCodeLine{00133\ \}\ \mbox{\hyperlink{structgif__info__tag}{GIFINFO}};}
 \DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }gif\_draw\_tag}
+\DoxyCodeLine{00135\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgif__draw__tag}{gif\_draw\_tag}}}
 \DoxyCodeLine{00136\ \{}
 \DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{int}\ iX,\ iY;\ \textcolor{comment}{//\ Corner\ offset\ of\ this\ frame\ on\ the\ canvas}}
 \DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{int}\ y;\ \textcolor{comment}{//\ current\ line\ being\ drawn\ (0\ =\ top\ line\ of\ image)}}
@@ -152,12 +152,12 @@
 \DoxyCodeLine{00148\ \ \ \ \ uint8\_t\ ucBackground;\ \textcolor{comment}{//\ background\ color}}
 \DoxyCodeLine{00149\ \ \ \ \ uint8\_t\ ucPaletteType;\ \textcolor{comment}{//\ type\ of\ palette\ entries}}
 \DoxyCodeLine{00150\ \ \ \ \ uint8\_t\ ucIsGlobalPalette;\ \textcolor{comment}{//\ Flag\ to\ indicate\ that\ a\ global\ palette,\ rather\ than\ a\ local\ palette\ is\ being\ used}}
-\DoxyCodeLine{00151\ \}\ GIFDRAW;}
+\DoxyCodeLine{00151\ \}\ \mbox{\hyperlink{structgif__draw__tag}{GIFDRAW}};}
 \DoxyCodeLine{00152\ }
 \DoxyCodeLine{00153\ \textcolor{comment}{//\ Callback\ function\ prototypes}}
-\DoxyCodeLine{00154\ \textcolor{keyword}{typedef}\ int32\_t\ (GIF\_READ\_CALLBACK)(GIFFILE\ *pFile,\ uint8\_t\ *pBuf,\ int32\_t\ iLen);}
-\DoxyCodeLine{00155\ \textcolor{keyword}{typedef}\ int32\_t\ (GIF\_SEEK\_CALLBACK)(GIFFILE\ *pFile,\ int32\_t\ iPosition);}
-\DoxyCodeLine{00156\ \textcolor{keyword}{typedef}\ void\ (GIF\_DRAW\_CALLBACK)(GIFDRAW\ *pDraw);}
+\DoxyCodeLine{00154\ \textcolor{keyword}{typedef}\ int32\_t\ (GIF\_READ\_CALLBACK)(\mbox{\hyperlink{structgif__file__tag}{GIFFILE}}\ *pFile,\ uint8\_t\ *pBuf,\ int32\_t\ iLen);}
+\DoxyCodeLine{00155\ \textcolor{keyword}{typedef}\ int32\_t\ (GIF\_SEEK\_CALLBACK)(\mbox{\hyperlink{structgif__file__tag}{GIFFILE}}\ *pFile,\ int32\_t\ iPosition);}
+\DoxyCodeLine{00156\ \textcolor{keyword}{typedef}\ void\ (GIF\_DRAW\_CALLBACK)(\mbox{\hyperlink{structgif__draw__tag}{GIFDRAW}}\ *pDraw);}
 \DoxyCodeLine{00157\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *\ (GIF\_OPEN\_CALLBACK)(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *szFilename,\ int32\_t\ *pFileSize);}
 \DoxyCodeLine{00158\ \textcolor{keyword}{typedef}\ void\ (GIF\_CLOSE\_CALLBACK)(\mbox{\hyperlink{structlv__fs__file__t}{lv\_fs\_file\_t}}\ *pHandle);}
 \DoxyCodeLine{00159\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *\ (GIF\_ALLOC\_CALLBACK)(uint32\_t\ iSize);}
@@ -165,7 +165,7 @@
 \DoxyCodeLine{00161\ \textcolor{comment}{//}}
 \DoxyCodeLine{00162\ \textcolor{comment}{//\ our\ private\ structure\ to\ hold\ a\ GIF\ image\ decode\ state}}
 \DoxyCodeLine{00163\ \textcolor{comment}{//}}
-\DoxyCodeLine{00164\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }gif\_image\_tag}
+\DoxyCodeLine{00164\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structgif__image__tag}{gif\_image\_tag}}}
 \DoxyCodeLine{00165\ \{}
 \DoxyCodeLine{00166\ \ \ \ \ uint16\_t\ iWidth,\ iHeight,\ iCanvasWidth,\ iCanvasHeight;}
 \DoxyCodeLine{00167\ \ \ \ \ uint16\_t\ iX,\ iY;\ \textcolor{comment}{//\ GIF\ corner\ offset}}
@@ -187,7 +187,7 @@
 \DoxyCodeLine{00183\ \ \ \ \ GIF\_DRAW\_CALLBACK\ *pfnDraw;}
 \DoxyCodeLine{00184\ \ \ \ \ GIF\_OPEN\_CALLBACK\ *pfnOpen;}
 \DoxyCodeLine{00185\ \ \ \ \ GIF\_CLOSE\_CALLBACK\ *pfnClose;}
-\DoxyCodeLine{00186\ \ \ \ \ GIFFILE\ GIFFile;}
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{structgif__file__tag}{GIFFILE}}\ GIFFile;}
 \DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ *pUser;}
 \DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *pFrameBuffer;}
 \DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *pTurboBuffer;}
@@ -200,21 +200,21 @@
 \DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ usGIFTable[1<<MAX\_CODE\_SIZE];}
 \DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ucGIFPixels[(PIXEL\_LAST*2)];}
 \DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ucLineBuf[MAX\_WIDTH];\ \textcolor{comment}{//\ current\ line}}
-\DoxyCodeLine{00199\ \}\ GIFIMAGE;}
+\DoxyCodeLine{00199\ \}\ \mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}};}
 \DoxyCodeLine{00200\ }
 \DoxyCodeLine{00201\ \textcolor{comment}{//\ C\ interface}}
-\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_openRAM(GIFIMAGE\ *pGIF,\ uint8\_t\ *pData,\ \textcolor{keywordtype}{int}\ iDataSize,\ GIF\_DRAW\_CALLBACK\ *pfnDraw);}
-\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_openFile(GIFIMAGE\ *pGIF,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *szFilename,\ GIF\_DRAW\_CALLBACK\ *pfnDraw);}
-\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ GIF\_close(GIFIMAGE\ *pGIF);}
-\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{void}\ GIF\_begin(GIFIMAGE\ *pGIF,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ucPaletteType);}
-\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ GIF\_reset(GIFIMAGE\ *pGIF);}
-\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_playFrame(GIFIMAGE\ *pGIF,\ \textcolor{keywordtype}{int}\ *delayMilliseconds,\ \textcolor{keywordtype}{void}\ *pUser);}
-\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getCanvasWidth(GIFIMAGE\ *pGIF);}
-\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getCanvasHeight(GIFIMAGE\ *pGIF);}
-\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getComment(GIFIMAGE\ *pGIF,\ \textcolor{keywordtype}{char}\ *destBuffer);}
-\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getInfo(GIFIMAGE\ *pGIF,\ GIFINFO\ *pInfo);}
-\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getLastError(GIFIMAGE\ *pGIF);}
-\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getLoopCount(GIFIMAGE\ *pGIF);}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_openRAM(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF,\ uint8\_t\ *pData,\ \textcolor{keywordtype}{int}\ iDataSize,\ GIF\_DRAW\_CALLBACK\ *pfnDraw);}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_openFile(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *szFilename,\ GIF\_DRAW\_CALLBACK\ *pfnDraw);}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{void}\ GIF\_close(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF);}
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordtype}{void}\ GIF\_begin(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ ucPaletteType);}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ GIF\_reset(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF);}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_playFrame(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF,\ \textcolor{keywordtype}{int}\ *delayMilliseconds,\ \textcolor{keywordtype}{void}\ *pUser);}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getCanvasWidth(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF);}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getCanvasHeight(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF);}
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getComment(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF,\ \textcolor{keywordtype}{char}\ *destBuffer);}
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getInfo(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF,\ \mbox{\hyperlink{structgif__info__tag}{GIFINFO}}\ *pInfo);}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getLastError(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF);}
+\DoxyCodeLine{00213\ \ \ \ \ \textcolor{keywordtype}{int}\ GIF\_getLoopCount(\mbox{\hyperlink{structgif__image__tag}{GIFIMAGE}}\ *pGIF);}
 \DoxyCodeLine{00214\ }
 \DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ REGISTER\_WIDTH\ 32}}
 \DoxyCodeLine{00216\ \textcolor{preprocessor}{\#ifdef\ ALLOWS\_UNALIGNED}}
@@ -228,8 +228,6 @@
 \DoxyCodeLine{00224\ \textcolor{preprocessor}{\#define\ BIGINT\ int32\_t}}
 \DoxyCodeLine{00225\ \textcolor{preprocessor}{\#define\ BIGUINT\ uint32\_t}}
 \DoxyCodeLine{00226\ }
-\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ LV\_USE\_GIF}}
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_ANIMATEDGIF\_\_}}
+\DoxyCodeLine{00227\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_ANIMATEDGIF\_\_}}
 
 \end{DoxyCode}

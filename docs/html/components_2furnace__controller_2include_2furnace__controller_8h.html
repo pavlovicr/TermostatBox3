@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: Datoteka components/furnace_controller/include/furnace_controller.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_409f97388efe006bc3438b95e9edef48.html">components</a></li><li class="navelem"><a class="el" href="dir_b100d740272f4fb1d6d0528fbdb0c833.html">furnace_controller</a></li><li class="navelem"><a class="el" href="dir_9a2420d26fbb3a4b66bf1da797bd7a28.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#typedef-members">Uporabniško definirani tipi</a> &#124;
+<a href="#enum-members">Naštevni tipi</a> &#124;
+<a href="#func-members">Funkcije</a>  </div>
+  <div class="headertitle"><div class="title">Datoteka furnace_controller.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Furnace (heating) controller z Shelly 2PM.  
+<a href="#details">...</a></p>
+<div class="textblock"><code>#include &quot;esp_err.h&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graf prikazuje seznam datotek, ki jih datoteka "furnace_controller.h" direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko furnace_controller.h. Puščice A-&gt;B ponazarjajo usmerjeno relacijo "A vključuje B".</div>
+<div class="dyncontent">
+<div class="center"><img src="components_2furnace__controller_2include_2furnace__controller_8h__incl.png" border="0" usemap="#acomponents_2furnace__controller_2include_2furnace__controller_8h" alt=""/></div>
+<map name="acomponents_2furnace__controller_2include_2furnace__controller_8h" id="acomponents_2furnace__controller_2include_2furnace__controller_8h">
+<area shape="rect" title="Furnace (heating) controller z Shelly 2PM." alt="" coords="22,5,177,60"/>
+<area shape="rect" title=" " alt="" coords="5,108,87,133"/>
+<area shape="poly" title=" " alt="" coords="85,61,63,98,58,95,81,59"/>
+<area shape="rect" title=" " alt="" coords="111,108,194,133"/>
+<area shape="poly" title=" " alt="" coords="118,59,140,95,136,98,113,61"/>
+</map>
+</div>
+</div>
+<p><a href="components_2furnace__controller_2include_2furnace__controller_8h_source.html">izvorna koda</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Uporabniško definirani tipi</h2></td></tr>
+<tr class="memitem:af2aa35fd3578a479bd33a67c5b543838" id="r_af2aa35fd3578a479bd33a67c5b543838"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#af2aa35fd3578a479bd33a67c5b543838">furnace_state_callback_t</a>) (<a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a0990724f9566c809e77003ce7ee6c876">furnace_state_t</a> state, float power_w)</td></tr>
+<tr class="memdesc:af2aa35fd3578a479bd33a67c5b543838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Furnace controller callback.  <br /></td></tr>
+<tr class="separator:af2aa35fd3578a479bd33a67c5b543838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Naštevni tipi</h2></td></tr>
+<tr class="memitem:a0990724f9566c809e77003ce7ee6c876" id="r_a0990724f9566c809e77003ce7ee6c876"><td class="memItemLeft" align="right" valign="top"><a id="a0990724f9566c809e77003ce7ee6c876" name="a0990724f9566c809e77003ce7ee6c876"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a0990724f9566c809e77003ce7ee6c876">furnace_state_t</a> { <b>FURNACE_OFF</b>
+, <b>FURNACE_HEATING</b>
+, <b>FURNACE_IDLE</b>
+, <b>FURNACE_ERROR</b>
+ }</td></tr>
+<tr class="memdesc:a0990724f9566c809e77003ce7ee6c876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Furnace status. <br /></td></tr>
+<tr class="separator:a0990724f9566c809e77003ce7ee6c876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funkcije</h2></td></tr>
+<tr class="memitem:a23299c399684c4a4c70991e4aa00f507" id="r_a23299c399684c4a4c70991e4aa00f507"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a23299c399684c4a4c70991e4aa00f507">furnace_controller_init</a> (const char *shelly_ip, uint8_t relay_channel)</td></tr>
+<tr class="memdesc:a23299c399684c4a4c70991e4aa00f507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializira furnace controller.  <br /></td></tr>
+<tr class="separator:a23299c399684c4a4c70991e4aa00f507"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaacb4faf151d9a24c897f3f81f18bfa8" id="r_aaacb4faf151d9a24c897f3f81f18bfa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#aaacb4faf151d9a24c897f3f81f18bfa8">furnace_controller_set_target</a> (float target_temp)</td></tr>
+<tr class="memdesc:aaacb4faf151d9a24c897f3f81f18bfa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nastavi target temperaturo.  <br /></td></tr>
+<tr class="separator:aaacb4faf151d9a24c897f3f81f18bfa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a535715c0c030f37b087a05aea7b6f4f5" id="r_a535715c0c030f37b087a05aea7b6f4f5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a535715c0c030f37b087a05aea7b6f4f5">furnace_controller_get_target</a> (void)</td></tr>
+<tr class="memdesc:a535715c0c030f37b087a05aea7b6f4f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dobi target temperaturo.  <br /></td></tr>
+<tr class="separator:a535715c0c030f37b087a05aea7b6f4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa218cbc4f58361cf4be9a96c9e7ad03e" id="r_aa218cbc4f58361cf4be9a96c9e7ad03e"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#aa218cbc4f58361cf4be9a96c9e7ad03e">furnace_controller_update_temperature</a> (float current_temp)</td></tr>
+<tr class="memdesc:aa218cbc4f58361cf4be9a96c9e7ad03e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Posodobi trenutno temperaturo (kliče sensor task)  <br /></td></tr>
+<tr class="separator:aa218cbc4f58361cf4be9a96c9e7ad03e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55142ad47038f4852b9a676497d599c2" id="r_a55142ad47038f4852b9a676497d599c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a0990724f9566c809e77003ce7ee6c876">furnace_state_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a55142ad47038f4852b9a676497d599c2">furnace_controller_get_state</a> (void)</td></tr>
+<tr class="memdesc:a55142ad47038f4852b9a676497d599c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dobi trenutni state peči.  <br /></td></tr>
+<tr class="separator:a55142ad47038f4852b9a676497d599c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25feea704d292f7a7445f45db052863d" id="r_a25feea704d292f7a7445f45db052863d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a25feea704d292f7a7445f45db052863d">furnace_controller_register_callback</a> (<a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#af2aa35fd3578a479bd33a67c5b543838">furnace_state_callback_t</a> callback)</td></tr>
+<tr class="memdesc:a25feea704d292f7a7445f45db052863d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registriraj callback za state spremembe.  <br /></td></tr>
+<tr class="separator:a25feea704d292f7a7445f45db052863d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27091a04c9cb8eac1eebf9856382784" id="r_ae27091a04c9cb8eac1eebf9856382784"><td class="memItemLeft" align="right" valign="top">esp_err_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#ae27091a04c9cb8eac1eebf9856382784">furnace_controller_manual_override</a> (bool on)</td></tr>
+<tr class="memdesc:ae27091a04c9cb8eac1eebf9856382784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ročno vklopi/izklopi peč (override)  <br /></td></tr>
+<tr class="separator:ae27091a04c9cb8eac1eebf9856382784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Podroben opis</h2>
+<div class="textblock"><p>Furnace (heating) controller z Shelly 2PM. </p>
+</div><h2 class="groupheader">Opis uporabniško definiranega tipa</h2>
+<a id="af2aa35fd3578a479bd33a67c5b543838" name="af2aa35fd3578a479bd33a67c5b543838"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2aa35fd3578a479bd33a67c5b543838">&#9670;&#160;</a></span>furnace_state_callback_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef void(* furnace_state_callback_t) (<a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a0990724f9566c809e77003ce7ee6c876">furnace_state_t</a> state, float power_w)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Furnace controller callback. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Nov state peči </td></tr>
+    <tr><td class="paramname">power_w</td><td>Trenutna poraba (W) - 0 če ni podatka </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Opis funkcije</h2>
+<a id="a55142ad47038f4852b9a676497d599c2" name="a55142ad47038f4852b9a676497d599c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55142ad47038f4852b9a676497d599c2">&#9670;&#160;</a></span>furnace_controller_get_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#a0990724f9566c809e77003ce7ee6c876">furnace_state_t</a> furnace_controller_get_state </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dobi trenutni state peči. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>Furnace state </dd></dl>
+
+</div>
+</div>
+<a id="a535715c0c030f37b087a05aea7b6f4f5" name="a535715c0c030f37b087a05aea7b6f4f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a535715c0c030f37b087a05aea7b6f4f5">&#9670;&#160;</a></span>furnace_controller_get_target()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float furnace_controller_get_target </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dobi target temperaturo. </p>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>Target temperatura v °C </dd></dl>
+
+</div>
+</div>
+<a id="a23299c399684c4a4c70991e4aa00f507" name="a23299c399684c4a4c70991e4aa00f507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23299c399684c4a4c70991e4aa00f507">&#9670;&#160;</a></span>furnace_controller_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t furnace_controller_init </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>shelly_ip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>relay_channel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializira furnace controller. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shelly_ip</td><td>Shelly IP naslov </td></tr>
+    <tr><td class="paramname">relay_channel</td><td>Shelly relay channel (0 ali 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK če uspešno </dd></dl>
+
+</div>
+</div>
+<a id="ae27091a04c9cb8eac1eebf9856382784" name="ae27091a04c9cb8eac1eebf9856382784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27091a04c9cb8eac1eebf9856382784">&#9670;&#160;</a></span>furnace_controller_manual_override()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t furnace_controller_manual_override </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>on</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ročno vklopi/izklopi peč (override) </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">on</td><td>True za vklop </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK če uspešno </dd></dl>
+
+</div>
+</div>
+<a id="a25feea704d292f7a7445f45db052863d" name="a25feea704d292f7a7445f45db052863d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25feea704d292f7a7445f45db052863d">&#9670;&#160;</a></span>furnace_controller_register_callback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void furnace_controller_register_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="components_2furnace__controller_2include_2furnace__controller_8h.html#af2aa35fd3578a479bd33a67c5b543838">furnace_state_callback_t</a>&#160;</td>
+          <td class="paramname"><em>callback</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registriraj callback za state spremembe. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Callback funkcija </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaacb4faf151d9a24c897f3f81f18bfa8" name="aaacb4faf151d9a24c897f3f81f18bfa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaacb4faf151d9a24c897f3f81f18bfa8">&#9670;&#160;</a></span>furnace_controller_set_target()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void furnace_controller_set_target </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>target_temp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nastavi target temperaturo. </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target_temp</td><td>Target temperatura v °C </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa218cbc4f58361cf4be9a96c9e7ad03e" name="aa218cbc4f58361cf4be9a96c9e7ad03e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa218cbc4f58361cf4be9a96c9e7ad03e">&#9670;&#160;</a></span>furnace_controller_update_temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">esp_err_t furnace_controller_update_temperature </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>current_temp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Posodobi trenutno temperaturo (kliče sensor task) </p>
+<dl class="params"><dt>Parametri</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current_temp</td><td>Trenutna temperatura v °C </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Rezultat(i)</dt><dd>ESP_OK če uspešno </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

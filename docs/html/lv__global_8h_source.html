@@ -107,11 +107,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;../misc/lv_style.h&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;../misc/lv_timer.h&quot;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;../osal/lv_os_private.h&quot;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;../debugging/sysmon/lv_sysmon.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;../others/sysmon/lv_sysmon.h&quot;</span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;../stdlib/builtin/lv_tlsf.h&quot;</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if LV_USE_FONT_COMPRESSED</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;../font/fmt_txt/lv_font_fmt_txt_private.h&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;../font/lv_font_fmt_txt_private.h&quot;</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;../tick/lv_tick.h&quot;</span></div>
@@ -127,8 +127,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#include &quot;../draw/sw/lv_draw_sw_private.h&quot;</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &quot;../draw/sw/lv_draw_sw_mask_private.h&quot;</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &quot;../stdlib/builtin/lv_tlsf_private.h&quot;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &quot;../debugging/sysmon/lv_sysmon_private.h&quot;</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &quot;../debugging/test/lv_test_private.h&quot;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#include &quot;../others/sysmon/lv_sysmon_private.h&quot;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &quot;../others/test/lv_test_private.h&quot;</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &quot;../layouts/lv_layout_private.h&quot;</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/*********************</span></div>
@@ -345,51 +345,57 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    lv_evdev_discovery_t * evdev_discovery;</div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">#if LV_USE_DRAW_EVE</span></div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    lv_draw_eve_unit_t * draw_eve_unit;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>} <a class="code hl_struct" href="struct__lv__global__t.html">lv_global_t</a>;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="preprocessor">#if LV_USE_XML</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keyword">const</span> <span class="keywordtype">char</span> * xml_path_prefix;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    uint32_t lv_event_xml_store_timeline;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <a class="code hl_struct" href="structlv__ll__t.html">lv_ll_t</a> xml_loads;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">#if LV_USE_DRAW_EVE</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    lv_draw_eve_unit_t * draw_eve_unit;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>} <a class="code hl_struct" href="struct__lv__global__t.html">lv_global_t</a>;</div>
 </div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment">/**********************</span></div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment"> *      MACROS</span></div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment"> **********************/</span></div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="preprocessor">#if LV_ENABLE_GLOBAL_CUSTOM</span></div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="preprocessor">#include LV_GLOBAL_CUSTOM_INCLUDE</span></div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="preprocessor">#ifndef LV_GLOBAL_CUSTOM</span></div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">#define LV_GLOBAL_CUSTOM() lv_global_default()</span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="preprocessor">#define LV_GLOBAL_DEFAULT() LV_GLOBAL_CUSTOM()</span></div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span><a class="code hl_define" href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a> <span class="keyword">extern</span> <a class="code hl_struct" href="struct__lv__global__t.html">lv_global_t</a> lv_global;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="preprocessor">#define LV_GLOBAL_DEFAULT() (&amp;lv_global)</span></div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="comment">/**********************</span></div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="comment"> **********************/</span></div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="preprocessor">#if LV_ENABLE_GLOBAL_CUSTOM</span></div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><a class="code hl_struct" href="struct__lv__global__t.html">lv_global_t</a> * lv_global_default(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="preprocessor">#endif </span><span class="comment">/*LV_GLOBAL_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="preprocessor">#if LV_ENABLE_GLOBAL_CUSTOM</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="preprocessor">#include LV_GLOBAL_CUSTOM_INCLUDE</span></div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span><span class="preprocessor">#ifndef LV_GLOBAL_CUSTOM</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span><span class="preprocessor">#define LV_GLOBAL_CUSTOM() lv_global_default()</span></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="preprocessor">#define LV_GLOBAL_DEFAULT() LV_GLOBAL_CUSTOM()</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><a class="code hl_define" href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a> <span class="keyword">extern</span> <a class="code hl_struct" href="struct__lv__global__t.html">lv_global_t</a> lv_global;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="preprocessor">#define LV_GLOBAL_DEFAULT() (&amp;lv_global)</span></div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment"> * GLOBAL PROTOTYPES</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="preprocessor">#if LV_ENABLE_GLOBAL_CUSTOM</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><a class="code hl_struct" href="struct__lv__global__t.html">lv_global_t</a> * lv_global_default(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="preprocessor">#endif </span><span class="comment">/*LV_GLOBAL_H*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="aesp__lvgl__port__compatibility_8h_html_a42bbe6593a4e291e9a7271748f34427a"><div class="ttname"><a href="esp__lvgl__port__compatibility_8h.html#a42bbe6593a4e291e9a7271748f34427a">lv_display_t</a></div><div class="ttdeci">lv_disp_t lv_display_t</div><div class="ttdoc">Backward compatibility with LVGL 8.</div><div class="ttdef"><b>Definition</b> esp_lvgl_port_compatibility.h:21</div></div>
-<div class="ttc" id="alv__conf__cmsis_8h_html_a52a21700fe5946c140157ebf74459a46"><div class="ttname"><a href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a></div><div class="ttdeci">#define LV_ATTRIBUTE_EXTERN_DATA</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:630</div></div>
+<div class="ttc" id="alv__conf__cmsis_8h_html_a52a21700fe5946c140157ebf74459a46"><div class="ttname"><a href="lv__conf__cmsis_8h.html#a52a21700fe5946c140157ebf74459a46">LV_ATTRIBUTE_EXTERN_DATA</a></div><div class="ttdeci">#define LV_ATTRIBUTE_EXTERN_DATA</div><div class="ttdef"><b>Definition</b> lv_conf_cmsis.h:588</div></div>
 <div class="ttc" id="astruct__lv__cache__t_html"><div class="ttname"><a href="struct__lv__cache__t.html">_lv_cache_t</a></div><div class="ttdef"><b>Definition</b> lv_cache_private.h:126</div></div>
 <div class="ttc" id="astruct__lv__draw__buf__handlers__t_html"><div class="ttname"><a href="struct__lv__draw__buf__handlers__t.html">_lv_draw_buf_handlers_t</a></div><div class="ttdef"><b>Definition</b> lv_draw_buf_private.h:27</div></div>
-<div class="ttc" id="astruct__lv__event__t_html"><div class="ttname"><a href="struct__lv__event__t.html">_lv_event_t</a></div><div class="ttdef"><b>Definition</b> lv_event_private.h:37</div></div>
-<div class="ttc" id="astruct__lv__fs__drv__t_html"><div class="ttname"><a href="struct__lv__fs__drv__t.html">_lv_fs_drv_t</a></div><div class="ttdef"><b>Definition</b> lv_fs.h:70</div></div>
+<div class="ttc" id="astruct__lv__event__t_html"><div class="ttname"><a href="struct__lv__event__t.html">_lv_event_t</a></div><div class="ttdef"><b>Definition</b> lv_event_private.h:33</div></div>
+<div class="ttc" id="astruct__lv__fs__drv__t_html"><div class="ttname"><a href="struct__lv__fs__drv__t.html">_lv_fs_drv_t</a></div><div class="ttdef"><b>Definition</b> lv_fs.h:69</div></div>
 <div class="ttc" id="astruct__lv__global__t_html"><div class="ttname"><a href="struct__lv__global__t.html">_lv_global_t</a></div><div class="ttdef"><b>Definition</b> lv_global.h:80</div></div>
 <div class="ttc" id="astruct__lv__global__t_html_a3959e62592d3b06f4a334ad2b4a6bc33"><div class="ttname"><a href="struct__lv__global__t.html#a3959e62592d3b06f4a334ad2b4a6bc33">_lv_global_t::deinit_in_progress</a></div><div class="ttdeci">bool deinit_in_progress</div><div class="ttdef"><b>Definition</b> lv_global.h:90</div></div>
 <div class="ttc" id="astruct__lv__global__t_html_a62f11241622c57606790c9a198b98d68"><div class="ttname"><a href="struct__lv__global__t.html#a62f11241622c57606790c9a198b98d68">_lv_global_t::user_data</a></div><div class="ttdeci">void * user_data</div><div class="ttdef"><b>Definition</b> lv_global.h:87</div></div>
 <div class="ttc" id="astruct__lv__global__t_html_a8c42aae05685cfaf45420f5005cecd5f"><div class="ttname"><a href="struct__lv__global__t.html#a8c42aae05685cfaf45420f5005cecd5f">_lv_global_t::image_cache_draw_buf_handlers</a></div><div class="ttdeci">lv_draw_buf_handlers_t image_cache_draw_buf_handlers</div><div class="ttdef"><b>Definition</b> lv_global.h:125</div></div>
 <div class="ttc" id="astruct__lv__group__t_html"><div class="ttname"><a href="struct__lv__group__t.html">_lv_group_t</a></div><div class="ttdef"><b>Definition</b> lv_group_private.h:31</div></div>
-<div class="ttc" id="astruct__lv__indev__t_html"><div class="ttname"><a href="struct__lv__indev__t.html">_lv_indev_t</a></div><div class="ttdef"><b>Definition</b> lv_indev_private.h:31</div></div>
+<div class="ttc" id="astruct__lv__indev__t_html"><div class="ttname"><a href="struct__lv__indev__t.html">_lv_indev_t</a></div><div class="ttdef"><b>Definition</b> lv_indev_private.h:30</div></div>
 <div class="ttc" id="astruct__lv__obj__t_html"><div class="ttname"><a href="struct__lv__obj__t.html">_lv_obj_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_private.h:55</div></div>
 <div class="ttc" id="astruct__snippet__stack_html"><div class="ttname"><a href="struct__snippet__stack.html">_snippet_stack</a></div><div class="ttdef"><b>Definition</b> lv_span.c:42</div></div>
 <div class="ttc" id="astructlv__anim__state__t_html"><div class="ttname"><a href="structlv__anim__state__t.html">lv_anim_state_t</a></div><div class="ttdef"><b>Definition</b> lv_anim_private.h:27</div></div>
@@ -397,9 +403,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="astructlv__layout__dsc__t_html"><div class="ttname"><a href="structlv__layout__dsc__t.html">lv_layout_dsc_t</a></div><div class="ttdef"><b>Definition</b> lv_layout_private.h:27</div></div>
 <div class="ttc" id="astructlv__ll__t_html"><div class="ttname"><a href="structlv__ll__t.html">lv_ll_t</a></div><div class="ttdef"><b>Definition</b> lv_ll.h:31</div></div>
 <div class="ttc" id="astructlv__mutex__t_html"><div class="ttname"><a href="structlv__mutex__t.html">lv_mutex_t</a></div><div class="ttdef"><b>Definition</b> lv_rtthread.h:32</div></div>
-<div class="ttc" id="astructlv__style__t_html"><div class="ttname"><a href="structlv__style__t.html">lv_style_t</a></div><div class="ttdef"><b>Definition</b> lv_style.h:371</div></div>
+<div class="ttc" id="astructlv__style__t_html"><div class="ttname"><a href="structlv__style__t.html">lv_style_t</a></div><div class="ttdef"><b>Definition</b> lv_style.h:331</div></div>
 <div class="ttc" id="astructlv__tick__state__t_html"><div class="ttname"><a href="structlv__tick__state__t.html">lv_tick_state_t</a></div><div class="ttdef"><b>Definition</b> lv_tick_private.h:27</div></div>
-<div class="ttc" id="astructlv__timer__state__t_html"><div class="ttname"><a href="structlv__timer__state__t.html">lv_timer_state_t</a></div><div class="ttdef"><b>Definition</b> lv_timer_private.h:44</div></div>
+<div class="ttc" id="astructlv__timer__state__t_html"><div class="ttname"><a href="structlv__timer__state__t.html">lv_timer_state_t</a></div><div class="ttdef"><b>Definition</b> lv_timer_private.h:40</div></div>
 <div class="ttc" id="astructlv__tlsf__state__t_html"><div class="ttname"><a href="structlv__tlsf__state__t.html">lv_tlsf_state_t</a></div><div class="ttdef"><b>Definition</b> lv_tlsf_private.h:30</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

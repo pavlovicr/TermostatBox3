@@ -1,13 +1,11 @@
 \doxysection{Datoteka managed\+\_\+components/lvgl\+\_\+\+\_\+lvgl/src/widgets/spinner/lv\+\_\+spinner.h}
 \hypertarget{lv__spinner_8h}{}\label{lv__spinner_8h}\index{managed\_components/lvgl\_\_lvgl/src/widgets/spinner/lv\_spinner.h@{managed\_components/lvgl\_\_lvgl/src/widgets/spinner/lv\_spinner.h}}
 {\ttfamily \#include "{}../../lv\+\_\+conf\+\_\+internal.\+h"{}}\newline
-{\ttfamily \#include "{}../../misc/lv\+\_\+types.\+h"{}}\newline
-{\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+property.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+spinner.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+spinner.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{lv__spinner_8h__incl}
+\includegraphics[width=278pt]{lv__spinner_8h__incl}
 \end{center}
 \end{figure}
 Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datoteko. Pravokotniki simbolizirajo datoteke, puščice pa relacije med datotekami. Tekoča datoteka je prikazana kot pravokotnik s črno podlago, ostale pa kot pravokotnik brez podlage. Smer puščice A-\/\texorpdfstring{$>$}{>}B definira relacijo "{}\+A vključuje B"{}. Vse datoteke, ki torej mejijo na tekočo (t.\+j. obstaja povezava med črnim in praznim pravokotnikom), jo direktno vključujejo, medtem, ko jo ostale vključujejo le posredno. \nopagebreak
@@ -23,14 +21,6 @@ Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datotek
 \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__spinner_8h_af0f9ccf0747235ff98f2ecd33e0d400e}{lv\+\_\+spinner\+\_\+create}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
 \item 
 void \mbox{\hyperlink{lv__spinner_8h_ac1fc2970dd7f3fa3932634f874fce2cf}{lv\+\_\+spinner\+\_\+set\+\_\+anim\+\_\+params}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t t, uint32\+\_\+t angle)
-\item 
-void \mbox{\hyperlink{lv__spinner_8h_af05ebd99b426db32050a1f27d52f0f20}{lv\+\_\+spinner\+\_\+set\+\_\+anim\+\_\+duration}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t t)
-\item 
-void \mbox{\hyperlink{lv__spinner_8h_a2f568e6364f29403f58977215c1359ef}{lv\+\_\+spinner\+\_\+set\+\_\+arc\+\_\+sweep}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t angle)
-\item 
-uint32\+\_\+t \mbox{\hyperlink{lv__spinner_8h_a50022fa583cd273b741b96f7acca7ec2}{lv\+\_\+spinner\+\_\+get\+\_\+anim\+\_\+duration}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
-\item 
-uint32\+\_\+t \mbox{\hyperlink{lv__spinner_8h_adb3952c1ceccb9adf1217b7cd9a874f7}{lv\+\_\+spinner\+\_\+get\+\_\+arc\+\_\+sweep}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Spremenljivke}
 \begin{DoxyCompactItemize}
@@ -55,71 +45,17 @@ Create a spinner widget
 \begin{DoxyReturn}{Rezultat(i)}
 the created spinner 
 \end{DoxyReturn}
-\Hypertarget{lv__spinner_8h_a50022fa583cd273b741b96f7acca7ec2}\label{lv__spinner_8h_a50022fa583cd273b741b96f7acca7ec2} 
-\index{lv\_spinner.h@{lv\_spinner.h}!lv\_spinner\_get\_anim\_duration@{lv\_spinner\_get\_anim\_duration}}
-\index{lv\_spinner\_get\_anim\_duration@{lv\_spinner\_get\_anim\_duration}!lv\_spinner.h@{lv\_spinner.h}}
-\doxysubsubsection{\texorpdfstring{lv\_spinner\_get\_anim\_duration()}{lv\_spinner\_get\_anim\_duration()}}
-{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+spinner\+\_\+get\+\_\+anim\+\_\+duration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
-
-Get the animation duration of the spinner 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to a spinner \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-the animation time in milliseconds 
-\end{DoxyReturn}
-\Hypertarget{lv__spinner_8h_adb3952c1ceccb9adf1217b7cd9a874f7}\label{lv__spinner_8h_adb3952c1ceccb9adf1217b7cd9a874f7} 
-\index{lv\_spinner.h@{lv\_spinner.h}!lv\_spinner\_get\_arc\_sweep@{lv\_spinner\_get\_arc\_sweep}}
-\index{lv\_spinner\_get\_arc\_sweep@{lv\_spinner\_get\_arc\_sweep}!lv\_spinner.h@{lv\_spinner.h}}
-\doxysubsubsection{\texorpdfstring{lv\_spinner\_get\_arc\_sweep()}{lv\_spinner\_get\_arc\_sweep()}}
-{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+spinner\+\_\+get\+\_\+arc\+\_\+sweep (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
-
-Get the animation arc length of the spinner 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to a spinner \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-the angle of the arc in degrees 
-\end{DoxyReturn}
-\Hypertarget{lv__spinner_8h_af05ebd99b426db32050a1f27d52f0f20}\label{lv__spinner_8h_af05ebd99b426db32050a1f27d52f0f20} 
-\index{lv\_spinner.h@{lv\_spinner.h}!lv\_spinner\_set\_anim\_duration@{lv\_spinner\_set\_anim\_duration}}
-\index{lv\_spinner\_set\_anim\_duration@{lv\_spinner\_set\_anim\_duration}!lv\_spinner.h@{lv\_spinner.h}}
-\doxysubsubsection{\texorpdfstring{lv\_spinner\_set\_anim\_duration()}{lv\_spinner\_set\_anim\_duration()}}
-{\footnotesize\ttfamily void lv\+\_\+spinner\+\_\+set\+\_\+anim\+\_\+duration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{t }\end{DoxyParamCaption})}
-
-Set the animation time of the spinner 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to a spinner \\
-\hline
-{\em t} & the animation time in milliseconds \\
-\hline
-\end{DoxyParams}
 \Hypertarget{lv__spinner_8h_ac1fc2970dd7f3fa3932634f874fce2cf}\label{lv__spinner_8h_ac1fc2970dd7f3fa3932634f874fce2cf} 
 \index{lv\_spinner.h@{lv\_spinner.h}!lv\_spinner\_set\_anim\_params@{lv\_spinner\_set\_anim\_params}}
 \index{lv\_spinner\_set\_anim\_params@{lv\_spinner\_set\_anim\_params}!lv\_spinner.h@{lv\_spinner.h}}
 \doxysubsubsection{\texorpdfstring{lv\_spinner\_set\_anim\_params()}{lv\_spinner\_set\_anim\_params()}}
 {\footnotesize\ttfamily void lv\+\_\+spinner\+\_\+set\+\_\+anim\+\_\+params (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{t,  }\item[{uint32\+\_\+t}]{angle }\end{DoxyParamCaption})}
 
-Set the animation time and arc length of the spinner The animation is suited for angle values between 180 and 360. 
+Set the animation time and arc length of the spinner 
 \begin{DoxyParams}{Parametri}
 {\em obj} & pointer to a spinner \\
 \hline
 {\em t} & the animation time in milliseconds \\
-\hline
-{\em angle} & the angle of the arc in degrees \\
-\hline
-\end{DoxyParams}
-\Hypertarget{lv__spinner_8h_a2f568e6364f29403f58977215c1359ef}\label{lv__spinner_8h_a2f568e6364f29403f58977215c1359ef} 
-\index{lv\_spinner.h@{lv\_spinner.h}!lv\_spinner\_set\_arc\_sweep@{lv\_spinner\_set\_arc\_sweep}}
-\index{lv\_spinner\_set\_arc\_sweep@{lv\_spinner\_set\_arc\_sweep}!lv\_spinner.h@{lv\_spinner.h}}
-\doxysubsubsection{\texorpdfstring{lv\_spinner\_set\_arc\_sweep()}{lv\_spinner\_set\_arc\_sweep()}}
-{\footnotesize\ttfamily void lv\+\_\+spinner\+\_\+set\+\_\+arc\+\_\+sweep (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{uint32\+\_\+t}]{angle }\end{DoxyParamCaption})}
-
-Set the animation arc length of the spinner. The animation is suited to values between 180 and 360. 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to a spinner \\
 \hline
 {\em angle} & the angle of the arc in degrees \\
 \hline

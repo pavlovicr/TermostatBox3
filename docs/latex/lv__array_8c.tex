@@ -4,12 +4,11 @@
 {\ttfamily \#include "{}../stdlib/lv\+\_\+mem.\+h"{}}\newline
 {\ttfamily \#include "{}../stdlib/lv\+\_\+string.\+h"{}}\newline
 {\ttfamily \#include "{}lv\+\_\+assert.\+h"{}}\newline
-{\ttfamily \#include "{}lv\+\_\+types.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+array.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+array.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{lv__array_8c__incl}
+\includegraphics[width=348pt]{lv__array_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Funkcije}
@@ -26,8 +25,6 @@ void \mbox{\hyperlink{lv__array_8c_a3a1b81ba30b2edb072046579366f2402}{lv\+\_\+ar
 void \mbox{\hyperlink{lv__array_8c_a4702256672dddc87d0904e9d67b58ab2}{lv\+\_\+array\+\_\+shrink}} (\mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}array)
 \item 
 \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__array_8c_a72bf34c973b4c6199640ce49516bba6a}{lv\+\_\+array\+\_\+remove}} (\mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}array, uint32\+\_\+t index)
-\item 
-\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__array_8c_ac76b8f4babbee9213e2392ac8f0d560a}{lv\+\_\+array\+\_\+remove\+\_\+unordered}} (\mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}array, uint32\+\_\+t index)
 \item 
 \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} \mbox{\hyperlink{lv__array_8c_a2bacb673c487e08e17da7a775c83480e}{lv\+\_\+array\+\_\+erase}} (\mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}array, uint32\+\_\+t start, uint32\+\_\+t end)
 \item 
@@ -210,31 +207,7 @@ When the element is NULL, it means that the user wants to add an empty element.\
 \doxysubsubsection{\texorpdfstring{lv\_array\_remove()}{lv\_array\_remove()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+array\+\_\+remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{array,  }\item[{uint32\+\_\+t}]{index }\end{DoxyParamCaption})}
 
-Remove the element at the specified position in the array.
-
-This function keeps the array order. Complexity is O(n)
-
-
-\begin{DoxyParams}{Parametri}
-{\em array} & pointer to an {\ttfamily lv\+\_\+array\+\_\+t} variable \\
-\hline
-{\em index} & the index of the element to remove \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-LV\+\_\+\+RESULT\+\_\+\+OK\+: success, otherwise\+: error 
-\end{DoxyReturn}
-\Hypertarget{lv__array_8c_ac76b8f4babbee9213e2392ac8f0d560a}\label{lv__array_8c_ac76b8f4babbee9213e2392ac8f0d560a} 
-\index{lv\_array.c@{lv\_array.c}!lv\_array\_remove\_unordered@{lv\_array\_remove\_unordered}}
-\index{lv\_array\_remove\_unordered@{lv\_array\_remove\_unordered}!lv\_array.c@{lv\_array.c}}
-\doxysubsubsection{\texorpdfstring{lv\_array\_remove\_unordered()}{lv\_array\_remove\_unordered()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\+\_\+result\+\_\+t}} lv\+\_\+array\+\_\+remove\+\_\+unordered (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__array__t}{lv\+\_\+array\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{array,  }\item[{uint32\+\_\+t}]{index }\end{DoxyParamCaption})}
-
-Remove the element at the specified position in the array.
-
-This function does not guarantee the array order. Complexity is O(1)
-
-
+Remove the element at the specified position in the array. 
 \begin{DoxyParams}{Parametri}
 {\em array} & pointer to an {\ttfamily lv\+\_\+array\+\_\+t} variable \\
 \hline

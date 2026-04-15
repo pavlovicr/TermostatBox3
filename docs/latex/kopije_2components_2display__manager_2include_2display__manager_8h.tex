@@ -1,0 +1,117 @@
+\doxysection{Datoteka kopije/components/display\+\_\+manager/include/display\+\_\+manager.h}
+\hypertarget{kopije_2components_2display__manager_2include_2display__manager_8h}{}\label{kopije_2components_2display__manager_2include_2display__manager_8h}\index{kopije/components/display\_manager/include/display\_manager.h@{kopije/components/display\_manager/include/display\_manager.h}}
+
+
+Display Manager for ESP-\/\+BOX-\/3 with LVGL.  
+
+
+{\ttfamily \#include "{}esp\+\_\+err.\+h"{}}\newline
+{\ttfamily \#include "{}lvgl.\+h"{}}\newline
+Graf prikazuje seznam datotek, ki jih datoteka "{}display\+\_\+manager.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko display\+\_\+manager.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{kopije_2components_2display__manager_2include_2display__manager_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Funkcije}
+\begin{DoxyCompactItemize}
+\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{kopije_2components_2display__manager_2include_2display__manager_8h_a17edc5290aef7e8d9d5162cee4c06ceb}{display\+\_\+manager\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em Inicializira display manager in LVGL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{kopije_2components_2display__manager_2include_2display__manager_8h_acf4ce5fd5f257e046ff6f8626f34e2ea}{display\+\_\+manager\+\_\+get\+\_\+screen}} (void)
+\begin{DoxyCompactList}\small\item\em Dobi glavni LVGL screen objekt. \end{DoxyCompactList}\item 
+esp\+\_\+err\+\_\+t \mbox{\hyperlink{kopije_2components_2display__manager_2include_2display__manager_8h_adf3942e3c2f3b173fe3df4e5ea3bbfdd}{display\+\_\+manager\+\_\+set\+\_\+brightness}} (uint8\+\_\+t brightness)
+\begin{DoxyCompactList}\small\item\em Nastavi brightness zaslona (0-\/100\%) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Podroben opis}
+Display Manager for ESP-\/\+BOX-\/3 with LVGL. 
+
+Ta komponenta inicializira in upravlja zaslon ESP-\/\+BOX-\/3. Poskrbi za\+:
+\begin{DoxyItemize}
+\item Inicializacijo LVGL sistema
+\item Nastavitev ESP-\/\+BOX-\/3 driverjev
+\item Kreiranje osnovnega UI kontejnerja 
+\end{DoxyItemize}
+
+\doxysubsection{Opis funkcije}
+\Hypertarget{kopije_2components_2display__manager_2include_2display__manager_8h_acf4ce5fd5f257e046ff6f8626f34e2ea}\label{kopije_2components_2display__manager_2include_2display__manager_8h_acf4ce5fd5f257e046ff6f8626f34e2ea} 
+\index{display\_manager.h@{display\_manager.h}!display\_manager\_get\_screen@{display\_manager\_get\_screen}}
+\index{display\_manager\_get\_screen@{display\_manager\_get\_screen}!display\_manager.h@{display\_manager.h}}
+\doxysubsubsection{\texorpdfstring{display\_manager\_get\_screen()}{display\_manager\_get\_screen()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*} display\+\_\+manager\+\_\+get\+\_\+screen (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Dobi glavni LVGL screen objekt. 
+
+\begin{DoxyReturn}{Rezultat(i)}
+lv\+\_\+obj\+\_\+t\texorpdfstring{$\ast$}{*} pointer na aktivni screen
+\end{DoxyReturn}
+Dobi glavni LVGL screen objekt.
+
+\begin{DoxyReturn}{Rezultat(i)}
+Pointer na aktivni screen 
+\end{DoxyReturn}
+\Hypertarget{kopije_2components_2display__manager_2include_2display__manager_8h_a17edc5290aef7e8d9d5162cee4c06ceb}\label{kopije_2components_2display__manager_2include_2display__manager_8h_a17edc5290aef7e8d9d5162cee4c06ceb} 
+\index{display\_manager.h@{display\_manager.h}!display\_manager\_init@{display\_manager\_init}}
+\index{display\_manager\_init@{display\_manager\_init}!display\_manager.h@{display\_manager.h}}
+\doxysubsubsection{\texorpdfstring{display\_manager\_init()}{display\_manager\_init()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t display\+\_\+manager\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializira display manager in LVGL. 
+
+Ta funkcija\+:
+\begin{DoxyItemize}
+\item Inicializira LVGL knjižnico
+\item Nastavi ESP-\/\+BOX-\/3 display driver
+\item Kreira task za LVGL timer handling
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK\+: Uspešna inicializacija
+\item ESP\+\_\+\+FAIL\+: Napaka pri inicializaciji
+\end{DoxyItemize}
+\end{DoxyReturn}
+Inicializira display manager in LVGL.
+
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}
+\Hypertarget{kopije_2components_2display__manager_2include_2display__manager_8h_adf3942e3c2f3b173fe3df4e5ea3bbfdd}\label{kopije_2components_2display__manager_2include_2display__manager_8h_adf3942e3c2f3b173fe3df4e5ea3bbfdd} 
+\index{display\_manager.h@{display\_manager.h}!display\_manager\_set\_brightness@{display\_manager\_set\_brightness}}
+\index{display\_manager\_set\_brightness@{display\_manager\_set\_brightness}!display\_manager.h@{display\_manager.h}}
+\doxysubsubsection{\texorpdfstring{display\_manager\_set\_brightness()}{display\_manager\_set\_brightness()}}
+{\footnotesize\ttfamily esp\+\_\+err\+\_\+t display\+\_\+manager\+\_\+set\+\_\+brightness (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{brightness }\end{DoxyParamCaption})}
+
+
+
+Nastavi brightness zaslona (0-\/100\%) 
+
+
+\begin{DoxyParams}{Parametri}
+{\em brightness} & Svetlost od 0 do 100 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+
+\begin{DoxyItemize}
+\item ESP\+\_\+\+OK\+: Uspešno nastavljeno
+\item ESP\+\_\+\+ERR\+\_\+\+INVALID\+\_\+\+ARG\+: Napačna vrednost
+\end{DoxyItemize}
+\end{DoxyReturn}
+Nastavi brightness zaslona (0-\/100\%)
+
+
+\begin{DoxyParams}{Parametri}
+{\em brightness} & Vrednost 0-\/100\% \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Rezultat(i)}
+ESP\+\_\+\+OK če uspešno 
+\end{DoxyReturn}

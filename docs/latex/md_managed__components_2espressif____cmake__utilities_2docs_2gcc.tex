@@ -1,8 +1,8 @@
 \chapter{Link Time Optimization(LTO)}
 \hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc}{}\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc}\index{Link Time Optimization(LTO)@{Link Time Optimization(LTO)}}
-\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md91}%
-\Hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md91}%
- Link time optimization(\+LTO) improves the optimization effect of GCC, such as reducing binary size, increasing performance, and so on. For more details please refer to related \href{https://gcc.gnu.org/onlinedocs/gccint/LTO.html}{\texttt{ GCC documents}}.\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md92}{}\doxysection{\texorpdfstring{Use}{Use}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md92}
+\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md85}%
+\Hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md85}%
+ Link time optimization(\+LTO) improves the optimization effect of GCC, such as reducing binary size, increasing performance, and so on. For more details please refer to related \href{https://gcc.gnu.org/onlinedocs/gccint/LTO.html}{\texttt{ GCC documents}}.\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md86}{}\doxysection{\texorpdfstring{Use}{Use}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md86}
 To use this feature, you need to include the required CMake file in your project\textquotesingle{}s CMake\+Lists.\+txt after {\ttfamily project(\+XXXX)}.
 
 
@@ -47,7 +47,7 @@ Based on your requirement, set compiling optimization level in the option {\ttfa
 
 \end{DoxyCode}
 
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md93}{}\doxysection{\texorpdfstring{Limitation}{Limitation}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md93}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md87}{}\doxysection{\texorpdfstring{Limitation}{Limitation}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md87}
 At the linking stage, the LTO generates new function indexes instead of the file path as follows\+:
 
 
@@ -72,7 +72,7 @@ At the linking stage, the LTO generates new function indexes instead of the file
 
 \end{DoxyItemize}
 
-So tools used to relink functions between flash and IRAM can\textquotesingle{}t affect these optimized components and dependencies again. It is recommended that users had better optimize application components and dependencies than kernel and hardware driver ones.\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md94}{}\doxysection{\texorpdfstring{Example}{Example}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md94}
+So tools used to relink functions between flash and IRAM can\textquotesingle{}t affect these optimized components and dependencies again. It is recommended that users had better optimize application components and dependencies than kernel and hardware driver ones.\hypertarget{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md88}{}\doxysection{\texorpdfstring{Example}{Example}}\label{md_managed__components_2espressif____cmake__utilities_2docs_2gcc_autotoc_md88}
 The example applies LTO in {\ttfamily light} of {\ttfamily esp-\/matter} because its application code is much larger. Add LTO configuration into project script {\ttfamily CMake\+Lists.\+txt} as follows\+:
 
 

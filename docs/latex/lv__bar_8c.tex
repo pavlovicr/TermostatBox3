@@ -2,11 +2,11 @@
 \hypertarget{lv__bar_8c}{}\label{lv__bar_8c}\index{managed\_components/lvgl\_\_lvgl/src/widgets/bar/lv\_bar.c@{managed\_components/lvgl\_\_lvgl/src/widgets/bar/lv\_bar.c}}
 {\ttfamily \#include "{}lv\+\_\+bar\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../misc/lv\+\_\+area\+\_\+private.\+h"{}}\newline
-{\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+mask.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+mask\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../draw/lv\+\_\+draw.\+h"{}}\newline
-{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../others/observer/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
 {\ttfamily \#include "{}../../misc/lv\+\_\+anim\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../misc/lv\+\_\+math.\+h"{}}\newline
@@ -72,7 +72,7 @@ lv\+\_\+bar\+\_\+orientation\+\_\+t \mbox{\hyperlink{lv__bar_8c_aa726df50d1e171c
 \item 
 bool \mbox{\hyperlink{lv__bar_8c_ae18c8c3c01c4b218347a6e60e6a0b579}{lv\+\_\+bar\+\_\+is\+\_\+symmetrical}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \item 
-\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__bar_8c_afc6a6bf6eeb4e1b7bf68616ed27a29e6}{lv\+\_\+bar\+\_\+bind\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__bar_8c_afc6a6bf6eeb4e1b7bf68616ed27a29e6}{lv\+\_\+bar\+\_\+bind\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Spremenljivke}
 \begin{DoxyCompactItemize}
@@ -119,7 +119,7 @@ hor. pad and ver. pad cannot make the indicator smaller than this \mbox{[}px\mbo
 \index{lv\_bar.c@{lv\_bar.c}!lv\_bar\_bind\_value@{lv\_bar\_bind\_value}}
 \index{lv\_bar\_bind\_value@{lv\_bar\_bind\_value}!lv\_bar.c@{lv\_bar.c}}
 \doxysubsubsection{\texorpdfstring{lv\_bar\_bind\_value()}{lv\_bar\_bind\_value()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+bar\+\_\+bind\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+bar\+\_\+bind\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
 
 Bind an integer or float Subject to a Bar\textquotesingle{}s value. 
 \begin{DoxyParams}{Parametri}
@@ -363,7 +363,6 @@ Set a new value on the bar
 \DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__bar__t}{lv\_bar\_t}}),}
 \DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
 \DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_bar"{}},}
-\DoxyCodeLine{}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

@@ -17,7 +17,7 @@
 {\ttfamily \#include "{}../../misc/lv\+\_\+text\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../stdlib/lv\+\_\+sprintf.\+h"{}}\newline
 {\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
-{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../others/observer/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../others/translation/lv\+\_\+translation.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+label.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+label.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
 \begin{figure}[H]
@@ -82,7 +82,7 @@ uint32\+\_\+t \mbox{\hyperlink{lv__label_8c_accf1416fcddaeeca87a8fa3f1dac9d3d}{l
 \begin{DoxyCompactList}\small\item\em Get the selection end index. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{lv__label_8c_a9b8ee0bbe102559b95a37d51f8973e8f}{lv\+\_\+label\+\_\+get\+\_\+recolor}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \begin{DoxyCompactList}\small\item\em Get the recoloring attribute. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__label_8c_a0083a2be4caa424e5b4d686e65129ecb}{lv\+\_\+label\+\_\+bind\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject, const char \texorpdfstring{$\ast$}{*}fmt)
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__label_8c_a0083a2be4caa424e5b4d686e65129ecb}{lv\+\_\+label\+\_\+bind\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject, const char \texorpdfstring{$\ast$}{*}fmt)
 \item 
 void \mbox{\hyperlink{lv__label_8c_aed293cacaf07e3d7c2a64932ac1e08d3}{lv\+\_\+label\+\_\+ins\+\_\+text}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, uint32\+\_\+t pos, const char \texorpdfstring{$\ast$}{*}txt)
 \item 
@@ -100,7 +100,7 @@ const \mbox{\hyperlink{struct__lv__obj__class__t}{lv\+\_\+obj\+\_\+class\+\_\+t}
 \index{lv\_label.c@{lv\_label.c}!lv\_label\_bind\_text@{lv\_label\_bind\_text}}
 \index{lv\_label\_bind\_text@{lv\_label\_bind\_text}!lv\_label.c@{lv\_label.c}}
 \doxysubsubsection{\texorpdfstring{lv\_label\_bind\_text()}{lv\_label\_bind\_text()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+label\+\_\+bind\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+label\+\_\+bind\+\_\+text (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt }\end{DoxyParamCaption})}
 
 Bind an integer, string, or pointer Subject to a Label. 
 \begin{DoxyParams}{Parametri}
@@ -422,6 +422,17 @@ It ignores {\ttfamily LV\+\_\+\+USE\+\_\+\+ARABIC\+\_\+\+PERSIAN\+\_\+\+CHARS}
 \DoxyCodeLine{\ \ \ \ .instance\_size\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct__lv__label__t}{lv\_label\_t}}),}
 \DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
 \DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_label"{}},}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
 \DoxyCodeLine{}
 \DoxyCodeLine{\}}
 

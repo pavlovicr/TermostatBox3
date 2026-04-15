@@ -105,7 +105,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structlv__layout__dsc__t.html">   27</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_struct" href="structlv__layout__callbacks__t.html">lv_layout_callbacks_t</a> callbacks;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    lv_layout_update_cb_t cb;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> * user_data;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <a class="code hl_struct" href="structlv__layout__dsc__t.html">lv_layout_dsc_t</a>;</div>
 </div>
@@ -122,23 +122,20 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> lv_layout_deinit(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">bool</span> lv_layout_get_min_size(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj, int32_t * size, <span class="keywordtype">bool</span> width);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__layout__private_8h.html#aba73d3a8a925664b95eb2e79c53353d7">lv_layout_apply</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/**********************</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> *      MACROS</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> **********************/</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif </span><span class="comment">/*LV_LAYOUT_PRIVATE_H*/</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">void</span> <a class="code hl_function" href="lv__layout__private_8h.html#aba73d3a8a925664b95eb2e79c53353d7">lv_layout_apply</a>(<a class="code hl_struct" href="struct__lv__obj__t.html">lv_obj_t</a> * obj);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/**********************</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> *      MACROS</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> **********************/</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>} <span class="comment">/*extern &quot;C&quot;*/</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif </span><span class="comment">/*LV_LAYOUT_PRIVATE_H*/</span><span class="preprocessor"></span></div>
 <div class="ttc" id="alv__layout_8h_html"><div class="ttname"><a href="lv__layout_8h.html">lv_layout.h</a></div></div>
-<div class="ttc" id="alv__layout__private_8h_html_aba73d3a8a925664b95eb2e79c53353d7"><div class="ttname"><a href="lv__layout__private_8h.html#aba73d3a8a925664b95eb2e79c53353d7">lv_layout_apply</a></div><div class="ttdeci">void lv_layout_apply(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_layout.c:92</div></div>
+<div class="ttc" id="alv__layout__private_8h_html_aba73d3a8a925664b95eb2e79c53353d7"><div class="ttname"><a href="lv__layout__private_8h.html#aba73d3a8a925664b95eb2e79c53353d7">lv_layout_apply</a></div><div class="ttdeci">void lv_layout_apply(lv_obj_t *obj)</div><div class="ttdef"><b>Definition</b> lv_layout.c:68</div></div>
 <div class="ttc" id="astruct__lv__obj__t_html"><div class="ttname"><a href="struct__lv__obj__t.html">_lv_obj_t</a></div><div class="ttdef"><b>Definition</b> lv_obj_private.h:55</div></div>
-<div class="ttc" id="astructlv__layout__callbacks__t_html"><div class="ttname"><a href="structlv__layout__callbacks__t.html">lv_layout_callbacks_t</a></div><div class="ttdef"><b>Definition</b> lv_layout.h:30</div></div>
 <div class="ttc" id="astructlv__layout__dsc__t_html"><div class="ttname"><a href="structlv__layout__dsc__t.html">lv_layout_dsc_t</a></div><div class="ttdef"><b>Definition</b> lv_layout_private.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

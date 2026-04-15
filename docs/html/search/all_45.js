@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['架构预览_0',['架构预览',['../md_managed__components_2espressif____esp__codec__dev_2README__CN.html#autotoc_md275',1,'']]]
+  ['示例_0',['🤖 示例',['../md_managed__components_2lvgl____lvgl_2docs_2README__zh.html#autotoc_md471',1,'']]]
 ];

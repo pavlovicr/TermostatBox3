@@ -2,7 +2,6 @@
 \hypertarget{lv__theme_8c}{}\label{lv__theme_8c}\index{managed\_components/lvgl\_\_lvgl/src/themes/lv\_theme.c@{managed\_components/lvgl\_\_lvgl/src/themes/lv\_theme.c}}
 {\ttfamily \#include "{}lv\+\_\+theme\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../core/lv\+\_\+obj\+\_\+private.\+h"{}}\newline
-{\ttfamily \#include "{}../core/lv\+\_\+obj\+\_\+style\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../core/lv\+\_\+obj\+\_\+class\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../lvgl.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+theme.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+theme.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
@@ -17,15 +16,9 @@ Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+theme.\+c"{} direktno 
 \item 
 \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__theme_8c_a2d1b749665fc8a72ff84cae92c7775db}{lv\+\_\+theme\+\_\+get\+\_\+from\+\_\+obj}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \item 
-\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__theme_8c_ab65f9f5dc7c44732415a1b34e53649fe}{lv\+\_\+theme\+\_\+create}} (void)
-\item 
-void \mbox{\hyperlink{lv__theme_8c_a6489807818ad411a70934d700b48ecdc}{lv\+\_\+theme\+\_\+delete}} (\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}theme)
-\item 
-void \mbox{\hyperlink{lv__theme_8c_ad0fda491ef63e1b09db8ddaccfcde73f}{lv\+\_\+theme\+\_\+copy}} (\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}dst, const \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}src)
-\item 
 void \mbox{\hyperlink{lv__theme_8c_a1189bd78ec6e36276136f9a8b0f1bbe6}{lv\+\_\+theme\+\_\+apply}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \item 
-void \mbox{\hyperlink{lv__theme_8c_aab7145703d94d20ce8897834c0542911}{lv\+\_\+theme\+\_\+set\+\_\+parent}} (\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}theme, \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}parent)
+void \mbox{\hyperlink{lv__theme_8c_a762e76c7ff50ea1dfb61d07391e3a191}{lv\+\_\+theme\+\_\+set\+\_\+parent}} (\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}new\+\_\+theme, \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}base)
 \item 
 void \mbox{\hyperlink{lv__theme_8c_a519b48f3d3453b8087d09f706bd6bef1}{lv\+\_\+theme\+\_\+set\+\_\+apply\+\_\+cb}} (\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}theme, lv\+\_\+theme\+\_\+apply\+\_\+cb\+\_\+t apply\+\_\+cb)
 \item 
@@ -51,39 +44,6 @@ const \mbox{\hyperlink{struct__lv__font__t}{lv\+\_\+font\+\_\+t}} \texorpdfstrin
 Apply the active theme on an object 
 \begin{DoxyParams}{Parametri}
 {\em obj} & pointer to an object \\
-\hline
-\end{DoxyParams}
-\Hypertarget{lv__theme_8c_ad0fda491ef63e1b09db8ddaccfcde73f}\label{lv__theme_8c_ad0fda491ef63e1b09db8ddaccfcde73f} 
-\index{lv\_theme.c@{lv\_theme.c}!lv\_theme\_copy@{lv\_theme\_copy}}
-\index{lv\_theme\_copy@{lv\_theme\_copy}!lv\_theme.c@{lv\_theme.c}}
-\doxysubsubsection{\texorpdfstring{lv\_theme\_copy()}{lv\_theme\_copy()}}
-{\footnotesize\ttfamily void lv\+\_\+theme\+\_\+copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dst,  }\item[{const \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src }\end{DoxyParamCaption})}
-
-Copy \textquotesingle{}src\textquotesingle{} theme into \textquotesingle{}dst\textquotesingle{} 
-\begin{DoxyParams}{Parametri}
-{\em dst} & pointer to the destination theme \\
-\hline
-{\em src} & pointer to the source theme \\
-\hline
-\end{DoxyParams}
-\Hypertarget{lv__theme_8c_ab65f9f5dc7c44732415a1b34e53649fe}\label{lv__theme_8c_ab65f9f5dc7c44732415a1b34e53649fe} 
-\index{lv\_theme.c@{lv\_theme.c}!lv\_theme\_create@{lv\_theme\_create}}
-\index{lv\_theme\_create@{lv\_theme\_create}!lv\_theme.c@{lv\_theme.c}}
-\doxysubsubsection{\texorpdfstring{lv\_theme\_create()}{lv\_theme\_create()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+theme\+\_\+create (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-Creates a new theme \begin{DoxyReturn}{Rezultat(i)}
-the new theme or NULL if allocation failed 
-\end{DoxyReturn}
-\Hypertarget{lv__theme_8c_a6489807818ad411a70934d700b48ecdc}\label{lv__theme_8c_a6489807818ad411a70934d700b48ecdc} 
-\index{lv\_theme.c@{lv\_theme.c}!lv\_theme\_delete@{lv\_theme\_delete}}
-\index{lv\_theme\_delete@{lv\_theme\_delete}!lv\_theme.c@{lv\_theme.c}}
-\doxysubsubsection{\texorpdfstring{lv\_theme\_delete()}{lv\_theme\_delete()}}
-{\footnotesize\ttfamily void lv\+\_\+theme\+\_\+delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{theme }\end{DoxyParamCaption})}
-
-Delete a theme 
-\begin{DoxyParams}{Parametri}
-{\em theme} & the theme to destroy \\
 \hline
 \end{DoxyParams}
 \Hypertarget{lv__theme_8c_a0d54a894f6bf25edbf4995a79f195638}\label{lv__theme_8c_a0d54a894f6bf25edbf4995a79f195638} 
@@ -183,15 +143,15 @@ Set an apply callback for a theme. The apply callback is used to add styles to d
 {\em apply\+\_\+cb} & pointer to the callback \\
 \hline
 \end{DoxyParams}
-\Hypertarget{lv__theme_8c_aab7145703d94d20ce8897834c0542911}\label{lv__theme_8c_aab7145703d94d20ce8897834c0542911} 
+\Hypertarget{lv__theme_8c_a762e76c7ff50ea1dfb61d07391e3a191}\label{lv__theme_8c_a762e76c7ff50ea1dfb61d07391e3a191} 
 \index{lv\_theme.c@{lv\_theme.c}!lv\_theme\_set\_parent@{lv\_theme\_set\_parent}}
 \index{lv\_theme\_set\_parent@{lv\_theme\_set\_parent}!lv\_theme.c@{lv\_theme.c}}
 \doxysubsubsection{\texorpdfstring{lv\_theme\_set\_parent()}{lv\_theme\_set\_parent()}}
-{\footnotesize\ttfamily void lv\+\_\+theme\+\_\+set\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{theme,  }\item[{\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void lv\+\_\+theme\+\_\+set\+\_\+parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{new\+\_\+theme,  }\item[{\mbox{\hyperlink{struct__lv__theme__t}{lv\+\_\+theme\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{parent }\end{DoxyParamCaption})}
 
 Set a base theme for a theme. The styles from the base them will be added before the styles of the current theme. Arbitrary long chain of themes can be created by setting base themes. 
 \begin{DoxyParams}{Parametri}
-{\em theme} & pointer to theme which base should be set \\
+{\em new\+\_\+theme} & pointer to theme which base should be set \\
 \hline
 {\em parent} & pointer to the base theme \\
 \hline

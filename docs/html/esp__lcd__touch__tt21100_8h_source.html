@@ -82,7 +82,7 @@ $(document).ready(function() { init_codefold(0); });
 </div><!--header-->
 <div class="contents">
 <a href="esp__lcd__touch__tt21100_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * SPDX-FileCopyrightText: 2022-2026 Espressif Systems (Shanghai) CO LTD</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * SPDX-FileCopyrightText: 2022 Espressif Systems (Shanghai) CO LTD</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> */</span></div>
@@ -95,31 +95,29 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>esp_err_t <a class="code hl_function" href="esp__lcd__touch__tt21100_8h.html#af36fda374a632885f3c4d9d733ef3b52">esp_lcd_touch_new_i2c_tt21100</a>(<span class="keyword">const</span> esp_lcd_panel_io_handle_t io, <span class="keyword">const</span> <a class="code hl_struct" href="structesp__lcd__touch__config__t.html">esp_lcd_touch_config_t</a> *config,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>                                        <a class="code hl_struct" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> *out_touch);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="esp__lcd__touch__tt21100_8h.html#ae68c52c42d9271454e00f4f9bc029f9a">   39</a></span><span class="preprocessor">#define ESP_LCD_TOUCH_IO_I2C_TT21100_ADDRESS (0x24)</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00045" data-start="" data-end="">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="esp__lcd__touch__tt21100_8h.html#a4f4ced45eaeae61d18fc850b7d6166db">   45</a></span><span class="preprocessor">#define ESP_LCD_TOUCH_IO_I2C_TT21100_CONFIG()               \</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">    {                                                       \</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">        .scl_speed_hz = 100000,                             \</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">        .dev_addr = ESP_LCD_TOUCH_IO_I2C_TT21100_ADDRESS,   \</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">        .control_phase_bytes = 1,                           \</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">        .dc_bit_offset = 0,                                 \</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">        .lcd_cmd_bits = 16,                                 \</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">        .flags =                                            \</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">        {                                                   \</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">            .disable_control_phase = 1,                     \</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">        }                                                   \</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">    }</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>esp_err_t <a class="code hl_function" href="esp__lcd__touch__tt21100_8h.html#af36fda374a632885f3c4d9d733ef3b52">esp_lcd_touch_new_i2c_tt21100</a>(<span class="keyword">const</span> esp_lcd_panel_io_handle_t io, <span class="keyword">const</span> <a class="code hl_struct" href="structesp__lcd__touch__config__t.html">esp_lcd_touch_config_t</a> *config, <a class="code hl_struct" href="structesp__lcd__touch__s.html">esp_lcd_touch_handle_t</a> *out_touch);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="esp__lcd__touch__tt21100_8h.html#ae68c52c42d9271454e00f4f9bc029f9a">   38</a></span><span class="preprocessor">#define ESP_LCD_TOUCH_IO_I2C_TT21100_ADDRESS (0x24)</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00044" data-start="" data-end="">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="esp__lcd__touch__tt21100_8h.html#a4f4ced45eaeae61d18fc850b7d6166db">   44</a></span><span class="preprocessor">#define ESP_LCD_TOUCH_IO_I2C_TT21100_CONFIG()           \</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    {                                       \</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">        .dev_addr = ESP_LCD_TOUCH_IO_I2C_TT21100_ADDRESS, \</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">        .control_phase_bytes = 1,           \</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">        .dc_bit_offset = 0,                 \</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">        .lcd_cmd_bits = 16,                  \</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">        .flags =                            \</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">        {                                   \</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">            .disable_control_phase = 1,     \</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">        }                                   \</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">    }</span></div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>}</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aesp__lcd__touch_8h_html"><div class="ttname"><a href="esp__lcd__touch_8h.html">esp_lcd_touch.h</a></div><div class="ttdoc">ESP LCD touch.</div></div>
-<div class="ttc" id="aesp__lcd__touch__tt21100_8h_html_af36fda374a632885f3c4d9d733ef3b52"><div class="ttname"><a href="esp__lcd__touch__tt21100_8h.html#af36fda374a632885f3c4d9d733ef3b52">esp_lcd_touch_new_i2c_tt21100</a></div><div class="ttdeci">esp_err_t esp_lcd_touch_new_i2c_tt21100(const esp_lcd_panel_io_handle_t io, const esp_lcd_touch_config_t *config, esp_lcd_touch_handle_t *out_touch)</div><div class="ttdoc">Create a new TT21100 touch driver.</div><div class="ttdef"><b>Definition</b> esp_lcd_touch_tt21100.c:51</div></div>
+<div class="ttc" id="aesp__lcd__touch__tt21100_8h_html_af36fda374a632885f3c4d9d733ef3b52"><div class="ttname"><a href="esp__lcd__touch__tt21100_8h.html#af36fda374a632885f3c4d9d733ef3b52">esp_lcd_touch_new_i2c_tt21100</a></div><div class="ttdeci">esp_err_t esp_lcd_touch_new_i2c_tt21100(const esp_lcd_panel_io_handle_t io, const esp_lcd_touch_config_t *config, esp_lcd_touch_handle_t *out_touch)</div><div class="ttdoc">Create a new TT21100 touch driver.</div><div class="ttdef"><b>Definition</b> esp_lcd_touch_tt21100.c:49</div></div>
 <div class="ttc" id="astructesp__lcd__touch__config__t_html"><div class="ttname"><a href="structesp__lcd__touch__config__t.html">esp_lcd_touch_config_t</a></div><div class="ttdoc">Touch Configuration Type.</div><div class="ttdef"><b>Definition</b> esp_lcd_touch.h:43</div></div>
 <div class="ttc" id="astructesp__lcd__touch__s_html"><div class="ttname"><a href="structesp__lcd__touch__s.html">esp_lcd_touch_s</a></div><div class="ttdoc">Declare of Touch Type.</div><div class="ttdef"><b>Definition</b> esp_lcd_touch.h:97</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -250,52 +250,29 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#define ES8389_Analog_DriveSel              ES8389_DriveSel_Normal  </span><span class="comment">/* Normal;LowPower;HeadPhone */</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"> * PGA1 gain registers REG0x72 (ADCL / MIC1 path) and REG0x73 (ADCR / MIC2 path):</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment"> * bits [6:4] are the 3-bit analog input mux. Datasheet binary vs software decimal:</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment"> *   0b001 (1) – differential (ADCL: MIC1P–MIC1N; ADCR: MIC2N–MIC1P; see enumerators)</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment"> *   0b101 (5) – single-ended (ADCL: MIC1P; ADCR: MIC2N)</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment"> *   0b110 (6) – single-ended (ADCL: MIC2P; ADCR: MIC1N)</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment"> * Bits [3:0] are PGA gain steps (es8389_mic_gain_t); bit7 is reverse. Same code selects</span></div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span><span class="comment"> * different pads on L vs R; see each enumerator.</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="comment">/* ADCL */</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    ES8389_ADC_INSEL_L_DIFF_MIC1P1N = 1,  <span class="comment">/* Diff MIC1P-MIC1N (ES8390: LIN1-RIN1) */</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    ES8389_ADC_INSEL_L_SINGLE_MIC1P = 5,  <span class="comment">/* Single-ended MIC1P (ES8390: LIN1) */</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    ES8389_ADC_INSEL_L_SINGLE_MIC2P = 6,  <span class="comment">/* Single-ended MIC2P (ES8390: LIN2) */</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="comment">/* ADCR */</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    ES8389_ADC_INSEL_R_DIFF_MIC2N2P = 1,  <span class="comment">/* Diff MIC2N-MIC1P (ES8390: RIN2-LIN2) */</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    ES8389_ADC_INSEL_R_SINGLE_MIC2N = 5,  <span class="comment">/* Single-ended MIC2N (ES8390: RIN2) */</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    ES8389_ADC_INSEL_R_SINGLE_MIC1N = 6,  <span class="comment">/* Single-ended MIC1N (ES8390: RIN1) */</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>} es8389_adc_insel_t;</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#define ES8389_ADCL_InputSel  ES8389_ADC_INSEL_L_DIFF_MIC1P1N</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#define ES8389_ADCR_InputSel  ES8389_ADC_INSEL_R_DIFF_MIC2N2P</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    ES8389_MIC_GAIN_MIN    = -1,</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    ES8389_MIC_GAIN_0DB    = 0b0000,</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    ES8389_MIC_GAIN_3_5DB  = 0b0001,</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    ES8389_MIC_GAIN_6_5DB  = 0b0010,</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    ES8389_MIC_GAIN_9_5DB  = 0b0011,</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    ES8389_MIC_GAIN_12_5DB = 0b0110,</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    ES8389_MIC_GAIN_15_5DB = 0b0111,</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    ES8389_MIC_GAIN_18_5DB = 0b1000,</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    ES8389_MIC_GAIN_21_5DB = 0b1001,</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    ES8389_MIC_GAIN_24_5DB = 0b1010,</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    ES8389_MIC_GAIN_27_5DB = 0b1011,</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    ES8389_MIC_GAIN_30_5DB = 0b1100,</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    ES8389_MIC_GAIN_33_5DB = 0b1101,</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    ES8389_MIC_GAIN_36_5DB = 0b1110,</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    ES8389_MIC_GAIN_MAX</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>} es8389_mic_gain_t;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>}</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    ES8389_MIC_GAIN_MIN = -1,</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    ES8389_MIC_GAIN_0DB,</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    ES8389_MIC_GAIN_3_5DB,</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    ES8389_MIC_GAIN_6_5DB,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    ES8389_MIC_GAIN_9_5DB,</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    ES8389_MIC_GAIN_12_5DB,</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    ES8389_MIC_GAIN_15_5DB,</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    ES8389_MIC_GAIN_18_5DB,</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    ES8389_MIC_GAIN_21_5DB,</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    ES8389_MIC_GAIN_24_5DB,</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    ES8389_MIC_GAIN_27_5DB,</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    ES8389_MIC_GAIN_30_5DB,</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    ES8389_MIC_GAIN_33_5DB,</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    ES8389_MIC_GAIN_36_5DB,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    ES8389_MIC_GAIN_MAX</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>} es8389_mic_gain_t;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>}</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

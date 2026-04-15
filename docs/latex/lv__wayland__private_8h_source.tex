@@ -14,208 +14,397 @@
 \DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ INCLUDES}}
 \DoxyCodeLine{00015\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}../../lv\_conf\_internal.h"{}}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#if\ LV\_USE\_WAYLAND}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__wayland_8h}{lv\_wayland.h}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_WAYLAND}}
+\DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__wayland__smm_8h}{lv\_wayland\_smm.h}}"{}}}
 \DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <sys/poll.h>}}
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <wayland-\/client-\/protocol.h>}}
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <wayland\_xdg\_shell.h>}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}../../misc/lv\_types.h"{}}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lv__wl__backend__private_8h}{lv\_wl\_backend\_private.h}}"{}}}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{comment}{/*********************}}
-\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
-\DoxyCodeLine{00030\ \textcolor{comment}{\ *********************/}}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ LV\_WAYLAND\_DEFAULT\_CURSOR\_NAME\ "{}left\_ptr"{}}}
-\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ LV\_WAYLAND\_MAX\_OUTPUTS\ 8}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_USE\_DMABUF}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ <sys/mman.h>}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00032\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ *********************/}}
 \DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00036\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
-\DoxyCodeLine{00037\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{struct\ }\_lv\_wl\_window\_t;}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_pointer\ *\ wl\_pointer;}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_surface\ *\ cursor\_surface;}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ point;}
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ left\_btn\_state;}
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ right\_btn\_state;}
-\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ wheel\_btn\_state;}
-\DoxyCodeLine{00048\ \ \ \ \ int16\_t\ wheel\_diff;}
-\DoxyCodeLine{00049\ \}\ lv\_wl\_seat\_pointer\_t;}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ LV\_WAYLAND\_DEFAULT\_CURSOR\_NAME\ "{}left\_ptr"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ LV\_WAYLAND\_MAX\_OUTPUTS\ 8}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ LVGL\_DRAW\_BUFFER\_DIV\ (8)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ DMG\_CACHE\_CAPACITY\ (32)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ TAG\_LOCAL\ (0)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ TAG\_BUFFER\_DAMAGE\ (1)}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_WINDOW\_DECORATIONS}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ TITLE\_BAR\_HEIGHT\ 24}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ BORDER\_SIZE\ 2}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ TITLE\_BAR\_HEIGHT\ 0}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ BORDER\_SIZE\ 0}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_touch\ *\ wl\_touch;}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#if\ LV\_USE\_GESTURE\_RECOGNITION}}
-\DoxyCodeLine{00055\ \ \ \ \ lv\_indev\_touch\_data\_t\ touches[10];}
-\DoxyCodeLine{00056\ \ \ \ \ uint8\_t\ event\_cnt;}
-\DoxyCodeLine{00057\ \ \ \ \ uint8\_t\ primary\_id;}
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ point;}
-\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ state;}
-\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_GESTURE\_RECOGNITION*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00062\ \}\ lv\_wl\_seat\_touch\_t;}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_keyboard\ *\ wl\_keyboard;}
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{struct\ }xkb\_keymap\ *\ xkb\_keymap;}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{struct\ }xkb\_state\ *\ xkb\_state;}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{lv__group_8h_ab2463aef0f356690e6e37c418146c22d}{lv\_key\_t}}\ key;}
-\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ state;}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_pressed;}
-\DoxyCodeLine{00072\ \}\ lv\_wl\_seat\_keyboard\_t;}
-\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ BUTTON\_MARGIN\ LV\_MAX((TITLE\_BAR\_HEIGHT\ /\ 6),\ BORDER\_SIZE)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ BUTTON\_PADDING\ LV\_MAX((TITLE\_BAR\_HEIGHT\ /\ 8),\ BORDER\_SIZE)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ BUTTON\_SIZE\ (TITLE\_BAR\_HEIGHT\ -\/\ (2\ *\ BUTTON\_MARGIN))}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifndef\ LV\_WAYLAND\_CYCLE\_PERIOD}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ LV\_WAYLAND\_CYCLE\_PERIOD\ LV\_MIN(LV\_DEF\_REFR\_PERIOD,\ 1)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ \ \ \ \ \ TYPEDEFS}}
+\DoxyCodeLine{00061\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{enum}\ object\_type\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ OBJECT\_TITLEBAR\ =\ 0,}
+\DoxyCodeLine{00065\ \ \ \ \ OBJECT\_BUTTON\_CLOSE,}
+\DoxyCodeLine{00066\ \ \ \ \ OBJECT\_BUTTON\_MAXIMIZE,}
+\DoxyCodeLine{00067\ \ \ \ \ OBJECT\_BUTTON\_MINIMIZE,}
+\DoxyCodeLine{00068\ \ \ \ \ OBJECT\_BORDER\_TOP,}
+\DoxyCodeLine{00069\ \ \ \ \ OBJECT\_BORDER\_BOTTOM,}
+\DoxyCodeLine{00070\ \ \ \ \ OBJECT\_BORDER\_LEFT,}
+\DoxyCodeLine{00071\ \ \ \ \ OBJECT\_BORDER\_RIGHT,}
+\DoxyCodeLine{00072\ \ \ \ \ OBJECT\_WINDOW,}
+\DoxyCodeLine{00073\ \};}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_seat\ *\ wl\_seat;}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ lv\_wl\_seat\_pointer\_t\ *\ pointer;}
-\DoxyCodeLine{00079\ \ \ \ \ lv\_wl\_seat\_touch\_t\ *\ touch;}
-\DoxyCodeLine{00080\ \ \ \ \ lv\_wl\_seat\_keyboard\_t\ *\ keyboard;}
-\DoxyCodeLine{00081\ \}\ lv\_wl\_seat\_t;}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ FIRST\_DECORATION\ (OBJECT\_TITLEBAR)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ LAST\_DECORATION\ (OBJECT\_BORDER\_RIGHT)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ NUM\_DECORATIONS\ (LAST\_DECORATION\ -\/\ FIRST\_DECORATION\ +\ 1)}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_USE\_DMABUF}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ MAX\_BUFFER\_PLANES\ 4}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00082\ }
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_output\ *\ wl\_output;}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{char}\ name[64];}
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{int}\ width;}
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{int}\ height;}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{int}\ refresh;}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{int}\ scale;}
-\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
-\DoxyCodeLine{00093\ \}\ lv\_wl\_output\_info\_t;}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_display\ *\ wl\_display;}
-\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_registry\ *\ wl\_registry;}
-\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_compositor\ *\ wl\_compositor;}
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_shm\ *\ wl\_shm;}
-\DoxyCodeLine{00100\ \ \ \ \ lv\_wl\_seat\_t\ seat;}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ backend\_data;}
-\DoxyCodeLine{00103\ \ \ \ \ lv\_wl\_output\_info\_t\ physical\_outputs[LV\_WAYLAND\_MAX\_OUTPUTS];}
-\DoxyCodeLine{00104\ \ \ \ \ uint8\_t\ wl\_output\_count;}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{struct\ }xdg\_wm\_base\ *\ xdg\_wm;}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \mbox{\hyperlink{structlv__ll__t}{lv\_ll\_t}}\ window\_ll;}
-\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{struct__lv__timer__t}{lv\_timer\_t}}\ *\ read\_compositor\_events\_timer;}
-\DoxyCodeLine{00110\ \}\ lv\_wl\_ctx\_t;}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{struct\ }xdg\_surface\ *\ xdg\_surface;}
-\DoxyCodeLine{00114\ \ \ \ \ uint32\_t\ serial;}
-\DoxyCodeLine{00115\ \ \ \ \ int32\_t\ width;}
-\DoxyCodeLine{00116\ \ \ \ \ int32\_t\ height;}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ requested;}
-\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ pending;}
-\DoxyCodeLine{00119\ \}\ lv\_wl\_resize\_event\_t;}
-\DoxyCodeLine{00120\ }
-\DoxyCodeLine{00121\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{struct\ }xdg\_surface\ *\ xdg\_surface;}
-\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{struct\ }xdg\_toplevel\ *\ xdg\_toplevel;}
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ configured;}
-\DoxyCodeLine{00125\ \}\ lv\_wl\_window\_xdg\_t;}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\_lv\_wl\_window\_t\ \{}
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ backend\_display\_data;}
-\DoxyCodeLine{00130\ \ \ \ \ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ lv\_disp;}
-\DoxyCodeLine{00131\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_pointer;}
-\DoxyCodeLine{00132\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_pointeraxis;}
-\DoxyCodeLine{00133\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_touch;}
-\DoxyCodeLine{00134\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_keyboard;}
-\DoxyCodeLine{00135\ \ \ \ \ lv\_wayland\_display\_close\_cb\_t\ close\_cb;}
-\DoxyCodeLine{00136\ \ \ \ \ lv\_wl\_window\_xdg\_t\ xdg;}
-\DoxyCodeLine{00137\ }
-\DoxyCodeLine{00138\ \ \ \ \ \textcolor{comment}{/*\ The\ current\ physical\ assigned\ output\ */}}
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_output\ *\ physical\_output;}
+\DoxyCodeLine{00083\ \textcolor{keyword}{struct\ }window;}
+\DoxyCodeLine{00084\ \textcolor{keyword}{struct\ }input\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ uint32\_t\ x;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ uint32\_t\ y;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ left\_button;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ right\_button;}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ wheel\_button;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ int16\_t\ wheel\_diff;}
+\DoxyCodeLine{00092\ \ \ \ \ \}\ pointer;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__group_8h_ab2463aef0f356690e6e37c418146c22d}{lv\_key\_t}}\ key;}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ state;}
+\DoxyCodeLine{00097\ \ \ \ \ \}\ keyboard;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#if\ LV\_USE\_GESTURE\_RECOGNITION}}
+\DoxyCodeLine{00100\ \ \ \ \ lv\_indev\_touch\_data\_t\ touches[10];}
+\DoxyCodeLine{00101\ \ \ \ \ uint8\_t\ touch\_event\_cnt;}
+\DoxyCodeLine{00102\ \ \ \ \ uint8\_t\ primary\_id;}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__point__t}{lv\_point\_t}}\ point;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{lv__indev_8h_aacdf3efce400e71895f5efb42ee24956}{lv\_indev\_state\_t}}\ state;}
+\DoxyCodeLine{00107\ \ \ \ \ \}\ touch;}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00109\ \};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{struct\ }seat\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_touch\ *\ wl\_touch;}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_pointer\ *\ wl\_pointer;}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_keyboard\ *\ wl\_keyboard;}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }xkb\_keymap\ *\ keymap;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }xkb\_state\ *\ state;}
+\DoxyCodeLine{00119\ \ \ \ \ \}\ xkb;}
+\DoxyCodeLine{00120\ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{struct\ }graphic\_object\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{struct\ }window\ *\ window;}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_surface\ *\ surface;}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_subsurface\ *\ subsurface;}
+\DoxyCodeLine{00126\ \ \ \ \ smm\_buffer\_t\ *\ pending\_buffer;}
+\DoxyCodeLine{00127\ \ \ \ \ smm\_group\_t\ *\ buffer\_group;}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{struct\ }input\ input;}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{enum}\ object\_type\ type;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{int}\ width;}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{int}\ height;}
+\DoxyCodeLine{00132\ \};}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{struct\ }buffer\ *\ buffers;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{struct\ }zwp\_linux\_dmabuf\_v1\ *\ handler;}
+\DoxyCodeLine{00137\ \ \ \ \ uint32\_t\ format;}
+\DoxyCodeLine{00138\ \ \ \ \ uint8\_t\ last\_used;}
+\DoxyCodeLine{00139\ \}\ dmabuf\_ctx\_t;}
 \DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{comment}{/*\ The\ current\ body\ surface\ */}}
-\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_surface\ *\ body;}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ \ \ \ \ lv\_wl\_resize\_event\_t\ resize\_event;}
+\DoxyCodeLine{00141\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_shm\ *\ handler;}
+\DoxyCodeLine{00143\ \ \ \ \ uint32\_t\ format;}
+\DoxyCodeLine{00144\ \}\ shm\_ctx\_t;}
 \DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{bool}\ maximized;}
-\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ fullscreen;}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \}\ lv\_wl\_window\_t;}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ }
-\DoxyCodeLine{00152\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00153\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00154\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00146\ \textcolor{keyword}{struct\ }output\_info\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_output\ *\ wl\_output;}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{char}\ name[64];}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{int}\ width;}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{int}\ height;}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{int}\ refresh;}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{int}\ scale;}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{int}\ flags;}
+\DoxyCodeLine{00154\ \};}
 \DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00157\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00158\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \textcolor{keyword}{extern}\ lv\_wl\_ctx\_t\ lv\_wl\_ctx;}
-\DoxyCodeLine{00161\ }
-\DoxyCodeLine{00162\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00163\ \textcolor{comment}{\ *\ \ \ \ \ \ Driver}}
-\DoxyCodeLine{00164\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_init(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00167\ \textcolor{keywordtype}{void}\ lv\_wayland\_deinit(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ lv\_wayland\_flush(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00170\ }
-\DoxyCodeLine{00171\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00172\ \textcolor{comment}{\ *\ \ \ \ \ \ Window}}
-\DoxyCodeLine{00173\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ int32\_t\ lv\_wayland\_window\_get\_width(lv\_wl\_window\_t\ *\ window);}
-\DoxyCodeLine{00176\ int32\_t\ lv\_wayland\_window\_get\_height(lv\_wl\_window\_t\ *\ window);}
+\DoxyCodeLine{00156\ \textcolor{keyword}{struct\ }lv\_wayland\_context\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_display\ *\ display;}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_registry\ *\ registry;}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_compositor\ *\ compositor;}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_subcompositor\ *\ subcompositor;}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_seat\ *\ wl\_seat;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_cursor\_theme\ *\ cursor\_theme;}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_surface\ *\ cursor\_surface;}
+\DoxyCodeLine{00164\ \ \ \ \ shm\_ctx\_t\ shm\_ctx;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{struct\ }output\_info\ outputs[LV\_WAYLAND\_MAX\_OUTPUTS];}
+\DoxyCodeLine{00166\ \ \ \ \ uint8\_t\ wl\_output\_count;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_USE\_DMABUF}}
+\DoxyCodeLine{00169\ \ \ \ \ dmabuf\_ctx\_t\ dmabuf\_ctx;}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{struct\ }xdg\_wm\_base\ *\ xdg\_wm;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{preprocessor}{\#ifdef\ LV\_WAYLAND\_WINDOW\_DECORATIONS}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ opt\_disable\_decorations;}
+\DoxyCodeLine{00176\ \textcolor{preprocessor}{\#endif}}
 \DoxyCodeLine{00177\ }
-\DoxyCodeLine{00178\ \textcolor{keywordtype}{void}\ lv\_wayland\_window\_delete(lv\_wl\_window\_t\ *\ window);}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{struct\ }xkb\_context\ *\ xkb\_context;}
 \DoxyCodeLine{00179\ }
-\DoxyCodeLine{00180\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }xdg\_wm\_base\_listener\ *\ lv\_wayland\_xdg\_get\_wm\_base\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{struct\ }seat\ seat;}
 \DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_set\_maximized(lv\_wl\_window\_xdg\_t\ *\ xdg,\ \textcolor{keywordtype}{bool}\ maximized);}
-\DoxyCodeLine{00183\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_set\_minimized(lv\_wl\_window\_xdg\_t\ *\ xdg);}
-\DoxyCodeLine{00184\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_set\_fullscreen(lv\_wl\_window\_xdg\_t\ *\ xdg,\ \textcolor{keywordtype}{bool}\ fullscreen,}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}\ wl\_output\ *\ output);}
-\DoxyCodeLine{00186\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wl\_xdg\_create\_window(\textcolor{keyword}{struct}\ xdg\_wm\_base\ *\ xdg\_wm,\ lv\_wl\_window\_t\ *\ window,}
-\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ title);}
-\DoxyCodeLine{00188\ \textcolor{keywordtype}{bool}\ lv\_wayland\_xdg\_is\_resize\_pending(lv\_wl\_window\_t\ *\ window);}
-\DoxyCodeLine{00189\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_configure\_surface(lv\_wl\_window\_t\ *\ window);}
-\DoxyCodeLine{00190\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_resize(lv\_wl\_window\_t\ *\ window);}
-\DoxyCodeLine{00191\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_delete\_window(lv\_wl\_window\_xdg\_t\ *\ xdg);}
-\DoxyCodeLine{00192\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_deinit(\textcolor{keywordtype}{void});}
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00194\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00195\ \textcolor{comment}{\ *\ \ \ \ \ \ Input}}
-\DoxyCodeLine{00196\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00197\ }
-\DoxyCodeLine{00198\ \textcolor{keywordtype}{void}\ lv\_wayland\_seat\_init(lv\_wl\_seat\_t\ *\ seat,\ \textcolor{keyword}{struct}\ wl\_registry\ *\ registry,\ uint32\_t\ name,\ uint32\_t\ version);}
-\DoxyCodeLine{00199\ \textcolor{keywordtype}{void}\ lv\_wayland\_seat\_deinit(lv\_wl\_seat\_t\ *\ seat);}
-\DoxyCodeLine{00200\ }
-\DoxyCodeLine{00201\ lv\_wl\_seat\_pointer\_t\ *\ lv\_wayland\_seat\_pointer\_create(\textcolor{keyword}{struct}\ wl\_seat\ *\ seat,\ \textcolor{keyword}{struct}\ wl\_surface\ *\ surface);}
-\DoxyCodeLine{00202\ \textcolor{keywordtype}{void}\ lv\_wayland\_seat\_pointer\_delete(lv\_wl\_seat\_pointer\_t\ *\ seat\_pointer);}
-\DoxyCodeLine{00203\ }
-\DoxyCodeLine{00204\ lv\_wl\_seat\_touch\_t\ *\ lv\_wayland\_seat\_touch\_create(\textcolor{keyword}{struct}\ wl\_seat\ *\ seat);}
-\DoxyCodeLine{00205\ \textcolor{keywordtype}{void}\ lv\_wayland\_seat\_touch\_delete(lv\_wl\_seat\_touch\_t\ *\ seat\_touch);}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ lv\_wl\_seat\_keyboard\_t\ *\ lv\_wayland\_seat\_keyboard\_create(\textcolor{keyword}{struct}\ wl\_seat\ *\ seat);}
-\DoxyCodeLine{00208\ \textcolor{keywordtype}{void}\ lv\_wayland\_seat\_keyboard\_delete(lv\_wl\_seat\_keyboard\_t\ *\ seat\_keyboard);}
-\DoxyCodeLine{00209\ }
-\DoxyCodeLine{00210\ \textcolor{comment}{/*\ Updates\ indev's\ driver\ data\ with\ the\ given\ 'read\_cb'\ to\ 'new\_driver\_data'\ */}}
-\DoxyCodeLine{00211\ \textcolor{keywordtype}{void}\ lv\_wayland\_update\_indevs(lv\_indev\_read\_cb\_t\ read\_cb,\ \textcolor{keywordtype}{void}\ *\ new\_driver\_data);}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_WAYLAND\ */}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00214\ }
-\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00216\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keyword}{struct\ }graphic\_object\ *\ touch\_obj;}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{struct\ }graphic\_object\ *\ pointer\_obj;}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{struct\ }graphic\_object\ *\ keyboard\_obj;}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \ \ \ \ \mbox{\hyperlink{structlv__ll__t}{lv\_ll\_t}}\ window\_ll;}
+\DoxyCodeLine{00187\ \ \ \ \ \mbox{\hyperlink{struct__lv__timer__t}{lv\_timer\_t}}\ *\ cycle\_timer;}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{bool}\ cursor\_flush\_pending;}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{struct\ }pollfd\ wayland\_pfd;}
+\DoxyCodeLine{00191\ \};}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{struct\ }window\ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ lv\_disp;}
+\DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_pointer;}
+\DoxyCodeLine{00196\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_pointeraxis;}
+\DoxyCodeLine{00197\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_touch;}
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{struct__lv__indev__t}{lv\_indev\_t}}\ *\ lv\_indev\_keyboard;}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\_draw\_buf\_t}}\ *\ lv\_draw\_buf;}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ lv\_wayland\_display\_close\_f\_t\ close\_cb;}
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{struct\ }lv\_wayland\_context\ *\ wl\_ctx;}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \textcolor{comment}{/*\ The\ current\ physical\ assigned\ output\ */}}
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_output\ *\ assigned\_output;}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{struct\ }xdg\_surface\ *\ xdg\_surface;}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{struct\ }xdg\_toplevel\ *\ xdg\_toplevel;}
+\DoxyCodeLine{00209\ \ \ \ \ uint32\_t\ wm\_capabilities;}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{struct\ }graphic\_object\ *\ body;}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ cache[DMG\_CACHE\_CAPACITY];}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ start;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ end;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ size;}
+\DoxyCodeLine{00217\ \ \ \ \ \}\ dmg\_cache;}
 \DoxyCodeLine{00218\ }
-\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_WAYLAND\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_WINDOW\_DECORATIONS}}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keyword}{struct\ }graphic\_object\ *\ decoration[NUM\_DECORATIONS];}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{int}\ width;}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{int}\ height;}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordtype}{bool}\ resize\_pending;}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ resize\_width;}
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{int}\ resize\_height;}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keywordtype}{bool}\ flush\_pending;}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordtype}{bool}\ shall\_close;}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{bool}\ closed;}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{bool}\ maximized;}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{bool}\ fullscreen;}
+\DoxyCodeLine{00235\ \ \ \ \ uint32\_t\ frame\_counter;}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_window\_configured;}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_USE\_DMABUF}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{/*\ XDG/DMABUF\ synchronization\ fields\ */}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{bool}\ dmabuf\_resize\_pending;}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{bool}\ surface\_configured;}
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{bool}\ configure\_acknowledged;}
+\DoxyCodeLine{00243\ \ \ \ \ uint32\_t\ configure\_serial;}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_WINDOW\_DECORATIONS}}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{struct\ }buffer\ *\ decorators\_buf[8];}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00248\ \};}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_USE\_DMABUF}}
+\DoxyCodeLine{00251\ \textcolor{keyword}{struct\ }buffer\ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{int}\ busy;}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keyword}{struct\ }window\ *\ window;}
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordtype}{int}\ plane\_count;}
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordtype}{int}\ dmabuf\_fds[MAX\_BUFFER\_PLANES];}
+\DoxyCodeLine{00256\ \ \ \ \ uint32\_t\ strides[MAX\_BUFFER\_PLANES];}
+\DoxyCodeLine{00257\ \ \ \ \ uint32\_t\ offsets[MAX\_BUFFER\_PLANES];}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{struct\ }wl\_buffer\ *\ buffer;}
+\DoxyCodeLine{00259\ \ \ \ \ uint32\_t\ width;}
+\DoxyCodeLine{00260\ \ \ \ \ uint32\_t\ height;}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{void}\ *\ buf\_base[MAX\_BUFFER\_PLANES];}
+\DoxyCodeLine{00262\ \ \ \ \ \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\_draw\_buf\_t}}\ *\ lv\_draw\_buf;}
+\DoxyCodeLine{00263\ \};}
+\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00267\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00271\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00272\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \textcolor{keyword}{extern}\ \textcolor{keyword}{struct\ }lv\_wayland\_context\ lv\_wl\_ctx;}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00277\ \textcolor{comment}{\ *\ \ \ \ \ \ Driver}}
+\DoxyCodeLine{00278\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00280\ \textcolor{keywordtype}{void}\ lv\_wayland\_init(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00281\ \textcolor{keywordtype}{void}\ lv\_wayland\_deinit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00282\ \textcolor{keywordtype}{void}\ lv\_wayland\_wait\_flush\_cb(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp);}
+\DoxyCodeLine{00283\ \textcolor{keywordtype}{void}\ lv\_wayland\_event\_cb(\mbox{\hyperlink{struct__lv__event__t}{lv\_event\_t}}\ *\ e);}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00286\ \textcolor{comment}{\ *\ \ \ \ \ \ Window}}
+\DoxyCodeLine{00287\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }wl\_callback\_listener\ *\ lv\_wayland\_window\_get\_wl\_surface\_frame\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ \textcolor{keywordtype}{void}\ lv\_wayland\_window\_draw(\textcolor{keyword}{struct}\ window\ *\ window,\ uint32\_t\ width,\ uint32\_t\ height);}
+\DoxyCodeLine{00292\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_window\_resize(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00293\ \textcolor{keywordtype}{void}\ lv\_wayland\_window\_destroy(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00294\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_WINDOW\_DECORATIONS}}
+\DoxyCodeLine{00295\ uint32\_t\ lv\_wayland\_window\_decoration\_create\_all(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00296\ \textcolor{keywordtype}{void}\ lv\_wayland\_window\_decoration\_detach\_all(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00297\ \textcolor{keywordtype}{bool}\ lv\_wayland\_window\_decoration\_create(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ decoration,\ \textcolor{keywordtype}{int}\ window\_width,}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ window\_height);}
+\DoxyCodeLine{00299\ \textcolor{keywordtype}{bool}\ lv\_wayland\_window\_decoration\_attach(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ decoration,}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\ decoration\_buffer,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ parent);}
+\DoxyCodeLine{00301\ \textcolor{keywordtype}{void}\ lv\_wayland\_window\_decoration\_detach(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ decoration);}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00305\ \textcolor{comment}{\ *\ \ Window\ Management}}
+\DoxyCodeLine{00306\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }xdg\_surface\_listener\ *\ lv\_wayland\_xdg\_shell\_get\_surface\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00309\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }xdg\_toplevel\_listener\ *\ lv\_wayland\_xdg\_shell\_get\_toplevel\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00310\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }xdg\_wm\_base\_listener\ *\ lv\_wayland\_xdg\_shell\_get\_wm\_base\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00311\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_xdg\_shell\_set\_maximized(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keywordtype}{bool}\ maximized);}
+\DoxyCodeLine{00312\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_xdg\_shell\_set\_minimized(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00313\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_xdg\_shell\_set\_fullscreen(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keywordtype}{bool}\ fullscreen,\ \textcolor{keyword}{struct}\ wl\_output\ *\ output);}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_USE\_DMABUF}}
+\DoxyCodeLine{00315\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_shell\_ack\_configure(\textcolor{keyword}{struct}\ window\ *\ window,\ uint32\_t\ serial);}
+\DoxyCodeLine{00316\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00317\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_xdg\_shell\_create\_window(\textcolor{keyword}{struct}\ lv\_wayland\_context\ *\ app,\ \textcolor{keyword}{struct}\ window\ *\ window,}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ title);}
+\DoxyCodeLine{00319\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_shell\_configure\_surface(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00320\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_xdg\_shell\_destroy\_window\_toplevel(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00321\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_xdg\_shell\_destroy\_window\_surface(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00322\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_shell\_handle\_pointer\_event(\textcolor{keyword}{struct}\ lv\_wayland\_context\ *\ app,\ uint32\_t\ serial,\ uint32\_t\ button,}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ state);}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ lv\_wayland\_xdg\_shell\_get\_cursor\_name(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ lv\_wayland\_context\ *\ app);}
+\DoxyCodeLine{00326\ \textcolor{keywordtype}{void}\ lv\_wayland\_xdg\_shell\_deinit(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00329\ \textcolor{comment}{\ *\ \ \ \ \ \ SHM}}
+\DoxyCodeLine{00330\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{keywordtype}{void}\ lv\_wayland\_shm\_set\_interface(shm\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ wl\_registry\ *\ registry,\ uint32\_t\ name,}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ interface,\ uint32\_t\ version);}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \textcolor{keyword}{struct\ }graphic\_object\ *\ lv\_wayland\_shm\_on\_graphical\_object\_creation(shm\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ obj);}
+\DoxyCodeLine{00336\ \textcolor{keywordtype}{void}\ lv\_wayland\_shm\_on\_graphical\_object\_destruction(shm\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ obj);}
+\DoxyCodeLine{00337\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_shm\_set\_draw\_buffers(shm\_ctx\_t\ *\ context,\ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ display,\ \textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00338\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_shm\_create\_draw\_buffers(shm\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00339\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_shm\_resize\_window(shm\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ window\ *\ window,\ int32\_t\ width,\ int32\_t\ height);}
+\DoxyCodeLine{00340\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_shm\_is\_ready(shm\_ctx\_t\ *\ context);}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \textcolor{keywordtype}{void}\ lv\_wayland\_shm\_delete\_draw\_buffers(shm\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00343\ \textcolor{keywordtype}{void}\ lv\_wayland\_shm\_initalize\_context(shm\_ctx\_t\ *\ context);}
+\DoxyCodeLine{00344\ \textcolor{keywordtype}{void}\ lv\_wayland\_shm\_deinit(shm\_ctx\_t\ *\ context);}
+\DoxyCodeLine{00345\ \textcolor{keywordtype}{void}\ lv\_wayland\_shm\_flush\_partial\_mode(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ color\_p);}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \textcolor{keyword}{struct\ }wl\_cursor\_theme\ *\ lv\_wayland\_shm\_load\_cursor\_theme(shm\_ctx\_t\ *\ context);}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00350\ \textcolor{comment}{\ *\ \ \ \ \ \ DMABUF}}
+\DoxyCodeLine{00351\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00353\ \textcolor{keywordtype}{void}\ lv\_wayland\_dmabuf\_set\_interface(dmabuf\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ wl\_registry\ *\ registry,\ uint32\_t\ name,}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ interface,\ uint32\_t\ version);}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \textcolor{keyword}{struct\ }graphic\_object\ *\ lv\_wayland\_dmabuf\_on\_graphical\_object\_creation(dmabuf\_ctx\_t\ *\ context,}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct}\ graphic\_object\ *\ obj);}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \textcolor{keywordtype}{void}\ lv\_wayland\_dmabuf\_on\_graphical\_object\_destruction(dmabuf\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ obj);}
+\DoxyCodeLine{00360\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_dmabuf\_set\_draw\_buffers(dmabuf\_ctx\_t\ *\ context,\ \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ display);}
+\DoxyCodeLine{00361\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_dmabuf\_create\_draw\_buffers(dmabuf\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00362\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_dmabuf\_resize\_window(dmabuf\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height);}
+\DoxyCodeLine{00363\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_wayland\_dmabuf\_is\_ready(dmabuf\_ctx\_t\ *\ context);}
+\DoxyCodeLine{00364\ \textcolor{keywordtype}{void}\ destroy\_decorators\_buf(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ decoration);}
+\DoxyCodeLine{00365\ \textcolor{keywordtype}{void}\ lv\_wayland\_dmabuf\_destroy\_draw\_buffers(dmabuf\_ctx\_t\ *\ context,\ \textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00366\ \textcolor{keywordtype}{void}\ lv\_wayland\_dmabuf\_initalize\_context(dmabuf\_ctx\_t\ *\ context);}
+\DoxyCodeLine{00367\ \textcolor{keywordtype}{void}\ lv\_wayland\_dmabuf\_deinit(dmabuf\_ctx\_t\ *\ context);}
+\DoxyCodeLine{00368\ \textcolor{keywordtype}{void}\ lv\_wayland\_dmabuf\_flush\_full\_mode(\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\_display\_t}}\ *\ disp,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *\ color\_p);}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\#if\ LV\_WAYLAND\_WINDOW\_DECORATIONS}}
+\DoxyCodeLine{00371\ \textcolor{keyword}{struct\ }buffer\ *\ dmabuf\_acquire\_pool\_buffer(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keyword}{struct}\ graphic\_object\ *\ decoration);}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00373\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00374\ \textcolor{comment}{\ *\ \ \ \ \ \ SME}}
+\DoxyCodeLine{00375\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }smm\_events\ *\ lv\_wayland\_sme\_get\_events(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00380\ \textcolor{comment}{\ *\ \ \ \ \ \ Seat}}
+\DoxyCodeLine{00381\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }wl\_seat\_listener\ *\ lv\_wayland\_seat\_get\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00386\ \textcolor{comment}{\ *\ \ \ \ \ \ Input}}
+\DoxyCodeLine{00387\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }wl\_keyboard\_listener\ *\ lv\_wayland\_keyboard\_get\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00390\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }wl\_pointer\_listener\ *\ lv\_wayland\_pointer\_get\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00391\ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }wl\_touch\_listener\ *\ lv\_wayland\_touch\_get\_listener(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00394\ \textcolor{comment}{\ *\ \ \ \ \ \ Cache}}
+\DoxyCodeLine{00395\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \textcolor{keywordtype}{void}\ lv\_wayland\_cache\_add\_area(\textcolor{keyword}{struct}\ window\ *\ window,\ smm\_buffer\_t\ *\ buf,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structlv__area__t}{lv\_area\_t}}\ *\ area);}
+\DoxyCodeLine{00398\ \textcolor{keywordtype}{void}\ lv\_wayland\_cache\_clear(\textcolor{keyword}{struct}\ window\ *\ window);}
+\DoxyCodeLine{00399\ \textcolor{keywordtype}{void}\ lv\_wayland\_cache\_apply\_areas(\textcolor{keyword}{struct}\ window\ *\ window,\ \textcolor{keywordtype}{void}\ *\ dest,\ \textcolor{keywordtype}{void}\ *\ src,\ smm\_buffer\_t\ *\ src\_buf);}
+\DoxyCodeLine{00400\ \textcolor{keywordtype}{void}\ lv\_wayland\_cache\_purge(\textcolor{keyword}{struct}\ window\ *\ window,\ smm\_buffer\_t\ *\ buf);}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ LV\_USE\_WAYLAND\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00403\ }
+\DoxyCodeLine{00404\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00405\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00406\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00408\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_WAYLAND\_PRIVATE\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

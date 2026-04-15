@@ -64,8 +64,7 @@ enum \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\
 , {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OUT\+\_\+\+OF\+\_\+\+MEM}
 , {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+INV\+\_\+\+PARAM}
 , \newline
-{\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+DRIVE\+\_\+\+LETTER\+\_\+\+ALREADY\+\_\+\+USED}
-, {\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+UNKNOWN}
+{\bfseries LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+UNKNOWN}
  \}
 \item 
 enum \mbox{\hyperlink{lv__fs_8h_a8360657f94ea531412909c3e9b39223c}{lv\+\_\+fs\+\_\+mode\+\_\+t}} \{ {\bfseries LV\+\_\+\+FS\+\_\+\+MODE\+\_\+\+WR} = 0x01
@@ -85,8 +84,6 @@ void \mbox{\hyperlink{lv__fs_8h_a0c8cc12755f7515de54ec9064e83af75}{lv\+\_\+fs\+\
 void \mbox{\hyperlink{lv__fs_8h_a2540b36d20b26416d944092a818b7be6}{lv\+\_\+fs\+\_\+drv\+\_\+register}} (\mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*}drv)
 \item 
 \mbox{\hyperlink{struct__lv__fs__drv__t}{lv\+\_\+fs\+\_\+drv\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_a5981cd3ba5515329a8a52065594155db}{lv\+\_\+fs\+\_\+get\+\_\+drv}} (char letter)
-\item 
-void \mbox{\hyperlink{lv__fs_8h_a97c2868a79e19150e25eccde22eabde7}{lv\+\_\+fs\+\_\+remove\+\_\+drive}} (char letter)
 \item 
 bool \mbox{\hyperlink{lv__fs_8h_a4afefd5dbe151665fa2a24ad0a1eeff8}{lv\+\_\+fs\+\_\+is\+\_\+ready}} (char letter)
 \item 
@@ -111,8 +108,6 @@ void \mbox{\hyperlink{lv__fs_8h_ab3e0455665065d99a2148191e1b7de6f}{lv\+\_\+fs\+\
 \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a6c0b8339b7316bce1ac4866e328176ee}{lv\+\_\+fs\+\_\+path\+\_\+get\+\_\+size}} (const char \texorpdfstring{$\ast$}{*}path, uint32\+\_\+t \texorpdfstring{$\ast$}{*}size\+\_\+res)
 \item 
 \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a4ab166663cd6a84f392954d14ad55096}{lv\+\_\+fs\+\_\+load\+\_\+to\+\_\+buf}} (void \texorpdfstring{$\ast$}{*}buf, uint32\+\_\+t buf\+\_\+size, const char \texorpdfstring{$\ast$}{*}path)
-\item 
-void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__fs_8h_a94f04b4264bfe2134ba76c2ba176dcec}{lv\+\_\+fs\+\_\+load\+\_\+with\+\_\+alloc}} (const char \texorpdfstring{$\ast$}{*}path, uint32\+\_\+t \texorpdfstring{$\ast$}{*}size)
 \item 
 \mbox{\hyperlink{lv__fs_8h_ad9977cbbc40ac75c2e47ddb04871de30}{lv\+\_\+fs\+\_\+res\+\_\+t}} \mbox{\hyperlink{lv__fs_8h_a6380108bb1bb9c1a614e22563e5b557c}{lv\+\_\+fs\+\_\+dir\+\_\+open}} (\mbox{\hyperlink{structlv__fs__dir__t}{lv\+\_\+fs\+\_\+dir\+\_\+t}} \texorpdfstring{$\ast$}{*}rddir\+\_\+p, const char \texorpdfstring{$\ast$}{*}path)
 \item 
@@ -374,22 +369,6 @@ Read the contents of a file at the given path into a buffer.
 \begin{DoxyReturn}{Rezultat(i)}
 LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK on success, LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+UNKNOWN if fewer than {\ttfamily buf\+\_\+size} bytes could be read from the file, or any error from {\ttfamily lv\+\_\+fs\+\_\+res\+\_\+t} 
 \end{DoxyReturn}
-\Hypertarget{lv__fs_8h_a94f04b4264bfe2134ba76c2ba176dcec}\label{lv__fs_8h_a94f04b4264bfe2134ba76c2ba176dcec} 
-\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_load\_with\_alloc@{lv\_fs\_load\_with\_alloc}}
-\index{lv\_fs\_load\_with\_alloc@{lv\_fs\_load\_with\_alloc}!lv\_fs.h@{lv\_fs.h}}
-\doxysubsubsection{\texorpdfstring{lv\_fs\_load\_with\_alloc()}{lv\_fs\_load\_with\_alloc()}}
-{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} lv\+\_\+fs\+\_\+load\+\_\+with\+\_\+alloc (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{path,  }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{size }\end{DoxyParamCaption})}
-
-Load a file into a memory buffer. 
-\begin{DoxyParams}{Parametri}
-{\em filename} & the path of the file \\
-\hline
-{\em size} & pointer to store the size of the loaded file \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-a pointer to the loaded file buffer, or NULL if an error occurred 
-\end{DoxyReturn}
 \Hypertarget{lv__fs_8h_ab3e0455665065d99a2148191e1b7de6f}\label{lv__fs_8h_ab3e0455665065d99a2148191e1b7de6f} 
 \index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_make\_path\_from\_buffer@{lv\_fs\_make\_path\_from\_buffer}}
 \index{lv\_fs\_make\_path\_from\_buffer@{lv\_fs\_make\_path\_from\_buffer}!lv\_fs.h@{lv\_fs.h}}
@@ -493,17 +472,6 @@ Read from a file
 \begin{DoxyReturn}{Rezultat(i)}
 LV\+\_\+\+FS\+\_\+\+RES\+\_\+\+OK or any error from lv\+\_\+fs\+\_\+res\+\_\+t enum 
 \end{DoxyReturn}
-\Hypertarget{lv__fs_8h_a97c2868a79e19150e25eccde22eabde7}\label{lv__fs_8h_a97c2868a79e19150e25eccde22eabde7} 
-\index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_remove\_drive@{lv\_fs\_remove\_drive}}
-\index{lv\_fs\_remove\_drive@{lv\_fs\_remove\_drive}!lv\_fs.h@{lv\_fs.h}}
-\doxysubsubsection{\texorpdfstring{lv\_fs\_remove\_drive()}{lv\_fs\_remove\_drive()}}
-{\footnotesize\ttfamily void lv\+\_\+fs\+\_\+remove\+\_\+drive (\begin{DoxyParamCaption}\item[{char}]{letter }\end{DoxyParamCaption})}
-
-Remove a drive and call its remove function if available 
-\begin{DoxyParams}{Parametri}
-{\em letter} & letter identifier of the drive to remove \\
-\hline
-\end{DoxyParams}
 \Hypertarget{lv__fs_8h_a0bfb4e9168e6d4029713ac8016dbb2a5}\label{lv__fs_8h_a0bfb4e9168e6d4029713ac8016dbb2a5} 
 \index{lv\_fs.h@{lv\_fs.h}!lv\_fs\_seek@{lv\_fs\_seek}}
 \index{lv\_fs\_seek@{lv\_fs\_seek}!lv\_fs.h@{lv\_fs.h}}

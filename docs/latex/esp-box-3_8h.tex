@@ -16,7 +16,6 @@ ESP BSP\+: ESP-\/\+BOX-\/3.
 {\ttfamily \#include "{}iot\+\_\+button.\+h"{}}\newline
 {\ttfamily \#include "{}bsp/config.\+h"{}}\newline
 {\ttfamily \#include "{}bsp/display.\+h"{}}\newline
-{\ttfamily \#include "{}iot\+\_\+sensor\+\_\+hub.\+h"{}}\newline
 {\ttfamily \#include "{}lvgl.\+h"{}}\newline
 {\ttfamily \#include "{}esp\+\_\+lvgl\+\_\+port.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}esp-\/box-\/3.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko esp-\/box-\/3.h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
@@ -39,9 +38,7 @@ Graf prikazuje datoteke, ki posredno ali neposredno vključujejo tekočo datotek
 struct \mbox{\hyperlink{structbsp__sdcard__cfg__t}{bsp\+\_\+sdcard\+\_\+cfg\+\_\+t}}
 \begin{DoxyCompactList}\small\item\em BSP SD card configuration structure. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structbsp__display__cfg__t}{bsp\+\_\+display\+\_\+cfg\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em BSP display configuration structure. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structbsp__sensor__config__t}{bsp\+\_\+sensor\+\_\+config\+\_\+t}}
-\begin{DoxyCompactList}\small\item\em BSP sensor configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em BSP display configuration structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Makro deklaracije}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,15 +60,9 @@ struct \mbox{\hyperlink{structbsp__sensor__config__t}{bsp\+\_\+sensor\+\_\+confi
 \item 
 \#define {\bfseries BSP\+\_\+\+CAPS\+\_\+\+IMU}~1
 \item 
-\#define {\bfseries BSP\+\_\+\+CAPS\+\_\+\+HUMITURE}~1
-\item 
 \#define {\bfseries BSP\+\_\+\+I2\+C\+\_\+\+SCL}~(GPIO\+\_\+\+NUM\+\_\+18)
 \item 
 \#define {\bfseries BSP\+\_\+\+I2\+C\+\_\+\+SDA}~(GPIO\+\_\+\+NUM\+\_\+8)
-\item 
-\#define {\bfseries BSP\+\_\+\+I2\+C\+\_\+\+DOCK\+\_\+\+SCL}~(GPIO\+\_\+\+NUM\+\_\+40)
-\item 
-\#define {\bfseries BSP\+\_\+\+I2\+C\+\_\+\+DOCK\+\_\+\+SDA}~(GPIO\+\_\+\+NUM\+\_\+41)
 \item 
 \#define {\bfseries BSP\+\_\+\+I2\+S\+\_\+\+SCLK}~(GPIO\+\_\+\+NUM\+\_\+17)
 \item 
@@ -243,9 +234,7 @@ esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g04__display_ga4528c90bb660dfe358849
 void \mbox{\hyperlink{group__g04__display_ga444b52fd41e46fc4d98fbb90b66a654c}{bsp\+\_\+display\+\_\+rotate}} (\mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\+\_\+display\+\_\+t}} \texorpdfstring{$\ast$}{*}disp, lv\+\_\+disp\+\_\+rotation\+\_\+t rotation)
 \begin{DoxyCompactList}\small\item\em Rotate screen. \end{DoxyCompactList}\item 
 esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g05__buttons_ga709ba5c932018eb218885bb20b27c6c0}{bsp\+\_\+iot\+\_\+button\+\_\+create}} (\mbox{\hyperlink{structbutton__dev__t}{button\+\_\+handle\+\_\+t}} btn\+\_\+array\mbox{[}$\,$\mbox{]}, int \texorpdfstring{$\ast$}{*}btn\+\_\+cnt, int btn\+\_\+array\+\_\+size)
-\begin{DoxyCompactList}\small\item\em Initialize all buttons. \end{DoxyCompactList}\item 
-esp\+\_\+err\+\_\+t \mbox{\hyperlink{group__g10__sensors_ga78df0851c9634f986cefa631bb0f93dd}{bsp\+\_\+sensor\+\_\+init}} (const \mbox{\hyperlink{structbsp__sensor__config__t}{bsp\+\_\+sensor\+\_\+config\+\_\+t}} \texorpdfstring{$\ast$}{*}cfg, sensor\+\_\+handle\+\_\+t \texorpdfstring{$\ast$}{*}sensor\+\_\+handle)
-\begin{DoxyCompactList}\small\item\em Initialize a sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initialize all buttons. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Podroben opis}

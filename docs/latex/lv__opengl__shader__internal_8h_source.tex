@@ -79,66 +79,48 @@
 \DoxyCodeLine{00079\ \ \ \ \ uint32\_t\ id;}
 \DoxyCodeLine{00080\ \}\ lv\_opengl\_shader\_program\_t;}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ name;}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_shader\_define\_t\ *\ permutations;}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ permutations\_len;}
-\DoxyCodeLine{00086\ \}\ lv\_opengl\_shader\_params\_t;}
+\DoxyCodeLine{00082\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00083\ \ \ \ \ LV\_OPENGL\_GLSL\_VERSION\_300ES,}
+\DoxyCodeLine{00084\ \ \ \ \ LV\_OPENGL\_GLSL\_VERSION\_100,}
+\DoxyCodeLine{00085\ \ \ \ \ LV\_OPENGL\_GLSL\_VERSION\_LAST,}
+\DoxyCodeLine{00086\ \}\ lv\_opengl\_glsl\_version;}
 \DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
-\DoxyCodeLine{00089\ \ \ \ \ LV\_OPENGL\_GLSL\_VERSION\_300ES,}
-\DoxyCodeLine{00090\ \ \ \ \ LV\_OPENGL\_GLSL\_VERSION\_330,}
-\DoxyCodeLine{00091\ \ \ \ \ LV\_OPENGL\_GLSL\_VERSION\_100,}
-\DoxyCodeLine{00092\ \ \ \ \ LV\_OPENGL\_GLSL\_VERSION\_LAST,}
-\DoxyCodeLine{00093\ \}\ lv\_opengl\_glsl\_version\_t;}
+\DoxyCodeLine{00088\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{char}\ *\ lv\_opengl\_shader\_manager\_process\_includes(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ c\_src,\ \textcolor{keyword}{const}\ lv\_opengl\_shader\_t\ *\ src\_includes,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_items);}
 \DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00096\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00097\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00095\ lv\_opengl\_shader\_program\_t\ *\ lv\_opengl\_shader\_program\_create(uint32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_program\_destroy(lv\_opengl\_shader\_program\_t\ *\ program);}
+\DoxyCodeLine{00097\ GLuint\ lv\_opengl\_shader\_program\_get\_id(lv\_opengl\_shader\_program\_t\ *\ program);}
 \DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \textcolor{keywordtype}{char}\ *\ lv\_opengl\_shader\_manager\_process\_includes(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ c\_src,\ \textcolor{keyword}{const}\ lv\_opengl\_shader\_t\ *\ src\_includes,}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_items);}
-\DoxyCodeLine{00101\ }
-\DoxyCodeLine{00102\ lv\_opengl\_shader\_program\_t\ *\ lv\_opengl\_shader\_program\_create(uint32\_t\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_program\_destroy(lv\_opengl\_shader\_program\_t\ *\ program);}
-\DoxyCodeLine{00104\ GLuint\ lv\_opengl\_shader\_program\_get\_id(lv\_opengl\_shader\_program\_t\ *\ program);}
-\DoxyCodeLine{00105\ }
-\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_manager\_init(lv\_opengl\_shader\_manager\_t\ *\ manager,\ \textcolor{keyword}{const}\ lv\_opengl\_shader\_t\ *\ sources,}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ vert\_src,}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ frag\_src);}
-\DoxyCodeLine{00109\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_manager\_deinit(lv\_opengl\_shader\_manager\_t\ *\ manager);}
-\DoxyCodeLine{00110\ uint32\_t\ lv\_opengl\_shader\_hash(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ value);}
-\DoxyCodeLine{00111\ GLuint\ lv\_opengl\_shader\_manager\_get\_texture(lv\_opengl\_shader\_manager\_t\ *\ manager,\ uint32\_t\ hash);}
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_manager\_store\_texture(lv\_opengl\_shader\_manager\_t\ *\ manager,\ uint32\_t\ hash,\ GLuint\ \textcolor{keywordtype}{id});}
-\DoxyCodeLine{00113\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_opengl\_shader\_manager\_select\_shader(lv\_opengl\_shader\_manager\_t\ *\ shader,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ shader\_identifier,}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_shader\_define\_t\ *\ permutations,\ \textcolor{keywordtype}{size\_t}\ permutations\_len,}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_opengl\_glsl\_version\_t\ glsl\_version,\ uint32\_t\ *\ out\_hash);}
-\DoxyCodeLine{00116\ lv\_opengl\_shader\_program\_t\ *\ lv\_opengl\_shader\_manager\_get\_program(lv\_opengl\_shader\_manager\_t\ *\ manager,}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ fragment\_shader\_hash,}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ vertex\_shader\_hash);}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ lv\_opengles\_glsl\_version\_to\_string(lv\_opengl\_glsl\_version\_t\ version);}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ lv\_opengl\_shader\_program\_t\ *\ lv\_opengl\_shader\_manager\_compile\_program(lv\_opengl\_shader\_manager\_t\ *\ manager,}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_shader\_params\_t\ *\ frag\_shader,}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_shader\_params\_t\ *\ vert\_shader,}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_opengl\_glsl\_version\_t\ version);}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ lv\_opengl\_shader\_program\_t\ *\ lv\_opengl\_shader\_manager\_compile\_program\_best\_version(}
-\DoxyCodeLine{00128\ \ \ \ \ lv\_opengl\_shader\_manager\_t\ *\ manager,}
-\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_shader\_params\_t\ *\ frag\_shader,}
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_shader\_params\_t\ *\ vert\_shader,}
-\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_glsl\_version\_t\ *\ versions,\ \textcolor{keywordtype}{size\_t}\ version\_count);}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00134\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00135\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00138\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00140\ }
-\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_OPENGLES*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_OPENGL\_SHADER\_INTERNAL\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_manager\_init(lv\_opengl\_shader\_manager\_t\ *\ manager,\ \textcolor{keyword}{const}\ lv\_opengl\_shader\_t\ *\ sources,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ vert\_src,}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ frag\_src);}
+\DoxyCodeLine{00102\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_manager\_deinit(lv\_opengl\_shader\_manager\_t\ *\ manager);}
+\DoxyCodeLine{00103\ uint32\_t\ lv\_opengl\_shader\_hash(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ value);}
+\DoxyCodeLine{00104\ GLuint\ lv\_opengl\_shader\_manager\_get\_texture(lv\_opengl\_shader\_manager\_t\ *\ manager,\ uint32\_t\ hash);}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ lv\_opengl\_shader\_manager\_store\_texture(lv\_opengl\_shader\_manager\_t\ *\ manager,\ uint32\_t\ hash,\ GLuint\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00106\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__types_8h_a5b0d1e3e8ccbb62b04ba2a6688ead275}{lv\_result\_t}}\ lv\_opengl\_shader\_manager\_select\_shader(lv\_opengl\_shader\_manager\_t\ *\ shader,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ shader\_identifier,}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ lv\_opengl\_shader\_define\_t\ *\ permutations,\ \textcolor{keywordtype}{size\_t}\ permutations\_len,}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lv\_opengl\_glsl\_version\ glsl\_version,\ uint32\_t\ *\ out\_hash);}
+\DoxyCodeLine{00109\ lv\_opengl\_shader\_program\_t\ *\ lv\_opengl\_shader\_manager\_get\_program(lv\_opengl\_shader\_manager\_t\ *\ manager,}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ fragment\_shader\_hash,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ vertex\_shader\_hash);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\ lv\_opengles\_glsl\_version\_to\_string(lv\_opengl\_glsl\_version\ version);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00120\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_OPENGLES*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_OPENGL\_SHADER\_INTERNAL\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

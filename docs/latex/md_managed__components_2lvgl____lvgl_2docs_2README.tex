@@ -1,8 +1,8 @@
 \chapter{Documentation}
 \hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README}{}\label{md_managed__components_2lvgl____lvgl_2docs_2README}\index{Documentation@{Documentation}}
-\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md488}%
-\Hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md488}%
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md489}{}\doxysection{\texorpdfstring{Building}{Building}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md489}
+\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md421}%
+\Hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md421}%
+\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md422}{}\doxysection{\texorpdfstring{Building}{Building}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md422}
 Building the documentation is easy. Here are the requirements\+:
 
 
@@ -14,57 +14,94 @@ Building the documentation is easy. Here are the requirements\+:
 
 Once Python is installed \begin{DoxyVerb}pip install -r requirements.txt
 \end{DoxyVerb}
- will install all the prerequisite packages.
+ will install all the prerequisite packages\+:
 
-To build the documentation on Windows\+: \begin{DoxyVerb}python build.py html
-\end{DoxyVerb}
- On Linux\+: \begin{DoxyVerb}python3 build.py html
-\end{DoxyVerb}
- Intermediate files are normally prepared in {\ttfamily ./docs/intermediate/} and the final documentation will normally appear in {\ttfamily ./docs/build/html/}. Both of these directories can be overridden using environment variables. See documentation in {\ttfamily build.\+py} header comment for details.
 
-If the list of document source files (including the {\ttfamily .h} files in the {\ttfamily ./src/} directory) has changed (names or paths)\+: \begin{DoxyVerb}python build.py clean
+\begin{DoxyItemize}
+\item Sphinx
+\item breathe
+\item imagesize
+\item importlib-\/metadata
+\item sphinx-\/rtd-\/theme
+\item sphinx-\/sitemap
+\item sphinxcontrib-\/applehelp
+\item sphinxcontrib-\/devhelp
+\item sphinxcontrib-\/htmlhelp
+\item sphinxcontrib-\/jsmath
+\item sphinxcontrib-\/qthelp
+\item sphinxcontrib-\/serializinghtml
+\item sphinxcontrib-\/mermaid==0.\+9.\+2
+\item sphinx-\/copybutton
+\item sphinx-\/design
+\item typing-\/extensions
+\item sphinx-\/reredirects
+\item dirsync
+\item furo
+\item accessible-\/pygments
+\end{DoxyItemize}
+
+Now you are ready to build the documentation\+: \begin{DoxyVerb}python build.py html
 \end{DoxyVerb}
- Will remove the old intermediate and build files, eliminating the orphan files that would otherwise result.
+ or if you are on a Unix like OS\+: \begin{DoxyVerb}python3 build.py html
+\end{DoxyVerb}
+ Intermediate files are normally prepared in {\ttfamily ./docs/intermediate/} and the final documentation will normally appear in {\ttfamily ./docs/build/html/}. (Both of these directories can be overridden using environment variables. See documentation in {\ttfamily build.\+py} header comment for details.)
+
+If the list of document source files has changed (names or paths)\+: \begin{DoxyVerb}python build.py clean html
+\end{DoxyVerb}
+ Will remove the old intermediate and build files and regenerate new ones matching the new structure, eliminating the orphan files that would otherwise result.
 
 To see a list of options available\+: \begin{DoxyVerb}python build.py
 \end{DoxyVerb}
- Read the header comment in {\ttfamily build.\+py} for detailed documentation on each option.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md490}{}\doxysection{\texorpdfstring{For Developers}{For Developers}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md490}
+ Read the header comment in {\ttfamily build.\+py} for detailed documentation of each option.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md423}{}\doxysection{\texorpdfstring{For Developers}{For Developers}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md423}
 One of our firm policies is {\itshape {\bfseries{EVERYTHING MUST BE DOCUMENTED}}}.
 
-The below are some rules to follow when updating any of the {\ttfamily .rst} files located in the {\ttfamily ./docs/src/} directory tree.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md491}{}\doxysection{\texorpdfstring{re\+Structured\+Text Content}{reStructuredText Content}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md491}
-LVGL documentation uses {\bfseries{re\+Structured\+Text}} (re\+ST), rendered into HTML by Sphinx. You will find the following is a fairly-\/complete list of references about how to do things using re\+Structured\+Text\+:
+The below are some rules to follow when updating any of the {\ttfamily .rst} files located in the {\ttfamily ./docs/src/} directory tree.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md424}{}\doxysubsection{\texorpdfstring{What to Name Your $<$tt$>$.\+rst$<$/tt$>$ File}{What to Name Your <tt>.rst</tt> File}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md424}
+The directory structure under the {\ttfamily ./docs/src/} directory, and the filenames of the {\ttfamily .rst} files govern the eventual URLs that are generated in the HTML output. These directories are organized so as to reflect the nature of the content. Example\+: the {\ttfamily .rst} files under {\ttfamily ./docs/src/intro} contain introductory material—detailed reference material would not go there, but instead in an appropriate subdirectory of {\ttfamily ./docs/src/details/}. It is expected that the content and location of any new documents added would be in alignment with this directory structure, and placed and named according to their content. Additionally, to be linked into the eventual generated documentation, the stem of the new filename needs to appear in at least one (normally {\itshape only one}) {\ttfamily .. toctree\+:\+:} directive, normally in an {\ttfamily index.\+rst} file in the directory where it will appear in that page\textquotesingle{}s table of contents (TOC).
 
-\tabulinesep=1mm
-\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Docutils References (Fundamentals)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sphinx References (What Sphinx Adds to Docutils)    }\\\cline{1-2}
-\endfirsthead
-\hline
-\endfoot
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Docutils References (Fundamentals)   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sphinx References (What Sphinx Adds to Docutils)    }\\\cline{1-2}
-\endhead
-\href{https://docutils.sourceforge.io/docs/ref/rst/introduction.html}{\texttt{ Introduction}}   &\href{https://www.sphinx-doc.org/en/master/usage/configuration.html}{\texttt{ Configuration}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html}{\texttt{ Markup Specification}}   &\href{https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html}{\texttt{ Directives}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html\#tables}{\texttt{ Markup Specification ∙ Tables}}   &\href{https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html\#admonitions-messages-and-warnings}{\texttt{ Directives ∙ Admonitions}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html\#substitution-references}{\texttt{ Markup Specification ∙ Substitution References}}   &\href{https://www.sphinx-doc.org/en/master/usage/referencing.html}{\texttt{ Referencing}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/ref/rst/directives.html}{\texttt{ Directives}}   &\href{https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html}{\texttt{ Interpreted Text Roles}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/ref/rst/roles.html}{\texttt{ Interpreted Text Roles}}   &\href{https://www.sphinx-doc.org/en/master/glossary.html}{\texttt{ Glossary}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/user/rst/quickstart.html}{\texttt{ Quickstart}}   &\href{https://sphinx-themes.org/sample-sites/furo/}{\texttt{ Furo-\/theme Examples}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/user/rst/demo.html}{\texttt{ Examples}}   &\href{https://sphinx-themes.org/sample-sites/furo/kitchen-sink/}{\texttt{ Kitchen Sink Page}}    \\\cline{1-2}
-\href{https://docutils.sourceforge.io/docs/user/rst/quickref.html}{\texttt{ Quick Reference}}   &\href{https://sphinx-themes.org/}{\texttt{ Sphinx Themes Gallery}}   \\\cline{1-2}
-\end{longtabu}
+Other than that, there are no restrictions on filenames. Previous linking of filenames to generated API links has been removed and replaced by a better scheme. For sake of illustration, let\textquotesingle{}s say you are creating (or enhancing) documentation related to the {\ttfamily lv\+\_\+scale\+\_\+t} data type (one of the LVGL Widgets)\+: if you want the doc-\/build logic to generate appropriate links to LVGL API pages, place an API section at the end of your document (it must be at the end) like this\+:
 
 
-If you prefer to learn by examples, the \href{https://sphinx-themes.org/sample-sites/furo/}{\texttt{ Furo-\/theme Examples}} and especially the \href{https://sphinx-themes.org/sample-sites/furo/kitchen-sink/}{\texttt{ Kitchen Sink Page}} are excellent resources. View the {\ttfamily .rst} source file that generated that page by clicking the "{}eye"{} icon at the top of the page.
+\begin{DoxyCode}{0}
+\DoxyCodeLine{API}
+\DoxyCodeLine{***}
 
-Note\+: the section headings in these pages use a different convention than the one presented below. For LVGL documentation, use the \href{https://github.com/lvgl/lvgl/tree/master/docs\#section-headings}{\texttt{ section-\/heading convention presented below}}.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md492}{}\doxysubsection{\texorpdfstring{Text Format}{Text Format}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md492}
-Please wrap the text around column 86 or narrower. Wrapping at {\itshape exactly} column 86 is not important, but readability and ease of editing is.
+\end{DoxyCode}
 
-Indent using 4 spaces (not tab characters). This applies to code blocks as well.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md493}{}\doxysubsection{\texorpdfstring{index.\+rst Files}{index.rst Files}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md493}
+
+and then, if you want the API-\/link-\/generation logic to generate hyperlinks to API pages based on an {\itshape {\bfseries{exact, case-\/sensitive string match}}} with specific C symbols, follow it with a re\+Structured\+Text comment using this syntax\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{..\ API\ equals:\ lv\_scale\_t,\ lv\_scale\_create}
+
+\end{DoxyCode}
+
+
+What follows the colon is a comma-\/ or space-\/separated list of exact C symbols documented somewhere in the {\ttfamily lvgl/src/} directory. If the list is long, it can be wrapped to subsequent lines, though continuation lines must be all indented at the same level. The list ends with the first blank line after this pseudo-\/directive.
+
+If you instead want the API-\/link-\/generation logic to simply include links to code that {\itshape {\bfseries{starts with a specific string}}} use this syntax instead. The format of the list is the same as for {\ttfamily .. API equals\+:}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{..\ API\ startswith:\ lv\_scale,\ lv\_obj\_set\_style}
+
+\end{DoxyCode}
+
+
+You can also manually link to API pages, in which case the API-\/link-\/generation logic will see that you have already added links and will not repeat them.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:ref:`lv\_scale\_h`}
+
+\end{DoxyCode}
+
+
+Note that the period before the {\ttfamily h} is replaced with an underscore ({\ttfamily \+\_\+}). The naming of this reference ({\ttfamily lv\+\_\+scale\+\_\+h}) will generate a hyperlink to the documentation extracted by Doxygen from the {\ttfamily \doxylink{lv__scale_8h}{lvgl/src/widgets/scale/lv\+\_\+scale.\+h}} file.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md425}{}\doxysubsection{\texorpdfstring{Text Format}{Text Format}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md425}
+With {\ttfamily .md} files, it is important to allow paragraphs to flow off to the right with one long line so that when they are formatted as {\ttfamily .html} files, the paragraphs will word-\/wrap with the width of the browser. Thankfully, this liability is not present with re\+Structured\+Text ({\ttfamily .rst} files). \href{https://www.sphinx-doc.org/en/master/}{\texttt{ Sphinx}} and its underlying \href{https://docutils.sourceforge.io/docs/}{\texttt{ docutils parsing engine}} conveniently combine grouped text into a proper paragraph with that word-\/wrapping behavior. This allows the source text documents to be nicely word-\/wrapped so that they are more readable in text-\/ and code-\/editors that do not have wide editing windows. So please wrap the text around column 86 or narrower. Wrapping at {\itshape exactly} column 86 is not important, but readability and ease of editing is.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md426}{}\doxysubsection{\texorpdfstring{index.\+rst Files}{index.rst Files}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md426}
 If you create a new directory you will need an {\ttfamily index.\+rst} file in that directory and that index file needs to be pointed to in the {\ttfamily index.\+rst} file that is located in the parent directory.
 
-Let\textquotesingle{}s take a look at the {\ttfamily index.\+rst} file that is located in the {\ttfamily docs/src/common-\/widget-\/features/layouts} directory.
+Let\textquotesingle{}s take a look at the {\ttfamily index.\+rst} file that is located in the {\ttfamily docs/src/details/common-\/widget-\/features/layouts} directory.
 
 
 \begin{DoxyCode}{0}
@@ -78,14 +115,13 @@ Let\textquotesingle{}s take a look at the {\ttfamily index.\+rst} file that is l
 \DoxyCodeLine{..\ toctree::}
 \DoxyCodeLine{\ \ \ \ :maxdepth:\ 2}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ overview}
 \DoxyCodeLine{\ \ \ \ flex}
 \DoxyCodeLine{\ \ \ \ grid}
 
 \end{DoxyCode}
 
 
-Explanation\+:
+The below explains the parts of this file.
 
 
 \begin{DoxyCode}{0}
@@ -100,13 +136,45 @@ Explanation\+:
 \DoxyCodeLine{..\ toctree::\ \ \ \ \ \ <===\ Table\ of\ contents\ directive}
 \DoxyCodeLine{\ \ \ \ :maxdepth:\ 2\ \ <===\ Internal\ use\ and\ needs\ to\ always\ be\ set\ this\ way}
 \DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ overview\ \ \ \ \ \ <===\ relative\ path\ to\ .rst\ files\ located\ in\ the\ same\ directory}
-\DoxyCodeLine{\ \ \ \ flex}
+\DoxyCodeLine{\ \ \ \ flex\ \ \ \ \ \ \ \ \ \ <===\ relative\ path\ to\ .rst\ files\ located\ in\ the\ same\ directory}
 \DoxyCodeLine{\ \ \ \ grid}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md494}{}\doxysubsection{\texorpdfstring{Section Headings}{Section Headings}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md494}
-Section headings are created by underlining the section title with a punctuation character, at least as long as the text. Example\+:
+
+
+The first line is for the purposes of providing a uniquely-\/named {\bfseries{link target}} that can be referenced elsewhere in the documentation. \begin{DoxyVerb}.. _{LINK NAME}:
+\end{DoxyVerb}
+ Note that {\ttfamily \{LINK NAME\}}\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries{must}} be preceded by a single underscore,
+\item {\bfseries{must}} be followed by a single colon, and
+\item {\bfseries{must}} be followed by at least one blank line for the doc-\/generation logic to process it correctly.
+\end{DoxyItemize}
+
+Replace {\ttfamily \{LINK NAME\}} with a link name that is unique among all documents under the {\ttfamily ./docs/src/} directory. It can have multiple words if needed to make it unique or when otherwise appropriate for clarity. If multiple words are used, they can be separated with single spaces, hyphens or underscores. Whatever you use, the {\ttfamily \{LINK NAME\}} string used to reference it must be identical. {\ttfamily \{LINK NAME\}} strings are not case sensitive.
+
+That unique name is then used to provide a link reference elsewhere in the documentation using one of two formats.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md427}{}\doxyparagraph{\texorpdfstring{When the "{}link text"{} should be a title or section heading from the target document\+:}{When the "link text" should be a title or section heading from the target document:}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md427}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:ref:`\{LINK\ NAME\}`}
+
+\end{DoxyCode}
+
+
+This in-\/line markup (interpreted text using the Sphinx-\/defined custom {\ttfamily \+:ref\+:} role) is then replaced with a hyperlink whose "{}link text"{} is the name of the section heading or document title just below the {\bfseries{link target}}. For this reason, when using this syntax, {\ttfamily \{LINK NAME\}} must reference \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}link target\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}s that are just above a title or section heading.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md428}{}\doxyparagraph{\texorpdfstring{When "{}link text"{} should be something else\+:}{When "link text" should be something else:}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md428}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{:ref:`other\ link\ text\ <\{LINK\ NAME\}>`}
+
+\end{DoxyCode}
+
+
+This latter syntax enables you to put a {\bfseries{link target}} anywhere in an .RST file (not just above a heading) and link to it using this syntax.
+
+Note\+: This latter syntax was either added or fixed in Sphinx recently. It did not work in Sphinx 7.\+3.\+7.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md429}{}\doxysubsection{\texorpdfstring{Section Headings}{Section Headings}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md429}
+\href{https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html\#sections}{\texttt{ Section headings}} are created by underlining the section title with a punctuation character, at least as long as the text. Example\+:
 
 
 \begin{DoxyCode}{0}
@@ -116,52 +184,52 @@ Section headings are created by underlining the section title with a punctuation
 \end{DoxyCode}
 
 
-Use these conventions for section headings in LVGL documentation\+:
+re\+Structured\+Text does not impose any particular heading levels assigned to certain characters since the structure is determined from the succession of headings. However, the LVGL docs policy is to use the below heading convention\+:
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{==============}
-\DoxyCodeLine{Document\ Title}
-\DoxyCodeLine{==============}
+\DoxyCodeLine{=====}
+\DoxyCodeLine{Title}
+\DoxyCodeLine{=====}
 \DoxyCodeLine{}
-\DoxyCodeLine{Section}
+\DoxyCodeLine{Chapter}
 \DoxyCodeLine{*******}
 \DoxyCodeLine{}
+\DoxyCodeLine{Section}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{}
 \DoxyCodeLine{Sub\ Section}
-\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}
 \DoxyCodeLine{}
 \DoxyCodeLine{Sub\ Sub\ Section}
-\DoxyCodeLine{\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}
+\DoxyCodeLine{\string^\string^\string^\string^\string^\string^\string^\string^\string^\string^\string^\string^\string^\string^\string^}
+\DoxyCodeLine{}
+\DoxyCodeLine{Sub\ Sub\ Sub\ Section}
+\DoxyCodeLine{'''''''''''''''''''}
 
 \end{DoxyCode}
 
 
+Being consistent about this helps the Sphinx/docutils parser to format the tables of contents correctly.
 
-\begin{DoxyEnumerate}
-\item {\ttfamily ====}, {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}, {\ttfamily -\/-\/-\/-\/} are encouraged.
-\item {\ttfamily \texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}\texorpdfstring{$\sim$}{\string~}} only if really needed.
-\end{DoxyEnumerate}
+Note that the "{}underlining"{} can be longer than the heading title, but if it is shorter, the documentation-\/generation logic will fail with an error.
 
-Being consistent about this helps the re\+ST parser to format the tables of contents correctly.
-
-For improved readability in text editors\+:
+For improved readability in the .RST file\+:
 
 
 \begin{DoxyItemize}
-\item place 3 blank lines above the 2nd and subsequent "{}\+Section"{} titles (see above),
-\item 2 blank lines above "{}\+Sub Section"{} headings, and
-\item 1 at least blank line above all lower-\/level section headings.
-\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md495}{}\doxysubsection{\texorpdfstring{Italics, Boldface and Underlining}{Italics, Boldface and Underlining}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md495}
-Emphasis using {\ttfamily \texorpdfstring{$\ast$}{*}italics\texorpdfstring{$\ast$}{*}}. Emphasis using {\ttfamily \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}boldface\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}.
-
-Normally underlining and combining these text styles is not possible in re\+Structured\+Text. However, LVGL documentation provides a work-\/around for this using re\+ST \uline{Interpreted Text Roles}. Just remember that the Interpreted Text Role names combine the letters {\ttfamily i}, {\ttfamily b} and {\ttfamily u} to provide the desired combination. All possible permutations of these letters are supported so you do not have to remember what sequence works. Examples\+: {\ttfamily \+:u\+:\`{}underline\`{}}, {\ttfamily \+:ub\+:\`{}underline and bold\`{}}, {\ttfamily \+:bi\+:\`{}bold italic\`{}}.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md496}{}\doxysubsection{\texorpdfstring{Code Blocks}{Code Blocks}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md496}
+\item place 3 blank lines above the 2nd and subsequent chapter titles (see above), and
+\item place 2 blank lines above section headings below chapters.
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md430}{}\doxysubsection{\texorpdfstring{Code Blocks}{Code Blocks}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md430}
 
 \begin{DoxyItemize}
-\item Indent using 4 spaces (not tab characters).
+\item Do not use tab characters in code blocks.
+\item Each indentation level use 4 spaces.
 \item Include at least 1 empty line after a code block.
 \item There must be one empty line between the code block directive and the code.
-\item {\ttfamily .. code-\/block\+::} is the only directive that should be used. Do not use lone {\ttfamily \+::}, {\ttfamily \+:code\+:} or {\ttfamily .. code\+:\+:}.
-\item Specify the language after the directive for appropriate syntax highlighting. Examples\+:
+\item {\ttfamily .. code-\/block\+::} is the only directive that should be used. Note carefully that unlike the {\bfseries{link target}} directive above, this directive has 2 colons. (The only re\+ST and Sphinx directives that are valid with one colon are \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}link target\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}s as shown above.) Lone {\ttfamily \+::}, {\ttfamily \+:code\+:} or {\ttfamily .. code\+:} should not be used.
+\item If you want to separate code into easier-\/to-\/understand sections you can do so with a single empty line.
+\item For syntax highlighting appropriate to the language in the code block, specify the language after the directive. Some examples are\+:
 \begin{DoxyItemize}
 \item {\ttfamily .. code-\/block\+:: c},
 \item {\ttfamily .. code-\/block\+:: cpp},
@@ -171,6 +239,8 @@ Normally underlining and combining these text styles is not possible in re\+Stru
 \item {\ttfamily .. code-\/block\+:: kconfig},
 \item {\ttfamily .. code-\/block\+:: json},
 \item {\ttfamily .. code-\/block\+:: yaml},
+\item {\ttfamily .. code-\/block\+:: csharp} (or "{}cs"{}),
+\item {\ttfamily .. code-\/block\+:: vb.\+net},
 \item {\ttfamily .. code-\/block\+:: dot} (graphviz),
 \item {\ttfamily .. code-\/block\+:: html},
 \item {\ttfamily .. code-\/block\+:: css},
@@ -179,160 +249,28 @@ Normally underlining and combining these text styles is not possible in re\+Stru
 \end{DoxyItemize}
 \end{DoxyItemize}
 
-See \href{https://pygments.org/docs/lexers/}{\texttt{ the full set of supported code lexers}} for more details.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md497}{}\doxysubsection{\texorpdfstring{Bulleted Lists}{Bulleted Lists}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md497}
+The full set of supported lexers are listed in the \href{https://pygments.org/docs/lexers/}{\texttt{ Pygments Library documentation}}.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md431}{}\doxysubsection{\texorpdfstring{Bulleted Lists}{Bulleted Lists}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md431}
+To create a bulleted list, do the following\+: \begin{DoxyVerb}- First item description
+- If you want to span multiple lines, indent subsequent
+  lines to align with item text like this.
+- If you want to include a code block under a list item,
+  it must be intended to align with the list item like this:
 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{-\/\ First\ item\ description}
-\DoxyCodeLine{-\/\ If\ you\ want\ to\ span\ multiple\ lines,\ indent\ subsequent}
-\DoxyCodeLine{\ \ lines\ to\ align\ with\ item\ text\ like\ this.}
-\DoxyCodeLine{-\/\ If\ you\ want\ to\ include\ multiple\ paragraphs\ and/or\ code\ blocks\ under\ a}
-\DoxyCodeLine{\ \ list\ item,\ it\ must\ be\ intended\ to\ align\ with\ the\ list\ item\ like\ this:}
-\DoxyCodeLine{}
-\DoxyCodeLine{\ \ Second\ paragraph.}
-\DoxyCodeLine{}
-\DoxyCodeLine{\ \ ..\ code-\/block:\ python}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <===\ blank\ line\ here\ is\ important}
-\DoxyCodeLine{\ \ \ \ \ \ \#\ Python\ code\ here}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <===\ blank\ line\ here\ is\ important}
-\DoxyCodeLine{-\/\ If\ you\ want\ to\ have\ nested\ bulleted\ lists,\ indent\ each}
-\DoxyCodeLine{\ \ new\ level\ to\ align\ with\ its\ parent\ list\ item\ like\ this:}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <===\ blank\ line\ here\ is\ important}
-\DoxyCodeLine{\ \ -\/\ level\ 2\ item\ 1:\ text}
-\DoxyCodeLine{\ \ -\/\ level\ 2\ item\ 2:\ text}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <===\ blank\ line\ here\ is\ important}
-\DoxyCodeLine{-\/\ Last\ list\ item.\ \ Note\ that\ the\ nested\ list\ above\ is\ preceded}
-\DoxyCodeLine{\ \ and\ followed\ by\ 1\ blank\ line.}
-
-\end{DoxyCode}
-
-
-All lists (including nested lists) {\bfseries{must}} be preceded and followed with at least 1 blank line for the re\+ST parser to process it correctly.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md498}{}\doxysubsection{\texorpdfstring{External Links}{External Links}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md498}
-URLs are converted to links automatically. E.\+g. {\ttfamily Visit \href{https://lvgl.io}{\texttt{ https\+://lvgl.\+io}}}.
-
-To add links with custom link text use
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{Visit\ \`{}My\ Website\ <https://pro.lvgl.io>`\_\_.}
-
-\end{DoxyCode}
-
-
-If an external link will be used on many pages\+:
-
-
-\begin{DoxyItemize}
-\item Add it to {\ttfamily ./docs/src/include/external\+\_\+links.txt} if not already there. Example\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{..\ \_LVGL\ Pro:\ \ https://pro.lvgl.io}
-
-\end{DoxyCode}
-
-\item {\ttfamily .. include\+: /include/external\+\_\+links.txt} once at the top of each {\ttfamily .rst} file that uses it.
-\item Use it by name in text\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{For\ further\ details\ see\ \`{}LVGL\ Pro`\_.}
-
-\end{DoxyCode}
-
-
-Note\+: back-\/quotes are not needed if there are no spaces in the name.
-\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md499}{}\doxysubsection{\texorpdfstring{Internal Links}{Internal Links}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md499}
-Add a link target (anchor) before heading or paragraph that will be linked to\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{..\ \_unique\_anchor\_name:}
-\DoxyCodeLine{}
-\DoxyCodeLine{My\ Heading}
-\DoxyCodeLine{**********}
-
-\end{DoxyCode}
-
-
-{\ttfamily unique\+\_\+anchor\+\_\+name} must be unique throughout all {\ttfamily .rst} files under {\ttfamily ./docs/src/}.
-
-Reference the link (anchor) by\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{Click\ :ref:`here\ <unique\_anchor\_name>`\ for\ more\ details.}
-
-\end{DoxyCode}
-
-
-Result\+: "{}\+Click \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+\_\+here\+\_\+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} for more details."{}
-
-Or use the heading\textquotesingle{}s text as the link\textquotesingle{}s text\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{Click\ :ref:`unique\_anchor\_name`\ for\ more\ details.}
-
-\end{DoxyCode}
-
-
-Result\+: "{}\+Click \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\+\_\+\+My Heading\+\_\+\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} for more details."{}
-
-{\ttfamily unique\+\_\+anchor\+\_\+name} may appear in places other than before a heading, but if so, custom link text (like "{}here"{} the first example above) must be provided.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md500}{}\doxysubsection{\texorpdfstring{Tightening Tables}{Tightening Tables}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md500}
-re\+Structured\+Text syntax for creating tables can be found in the \href{https://sphinx-themes.org/sample-sites/furo/kitchen-sink/tables/}{\texttt{ re\+ST examples}} referred to above. (Click on the "{}eye"{} icon to see the source file.)
-
-Very long or very wide tables can be difficult to read and use. To squeeze them down to make them more readable and usable, move your existing table under a {\ttfamily .. container\+:\+: tighter-\/table-\/N} directive ({\ttfamily N} = digit 1-\/7 with 7 being the tightest), and indent your table to make it the "{}content"{} of the directive. Example\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{..\ container::\ tighter-\/table-\/3}
-\DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+}
-\DoxyCodeLine{\ \ \ \ |\ Heading\ 1\ |\ Heading\ 2\ \ \ \ |\ Heading\ 3\ \ \ \ |\ Hdg\ 4\ \ |}
-\DoxyCodeLine{\ \ \ \ +===========+==============+==============+========+}
-\DoxyCodeLine{\ \ \ \ |\ row\ 1\ c\ 1\ |\ row\ 1\ col\ 3\ \ |\ row\ 1\ col\ 3\ \ |\ r1\ c4\ \ |}
-\DoxyCodeLine{\ \ \ \ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+}
-\DoxyCodeLine{\ \ \ \ |\ row\ 2\ c\ 1\ |\ row\ 2\ col\ 3\ \ |\ row\ 2\ col\ 3\ \ |\ r2\ c4\ \ |}
-\DoxyCodeLine{\ \ \ \ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+}
-\DoxyCodeLine{\ \ \ \ |\ row\ 3\ c\ 1\ |\ row\ 3\ col\ 3\ \ |\ row\ 3\ col\ 3\ \ |\ r3\ c4\ \ |}
-\DoxyCodeLine{\ \ \ \ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/+-\/-\/-\/-\/-\/-\/-\/-\/+}
-
-\end{DoxyCode}
-
-
-This works for all types of tables.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md501}{}\doxysubsection{\texorpdfstring{Special Symbols}{Special Symbols}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md501}
-Because not everyone has editors that deal with Unicode characters well, please re\+ST substitutions to insert special characters into documentation. A list of the most commonly-\/used special symbols can be found in {\ttfamily ./docs/src/include/substitutions.txt}. To use one of these, add this line at the top of the {\ttfamily .rst} file if it is not already there\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{..\ include::\ /include/substitutions.txt}
-
-\end{DoxyCode}
-
-
-Then, any of those substitutions can be used in that {\ttfamily .rst} file. Example\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{The\ temperature\ outside\ is\ 20\(\backslash\)\ |deg|\(\backslash\)\ C.}
-
-\end{DoxyCode}
-
-
-Result\+: "{}\+The temperature outside is 20°\+C."{}
-
-The spaces surrounding substitutions {\itshape are required for parsing}, but when you need to remove them in the output (as in the example above), do so by escaping them with the {\ttfamily \textbackslash{}} character. Exception\+: the {\ttfamily substitutions.\+txt} file contains 3 substitution definitions which are marked with the {\ttfamily \+:trim\+:} option since their use {\itshape always} removes these spaces in the output. These do not need this escaping\+:
-
-
-\begin{DoxyItemize}
-\item {\ttfamily \texorpdfstring{$\vert$}{|}nbsp\texorpdfstring{$\vert$}{|}} (non-\/breaking space),
-\item {\ttfamily \texorpdfstring{$\vert$}{|}shy\texorpdfstring{$\vert$}{|}} (soft hyphen), and
-\item {\ttfamily \texorpdfstring{$\vert$}{|}nbhyph\texorpdfstring{$\vert$}{|}} (non-\/breaking hyphen used in titles and official names)
-\end{DoxyItemize}
-
-If you need a substitution that is not already in {\ttfamily substitutions.\+txt}, please add it.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md502}{}\doxysubsection{\texorpdfstring{Referencing API Documentation}{Referencing API Documentation}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md502}
-Using the following generates links to API documentation that the reader can click directly in the text.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md503}{}\doxysubsubsection{\texorpdfstring{In-\/\+Line Code Expressions}{In-Line Code Expressions}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md503}
-Use the following Interpreted Text Roles in text to include in-\/line C code that links to documentation on that symbol when available\+: \begin{DoxyVerb}:cpp:func:`lv_init`   (note there are no parentheses after the function name)
+  .. code-block: python
+                             <=== blank line here is important
+      # this is some code
+                             <=== blank line here is important
+- If you want to have nested bulleted lists, indent each
+  new level to align with its parent list item like this:
+                             <=== blank line here is important
+  - level 2 item 1: text
+  - level 2 item 2: text
+                             <=== blank line here is important
+- Last list item.  Note that the nested list above is preceded
+  and followed by 1 blank line.
+\end{DoxyVerb}
+ All lists (including nested lists) {\bfseries{must}} be preceded and followed with at least 1 blank line. This is mandatory for the documentation-\/generation logic to process it correctly.\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md432}{}\doxysubsection{\texorpdfstring{Referencing API Documentation}{Referencing API Documentation}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md432}
+If you want to reference portions of the LVGL code from the documentation (in .RST files) there are special directives to do this\+: \begin{DoxyVerb}:cpp:func:`lv_init`
 :c:macro:`LV_USE_FLEX`
 :cpp:type:`lv_event_t`
 :cpp:enum:`lv_state_t`
@@ -340,73 +278,21 @@ Use the following Interpreted Text Roles in text to include in-\/line C code tha
 :cpp:struct:`lv_image_dsc_t`
 :cpp:union:`lv_style_value_t`
 \end{DoxyVerb}
- {\bfseries{Note\+:}} Doxygen documentation for macros with parameters works perfectly, but Sphinx does not yet know how to parse the parameter(s) on a macro that might look like this\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{:c:macro:`LV\_FREETYPE\_FONT\_STYLE\_WEIGHT(x)`}
-
-\end{DoxyCode}
-
-
-Here is how to make that work, look right in the document, and also produce a link to Doxygen documentation if there is any\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{:c:macro:`LV\_FREETYPE\_FONT\_STYLE\_WEIGHT`\(\backslash\)\ (x)}
-
-\end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md504}{}\doxysubsubsection{\texorpdfstring{More Complex Expressions}{More Complex Expressions}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md504}
-Use the {\ttfamily \+:cpp\+:expr\+:} Interpreted Text Role for more complex expressions, for example when showing the arguments passed to a function. \begin{DoxyVerb}:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_FLEX)`
+ There is a special directive when wanting to use a more complex expression. For example when showing the arguments passed to a function. \begin{DoxyVerb}:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_FLEX)`
 :cpp:expr:`lv_slider_set_mode(slider, LV_SLIDER_MODE_...)`
 \end{DoxyVerb}
- Arguments that contain more than one word or non-\/alphanumeric characters will cause the {\ttfamily \+:cpp\+:expr\+:} interpreted-\/text to fail. Examples\+:
-
-\tabulinesep=1mm
-\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Expression   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cause of Failure    }\\\cline{1-2}
-\endfirsthead
-\hline
-\endfoot
-\hline
-\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Expression   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Cause of Failure    }\\\cline{1-2}
-\endhead
-\+:cpp\+:expr\+:\`{}lv\+\_\+obj\+\_\+set\+\_\+layout(widget, LV\+\_\+\+LAYOUT\+\_\+\+FLEX/\+GRID)\`{}   &argument with \texorpdfstring{$>$}{>} 1 word    \\\cline{1-2}
-\+:cpp\+:expr\+:\`{}lv\+\_\+obj\+\_\+set\+\_\+layout(widget, LV\+\_\+\+LAYOUT\+\_\+\texorpdfstring{$\ast$}{*})\`{}   &asterisk    \\\cline{1-2}
-\+:cpp\+:expr\+:\`{}lv\+\_\+obj\+\_\+set\+\_\+layout(\texorpdfstring{$\ast$}{*}widget, LV\+\_\+\+LAYOUT\+\_\+\+FLEX)\`{}   &asterisk    \\\cline{1-2}
-\+:cpp\+:expr\+:\`{}lv\+\_\+obj\+\_\+set\+\_\+layout((lv\+\_\+obj\+\_\+t \texorpdfstring{$\ast$}{*})widget, LV\+\_\+\+LAYOUT\+\_\+\+FLEX)\`{}   &cast    \\\cline{1-2}
-\+:cpp\+:expr\+:\`{}lv\+\_\+obj\+\_\+set\+\_\+layout(\&widget, LV\+\_\+\+LAYOUT\+\_\+\+FLEX);\`{}   &semicolon    \\\cline{1-2}
-\+:cpp\+:expr\+:\`{}lv\+\_\+obj\+\_\+set\+\_\+layout(widget, ...)\`{}   &lone ellipsis   \\\cline{1-2}
-\end{longtabu}
-
-
-For such examples, simply use re\+Structured\+Text literal markup like this\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\`{}\`{}lv\_obj\_set\_layout(widget,\ LV\_LAYOUT\_FLEX/GRID)``}
-\DoxyCodeLine{\`{}\`{}lv\_obj\_set\_layout(widget,\ LV\_LAYOUT\_*)``}
-\DoxyCodeLine{\`{}\`{}lv\_obj\_set\_layout(*widget,\ LV\_LAYOUT\_FLEX)``}
-\DoxyCodeLine{\`{}\`{}lv\_obj\_set\_layout((lv\_obj\_t\ *)widget,\ LV\_LAYOUT\_FLEX)``}
-\DoxyCodeLine{\`{}\`{}lv\_obj\_set\_layout(\&widget,\ LV\_LAYOUT\_FLEX);``}
-\DoxyCodeLine{\`{}\`{}lv\_obj\_set\_layout(widget,\ ...)``}
-
-\end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md505}{}\doxysubsubsection{\texorpdfstring{Providing Links to API Pages}{Providing Links to API Pages}}\label{md_managed__components_2lvgl____lvgl_2docs_2README_autotoc_md505}
-To create a link to 1 or more API pages, set up a section at the end of your {\ttfamily .rst} file that looks like this, and use one or both types of the {\ttfamily .. API} pseudo-\/directives below\+:
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{API}
-\DoxyCodeLine{***}
-\DoxyCodeLine{}
-\DoxyCodeLine{..\ API\ equals:\ lv\_scale\_t,\ lv\_scale\_create}
-\DoxyCodeLine{}
-\DoxyCodeLine{..\ API\ startswith:}
-\DoxyCodeLine{}
-\DoxyCodeLine{\ \ \ \ lv\_scale}
-\DoxyCodeLine{\ \ \ \ lv\_obj\_set\_style}
-
-\end{DoxyCode}
-
-
-The list of symbols (or prefixes) can be separated by commas or spaces, and they can wrap onto subsequent lines of text so long as they are indented. Each list is terminated by the next {\ttfamily .. API} pseudo-\/directive or end-\/of-\/file, whichever comes first.
-
-The API-\/page generation logic will add at most 1 link to each API documentation page containing matched symbols. The links are to the whole API page, not to the symbols. The purpose is to provide the reader with links to applicable API pages. Links directly to code (e.\+g. function documentation) are accomplished by using the In-\/\+Line Code Expressions documented above. 
+ Arguments that are expressions (more than one word), or contain non-\/alphanumeric characters will cause the {\ttfamily \+:cpp\+:expr\+:} interpreted-\/text to fail. Examples\+: \begin{DoxyVerb}:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_FLEX/GRID)`         <== arg with > 1 word
+:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_*)`                 <== asterisk
+:cpp:expr:`lv_obj_set_layout(*widget, LV_LAYOUT_FLEX)`             <== asterisk
+:cpp:expr:`lv_obj_set_layout((lv_obj_t *)widget, LV_LAYOUT_FLEX)`  <== cast
+:cpp:expr:`lv_obj_set_layout(&widget, LV_LAYOUT_FLEX);`            <== ampersand & semicolon
+:cpp:expr:`lv_obj_set_layout(widget, ...)`                         <== lone ellipsis
+\end{DoxyVerb}
+ For such examples, simply use re\+Structured\+Text literal markup like this\+: \begin{DoxyVerb}``lv_obj_set_layout(widget, LV_LAYOUT_FLEX/GRID)``
+``lv_obj_set_layout(widget, LV_LAYOUT_*)``
+``lv_obj_set_layout(*widget, LV_LAYOUT_FLEX)``
+``lv_obj_set_layout((lv_obj_t *)widget, LV_LAYOUT_FLEX)``
+``lv_obj_set_layout(&widget, LV_LAYOUT_FLEX);``
+``lv_obj_set_layout(widget, ...)``
+\end{DoxyVerb}
+ 

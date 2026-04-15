@@ -59,7 +59,7 @@ uint8\+\_\+t \mbox{\hyperlink{struct__lv__indev__t_ae6064d445011523b0467952cc38c
 \item 
 uint8\+\_\+t \mbox{\hyperlink{struct__lv__indev__t_a61eef1cd1ad217c891c8a6317aececb0}{gesture\+\_\+min\+\_\+velocity}}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{struct__lv__indev__t_ab4946c44abc99283aac62a2c49fa2814}{gesture\+\_\+min\+\_\+distance}}
+uint8\+\_\+t \mbox{\hyperlink{struct__lv__indev__t_a2df40db357ca18acccc6067d885f4081}{gesture\+\_\+limit}}
 \item 
 uint16\+\_\+t \mbox{\hyperlink{struct__lv__indev__t_ac91d896e181efc044461693fbde6418e}{long\+\_\+press\+\_\+time}}
 \item 
@@ -68,7 +68,7 @@ uint16\+\_\+t \mbox{\hyperlink{struct__lv__indev__t_ad304d4a419e0e4d4d010c7b8438
 \Hypertarget{struct__lv__indev__t_a0f55e6cc41391f7ed85e6b9f052a69c8}\label{struct__lv__indev__t_a0f55e6cc41391f7ed85e6b9f052a69c8} 
 int32\+\_\+t {\bfseries rotary\+\_\+sensitivity}
 \item 
-\Hypertarget{struct__lv__indev__t_a763f8de68e0dc92cb29b1a758d508ea3}\label{struct__lv__indev__t_a763f8de68e0dc92cb29b1a758d508ea3} 
+\Hypertarget{struct__lv__indev__t_ae81e8a55567b515705f1990053307e09}\label{struct__lv__indev__t_ae81e8a55567b515705f1990053307e09} 
 \begin{tabbing}
 xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
 struct \{\\
@@ -83,6 +83,7 @@ struct \{\\
 \>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} {\bfseries scroll\_throw\_vect}\\
 \>\mbox{\hyperlink{structlv__point__t}{lv\_point\_t}} {\bfseries scroll\_throw\_vect\_ori}\\
 \>\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\_obj\_t}} \texorpdfstring{$\ast$}{*} {\bfseries act\_obj}\\
+\>\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\_obj\_t}} \texorpdfstring{$\ast$}{*} {\bfseries last\_obj}\\
 \>\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\_obj\_t}} \texorpdfstring{$\ast$}{*} {\bfseries scroll\_obj}\\
 \>\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\_obj\_t}} \texorpdfstring{$\ast$}{*} {\bfseries last\_pressed}\\
 \>\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\_obj\_t}} \texorpdfstring{$\ast$}{*} {\bfseries last\_hovered}\\
@@ -100,7 +101,7 @@ struct \{\\
 \} {\bfseries pointer}\\
 
 \end{tabbing}\item 
-\Hypertarget{struct__lv__indev__t_a8069e7e8db276f184c0cd6bd6ab598a3}\label{struct__lv__indev__t_a8069e7e8db276f184c0cd6bd6ab598a3} 
+\Hypertarget{struct__lv__indev__t_a8360d50ed74165bf1840330578d03ae0}\label{struct__lv__indev__t_a8360d50ed74165bf1840330578d03ae0} 
 \begin{tabbing}
 xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
 struct \{\\
@@ -118,10 +119,8 @@ const \mbox{\hyperlink{structlv__point__t}{lv\+\_\+point\+\_\+t}} \texorpdfstrin
 \Hypertarget{struct__lv__indev__t_a7435996a443f3192596757c872041ade}\label{struct__lv__indev__t_a7435996a443f3192596757c872041ade} 
 \mbox{\hyperlink{structlv__event__list__t}{lv\+\_\+event\+\_\+list\+\_\+t}} {\bfseries event\+\_\+list}
 \item 
-\mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct__lv__indev__t_a0731e39ca40f50c9caa298f4700d103b}{scroll\+\_\+throw\+\_\+anim}}
-\item 
-\Hypertarget{struct__lv__indev__t_a9e7a1dbcd3240b98cccd91f2e650c6af}\label{struct__lv__indev__t_a9e7a1dbcd3240b98cccd91f2e650c6af} 
-\mbox{\hyperlink{lv__indev_8h_ad10747dee156924346c5613b4f4cf15a}{lv\+\_\+indev\+\_\+key\+\_\+remap\+\_\+cb\+\_\+t}} {\bfseries key\+\_\+remap\+\_\+cb}
+\Hypertarget{struct__lv__indev__t_a0731e39ca40f50c9caa298f4700d103b}\label{struct__lv__indev__t_a0731e39ca40f50c9caa298f4700d103b} 
+\mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}} \texorpdfstring{$\ast$}{*} {\bfseries scroll\+\_\+throw\+\_\+anim}
 \end{DoxyCompactItemize}
 
 
@@ -150,11 +149,11 @@ Cursor for LV\+\_\+\+INPUT\+\_\+\+TYPE\+\_\+\+POINTER \Hypertarget{struct__lv__i
 \doxysubsubsection{\texorpdfstring{disp}{disp}}
 {\footnotesize\ttfamily \mbox{\hyperlink{esp__lvgl__port__compatibility_8h_a42bbe6593a4e291e9a7271748f34427a}{lv\+\_\+display\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+indev\+\_\+t\+::disp}
 
-Timer to periodically read the input device \Hypertarget{struct__lv__indev__t_ab4946c44abc99283aac62a2c49fa2814}\label{struct__lv__indev__t_ab4946c44abc99283aac62a2c49fa2814} 
-\index{\_lv\_indev\_t@{\_lv\_indev\_t}!gesture\_min\_distance@{gesture\_min\_distance}}
-\index{gesture\_min\_distance@{gesture\_min\_distance}!\_lv\_indev\_t@{\_lv\_indev\_t}}
-\doxysubsubsection{\texorpdfstring{gesture\_min\_distance}{gesture\_min\_distance}}
-{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+indev\+\_\+t\+::gesture\+\_\+min\+\_\+distance}
+Timer to periodically read the input device \Hypertarget{struct__lv__indev__t_a2df40db357ca18acccc6067d885f4081}\label{struct__lv__indev__t_a2df40db357ca18acccc6067d885f4081} 
+\index{\_lv\_indev\_t@{\_lv\_indev\_t}!gesture\_limit@{gesture\_limit}}
+\index{gesture\_limit@{gesture\_limit}!\_lv\_indev\_t@{\_lv\_indev\_t}}
+\doxysubsubsection{\texorpdfstring{gesture\_limit}{gesture\_limit}}
+{\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+indev\+\_\+t\+::gesture\+\_\+limit}
 
 Long press time in milliseconds \Hypertarget{struct__lv__indev__t_a61eef1cd1ad217c891c8a6317aececb0}\label{struct__lv__indev__t_a61eef1cd1ad217c891c8a6317aececb0} 
 \index{\_lv\_indev\_t@{\_lv\_indev\_t}!gesture\_min\_velocity@{gesture\_min\_velocity}}
@@ -162,7 +161,7 @@ Long press time in milliseconds \Hypertarget{struct__lv__indev__t_a61eef1cd1ad21
 \doxysubsubsection{\texorpdfstring{gesture\_min\_velocity}{gesture\_min\_velocity}}
 {\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+indev\+\_\+t\+::gesture\+\_\+min\+\_\+velocity}
 
-Minimum distance\+: total travel from first to current point must exceed this (in pixels) to trigger gesture \Hypertarget{struct__lv__indev__t_afb2d6450c802ddb55527dc6a257a97fc}\label{struct__lv__indev__t_afb2d6450c802ddb55527dc6a257a97fc} 
+At least this difference should be to send a gesture \Hypertarget{struct__lv__indev__t_afb2d6450c802ddb55527dc6a257a97fc}\label{struct__lv__indev__t_afb2d6450c802ddb55527dc6a257a97fc} 
 \index{\_lv\_indev\_t@{\_lv\_indev\_t}!group@{group}}
 \index{group@{group}!\_lv\_indev\_t@{\_lv\_indev\_t}}
 \doxysubsubsection{\texorpdfstring{group}{group}}
@@ -234,13 +233,7 @@ Drag throw slow-\/down in \mbox{[}\%\mbox{]}. Greater value means faster slow-\/
 \doxysubsubsection{\texorpdfstring{scroll\_throw}{scroll\_throw}}
 {\footnotesize\ttfamily uint8\+\_\+t \+\_\+lv\+\_\+indev\+\_\+t\+::scroll\+\_\+throw}
 
-Minimum velocity\+: difference between consecutive points must exceed this (in pixels) to detect gesture speed \Hypertarget{struct__lv__indev__t_a0731e39ca40f50c9caa298f4700d103b}\label{struct__lv__indev__t_a0731e39ca40f50c9caa298f4700d103b} 
-\index{\_lv\_indev\_t@{\_lv\_indev\_t}!scroll\_throw\_anim@{scroll\_throw\_anim}}
-\index{scroll\_throw\_anim@{scroll\_throw\_anim}!\_lv\_indev\_t@{\_lv\_indev\_t}}
-\doxysubsubsection{\texorpdfstring{scroll\_throw\_anim}{scroll\_throw\_anim}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__anim__t}{lv\+\_\+anim\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+lv\+\_\+indev\+\_\+t\+::scroll\+\_\+throw\+\_\+anim}
-
-Key remapping callback \Hypertarget{struct__lv__indev__t_adbec5d9bfdaf2cfdcb84190c851ddce8}\label{struct__lv__indev__t_adbec5d9bfdaf2cfdcb84190c851ddce8} 
+At least this difference should be between two points to evaluate as gesture \Hypertarget{struct__lv__indev__t_adbec5d9bfdaf2cfdcb84190c851ddce8}\label{struct__lv__indev__t_adbec5d9bfdaf2cfdcb84190c851ddce8} 
 \index{\_lv\_indev\_t@{\_lv\_indev\_t}!state@{state}}
 \index{state@{state}!\_lv\_indev\_t@{\_lv\_indev\_t}}
 \doxysubsubsection{\texorpdfstring{state}{state}}

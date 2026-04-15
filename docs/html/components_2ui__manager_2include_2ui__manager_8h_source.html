@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>TermostatBox3: components/ui_manager/include/ui_manager.h izvorna koda</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">TermostatBox3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Izdelano s pomočjo Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Išči');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_409f97388efe006bc3438b95e9edef48.html">components</a></li><li class="navelem"><a class="el" href="dir_eb0ab4164b3f4569a43c6e2f8a6859cb.html">ui_manager</a></li><li class="navelem"><a class="el" href="dir_e61b2bf807d5a10b54db5b1e5371f9a3.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">ui_manager.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="components_2ui__manager_2include_2ui__manager_8h.html">dokumenacija tekoče datoteke.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef UI_MANAGER_H</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define UI_MANAGER_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;esp_err.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>esp_err_t <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#ab12d788f4d14c28c1aee1f88fe9285d5">ui_manager_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span> <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#a3039fcc1685eb8798dcbacfd36f2fd78">ui_manager_update_temperature</a>(<span class="keywordtype">float</span> temperature, <span class="keywordtype">bool</span> valid);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keywordtype">void</span> <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#a681c4bef019976a1ed9f6d7bd3d018e9">ui_manager_update_humidity</a>(<span class="keywordtype">float</span> humidity, <span class="keywordtype">bool</span> valid);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#a4ac4b6a085347db0873bbd1c009f48ec">ui_manager_show_sensor_error</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#a3bfadc8c199ad93c3fdec64d24062175">ui_manager_update_furnace_status</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *status, uint32_t color);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">void</span> <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#a5d963cc03973cd17cfd4068735716311">ui_manager_set_target_temperature</a>(<span class="keywordtype">float</span> target_temp);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#a59e5992ec1206236e6884958695248df">ui_manager_update_wifi_status</a>(<span class="keywordtype">bool</span> connected, <span class="keyword">const</span> <span class="keywordtype">char</span> *ip_address, int8_t rssi);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="components_2ui__manager_2include_2ui__manager_8h.html#a3b8889e98cf4abf06b3219544bc0cd3e">ui_manager_update_power</a>(<span class="keywordtype">float</span> power_w, <span class="keywordtype">bool</span> online);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#endif </span><span class="comment">// UI_MANAGER_H</span></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_a3039fcc1685eb8798dcbacfd36f2fd78"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#a3039fcc1685eb8798dcbacfd36f2fd78">ui_manager_update_temperature</a></div><div class="ttdeci">void ui_manager_update_temperature(float temperature, bool valid)</div><div class="ttdoc">Posodobi prikaz temperature.</div><div class="ttdef"><b>Definition</b> ui_manager.c:119</div></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_a3b8889e98cf4abf06b3219544bc0cd3e"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#a3b8889e98cf4abf06b3219544bc0cd3e">ui_manager_update_power</a></div><div class="ttdeci">void ui_manager_update_power(float power_w, bool online)</div><div class="ttdoc">Posodobi Shelly power monitoring.</div><div class="ttdef"><b>Definition</b> ui_manager.c:216</div></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_a3bfadc8c199ad93c3fdec64d24062175"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#a3bfadc8c199ad93c3fdec64d24062175">ui_manager_update_furnace_status</a></div><div class="ttdeci">void ui_manager_update_furnace_status(const char *status, uint32_t color)</div><div class="ttdoc">Posodobi status peči.</div><div class="ttdef"><b>Definition</b> ui_manager.c:167</div></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_a4ac4b6a085347db0873bbd1c009f48ec"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#a4ac4b6a085347db0873bbd1c009f48ec">ui_manager_show_sensor_error</a></div><div class="ttdeci">void ui_manager_show_sensor_error(void)</div><div class="ttdoc">Prikaži napako na senzorju.</div><div class="ttdef"><b>Definition</b> ui_manager.c:157</div></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_a59e5992ec1206236e6884958695248df"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#a59e5992ec1206236e6884958695248df">ui_manager_update_wifi_status</a></div><div class="ttdeci">void ui_manager_update_wifi_status(bool connected, const char *ip_address, int8_t rssi)</div><div class="ttdoc">Posodobi WiFi status.</div><div class="ttdef"><b>Definition</b> ui_manager.c:198</div></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_a5d963cc03973cd17cfd4068735716311"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#a5d963cc03973cd17cfd4068735716311">ui_manager_set_target_temperature</a></div><div class="ttdeci">void ui_manager_set_target_temperature(float target_temp)</div><div class="ttdoc">Nastavi target temperaturo (prikaz)</div><div class="ttdef"><b>Definition</b> ui_manager.c:188</div></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_a681c4bef019976a1ed9f6d7bd3d018e9"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#a681c4bef019976a1ed9f6d7bd3d018e9">ui_manager_update_humidity</a></div><div class="ttdeci">void ui_manager_update_humidity(float humidity, bool valid)</div><div class="ttdoc">Posodobi prikaz vlažnosti.</div><div class="ttdef"><b>Definition</b> ui_manager.c:138</div></div>
+<div class="ttc" id="acomponents_2ui__manager_2include_2ui__manager_8h_html_ab12d788f4d14c28c1aee1f88fe9285d5"><div class="ttname"><a href="components_2ui__manager_2include_2ui__manager_8h.html#ab12d788f4d14c28c1aee1f88fe9285d5">ui_manager_init</a></div><div class="ttdeci">esp_err_t ui_manager_init(void)</div><div class="ttdoc">Inicializira UI manager (kreira screen elemente)</div><div class="ttdef"><b>Definition</b> ui_manager.c:107</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Izdelano s pomočjo&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

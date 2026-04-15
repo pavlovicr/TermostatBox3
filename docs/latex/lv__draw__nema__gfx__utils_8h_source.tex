@@ -18,118 +18,63 @@
 \DoxyCodeLine{00044\ \textcolor{preprocessor}{\#if\ LV\_USE\_NEMA\_GFX}}
 \DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}../sw/lv\_draw\_sw.h"{}}}
 \DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#if\ LV\_USE\_NEMA\_LIB\ ==\ LV\_NEMA\_LIB\_NONE}}
-\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#warning\ since\ v9.5,\ LV\_USE\_NEMA\_LIB\ should\ be\ specified\ in\ lv\_conf.h.\ LV\_NEMA\_LIB\_M33\_REVC\ will\ be\ used\ by\ default.}}
-\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#if\ LV\_USE\_NEMA\_LIB\ ==\ LV\_NEMA\_LIB\_NONE\ ||\ LV\_USE\_NEMA\_LIB\ ==\ LV\_NEMA\_LIB\_M33\_REVC\ ||\ LV\_USE\_NEMA\_LIB\ ==\ LV\_NEMA\_LIB\_M33\_NEMAPVG}}
-\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/build\_version.h"{}}}
-\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_blender.h"{}}}
-\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_cmdlist.h"{}}}
-\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_core.h"{}}}
-\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_easing.h"{}}}
-\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_error.h"{}}}
-\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_font.h"{}}}
-\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_graphics.h"{}}}
-\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_hal.h"{}}}
-\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_interpolators.h"{}}}
-\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_math.h"{}}}
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_matrix3x3.h"{}}}
-\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_matrix4x4.h"{}}}
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_provisional.h"{}}}
-\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_raster.h"{}}}
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_sys\_defs.h"{}}}
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_transitions.h"{}}}
-\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_utils.h"{}}}
-\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_version.h"{}}}
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_vg\_context.h"{}}}
-\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_vg\_font.h"{}}}
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_vg.h"{}}}
-\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_vg\_paint.h"{}}}
-\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_vg\_path.h"{}}}
-\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_vg\_tsvg.h"{}}}
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/nema\_vg\_version.h"{}}}
-\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m33/tsi\_malloc.h"{}}}
-\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#elif\ LV\_USE\_NEMA\_LIB\ ==\ LV\_NEMA\_LIB\_M55\ ||\ LV\_USE\_NEMA\_LIB\ ==\ LV\_NEMA\_LIB\_M7}}
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/build\_version.h"{}}}
-\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_blender.h"{}}}
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_cmdlist.h"{}}}
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_core.h"{}}}
-\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_easing.h"{}}}
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_error.h"{}}}
-\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_font.h"{}}}
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_graphics.h"{}}}
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_hal.h"{}}}
-\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_interpolators.h"{}}}
-\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_math.h"{}}}
-\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_matrix3x3.h"{}}}
-\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_matrix4x4.h"{}}}
-\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_provisional.h"{}}}
-\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_raster.h"{}}}
-\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_sys\_defs.h"{}}}
-\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_transitions.h"{}}}
-\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_version.h"{}}}
-\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg\_context.h"{}}}
-\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg\_font.h"{}}}
-\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg.h"{}}}
-\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg\_paint.h"{}}}
-\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg\_path.h"{}}}
-\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg\_tsvg.h"{}}}
-\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/nema\_vg\_version.h"{}}}
-\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#include\ "{}../../../libs/nema\_gfx/include/cortex\_m55\_m7/tsi\_malloc.h"{}}}
-\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \textcolor{comment}{/*********************}}
-\DoxyCodeLine{00109\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
-\DoxyCodeLine{00110\ \textcolor{comment}{\ *********************/}}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#ifndef\ NEMA\_VIRT2PHYS}}
-\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ NEMA\_VIRT2PHYS}}
-\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00115\ uintptr\_t\ NEMA\_VIRT2PHYS(\textcolor{keywordtype}{void}\ *\ addr);}
-\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \textcolor{comment}{/*Color\ depth:\ 1\ (1\ byte\ per\ pixel),\ 8\ (RGB332),\ 16\ (RGB565),\ 32\ (ARGB8888)*/}}
-\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 8}}
-\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_L8}}
-\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 1}}
-\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 16}}
-\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_RGB565}}
-\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 2}}
-\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 24}}
-\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_BGR24}}
-\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 3}}
-\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
-\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_BGRA8888}}
-\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 4}}
-\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00132\ \textcolor{comment}{/*Can't\ use\ GPU\ with\ other\ formats*/}}
-\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#error\ Selected\ Color\ Depth\ Not\ Supported}}
-\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00137\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00138\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00145\ \textcolor{keywordtype}{bool}\ lv\_nemagfx\_is\_cf\_supported(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ cf);}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00152\ uint32\_t\ lv\_nemagfx\_cf\_to\_nema(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ cf);}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00162\ uint32\_t\ lv\_nemagfx\_blending\_mode(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__style_8h_a2e4fe7f18d18a05b245ee4a1fdaca0f9}{lv\_blend\_mode\_t}}\ lv\_blend\_mode);}
-\DoxyCodeLine{00163\ }
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00175\ \textcolor{keywordtype}{void}\ lv\_nemagfx\_grad\_set(\mbox{\hyperlink{cortex__m33_2nema__vg__context_8h_a140a7d3cfda0274e08bb3aa4e5aaf69b}{NEMA\_VG\_GRAD\_HANDLE}}\ gradient,\ \mbox{\hyperlink{structlv__grad__dsc__t}{lv\_grad\_dsc\_t}}\ lv\_grad,\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\_opa\_t}}\ opa);}
-\DoxyCodeLine{00176\ }
-\DoxyCodeLine{00177\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00178\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00179\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*LV\_USE\_NEMA\_GFX*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00184\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00186\ }
-\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_NEMA\_GFX\_UTILS\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}nema\_core.h"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}nema\_utils.h"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}nema\_error.h"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}nema\_provisional.h"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nema__vg_8h}{nema\_vg.h}}"{}}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/*********************}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *********************/}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#ifndef\ NEMA\_VIRT2PHYS}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ NEMA\_VIRT2PHYS}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00060\ uintptr\_t\ NEMA\_VIRT2PHYS(\textcolor{keywordtype}{void}\ *\ addr);}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{/*Color\ depth:\ 1\ (1\ byte\ per\ pixel),\ 8\ (RGB332),\ 16\ (RGB565),\ 32\ (ARGB8888)*/}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#if\ LV\_COLOR\_DEPTH\ ==\ 8}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_L8}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 1}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 16}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_RGB565}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 2}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 24}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_BGR24}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 3}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#elif\ LV\_COLOR\_DEPTH\ ==\ 32}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_COLOR\_FORMAT\ NEMA\_BGRA8888}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ LV\_NEMA\_GFX\_FORMAT\_MULTIPLIER\ 4}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00077\ \textcolor{comment}{/*Can't\ use\ GPU\ with\ other\ formats*/}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#error\ Selected\ Color\ Depth\ Not\ Supported}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{bool}\ lv\_nemagfx\_is\_cf\_supported(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ cf);}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00097\ uint32\_t\ lv\_nemagfx\_cf\_to\_nema(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\_color\_format\_t}}\ cf);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00107\ uint32\_t\ lv\_nemagfx\_blending\_mode(\mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__style_8h_a2e4fe7f18d18a05b245ee4a1fdaca0f9}{lv\_blend\_mode\_t}}\ lv\_blend\_mode);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ lv\_nemagfx\_grad\_set(\mbox{\hyperlink{nema__vg__context_8h_a140a7d3cfda0274e08bb3aa4e5aaf69b}{NEMA\_VG\_GRAD\_HANDLE}}\ gradient,\ \mbox{\hyperlink{structlv__grad__dsc__t}{lv\_grad\_dsc\_t}}\ lv\_grad,\ \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\_opa\_t}}\ opa);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00123\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00124\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*LV\_USE\_NEMA\_GFX*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00129\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_DRAW\_NEMA\_GFX\_UTILS\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

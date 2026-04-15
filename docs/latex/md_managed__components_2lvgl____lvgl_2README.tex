@@ -26,7 +26,7 @@
 \href{https://lvgl.io}{\texttt{ Website}} \texorpdfstring{$\vert$}{|} \href{https://pro.lvgl.io}{\texttt{ LVGL Pro Editor}} \texorpdfstring{$\vert$}{|} \href{https://docs.lvgl.io/}{\texttt{ Docs}} \texorpdfstring{$\vert$}{|} \href{https://forum.lvgl.io}{\texttt{ Forum}} \texorpdfstring{$\vert$}{|} \href{https://lvgl.io/demos}{\texttt{ Demos}} \texorpdfstring{$\vert$}{|} \href{https://lvgl.io/services}{\texttt{ Services}} 
 
 ~\newline
-\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md564}{}\doxysubsubsection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md564}
+\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md485}{}\doxysubsubsection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md485}
 \href{\#ledger-overview}{\texttt{ Overview}} ~\newline
  \href{\#-features}{\texttt{ Features}} ~\newline
  \href{\#\%EF\%B8\%8F-platform-support}{\texttt{ Platform Support}} ~\newline
@@ -37,19 +37,19 @@
  \href{\#-contributing}{\texttt{ Contributing}} 
 
 ~\newline
-\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md565}{}\doxysubsection{\texorpdfstring{📒 Overview}{📒 Overview}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md565}
+\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md486}{}\doxysubsection{\texorpdfstring{📒 Overview}{📒 Overview}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md486}
 {\bfseries{LVGL}} is a free and open-\/source UI library that enables you to create graphical user interfaces for any MCUs and MPUs from any vendor on any platform.
 
 {\bfseries{Requirements}}\+: LVGL has no external dependencies, which makes it easy to compile for any modern target, from small MCUs to multi-\/core Linux-\/based MPUs with 3D support. For a simple UI, you need only \texorpdfstring{$\sim$}{\string~}100kB RAM, \texorpdfstring{$\sim$}{\string~}200–300kB flash, and a buffer size of 1/10 of the screen for rendering.
 
 {\bfseries{To get started}}, pick a ready-\/to-\/use VSCode, Eclipse, or any other project and try out LVGL on your PC. The LVGL UI code is fully platform-\/independent, so you can use the same UI code on embedded targets too.
 
-{\bfseries{LVGL Pro}} is a complete toolkit to help you build, test, share, and ship UIs faster. It comes with an XML Editor where you can quickly create and test reusable components, export C code, or load the XMLs at runtime. Learn more here.\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md566}{}\doxysubsection{\texorpdfstring{💡 Features}{💡 Features}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md566}
+{\bfseries{LVGL Pro}} is a complete toolkit to help you build, test, share, and ship UIs faster. It comes with an XML Editor where you can quickly create and test reusable components, export C code, or load the XMLs at runtime. Learn more here.\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md487}{}\doxysubsection{\texorpdfstring{💡 Features}{💡 Features}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md487}
 {\bfseries{Free and Portable}}
 \begin{DoxyItemize}
 \item A fully portable C (C++ compatible) library with no external dependencies.
 \item Can be compiled for any MCU or MPU, with any (RT)OS. Make, CMake, and simple globbing are all supported.
-\item Supports monochrome, e\+Paper, OLED, or TFT displays, or even monitors. \href{https://docs.lvgl.io/master/main-modules/display/index.html}{\texttt{ Displays}}
+\item Supports monochrome, e\+Paper, OLED, or TFT displays, or even monitors. \href{https://docs.lvgl.io/master/details/main-modules/display/index.html}{\texttt{ Displays}}
 \item Distributed under the MIT license, so you can easily use it in commercial projects too.
 \item Needs only 32kB RAM and 128kB Flash, a frame buffer, and at least a 1/10 screen-\/sized buffer for rendering.
 \item OS, external memory, and GPU are supported but not required.
@@ -57,45 +57,45 @@
 
 {\bfseries{Widgets, Styles, Layouts, and More}}
 \begin{DoxyItemize}
-\item 30+ built-\/in \href{https://docs.lvgl.io/master/widgets/index.html}{\texttt{ Widgets}}\+: Button, Label, Slider, Chart, Keyboard, Meter, Arc, Table, and many more.
-\item Flexible \href{https://docs.lvgl.io/master/common-widget-features/styles/index.html}{\texttt{ Style system}} with \texorpdfstring{$\sim$}{\string~}100 style properties to customize any part of the widgets in any state.
-\item \href{https://docs.lvgl.io/master/common-widget-features/layouts/flex.html}{\texttt{ Flexbox}} and \href{https://docs.lvgl.io/master/common-widget-features/layouts/grid.html}{\texttt{ Grid}}-\/like layout engines to automatically size and position the widgets responsively.
+\item 30+ built-\/in \href{https://docs.lvgl.io/master/details/widgets/index.html}{\texttt{ Widgets}}\+: Button, Label, Slider, Chart, Keyboard, Meter, Arc, Table, and many more.
+\item Flexible \href{https://docs.lvgl.io/master/details/common-widget-features/styles/index.html}{\texttt{ Style system}} with \texorpdfstring{$\sim$}{\string~}100 style properties to customize any part of the widgets in any state.
+\item \href{https://docs.lvgl.io/master/details/common-widget-features/layouts/flex.html}{\texttt{ Flexbox}} and \href{https://docs.lvgl.io/master/details/common-widget-features/layouts/grid.html}{\texttt{ Grid}}-\/like layout engines to automatically size and position the widgets responsively.
 \item Text is rendered with UTF-\/8 encoding, supporting CJK, Thai, Hindi, Arabic, and Persian writing systems.
-\item \href{https://docs.lvgl.io/master/main-modules/observer/index.html}{\texttt{ Data bindings}} to easily connect the UI with the application.
+\item \href{https://docs.lvgl.io/master/details/auxiliary-modules/observer/index.html}{\texttt{ Data bindings}} to easily connect the UI with the application.
 \item Rendering engine supports animations, anti-\/aliasing, opacity, smooth scrolling, shadows, image transformation, etc.
-\item \href{https://docs.lvgl.io/master/libs/gltf.html}{\texttt{ Powerful 3D rendering engine}} to show \href{https://sketchfab.com/}{\texttt{ gl\+TF models}} with Open\+GL.
-\item Supports Mouse, Touchpad, Keypad, Keyboard, External buttons, Encoder \href{https://docs.lvgl.io/master/main-modules/indev.html}{\texttt{ Input devices}}.
-\item \href{https://docs.lvgl.io/master/main-modules/display/overview.html\#how-many-displays-can-lvgl-use}{\texttt{ Multiple display}} support.
-\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md567}{}\doxysubsection{\texorpdfstring{📦️ Platform Support}{📦️ Platform Support}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md567}
+\item \href{https://docs.lvgl.io/master/details/libs/gltf.html}{\texttt{ Powerful 3D rendering engine}} to show \href{https://sketchfab.com/}{\texttt{ gl\+TF models}} with Open\+GL.
+\item Supports Mouse, Touchpad, Keypad, Keyboard, External buttons, Encoder \href{https://docs.lvgl.io/master/details/main-modules/indev.html}{\texttt{ Input devices}}.
+\item \href{https://docs.lvgl.io/master/details/main-modules/display/overview.html\#how-many-displays-can-lvgl-use}{\texttt{ Multiple display}} support.
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md488}{}\doxysubsection{\texorpdfstring{📦️ Platform Support}{📦️ Platform Support}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md488}
 LVGL has no external dependencies, so it can be easily compiled for any devices and it\textquotesingle{}s also available in many package managers and RTOSes\+:
 
 
 \begin{DoxyItemize}
-\item \href{https://docs.lvgl.io/master/integration/framework/arduino.html}{\texttt{ Arduino library}}
+\item \href{https://docs.lvgl.io/master/details/integration/framework/arduino.html}{\texttt{ Arduino library}}
 \item \href{https://registry.platformio.org/libraries/lvgl/lvgl}{\texttt{ Platform\+IO package}}
-\item \href{https://docs.lvgl.io/master/integration/os/zephyr.html}{\texttt{ Zephyr library}}
+\item \href{https://docs.lvgl.io/master/details/integration/os/zephyr.html}{\texttt{ Zephyr library}}
 \item \href{https://components.espressif.com/components/lvgl/lvgl}{\texttt{ ESP-\/\+IDF(ESP32) component}}
 \item \href{https://www.nxp.com/design/software/embedded-software/lvgl-open-source-graphics-library:LITTLEVGL-OPEN-SOURCE-GRAPHICS-LIBRARY}{\texttt{ NXP MCUXpresso component}}
-\item \href{https://docs.lvgl.io/master/integration/os/nuttx.html}{\texttt{ NuttX library}}
-\item \href{https://docs.lvgl.io/master/integration/os/rt-thread.html}{\texttt{ RT-\/\+Thread RTOS}}
+\item \href{https://docs.lvgl.io/master/details/integration/os/nuttx.html}{\texttt{ NuttX library}}
+\item \href{https://docs.lvgl.io/master/details/integration/os/rt-thread.html}{\texttt{ RT-\/\+Thread RTOS}}
 \item CMSIS-\/\+Pack
 \item \href{https://doc.riot-os.org/group__pkg__lvgl.html\#details}{\texttt{ RIOT OS package}}
-\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md568}{}\doxysubsection{\texorpdfstring{🚀 LVGL Pro Editor}{🚀 LVGL Pro Editor}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md568}
+\end{DoxyItemize}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md489}{}\doxysubsection{\texorpdfstring{🚀 LVGL Pro Editor}{🚀 LVGL Pro Editor}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md489}
 LVGL Pro is a complete toolkit to build, test, share, and ship embedded UIs efficiently.
 
 It consists of four tightly related tools\+:
 
 
 \begin{DoxyEnumerate}
-\item {\bfseries{XML Editor}}\+: The heart of LVGL Pro. A desktop app to build components and screens in XML, manage data bindings, translations, animations, tests, and more. Learn more about the \href{https://docs.lvgl.io/master/xml/xml/index.html}{\texttt{ XML Format}} and the \href{https://docs.lvgl.io/master/xml/editor/index.html}{\texttt{ Editor}}.
+\item {\bfseries{XML Editor}}\+: The heart of LVGL Pro. A desktop app to build components and screens in XML, manage data bindings, translations, animations, tests, and more. Learn more about the \href{https://docs.lvgl.io/master/details/xml/xml/index.html}{\texttt{ XML Format}} and the \href{https://docs.lvgl.io/master/details/xml/editor/index.html}{\texttt{ Editor}}.
 \item {\bfseries{Online Viewer}}\+: Run the Editor in your browser, open Git\+Hub projects, and share easily without setting up a developer environment. Visit \href{https://viewer.lvgl.io}{\texttt{ https\+://viewer.\+lvgl.\+io}}.
-\item {\bfseries{CLI Tool}}\+: Generate C code and run tests in CI/\+CD. See the details \href{https://docs.lvgl.io/master/xml/tools/cli.html}{\texttt{ here}}.
-\item {\bfseries{Figma Plugin}}\+: Sync and extract styles directly from Figma. See how it works \href{https://docs.lvgl.io/master/xml/tools/figma.html}{\texttt{ here}}.
+\item {\bfseries{CLI Tool}}\+: Generate C code and run tests in CI/\+CD. See the details \href{https://docs.lvgl.io/master/details/xml/tools/cli.html}{\texttt{ here}}.
+\item {\bfseries{Figma Plugin}}\+: Sync and extract styles directly from Figma. See how it works \href{https://docs.lvgl.io/master/details/xml/tools/figma.html}{\texttt{ here}}.
 \end{DoxyEnumerate}
 
 Together, these tools let developers build UIs efficiently, test them reliably, and collaborate with team members and customers.
 
-Learn more at \href{https://pro.lvgl.io}{\texttt{ https\+://pro.\+lvgl.\+io}}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md569}{}\doxysubsection{\texorpdfstring{🤝 Commercial Services}{🤝 Commercial Services}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md569}
+Learn more at \href{https://pro.lvgl.io}{\texttt{ https\+://pro.\+lvgl.\+io}}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md490}{}\doxysubsection{\texorpdfstring{🤝 Commercial Services}{🤝 Commercial Services}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md490}
 LVGL LLC provides several types of commercial services to help you with UI development. With 15+ years of experience in the user interface and graphics industry, we can help bring your UI to the next level.
 
 
@@ -108,7 +108,7 @@ LVGL LLC provides several types of commercial services to help you with UI devel
 
 Check out our \href{https://lvgl.io/demos}{\texttt{ Demos}} as references. For more information, take a look at the \href{https://lvgl.io/services}{\texttt{ Services page}}.
 
-\href{https://lvgl.io/\#contact}{\texttt{ Contact us}} and tell us how we can help.\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md570}{}\doxysubsection{\texorpdfstring{🧑‍💻 Integrating LVGL}{🧑‍💻 Integrating LVGL}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md570}
+\href{https://lvgl.io/\#contact}{\texttt{ Contact us}} and tell us how we can help.\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md491}{}\doxysubsection{\texorpdfstring{🧑‍💻 Integrating LVGL}{🧑‍💻 Integrating LVGL}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md491}
 Integrating LVGL is very simple. Just drop it into any project and compile it as you would compile other files. To configure LVGL, copy {\ttfamily \doxylink{lv__conf__template_8h_source}{lv\+\_\+conf\+\_\+template.\+h}} as {\ttfamily lv\+\_\+conf.\+h}, enable the first {\ttfamily \#if 0}, and adjust the configs as needed. (The default config is usually fine.) If available, LVGL can also be used with Kconfig.
 
 Once in the project, you can initialize LVGL and create display and input devices as follows\+:
@@ -181,10 +181,10 @@ Once in the project, you can initialize LVGL and create display and input device
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md571}{}\doxysubsection{\texorpdfstring{🤖 Examples}{🤖 Examples}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md571}
+\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md492}{}\doxysubsection{\texorpdfstring{🤖 Examples}{🤖 Examples}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md492}
 You can check out more than 100 examples at \href{https://docs.lvgl.io/master/examples.html}{\texttt{ https\+://docs.\+lvgl.\+io/master/examples.\+html}}
 
-The Online Viewer also contains tutorials to easily learn XML\+: \href{https://viewer.lvgl.io/}{\texttt{ https\+://viewer.\+lvgl.\+io/}}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md572}{}\doxysubsubsection{\texorpdfstring{Hello World Button with an Event}{Hello World Button with an Event}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md572}
+The Online Viewer also contains tutorials to easily learn XML\+: \href{https://viewer.lvgl.io/}{\texttt{ https\+://viewer.\+lvgl.\+io/}}\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md493}{}\doxysubsubsection{\texorpdfstring{Hello World Button with an Event}{Hello World Button with an Event}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md493}
 
 
 
@@ -232,7 +232,7 @@ The Online Viewer also contains tutorials to easily learn XML\+: \href{https://v
 
 
 \end{adjustwidth}
-\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md573}{}\doxysubsubsection{\texorpdfstring{Styled Slider with Data-\/binding}{Styled Slider with Data-binding}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md573}
+\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md494}{}\doxysubsubsection{\texorpdfstring{Styled Slider with Data-\/binding}{Styled Slider with Data-binding}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md494}
 
 
 
@@ -242,14 +242,14 @@ The Online Viewer also contains tutorials to easily learn XML\+: \href{https://v
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ my\_observer\_cb(\mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ observer,\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ *\ subject)}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ my\_observer\_cb(\mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ observer,\ \mbox{\hyperlink{structlv__subject__t}{lv\_subject\_t}}\ *\ subject)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ printf(\textcolor{stringliteral}{"{}Slider\ value:\ \%d\(\backslash\)n"{}},\ \mbox{\hyperlink{lv__observer_8c_ac1aa82930b9f6a7a8e732491267c9b4a}{lv\_subject\_get\_int}}(subject));}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{[...]}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ subject\_value;}
+\DoxyCodeLine{\textcolor{keyword}{static}\ \mbox{\hyperlink{structlv__subject__t}{lv\_subject\_t}}\ subject\_value;}
 \DoxyCodeLine{\mbox{\hyperlink{lv__observer_8c_aa33dde3e61e5511b138ff16fe879424e}{lv\_subject\_init\_int}}(\&subject\_value,\ 35);}
 \DoxyCodeLine{\mbox{\hyperlink{lv__observer_8c_a94b37d504317a6375c1a5bd0d808412d}{lv\_subject\_add\_observer}}(\&subject\_value,\ my\_observer\_cb,\ NULL);}
 \DoxyCodeLine{}
@@ -308,7 +308,7 @@ The Online Viewer also contains tutorials to easily learn XML\+: \href{https://v
 
 
 \end{adjustwidth}
-\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md574}{}\doxysubsubsection{\texorpdfstring{Checkboxes in a Layout}{Checkboxes in a Layout}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md574}
+\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md495}{}\doxysubsubsection{\texorpdfstring{Checkboxes in a Layout}{Checkboxes in a Layout}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md495}
 
 
 
@@ -371,7 +371,7 @@ The Online Viewer also contains tutorials to easily learn XML\+: \href{https://v
 
 
 \end{adjustwidth}
-\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md575}{}\doxysubsection{\texorpdfstring{🌟 Contributing}{🌟 Contributing}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md575}
+\hypertarget{md_managed__components_2lvgl____lvgl_2README_autotoc_md496}{}\doxysubsection{\texorpdfstring{🌟 Contributing}{🌟 Contributing}}\label{md_managed__components_2lvgl____lvgl_2README_autotoc_md496}
 LVGL is an open project, and contributions are very welcome. There are many ways to contribute, from simply speaking about your project, writing examples, improving the documentation, fixing bugs, or even hosting your own project under the LVGL organization.
 
 For a detailed description of contribution opportunities, visit the \href{https://docs.lvgl.io/master/contributing/index.html}{\texttt{ Contributing}} section of the documentation.

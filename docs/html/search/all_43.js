@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['平台支持_0',['📦️ 平台支持',['../md_managed__components_2lvgl____lvgl_2docs_2README__zh.html#autotoc_md540',1,'']]]
+  ['機能_0',['💡 機能',['../md_managed__components_2lvgl____lvgl_2docs_2README__jp.html#autotoc_md445',1,'']]]
 ];

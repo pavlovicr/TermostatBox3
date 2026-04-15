@@ -72,8 +72,8 @@ $(function() {
   <div class="headertitle"><div class="title">Documentation</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md488"></a></p>
-<h1><a class="anchor" id="autotoc_md489"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md421"></a></p>
+<h1><a class="anchor" id="autotoc_md422"></a>
 Building</h1>
 <p>Building the documentation is easy. Here are the requirements:</p>
 <ul>
@@ -82,53 +82,61 @@ Building</h1>
 <li>C compiler (gcc, msvc, clang, etc...)</li>
 </ul>
 <p>Once Python is installed </p><pre class="fragment">pip install -r requirements.txt
-</pre><p> will install all the prerequisite packages.</p>
-<p>To build the documentation on Windows: </p><pre class="fragment">python build.py html
-</pre><p> On Linux: </p><pre class="fragment">python3 build.py html
-</pre><p> Intermediate files are normally prepared in <code>./docs/intermediate/</code> and the final documentation will normally appear in <code>./docs/build/html/</code>. Both of these directories can be overridden using environment variables. See documentation in <code>build.py</code> header comment for details.</p>
-<p>If the list of document source files (including the <code>.h</code> files in the <code>./src/</code> directory) has changed (names or paths): </p><pre class="fragment">python build.py clean
-</pre><p> Will remove the old intermediate and build files, eliminating the orphan files that would otherwise result.</p>
+</pre><p> will install all the prerequisite packages:</p>
+<ul>
+<li>Sphinx</li>
+<li>breathe</li>
+<li>imagesize</li>
+<li>importlib-metadata</li>
+<li>sphinx-rtd-theme</li>
+<li>sphinx-sitemap</li>
+<li>sphinxcontrib-applehelp</li>
+<li>sphinxcontrib-devhelp</li>
+<li>sphinxcontrib-htmlhelp</li>
+<li>sphinxcontrib-jsmath</li>
+<li>sphinxcontrib-qthelp</li>
+<li>sphinxcontrib-serializinghtml</li>
+<li>sphinxcontrib-mermaid==0.9.2</li>
+<li>sphinx-copybutton</li>
+<li>sphinx-design</li>
+<li>typing-extensions</li>
+<li>sphinx-reredirects</li>
+<li>dirsync</li>
+<li>furo</li>
+<li>accessible-pygments</li>
+</ul>
+<p>Now you are ready to build the documentation: </p><pre class="fragment">python build.py html
+</pre><p> or if you are on a Unix like OS: </p><pre class="fragment">python3 build.py html
+</pre><p> Intermediate files are normally prepared in <code>./docs/intermediate/</code> and the final documentation will normally appear in <code>./docs/build/html/</code>. (Both of these directories can be overridden using environment variables. See documentation in <code>build.py</code> header comment for details.)</p>
+<p>If the list of document source files has changed (names or paths): </p><pre class="fragment">python build.py clean html
+</pre><p> Will remove the old intermediate and build files and regenerate new ones matching the new structure, eliminating the orphan files that would otherwise result.</p>
 <p>To see a list of options available: </p><pre class="fragment">python build.py
-</pre><p> Read the header comment in <code>build.py</code> for detailed documentation on each option.</p>
-<h1><a class="anchor" id="autotoc_md490"></a>
+</pre><p> Read the header comment in <code>build.py</code> for detailed documentation of each option.</p>
+<h1><a class="anchor" id="autotoc_md423"></a>
 For Developers</h1>
 <p>One of our firm policies is <em><b>EVERYTHING MUST BE DOCUMENTED</b></em>.</p>
 <p>The below are some rules to follow when updating any of the <code>.rst</code> files located in the <code>./docs/src/</code> directory tree.</p>
-<h1><a class="anchor" id="autotoc_md491"></a>
-reStructuredText Content</h1>
-<p>LVGL documentation uses <b>reStructuredText</b> (reST), rendered into HTML by Sphinx. You will find the following is a fairly-complete list of references about how to do things using reStructuredText:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Docutils References (Fundamentals)   </th><th class="markdownTableHeadNone">Sphinx References (What Sphinx Adds to Docutils)    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/ref/rst/introduction.html">Introduction</a>   </td><td class="markdownTableBodyNone"><a href="https://www.sphinx-doc.org/en/master/usage/configuration.html">Configuration</a>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html">Markup Specification</a>   </td><td class="markdownTableBodyNone"><a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html">Directives</a>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#tables">Markup Specification ∙ Tables</a>   </td><td class="markdownTableBodyNone"><a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#admonitions-messages-and-warnings">Directives ∙ Admonitions</a>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/ref/rst/restructuredtext.html#substitution-references">Markup Specification ∙ Substitution References</a>   </td><td class="markdownTableBodyNone"><a href="https://www.sphinx-doc.org/en/master/usage/referencing.html">Referencing</a>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/ref/rst/directives.html">Directives</a>   </td><td class="markdownTableBodyNone"><a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html">Interpreted Text Roles</a>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/ref/rst/roles.html">Interpreted Text Roles</a>   </td><td class="markdownTableBodyNone"><a href="https://www.sphinx-doc.org/en/master/glossary.html">Glossary</a>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/user/rst/quickstart.html">Quickstart</a>   </td><td class="markdownTableBodyNone"><a href="https://sphinx-themes.org/sample-sites/furo/">Furo-theme Examples</a>    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/user/rst/demo.html">Examples</a>   </td><td class="markdownTableBodyNone"><a href="https://sphinx-themes.org/sample-sites/furo/kitchen-sink/">Kitchen Sink Page</a>    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a href="https://docutils.sourceforge.io/docs/user/rst/quickref.html">Quick Reference</a>   </td><td class="markdownTableBodyNone"><a href="https://sphinx-themes.org/">Sphinx Themes Gallery</a>   </td></tr>
-</table>
-<p>If you prefer to learn by examples, the <a href="https://sphinx-themes.org/sample-sites/furo/">Furo-theme Examples</a> and especially the <a href="https://sphinx-themes.org/sample-sites/furo/kitchen-sink/">Kitchen Sink Page</a> are excellent resources. View the <code>.rst</code> source file that generated that page by clicking the "eye" icon at the top of the page.</p>
-<p>Note: the section headings in these pages use a different convention than the one presented below. For LVGL documentation, use the <a href="https://github.com/lvgl/lvgl/tree/master/docs#section-headings">section-heading convention presented below</a>.</p>
-<h2><a class="anchor" id="autotoc_md492"></a>
+<h2><a class="anchor" id="autotoc_md424"></a>
+What to Name Your &lt;tt&gt;.rst&lt;/tt&gt; File</h2>
+<p>The directory structure under the <code>./docs/src/</code> directory, and the filenames of the <code>.rst</code> files govern the eventual URLs that are generated in the HTML output. These directories are organized so as to reflect the nature of the content. Example: the <code>.rst</code> files under <code>./docs/src/intro</code> contain introductory material—detailed reference material would not go there, but instead in an appropriate subdirectory of <code>./docs/src/details/</code>. It is expected that the content and location of any new documents added would be in alignment with this directory structure, and placed and named according to their content. Additionally, to be linked into the eventual generated documentation, the stem of the new filename needs to appear in at least one (normally <em>only one</em>) <code>.. toctree::</code> directive, normally in an <code>index.rst</code> file in the directory where it will appear in that page's table of contents (TOC).</p>
+<p>Other than that, there are no restrictions on filenames. Previous linking of filenames to generated API links has been removed and replaced by a better scheme. For sake of illustration, let's say you are creating (or enhancing) documentation related to the <code>lv_scale_t</code> data type (one of the LVGL Widgets): if you want the doc-build logic to generate appropriate links to LVGL API pages, place an API section at the end of your document (it must be at the end) like this:</p>
+<div class="fragment"><div class="line">API</div>
+<div class="line">***</div>
+</div><!-- fragment --><p>and then, if you want the API-link-generation logic to generate hyperlinks to API pages based on an <em><b>exact, case-sensitive string match</b></em> with specific C symbols, follow it with a reStructuredText comment using this syntax:</p>
+<div class="fragment"><div class="line">.. API equals: lv_scale_t, lv_scale_create</div>
+</div><!-- fragment --><p>What follows the colon is a comma- or space-separated list of exact C symbols documented somewhere in the <code>lvgl/src/</code> directory. If the list is long, it can be wrapped to subsequent lines, though continuation lines must be all indented at the same level. The list ends with the first blank line after this pseudo-directive.</p>
+<p>If you instead want the API-link-generation logic to simply include links to code that <em><b>starts with a specific string</b></em> use this syntax instead. The format of the list is the same as for <code>.. API equals:</code>:</p>
+<div class="fragment"><div class="line">.. API startswith: lv_scale, lv_obj_set_style</div>
+</div><!-- fragment --><p>You can also manually link to API pages, in which case the API-link-generation logic will see that you have already added links and will not repeat them.</p>
+<div class="fragment"><div class="line">:ref:`lv_scale_h`</div>
+</div><!-- fragment --><p>Note that the period before the <code>h</code> is replaced with an underscore (<code>_</code>). The naming of this reference (<code>lv_scale_h</code>) will generate a hyperlink to the documentation extracted by Doxygen from the <code><a class="el" href="lv__scale_8h.html">lvgl/src/widgets/scale/lv_scale.h</a></code> file.</p>
+<h2><a class="anchor" id="autotoc_md425"></a>
 Text Format</h2>
-<p>Please wrap the text around column 86 or narrower. Wrapping at <em>exactly</em> column 86 is not important, but readability and ease of editing is.</p>
-<p>Indent using 4 spaces (not tab characters). This applies to code blocks as well.</p>
-<h2><a class="anchor" id="autotoc_md493"></a>
+<p>With <code>.md</code> files, it is important to allow paragraphs to flow off to the right with one long line so that when they are formatted as <code>.html</code> files, the paragraphs will word-wrap with the width of the browser. Thankfully, this liability is not present with reStructuredText (<code>.rst</code> files). <a href="https://www.sphinx-doc.org/en/master/">Sphinx</a> and its underlying <a href="https://docutils.sourceforge.io/docs/">docutils parsing engine</a> conveniently combine grouped text into a proper paragraph with that word-wrapping behavior. This allows the source text documents to be nicely word-wrapped so that they are more readable in text- and code-editors that do not have wide editing windows. So please wrap the text around column 86 or narrower. Wrapping at <em>exactly</em> column 86 is not important, but readability and ease of editing is.</p>
+<h2><a class="anchor" id="autotoc_md426"></a>
 index.rst Files</h2>
 <p>If you create a new directory you will need an <code>index.rst</code> file in that directory and that index file needs to be pointed to in the <code>index.rst</code> file that is located in the parent directory.</p>
-<p>Let's take a look at the <code>index.rst</code> file that is located in the <code>docs/src/common-widget-features/layouts</code> directory.</p>
+<p>Let's take a look at the <code>index.rst</code> file that is located in the <code>docs/src/details/common-widget-features/layouts</code> directory.</p>
 <div class="fragment"><div class="line">.. _layouts:</div>
 <div class="line"> </div>
 <div class="line">=======</div>
@@ -139,10 +147,9 @@ index.rst Files</h2>
 <div class="line">.. toctree::</div>
 <div class="line">    :maxdepth: 2</div>
 <div class="line"> </div>
-<div class="line">    overview</div>
 <div class="line">    flex</div>
 <div class="line">    grid</div>
-</div><!-- fragment --><p>Explanation:</p>
+</div><!-- fragment --><p>The below explains the parts of this file.</p>
 <div class="fragment"><div class="line">.. _layouts:      &lt;=== Creates an explicit link target</div>
 <div class="line">                  &lt;=== Empty line -- important!</div>
 <div class="line">=======</div>
@@ -154,50 +161,67 @@ index.rst Files</h2>
 <div class="line">.. toctree::      &lt;=== Table of contents directive</div>
 <div class="line">    :maxdepth: 2  &lt;=== Internal use and needs to always be set this way</div>
 <div class="line"> </div>
-<div class="line">    overview      &lt;=== relative path to .rst files located in the same directory</div>
-<div class="line">    flex</div>
+<div class="line">    flex          &lt;=== relative path to .rst files located in the same directory</div>
 <div class="line">    grid</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md494"></a>
+</div><!-- fragment --><p>The first line is for the purposes of providing a uniquely-named <b>link target</b> that can be referenced elsewhere in the documentation. </p><pre class="fragment">.. _{LINK NAME}:
+</pre><p> Note that <code>{LINK NAME}</code>:</p>
+<ul>
+<li><b>must</b> be preceded by a single underscore,</li>
+<li><b>must</b> be followed by a single colon, and</li>
+<li><b>must</b> be followed by at least one blank line for the doc-generation logic to process it correctly.</li>
+</ul>
+<p>Replace <code>{LINK NAME}</code> with a link name that is unique among all documents under the <code>./docs/src/</code> directory. It can have multiple words if needed to make it unique or when otherwise appropriate for clarity. If multiple words are used, they can be separated with single spaces, hyphens or underscores. Whatever you use, the <code>{LINK NAME}</code> string used to reference it must be identical. <code>{LINK NAME}</code> strings are not case sensitive.</p>
+<p>That unique name is then used to provide a link reference elsewhere in the documentation using one of two formats.</p>
+<h4><a class="anchor" id="autotoc_md427"></a>
+When the "link text" should be a title or section heading from the target document:</h4>
+<div class="fragment"><div class="line">:ref:`{LINK NAME}`</div>
+</div><!-- fragment --><p>This in-line markup (interpreted text using the Sphinx-defined custom <code>:ref:</code> role) is then replaced with a hyperlink whose "link text" is the name of the section heading or document title just below the <b>link target</b>. For this reason, when using this syntax, <code>{LINK NAME}</code> must reference **link target**s that are just above a title or section heading.</p>
+<h4><a class="anchor" id="autotoc_md428"></a>
+When "link text" should be something else:</h4>
+<div class="fragment"><div class="line">:ref:`other link text &lt;{LINK NAME}&gt;`</div>
+</div><!-- fragment --><p>This latter syntax enables you to put a <b>link target</b> anywhere in an .RST file (not just above a heading) and link to it using this syntax.</p>
+<p>Note: This latter syntax was either added or fixed in Sphinx recently. It did not work in Sphinx 7.3.7.</p>
+<h2><a class="anchor" id="autotoc_md429"></a>
 Section Headings</h2>
-<p>Section headings are created by underlining the section title with a punctuation character, at least as long as the text. Example:</p>
+<p><a href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#sections">Section headings</a> are created by underlining the section title with a punctuation character, at least as long as the text. Example:</p>
 <div class="fragment"><div class="line">This Is a Heading</div>
 <div class="line">*****************</div>
-</div><!-- fragment --><p>Use these conventions for section headings in LVGL documentation:</p>
-<div class="fragment"><div class="line">==============</div>
-<div class="line">Document Title</div>
-<div class="line">==============</div>
+</div><!-- fragment --><p>reStructuredText does not impose any particular heading levels assigned to certain characters since the structure is determined from the succession of headings. However, the LVGL docs policy is to use the below heading convention:</p>
+<div class="fragment"><div class="line">=====</div>
+<div class="line">Title</div>
+<div class="line">=====</div>
 <div class="line"> </div>
-<div class="line">Section</div>
+<div class="line">Chapter</div>
 <div class="line">*******</div>
 <div class="line"> </div>
+<div class="line">Section</div>
+<div class="line">-------</div>
+<div class="line"> </div>
 <div class="line">Sub Section</div>
-<div class="line">-----------</div>
+<div class="line">~~~~~~~~~~~</div>
 <div class="line"> </div>
 <div class="line">Sub Sub Section</div>
-<div class="line">~~~~~~~~~~~~~~~</div>
-</div><!-- fragment --><ol type="1">
-<li><code>====</code>, <code>****</code>, <code>----</code> are encouraged.</li>
-<li><code>~~~~</code> only if really needed.</li>
-</ol>
-<p>Being consistent about this helps the reST parser to format the tables of contents correctly.</p>
-<p>For improved readability in text editors:</p>
+<div class="line">^^^^^^^^^^^^^^^</div>
+<div class="line"> </div>
+<div class="line">Sub Sub Sub Section</div>
+<div class="line">&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;&#39;</div>
+</div><!-- fragment --><p>Being consistent about this helps the Sphinx/docutils parser to format the tables of contents correctly.</p>
+<p>Note that the "underlining" can be longer than the heading title, but if it is shorter, the documentation-generation logic will fail with an error.</p>
+<p>For improved readability in the .RST file:</p>
 <ul>
-<li>place 3 blank lines above the 2nd and subsequent "Section" titles (see above),</li>
-<li>2 blank lines above "Sub Section" headings, and</li>
-<li>1 at least blank line above all lower-level section headings.</li>
+<li>place 3 blank lines above the 2nd and subsequent chapter titles (see above), and</li>
+<li>place 2 blank lines above section headings below chapters.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md495"></a>
-Italics, Boldface and Underlining</h2>
-<p>Emphasis using <code>*italics*</code>. Emphasis using <code>**boldface**</code>.</p>
-<p>Normally underlining and combining these text styles is not possible in reStructuredText. However, LVGL documentation provides a work-around for this using reST <u>Interpreted Text Roles</u>. Just remember that the Interpreted Text Role names combine the letters <code>i</code>, <code>b</code> and <code>u</code> to provide the desired combination. All possible permutations of these letters are supported so you do not have to remember what sequence works. Examples: <code>:u:`underline`</code>, <code>:ub:`underline and bold`</code>, <code>:bi:`bold italic`</code>.</p>
-<h2><a class="anchor" id="autotoc_md496"></a>
+<h2><a class="anchor" id="autotoc_md430"></a>
 Code Blocks</h2>
 <ul>
-<li>Indent using 4 spaces (not tab characters).</li>
+<li>Do not use tab characters in code blocks.</li>
+<li>Each indentation level use 4 spaces.</li>
 <li>Include at least 1 empty line after a code block.</li>
 <li>There must be one empty line between the code block directive and the code.</li>
-<li><code>.. code-block::</code> is the only directive that should be used. Do not use lone <code>::</code>, <code>:code:</code> or <code>.. code::</code>.</li>
-<li>Specify the language after the directive for appropriate syntax highlighting. Examples:<ul>
+<li><code>.. code-block::</code> is the only directive that should be used. Note carefully that unlike the <b>link target</b> directive above, this directive has 2 colons. (The only reST and Sphinx directives that are valid with one colon are **link target**s as shown above.) Lone <code>::</code>, <code>:code:</code> or <code>.. code:</code> should not be used.</li>
+<li>If you want to separate code into easier-to-understand sections you can do so with a single empty line.</li>
+<li>For syntax highlighting appropriate to the language in the code block, specify the language after the directive. Some examples are:<ul>
 <li><code>.. code-block:: c</code>,</li>
 <li><code>.. code-block:: cpp</code>,</li>
 <li><code>.. code-block:: python</code>,</li>
@@ -206,6 +230,8 @@ Code Blocks</h2>
 <li><code>.. code-block:: kconfig</code>,</li>
 <li><code>.. code-block:: json</code>,</li>
 <li><code>.. code-block:: yaml</code>,</li>
+<li><code>.. code-block:: csharp</code> (or "cs"),</li>
+<li><code>.. code-block:: vb.net</code>,</li>
 <li><code>.. code-block:: dot</code> (graphviz),</li>
 <li><code>.. code-block:: html</code>,</li>
 <li><code>.. code-block:: css</code>,</li>
@@ -214,148 +240,52 @@ Code Blocks</h2>
 </ul>
 </li>
 </ul>
-<p>See <a href="https://pygments.org/docs/lexers/">the full set of supported code lexers</a> for more details.</p>
-<h2><a class="anchor" id="autotoc_md497"></a>
+<p>The full set of supported lexers are listed in the <a href="https://pygments.org/docs/lexers/">Pygments Library documentation</a>.</p>
+<h2><a class="anchor" id="autotoc_md431"></a>
 Bulleted Lists</h2>
-<div class="fragment"><div class="line">- First item description</div>
-<div class="line">- If you want to span multiple lines, indent subsequent</div>
-<div class="line">  lines to align with item text like this.</div>
-<div class="line">- If you want to include multiple paragraphs and/or code blocks under a</div>
-<div class="line">  list item, it must be intended to align with the list item like this:</div>
-<div class="line"> </div>
-<div class="line">  Second paragraph.</div>
-<div class="line"> </div>
-<div class="line">  .. code-block: python</div>
-<div class="line">                             &lt;=== blank line here is important</div>
-<div class="line">      # Python code here</div>
-<div class="line">                             &lt;=== blank line here is important</div>
-<div class="line">- If you want to have nested bulleted lists, indent each</div>
-<div class="line">  new level to align with its parent list item like this:</div>
-<div class="line">                             &lt;=== blank line here is important</div>
-<div class="line">  - level 2 item 1: text</div>
-<div class="line">  - level 2 item 2: text</div>
-<div class="line">                             &lt;=== blank line here is important</div>
-<div class="line">- Last list item.  Note that the nested list above is preceded</div>
-<div class="line">  and followed by 1 blank line.</div>
-</div><!-- fragment --><p>All lists (including nested lists) <b>must</b> be preceded and followed with at least 1 blank line for the reST parser to process it correctly.</p>
-<h2><a class="anchor" id="autotoc_md498"></a>
-External Links</h2>
-<p>URLs are converted to links automatically. E.g. <code>Visit <a href="https://lvgl.io">https://lvgl.io</a></code>.</p>
-<p>To add links with custom link text use</p>
-<div class="fragment"><div class="line">Visit `My Website &lt;https://pro.lvgl.io&gt;`__.</div>
-</div><!-- fragment --><p>If an external link will be used on many pages:</p>
-<ul>
-<li><p class="startli">Add it to <code>./docs/src/include/external_links.txt</code> if not already there. Example:</p>
-<div class="fragment"><div class="line">.. _LVGL Pro:  https://pro.lvgl.io</div>
-</div><!-- fragment --></li>
-<li><code>.. include: /include/external_links.txt</code> once at the top of each <code>.rst</code> file that uses it.</li>
-<li><p class="startli">Use it by name in text:</p>
-<div class="fragment"><div class="line">For further details see `LVGL Pro`_.</div>
-</div><!-- fragment --><p class="startli">Note: back-quotes are not needed if there are no spaces in the name.</p>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md499"></a>
-Internal Links</h2>
-<p>Add a link target (anchor) before heading or paragraph that will be linked to:</p>
-<div class="fragment"><div class="line">.. _unique_anchor_name:</div>
-<div class="line"> </div>
-<div class="line">My Heading</div>
-<div class="line">**********</div>
-</div><!-- fragment --><p><code>unique_anchor_name</code> must be unique throughout all <code>.rst</code> files under <code>./docs/src/</code>.</p>
-<p>Reference the link (anchor) by:</p>
-<div class="fragment"><div class="line">Click :ref:`here &lt;unique_anchor_name&gt;` for more details.</div>
-</div><!-- fragment --><p>Result: "Click **_here_** for more details."</p>
-<p>Or use the heading's text as the link's text:</p>
-<div class="fragment"><div class="line">Click :ref:`unique_anchor_name` for more details.</div>
-</div><!-- fragment --><p>Result: "Click **_My Heading_** for more details."</p>
-<p><code>unique_anchor_name</code> may appear in places other than before a heading, but if so, custom link text (like "here" the first example above) must be provided.</p>
-<h2><a class="anchor" id="autotoc_md500"></a>
-Tightening Tables</h2>
-<p>reStructuredText syntax for creating tables can be found in the <a href="https://sphinx-themes.org/sample-sites/furo/kitchen-sink/tables/">reST examples</a> referred to above. (Click on the "eye" icon to see the source file.)</p>
-<p>Very long or very wide tables can be difficult to read and use. To squeeze them down to make them more readable and usable, move your existing table under a <code>.. container:: tighter-table-N</code> directive (<code>N</code> = digit 1-7 with 7 being the tightest), and indent your table to make it the "content" of the directive. Example:</p>
-<div class="fragment"><div class="line">.. container:: tighter-table-3</div>
-<div class="line"> </div>
-<div class="line">    +-----------+--------------+--------------+--------+</div>
-<div class="line">    | Heading 1 | Heading 2    | Heading 3    | Hdg 4  |</div>
-<div class="line">    +===========+==============+==============+========+</div>
-<div class="line">    | row 1 c 1 | row 1 col 3  | row 1 col 3  | r1 c4  |</div>
-<div class="line">    +-----------+--------------+--------------+--------+</div>
-<div class="line">    | row 2 c 1 | row 2 col 3  | row 2 col 3  | r2 c4  |</div>
-<div class="line">    +-----------+--------------+--------------+--------+</div>
-<div class="line">    | row 3 c 1 | row 3 col 3  | row 3 col 3  | r3 c4  |</div>
-<div class="line">    +-----------+--------------+--------------+--------+</div>
-</div><!-- fragment --><p>This works for all types of tables.</p>
-<h2><a class="anchor" id="autotoc_md501"></a>
-Special Symbols</h2>
-<p>Because not everyone has editors that deal with Unicode characters well, please reST substitutions to insert special characters into documentation. A list of the most commonly-used special symbols can be found in <code>./docs/src/include/substitutions.txt</code>. To use one of these, add this line at the top of the <code>.rst</code> file if it is not already there:</p>
-<div class="fragment"><div class="line">.. include:: /include/substitutions.txt</div>
-</div><!-- fragment --><p>Then, any of those substitutions can be used in that <code>.rst</code> file. Example:</p>
-<div class="fragment"><div class="line">The temperature outside is 20\ |deg|\ C.</div>
-</div><!-- fragment --><p>Result: "The temperature outside is 20°C."</p>
-<p>The spaces surrounding substitutions <em>are required for parsing</em>, but when you need to remove them in the output (as in the example above), do so by escaping them with the <code>\</code> character. Exception: the <code>substitutions.txt</code> file contains 3 substitution definitions which are marked with the <code>:trim:</code> option since their use <em>always</em> removes these spaces in the output. These do not need this escaping:</p>
-<ul>
-<li><code>|nbsp|</code> (non-breaking space),</li>
-<li><code>|shy|</code> (soft hyphen), and</li>
-<li><code>|nbhyph|</code> (non-breaking hyphen used in titles and official names)</li>
-</ul>
-<p>If you need a substitution that is not already in <code>substitutions.txt</code>, please add it.</p>
-<h2><a class="anchor" id="autotoc_md502"></a>
+<p>To create a bulleted list, do the following: </p><pre class="fragment">- First item description
+- If you want to span multiple lines, indent subsequent
+  lines to align with item text like this.
+- If you want to include a code block under a list item,
+  it must be intended to align with the list item like this:
+
+  .. code-block: python
+                             &lt;=== blank line here is important
+      # this is some code
+                             &lt;=== blank line here is important
+- If you want to have nested bulleted lists, indent each
+  new level to align with its parent list item like this:
+                             &lt;=== blank line here is important
+  - level 2 item 1: text
+  - level 2 item 2: text
+                             &lt;=== blank line here is important
+- Last list item.  Note that the nested list above is preceded
+  and followed by 1 blank line.
+</pre><p> All lists (including nested lists) <b>must</b> be preceded and followed with at least 1 blank line. This is mandatory for the documentation-generation logic to process it correctly.</p>
+<h2><a class="anchor" id="autotoc_md432"></a>
 Referencing API Documentation</h2>
-<p>Using the following generates links to API documentation that the reader can click directly in the text.</p>
-<h3><a class="anchor" id="autotoc_md503"></a>
-In-Line Code Expressions</h3>
-<p>Use the following Interpreted Text Roles in text to include in-line C code that links to documentation on that symbol when available: </p><pre class="fragment">:cpp:func:`lv_init`   (note there are no parentheses after the function name)
+<p>If you want to reference portions of the LVGL code from the documentation (in .RST files) there are special directives to do this: </p><pre class="fragment">:cpp:func:`lv_init`
 :c:macro:`LV_USE_FLEX`
 :cpp:type:`lv_event_t`
 :cpp:enum:`lv_state_t`
 :cpp:enumerator:`LV_STATE_CHECKED`
 :cpp:struct:`lv_image_dsc_t`
 :cpp:union:`lv_style_value_t`
-</pre><p> <b>Note:</b> Doxygen documentation for macros with parameters works perfectly, but Sphinx does not yet know how to parse the parameter(s) on a macro that might look like this: </p><div class="fragment"><div class="line">:c:macro:`LV_FREETYPE_FONT_STYLE_WEIGHT(x)`</div>
-</div><!-- fragment --><p>Here is how to make that work, look right in the document, and also produce a link to Doxygen documentation if there is any: </p><div class="fragment"><div class="line">:c:macro:`LV_FREETYPE_FONT_STYLE_WEIGHT`\ (x)</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md504"></a>
-More Complex Expressions</h3>
-<p>Use the <code>:cpp:expr:</code> Interpreted Text Role for more complex expressions, for example when showing the arguments passed to a function. </p><pre class="fragment">:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_FLEX)`
+</pre><p> There is a special directive when wanting to use a more complex expression. For example when showing the arguments passed to a function. </p><pre class="fragment">:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_FLEX)`
 :cpp:expr:`lv_slider_set_mode(slider, LV_SLIDER_MODE_...)`
-</pre><p> Arguments that contain more than one word or non-alphanumeric characters will cause the <code>:cpp:expr:</code> interpreted-text to fail. Examples:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Expression   </th><th class="markdownTableHeadNone">Cause of Failure    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_FLEX/GRID)`   </td><td class="markdownTableBodyNone">argument with &gt; 1 word    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_*)`   </td><td class="markdownTableBodyNone">asterisk    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">:cpp:expr:`lv_obj_set_layout(*widget, LV_LAYOUT_FLEX)`   </td><td class="markdownTableBodyNone">asterisk    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">:cpp:expr:`lv_obj_set_layout((lv_obj_t *)widget, LV_LAYOUT_FLEX)`   </td><td class="markdownTableBodyNone">cast    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">:cpp:expr:`lv_obj_set_layout(&amp;widget, LV_LAYOUT_FLEX);`   </td><td class="markdownTableBodyNone">semicolon    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">:cpp:expr:`lv_obj_set_layout(widget, ...)`   </td><td class="markdownTableBodyNone">lone ellipsis   </td></tr>
-</table>
-<p>For such examples, simply use reStructuredText literal markup like this:</p>
-<div class="fragment"><div class="line">``lv_obj_set_layout(widget, LV_LAYOUT_FLEX/GRID)``</div>
-<div class="line">``lv_obj_set_layout(widget, LV_LAYOUT_*)``</div>
-<div class="line">``lv_obj_set_layout(*widget, LV_LAYOUT_FLEX)``</div>
-<div class="line">``lv_obj_set_layout((lv_obj_t *)widget, LV_LAYOUT_FLEX)``</div>
-<div class="line">``lv_obj_set_layout(&amp;widget, LV_LAYOUT_FLEX);``</div>
-<div class="line">``lv_obj_set_layout(widget, ...)``</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md505"></a>
-Providing Links to API Pages</h3>
-<p>To create a link to 1 or more API pages, set up a section at the end of your <code>.rst</code> file that looks like this, and use one or both types of the <code>.. API</code> pseudo-directives below:</p>
-<div class="fragment"><div class="line">API</div>
-<div class="line">***</div>
-<div class="line"> </div>
-<div class="line">.. API equals: lv_scale_t, lv_scale_create</div>
-<div class="line"> </div>
-<div class="line">.. API startswith:</div>
-<div class="line"> </div>
-<div class="line">    lv_scale</div>
-<div class="line">    lv_obj_set_style</div>
-</div><!-- fragment --><p>The list of symbols (or prefixes) can be separated by commas or spaces, and they can wrap onto subsequent lines of text so long as they are indented. Each list is terminated by the next <code>.. API</code> pseudo-directive or end-of-file, whichever comes first.</p>
-<p>The API-page generation logic will add at most 1 link to each API documentation page containing matched symbols. The links are to the whole API page, not to the symbols. The purpose is to provide the reader with links to applicable API pages. Links directly to code (e.g. function documentation) are accomplished by using the In-Line Code Expressions documented above. </p>
-</div></div><!-- contents -->
+</pre><p> Arguments that are expressions (more than one word), or contain non-alphanumeric characters will cause the <code>:cpp:expr:</code> interpreted-text to fail. Examples: </p><pre class="fragment">:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_FLEX/GRID)`         &lt;== arg with &gt; 1 word
+:cpp:expr:`lv_obj_set_layout(widget, LV_LAYOUT_*)`                 &lt;== asterisk
+:cpp:expr:`lv_obj_set_layout(*widget, LV_LAYOUT_FLEX)`             &lt;== asterisk
+:cpp:expr:`lv_obj_set_layout((lv_obj_t *)widget, LV_LAYOUT_FLEX)`  &lt;== cast
+:cpp:expr:`lv_obj_set_layout(&amp;widget, LV_LAYOUT_FLEX);`            &lt;== ampersand &amp; semicolon
+:cpp:expr:`lv_obj_set_layout(widget, ...)`                         &lt;== lone ellipsis
+</pre><p> For such examples, simply use reStructuredText literal markup like this: </p><pre class="fragment">``lv_obj_set_layout(widget, LV_LAYOUT_FLEX/GRID)``
+``lv_obj_set_layout(widget, LV_LAYOUT_*)``
+``lv_obj_set_layout(*widget, LV_LAYOUT_FLEX)``
+``lv_obj_set_layout((lv_obj_t *)widget, LV_LAYOUT_FLEX)``
+``lv_obj_set_layout(&amp;widget, LV_LAYOUT_FLEX);``
+``lv_obj_set_layout(widget, ...)``
+</pre> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

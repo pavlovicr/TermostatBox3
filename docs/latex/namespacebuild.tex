@@ -3,13 +3,15 @@
 \doxysubsubsection*{Funkcije}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{namespacebuild_a0c06cbe76caec1a399349c33563277d4}{print\+\_\+usage\+\_\+note}} ()
+\item 
 \mbox{\hyperlink{namespacebuild_a663844b6e7edc914e6b945917c76af78}{remove\+\_\+dir}} (tgt\+\_\+dir)
 \item 
 \mbox{\hyperlink{namespacebuild_a0d669a04b33aeb544bb5219945a8b43b}{cmd}} (cmd\+\_\+str, start\+\_\+dir=None, exit\+\_\+on\+\_\+error=True)
 \item 
-\mbox{\hyperlink{namespacebuild_ab2647688f0c27cff789790a53b619b02}{intermediate\+\_\+dir\+\_\+contents\+\_\+exists}} (intermediate\+\_\+dir)
+\mbox{\hyperlink{namespacebuild_af897de976a58de7c76b53f387d9ba908}{intermediate\+\_\+dir\+\_\+contents\+\_\+exists}} (dir)
 \item 
-\mbox{\hyperlink{namespacebuild_aa1c54bb034a2d6f30b1ceb9edd7abca4}{run}} ()
+\mbox{\hyperlink{namespacebuild_aadef953b8698fdc894f0e81d438aba30}{run}} (args)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Spremenljivke}
 \begin{DoxyCompactItemize}
@@ -53,27 +55,6 @@ str {\bfseries cfg\+\_\+top\+\_\+index\+\_\+filename} = \textquotesingle{}index.
 \Hypertarget{namespacebuild_a6303761a96e081ff75354caa2ad9e7a7}\label{namespacebuild_a6303761a96e081ff75354caa2ad9e7a7} 
 str {\bfseries cfg\+\_\+default\+\_\+branch} = \textquotesingle{}master\textquotesingle{}
 \item 
-\Hypertarget{namespacebuild_ae59759eb0fcd7f22a165b458aae09ac0}\label{namespacebuild_ae59759eb0fcd7f22a165b458aae09ac0} 
-str {\bfseries cfg\+\_\+target\+\_\+html} = \textquotesingle{}html\textquotesingle{}
-\item 
-\Hypertarget{namespacebuild_a75dd045b3ea723bd33236349ce3b87d8}\label{namespacebuild_a75dd045b3ea723bd33236349ce3b87d8} 
-str {\bfseries cfg\+\_\+target\+\_\+latex} = \textquotesingle{}latex\textquotesingle{}
-\item 
-\Hypertarget{namespacebuild_ab886e23b1a027a7d61f188e672678d98}\label{namespacebuild_ab886e23b1a027a7d61f188e672678d98} 
-str {\bfseries cfg\+\_\+target\+\_\+intermediate} = \textquotesingle{}intermediate\textquotesingle{}
-\item 
-\Hypertarget{namespacebuild_a7190f1c2b383a6ea427bd2933b8b3976}\label{namespacebuild_a7190f1c2b383a6ea427bd2933b8b3976} 
-str {\bfseries cfg\+\_\+target\+\_\+clean\+\_\+all} = \textquotesingle{}clean\textquotesingle{}
-\item 
-\Hypertarget{namespacebuild_a911dfeacf22afed956c530c9b6d422c9}\label{namespacebuild_a911dfeacf22afed956c530c9b6d422c9} 
-str {\bfseries cfg\+\_\+target\+\_\+clean\+\_\+intermediate} = \textquotesingle{}clean-\/intermediate\textquotesingle{}
-\item 
-\Hypertarget{namespacebuild_ade854c2c7ee31402cc82f50c280a76d9}\label{namespacebuild_ade854c2c7ee31402cc82f50c280a76d9} 
-str {\bfseries cfg\+\_\+target\+\_\+clean\+\_\+html} = \textquotesingle{}clean-\/html\textquotesingle{}
-\item 
-\Hypertarget{namespacebuild_a0ed739bcde7442d1242d0de92a3301f5}\label{namespacebuild_a0ed739bcde7442d1242d0de92a3301f5} 
-str {\bfseries cfg\+\_\+target\+\_\+clean\+\_\+latex} = \textquotesingle{}clean-\/latex\textquotesingle{}
-\item 
 \Hypertarget{namespacebuild_aa6c559e6fbf253e6528ac514a0160fce}\label{namespacebuild_aa6c559e6fbf253e6528ac514a0160fce} 
 str {\bfseries cfg\+\_\+pdf\+\_\+filename} = \textquotesingle{}LVGL.\+pdf\textquotesingle{}
 \end{DoxyCompactItemize}
@@ -81,6 +62,19 @@ str {\bfseries cfg\+\_\+pdf\+\_\+filename} = \textquotesingle{}LVGL.\+pdf\textqu
 
 \doxysubsection{Podroben opis}
 \begin{DoxyVerb} build.py -- Generate LVGL documentation using Doxygen and Sphinx + Breathe.
+
+Synopsis
+--------
+    - $ python build.py html  [ skip_api ] [ fresh_env ]
+    - $ python build.py latex [ skip_api ] [ fresh_env ]
+    - $ python build.py intermediate  [ skip_api ]
+    - $ python build.py clean
+    - $ python build.py clean_intermediate
+    - $ python build.py clean_html
+    - $ python build.py clean_latex
+
+    Build Arguments and Clean Arguments can be used one at a time
+    or be freely mixed and combined.
 
 Data Flow
 ---------
@@ -102,18 +96,17 @@ Data Flow
     - make htmlhelp
     - etc.
 
-
 Description
 -----------
     Copy source files to an intermediate directory and modify them there before
     doc generation occurs.  If a full rebuild is being done (e.g. after a `clean`)
-    run Doxygen on LVGL's source files to generate intermediate API information
+    run Doxygen LVGL's source files to generate intermediate API information
     in XML format.  Generate API documents for Breathe's consumption.  Add API
     links to end of some documents.  Generate example documents.  From there,
     Sphinx with Breathe extension uses the resulting set of intermediate files
     to generate the desired output.
 
-    It is only during this first build that the `--skip-api` option has meaning.
+    It is only during this first build that the `skip_api` option has meaning.
     After the first build, no further actions is taken regarding API pages since
     they are not regenerated after the first build.
 
@@ -128,7 +121,7 @@ Description
     Caution:
 
     The document build meant for end-user consumption should ONLY be done after a
-    `--clean` unless you know that no API documentation and no code examples have changed.
+    `clean` unless you know that no API documentation and no code examples have changed.
 
     A `sphinx-build` will do a full doc rebuild any time:
 
@@ -137,84 +130,59 @@ Description
       HTML or Latex files, even if nothing changed),
     - the targeted output directory doesn't exist or is empty, or
     - Sphinx determines that a full rebuild is necessary.  This happens when:
-        - intermediate directory path (Sphinx's source-file path) has changed,
+        - intermediate directory (Sphinx's source-file path) has changed,
         - any options on the `sphinx-build` command line have changed,
         - `conf.py` modification date has changed, or
-        - `--fresh-env` argument is included (runs `sphinx-build` with -E option).
+        - `fresh_env` argument is included (runs `sphinx-build` with -E option).
 
     Typical run time:
 
     Full build:  22.5 min
-    --skip-api:   1.9 min  (applies to first build only)
-
-
-Usage
------
-    usage: build.py [-h] [-s] [-E]
-                    {html,latex,intermediate,clean,clean-intermediate,clean-html,clean-latex}
-                    [{html,latex,intermediate,clean,clean-intermediate,clean-html,clean-latex} ...]
-
-    Build LVGL documents
-
-    positional arguments:
-      {html,latex,intermediate,clean,clean-intermediate,clean-html,clean-latex}
-                            output targets to generate; one or more of these;
-                              `clean...` targets are completed first
-
-    options:
-      -h, --help            show this help message and exit
-      -s, --skip-api        skip API-page generation
-      -E, --fresh-env       rebuild Sphinx environment
-
+    skip_api  :   1.9 min  (applies to first build only)
 
 Options
 -------
-    --help
+    help
         Print usage note and exit with status 0.
 
-  Targets:
-
-    html [ --skip-api ] [ --fresh-env ]
+    html [ skip_api ] [ fresh_env ]
         Build HTML output.
-        `--skip-api` only has effect on first build after a `clean` or `clean_intermediate`.
+        `skip_api` only has effect on first build after a `clean` or `clean_intermediate`.
 
-    latex [ --skip-api ] [ --fresh-env ]
+    latex [ skip_api ] [ fresh_env ]
         Build Latex/PDF output (on hold pending removal of non-ASCII characters from input files).
-        `--skip-api` only has effect on first build after a `clean` or `clean_intermediate`.
+        `skip_api` only has effect on first build after a `clean` or `clean_intermediate`.
 
-    intermediate [ --skip-api ]
+    intermediate [ skip_api ]
         Generate intermediate directory contents (ready to build output formats).
         If they already exist, they are removed and re-generated.
         Note:  "intermediate" can be abbreviated down to "int".
 
-    clean
-        Remove all generated files.
-
-    clean-intermediate
-        Remove intermediate directory.
-        Note:  "clean_intermediate" can be abbreviated down to "clean_int".
-
-    clean-html
-        Remove HTML output directory.
-
-    clean-latex
-        Remove Latex output directory.
-
-  Options with Output Targets:
-
-    --skip-api (-s) (with `html` and/or `latex` and/or `intermediate` options)
+    skip_api (with `html` and/or `latex` and/or `intermediate` options)
         Skip API pages and links when intermediate directory contents are being generated
         (saving about 91% of build time).  Note: they are not thereafter regenerated unless
         requested by `intermediate` argument or the intermediate directory does not
         exist.  This is intended to be used only during doc development to speed up
         turn-around time between doc modifications and seeing final results.
 
-    --fresh-env (-E) (with `html` and/or `latex` options)
+    fresh_env (with `html` and/or `latex` options)
         Run `sphinx-build` with -E command-line argument, which makes it regenerate its
         "environment" (memory of what was built previously, forcing a full rebuild).
 
-    Unrecognized arguments print error message, usage note, and exit with status 1.
+    clean
+        Remove all generated files.
 
+    clean_intermediate
+        Remove intermediate directory.
+        Note:  "clean_intermediate" can be abbreviated down to "clean_int".
+
+    clean_html
+        Remove HTML output directory.
+
+    clean_latex
+        Remove Latex output directory.
+
+    Unrecognized arguments print error message, usage note, and exit with status 1.
 
 Python Package Requirements
 ---------------------------
@@ -223,7 +191,6 @@ Python Package Requirements
     Install them by:
 
     $ pip install -r requirements.txt
-
 
 History
 -------
@@ -237,7 +204,7 @@ History
 
     to generate the LVGL document tree.  Internally, Sphinx uses `breathe`
     (a Sphinx extension) to provide a bridge between Doxygen XML output and
-    Sphinx documentation.  It also supported a command-line option `--clean`
+    Sphinx documentation.  It also supported a command-line option `clean`
     to remove generated files before starting (eliminates orphan files,
     for docs that have moved or changed).
 
@@ -245,8 +212,8 @@ History
 
     - Using environment variables to convey branch names to several more
       places where they are used in the docs-generating process (instead
-      of re-writing `conf.py` and a `header.rst` each time docs were
-      generated).  These are documented where they generated below.
+      of re-writing writing `conf.py` and a `header.rst` each time docs
+      were generated).  These are documented where they generated below.
 
     - Supporting additional command-line options.
 
@@ -258,14 +225,13 @@ History
 
     - Adding translation and API links (requiring generating docs in an
       intermediate directory so that the links could be programmatically
-      added to each document before Sphinx was run).  Note:  translation links
+      added to each document before Sphinx was run).  Note:  translation link
       are now done manually since they are only on the main landing page.
 
-    - Generating EXAMPLES page.  Specific example groups are added to individual
-      documents by each document having an ``.. include:: /examples/.../index.rst``
-      directive where the example(s) should go.
+    - Generating EXAMPLES page + sub-examples where applicable to individual
+      documents, e.g. to widget-, style-, layout-pages, etc.
 
-    - Building PDF via latex.
+    - Building PDF via latex (when working).
 
     - Shifting doc-generation paradigm to behave more like `make`.\end{DoxyVerb}
  
@@ -278,15 +244,22 @@ History
 {\footnotesize\ttfamily build.\+cmd (\begin{DoxyParamCaption}\item[{}]{cmd\+\_\+str,  }\item[{}]{start\+\_\+dir = {\ttfamily None},  }\item[{}]{exit\+\_\+on\+\_\+error = {\ttfamily True} }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}Run external command and abort build on error.\end{DoxyVerb}
- \Hypertarget{namespacebuild_ab2647688f0c27cff789790a53b619b02}\label{namespacebuild_ab2647688f0c27cff789790a53b619b02} 
+ \Hypertarget{namespacebuild_af897de976a58de7c76b53f387d9ba908}\label{namespacebuild_af897de976a58de7c76b53f387d9ba908} 
 \index{build@{build}!intermediate\_dir\_contents\_exists@{intermediate\_dir\_contents\_exists}}
 \index{intermediate\_dir\_contents\_exists@{intermediate\_dir\_contents\_exists}!build@{build}}
 \doxysubsubsection{\texorpdfstring{intermediate\_dir\_contents\_exists()}{intermediate\_dir\_contents\_exists()}}
-{\footnotesize\ttfamily build.\+intermediate\+\_\+dir\+\_\+contents\+\_\+exists (\begin{DoxyParamCaption}\item[{}]{intermediate\+\_\+dir }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily build.\+intermediate\+\_\+dir\+\_\+contents\+\_\+exists (\begin{DoxyParamCaption}\item[{}]{dir }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}Provide answer to question:  Can we have reasonable confidence that
 the contents of `intermediate_directory` already exists?
 \end{DoxyVerb}
+ \Hypertarget{namespacebuild_a0c06cbe76caec1a399349c33563277d4}\label{namespacebuild_a0c06cbe76caec1a399349c33563277d4} 
+\index{build@{build}!print\_usage\_note@{print\_usage\_note}}
+\index{print\_usage\_note@{print\_usage\_note}!build@{build}}
+\doxysubsubsection{\texorpdfstring{print\_usage\_note()}{print\_usage\_note()}}
+{\footnotesize\ttfamily build.\+print\+\_\+usage\+\_\+note (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Print usage note.\end{DoxyVerb}
  \Hypertarget{namespacebuild_a663844b6e7edc914e6b945917c76af78}\label{namespacebuild_a663844b6e7edc914e6b945917c76af78} 
 \index{build@{build}!remove\_dir@{remove\_dir}}
 \index{remove\_dir@{remove\_dir}!build@{build}}
@@ -294,11 +267,11 @@ the contents of `intermediate_directory` already exists?
 {\footnotesize\ttfamily build.\+remove\+\_\+dir (\begin{DoxyParamCaption}\item[{}]{tgt\+\_\+dir }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}Remove directory `tgt_dir`.\end{DoxyVerb}
- \Hypertarget{namespacebuild_aa1c54bb034a2d6f30b1ceb9edd7abca4}\label{namespacebuild_aa1c54bb034a2d6f30b1ceb9edd7abca4} 
+ \Hypertarget{namespacebuild_aadef953b8698fdc894f0e81d438aba30}\label{namespacebuild_aadef953b8698fdc894f0e81d438aba30} 
 \index{build@{build}!run@{run}}
 \index{run@{run}!build@{build}}
 \doxysubsubsection{\texorpdfstring{run()}{run()}}
-{\footnotesize\ttfamily build.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily build.\+run (\begin{DoxyParamCaption}\item[{}]{args }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}Perform doc-build function(s) requested.\end{DoxyVerb}
  

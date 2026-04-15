@@ -1,8 +1,8 @@
 \chapter{LCD \& LVGL Performance}
 \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance}{}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance}\index{LCD \& LVGL Performance@{LCD \& LVGL Performance}}
-\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md354}%
-\Hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md354}%
- This document provides steps, how to set up your LCD and LVGL port for the best performance and comparison of different settings. All settings and measurements are valid for Espressif\textquotesingle{}s chips. Examples in \href{https://github.com/espressif/esp-bsp}{\texttt{ ESP-\/\+BSP}} are ready to use with the best performance.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md355}{}\doxysection{\texorpdfstring{Performance metrics}{Performance metrics}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md355}
+\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md324}%
+\Hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md324}%
+ This document provides steps, how to set up your LCD and LVGL port for the best performance and comparison of different settings. All settings and measurements are valid for Espressif\textquotesingle{}s chips. Examples in \href{https://github.com/espressif/esp-bsp}{\texttt{ ESP-\/\+BSP}} are ready to use with the best performance.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md325}{}\doxysection{\texorpdfstring{Performance metrics}{Performance metrics}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md325}
 In this document we will use following metrics for performance evaluation\+:
 
 
@@ -10,10 +10,10 @@ In this document we will use following metrics for performance evaluation\+:
 \item Measure time needed for refreshing the whole screen.
 \item Use LVGL\textquotesingle{}s \href{https://github.com/lvgl/lvgl/tree/v8.3.6/demos/benchmark}{\texttt{ lv\+\_\+demo\+\_\+benchmark()}} -\/test suite-\/ to measure Frames per second (weighted FPS).
 \item Use LVGL\textquotesingle{}s \href{https://github.com/lvgl/lvgl/tree/v8.3.6/demos/music}{\texttt{ lv\+\_\+demo\+\_\+music()}} -\/demo application-\/ to measure Frames per second (average FPS).
-\end{DoxyEnumerate}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md356}{}\doxysection{\texorpdfstring{Settings on ESP32 chips which have impact on LCD and LVGL performance}{Settings on ESP32 chips which have impact on LCD and LVGL performance}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md356}
+\end{DoxyEnumerate}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md326}{}\doxysection{\texorpdfstring{Settings on ESP32 chips which have impact on LCD and LVGL performance}{Settings on ESP32 chips which have impact on LCD and LVGL performance}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md326}
 Following options and settings have impact on LCD performance (FPS). Some options yield only small difference in FPS (e.\+g. \texorpdfstring{$\sim$}{\string~}1 FPS), and some of them are more significant. Usually it depends on complexity of the graphical application (number of widgets...), resources (CPU time, RAM available...) and size of screen (definition and color depth).
 
-Another set of key parametes are hardware related (graphical IO, frame buffer location), which are not yet covered in this document.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md357}{}\doxysubsection{\texorpdfstring{LVGL Buffer configuration}{LVGL Buffer configuration}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md357}
+Another set of key parametes are hardware related (graphical IO, frame buffer location), which are not yet covered in this document.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md327}{}\doxysubsection{\texorpdfstring{LVGL Buffer configuration}{LVGL Buffer configuration}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md327}
 {\bfseries{This is by far the most significant setting.}} Users are encouraged to focus on correct frame buffer configuration before moving ahead with other optimizations.
 
 On the other hand, the frame buffer(s) will consume significant portion of your RAM. In the graph below, you can see different frame buffer settings and resulting FPS\+:
@@ -29,19 +29,19 @@ Main takeaways from the graph are\+:
 \item Frame buffer size \texorpdfstring{$<$}{<}10\% will have severe negative effect on performance
 \end{DoxyItemize}
 
-{\itshape Note\+:} The measurements are valid for frame buffer in internal SRAM. Placing the frame buffer into external PSRAM will yield worse results.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md358}{}\doxysubsection{\texorpdfstring{Compiler optimization level}{Compiler optimization level}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md358}
+{\itshape Note\+:} The measurements are valid for frame buffer in internal SRAM. Placing the frame buffer into external PSRAM will yield worse results.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md328}{}\doxysubsection{\texorpdfstring{Compiler optimization level}{Compiler optimization level}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md328}
 Recommended level is "{}\+Performance"{} for good results. The "{}\+Performance"{} setting causes the compiled code to be larger and faster.
 
 
 \begin{DoxyItemize}
 \item {\ttfamily CONFIG\+\_\+\+COMPILER\+\_\+\+OPTIMIZATION\+\_\+\+PERF=y}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md359}{}\doxysubsection{\texorpdfstring{CPU frequency}{CPU frequency}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md359}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md329}{}\doxysubsection{\texorpdfstring{CPU frequency}{CPU frequency}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md329}
 The CPU frequency has a big impact on LCD performance. The recommended value is maximum -\/\texorpdfstring{$>$}{>} 240 MHz.
 
 
 \begin{DoxyItemize}
 \item {\ttfamily CONFIG\+\_\+\+ESP\+\_\+\+DEFAULT\+\_\+\+CPU\+\_\+\+FREQ\+\_\+\+MHZ\+\_\+240=y}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md360}{}\doxysubsection{\texorpdfstring{Flash frequency and mode}{Flash frequency and mode}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md360}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md330}{}\doxysubsection{\texorpdfstring{Flash frequency and mode}{Flash frequency and mode}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md330}
 The flash clock frequency and mode (bus width) has a big impact on LCD performance. Your choices will be limited by your hardware flash configuration. The higher the frequency and bus width, the better.
 
 
@@ -50,25 +50,25 @@ The flash clock frequency and mode (bus width) has a big impact on LCD performan
 \item {\ttfamily CONFIG\+\_\+\+ESPTOOLPY\+\_\+\+FLASHMODE\+\_\+\+QIO=y} or {\ttfamily CONFIG\+\_\+\+ESPTOOLPY\+\_\+\+OCT\+\_\+\+FLASH} on supported chips
 \end{DoxyItemize}
 
-More information about SPI Flash configuration can be found in \href{https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/flash_psram_config.html}{\texttt{ ESP-\/\+IDF Programming Guide}}.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md361}{}\doxysubsection{\texorpdfstring{Fast LVGL memory}{Fast LVGL memory}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md361}
+More information about SPI Flash configuration can be found in \href{https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/api-guides/flash_psram_config.html}{\texttt{ ESP-\/\+IDF Programming Guide}}.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md331}{}\doxysubsection{\texorpdfstring{Fast LVGL memory}{Fast LVGL memory}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md331}
 This option puts the most frequently used LVGL functions into IRAM for execution speed up.
 
 
 \begin{DoxyItemize}
 \item {\ttfamily CONFIG\+\_\+\+LV\+\_\+\+ATTRIBUTE\+\_\+\+FAST\+\_\+\+MEM\+\_\+\+USE\+\_\+\+IRAM=y}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md362}{}\doxysubsection{\texorpdfstring{Affinity main task to second core}{Affinity main task to second core}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md362}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md332}{}\doxysubsection{\texorpdfstring{Affinity main task to second core}{Affinity main task to second core}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md332}
 The main LVGL task can be processed on the second core of the CPU. It can increase performance. (It is available only on dual-\/core chips)
 
 
 \begin{DoxyItemize}
 \item {\ttfamily CONFIG\+\_\+\+ESP\+\_\+\+MAIN\+\_\+\+TASK\+\_\+\+AFFINITY\+\_\+\+CPU1=y}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md363}{}\doxysubsection{\texorpdfstring{Using esp-\/idf $<$tt$>$memcpy$<$/tt$>$ and $<$tt$>$memset$<$/tt$>$ instead LVGL\textquotesingle{}s configuration}{Using esp-idf <tt>memcpy</tt> and <tt>memset</tt> instead LVGL's configuration}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md363}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md333}{}\doxysubsection{\texorpdfstring{Using esp-\/idf $<$tt$>$memcpy$<$/tt$>$ and $<$tt$>$memset$<$/tt$>$ instead LVGL\textquotesingle{}s configuration}{Using esp-idf <tt>memcpy</tt> and <tt>memset</tt> instead LVGL's configuration}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md333}
 Native esp-\/idf implementation are a little (\texorpdfstring{$\sim$}{\string~}1-\/3 FPS) faster (only for LVGL8).
 
 
 \begin{DoxyItemize}
 \item {\ttfamily CONFIG\+\_\+\+LV\+\_\+\+MEMCPY\+\_\+\+MEMSET\+\_\+\+STD=y}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md364}{}\doxysubsection{\texorpdfstring{Default LVGL display refresh period}{Default LVGL display refresh period}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md364}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md334}{}\doxysubsection{\texorpdfstring{Default LVGL display refresh period}{Default LVGL display refresh period}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md334}
 This setting can improve subjective performance during screen transitions (scrolling, etc.).
 
 LVGL8
@@ -79,8 +79,8 @@ LVGL8
 LVGL9
 \begin{DoxyItemize}
 \item {\ttfamily CONFIG\+\_\+\+LV\+\_\+\+DEF\+\_\+\+REFR\+\_\+\+PERIOD=10}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md365}{}\doxysection{\texorpdfstring{Example FPS improvement vs graphical settings}{Example FPS improvement vs graphical settings}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md365}
-The LVGL9 benchmark demo uses a different algorithm for measuring FPS. In this case, we used the same algorithm for measurement in LVGL8 for comparison.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md366}{}\doxysubsection{\texorpdfstring{RGB LCD, PSRAM (octal) with GDMA -\/ ESP32-\/\+S3-\/\+LCD-\/\+EV-\/\+BOARD}{RGB LCD, PSRAM (octal) with GDMA - ESP32-S3-LCD-EV-BOARD}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md366}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md335}{}\doxysection{\texorpdfstring{Example FPS improvement vs graphical settings}{Example FPS improvement vs graphical settings}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md335}
+The LVGL9 benchmark demo uses a different algorithm for measuring FPS. In this case, we used the same algorithm for measurement in LVGL8 for comparison.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md336}{}\doxysubsection{\texorpdfstring{RGB LCD, PSRAM (octal) with GDMA -\/ ESP32-\/\+S3-\/\+LCD-\/\+EV-\/\+BOARD}{RGB LCD, PSRAM (octal) with GDMA - ESP32-S3-LCD-EV-BOARD}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md336}
 
 
 Default settings\+:
@@ -127,13 +127,13 @@ Default
 
 11   
 
-+ ({\ttfamily CONFIG\+\_\+\+LV\+\_\+\+DISP\+\_\+\+DEF\+\_\+\+REFR\+\_\+\+PERIOD=10} / {\ttfamily CONFIG\+\_\+\+LV\+\_\+\+DEF\+\_\+\+REFR\+\_\+\+PERIOD=10})   \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md367}{}\doxysubsection{\texorpdfstring{Parallel 8080 LCD (only for LVGL8)}{Parallel 8080 LCD (only for LVGL8)}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md367}
++ ({\ttfamily CONFIG\+\_\+\+LV\+\_\+\+DISP\+\_\+\+DEF\+\_\+\+REFR\+\_\+\+PERIOD=10} / {\ttfamily CONFIG\+\_\+\+LV\+\_\+\+DEF\+\_\+\+REFR\+\_\+\+PERIOD=10})   \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md337}{}\doxysubsection{\texorpdfstring{Parallel 8080 LCD (only for LVGL8)}{Parallel 8080 LCD (only for LVGL8)}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md337}
 
 
 Default settings\+:
 \begin{DoxyItemize}
 \item BSP example {\ttfamily display\+\_\+lvgl\+\_\+demos} with {\ttfamily ws\+\_\+7inch} component
-\item LCD\+: 7"{} 800x480 \texorpdfstring{$\ast$}{*} Intarface\+: 16bit parallel Intel 8080 \texorpdfstring{$\ast$}{*} LCD IO clock\+: 20 MHz \texorpdfstring{$\ast$}{*} LVGL buffer size\+: 800 x 50 \texorpdfstring{$\ast$}{*} LVGL double buffer\+: YES \texorpdfstring{$\ast$}{*} Optimization\+: Debug \texorpdfstring{$\ast$}{*} CPU frequency\+: 160 MHz \texorpdfstring{$\ast$}{*} Flash frequency\+: 80 MHz \texorpdfstring{$\ast$}{*} Flash mode\+: DIO \texorpdfstring{$\ast$}{*} LVGL display refresh period\+: 30 ms  @subsubsection autotoc\+\_\+md368 Internal RAM with DMA  $<$table class="{}markdown\+Table"{}$>$   $<$tr class="{}markdown\+Table\+Head"{}$>$    $<$th class="{}markdown\+Table\+Head\+Center"{}\texorpdfstring{$>$}{>} Average FPS   
+\item LCD\+: 7"{} 800x480 \texorpdfstring{$\ast$}{*} Intarface\+: 16bit parallel Intel 8080 \texorpdfstring{$\ast$}{*} LCD IO clock\+: 20 MHz \texorpdfstring{$\ast$}{*} LVGL buffer size\+: 800 x 50 \texorpdfstring{$\ast$}{*} LVGL double buffer\+: YES \texorpdfstring{$\ast$}{*} Optimization\+: Debug \texorpdfstring{$\ast$}{*} CPU frequency\+: 160 MHz \texorpdfstring{$\ast$}{*} Flash frequency\+: 80 MHz \texorpdfstring{$\ast$}{*} Flash mode\+: DIO \texorpdfstring{$\ast$}{*} LVGL display refresh period\+: 30 ms  @subsubsection autotoc\+\_\+md338 Internal RAM with DMA  $<$table class="{}markdown\+Table"{}$>$   $<$tr class="{}markdown\+Table\+Head"{}$>$    $<$th class="{}markdown\+Table\+Head\+Center"{}\texorpdfstring{$>$}{>} Average FPS   
 \end{DoxyItemize}
 
 Weighted FPS   
@@ -174,7 +174,7 @@ Default
 
 55   
 
-+ ({\ttfamily CONFIG\+\_\+\+LV\+\_\+\+DISP\+\_\+\+DEF\+\_\+\+REFR\+\_\+\+PERIOD=10})   \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md369}{}\doxysubsubsection{\texorpdfstring{PSRAM (\+QUAD) without DMA}{PSRAM (QUAD) without DMA}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md369}
++ ({\ttfamily CONFIG\+\_\+\+LV\+\_\+\+DISP\+\_\+\+DEF\+\_\+\+REFR\+\_\+\+PERIOD=10})   \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md339}{}\doxysubsubsection{\texorpdfstring{PSRAM (\+QUAD) without DMA}{PSRAM (QUAD) without DMA}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md339}
 Default changes\+:
 \begin{DoxyItemize}
 \item LCD IO clock\+: 2 MHz
@@ -202,7 +202,7 @@ Default changes\+:
 \end{longtabu}
 
 
-\mbox{[}\texorpdfstring{$^\wedge$}{\string^}1\mbox{]}\+: This is not working in default and sometimes in fast changes on screen is not working properly.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md370}{}\doxysection{\texorpdfstring{Conclusion}{Conclusion}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md370}
+\mbox{[}\texorpdfstring{$^\wedge$}{\string^}1\mbox{]}\+: This is not working in default and sometimes in fast changes on screen is not working properly.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md340}{}\doxysection{\texorpdfstring{Conclusion}{Conclusion}}\label{md_managed__components_2espressif____esp__lvgl__port_2docs_2performance_autotoc_md340}
 The graphical performance depends on a lot of things and settings, many of which affect the whole system (Compiler, Flash, CPU, PSRAM configuration...). The user should primarily focus on trade-\/off between frame-\/buffer(s) size and RAM consumption of the buffer, before optimizing the design further.
 
 Other configuration options not covered in this document are\+:

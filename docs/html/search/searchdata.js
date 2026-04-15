@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "0123456789:_abcdefghiklmnopqrstuvwxyz~אבדיכמנסעפקשת—→⚙のエサデボレ使和商客対布带平按架概機特示编芯解贡集🌟🌡🏗💡💻📄📋📌📒📡📦📱🔌🔑🔧🙏🚀🛠🤖🤝🧑🧠",
+  0: "0123456789:_abcdefghiklmnopqrstuvwxyz~אבדיכמנסעפקשתのエサデボレ使商客対布带平按架概機特示编解贡集🌟💡📒📦🚀🤖🤝🧑",
   1: "_abcdefghiklmnopqrstuvwz",
-  2: "abcdeflmprs",
+  2: "abcdflmprs",
   3: "cdeflmnrstuvw",
   4: "_abcdefghilmnoprstuvw~",
   5: "_abcdefghiklmnopqrstuvwxy",

@@ -10,9 +10,8 @@ var searchData=
   ['lto_7',['Link Time Optimization(LTO)',['../md_managed__components_2espressif____cmake__utilities_2docs_2gcc.html',1,'']]],
   ['lvgl_8',['lvgl',['../md_managed__components_2lvgl____lvgl_2demos_2README.html',1,'Demos for LVGL'],['../md_managed__components_2lvgl____lvgl_2env__support_2pikascript_2README.html',1,'PikaScript Binding for LVGL'],['../md_managed__components_2lvgl____lvgl_2tests_2README.html',1,'Tests for LVGL']]],
   ['lvgl_20esp_20portation_9',['LVGL ESP Portation',['../md_managed__components_2espressif____esp__lvgl__port_2README.html',1,'']]],
-  ['lvgl_20gdb_20scripts_20misc_20module_20extensions_10',['LVGL GDB Scripts - Misc Module Extensions',['../md_managed__components_2lvgl____lvgl_2scripts_2gdb_2lvglgdb_2lvgl_2misc_2README.html',1,'']]],
-  ['lvgl_20performance_11',['LCD &amp; LVGL Performance',['../md_managed__components_2espressif____esp__lvgl__port_2docs_2performance.html',1,'']]],
-  ['lvgl_20rgb_20screen_20example_12',['ESP LVGL RGB Screen Example',['../md_managed__components_2espressif____esp__lvgl__port_2examples_2rgb__lcd_2README.html',1,'']]],
-  ['lvgl_20touch_20screen_20example_13',['ESP LVGL Touch Screen Example',['../md_managed__components_2espressif____esp__lvgl__port_2examples_2touchscreen_2README.html',1,'']]],
-  ['lvglgdb_14',['lvglgdb',['../md_managed__components_2lvgl____lvgl_2scripts_2gdb_2README.html',1,'']]]
+  ['lvgl_20performance_10',['LCD &amp; LVGL Performance',['../md_managed__components_2espressif____esp__lvgl__port_2docs_2performance.html',1,'']]],
+  ['lvgl_20rgb_20screen_20example_11',['ESP LVGL RGB Screen Example',['../md_managed__components_2espressif____esp__lvgl__port_2examples_2rgb__lcd_2README.html',1,'']]],
+  ['lvgl_20touch_20screen_20example_12',['ESP LVGL Touch Screen Example',['../md_managed__components_2espressif____esp__lvgl__port_2examples_2touchscreen_2README.html',1,'']]],
+  ['lvglgdb_13',['lvglgdb',['../md_managed__components_2lvgl____lvgl_2scripts_2gdb_2README.html',1,'']]]
 ];

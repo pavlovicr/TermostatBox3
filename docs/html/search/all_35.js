@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['⚙️_20konfiguracija_20shelly_202pm_20gen3_0',['⚙️ Konfiguracija Shelly 2PM Gen3',['../md_README.html#autotoc_md676',1,'']]]
+  ['サンプル_0',['🤖 サンプル',['../md_managed__components_2lvgl____lvgl_2docs_2README__jp.html#autotoc_md450',1,'']]]
 ];

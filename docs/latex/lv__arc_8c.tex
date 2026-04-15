@@ -10,7 +10,7 @@
 {\ttfamily \#include "{}../../misc/lv\+\_\+assert.\+h"{}}\newline
 {\ttfamily \#include "{}../../misc/lv\+\_\+math.\+h"{}}\newline
 {\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+arc.\+h"{}}\newline
-{\ttfamily \#include "{}../../core/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
+{\ttfamily \#include "{}../../others/observer/lv\+\_\+observer\+\_\+private.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+arc.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+arc.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -92,9 +92,7 @@ int32\+\_\+t \mbox{\hyperlink{lv__arc_8c_a582931ef19d0bf1f37d96dc661222a3f}{lv\+
 \item 
 int32\+\_\+t \mbox{\hyperlink{lv__arc_8c_afed81d49b25655a9c769b9356b9b4350}{lv\+\_\+arc\+\_\+get\+\_\+knob\+\_\+offset}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \item 
-uint32\+\_\+t \mbox{\hyperlink{lv__arc_8c_a1b2d795867073040d81af0146d60f0a8}{lv\+\_\+arc\+\_\+get\+\_\+change\+\_\+rate}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
-\item 
-\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__arc_8c_a5d49f630c2fafbeaa4ba76b6d03648b1}{lv\+\_\+arc\+\_\+bind\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
+\mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__arc_8c_a5d49f630c2fafbeaa4ba76b6d03648b1}{lv\+\_\+arc\+\_\+bind\+\_\+value}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}subject)
 \item 
 void \mbox{\hyperlink{lv__arc_8c_a7eda4ecc160433c2cf0a1b657129581c}{lv\+\_\+arc\+\_\+align\+\_\+obj\+\_\+to\+\_\+angle}} (const \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj\+\_\+to\+\_\+align, int32\+\_\+t r\+\_\+offset)
 \item 
@@ -127,7 +125,7 @@ Align an object to the current position of the arc (knob)
 \index{lv\_arc.c@{lv\_arc.c}!lv\_arc\_bind\_value@{lv\_arc\_bind\_value}}
 \index{lv\_arc\_bind\_value@{lv\_arc\_bind\_value}!lv\_arc.c@{lv\_arc.c}}
 \doxysubsubsection{\texorpdfstring{lv\_arc\_bind\_value()}{lv\_arc\_bind\_value()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+arc\+\_\+bind\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{struct__lv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct__lv__observer__t}{lv\+\_\+observer\+\_\+t}} \texorpdfstring{$\ast$}{*} lv\+\_\+arc\+\_\+bind\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{\mbox{\hyperlink{structlv__subject__t}{lv\+\_\+subject\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{subject }\end{DoxyParamCaption})}
 
 Bind an integer subject to an Arc\textquotesingle{}s value. 
 \begin{DoxyParams}{Parametri}
@@ -208,20 +206,6 @@ Get the start angle of an arc background.
 \end{DoxyParams}
 \begin{DoxyReturn}{Rezultat(i)}
 the start angle \mbox{[}0..360\mbox{]} (if {\ttfamily LV\+\_\+\+USE\+\_\+\+FLOAT} is enabled it can be fractional too.) 
-\end{DoxyReturn}
-\Hypertarget{lv__arc_8c_a1b2d795867073040d81af0146d60f0a8}\label{lv__arc_8c_a1b2d795867073040d81af0146d60f0a8} 
-\index{lv\_arc.c@{lv\_arc.c}!lv\_arc\_get\_change\_rate@{lv\_arc\_get\_change\_rate}}
-\index{lv\_arc\_get\_change\_rate@{lv\_arc\_get\_change\_rate}!lv\_arc.c@{lv\_arc.c}}
-\doxysubsubsection{\texorpdfstring{lv\_arc\_get\_change\_rate()}{lv\_arc\_get\_change\_rate()}}
-{\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+arc\+\_\+get\+\_\+change\+\_\+rate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj }\end{DoxyParamCaption})}
-
-Get the change rate of an arc 
-\begin{DoxyParams}{Parametri}
-{\em obj} & pointer to an arc object \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Rezultat(i)}
-the change rate 
 \end{DoxyReturn}
 \Hypertarget{lv__arc_8c_afed81d49b25655a9c769b9356b9b4350}\label{lv__arc_8c_afed81d49b25655a9c769b9356b9b4350} 
 \index{lv\_arc.c@{lv\_arc.c}!lv\_arc\_get\_knob\_offset@{lv\_arc\_get\_knob\_offset}}
@@ -530,7 +514,6 @@ Set a new value on the arc
 \DoxyCodeLine{\ \ \ \ .editable\ =\ LV\_OBJ\_CLASS\_EDITABLE\_TRUE,}
 \DoxyCodeLine{\ \ \ \ .base\_class\ =\ \&\mbox{\hyperlink{lv__obj_8c_a424ca3b432ad82f98c4b05950b597d44}{lv\_obj\_class}},}
 \DoxyCodeLine{\ \ \ \ .name\ =\ \textcolor{stringliteral}{"{}lv\_arc"{}},}
-\DoxyCodeLine{}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}

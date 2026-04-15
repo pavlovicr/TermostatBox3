@@ -7,6 +7,7 @@
 {\ttfamily \#include "{}../../draw/lv\+\_\+draw\+\_\+private.\+h"{}}\newline
 {\ttfamily \#include "{}../../core/lv\+\_\+refr.\+h"{}}\newline
 {\ttfamily \#include "{}../../display/lv\+\_\+display.\+h"{}}\newline
+{\ttfamily \#include "{}../../draw/sw/lv\+\_\+draw\+\_\+sw.\+h"{}}\newline
 {\ttfamily \#include "{}../../stdlib/lv\+\_\+string.\+h"{}}\newline
 {\ttfamily \#include "{}../../misc/cache/lv\+\_\+cache.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+canvas.\+c"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+canvas.\+c. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
@@ -43,7 +44,7 @@ void \mbox{\hyperlink{lv__canvas_8c_af4c79c04cb0e9cb6a7fc4715e19b2193}{lv\+\_\+c
 \item 
 const void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lv__canvas_8c_a4b32579d3fe3bb6e2589c36ac899b6a1}{lv\+\_\+canvas\+\_\+get\+\_\+buf}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj)
 \item 
-void \mbox{\hyperlink{lv__canvas_8c_a17ed22546731e9dd029ea5b0079e747e}{lv\+\_\+canvas\+\_\+copy\+\_\+buf}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}canvas\+\_\+area, \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}src\+\_\+buf, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}src\+\_\+area)
+void \mbox{\hyperlink{lv__canvas_8c_a49ed8db34f6c9abfd3d33ad0d9576c18}{lv\+\_\+canvas\+\_\+copy\+\_\+buf}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}canvas\+\_\+area, \mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}dest\+\_\+buf, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}dest\+\_\+area)
 \item 
 void \mbox{\hyperlink{lv__canvas_8c_a44d801ed0d0fca3f09490a8e2474ac51}{lv\+\_\+canvas\+\_\+fill\+\_\+bg}} (\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}obj, \mbox{\hyperlink{structlv__color__t}{lv\+\_\+color\+\_\+t}} color, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_ab5986a13b2c8fc841068a051eaf53066}{lv\+\_\+opa\+\_\+t}} opa)
 \item 
@@ -76,26 +77,23 @@ Modified by NXP in 2024
 \doxysubsubsection{\texorpdfstring{lv\_canvas\_buf\_size()}{lv\_canvas\_buf\_size()}}
 {\footnotesize\ttfamily uint32\+\_\+t lv\+\_\+canvas\+\_\+buf\+\_\+size (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{w,  }\item[{int32\+\_\+t}]{h,  }\item[{uint8\+\_\+t}]{bpp,  }\item[{uint8\+\_\+t}]{stride }\end{DoxyParamCaption})}
 
-Just a wrapper to {\ttfamily LV\+\_\+\+CANVAS\+\_\+\+BUF\+\_\+\+SIZE} for bindings. \Hypertarget{lv__canvas_8c_a17ed22546731e9dd029ea5b0079e747e}\label{lv__canvas_8c_a17ed22546731e9dd029ea5b0079e747e} 
+Just a wrapper to {\ttfamily LV\+\_\+\+CANVAS\+\_\+\+BUF\+\_\+\+SIZE} for bindings. \Hypertarget{lv__canvas_8c_a49ed8db34f6c9abfd3d33ad0d9576c18}\label{lv__canvas_8c_a49ed8db34f6c9abfd3d33ad0d9576c18} 
 \index{lv\_canvas.c@{lv\_canvas.c}!lv\_canvas\_copy\_buf@{lv\_canvas\_copy\_buf}}
 \index{lv\_canvas\_copy\_buf@{lv\_canvas\_copy\_buf}!lv\_canvas.c@{lv\_canvas.c}}
 \doxysubsubsection{\texorpdfstring{lv\_canvas\_copy\_buf()}{lv\_canvas\_copy\_buf()}}
-{\footnotesize\ttfamily void lv\+\_\+canvas\+\_\+copy\+\_\+buf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{canvas\+\_\+area,  }\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src\+\_\+buf,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{src\+\_\+area }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void lv\+\_\+canvas\+\_\+copy\+\_\+buf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{lvgl____lvgl_2src_2misc_2lv__types_8h_a01de9a127bcf589bd7d0c695a429b158}{lv\+\_\+obj\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{obj,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{canvas\+\_\+area,  }\item[{\mbox{\hyperlink{struct__lv__draw__buf__t}{lv\+\_\+draw\+\_\+buf\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dest\+\_\+buf,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dest\+\_\+area }\end{DoxyParamCaption})}
 
 Copy a buffer to the canvas 
 \begin{DoxyParams}{Parametri}
 {\em obj} & pointer to a canvas object \\
 \hline
-{\em canvas\+\_\+area} & the area of the canvas to copy the new data to \\
+{\em canvas\+\_\+area} & the area of the canvas to copy \\
 \hline
-{\em src\+\_\+buf} & pointer to a buffer holding the source data \\
+{\em dest\+\_\+buf} & pointer to a buffer to store the copied data \\
 \hline
-{\em src\+\_\+area} & the area of the source buffer to copy from. If NULL, copy the whole buffer. \\
+{\em dest\+\_\+area} & the area of the destination buffer to copy to. If omitted NULL, copy to the whole {\ttfamily dest\+\_\+buf} \\
 \hline
 \end{DoxyParams}
-\begin{DoxyNote}{Opomba}
-canvas\+\_\+area and src\+\_\+area should be the same size. If canvas\+\_\+area and the size of src\+\_\+buf are the same, src\+\_\+area can be left NULL. 
-\end{DoxyNote}
 \Hypertarget{lv__canvas_8c_ae388ed6ddca1f158c973319ba41cd607}\label{lv__canvas_8c_ae388ed6ddca1f158c973319ba41cd607} 
 \index{lv\_canvas.c@{lv\_canvas.c}!lv\_canvas\_create@{lv\_canvas\_create}}
 \index{lv\_canvas\_create@{lv\_canvas\_create}!lv\_canvas.c@{lv\_canvas.c}}
@@ -275,8 +273,6 @@ Set a pixel\textquotesingle{}s color and opacity
 \end{DoxyParams}
 \begin{DoxyNote}{Opomba}
 The following color formats are supported LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+I1/2/4/8, LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+A8, LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGB565, LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGB888, LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+XRGB8888, LV\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+ARGB8888 
-
-this function invalidates the canvas object every time, for best performance, if you\textquotesingle{}re changing a lot of pixels in a loop, call {\ttfamily lv\+\_\+display\+\_\+enable\+\_\+invalidation} before the loop starts so the invalidation isn\textquotesingle{}t done on every call 
 \end{DoxyNote}
 
 

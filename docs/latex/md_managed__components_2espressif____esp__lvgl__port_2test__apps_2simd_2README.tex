@@ -1,10 +1,10 @@
 \chapter{HW Acceleration using SIMD assembly instructions}
 \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README}{}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README}\index{HW Acceleration using SIMD assembly instructions@{HW Acceleration using SIMD assembly instructions}}
-\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md409}%
-\Hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md409}%
+\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md379}%
+\Hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md379}%
  Test app accommodates two types of tests\+: \`{}functionality test\`{} and \`{}benchmark test\`{}. Both tests are provided per each function written in assembly (typically per each assembly file). Both test apps use a hard copy of LVGL blending API, representing an ANSI implementation of the LVGL blending functions. The hard copy is present in \href{main/lv_blend/}{\texttt{ {\ttfamily lv\+\_\+blend}}} folder.
 
-Assembly source files could be found in the \href{../../src/lvgl9/simd/}{\texttt{ {\ttfamily lvgl\+\_\+port}}} component. Header file with the assembly function prototypes is provided into the LVGL using Kconfig option {\ttfamily LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+ASM\+\_\+\+CUSTOM\+\_\+\+INCLUDE} and can be found in the \href{../../include/esp_lvgl_port_lv_blend.h}{\texttt{ {\ttfamily lvgl\+\_\+port/include}}}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md410}{}\doxysection{\texorpdfstring{Benchmark results for LV Fill functions (memset)}{Benchmark results for LV Fill functions (memset)}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md410}
+Assembly source files could be found in the \href{../../src/lvgl9/simd/}{\texttt{ {\ttfamily lvgl\+\_\+port}}} component. Header file with the assembly function prototypes is provided into the LVGL using Kconfig option {\ttfamily LV\+\_\+\+DRAW\+\_\+\+SW\+\_\+\+ASM\+\_\+\+CUSTOM\+\_\+\+INCLUDE} and can be found in the \href{../../include/esp_lvgl_port_lv_blend.h}{\texttt{ {\ttfamily lvgl\+\_\+port/include}}}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md380}{}\doxysection{\texorpdfstring{Benchmark results for LV Fill functions (memset)}{Benchmark results for LV Fill functions (memset)}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md380}
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
 \hline
@@ -26,7 +26,7 @@ RGB888   &128x128   &16 byte   &0.\+608   &4.\+062    \\\cline{1-5}
 \begin{DoxyItemize}
 \item this data was obtained by running benchmark tests on 128x128 16 byte aligned matrix (ideal case) and 127x127 1 byte aligned matrix (worst case)
 \item the values represent cycles per sample to perform simple fill of the matrix on esp32s3
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md411}{}\doxysection{\texorpdfstring{Benchmark results for LV Image functions (memcpy)}{Benchmark results for LV Image functions (memcpy)}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md411}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md381}{}\doxysection{\texorpdfstring{Benchmark results for LV Image functions (memcpy)}{Benchmark results for LV Image functions (memcpy)}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md381}
 \tabulinesep=1mm
 \begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
 \hline
@@ -46,7 +46,7 @@ RGB888   &128x128   &16 byte   &0.\+744   &4.\+002    \\\cline{1-5}
 \begin{DoxyItemize}
 \item this data was obtained by running benchmark tests on 128x128 16 byte aligned matrix (ideal case) and 127x128 1 byte aligned matrix (worst case)
 \item the values represent cycles per sample to perform memory copy between two matrices on esp32s3
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md412}{}\doxysection{\texorpdfstring{Functionality test}{Functionality test}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md412}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md382}{}\doxysection{\texorpdfstring{Functionality test}{Functionality test}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md382}
 
 \begin{DoxyItemize}
 \item Tests, whether the HW accelerated assembly version of an LVGL function provides the same results as the ANSI version
@@ -59,7 +59,7 @@ RGB888   &128x128   &16 byte   &0.\+744   &4.\+002    \\\cline{1-5}
 \item the results shall be the same
 \item repeat all the steps for a set of different input parameters, checking different matrix heights, widths..
 \end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md413}{}\doxysection{\texorpdfstring{Benchmark test}{Benchmark test}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md413}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md383}{}\doxysection{\texorpdfstring{Benchmark test}{Benchmark test}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md383}
 
 \begin{DoxyItemize}
 \item Tests, whether the HW accelerated assembly version of an LVGL function provides a performance increase over the ANSI version
@@ -71,10 +71,10 @@ RGB888   &128x128   &16 byte   &0.\+744   &4.\+002    \\\cline{1-5}
 \item compare the results given by the ANSI and the assembly DUTs
 \item the assembly version of the DUT function shall be faster than the ANSI version of the DUT function
 \end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md414}{}\doxysection{\texorpdfstring{Run the test app}{Run the test app}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md414}
+\end{DoxyItemize}\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md384}{}\doxysection{\texorpdfstring{Run the test app}{Run the test app}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md384}
 The test app is intended to be used only with esp32 and esp32s3 \begin{DoxyVerb}idf.py build
 \end{DoxyVerb}
- \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md415}{}\doxysection{\texorpdfstring{Example output}{Example output}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md415}
+ \hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md385}{}\doxysection{\texorpdfstring{Example output}{Example output}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md385}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{I\ (302)\ main\_task:\ Started\ on\ CPU0}
@@ -102,7 +102,7 @@ The test app is intended to be used only with esp32 and esp32s3 \begin{DoxyVerb}
 \DoxyCodeLine{Enter\ test\ for\ running.}
 
 \end{DoxyCode}
-\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md416}{}\doxysubsection{\texorpdfstring{Example of a functionality test run}{Example of a functionality test run}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md416}
+\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md386}{}\doxysubsection{\texorpdfstring{Example of a functionality test run}{Example of a functionality test run}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md386}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Running\ Test\ fill\ functionality\ ARGB8888...}
@@ -115,7 +115,7 @@ The test app is intended to be used only with esp32 and esp32s3 \begin{DoxyVerb}
 \DoxyCodeLine{Test\ ran\ in\ 3242ms}
 
 \end{DoxyCode}
- The test gives a simple FAIL/\+PASS result after comparison of the two DUTs results. Also gives us an information about how many combinations (input parameters) the functionality test run with, {\ttfamily 31824} in this case.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md417}{}\doxysubsection{\texorpdfstring{Example of a benchmark test run}{Example of a benchmark test run}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md417}
+ The test gives a simple FAIL/\+PASS result after comparison of the two DUTs results. Also gives us an information about how many combinations (input parameters) the functionality test run with, {\ttfamily 31824} in this case.\hypertarget{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md387}{}\doxysubsection{\texorpdfstring{Example of a benchmark test run}{Example of a benchmark test run}}\label{md_managed__components_2espressif____esp__lvgl__port_2test__apps_2simd_2README_autotoc_md387}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Running\ LV\ Fill\ benchmark\ ARGB8888...}

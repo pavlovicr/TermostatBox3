@@ -9,9 +9,7 @@
 {\ttfamily \#include "{}../lv\+\_\+draw\+\_\+label.\+h"{}}\newline
 {\ttfamily \#include "{}../lv\+\_\+draw\+\_\+image.\+h"{}}\newline
 {\ttfamily \#include "{}../lv\+\_\+draw\+\_\+line.\+h"{}}\newline
-{\ttfamily \#include "{}../lv\+\_\+draw\+\_\+mask.\+h"{}}\newline
 {\ttfamily \#include "{}../lv\+\_\+draw\+\_\+arc.\+h"{}}\newline
-{\ttfamily \#include "{}../lv\+\_\+draw\+\_\+blur.\+h"{}}\newline
 {\ttfamily \#include "{}lv\+\_\+draw\+\_\+sw\+\_\+utils.\+h"{}}\newline
 {\ttfamily \#include "{}blend/lv\+\_\+draw\+\_\+sw\+\_\+blend.\+h"{}}\newline
 Graf prikazuje seznam datotek, ki jih datoteka "{}lv\+\_\+draw\+\_\+sw.\+h"{} direktno ali indirektno vključuje. Pravokotniki ponazarjajo datoteke, puščice predstavljajo relacije med njimi. črn pravokotnik ponazarja datoteko lv\+\_\+draw\+\_\+sw.\+h. Puščice A-\/\texorpdfstring{$>$}{>}B ponazarjajo usmerjeno relacijo "{}\+A vključuje B"{}.\nopagebreak
@@ -56,8 +54,6 @@ void \mbox{\hyperlink{lv__draw__sw_8h_a230e0ebfc442369f47054ded8dae0983}{lv\+\_\
 \item 
 void \mbox{\hyperlink{lv__draw__sw_8h_a5b7383c795da8727c20b8f7aa4a5244e}{lv\+\_\+draw\+\_\+sw\+\_\+triangle}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{structlv__draw__triangle__dsc__t}{lv\+\_\+draw\+\_\+triangle\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
 \item 
-void \mbox{\hyperlink{lv__draw__sw_8h_ae6b78781dc9ae290230297e07a1d86da}{lv\+\_\+draw\+\_\+sw\+\_\+blur}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{structlv__draw__blur__dsc__t}{lv\+\_\+draw\+\_\+blur\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc, const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}coords)
-\item 
 void \mbox{\hyperlink{lv__draw__sw_8h_acfe176d146bb35a135a68f77b761f7c8}{lv\+\_\+draw\+\_\+sw\+\_\+mask\+\_\+rect}} (\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}t, const \mbox{\hyperlink{struct__lv__draw__mask__rect__dsc__t}{lv\+\_\+draw\+\_\+mask\+\_\+rect\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}dsc)
 \item 
 void \mbox{\hyperlink{lv__draw__sw_8h_a6d0a109b1207f7c1bf3ceafb4dd465ed}{lv\+\_\+draw\+\_\+sw\+\_\+transform}} (const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}dest\+\_\+area, const void \texorpdfstring{$\ast$}{*}src\+\_\+buf, int32\+\_\+t src\+\_\+w, int32\+\_\+t src\+\_\+h, int32\+\_\+t src\+\_\+stride, const \mbox{\hyperlink{struct__lv__draw__image__dsc__t}{lv\+\_\+draw\+\_\+image\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}draw\+\_\+dsc, const \mbox{\hyperlink{struct__lv__draw__image__sup__t}{lv\+\_\+draw\+\_\+image\+\_\+sup\+\_\+t}} \texorpdfstring{$\ast$}{*}sup, \mbox{\hyperlink{espressif____esp__lvgl__port_2test__apps_2simd_2main_2lv__blend_2include_2lv__color_8h_a373bd610cd5bd39aa97244166a356932}{lv\+\_\+color\+\_\+format\+\_\+t}} cf, void \texorpdfstring{$\ast$}{*}dest\+\_\+buf)
@@ -84,21 +80,6 @@ Draw an arc with SW render.
 {\em dsc} & the draw descriptor \\
 \hline
 {\em coords} & the coordinates of the arc \\
-\hline
-\end{DoxyParams}
-\Hypertarget{lv__draw__sw_8h_ae6b78781dc9ae290230297e07a1d86da}\label{lv__draw__sw_8h_ae6b78781dc9ae290230297e07a1d86da} 
-\index{lv\_draw\_sw.h@{lv\_draw\_sw.h}!lv\_draw\_sw\_blur@{lv\_draw\_sw\_blur}}
-\index{lv\_draw\_sw\_blur@{lv\_draw\_sw\_blur}!lv\_draw\_sw.h@{lv\_draw\_sw.h}}
-\doxysubsubsection{\texorpdfstring{lv\_draw\_sw\_blur()}{lv\_draw\_sw\_blur()}}
-{\footnotesize\ttfamily void lv\+\_\+draw\+\_\+sw\+\_\+blur (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct__lv__draw__task__t}{lv\+\_\+draw\+\_\+task\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{t,  }\item[{const \mbox{\hyperlink{structlv__draw__blur__dsc__t}{lv\+\_\+draw\+\_\+blur\+\_\+dsc\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{dsc,  }\item[{const \mbox{\hyperlink{structlv__area__t}{lv\+\_\+area\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{coords }\end{DoxyParamCaption})}
-
-Blur an area with SW render 
-\begin{DoxyParams}{Parametri}
-{\em t} & pointer to a draw task \\
-\hline
-{\em dsc} & the draw descriptor \\
-\hline
-{\em coords} & the area to blur \\
 \hline
 \end{DoxyParams}
 \Hypertarget{lv__draw__sw_8h_ab6e2035be61733acd5cd937f61da0f7b}\label{lv__draw__sw_8h_ab6e2035be61733acd5cd937f61da0f7b} 

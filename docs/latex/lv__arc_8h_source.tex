@@ -18,7 +18,7 @@
 \DoxyCodeLine{00018\ \textcolor{preprocessor}{\#if\ LV\_USE\_ARC\ !=\ 0}}
 \DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}../../core/lv\_obj.h"{}}}
-\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../core/lv\_observer.h"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}../../others/observer/lv\_observer.h"{}}}
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00023\ \textcolor{comment}{/*********************}}
 \DoxyCodeLine{00024\ \textcolor{comment}{\ *\ \ \ \ \ \ DEFINES}}
@@ -36,114 +36,95 @@
 \DoxyCodeLine{00039\ }
 \DoxyCodeLine{00040\ \mbox{\hyperlink{lv__conf__cmsis_8h_a52a21700fe5946c140157ebf74459a46}{LV\_ATTRIBUTE\_EXTERN\_DATA}}\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__class__t}{lv\_obj\_class\_t}}\ lv\_arc\_class;}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBJ\_PROPERTY}}
-\DoxyCodeLine{00043\ \textcolor{keyword}{enum}\ \_lv\_property\_arc\_id\_t\ \{}
-\DoxyCodeLine{00044\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ START\_ANGLE,\ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_PRECISE,\ \ \ 0),}
-\DoxyCodeLine{00045\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ END\_ANGLE,\ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_PRECISE,\ \ \ 1),}
-\DoxyCodeLine{00046\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ BG\_START\_ANGLE,\ \ \ \ \ LV\_PROPERTY\_TYPE\_PRECISE,\ \ \ 2),}
-\DoxyCodeLine{00047\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ BG\_END\_ANGLE,\ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_PRECISE,\ \ \ 3),}
-\DoxyCodeLine{00048\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ ROTATION,\ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ \ \ \ 4),}
-\DoxyCodeLine{00049\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ MODE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ \ \ \ 5),}
-\DoxyCodeLine{00050\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ VALUE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ \ \ \ 6),}
-\DoxyCodeLine{00051\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ MIN\_VALUE,\ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ \ \ \ 7),}
-\DoxyCodeLine{00052\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ MAX\_VALUE,\ \ \ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ \ \ \ 8),}
-\DoxyCodeLine{00053\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ CHANGE\_RATE,\ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ \ \ \ 9),}
-\DoxyCodeLine{00054\ \ \ \ \ LV\_PROPERTY\_ID(ARC,\ KNOB\_OFFSET,\ \ \ \ \ \ \ \ LV\_PROPERTY\_TYPE\_INT,\ \ \ \ \ \ \ 10),}
-\DoxyCodeLine{00055\ \ \ \ \ LV\_PROPERTY\_ARC\_END,}
-\DoxyCodeLine{00056\ \};}
-\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00060\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
-\DoxyCodeLine{00061\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00068\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__arc_8h_a94165113f9c98541f24d5f7af95c86bb}{lv\_arc\_create}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ parent);}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{comment}{/*======================}}
-\DoxyCodeLine{00071\ \textcolor{comment}{\ *\ Add/remove\ functions}}
-\DoxyCodeLine{00072\ \textcolor{comment}{\ *=====================*/}}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ \textcolor{comment}{/*=====================}}
-\DoxyCodeLine{00075\ \textcolor{comment}{\ *\ Setter\ functions}}
-\DoxyCodeLine{00076\ \textcolor{comment}{\ *====================*/}}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_af5935ec21569fe577f1e66fd2258005d}{lv\_arc\_set\_start\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start);}
-\DoxyCodeLine{00084\ }
-\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aacab0b2f603d6085ce21c84342556751}{lv\_arc\_set\_end\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ end);}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00098\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a86e806959cc2e0afa81c7a1bef748924}{lv\_arc\_set\_angles}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start,\ lv\_value\_precise\_t\ end);}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aa1856c625ec853068aa17a2a4fb5c144}{lv\_arc\_set\_bg\_start\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start);}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a4aa39a7f7d0d0a484ab52916ba109ab4}{lv\_arc\_set\_bg\_end\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ end);}
-\DoxyCodeLine{00113\ }
-\DoxyCodeLine{00120\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a5d57548f444d002d8be0012c39c23ec8}{lv\_arc\_set\_bg\_angles}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start,\ lv\_value\_precise\_t\ end);}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aaafaa4ed3293c4801dc8d5f3556dd3ee}{lv\_arc\_set\_rotation}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ rotation);}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00134\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_ad893892b371fe0c58d7f0f21e2f6b678}{lv\_arc\_set\_mode}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\_arc\_mode\_t}}\ type);}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a56cded6a22e59691f2070386c2b0b690}{lv\_arc\_set\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ value);}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00149\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a397e794471663b65ce0b37c63610ff8c}{lv\_arc\_set\_range}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ min,\ int32\_t\ max);}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00156\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_ab10e96b6e2178593c1456be934ea798a}{lv\_arc\_set\_min\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ min);}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a3a79e75e0fa6176b58f53d24de9c6c61}{lv\_arc\_set\_max\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ max);}
-\DoxyCodeLine{00164\ }
-\DoxyCodeLine{00170\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aede50ecdbba4139d2e352b289f594984}{lv\_arc\_set\_change\_rate}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ rate);}
-\DoxyCodeLine{00171\ }
-\DoxyCodeLine{00177\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a5a5e154114e592756a4bb763cf059b49}{lv\_arc\_set\_knob\_offset}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ offset);}
-\DoxyCodeLine{00178\ }
-\DoxyCodeLine{00179\ \textcolor{comment}{/*=====================}}
-\DoxyCodeLine{00180\ \textcolor{comment}{\ *\ Getter\ functions}}
-\DoxyCodeLine{00181\ \textcolor{comment}{\ *====================*/}}
-\DoxyCodeLine{00182\ }
-\DoxyCodeLine{00188\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_a6680839bdd679b340c300b1b37016ae1}{lv\_arc\_get\_angle\_start}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00195\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_ab351a22d8f7378d6971a0e354558d26d}{lv\_arc\_get\_angle\_end}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00196\ }
-\DoxyCodeLine{00202\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_ae37a5aa4025c201f1635aff8e16cdadc}{lv\_arc\_get\_bg\_angle\_start}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00203\ }
-\DoxyCodeLine{00209\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_aa1e3b104bec3854eef8acdc0a003d093}{lv\_arc\_get\_bg\_angle\_end}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00210\ }
-\DoxyCodeLine{00216\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_a9f1afef2cb0dfece03a79a9649dcfb1f}{lv\_arc\_get\_value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00223\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_abdb73713635493c32c8fca65ee4a2845}{lv\_arc\_get\_min\_value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00224\ }
-\DoxyCodeLine{00230\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_a7f75defc7a198aab9d5e6f5223d4f2dc}{lv\_arc\_get\_max\_value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00237\ \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\_arc\_mode\_t}}\ \mbox{\hyperlink{lv__arc_8h_a5d806c041cd57cb98713ecc2020e86d1}{lv\_arc\_get\_mode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00244\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_a582931ef19d0bf1f37d96dc661222a3f}{lv\_arc\_get\_rotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00245\ }
-\DoxyCodeLine{00251\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_afed81d49b25655a9c769b9356b9b4350}{lv\_arc\_get\_knob\_offset}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00252\ }
-\DoxyCodeLine{00258\ uint32\_t\ \mbox{\hyperlink{lv__arc_8h_a1b2d795867073040d81af0146d60f0a8}{lv\_arc\_get\_change\_rate}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
-\DoxyCodeLine{00259\ }
-\DoxyCodeLine{00260\ \textcolor{comment}{/*=====================}}
-\DoxyCodeLine{00261\ \textcolor{comment}{\ *\ Other\ functions}}
-\DoxyCodeLine{00262\ \textcolor{comment}{\ *====================*/}}
-\DoxyCodeLine{00263\ }
-\DoxyCodeLine{00264\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBSERVER}}
-\DoxyCodeLine{00271\ \mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ \mbox{\hyperlink{lv__arc_8h_a5d49f630c2fafbeaa4ba76b6d03648b1}{lv\_arc\_bind\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{struct__lv__subject__t}{lv\_subject\_t}}\ *\ subject);}
-\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00273\ }
-\DoxyCodeLine{00274\ }
-\DoxyCodeLine{00281\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a7eda4ecc160433c2cf0a1b657129581c}{lv\_arc\_align\_obj\_to\_angle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj\_to\_align,\ int32\_t\ r\_offset);}
-\DoxyCodeLine{00282\ }
-\DoxyCodeLine{00289\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a0fecbafd93d64d74f1e62cf18286d6df}{lv\_arc\_rotate\_obj\_to\_angle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj\_to\_rotate,\ int32\_t\ r\_offset);}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \textcolor{comment}{/**********************}}
-\DoxyCodeLine{00292\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
-\DoxyCodeLine{00293\ \textcolor{comment}{\ **********************/}}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00295\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_ARC*/}\textcolor{preprocessor}{}}
-\DoxyCodeLine{00296\ }
-\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00298\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
-\DoxyCodeLine{00299\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00300\ }
-\DoxyCodeLine{00301\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_ARC\_H*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00042\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ GLOBAL\ PROTOTYPES}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ \mbox{\hyperlink{lv__arc_8h_a94165113f9c98541f24d5f7af95c86bb}{lv\_arc\_create}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ parent);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{/*======================}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ *\ Add/remove\ functions}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ *=====================*/}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ *\ Setter\ functions}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_af5935ec21569fe577f1e66fd2258005d}{lv\_arc\_set\_start\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aacab0b2f603d6085ce21c84342556751}{lv\_arc\_set\_end\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ end);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a86e806959cc2e0afa81c7a1bef748924}{lv\_arc\_set\_angles}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start,\ lv\_value\_precise\_t\ end);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aa1856c625ec853068aa17a2a4fb5c144}{lv\_arc\_set\_bg\_start\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a4aa39a7f7d0d0a484ab52916ba109ab4}{lv\_arc\_set\_bg\_end\_angle}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ end);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00103\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a5d57548f444d002d8be0012c39c23ec8}{lv\_arc\_set\_bg\_angles}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ lv\_value\_precise\_t\ start,\ lv\_value\_precise\_t\ end);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aaafaa4ed3293c4801dc8d5f3556dd3ee}{lv\_arc\_set\_rotation}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ rotation);}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_ad893892b371fe0c58d7f0f21e2f6b678}{lv\_arc\_set\_mode}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\_arc\_mode\_t}}\ type);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a56cded6a22e59691f2070386c2b0b690}{lv\_arc\_set\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ value);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a397e794471663b65ce0b37c63610ff8c}{lv\_arc\_set\_range}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ min,\ int32\_t\ max);}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00139\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_ab10e96b6e2178593c1456be934ea798a}{lv\_arc\_set\_min\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ min);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a3a79e75e0fa6176b58f53d24de9c6c61}{lv\_arc\_set\_max\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ max);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_aede50ecdbba4139d2e352b289f594984}{lv\_arc\_set\_change\_rate}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ uint32\_t\ rate);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a5a5e154114e592756a4bb763cf059b49}{lv\_arc\_set\_knob\_offset}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ int32\_t\ offset);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00163\ \textcolor{comment}{\ *\ Getter\ functions}}
+\DoxyCodeLine{00164\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00171\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_a6680839bdd679b340c300b1b37016ae1}{lv\_arc\_get\_angle\_start}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00178\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_ab351a22d8f7378d6971a0e354558d26d}{lv\_arc\_get\_angle\_end}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00185\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_ae37a5aa4025c201f1635aff8e16cdadc}{lv\_arc\_get\_bg\_angle\_start}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00192\ lv\_value\_precise\_t\ \mbox{\hyperlink{lv__arc_8h_aa1e3b104bec3854eef8acdc0a003d093}{lv\_arc\_get\_bg\_angle\_end}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00199\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_a9f1afef2cb0dfece03a79a9649dcfb1f}{lv\_arc\_get\_value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00206\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_abdb73713635493c32c8fca65ee4a2845}{lv\_arc\_get\_min\_value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00213\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_a7f75defc7a198aab9d5e6f5223d4f2dc}{lv\_arc\_get\_max\_value}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00220\ \mbox{\hyperlink{lv__arc_8h_a398029dd3cc7d94bbdf3b7f9375148bf}{lv\_arc\_mode\_t}}\ \mbox{\hyperlink{lv__arc_8h_a5d806c041cd57cb98713ecc2020e86d1}{lv\_arc\_get\_mode}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00227\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_a582931ef19d0bf1f37d96dc661222a3f}{lv\_arc\_get\_rotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00234\ int32\_t\ \mbox{\hyperlink{lv__arc_8h_afed81d49b25655a9c769b9356b9b4350}{lv\_arc\_get\_knob\_offset}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj);}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{comment}{/*=====================}}
+\DoxyCodeLine{00237\ \textcolor{comment}{\ *\ Other\ functions}}
+\DoxyCodeLine{00238\ \textcolor{comment}{\ *====================*/}}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\#if\ LV\_USE\_OBSERVER}}
+\DoxyCodeLine{00247\ \mbox{\hyperlink{struct__lv__observer__t}{lv\_observer\_t}}\ *\ \mbox{\hyperlink{lv__arc_8h_a5d49f630c2fafbeaa4ba76b6d03648b1}{lv\_arc\_bind\_value}}(\mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{structlv__subject__t}{lv\_subject\_t}}\ *\ subject);}
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00257\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a7eda4ecc160433c2cf0a1b657129581c}{lv\_arc\_align\_obj\_to\_angle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj\_to\_align,\ int32\_t\ r\_offset);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00265\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{lv__arc_8h_a0fecbafd93d64d74f1e62cf18286d6df}{lv\_arc\_rotate\_obj\_to\_angle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj,\ \mbox{\hyperlink{struct__lv__obj__t}{lv\_obj\_t}}\ *\ obj\_to\_rotate,\ int32\_t\ r\_offset);}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00267\ \textcolor{comment}{/**********************}}
+\DoxyCodeLine{00268\ \textcolor{comment}{\ *\ \ \ \ \ \ MACROS}}
+\DoxyCodeLine{00269\ \textcolor{comment}{\ **********************/}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_USE\_ARC*/}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00274\ \}\ \textcolor{comment}{/*extern\ "{}C"{}*/}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*LV\_ARC\_H*/}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

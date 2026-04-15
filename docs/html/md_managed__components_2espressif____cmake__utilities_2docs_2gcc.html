@@ -72,8 +72,8 @@ $(function() {
   <div class="headertitle"><div class="title">Link Time Optimization(LTO)</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md91"></a> Link time optimization(LTO) improves the optimization effect of GCC, such as reducing binary size, increasing performance, and so on. For more details please refer to related <a href="https://gcc.gnu.org/onlinedocs/gccint/LTO.html">GCC documents</a>.</p>
-<h1><a class="anchor" id="autotoc_md92"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md85"></a> Link time optimization(LTO) improves the optimization effect of GCC, such as reducing binary size, increasing performance, and so on. For more details please refer to related <a href="https://gcc.gnu.org/onlinedocs/gccint/LTO.html">GCC documents</a>.</p>
+<h1><a class="anchor" id="autotoc_md86"></a>
 Use</h1>
 <p>To use this feature, you need to include the required CMake file in your project's CMakeLists.txt after <code>project(XXXX)</code>.</p>
 <div class="fragment"><div class="line">include($ENV{IDF_PATH}/tools/cmake/project.cmake)</div>
@@ -99,7 +99,7 @@ Use</h1>
 <div class="line">5. Enable string 1-byte align may decrease string process speed</div>
 </div><!-- fragment --></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md93"></a>
+<h1><a class="anchor" id="autotoc_md87"></a>
 Limitation</h1>
 <p>At the linking stage, the LTO generates new function indexes instead of the file path as follows:</p>
 <ul>
@@ -113,7 +113,7 @@ Limitation</h1>
 </div><!-- fragment --></li>
 </ul>
 <p>So tools used to relink functions between flash and IRAM can't affect these optimized components and dependencies again. It is recommended that users had better optimize application components and dependencies than kernel and hardware driver ones.</p>
-<h1><a class="anchor" id="autotoc_md94"></a>
+<h1><a class="anchor" id="autotoc_md88"></a>
 Example</h1>
 <p>The example applies LTO in <code>light</code> of <code>esp-matter</code> because its application code is much larger. Add LTO configuration into project script <code>CMakeLists.txt</code> as follows:</p>
 <div class="fragment"><div class="line">project(light)</div>

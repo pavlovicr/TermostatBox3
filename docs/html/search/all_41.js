@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['布局中的复选框_0',['布局中的复选框',['../md_managed__components_2lvgl____lvgl_2docs_2README__zh.html#autotoc_md547',1,'']]]
+  ['架构预览_0',['架构预览',['../md_managed__components_2espressif____esp__codec__dev_2README__CN.html#autotoc_md252',1,'']]]
 ];
