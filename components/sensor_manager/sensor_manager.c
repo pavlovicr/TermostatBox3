@@ -1,6 +1,8 @@
 /**
+ * \image html arlekino-joker.jpg "arlekino" height=200px   
  * @file sensor_manager.c
  * @brief Sensor Manager implementacija za AHT30 senzor
+ * \image html AHT30.png "AHT30"
  *
  * Ta modul omogoča:
  * - inicializacijo I2C vodila
