@@ -5,16 +5,14 @@
 
 Verzija : ESP32-S3-SENSOR-01_V1.1
 
-<p align="center">
+<p align="center" <img src="images/SENSOR.jpg" width="100" </p>
+<p
   <img src="images/SENSOR.jpg" width="100">
-</p>
 
-<p align="center">
-  <img src="images/ESP32-S3-BOX-3-SENSOR" width="100">
-</p>
+  <img src="images/ESP32-S3-BOX-3-SENSOR.png" width="100">
 
-<p align="center">
   <img src="images/AHT30.png" width="100">
+
 </p>
 
 
